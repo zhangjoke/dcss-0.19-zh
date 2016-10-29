@@ -86,7 +86,7 @@ games = OrderedDict([
 dgl_status_file = "./rcs/status"
 
 # Set to None not to read milestones
-milestone_file = "./milestones"
+milestone_file = "./saves/common-milestones"
 
 status_file_update_rate = 5
 

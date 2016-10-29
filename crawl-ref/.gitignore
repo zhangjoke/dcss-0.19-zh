@@ -1,6 +1,13 @@
 # -*- conf-unix -*- vim:ft=conf
 # The above comment makes Emacs and vim treat this file as a configuration file
 
+### Local .gitignore
+
+# pyenv dotfile
+.python-version
+
+### End of Local .gitignore
+
 *.[oa]
 *.ann
 *.DS_Store
