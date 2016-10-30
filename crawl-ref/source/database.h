@@ -50,4 +50,13 @@ string getHintString(const string &key);
 vector<string> getAllFAQKeys();
 string getFAQ_Question(const string &key);
 string getFAQ_Answer(const string &question);
+
+string jtrans(const char* key, const bool linefeed = false);
+string jtrans(const string &key, const bool linefeed = false);
+#define jtransln(x) (jtrans(x, true))
+#define jtransc(x) (jtrans(x).c_str())
+#define jtranslnc(x) (jtrans(x, true).c_str())
+bool jtrans_has_key(const string &key);
+string tagged_jtrans(const string &tag, const string& key, bool linefeed = false);
+#define tagged_jtransc(t, k) (tagged_jtrans(t, k).c_str())
 #endif

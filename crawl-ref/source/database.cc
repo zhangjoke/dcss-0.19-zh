@@ -139,6 +139,60 @@ static TextDB AllDBs[] =
             "hints.txt",    // hints mode
             "tutorial.txt", // tutorial mode
             nullptr),
+    TextDB("jtrans", "database/ja/",
+           "jtrans.txt",
+           /*
+           "jtrans_abl_show.txt",
+           "jtrans_abyss.txt",
+           "jtrans_actor.txt",
+           "jtrans_areas.txt",
+           "jtrans_arena.txt",
+           "jtrans_art_func.txt",
+           "jtrans_attack.txt",
+           "jtrans_attitude_change.txt",
+           "jtrans_beam.txt",
+           "jtrans_behold.txt",
+           "jtrans_branch_data.txt",
+           "jtrans_chardump.txt",
+           "jtrans_character.txt",
+           "jtrans_cloud.txt",
+           "jtrans_command.txt",
+           "jtrans_decks.txt",
+           "jtrans_delay.txt",
+           "jtrans_describe.txt",
+           "jtrans_dgn_overview.txt",
+           "jtrans_directn.txt",
+           "jtrans_effects.txt",
+           "jtrans_evoke.txt",
+           "jtrans_exclude.txt",
+           "jtrans_fearmonger.txt",
+           "jtrans_fight.txt",
+           "jtrans_file.txt",
+           "jtrans_fineff.txt",
+           "jtrans_godabil.txt",
+           "jtrans_godblessing.txt",
+           "jtrans_godconduct.txt",
+           "jtrans_godname.txt",
+           "jtrans_godpassive.txt",
+           "jtrans_godprayer.txt",
+           "jtrans_godwrath.txt",
+           "jtrans_hints.txt",
+           "jtrans_autofight_lua.txt",
+           "jtrans_magicspell.txt",
+           "jtrans_monster_name.txt",
+           "jtrans_mutations.txt",
+           "jtrans_output.txt",
+           "jtrans_skill_title.txt",
+
+           "jtrans_weapon_name.txt",
+           "jtrans_armour_name.txt",
+           "jtrans_missile_name.txt",
+           "jtrans_food_name.txt",
+
+           "jtrans_duration_data.txt",
+           "jtrans_zap_data.txt",
+           */
+           nullptr),
 };
 
 static TextDB& DescriptionDB = AllDBs[0];
@@ -151,6 +205,7 @@ static TextDB& QuotesDB      = AllDBs[6];
 static TextDB& HelpDB        = AllDBs[7];
 static TextDB& FAQDB         = AllDBs[8];
 static TextDB& HintsDB       = AllDBs[9];
+static TextDB& JtransDB      = AllDBs[10];
 
 static string _db_cache_path(string db, const char *lang)
 {
@@ -919,4 +974,51 @@ string getMiscString(const string &misc, const string &suffix)
 string getHintString(const string &key)
 {
     return unwrap_desc(_query_database(HintsDB, key, true, true));
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// Jtrans DB specific functions.
+string jtrans(const char* key, const bool linefeed)
+{
+    // for string(nullptr) error
+    string str = (key == nullptr ? string() : string(key));
+
+    return jtrans(str, linefeed);
+}
+
+string jtrans(const string &key, const bool linefeed)
+{
+    if (key == "") return "";
+
+    string tmp_key(key);
+
+    tmp_key = trim_string(tmp_key);
+    tmp_key = replace_all(tmp_key, "\n", "\\n");
+
+    string text = _query_database(JtransDB, tmp_key, true, true);
+
+    if (text == "") return key;
+
+    if (!linefeed)
+    {
+        string chomped_text(text.begin(), text.end()-1);
+        return chomped_text;
+    }
+
+    return text;
+}
+
+bool jtrans_has_key(const string &key)
+{
+    if (key == "") return false;
+
+    return (jtrans(key) != key);
+}
+
+string tagged_jtrans(const string &tag, const string& key, bool linefeed)
+{
+    if (jtrans_has_key(tag + key))
+        return jtrans(tag + key, linefeed);
+    else
+        return jtrans(key, linefeed);
 }
