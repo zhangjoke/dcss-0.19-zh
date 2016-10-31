@@ -59,4 +59,6 @@ string jtrans(const string &key, const bool linefeed = false);
 bool jtrans_has_key(const string &key);
 string tagged_jtrans(const string &tag, const string& key, bool linefeed = false);
 #define tagged_jtransc(t, k) (tagged_jtrans(t, k).c_str())
+string jtrans_notrim(const string &key);
+#define jtrans_notrimc(x) (jtrans_notrim(x).c_str())
 #endif

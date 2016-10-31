@@ -1024,3 +1024,15 @@ string tagged_jtrans(const string &tag, const string& key, bool linefeed)
     else
         return jtrans(key, linefeed);
 }
+
+string jtrans_notrim(const string &key)
+{
+    string lhs = key.substr(0, key.find_first_not_of(" \t\n\r"));
+    string rhs = key.substr(key.find_last_not_of(" \t\n\r") + 1);
+    string val = jtrans(key);
+
+    if(!val.empty())
+        return lhs + jtrans(key) + rhs;
+    else
+        return "";
+}
