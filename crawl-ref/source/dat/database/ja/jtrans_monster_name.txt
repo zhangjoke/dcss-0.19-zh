@@ -124,6 +124,10 @@ formicid
 
 フォーミシッド
 %%%%
+entropy weaver
+
+エントロピーの編み手
+%%%%
 # 'b'
 bat
 
@@ -140,10 +144,6 @@ vampire bat
 fire bat
 
 火炎コウモリ
-%%%%
-raven
-
-ワタリガラス
 %%%%
 bennu
 
@@ -257,13 +257,13 @@ elf
 
 エルフ
 %%%%
-deep elf fighter
-
-闇エルフの戦士
-%%%%
 deep elf knight
 
 闇エルフの騎士
+%%%%
+deep elf archer
+
+闇エルフの射手
 %%%%
 deep elf blademaster
 
@@ -276,18 +276,6 @@ deep elf master archer
 deep elf mage
 
 闇エルフの魔術師
-%%%%
-deep elf summoner
-
-闇エルフの召喚術師
-%%%%
-deep elf conjurer
-
-闇エルフの妖術師
-%%%%
-deep elf priest
-
-闇エルフの司祭
 %%%%
 deep elf high priest
 
@@ -308,6 +296,10 @@ deep elf sorcerer
 deep elf death mage
 
 闇エルフの死の魔術師
+%%%%
+deep elf elementalist
+
+闇エルフの精霊使い
 %%%%
 # 'f'
 wandering mushroom
@@ -372,6 +364,10 @@ hound
 
 ハウンド
 %%%%
+howler monkey
+
+ホエザル
+%%%%
 warg
 
 ワーグ
@@ -387,6 +383,10 @@ hog
 hell hound
 
 ヘルハウンド
+%%%%
+doom hound
+
+ドゥームハウンド
 %%%%
 raiju
 
@@ -450,9 +450,9 @@ swamp drake
 
 沼ドレイク
 %%%%
-fire drake
+rime drake
 
-ファイアドレイク
+霜ドレイク
 %%%%
 wind drake
 
@@ -471,13 +471,13 @@ giant lizard
 
 巨大トカゲ
 %%%%
-giant newt
+frilled lizard
 
-巨大イモリ
+巨大エリマキトカゲ
 %%%%
-giant gecko
+leopard gecko
 
-巨大ヤモリ
+巨大マダラヤモリ
 %%%%
 iguana
 
@@ -486,6 +486,10 @@ iguana
 basilisk
 
 バジリスク
+%%%%
+wyvern
+
+ワイバーン
 %%%%
 komodo dragon
 
@@ -615,6 +619,18 @@ ironbrand convoker
 
 焼印の招集者
 %%%%
+imperial myrmidon
+
+帝国の護衛兵
+%%%%
+servant of whispers
+
+囁くものの従者
+%%%%
+ragged hierophant
+
+堕ちた教皇
+%%%%
 ironheart preserver
 
 不屈の保護者
@@ -665,10 +681,6 @@ giant cockroach
 
 巨大ゴキブリ
 %%%%
-giant mite
-
-巨大ダニ
-%%%%
 scorpion
 
 巨大サソリ
@@ -676,6 +688,10 @@ scorpion
 emperor scorpion
 
 皇帝サソリ
+%%%%
+death scarab
+
+死の太陽虫
 %%%%
 spider
 
@@ -693,10 +709,6 @@ wolf spider
 
 大喰い蜘蛛
 %%%%
-trapdoor spider
-
-落し戸蜘蛛
-%%%%
 redback
 
 背赤蜘蛛
@@ -713,10 +725,6 @@ orb spider
 crocodile
 
 クロコダイル
-%%%%
-baby alligator
-
-アリゲーターの子供
 %%%%
 alligator
 
@@ -781,17 +789,17 @@ worm
 
 ワーム
 %%%%
-brain worm
-
-脳髄ワーム
-%%%%
 swamp worm
 
 沼ワーム
 %%%%
-giant leech
+tyrant leech
 
 巨大ヒル
+%%%%
+dart slug
+
+矢投げナメクジ
 %%%%
 torpor snail
 
@@ -838,10 +846,6 @@ octopode
 
 オクトポード
 %%%%
-octopode crusher
-
-オクトポードの破壊者
-%%%%
 # 'y'
 killer bee
 
@@ -851,10 +855,6 @@ queen bee
 
 女王蜂
 %%%%
-wasp
-
-巨大黄色蜂
-%%%%
 vampire mosquito
 
 吸血蚊
@@ -862,6 +862,14 @@ vampire mosquito
 hornet
 
 巨大赤色蜂
+%%%%
+meliai
+
+メリアイ
+%%%%
+spark wasp
+
+電光蜂
 %%%%
 moth
 
@@ -922,21 +930,6 @@ profane servitor
 涜神の従者
 %%%%
 # 'B'
-goliath beetle
-
-巨大甲虫
-%%%%
-boulder beetle
-
-岩石の甲虫
-%%%%
-boring beetle
-
-穿孔の甲虫
-%%%%
-death scarab
-
-死の太陽虫
 %%%%
 # 'C'
 giant
@@ -970,6 +963,14 @@ stone giant
 titan
 
 タイタン
+%%%%
+juggernaut
+
+ジャガーノート
+%%%%
+iron giant
+
+アイアンジャイアント
 %%%%
 # 'D'
 dragon
@@ -1062,9 +1063,9 @@ elemental wellspring
 精霊の源泉
 %%%%
 # 'F'
-giant frog
+bullfrog
 
-巨大ガエル
+巨大ウシガエル
 %%%%
 spiny frog
 
@@ -1075,17 +1076,17 @@ blink frog
 またたきガエル
 %%%%
 # 'G'
-giant eyeball
+floating eye
 
-巨大眼球
+浮遊する巨大眼球
 %%%%
 eye of draining
 
 掠奪の巨大眼球
 %%%%
-giant orange brain
+glowing orange brain
 
-オレンジ色の巨大脳髄
+輝くオレンジ色の脳髄
 %%%%
 great orb of eyes
 
@@ -1120,10 +1121,6 @@ minotaur
 
 ミノタウロス
 %%%%
-griffon
-
-グリフォン
-%%%%
 sphinx
 
 スフィンクス
@@ -1132,13 +1129,26 @@ harpy
 
 ハーピー
 %%%%
-chimera
+mutant beast
 
-キメラ
+異形の怪物
 %%%%
-anubis guard
+# 'R' - Hepliaklqana's ancestor
+ancestor
 
-アヌビスの番人
+祖霊
+%%%%
+knight
+
+騎士
+%%%%
+battlemage
+
+魔法使い
+%%%%
+hexer
+
+呪術師
 %%%%
 # 'J'
 ooze
@@ -1211,9 +1221,9 @@ revenant
 
 レヴナント
 %%%%
-unborn
+halazid warlock
 
-生まれざるもの
+ハラジッドの魔法使い
 %%%%
 # 'M'
 mummy
@@ -1253,17 +1263,13 @@ naga warrior
 
 ナーガの戦士
 %%%%
-greater naga
+nagaraja
 
-ナーガの猛者
+ナーガの豪族
 %%%%
 salamander
 
 サラマンダー
-%%%%
-salamander firebrand
-
-サラマンダーの火の戦士
 %%%%
 salamander mystic
 
@@ -1286,6 +1292,14 @@ ogre mage
 plant
 
 迷宮草
+%%%%
+demonic plant
+
+禍々しい形の迷宮草
+%%%%
+withered plant
+
+枯れ果てた迷宮草
 %%%%
 oklob sapling
 
@@ -1360,10 +1374,6 @@ snaplasher vine
 snaplasher vine segment
 
 鞭打蔦の一部
-%%%%
-grand avatar
-
-大いなる化身
 %%%%
 # 'S'
 snake
@@ -1547,9 +1557,9 @@ tentacle segment
 触手の一部
 %%%%
 # 'Y'
-sheep
+dream sheep
 
-羊
+眠りの羊
 %%%%
 yak
 
@@ -1652,10 +1662,6 @@ infernal demonspawn
 
 業火の血族
 %%%%
-putrid demonspawn
-
-腐敗した血族
-%%%%
 torturous demonspawn
 
 苦痛の血族
@@ -1663,10 +1669,6 @@ torturous demonspawn
 blood saint
 
 血族の聖騎士
-%%%%
-chaos champion
-
-混沌の王者
 %%%%
 warmonger
 
@@ -1706,10 +1708,6 @@ shadow imp
 影インプ
 %%%%
 # '4'
-blue devil
-
-蒼の悪魔
-%%%%
 rust devil
 
 錆の悪魔
@@ -1722,13 +1720,17 @@ red devil
 
 紅の悪魔
 %%%%
-sixfirhy
-
-シクスファルハイ
-%%%%
 hellwing
 
 ヘルウイング
+%%%%
+ice devil
+
+氷の悪魔
+%%%%
+chaos spawn
+
+混沌の落とし子
 %%%%
 # '3'
 sun demon
@@ -1738,10 +1740,6 @@ sun demon
 soul eater
 
 魂を貪るもの
-%%%%
-ice devil
-
-氷の悪魔
 %%%%
 smoke demon
 
@@ -1755,9 +1753,9 @@ ynoxinul
 
 ヱノクシヌル
 %%%%
-chaos spawn
+sixfirhy
 
-混沌の落とし子
+シクスファルハイ
 %%%%
 # '2'
 shadow demon
@@ -1809,9 +1807,9 @@ Ice Fiend
 
 氷の魔神
 %%%%
-Shadow Fiend
+Tzitzimitl
 
-影の魔神
+ツィツィミトル
 %%%%
 Hell Sentinel
 
@@ -1830,6 +1828,14 @@ animated tree
 golem
 
 ゴーレム
+%%%%
+saltling
+
+塩人形
+%%%%
+peacekeeper
+
+平和の護り手
 %%%%
 iron golem
 
@@ -1922,9 +1928,9 @@ ball lightning
 
 球雷
 %%%%
-giant spore
+ballistomycete spore
 
-巨大胞子
+放出菌糸の胞子
 %%%%
 lost soul
 
@@ -1946,10 +1952,6 @@ fulminant prism
 
 爆発性の晶柱
 %%%%
-singularity
-
-特異点
-%%%%
 wretched star
 
 惨めな星形
@@ -1958,7 +1960,7 @@ battlesphere
 
 戦闘球
 %%%%
-# '%'
+# 'z'
 death cob
 
 殺人トウモロコシ
@@ -2001,10 +2003,6 @@ Chuck
 
 『チャック』
 %%%%
-the iron giant
-
-『アイアンジャイアント』
-%%%%
 Polyphemus
 
 『ポリュペモス』
@@ -2016,6 +2014,10 @@ Antaeus
 Tiamat
 
 『ティアマト』
+%%%%
+Bai Suzhen
+
+『白娘子』
 %%%%
 Xtahua
 
@@ -2069,10 +2071,6 @@ Crazy Yiuf
 
 『狂人ヰゥフ』
 %%%%
-Wiglaf
-
-『ウィーグラフ』
-%%%%
 Jorgrun
 
 『ジョーグルン』
@@ -2084,10 +2082,6 @@ Natasha
 Arachne
 
 『アラクネ』
-%%%%
-Sojobo
-
-『僧正坊』
 %%%%
 Asterion
 
@@ -2101,17 +2095,13 @@ the Enchantress
 
 『女呪術師』
 %%%%
-the royal jelly
+the Royal Jelly
 
 『ロイヤルジェリー』
 %%%%
 Dissolution
 
 『溶解者』
-%%%%
-Gastronok
-
-『ガストロノク』
 %%%%
 Sonja
 
@@ -2161,6 +2151,10 @@ Saint Roka
 
 『聖者ロカ』
 %%%%
+Sojobo
+
+『僧正坊』
+%%%%
 Azrael
 
 『アズラエル』
@@ -2181,9 +2175,17 @@ Purgy
 
 『パージー』
 %%%%
+moon troll
+
+月世界のトロル
+%%%%
 Jory
 
 『ジョリー』
+%%%%
+Gastronok
+
+『ガストロノク』
 %%%%
 Nellie
 
@@ -2245,10 +2247,6 @@ Harold
 
 『ハロルド』
 %%%%
-Maud
-
-『モード』
-%%%%
 Louise
 
 『ルイーズ』
@@ -2264,10 +2262,6 @@ Rupert
 Kirke
 
 『キルケー』
-%%%%
-Norris
-
-『ノリス』
 %%%%
 Frederick
 
