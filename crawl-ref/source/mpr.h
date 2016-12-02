@@ -108,6 +108,10 @@ void mprf(PRINTF(0, ));
 void mprf_nojoin(msg_channel_type channel, PRINTF(1,));
 void mprf_nojoin(PRINTF(0,));
 
+void mprf_noarg(msg_channel_type channel, int param, const string& msg);
+void mprf_noarg(msg_channel_type channel, const string& msg);
+void mprf_noarg(const string& msg);
+
 void mprf_nocap(msg_channel_type channel, int param, PRINTF(2, ));
 void mprf_nocap(msg_channel_type channel, PRINTF(1, ));
 void mprf_nocap(PRINTF(0, ));
