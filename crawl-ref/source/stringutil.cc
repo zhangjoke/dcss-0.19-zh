@@ -479,15 +479,3 @@ string make_file_time(time_t when)
     }
     return "";
 }
-
-string sp2nbsp(const string &s)
-{
-    // replace spaces to no-break spaces (U+00A0)
-    return replace_all(s, " ", " ");
-}
-
-string nbsp2sp(const string &s)
-{
-    // replace no-break spaces (U+00A0) to spaces
-    return replace_all(s, " ", " ");
-}
