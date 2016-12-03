@@ -98,45 +98,53 @@ static bool _char_defined(const newgame_def& ng)
 static string _char_description(const newgame_def& ng)
 {
     if (_is_random_viable_choice(ng))
-        return "Viable character";
+        return jtrans("Viable character");
     else if (_is_random_choice(ng))
-        return "Random character";
+        return jtrans("Random character");
     else if (_is_random_job(ng.job))
     {
-        const string j = (ng.job == JOB_RANDOM ? "Random " : "Viable ");
-        return j + species_name(ng.species);
+        const string j = jtrans(ng.job == JOB_RANDOM ? "Random {species}" : "Viable {species}");
+        return make_stringf(j.c_str(), jtransc(species_name(ng.species)));
     }
     else if (_is_random_species(ng.species))
     {
-        const string s = (ng.species == SP_RANDOM ? "Random " : "Viable ");
-        return s + get_job_name(ng.job);
+        const string s = jtrans(ng.species == SP_RANDOM ? "Random {job}" : "Viable {job}");
+        return make_stringf(s.c_str(), jtransc(get_job_name(ng.job)));
     }
     else
-        return species_name(ng.species) + " " + get_job_name(ng.job);
+        return make_stringf(jtransc("{species} {job}"),
+                            jtransc(species_name(ng.species)),
+                            jtransc(get_job_name(ng.job)));
 }
 
 static string _welcome(const newgame_def& ng)
 {
     string text;
     if (ng.species != SP_UNKNOWN)
-        text = species_name(ng.species);
+        text = jtrans(species_name(ng.species));
     if (ng.job != JOB_UNKNOWN)
     {
         if (!text.empty())
-            text += " ";
-        text += get_job_name(ng.job);
+            text += "にして";
+        text += jtrans(get_job_name(ng.job));
     }
     if (!ng.name.empty())
     {
         if (!text.empty())
-            text = " the " + text;
-        text = ng.name + text;
+            text += ("の『" + ng.name + "』");
+        else
+            text = ("『" + ng.name + "』");
     }
     else if (!text.empty())
-        text = "unnamed " + text;
+        text = jtrans("unnamed ") + text;
+
     if (!text.empty())
-        text = ", " + text;
-    text = "Welcome" + text + ".";
+    {
+        text = make_stringf(jtransc("Welcome, {your combination}."),
+                            text.c_str());
+    }
+    else
+        text = jtrans("Welcome.");
     return text;
 }
 
@@ -388,11 +396,10 @@ static bool _reroll_random(newgame_def& ng)
 
     string specs = chop_string(species_name(ng.species), 79, false);
 
-    cprintf("You are a%s %s %s.\n",
-            (is_vowel(specs[0])) ? "n" : "", specs.c_str(),
-            get_job_name(ng.job));
+    cprintf(jtrans_notrimc("You are a%s %s %s.\n"),
+            jtransc(specs), jtransc(get_job_name(ng.job)));
 
-    cprintf("\nDo you want to play this combination? (ynq) [y]");
+    cprintf(sp2nbspc(jtrans_notrim("\nDo you want to play this combination? (ynq) [y]")));
     char c = getchm();
     if (key_is_escape(c) || toalower(c) == 'q')
     {
@@ -577,9 +584,8 @@ bool choose_game(newgame_def& ng, newgame_def& choice,
 
         string specs = chop_string(species_name(ng.species), 79, false);
 
-        cprintf("You are a%s %s %s.\n",
-                (is_vowel(specs[0])) ? "n" : "", specs.c_str(),
-                get_job_name(ng.job));
+        cprintf(jtrans_notrimc("You are a%s %s %s.\n"),
+                jtransc(specs), jtransc(get_job_name(ng.job)));
 
         enter_player_name(choice);
         ng.name = choice.name;
@@ -587,7 +593,7 @@ bool choose_game(newgame_def& ng, newgame_def& choice,
 
         if (save_exists(ng.filename))
         {
-            cprintf("\nDo you really want to overwrite your old game? ");
+            cprintf(jtrans_notrimc("\nDo you really want to overwrite your old game? "));
             char c = getchm();
             if (c != 'Y' && c != 'y')
                 return true;
@@ -693,7 +699,7 @@ static void _construct_species_menu(const newgame_def& ng,
         }
         text = index_to_letter(pos);
         text += " - ";
-        text += species_name(species);
+        text += jtrans(species_name(species));
         tmp->set_text(text);
         ASSERT(pos < items_in_column * 3);
         min_coord.x = X_MARGIN + (pos / items_in_column) * COLUMN_WIDTH;
@@ -715,7 +721,7 @@ static void _construct_species_menu(const newgame_def& ng,
 
     // Add all the special button entries
     tmp = new TextItem();
-    tmp->set_text("+ - Viable species");
+    tmp->set_text(jtrans("+ - Viable species"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -729,12 +735,12 @@ static void _construct_species_menu(const newgame_def& ng,
     else
         tmp->set_id(M_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Picks a random viable species based on your current job choice.");
+    tmp->set_description_text(jtrans("Picks a random viable species based on your current job choice."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("# - Viable character");
+    tmp->set_text("# - " + jtrans("Viable character"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -744,13 +750,13 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp->add_hotkey('#');
     tmp->set_id(M_VIABLE_CHAR);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Shuffles through random viable character combinations "
-                              "until you accept one.");
+    tmp->set_description_text(jtrans("Shuffles through random viable character combinations "
+                                     "until you accept one."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("% - List aptitudes");
+    tmp->set_text(jtrans("% - List aptitudes"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 2;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -759,13 +765,13 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp->set_fg_colour(BROWN);
     tmp->add_hotkey('%');
     tmp->set_id(M_APTITUDES);
-    tmp->set_description_text("Lists the numerical skill train aptitudes for all races.");
+    tmp->set_description_text(jtrans("Lists the numerical skill train aptitudes for all races."));
     tmp->set_highlight_colour(BLUE);
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("? - Help");
+    tmp->set_text(jtrans("? - Help"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 3;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -775,12 +781,12 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp->add_hotkey('?');
     tmp->set_id(M_HELP);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Opens the help screen.");
+    tmp->set_description_text(jtrans("Opens the help screen."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("* - Random species");
+    tmp->set_text(jtrans("* - Random species"));
     min_coord.x = X_MARGIN + COLUMN_WIDTH;
     min_coord.y = SPECIAL_KEYS_START_Y;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -790,12 +796,12 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp->add_hotkey('*');
     tmp->set_id(M_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Picks a random species.");
+    tmp->set_description_text(jtrans("Picks a random species."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("! - Random character");
+    tmp->set_text(jtrans("! - Random character"));
     min_coord.x = X_MARGIN + COLUMN_WIDTH;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -805,8 +811,8 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp->add_hotkey('!');
     tmp->set_id(M_RANDOM_CHAR);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Shuffles through random character combinations "
-                              "until you accept one.");
+    tmp->set_description_text(jtrans("Shuffles through random character combinations "
+                                     "until you accept one."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -814,13 +820,13 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp = new TextItem();
     if (ng.job != JOB_UNKNOWN)
     {
-        tmp->set_text("Space - Change background");
-        tmp->set_description_text("Lets you change your background choice.");
+        tmp->set_text(jtrans("Space - Change background"));
+        tmp->set_description_text(jtrans("Lets you change your background choice."));
     }
     else
     {
-        tmp->set_text("Space - Pick background first");
-        tmp->set_description_text("Lets you pick your background first.");
+        tmp->set_text(jtrans("Space - Pick background first"));
+        tmp->set_description_text(jtrans("Lets you pick your background first."));
     }
     min_coord.x = X_MARGIN + COLUMN_WIDTH - 4;
     min_coord.y = SPECIAL_KEYS_START_Y + 2;
@@ -841,7 +847,7 @@ static void _construct_species_menu(const newgame_def& ng,
         // Adjust the end marker to aling the - because
         // Tab text is longer by 2
         tmp = new TextItem();
-        tmp->set_text(tmp_string);
+        tmp->set_text(tmp_string + "で開始");
         min_coord.x = X_MARGIN + COLUMN_WIDTH - 2;
         min_coord.y = SPECIAL_KEYS_START_Y + 3;
         max_coord.x = min_coord.x + tmp->get_text().size();
@@ -851,7 +857,7 @@ static void _construct_species_menu(const newgame_def& ng,
         tmp->add_hotkey('\t');
         tmp->set_id(M_DEFAULT_CHOICE);
         tmp->set_highlight_colour(BLUE);
-        tmp->set_description_text("Play a new game with your previous choice.");
+        tmp->set_description_text(jtrans("Play a new game with your previous choice."));
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -880,7 +886,7 @@ static void _prompt_species(newgame_def& ng, newgame_def& ng_choice,
     cprintf("%s", _welcome(ng).c_str());
 
     textcolour(YELLOW);
-    cprintf(" Please select your species.");
+    cprintf(sp2nbspc(jtrans_notrimc(" Please select your species.")));
 
     _construct_species_menu(ng, defaults, freeform);
     MenuDescriptor* descriptor = new MenuDescriptor(&menu);
@@ -922,7 +928,7 @@ static void _prompt_species(newgame_def& ng, newgame_def& ng_choice,
             {
             case 'X':
             case CONTROL('Q'):
-                cprintf("\nGoodbye!");
+                cprintf(jtrans_notrimc("\nGoodbye!"));
 #ifdef USE_TILE_WEB
                 tiles.send_exit_reason("cancel");
 #endif
@@ -1011,7 +1017,7 @@ void job_group::attach(const newgame_def& ng, const newgame_def& defaults,
 {
     TextItem* tmp = new NoSelectTextItem();
     string text;
-    tmp->set_text(name);
+    tmp->set_text(jtrans(name));
     tmp->set_fg_colour(LIGHTBLUE);
     coord_def min_coord(2 + position.x, 3 + position.y);
     coord_def max_coord(min_coord.x + width, min_coord.y + 1);
@@ -1049,7 +1055,7 @@ void job_group::attach(const newgame_def& ng, const newgame_def& defaults,
 
         text = letter;
         text += " - ";
-        text += get_job_name(job);
+        text += jtrans(get_job_name(job));
         tmp->set_text(text);
         ++min_coord.y;
         ++max_coord.y;
@@ -1127,7 +1133,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
 
     // Add all the special button entries
     TextItem* tmp = new TextItem();
-    tmp->set_text("+ - Viable background");
+    tmp->set_text(jtrans("+ - Viable background"));
     coord_def min_coord = coord_def(X_MARGIN, SPECIAL_KEYS_START_Y);
     coord_def max_coord = coord_def(min_coord.x + tmp->get_text().size(),
                                     min_coord.y + 1);
@@ -1140,12 +1146,12 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     else
         tmp->set_id(M_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Picks a random viable background based on your current species choice.");
+    tmp->set_description_text(jtrans("Picks a random viable background based on your current species choice."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("# - Viable character");
+    tmp->set_text("# - " + jtrans("Viable character"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1155,13 +1161,13 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp->add_hotkey('#');
     tmp->set_id(M_VIABLE_CHAR);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Shuffles through random viable character combinations "
-                              "until you accept one.");
+    tmp->set_description_text(jtrans("Shuffles through random viable character combinations "
+                                     "until you accept one."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("% - List aptitudes");
+    tmp->set_text(jtrans("% - List aptitudes"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 2;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1171,12 +1177,12 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp->add_hotkey('%');
     tmp->set_id(M_APTITUDES);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Lists the numerical skill train aptitudes for all races.");
+    tmp->set_description_text(jtrans("Lists the numerical skill train aptitudes for all races."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("? - Help");
+    tmp->set_text(jtrans("? - Help"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 3;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1186,12 +1192,12 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp->add_hotkey('?');
     tmp->set_id(M_HELP);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Opens the help screen.");
+    tmp->set_description_text(jtrans("Opens the help screen."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("* - Random background");
+    tmp->set_text(jtrans("* - Random background"));
     min_coord.x = X_MARGIN + COLUMN_WIDTH;
     min_coord.y = SPECIAL_KEYS_START_Y;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1201,12 +1207,12 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp->add_hotkey('*');
     tmp->set_id(M_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Picks a random background.");
+    tmp->set_description_text(jtrans("Picks a random background."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("! - Random character");
+    tmp->set_text(jtrans("! - Random character"));
     min_coord.x = X_MARGIN + COLUMN_WIDTH;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1216,8 +1222,8 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp->add_hotkey('!');
     tmp->set_id(M_RANDOM_CHAR);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Shuffles through random character combinations "
-                              "until you accept one.");
+    tmp->set_description_text(jtrans("Shuffles through random character combinations "
+                                     "until you accept one."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -1225,13 +1231,13 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp = new TextItem();
     if (ng.species != SP_UNKNOWN)
     {
-        tmp->set_text("Space - Change species");
-        tmp->set_description_text("Lets you change your species choice.");
+        tmp->set_text(jtrans("Space - Change species"));
+        tmp->set_description_text(jtrans("Lets you change your species choice."));
     }
     else
     {
-        tmp->set_text("Space - Pick species first");
-        tmp->set_description_text("Lets you pick your species first.");
+        tmp->set_text(jtrans("Space - Pick species first"));
+        tmp->set_description_text(jtrans("Lets you pick your species first."));
 
     }
     min_coord.x = X_MARGIN + COLUMN_WIDTH - 4;
@@ -1251,7 +1257,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
         // Adjust the end marker to align the - because
         // Tab text is longer by 2
         tmp = new TextItem();
-        tmp->set_text("Tab - " + _char_description(defaults));
+        tmp->set_text("Tab - " + _char_description(defaults) + "で開始");
         min_coord.x = X_MARGIN + COLUMN_WIDTH - 2;
         min_coord.y = SPECIAL_KEYS_START_Y + 3;
         max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1261,7 +1267,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
         tmp->add_hotkey('\t');
         tmp->set_id(M_DEFAULT_CHOICE);
         tmp->set_highlight_colour(BLUE);
-        tmp->set_description_text("Play a new game with your previous choice.");
+        tmp->set_description_text(jtrans("Play a new game with your previous choice."));
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -1294,7 +1300,7 @@ static void _prompt_job(newgame_def& ng, newgame_def& ng_choice,
     cprintf("%s", _welcome(ng).c_str());
 
     textcolour(YELLOW);
-    cprintf(" Please select your background.");
+    cprintf(jtrans_notrimc(" Please select your background."));
 
     _construct_backgrounds_menu(ng, defaults, freeform);
     MenuDescriptor* descriptor = new MenuDescriptor(&menu);
@@ -1336,7 +1342,7 @@ static void _prompt_job(newgame_def& ng, newgame_def& ng_choice,
             {
             case 'X':
             case CONTROL('Q'):
-                cprintf("\nGoodbye!");
+                cprintf(jtrans_notrimc("\nGoodbye!"));
 #ifdef USE_TILE_WEB
                 tiles.send_exit_reason("cancel");
 #endif
@@ -1475,7 +1481,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
         switch (wpn_type)
         {
         case WPN_UNARMED:
-            text += species_has_claws(ng.species) ? "claws" : "unarmed";
+            text += jtrans(species_has_claws(ng.species) ? "claws" : "unarmed");
             break;
         case WPN_THROWN:
             // We don't support choosing among multiple thrown weapons.
@@ -1486,22 +1492,21 @@ static void _construct_weapon_menu(const newgame_def& ng,
                 thrown_name = "tomahawks";
             else
                 thrown_name = "javelins";
-            text += thrown_name;
-            text += " and throwing nets";
+            text += jtrans(thrown_name);
+            text += jtrans(" and throwing nets");
             break;
         default:
-            text += weapon_base_name(wpn_type);
+            text += jtrans(weapon_base_name(wpn_type));
             if (is_ranged_weapon_type(wpn_type))
             {
-                text += " and ";
-                text += wpn_type == WPN_HUNTING_SLING ? ammo_name(MI_SLING_BULLET)
-                                                      : ammo_name(wpn_type);
-                text += "s";
+                text += jtrans(" and ");
+                text += wpn_type == WPN_HUNTING_SLING ? jtrans(ammo_name(MI_SLING_BULLET))
+                                                      : jtrans(ammo_name(wpn_type));
             }
             break;
         }
         // Fill to column width to give extra padding for the highlight
-        text.append(WEAPON_COLUMN_WIDTH - text.size() - 1 , ' ');
+        text.append(max(0, WEAPON_COLUMN_WIDTH - strwidth(text) - 1) , ' ');
         tmp->set_text(text);
 
         min_coord.x = X_MARGIN;
@@ -1518,7 +1523,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
     }
     // Add all the special button entries
     tmp = new TextItem();
-    tmp->set_text("+ - Viable random choice");
+    tmp->set_text(jtrans("+ - Viable random choice"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1528,12 +1533,12 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('+');
     tmp->set_id(M_VIABLE);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Picks a random viable weapon");
+    tmp->set_description_text(jtrans("Picks a random viable weapon"));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("% - List aptitudes");
+    tmp->set_text(jtrans("% - List aptitudes"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1543,12 +1548,12 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('%');
     tmp->set_id(M_APTITUDES);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Lists the numerical skill train aptitudes for all races");
+    tmp->set_description_text(jtrans("Lists the numerical skill train aptitudes for all races."));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("? - Help");
+    tmp->set_text(jtrans("? - Help"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 2;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1558,12 +1563,12 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('?');
     tmp->set_id(M_HELP);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Opens the help screen");
+    tmp->set_description_text(jtrans("Opens the help screen"));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new TextItem();
-    tmp->set_text("* - Random weapon");
+    tmp->set_text(jtrans("* - Random weapon"));
     min_coord.x = X_MARGIN + COLUMN_WIDTH;
     min_coord.y = SPECIAL_KEYS_START_Y;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1573,14 +1578,14 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('*');
     tmp->set_id(WPN_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text("Picks a random weapon");
+    tmp->set_description_text(jtrans("Picks a random weapon"));
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     // Adjust the end marker to align the - because Bksp text is longer by 3
     tmp = new TextItem();
-    tmp->set_text("Bksp - Return to character menu");
-    tmp->set_description_text("Lets you return back to Character choice menu");
+    tmp->set_text(jtrans("Bksp - Return to character menu"));
+    tmp->set_description_text(jtrans("Lets you return back to Character choice menu"));
     min_coord.x = X_MARGIN + COLUMN_WIDTH - 3;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1599,11 +1604,12 @@ static void _construct_weapon_menu(const newgame_def& ng,
         text = "Tab - ";
 
         ASSERT(defweapon != WPN_THROWN || thrown_name);
-        text += defweapon == WPN_RANDOM  ? "Random" :
+        text += jtrans(
+                defweapon == WPN_RANDOM  ? "Random" :
                 defweapon == WPN_VIABLE  ? "Viable" :
                 defweapon == WPN_UNARMED ? "unarmed" :
                 defweapon == WPN_THROWN  ? thrown_name :
-                weapon_base_name(defweapon);
+                weapon_base_name(defweapon));
 
         // Adjust the end marker to aling the - because
         // Tab text is longer by 2
@@ -1618,7 +1624,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
         tmp->add_hotkey('\t');
         tmp->set_id(M_DEFAULT_CHOICE);
         tmp->set_highlight_colour(BLUE);
-        tmp->set_description_text("Select your old weapon");
+        tmp->set_description_text(jtrans("Select your old weapon"));
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -1660,7 +1666,7 @@ static bool _prompt_weapon(const newgame_def& ng, newgame_def& ng_choice,
     highlighter->set_visible(true);
 
     textcolour(CYAN);
-    cprintf("\nYou have a choice of weapons:  ");
+    cprintf(jtrans_notrimc("\nYou have a choice of weapons:  "));
 
     while (true)
     {
@@ -1676,7 +1682,7 @@ static bool _prompt_weapon(const newgame_def& ng, newgame_def& ng_choice,
             {
             case 'X':
             case CONTROL('Q'):
-                cprintf("\nGoodbye!");
+                cprintf(jtrans_notrimc("\nGoodbye!"));
 #ifdef USE_TILE_WEB
                 tiles.send_exit_reason("cancel");
 #endif
@@ -1913,7 +1919,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         text += letter;
         text += " - ";
 
-        text += maps[i]->desc_or_name();
+        text += sp2nbsp(maps[i]->desc_or_name());
         text = chop_string(text, padding_width);
 
         tmp->set_text(text);
@@ -1948,7 +1954,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
     if (!crawl_state.game_is_tutorial())
     {
         tmp = new TextItem();
-        tmp->set_text("% - List aptitudes");
+        tmp->set_text(jtrans("% - List aptitudes"));
         min_coord.x = X_MARGIN;
         min_coord.y = SPECIAL_KEYS_START_Y + 1;
         max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1958,12 +1964,12 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('%');
         tmp->set_id(M_APTITUDES);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text("Lists the numerical skill train aptitudes for all races");
+        tmp->set_description_text(jtrans("Lists the numerical skill train aptitudes for all races"));
         menu->attach_item(tmp);
         tmp->set_visible(true);
 
         tmp = new TextItem();
-        tmp->set_text("? - Help");
+        tmp->set_text(jtrans("? - Help"));
         min_coord.x = X_MARGIN;
         min_coord.y = SPECIAL_KEYS_START_Y + 2;
         max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1973,12 +1979,12 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('?');
         tmp->set_id(M_HELP);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text("Opens the help screen");
+        tmp->set_description_text(jtrans("Opens the help screen"));
         menu->attach_item(tmp);
         tmp->set_visible(true);
 
         tmp = new TextItem();
-        tmp->set_text("* - Random map");
+        tmp->set_text(jtrans("* - Random map"));
         min_coord.x = X_MARGIN + COLUMN_WIDTH;
         min_coord.y = SPECIAL_KEYS_START_Y + 1;
         max_coord.x = min_coord.x + tmp->get_text().size();
@@ -1988,7 +1994,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('*');
         tmp->set_id(M_RANDOM);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text("Picks a random sprint map");
+        tmp->set_description_text(jtrans("Picks a random sprint map"));
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -2031,7 +2037,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('\t');
         tmp->set_id(M_DEFAULT_CHOICE);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text("Select your previous sprint map and character");
+        tmp->set_description_text(jtrans("Select your previous sprint map and character"));
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -2077,9 +2083,9 @@ static void _prompt_gamemode_map(newgame_def& ng, newgame_def& ng_choice,
     highlighter->set_visible(true);
 
     textcolour(CYAN);
-    cprintf("\nYou have a choice of %s:\n\n",
-            ng_choice.type == GAME_TYPE_TUTORIAL ? "lessons"
-                                                  : "maps");
+    cprintf(jtrans_notrimc("\nYou have a choice of %s:\n\n"),
+            jtransc(ng_choice.type == GAME_TYPE_TUTORIAL ? "lessons"
+                                                         : "maps"));
 
     while (true)
     {
@@ -2095,7 +2101,7 @@ static void _prompt_gamemode_map(newgame_def& ng, newgame_def& ng_choice,
             {
             case 'X':
             case CONTROL('Q'):
-                cprintf("\nGoodbye!");
+                cprintf(jtrans_notrimc("\nGoodbye!"));
 #ifdef USE_TILE_WEB
                 tiles.send_exit_reason("cancel");
 #endif
@@ -2174,7 +2180,8 @@ static void _choose_gamemode_map(newgame_def& ng, newgame_def& ng_choice,
     const mapref_vector maps = find_maps_for_tag(type_name);
 
     if (maps.empty())
-        end(1, true, "No %s maps found.", type_name.c_str());
+        end(1, true, "No %s maps found.",
+                     tagged_jtransc("[gametype]", type_name.c_str()));
 
     if (ng_choice.map.empty())
     {

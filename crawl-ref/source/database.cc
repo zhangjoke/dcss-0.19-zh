@@ -153,7 +153,9 @@ static TextDB AllDBs[] =
            "jtrans_beam.txt",
            "jtrans_behold.txt",
            "jtrans_branch_data.txt",
+           */
            "jtrans_chardump.txt",
+           /*
            "jtrans_character.txt",
            "jtrans_cloud.txt",
            "jtrans_command.txt",
@@ -177,12 +179,16 @@ static TextDB AllDBs[] =
            "jtrans_godprayer.txt",
            "jtrans_godwrath.txt",
            "jtrans_hints.txt",
+           */
+           "jtrans_initfile.txt",
+           /*
            "jtrans_autofight_lua.txt",
            "jtrans_magicspell.txt",
            */
            "jtrans_monster_name.txt",
-           /*
            "jtrans_mutations.txt",
+           "jtrans_newgame.txt",
+           /*
            "jtrans_output.txt",
            "jtrans_skill_title.txt",
 
