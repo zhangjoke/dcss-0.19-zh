@@ -977,10 +977,6 @@ dragon
 
 ドラゴン
 %%%%
-wyvern
-
-ワイバーン
-%%%%
 fire dragon
 
 ファイアドラゴン
