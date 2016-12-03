@@ -109,12 +109,12 @@ static string _char_description(const newgame_def& ng)
     else if (_is_random_species(ng.species))
     {
         const string s = jtrans(ng.species == SP_RANDOM ? "Random {job}" : "Viable {job}");
-        return make_stringf(s.c_str(), jtransc(get_job_name(ng.job)));
+        return make_stringf(s.c_str(), tagged_jtransc("[job]", get_job_name(ng.job)));
     }
     else
         return make_stringf(jtransc("{species} {job}"),
                             jtransc(species_name(ng.species)),
-                            jtransc(get_job_name(ng.job)));
+                            tagged_jtransc("[job]", get_job_name(ng.job)));
 }
 
 static string _welcome(const newgame_def& ng)
@@ -126,7 +126,7 @@ static string _welcome(const newgame_def& ng)
     {
         if (!text.empty())
             text += "にして";
-        text += jtrans(get_job_name(ng.job));
+        text += tagged_jtrans("[job]", get_job_name(ng.job));
     }
     if (!ng.name.empty())
     {
@@ -397,7 +397,7 @@ static bool _reroll_random(newgame_def& ng)
     string specs = chop_string(species_name(ng.species), 79, false);
 
     cprintf(jtrans_notrimc("You are a%s %s %s.\n"),
-            jtransc(specs), jtransc(get_job_name(ng.job)));
+            jtransc(specs), tagged_jtransc("[job]", get_job_name(ng.job)));
 
     cprintf(sp2nbspc(jtrans_notrim("\nDo you want to play this combination? (ynq) [y]")));
     char c = getchm();
@@ -585,7 +585,7 @@ bool choose_game(newgame_def& ng, newgame_def& choice,
         string specs = chop_string(species_name(ng.species), 79, false);
 
         cprintf(jtrans_notrimc("You are a%s %s %s.\n"),
-                jtransc(specs), jtransc(get_job_name(ng.job)));
+                jtransc(specs), taggged_jtransc("[job]", get_job_name(ng.job)));
 
         enter_player_name(choice);
         ng.name = choice.name;
@@ -1055,7 +1055,7 @@ void job_group::attach(const newgame_def& ng, const newgame_def& defaults,
 
         text = letter;
         text += " - ";
-        text += jtrans(get_job_name(job));
+        text += tagged_jtrans("[job]", get_job_name(job));
         tmp->set_text(text);
         ++min_coord.y;
         ++max_coord.y;
