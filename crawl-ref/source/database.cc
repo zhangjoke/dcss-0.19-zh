@@ -156,7 +156,6 @@ static TextDB AllDBs[] =
            */
            "jtrans_chardump.txt",
            /*
-           "jtrans_character.txt",
            "jtrans_cloud.txt",
            "jtrans_command.txt",
            "jtrans_decks.txt",
@@ -185,13 +184,16 @@ static TextDB AllDBs[] =
            "jtrans_autofight_lua.txt",
            "jtrans_magicspell.txt",
            */
-           "jtrans_monster_name.txt",
            "jtrans_mutations.txt",
            "jtrans_newgame.txt",
            /*
            "jtrans_output.txt",
            "jtrans_skill_title.txt",
-
+           */
+           
+           "jtrans_character.txt",
+           "jtrans_monster_name.txt",
+           /*
            "jtrans_weapon_name.txt",
            "jtrans_armour_name.txt",
            "jtrans_missile_name.txt",
