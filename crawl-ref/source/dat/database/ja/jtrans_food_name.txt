@@ -6,7 +6,7 @@ meat ration
 # itemprop.cc
 meat rations
 
-肉の保存食
+<meat ration>
 %%%%
 chunk
 
@@ -15,7 +15,7 @@ chunk
 # itemprop.cc
 chunks
 
-肉
+<chunk>
 %%%%
 # itemprop.cc
 chunk of flesh
@@ -33,7 +33,7 @@ bread ration
 # itemprop.cc
 bread rations
 
-パンの保存食
+<bread ration>
 %%%%
 fruit
 
@@ -46,7 +46,7 @@ royal jelly
 # itemprop.cc
 royal jellies
 
-ロイヤルゼリー
+<royal jelly>
 %%%%
 pizza
 

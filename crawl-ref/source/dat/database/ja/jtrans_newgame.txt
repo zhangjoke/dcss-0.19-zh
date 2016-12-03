@@ -237,7 +237,7 @@ Picks a random viable weapon
 %%%%
 Lists the numerical skill train aptitudes for all races
 
-全種族のスキル補正値一覧表を閲覧します。
+<Lists the numerical skill train aptitudes for all races.>
 %%%%
 Opens the help screen
 
