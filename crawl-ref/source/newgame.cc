@@ -787,7 +787,7 @@ static void _construct_species_menu(const newgame_def& ng,
 
     tmp = new TextItem();
     tmp->set_text(jtrans("* - Random species"));
-    min_coord.x = X_MARGIN + COLUMN_WIDTH;
+    min_coord.x = X_MARGIN + get_number_of_cols() / 2;
     min_coord.y = SPECIAL_KEYS_START_Y;
     max_coord.x = min_coord.x + tmp->get_text().size();
     max_coord.y = min_coord.y + 1;
@@ -802,7 +802,7 @@ static void _construct_species_menu(const newgame_def& ng,
 
     tmp = new TextItem();
     tmp->set_text(jtrans("! - Random character"));
-    min_coord.x = X_MARGIN + COLUMN_WIDTH;
+    min_coord.x = X_MARGIN + get_number_of_cols() / 2;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
     max_coord.y = min_coord.y + 1;
@@ -828,7 +828,7 @@ static void _construct_species_menu(const newgame_def& ng,
         tmp->set_text(jtrans("Space - Pick background first"));
         tmp->set_description_text(jtrans("Lets you pick your background first."));
     }
-    min_coord.x = X_MARGIN + COLUMN_WIDTH - 4;
+    min_coord.x = X_MARGIN + get_number_of_cols() / 2 - 4;
     min_coord.y = SPECIAL_KEYS_START_Y + 2;
     max_coord.x = min_coord.x + tmp->get_text().size();
     max_coord.y = min_coord.y + 1;
@@ -848,7 +848,7 @@ static void _construct_species_menu(const newgame_def& ng,
         // Tab text is longer by 2
         tmp = new TextItem();
         tmp->set_text(tmp_string + "で開始");
-        min_coord.x = X_MARGIN + COLUMN_WIDTH - 2;
+        min_coord.x = X_MARGIN + get_number_of_cols() / 2 - 2;
         min_coord.y = SPECIAL_KEYS_START_Y + 3;
         max_coord.x = min_coord.x + tmp->get_text().size();
         max_coord.y = min_coord.y + 1;
@@ -1198,7 +1198,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
 
     tmp = new TextItem();
     tmp->set_text(jtrans("* - Random background"));
-    min_coord.x = X_MARGIN + COLUMN_WIDTH;
+    min_coord.x = X_MARGIN + get_number_of_cols() / 2;
     min_coord.y = SPECIAL_KEYS_START_Y;
     max_coord.x = min_coord.x + tmp->get_text().size();
     max_coord.y = min_coord.y + 1;
@@ -1213,7 +1213,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
 
     tmp = new TextItem();
     tmp->set_text(jtrans("! - Random character"));
-    min_coord.x = X_MARGIN + COLUMN_WIDTH;
+    min_coord.x = X_MARGIN + get_number_of_cols() / 2;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + tmp->get_text().size();
     max_coord.y = min_coord.y + 1;
@@ -1240,7 +1240,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
         tmp->set_description_text(jtrans("Lets you pick your species first."));
 
     }
-    min_coord.x = X_MARGIN + COLUMN_WIDTH - 4;
+    min_coord.x = X_MARGIN + get_number_of_cols() / 2 - 4;
     min_coord.y = SPECIAL_KEYS_START_Y + 2;
     max_coord.x = min_coord.x + tmp->get_text().size();
     max_coord.y = min_coord.y + 1;
@@ -1258,7 +1258,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
         // Tab text is longer by 2
         tmp = new TextItem();
         tmp->set_text("Tab - " + _char_description(defaults) + "で開始");
-        min_coord.x = X_MARGIN + COLUMN_WIDTH - 2;
+        min_coord.x = X_MARGIN + get_number_of_cols() / 2 - 2;
         min_coord.y = SPECIAL_KEYS_START_Y + 3;
         max_coord.x = min_coord.x + tmp->get_text().size();
         max_coord.y = min_coord.y + 1;
@@ -1526,7 +1526,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->set_text(jtrans("+ - Viable random choice"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y;
-    max_coord.x = min_coord.x + tmp->get_text().size();
+    max_coord.x = min_coord.x + strwidth(tmp->get_text());
     max_coord.y = min_coord.y + 1;
     tmp->set_bounds(min_coord, max_coord);
     tmp->set_fg_colour(BROWN);
@@ -1541,7 +1541,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->set_text(jtrans("% - List aptitudes"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
-    max_coord.x = min_coord.x + tmp->get_text().size();
+    max_coord.x = min_coord.x + strwidth(tmp->get_text());
     max_coord.y = min_coord.y + 1;
     tmp->set_bounds(min_coord, max_coord);
     tmp->set_fg_colour(BROWN);
@@ -1556,7 +1556,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->set_text(jtrans("? - Help"));
     min_coord.x = X_MARGIN;
     min_coord.y = SPECIAL_KEYS_START_Y + 2;
-    max_coord.x = min_coord.x + tmp->get_text().size();
+    max_coord.x = min_coord.x + strwidth(tmp->get_text());
     max_coord.y = min_coord.y + 1;
     tmp->set_bounds(min_coord, max_coord);
     tmp->set_fg_colour(BROWN);
@@ -1569,9 +1569,9 @@ static void _construct_weapon_menu(const newgame_def& ng,
 
     tmp = new TextItem();
     tmp->set_text(jtrans("* - Random weapon"));
-    min_coord.x = X_MARGIN + COLUMN_WIDTH;
+    min_coord.x = X_MARGIN + get_number_of_cols() / 2;
     min_coord.y = SPECIAL_KEYS_START_Y;
-    max_coord.x = min_coord.x + tmp->get_text().size();
+    max_coord.x = min_coord.x + strwidth(tmp->get_text());
     max_coord.y = min_coord.y + 1;
     tmp->set_bounds(min_coord, max_coord);
     tmp->set_fg_colour(BROWN);
@@ -1586,9 +1586,9 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp = new TextItem();
     tmp->set_text(jtrans("Bksp - Return to character menu"));
     tmp->set_description_text(jtrans("Lets you return back to Character choice menu"));
-    min_coord.x = X_MARGIN + COLUMN_WIDTH - 3;
+    min_coord.x = X_MARGIN + get_number_of_cols() / 2 - 3;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
-    max_coord.x = min_coord.x + tmp->get_text().size();
+    max_coord.x = min_coord.x + strwidth(tmp->get_text());
     max_coord.y = min_coord.y + 1;
     tmp->set_bounds(min_coord, max_coord);
     tmp->set_fg_colour(BROWN);
@@ -1615,9 +1615,9 @@ static void _construct_weapon_menu(const newgame_def& ng,
         // Tab text is longer by 2
         tmp = new TextItem();
         tmp->set_text(text);
-        min_coord.x = X_MARGIN + COLUMN_WIDTH - 2;
+        min_coord.x = X_MARGIN + get_number_of_cols() / 2 - 2;
         min_coord.y = SPECIAL_KEYS_START_Y + 2;
-        max_coord.x = min_coord.x + tmp->get_text().size();
+        max_coord.x = min_coord.x + strwidth(tmp->get_text());
         max_coord.y = min_coord.y + 1;
         tmp->set_bounds(min_coord, max_coord);
         tmp->set_fg_colour(BROWN);
@@ -1985,7 +1985,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
 
         tmp = new TextItem();
         tmp->set_text(jtrans("* - Random map"));
-        min_coord.x = X_MARGIN + COLUMN_WIDTH;
+        min_coord.x = X_MARGIN + MENU_COLUMN_WIDTH / 2;
         min_coord.y = SPECIAL_KEYS_START_Y + 1;
         max_coord.x = min_coord.x + tmp->get_text().size();
         max_coord.y = min_coord.y + 1;
@@ -2028,7 +2028,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         // Adjust the end marker to align the - because
         // Tab text is longer by 2
         tmp->set_text(text);
-        min_coord.x = X_MARGIN + COLUMN_WIDTH - 2;
+        min_coord.x = X_MARGIN + MENU_COLUMN_WIDTH / 2 - 2;
         min_coord.y = SPECIAL_KEYS_START_Y + 2;
         max_coord.x = min_coord.x + tmp->get_text().size();
         max_coord.y = min_coord.y + 1;
