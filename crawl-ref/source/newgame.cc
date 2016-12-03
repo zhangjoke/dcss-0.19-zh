@@ -1649,6 +1649,13 @@ static bool _prompt_weapon(const newgame_def& ng, newgame_def& ng_choice,
 
     _construct_weapon_menu(ng, defweapon, weapons, freeform);
 
+    MenuDescriptor* descriptor = new MenuDescriptor(&menu);
+    descriptor->init(coord_def(X_MARGIN, CHAR_DESC_START_Y),
+                     coord_def(get_number_of_cols(), CHAR_DESC_START_Y
+                                                     + CHAR_DESC_HEIGHT),
+                     "descriptor");
+    menu.attach_object(descriptor);
+
     BoxMenuHighlighter* highlighter = new BoxMenuHighlighter(&menu);
     highlighter->init(coord_def(0,0), coord_def(0,0), "highlighter");
     menu.attach_object(highlighter);
@@ -1663,6 +1670,7 @@ static bool _prompt_weapon(const newgame_def& ng, newgame_def& ng_choice,
 #endif
 
     freeform->set_visible(true);
+    descriptor->set_visible(true);
     highlighter->set_visible(true);
 
     textcolour(CYAN);
@@ -2065,6 +2073,13 @@ static void _prompt_gamemode_map(newgame_def& ng, newgame_def& ng_choice,
     sort(maps.begin(), maps.end(), _cmp_map_by_order);
     _construct_gamemode_map_menu(maps, defaults, freeform);
 
+    MenuDescriptor* descriptor = new MenuDescriptor(&menu);
+    descriptor->init(coord_def(X_MARGIN, CHAR_DESC_START_Y),
+                     coord_def(get_number_of_cols(), CHAR_DESC_START_Y
+                                                     + CHAR_DESC_HEIGHT),
+                     "descriptor");
+    menu.attach_object(descriptor);
+
     BoxMenuHighlighter* highlighter = new BoxMenuHighlighter(&menu);
     highlighter->init(coord_def(0,0), coord_def(0,0), "highlighter");
     menu.attach_object(highlighter);
@@ -2080,6 +2095,7 @@ static void _prompt_gamemode_map(newgame_def& ng, newgame_def& ng_choice,
 #endif
 
     freeform->set_visible(true);
+    descriptor->set_visible(true);
     highlighter->set_visible(true);
 
     textcolour(CYAN);
