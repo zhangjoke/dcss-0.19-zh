@@ -177,8 +177,8 @@ static TextDB AllDBs[] =
            "jtrans_godpassive.txt",
            "jtrans_godprayer.txt",
            "jtrans_godwrath.txt",
-           "jtrans_hints.txt",
            */
+           "jtrans_hints.txt",
            "jtrans_initfile.txt",
            /*
            "jtrans_autofight_lua.txt",
@@ -190,6 +190,8 @@ static TextDB AllDBs[] =
            "jtrans_output.txt",
            "jtrans_skill_title.txt",
            */
+           "jtrans_tutorial.txt",
+
            "jtrans_dat_des_sprint.txt",
            "jtrans_dat_des_tutorial.txt",
            

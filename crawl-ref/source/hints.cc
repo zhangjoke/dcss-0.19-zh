@@ -1693,10 +1693,13 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
         break;
 
     case HINT_NEW_LEVEL:
+        text << jtrans("hint new level");
+        /*
         text << "Well done! Reaching a new experience level is always a "
                 "nice event: you get more health and magic points, and "
                 "occasionally increases to your attributes: strength, "
                 "intelligence, and dexterity.";
+        */
 
         if (Hints.hints_type == HINT_MAGIC_CHAR)
         {

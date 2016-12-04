@@ -228,51 +228,88 @@ tutorial1 exit
 %%%%
 tutorial2 start
 
+# This lesson will teach you about monsters and fighting. First, we need a
+# weapon! Go and grab the one lying over there.
 このレッスンではモンスターと戦闘について学びます。まず武器が必要です！
 向こうに落ちている武器を拾ってみてください。
 %%%%
 tutorial2 pickup_weapon
 
+# Pick up this weapon<localtiles> by clicking on it in the inventory panel, and
+# then wield it by clicking on it again. Alternatively, pick it up</localtiles>
+# with <input>$cmd[CMD_PICKUP]</input> or <input>g</input> and then wield it with
+# <input>$cmd[CMD_WIELD_WEAPON]</input>.
 <input>$cmd[CMD_PICKUP]</input> または <input>g</input> を押して武器を拾い、
- <input>$cmd[CMD_WIELD_WEAPON]</input> で装備してください。<localtiles> また、
+<input>$cmd[CMD_WIELD_WEAPON]</input> で装備してください。<localtiles> また、
 どちらの行動もインベントリパネルを <input>クリック</input> して実行できます。
 </localtiles>
 %%%%
 tutorial2 melee
 
+# To attack a monster with your bare hands or wielded weapon, simply walk into
+# it.
 素手か武器を用いてモンスターに攻撃するには、
 単純にモンスターの方へ移動してください。
 %%%%
 tutorial2 resting
 
-よく出来ました!
-<input>$cmd[CMD_REST]</input>で休息をとることでHPの減少を回復することができます。
-これは100ターンの間休息を取りますが、様々な重大な出来事が起きると中断されます。
+# Very good! You can heal by resting with <input>$cmd[CMD_REST]</input>
+# <localtiles>, or by clicking the 'rest' button in the command bar below the
+# minimap</localtiles>. This will make you rest until your health is full, but
+# will be interrupted by important events.
+いいですね！
+<input>$cmd[CMD_REST]</input><localtiles>を押すか、もしくはミニマップ下部のコマンドバーの'休息'ボタン</localtiles>を押して休息をとることでHPの減少を回復することができます。
+これは100ターン経つかHPが全快するまでの間休息を取りますが、様々な重大な出来事が起きると中断されます。
 %%%%
 tutorial2 chop_corpses
 
-あなたは<input>$cmd[CMD_BUTCHER]</input>
-<localtiles>または<input>Shift+クリック</input>で死体をさばいて食肉にすることができ、
-</localtiles><input>$cmd[CMD_EAT]</input>
-<localtiles>または<input>クリック</input>でそれを食べることができます</localtiles>。
+# While standing on corpses, you can chop them into edible meat chunks with
+# <input>$cmd[CMD_BUTCHER]</input><localtiles> or <input>Shift +
+# mouseclick</input></localtiles>. When you're hungry, you can eat the resulting
+# chunks with <input>$cmd[CMD_EAT]</input><localtiles> or
+# <input>mouseclick</input></localtiles>. If you grow hungry while autoexploring,
+# you will automatically eat a chunk of meat if one is available.
+あなたが死体の所に立っているとき、
+<input>$cmd[CMD_BUTCHER]</input>
+<localtiles>または<input>Shift+クリック</input></localtiles>で死体をさばいて食肉にすることができます。
+また、空腹になったときに<input>$cmd[CMD_EAT]</input>
+<localtiles>または<input>クリック</input></localtiles>でそれを食べることができます。
+自動探索中に空腹になった場合、肉を持っていたら自動的にそれを食べます。
 %%%%
 tutorial2 rest_and_chop_reminder
 
-肉を捌くことと(<input>$cmd[CMD_BUTCHER]</input>)、
-休息を取ることを(<input>$cmd[CMD_REST]</input>)忘れないように!
+# Don't forget about chopping corpses for food (with
+# <input>$cmd[CMD_BUTCHER]</input><localtiles> or <input>Shift +
+# mouseclick</input></localtiles>), or resting (with
+# <input>$cmd[CMD_REST]</input><localtiles> or the button in the command
+# bar</localtiles>)!
+肉をさばくこと(<input>$cmd[CMD_BUTCHER]</input>
+<localtiles> または <input>Shift + クリック</input></localtiles>
+と、休息をとること(<input>$cmd[CMD_REST]</input>
+<localtiles> または コマンドバーのボタン</localtiles>
+)を忘れないように！
 %%%%
 tutorial2 wait
 
+# Rather than storm the room and get swarmed by monsters, you can also step back
+# and wait (with <input>$cmd[CMD_WAIT]</input><localtiles> or by
+# <input>clicking</input> on your character</localtiles>) for them to come to you.
 突撃してモンスターに囲まれるのではなく、
-一歩引いて彼らが近づいてくるまで待つ(<input>$cmd[CMD_WAIT]</input>)
-こともできます。
+一歩引いて彼らが近づいてくるまで待つ(<input>$cmd[CMD_WAIT]</input>
+<localtiles> または プレイヤーキャラを<input>クリック</input></localtiles>
+)こともできます。
 %%%%
 tutorial2 resting_reminder
 
-<input>$cmd[CMD_REST]</input>で休息を取ることを忘れずに。
+# Remember, you can rest up with <input>$cmd[CMD_REST]</input>.
+<input>$cmd[CMD_REST]</input>で休息をとることを忘れずに。
 %%%%
 tutorial2 eat_reminder
 
+# Remember, you can chop creatures up with <input>$cmd[CMD_BUTCHER]</input>
+# <localtiles> or <input>Shift + mouseclick</input></localtiles>, and then eat
+# the resulting chunks with <input>$cmd[CMD_EAT]</input><localtiles> or
+# <input>mouseclick</input></localtiles>.
 <input>$cmd[CMD_BUTCHER]</input><localtiles>、
 または<input>Shift+クリック</input></localtiles>でモンスターを解体でき、
 <input>$cmd[CMD_EAT]</input><localtiles>、または<input>クリック</input>
@@ -280,64 +317,121 @@ tutorial2 eat_reminder
 %%%%
 tutorial2 compare_monster_desc
 
+# Examine these monsters (<localtiles>via <input>mouseover</input></localtiles>
+# <nomouse>by pressing <input>$cmd[CMD_LOOK_AROUND]</input> to enter examine mode,
+# and then <input>$cmd[CMD_TARGET_CYCLE_FORWARD]</input> to cycle through nearby
+# monsters</nomouse>)
+# and compare their descriptions (<localtiles>with <input>rightmouseclick</input></localtiles>
+# <nomouse>by pressing <input>$cmd[CMD_TARGET_DESCRIBE]</input> while selecting
+# them in examine mode</nomouse>)
+# to find out which of these cages is safer to fight through.
 :nowrap
-モンスターを調査して見ましょう。(<localtiles><input>マウスオーバー</input></localtiles><nomouse> <input>$cmd[CMD_LOOK_AROUND]$cmd[CMD_TARGET_CYCLE_FORWARD]</input>を押す</nomouse>)
-そして両者の説明文を比べてみて、(<localtiles><input>右クリック</input></localtiles><nomouse><input>$cmd[CMD_LOOK_AROUND]$cmd[CMD_TARGET_DESCRIBE]</input></nomouse>) どちらの檻を押し通るべきか判断してください。
+モンスターを調査してみましょう。(<localtiles><input>マウスオーバー</input></localtiles><nomouse><input>$cmd[CMD_LOOK_AROUND]</input>を押して調査モードに入り、<input>$cmd[CMD_TARGET_CYCLE_FORWARD]</input>を押して対象を切り替える</nomouse>)
+そして両者の説明文(<localtiles><input>右クリック</input></localtiles><nomouse>調査モードで対象を選択した状態で<input>$cmd[CMD_TARGET_DESCRIBE]</input>を押す</nomouse>)を比べてみて、
+どちらの檻を通り抜けるべきか判断してください。
 %%%%
 tutorial2 downstairs
 
-よく出来ました！休憩をとって体力を全回復させてから、
-<input>$cmd[CMD_GO_DOWNSTAIRS]</input>で次の階層へ移動してください。
+# Well done! After resting to full health continue to the next level with
+# <input>$cmd[CMD_GO_DOWNSTAIRS]</input><localtiles> or by <input>clicking</input>
+# on your character</localtiles>.
+よくできました！ 休憩をとって体力を全回復させてから、
+<input>$cmd[CMD_GO_DOWNSTAIRS]</input><localtiles>もしくはプレイヤーキャラを<input>クリック</input></localtiles>で次の階層へ移動してください。
 %%%%
 tutorial2 newlevel
 
-<input>$cmd[CMD_REPLAY_MESSAGES]</input>で前のメッセージを読み返すことができます、
-お忘れなく。
+# Remember: You can reread old messages with
+# <input>$cmd[CMD_REPLAY_MESSAGES]</input>.
+<input>$cmd[CMD_REPLAY_MESSAGES]</input>で前のメッセージを読み返すことができることをお忘れなく。
 %%%%
-tutorial2 darts
+tutorial2 tomahawks
 
-さて、次は遠距離攻撃についてです! <input>$cmd[CMD_PICKUP]</input>
+# Now, for ranged combat! Pick up these tomahawks with
+# <input>$cmd[CMD_PICKUP]</input> or <input>g</input><localtiles>, or by
+# <input>mouseclick</input>,</localtiles> and continue.
+さて、次は遠距離攻撃についてです！ <input>$cmd[CMD_PICKUP]</input> または<input>g</input>
 <localtiles>または<input>マウスクリック</input>
-</localtiles>で投げ矢を拾ってから先へ進んでください。
+</localtiles>でトマホークを拾ってから先へ進んでください。
 %%%%
 tutorial2 throwing
 
-<input>$cmd[CMD_FIRE]</input>を押して、
-<localtiles>または持ち物欄の投げ矢を<input>クリック</input>して</localtiles>モンスターに投げ矢を発射することができます。
+# You can fire your tomahawks at a monster with <input>$cmd[CMD_FIRE]</input>
+# <localtiles> or by <input>clicking</input> on them in the inventory
+# panel</localtiles>. To confirm the auto-targeted monster, press
+# <input>$cmd[CMD_TARGET_SELECT]</input> or <input>Enter</input>.
+<input>$cmd[CMD_FIRE]</input>を押
+<localtiles>す、もしくは持ち物欄のトマホークを<input>クリック</input>して</localtiles>モンスターにトマホークを投擲することができます。
 自動で選択されたモンスターに発射する場合、
 <input>$cmd[CMD_TARGET_SELECT]</input>または<input>Enter</input>を押してください。
 %%%%
 tutorial2 wield_bow
 
-弓を拾い、<input>$cmd[CMD_WIELD_WEAPON]</input>
+# Pick up this shortbow and wield it with <input>$cmd[CMD_WIELD_WEAPON]</input>
+# <localtiles> or by <input>mouseclick</input></localtiles>.
+ショートボウを拾い、<input>$cmd[CMD_WIELD_WEAPON]</input>
 <localtiles>または<input>マウスクリック</input></localtiles>で装備してください。
 %%%%
 tutorial2 firing
 
-装備した弓を用いて矢を打ち出すことは投げ矢を投げることと同様に<input>$cmd[CMD_FIRE]</input>
+# Firing arrows from your wielded shortbow works exactly the same as throwing tomahawks:
+# via <input>$cmd[CMD_FIRE]</input><localtiles> or <input>mouseclick</input>
+# </localtiles>. You can change the targeted monster by pressing
+# <input>$cmd[CMD_TARGET_CYCLE_FORWARD]</input> while in target mode. The worm is
+# harmless behind the lava, so concentrate on the dummy which can fire at you.
+# Again, confirm your choice with <input>$cmd[CMD_TARGET_SELECT]</input> or
+# <input>Enter</input>.
+装備した弓を用いて矢を打ち出すことはトマホークを投げることと同様に<input>$cmd[CMD_FIRE]</input>
 <localtiles>、または<input>クリック</input></localtiles> から行います。
-ターゲットモード中に<input>$cmd[CMD_TARGET_CYCLE_FORWARD]</input>を押すことで、
-対象になるモンスターを変更することが出来ます。
+照準モード中に<input>$cmd[CMD_TARGET_CYCLE_FORWARD]</input>を押すことで、
+対象になるモンスターを変更することができます。
 ワームは溶岩の先にいて無害ですので、
 あなたに攻撃してくるダミーに集中して攻撃しましょう。
-攻撃を開始するには<input>$cmd[CMD_TARGET_SELECT]</input>、
+選択中の敵を実際に攻撃するには<input>$cmd[CMD_TARGET_SELECT]</input>、
 または<input>Enter</input>を押して下さい。
 %%%%
 tutorial2 travel_reminder
 
+# Remember that you can autoexplore using <input>$cmd[CMD_EXPLORE]</input>.
 <input>$cmd[CMD_EXPLORE]</input>で自動探索ができることを覚えておきましょう。
 %%%%
 tutorial2 explore
 
-出口を探せ!<input>$cmd[CMD_EXPLORE]</input>で自動探索ができます。
+# Find the exit! Remember that you can autoexplore using
+# <input>$cmd[CMD_EXPLORE]</input>.
+出口を探しましょう！ <input>$cmd[CMD_EXPLORE]</input>で自動探索ができます。
 %%%%
 tutorial2 tutorial_end
 
-おめでとうございます!あなたはモンスターの群れから生き延びました!
-チュートリアルを終了するには階段を降りて下さい。
+# Congratulations! You've survived your first batch of monsters! To exit the
+# tutorial, simply go down these stairs.
+おめでとうございます！ あなたはモンスターの群れから生き延びました！
+チュートリアルを終了するには階段を降りてください。
 %%%%
 tutorial2 exit
 
+# <yellow>Weapons<console> <cyan>)</cyan></console></yellow>
+#   <input>$cmd[CMD_PICKUP]</input>  pick up an item
+#   <input>$cmd[CMD_WIELD_WEAPON]</input>  wield a weapon<localtiles>
+#   You can also do this by <input>clicking</input> on the weapon in your inventory.</localtiles>
+
+# <yellow>Monsters</yellow><localtiles>
+#   <input>mouseover</input>  examine a monster
+#   <input>rightclick</input> read a more detailed description</localtiles><nomouse>
+#   <input>$cmd[CMD_LOOK_AROUND]</input>  examine a monster
+#   <input>$cmd[CMD_LOOK_AROUND]$cmd[CMD_TARGET_DESCRIBE]</input> read a more detailed description</nomouse>
+#   <input>$cmd[CMD_FIRE]$cmd[CMD_TARGET_SELECT]</input> fire ammunition at pre-targeted monster
+#   <input>$cmd[CMD_FIRE]$cmd[CMD_TARGET_CYCLE_FORWARD]</input> target another monster<localtiles>
+#   You can also fire an item by <input>clicking</input> on it and the confirming the target with <input>Enter</input>.</localtiles>
+
+# <yellow>Resting</yellow>
+#   <input>$cmd[CMD_WAIT]</input>  wait and rest a single turn
+#   <input>$cmd[CMD_REST]</input>  wait and rest up to 100 turns
+
+# <yellow>Corpses<console> <brown>%</brown></console></yellow>
+#   <input>$cmd[CMD_BUTCHER]</input>  chop a corpse into meat chunks
+#   <input>$cmd[CMD_EAT]</input>  eat a chunk of meat
+
+#                                  <cyan>Press <input>any key</input> to clear this screen...</cyan>
 :nowrap
 <yellow>武器<console> <cyan>)</cyan></console></yellow>
   <input>$cmd[CMD_PICKUP]</input>  アイテムを拾う
