@@ -8,20 +8,21 @@ Centaur
 Deep Dwarf
 
 # Deep Dwarves live underground and cannot regenerate health naturally, but they
-# are very resilient to damage and carry tools to heal.
+# are very resilient to damage, and carry a wand of healing.
 闇ドワーフは地下深くに住み、自然に治癒することができない。
-しかし彼らはとても損傷に強く、傷を治す道具を持っている。
+しかし彼らはとても損傷に強く、そして癒しのワンドを持っている。
 %%%%
 Deep Elf
 
-# The most magic-affine elf, but also the most fragile.
-魔法の使用に熟達しているエルフだが、非常に軟弱である。
+# Deep Elves have a strong affinity for all kinds of magic, but are very fragile.
+闇エルフはすべての種類の魔術に親和性があるが、とても体が貧弱だ。
 %%%%
 Demigod
 
-# They will never follow a god, but Demigods make up for this with divine
-# attributes and health.
-この種族は決して神を信奉しないが、並外れた能力値と体力でそれを補っている。
+# Demigods refuse to worship any god, but make up for this with divine attributes
+# and high reserves of health and magic.
+神々の末裔は他の神を信仰することを拒むが、そのかわり強大な能力値を持ち、
+体力や魔力の容量が大きい。
 %%%%
 Demonspawn
 
@@ -39,9 +40,9 @@ Draconian
 %%%%
 Felid
 
-# These many-lived cats possess sentience, but are incapable of advanced item
-# manipulation or the use of armour or weapons.
-優れた知覚を持ち、何度も生き返る猫だ。しかし高度な道具や武器、
+# Felids are many-lived cats possessing sentience. They are incapable of advanced
+# item manipulation or the use of armour or weapons.
+フェリッドは優れた知覚を持ち、何度も生き返る猫だ。しかし高度な道具や武器、
 防具を扱うことができない。
 %%%%
 Formicid
@@ -53,15 +54,17 @@ Formicid
 %%%%
 Ghoul
 
-# An undead, damned to rot eternally. They are always looking for meaty chunks to
-# eat, hacking away with their claws.
-永遠なる腐敗を宣告されたアンデッドだ。彼らは常に腐った食料を探し回り、
-その鉤爪で切り刻む。
+# Ghouls are undead creatures, damned to rot eternally. They have sharp claws,
+# and they feed on decaying flesh to sustain themselves.
+永遠なる腐敗を宣告されたアンデッドだ。
+彼らは鋭い爪を持ち、自らの体を維持するために腐肉を食らう。
 %%%%
 Gargoyle
 
 # Made of living stone, Gargoyles have a preternatural affinity for the earth.
+# They have low health, but their stone bodies are incredibly tough.
 ガーゴイルは生ける石で作られており、大地と異常なまでの親和性を持つ。
+彼らの体力はやや少ないが、その石の体は信じがたいほど丈夫だ。
 %%%%
 Halfling
 
@@ -72,8 +75,9 @@ Halfling
 %%%%
 High Elf
 
-# Proud elves, who can cast spells as well as they can fight with the sword.
-呪文の詠唱だけでなく剣を持って戦うことができる、誇り高きエルフだ。
+# High Elves are adept with blades and with many schools of magic, and have high
+# attributes.
+ハイエルフは剣と数多の種類の魔術に長け、なおかつ高い能力値を持つ。
 %%%%
 Hill Orc
 
@@ -84,8 +88,8 @@ Hill Orc
 %%%%
 Human
 
-# Mundane and average.
-普通で平凡な種族だ。
+# Humans advance quickly in levels and have equal abilities in most skills.
+人間は経験レベルの上昇が早く、ほとんどのスキルについて得手不得手がない。
 %%%%
 Kobold
 
@@ -101,22 +105,24 @@ Merfolk
 %%%%
 Minotaur
 
-# A large muscular human with the head of a bull. They excel at all forms of
-# close and ranged combat.
-雄牛の頭を持つ、巨大で力強い人型生物だ。
-彼らはあらゆる近接・射撃による戦闘に優れている。
+# Minotaurs are large muscular humans with bovine heads. They excel at all forms
+# of close and ranged combat.
+ミノタウロスは屈強な人間の体に牛の頭がついた種族だ。
+彼らはあらゆる近接および遠隔手段による戦闘に優れている。
 %%%%
 Mummy
 
-# An undead figure covered in bandages and embalming fluids, compelled to walk by
-# an ancient curse.
-包帯と防腐液に覆われたアンデッドの姿だ。それは古代の呪いによって動かされている。
+# Compelled to walk by an ancient curse, Mummies are adept at Necromancy but
+# learn other skills very slowly. They are unable to consume any food or potions.
+古代の呪いによって動かされているミイラは死霊術に長けているが、他のスキルを
+習得するのはとても遅い。
+ミイラは食べ物や飲み物を一切口にできない。
 %%%%
 Naga
 
-# A hybrid; human from the chest up, with a scaly, muscular torso trailing off
-# like that of a snake. They move slowly but are naturally resilient.
-胸から上が人間で、下半身は鱗のある蛇のような混血種だ。
+# Nagas are hybrids; human from the chest up, with a scaly, muscular torso
+# trailing off like that of a snake. They move slowly but are naturally resilient.
+ナーガは胸から上が人間で、下半身は鱗のある蛇のような混血種だ。
 彼らの移動は遅いが、生まれつき頑強である。
 %%%%
 Octopode
@@ -128,31 +134,31 @@ Octopode
 %%%%
 Ogre
 
-# Large and strong, they're mostly seen as brutes. Ogres are very comfortable
+# Large and strong, Ogres are mostly seen as brutes. They are very comfortable
 # with the basics of magic, however.
-巨大で力強く、ほとんど獣のように思われている。
+巨大で力強いオーガはほとんど獣のように思われている。
 しかしオーガは魔術の基礎に精通している。
 %%%%
 Spriggan
 
-# Very small, very frail and very fast. Spriggans make highly competent stabbers
+# Very small, very frail and very fast, Spriggans make highly competent stabbers
 # and spellcasters.
 とても小さく、とても虚弱で、とてもすばしっこい種族だ。
 スプリガンは暗殺や呪文詠唱に優れている。
 %%%%
 Tengu
 
-# Bird-people who love to fight, both with weapons and spells. They are quite
-# fragile, but they learn to fly swiftly later on.
-戦いを好む鳥人間で、武器も呪文も扱う。彼らはずいぶん軟弱だが、
-後に高速な飛行を習得する。
+# Tengu are bird-people who love to fight, both with weapons and spells. They are
+# quite fragile, but they learn to fly swiftly later on.
+天狗は戦いを好む鳥人間で、武器も呪文も扱う。
+彼らの体はずいぶん貧弱だが、後に高速な飛行を習得する。
 %%%%
 Troll
 
-# Large brutes, ready to maim anything with their claws, never thinking twice.
-# They're always hungry.
-トロルは巨大で凶暴で、躊躇うことなく全てを鉤爪で引き裂こうとしている。
-彼らは常に空腹である。
+# Trolls are large brutes with powerful claws, always hungering for raw meat.
+# They regenerate health rapidly.
+トロルは巨大で凶暴で、ためらうことなく全てを鉤爪で引き裂こうとしている。
+彼らの体は急速に傷を回復する。
 %%%%
 Vampire
 
