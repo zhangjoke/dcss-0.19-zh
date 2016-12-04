@@ -1927,7 +1927,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         text += letter;
         text += " - ";
 
-        text += sp2nbsp(maps[i]->desc_or_name());
+        text += sp2nbsp(jtrans(maps[i]->desc_or_name()));
         text = chop_string(text, padding_width);
 
         tmp->set_text(text);
