@@ -1,130 +1,219 @@
 %%%%
 tutorial intro
 
+# You can reread all messages at any time with
+# <input>$cmd[CMD_REPLAY_MESSAGES]</input>. Also, press <input>Space</input>
+# <localtiles> or <input>left click</input> with mouse</localtiles> to clear the
+# <cyan>--more--</cyan> prompts.
 <input>$cmd[CMD_REPLAY_MESSAGES]</input>
 でいつでもメッセージを読み返すことができます。そして、
-<cyan>--more--</cyan>表示を<input>Space</input>を押してクリアしてください。
+<cyan>--more--</cyan> が表示された場合、<input>Space</input>を押してメッセージ送りしてください。
 %%%%
+##############################################
+# Tutorial map 1: Movement and exploration   #
+##############################################
 tutorial1 start
 
+# In this lesson you're going to learn how to move around and explore a level.
+# You can move <localtiles>by clicking somewhere with your <input>Mouse</input>,
+# or </localtiles>with the <input>arrow keys</input>.
 このレッスンでは移動の方法と階層の探索について学んでもらいます。
-あなたは任意の地点<localtiles>を<input>マウス</input>でクリックするか、
-任意の方向<localtiles>に<input>矢印キー</input>を使って移動出来ます。
+あなたは<localtiles>任意の地点を<input>マウス</input>でクリックするか、
+</localtiles>任意の方向に<input>矢印キー</input>を使って移動できます。
 %%%%
 tutorial1 go_on
 
-素晴らしい!では次の青いパネルまでもう少し探索を続けてください。
+# You're doing great! Now, explore a bit until you reach the next blue square.
+すばらしい！ では次の青いパネルまでもう少し探索を続けてください。
 %%%%
 tutorial1 diagonal
 
-:nowrap
-あなたは<input>テンキー</input> (Numlockキーで切り替え)または、<input>viキー</input> を使って斜め方向に移動できます。
+# You can move diagonally with the <input>number pad</input> (try Numlock on/off)<localtiles>,</localtiles> <console>or the </console><input>vi keys</input><console>.</console><localtiles>, or <input>mouse</input>.</localtiles>
 
-  テンキー:     <w>7 8 9</w>             viキー:   <w>$cmd[CMD_MOVE_UP_LEFT] $cmd[CMD_MOVE_UP] $cmd[CMD_MOVE_UP_RIGHT]</w>
+#   Numpad:     <w>7 8 9</w>       vi-keys: <w>   $cmd[CMD_MOVE_UP_LEFT] $cmd[CMD_MOVE_UP] $cmd[CMD_MOVE_UP_RIGHT]</w><localtiles>    Mouse:     <w>click</w> on the floor</localtiles>
+#                \|/                     \|/
+#               <w>4</w>-<w>.</w>-<w>6</w> <w>                  $cmd[CMD_MOVE_LEFT]</w>-<w>.</w>-<w>$cmd[CMD_MOVE_RIGHT]</w>
+#                /|\                     /|\
+#               <w>1 2 3</w> <w>                  $cmd[CMD_MOVE_DOWN_LEFT] $cmd[CMD_MOVE_DOWN] $cmd[CMD_MOVE_DOWN_RIGHT]</w>
+:nowrap
+あなたは<input>テンキー</input> (Numlockキーで切り替え)または、<input>viライクキー</input> を使って斜め方向にも移動できます。
+
+  テンキー:     <w>7 8 9</w>       viライクキー:   <w>$cmd[CMD_MOVE_UP_LEFT] $cmd[CMD_MOVE_UP] $cmd[CMD_MOVE_UP_RIGHT]</w>
                  \|/                         \|/
                 <w>4</w>-<w>.</w>-<w>6</w> <w>                      $cmd[CMD_MOVE_LEFT]</w>-<w>.</w>-<w>$cmd[CMD_MOVE_RIGHT]</w>
                  /|\                         /|\
                 <w>1 2 3</w> <w>                      $cmd[CMD_MOVE_DOWN_LEFT] $cmd[CMD_MOVE_DOWN] $cmd[CMD_MOVE_DOWN_RIGHT]</w>
 
-<localtiles>同様に<input>マウスクリック</input>でも移動することが可能です</localtiles>
+<localtiles>同様に<input>マウスクリック</input>でも移動することが可能です。</localtiles>
 %%%%
 tutorial1 shiftmove
 
+# A quicker way to “run” through a corridor is to press <input>Shift</input>
+# along with the <input>number pad</input> (try Numlock on/off) or <input>vi
+# keys</input>.
 通路を素早く『走って』移動するには<input>Shift</input>を押しながら、
-<input>テンキー</input>(Numlockキーで切り替え)、
-または<input>viキー</input>を押してください。
+<input>テンキー</input> (Numlockキーで切り替え)、
+または<input>viライクキー</input>を押してください。
 %%%%
 tutorial1 downstairs
 
-下り階段の上に立っているとき、<input>$cmd[CMD_GO_DOWNSTAIRS]</input>
-<localtiles> を押すか、
-キャラクターの上で<input>Shift+クリック</input>を押すことで次の階層へ移動します。
+# When standing on a staircase leading downwards, you can enter the next level
+# with <input>$cmd[CMD_GO_DOWNSTAIRS]</input><localtiles> or with
+# a <input>left click</input> on your character</localtiles>.
+下り階段のところに立っているとき、<input>$cmd[CMD_GO_DOWNSTAIRS]</input>を押<localtiles>すか、プレイヤーキャラの上で<input>Shift+クリック</input></localtiles>して一つ下の階層へ移動します。
 %%%%
 tutorial1 levelmap
 
-これは何事だ？あなたが何処にいるかを知るには、
+# What's this? To find out where you are, <tiles>have a look at the
+# <w>minimap</w> to the right of the screen.</tiles><localtiles> You can have a
+# closer look at a part of the map with a <input>right mouse click</input> and
+# also can travel there with a <input>left click</input>.</localtiles><webtiles>
+# You can </webtiles><nomouse>enter the overmap view with
+# <input>$cmd[CMD_DISPLAY_MAP]</input> and then move the cursor around to look
+# around the level. You also can travel wherever your cursor is pointing by
+# pressing <input>.</input> or <input>Enter</input>. Press <input>Escape</input>
+# to return to the normal game mode.</nomouse>
+いったい何事でしょうか？ あなたがどこにいるかを知るには、
 <tiles>画面右の<w>ミニマップ</w>を見てください。</tiles>
 <localtiles>あなたはマップを<input>右クリック</input>で詳細に見ることができ、
 <input>左クリック</input>で指定した地点までトラベルすることができます。
-</localtiles><webtiles></webtiles>
- <nomouse><input>$cmd[CMD_DISPLAY_MAP]</input>で階層マップが閲覧でき、
-カーソルを動かしてマップを見渡すことができます。<input>.</input>、
-または<input>Enter</input>を押すことで、
-カーソルのある地点までトラベルすることもできます。
-<input>Escape</input>を押すと通常のゲームモードに戻ります。</nomouse>
+</localtiles>
+<webtiles></webtiles>
+<nomouse><input>$cmd[CMD_DISPLAY_MAP]</input>で階層マップが閲覧でき、
+カーソルを動かしてマップを見渡すことができます。
+<input>.</input>、または<input>Enter</input>を押すことで、
+カーソルのある地点まで自動的に移動することもできます。
+<input>Esc</input>を押すと通常のゲームモードに戻ります。</nomouse>
 %%%%
 tutorial1 autoexplore
 
+# Exploring manually can get tedious after a while, so you might want to let that
+# happen automatically. Try it by pressing <input>$cmd[CMD_EXPLORE]</input>
+# <localtiles>, or by clicking on 'autoexplore', the first button in the command
+# bar below the minimap.</localtiles>.
 ゲームに慣れてくると手動での探索が面倒に思えて、
 自動で探索できないものかと思うかもしれません。
-<input>$cmd[CMD_EXPLORE]</input>を押して見てください。
+<input>$cmd[CMD_EXPLORE]</input><localtiles>を押すか、ミニマップ下部のコマンドバーの
+最初にある'自動探索'ボタン</localtiles>を押してみてください。
 %%%%
 tutorial1 exclusion
 
-幾らかの危険な地形は <w>exclusions</w> でマークされています。
-自動探索では<localtiles>(<input>マウスクリック</input>も含めて!)
-</localtiles>除外エリアに侵入することはできません。
+# Some dangerous ground is marked with <w>exclusions</w>. Autotravel
+# <localtiles>(including <input>mouseclick</input>!) </localtiles>will not lead
+# you into exclusions. Instead you will automatically stop.
+
+# However, autoexplore will move you safely around exclusions: so, you can safely
+# continue by pressing <input>$cmd[CMD_EXPLORE]</input>.
+いくつかの危険な地形は<w>自動移動除外エリア</w>としてマークされています。
+自動探索では<localtiles>(<input>マウスクリック</input>も含めて！)
+</localtiles>除外エリアに侵入することはできず、その場で停止することとなります。
 
 しかし、自動探索では安全に除外エリア付近を移動するので、
-もう一度<input>$cmd[CMD_EXPLORE]</input>を押して探索を続けてください。
+もう一度<input>$cmd[CMD_EXPLORE]</input>を押して自動探索を続行できます。
 %%%%
 tutorial1 autoexplore_announce
 
-自動探索は施設やアイテムの存在を知らせるため停止することがあります。
+# Autoexplore will stop when you first see items or dungeon features, like these
+# stairs. To travel directly to the stairs, you can
+# <localtiles><input>click</input> on them; or you can </localtiles>press
+# <input>$cmd[CMD_DISPLAY_MAP]</input> to enter the map overview, then
+# <input><<</input> to move the cursor to the nearest up-stairs, and
+# <input>Enter</input> to go there.
+自動探索はこのような階段を発見した際に停止することがあります。
 階段へ直接移動するには、<localtiles>階段を<input>クリック</input>するか、
-</localtiles><input>$cmd[CMD_DISPLAY_MAP] << Enter</input>を押してください。
+</localtiles><input>$cmd[CMD_DISPLAY_MAP]</input>で全体マップを開き、
+<input><<</input>でカーソルを最寄りの階段に合わせ、<input>Enter または .</input>を押して移動を開始してください。
 %%%%
 tutorial1 tutorial_end
 
+# Congratulations! You've completed the first lesson!
+
+# To exit the tutorial, simply go up these stairs with
+# <input>$cmd[CMD_GO_UPSTAIRS]</input><localtiles> or by
+# <input>left clicking</input> on your character</localtiles>. Confirm the
+# resulting prompt with an uppercase <input>Y</input>.
 おめでとう！あなたは最初のレッスンをやり遂げました！
 
 チュートリアルを終了するには、<input>$cmd[CMD_GO_UPSTAIRS]</input>
-<localtiles>か、キャラクターの上で<input>Shift+クリック</input>
+<localtiles>か、プレイヤーキャラの上で<input>Shift+クリック</input>
 </localtiles>で階段を上ってください。
 その際に現れる入力プロンプトには大文字の<input>Y</input>を入力してください。
 %%%%
 tutorial1 newlevel
 
-新しい階層へようこそ！まずは右手のドアの先へ行きましょう。
+# A new level! To begin with, head over to that door to the right.
+
+# Also, remember: You can reread old messages with
+# <input>$cmd[CMD_REPLAY_MESSAGES]</input>.
+新しい階層へようこそ！ まずは右手のドアの先へ行きましょう。
 
 <input>$cmd[CMD_REPLAY_MESSAGES]</input>で前のメッセージを読み返せることも覚えておいてください。
 %%%%
 tutorial1 door
 
+# You can open a closed door by walking into it.
 閉じたドアはその方向へ移動することによって開けることが可能です。
 %%%%
 tutorial1 close_door
 
+# To close an open door, press <input>$cmd[CMD_CLOSE_DOOR]</input>.
 開いたドアを閉じるには、<input>$cmd[CMD_CLOSE_DOOR]</input> を押してください。
 %%%%
 tutorial1 water
 
+# Note how you can move through shallow but not through deep water.
 浅い水たまりは歩いて渡れますが、
 深い水は渡ることができないことに注意してください。
 %%%%
 tutorial1 upstairs
 
-上り階段の上に立っているとき、<input>$cmd[CMD_GO_UPSTAIRS]</input>
-<localtiles>を押す、
-またはキャラクターの上で<input>Shift+クリック</input>を押すことで次の階層へ移動します。
+# When standing on a staircase leading upwards, you can enter the previous level
+# with <input>$cmd[CMD_GO_UPSTAIRS]</input><localtiles> or by
+# <input>left clicking</input> on your character</localtiles>.
+上り階段のところに立っているときに<input>$cmd[CMD_GO_UPSTAIRS]</input>を押<localtiles>すか、プレイヤーキャラの上で<input>Shift+クリック</input></localtiles>して一つ上の階層へ移動します。
 %%%%
 tutorial1 exit
 
+# <yellow>Movement commands</yellow>
+#    Numpad:       <w>7 8 9</w>           vi-keys:    <w>$cmd[CMD_MOVE_UP_LEFT] $cmd[CMD_MOVE_UP] $cmd[CMD_MOVE_UP_RIGHT]</w>
+#                   \|/                         \|/
+#                  <w>4</w>-<w>.</w>-<w>6</w>                       <w>$cmd[CMD_MOVE_LEFT]</w>-<w>.</w>-<w>$cmd[CMD_MOVE_RIGHT]</w>
+#                   /|\                         /|\
+#                  <w>1 2 3</w>                       <w>$cmd[CMD_MOVE_DOWN_LEFT] $cmd[CMD_MOVE_DOWN] $cmd[CMD_MOVE_DOWN_RIGHT]</w>
+
+#   <input>Shift + direction</input> moves you several squares in this direction.<localtiles>
+#   You also can move by <input>clicking</input> somewhere in sight or on the <w>minimap</w>.</localtiles>
+
+# <yellow>Staircases</yellow>
+#   <input>$cmd[CMD_GO_UPSTAIRS]</input>  go back to the previous level
+#   <input>$cmd[CMD_GO_DOWNSTAIRS]</input>  enter the next level
+#   <input>$cmd[CMD_DISPLAY_MAP]></input>/<input>$cmd[CMD_DISPLAY_MAP]<<</input> travel to the nearest up/downstairs
+
+# <yellow>Doors</yellow>
+#   can be opened by walking into them
+#   <input>$cmd[CMD_CLOSE_DOOR]</input>  close an open door
+
+# <yellow>Travel</yellow><localtiles>
+#   mouseclick on the <w>minimap</w></localtiles><nomouse>
+#   <input>$cmd[CMD_DISPLAY_MAP]</input>  enter the level map, travel with <input>Enter</input></nomouse>
+#   <input>$cmd[CMD_EXPLORE]</input>  autoexplore
+
+#                                 <cyan>Press <input>any key</input> to clear this screen...</cyan>
 :nowrap
 <yellow>移動コマンド</yellow>
-  テンキー:      <w>7 8 9</w>             viキー:   <w>$cmd[CMD_MOVE_UP_LEFT] $cmd[CMD_MOVE_UP] $cmd[CMD_MOVE_UP_RIGHT]</w>
+  テンキー:      <w>7 8 9</w>       viライクキー:   <w>$cmd[CMD_MOVE_UP_LEFT] $cmd[CMD_MOVE_UP] $cmd[CMD_MOVE_UP_RIGHT]</w>
                   \|/                         \|/
                  <w>4</w>-<w>.</w>-<w>6</w>                       <w>$cmd[CMD_MOVE_LEFT]</w>-<w>.</w>-<w>$cmd[CMD_MOVE_RIGHT]</w>
                   /|\                         /|\
                  <w>1 2 3</w>                       <w>$cmd[CMD_MOVE_DOWN_LEFT] $cmd[CMD_MOVE_DOWN] $cmd[CMD_MOVE_DOWN_RIGHT]</w>
 
-  <input>Shift + 方向</input> は指定した方向へ数マス移動します。<localtiles>
-  視界内の任意の地点や <input>ミニマップ</input> を <input>クリック</input> しても移動出来ます。</localtiles>
+  <input>Shift + 方向</input> で指定した方向へ何マスか移動します。<localtiles>
+  視界内の任意の地点や <input>ミニマップ</input> を <input>クリック</input> しても移動できます。</localtiles>
 
 <yellow>階段</yellow>
-  <input>$cmd[CMD_GO_UPSTAIRS]</input>  上の階層へ移動する
-  <input>$cmd[CMD_GO_DOWNSTAIRS]</input>  次の階層へ移動する
-  <input>$cmd[CMD_DISPLAY_MAP]></input>/<input>$cmd[CMD_DISPLAY_MAP]<<</input>  最寄りの階段へトラベル
+  <input>$cmd[CMD_GO_UPSTAIRS]</input>  一つ上の階層へ移動する
+  <input>$cmd[CMD_GO_DOWNSTAIRS]</input>  一つ下の階層へ移動する
+  <input>$cmd[CMD_DISPLAY_MAP]></input>/<input>$cmd[CMD_DISPLAY_MAP]<<</input>  最寄りの階段へ自動移動
 
 <yellow>ドア</yellow>
   ドアのある方向に移動することで開く
@@ -132,7 +221,7 @@ tutorial1 exit
 
 <yellow>トラベル</yellow><localtiles>
   <input>ミニマップ</input>上をクリック</localtiles><nomouse>
-  <input>$cmd[CMD_DISPLAY_MAP]</input>  階層マップを開き、<input>Enter</input>でトラベル</nomouse>
+  <input>$cmd[CMD_DISPLAY_MAP]</input>  階層マップを開き、<input>Enter</input>で自動移動</nomouse>
   <input>$cmd[CMD_EXPLORE]</input>  自動探索
 
                                  <cyan>この画面は <input>任意のキー</input> を押すと終了します...</cyan>
