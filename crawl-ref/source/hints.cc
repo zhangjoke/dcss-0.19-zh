@@ -4046,7 +4046,7 @@ void tutorial_msg(const char *key, bool end)
     text = untag_tiles_console(text);
 
     if (end)
-        screen_end_game(text);
+        screen_end_game(sp2nbsp(text));
 
     // "\n" to preserve indented parts, the rest is unwrapped, or split into
     // paragraphs by "\n\n", split_string() will ignore the empty line.
