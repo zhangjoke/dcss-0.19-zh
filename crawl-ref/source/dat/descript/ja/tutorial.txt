@@ -741,124 +741,188 @@ tutorial3 exit
 
                                  <cyan>この画面は <input>任意のキー</input> を押すと終了します...</cyan>
 %%%%
+##############################################
+# Tutorial map 4: Magic and Spellcasting     #
+##############################################
 tutorial4 start
 
+# In this lesson you're going to learn how to memorize and cast spells.
 このレッスンでは魔法の記憶と詠唱の方法を学んでいきます。
+%%%%
+tutorial4 spellbook
+
+# You can memorise a spell from a carried spellbook with
+# <input>$cmd[CMD_MEMORISE_SPELL]</input><localtiles> or by
+# <input>clicking</input> on the memorisation tab and selecting the spell
+# tile</localtiles>. At experience level 1, only level 1 spells are available to
+# you. This will change as you gain experience.
+<input>$cmd[CMD_MEMORISE_SPELL]</input>を押<localtiles>すか、呪文記憶タブの中の目的の呪文アイコンを<input>クリック</input></localtiles>して所持している魔法書から呪文を習得することができます。
+レベル1の状態では、呪文レベル1の呪文しか利用できません。経験を積むにしたがって覚えられる量が増えていきます。
 %%%%
 tutorial4 spellcasting
 
- <input>$cmd[CMD_CAST_SPELL]</input><localtiles>
-または呪文タイルを<input>クリック</input>
-</localtiles>で呪文を唱えることができます。
-<input>$cmd[CMD_CAST_SPELL]</input>で覚えている呪文の一覧を参照できます。
+# You can cast spells with <input>$cmd[CMD_CAST_SPELL]</input><localtiles> or by
+# <input>clicking</input> on the spell tile</localtiles>. Press
+# <input>$cmd[CMD_CAST_SPELL]?</input> to get a list of your spells.
 
-魔力が足りなくなってしまった場合は安全な場所に退避して、
-<input>$cmd[CMD_REST]</input>
-<localtiles>またはコマンドパネル内の休息アイコンを<input>クリック</input>して</localtiles>休息を取りましょう。
+# Once you are out of magic points, retreat and rest to regain them with
+# <input>$cmd[CMD_REST]</input><localtiles> or by <input>clicking</input> the
+# rest icon in the command panel</localtiles>.
+<input>$cmd[CMD_CAST_SPELL]</input>を押<localtiles>すか、呪文タイルを<input>クリック</input></localtiles>して呪文を唱えることができます。
+<input>$cmd[CMD_CAST_SPELL]?</input>で覚えている呪文の一覧を参照できます。
+
+魔力が足りなくなってしまった場合は安全な場所に退避して<input>$cmd[CMD_REST]</input>を押<localtiles>すか、コマンドパネルの休息アイコンを<input>クリック</input></localtiles>して休息をとりましょう。
 %%%%
 tutorial4 ring_power
 
-この指輪を<input>$cmd[CMD_WEAR_JEWELLERY]</input>で<localtiles>
-またはインベントリ内で<input>クリック</input>して</localtiles>装備し、
-新たな力を存分に振るえるよう休息をとってください。
+# Put on this ring with <input>$cmd[CMD_WEAR_JEWELLERY]</input><localtiles> or
+# by <input>clicking</input> it in the inventory panel</localtiles>, and then
+# rest up to your new full potential.
+<input>$cmd[CMD_WEAR_JEWELLERY]</input>を押<localtiles>すか、インベントリパネルの指輪アイコンを<input>クリック</input></localtiles>してこの指輪を装備し、新たに増えた力を存分に振るえるよう休息をとってください。
 %%%%
 tutorial4 undead
 
-他のモンスターとは違い、アンデッドは体力が回復することがなく、
-彼らがどれほどの傷を負っているのか確かめることはできません。
-<localtiles>話しは変わりますが、
-モンスターの上で<input>Ctrl+クリック</input>を押すことでも呪文を唱えることができます。
-</localtiles>
+# Unlike most monsters, zombies and skeletons do not regenerate health.
+# <localtiles> You can also attempt to re-cast the last spell you used by
+# pressing <input>Ctrl+leftclick</input> on the monster.</localtiles>
+他のモンスターとは違い、アンデッドは体力が回復することがありません。
+<localtiles>モンスターの上で<input>Ctrl+クリック</input>を押すことで、最後に唱えた呪文を再度唱えることができます。</localtiles>
 %%%%
 tutorial4 spell_success
 
-<input>$cmd[CMD_DISPLAY_SPELLS]</input><localtiles> 、
-または覚えている呪文に<input>マウスオーバー</input>
-</localtiles>であなたの呪文の熟練度を知ることが出来ます。
+# To check your spell proficiency, press <input>$cmd[CMD_DISPLAY_SPELLS]</input>
+# <localtiles> or <input>mouseover</input> over your memorised
+# spells</localtiles>. Compare your spell failure rates before and after wielding
+# this staff.
+<input>$cmd[CMD_DISPLAY_SPELLS]</input>を押<localtiles>すか、覚えている呪文に<input>マウスオーバー</input></localtiles>してあなたの呪文の熟練度を知ることができます。
 この杖を装備する前と後の呪文の成功率を比べてみてください。
 %%%%
 tutorial4 mephitic_cloud
 
-悪臭の雲はレベル3の呪文なので、あなたはまだ覚えることができません。
-すぐにレベルを上げるため、
-たくさんのトレーニング用のかかしが用意されています-今回は投擲用の石は無しです。
+# Mephitic Cloud is a level 3 spell, so you can't memorise it yet. To level up
+# quickly, here are more training dummies — without stones to throw this time.
 
-レベル3になると、ステータスを1つ強化することができます-<input>I</input>を押して、
-知力を選ぶことは呪文詠唱の更なる助けになります。
+# At experience level 3, you'll be able to increase one of your stats — choosing
+# <input>I</input>ntelligence will help your spellcasting even further.
+悪臭の雲はレベル3の呪文なので、あなたはまだ覚えることができません。
+すぐにレベルを上げるため、たくさんのトレーニング用ダミーが用意されています――今回は投擲用の石はありません。
+
+レベル3になると、能力値をどれか一つ強化することができます――<input>I</input>を押して、知力を選ぶことで呪文詠唱のさらなる助けとなります。
 %%%%
 tutorial4 meph_reminder
 
-<input>$cmd[CMD_MEMORISE_SPELL]</input>を押す<localtiles>、
-または呪文の記憶タブを<input>クリック</input>して、
-覚えたい呪文のタイルを選ぶことで</localtiles>、
-新たに使えるようになった呪文を記憶することを忘れずに!
+# Don't forget to memorise your newly-available spell, by pressing
+# <input>$cmd[CMD_MEMORISE_SPELL]</input><localtiles> or by
+# <input>clicking</input> on the memorisation tab and selecting the spell
+# tile</localtiles>!
+<input>$cmd[CMD_MEMORISE_SPELL]</input>を押<localtiles>すか、
+呪文の記憶タブを<input>クリック</input>した後覚えたい呪文のタイルを選択</localtiles>して、
+新たに使えるようになった呪文を記憶することを忘れずに！
 %%%%
 tutorial4 aiming_clouds
 
-悪臭の雲は詠唱すると範囲内を有害なガスで覆い、
+# Mephitic Cloud covers an area in noxious fumes when cast, and you'll be able to
+# see the area it affects as you target it. Try to catch multiple enemies in a
+# single cloud in order to be more efficient with your magic.
+悪臭の雲は詠唱すると一定の範囲内を有害なガスで覆い、
 その範囲は狙いをつける際に知ることができます。魔法を効率よく使うために、
 一発の雲で多くの敵を巻き込んでみましょう。
 %%%%
 tutorial4 spell_hunger
 
+# Spellcasting can make you really hungry. Spell hunger is higher for more
+# difficult spells and can be reduced by high intelligence and by training the
+# Spellcasting skill.
 呪文の詠唱はあなたをとても空腹にします。
-呪文詠唱に伴う栄養消費は難しい呪文になるほど多くなり、
-これは高い知力と呪文詠唱スキルを鍛えることによって緩和することができます。
+呪文詠唱に伴う栄養消費は難しい呪文になるほど多くなり、これは高い知力と呪文詠唱スキルを鍛えることによって緩和することができます。
 %%%%
 tutorial4 forget_spell
 
+# Gaining an experience level and raising your Spellcasting skill gives you spell
+# slots to spend on spells. You can also <w>forget a memorised spell</w> to make
+# space for a new one. The easiest way to do this is with a scroll of amnesia.
+# Simply read the scroll (with <input>$cmd[CMD_READ]</input><localtiles> or by
+# <input>clicking</input> on it</localtiles>), and then select the spell you want
+# to forget.
 経験レベルと呪文詠唱スキルが上昇することで呪文を記憶するための記憶容量を得ることができます。
-新たな呪文を記憶するために<input>呪文を忘れる</input> ことも可能です。
+記憶容量を空けて新たな呪文を記憶するために<input>呪文を忘れる</input>ことも可能です。
 呪文を忘れる最も簡単な手段は忘却の巻物を使用することです。
-巻物を読み(<input>$cmd[CMD_READ]</input><localtiles>、
-または忘却の巻物を<input>クリック</input>して</localtiles>)、
-忘れたい呪文を選択してください。
+巻物を読み(<input>$cmd[CMD_READ]</input><localtiles>を押すか、または忘却の巻物を<input>クリック</input></localtiles>)、忘れたい呪文を選択してください。
 %%%%
 tutorial4 memorise2
 
-繰り返しになりますが、<input>$cmd[CMD_MEMORISE_SPELL]</input><localtiles>、
-または呪文の記憶タブを<input>クリック</input>して呪文を選択</localtiles>で新たに呪文を記憶することができます。
+# Again, memorise a new spell with <input>$cmd[CMD_MEMORISE_SPELL]</input>
+# <localtiles> or by <input>clicking</input> on the memorisation tab and
+# selecting the spell tile</localtiles>. And then raise yourself an undead army!
+繰り返しになりますが、<input>$cmd[CMD_MEMORISE_SPELL]</input>を押<localtiles>すか、呪文の記憶タブを<input>クリック</input>した後呪文を選択</localtiles>して新たに呪文を記憶することができます。
 するとあなたはアンデッドの軍勢を得ることができます!
 %%%%
 tutorial4 displace_allies
 
-あなたのしもべのいる方向へ向かって移動することで自分と位置を交換することができることにはお気づきですか?
-とりわけ、友好的なモンスターと位置を入れ替えることは戦いから逃げる良い手段です。
+# Did you notice you can swap positions with your allies by moving into them?
+# Among other things, displacing a friendly creature can be a good way to escape
+# a fight.
+あなたの下僕のいる方向へ向かって移動することで自分と位置を交換することができることにはお気づきですか？
+とりわけ、友好的なモンスターと位置を入れ替えることは戦闘を避ける良い手段です。
 %%%%
 tutorial4 order_allies
 
-しもべに敵を殺害させてみましょう!必要であれば、
-<input>$cmd[CMD_SHOUT]</input>でしもべに命令することができます。
-この門を開ける前に<input>$cmd[CMD_WAIT]</input>で待機してしもべがあなたに追いつくまで待つこともできます。
+# Try to let your allies do the killing! If necessary, you can order them about
+# with <input>$cmd[CMD_SHOUT]</input>. Before opening this gate, you may want to
+# wait with <input>$cmd[CMD_WAIT]</input> until your allies have caught
+# up with you.
+下僕に敵を殺させてみましょう！
+必要であれば、<input>$cmd[CMD_SHOUT]</input>で下僕に命令することができます。
+この門を開ける前に<input>$cmd[CMD_WAIT]</input>で待機して下僕があなたに追いつくまで待つこともできます。
 %%%%
 tutorial4 heavy_armour
 
-重い鎧は呪文の詠唱を大きく阻害します。試しに鎧と盾を身につけ(
-<input>$cmd[CMD_WEAR_ARMOUR]</input><localtiles>、
-または装備したいアイテムを<input>クリック</input></localtiles>)、
-<input>$cmd[CMD_DISPLAY_SPELLS]</input><localtiles>、
-または記憶している呪文に<input>マウスオーバー</input>
-</localtiles>で呪文の成功率を比較してみて下さい。
-<input>$cmd[CMD_REMOVE_ARMOUR]</input><localtiles>、
-または<input>クリック</input></localtiles>で装備を外すことができます。
+# Heavy armour really hampers spellcasting. Try putting on that mail and shield
+# (with <input>$cmd[CMD_WEAR_ARMOUR]</input><localtiles> or by
+# <input>clicking</input> on them</localtiles>), and compare your spellcasting
+# failure rates with <input>$cmd[CMD_DISPLAY_SPELLS]</input><localtiles> or by
+# <input>mouseovering</input> your memorised spells</localtiles>. You can take
+# armour off again with <input>$cmd[CMD_REMOVE_ARMOUR]</input><localtiles> or,
+# again, via <input>mouseclick</input></localtiles>.
+重い鎧は呪文の詠唱を大きく阻害します。試しに鎧と盾を身につけ(<input>$cmd[CMD_WEAR_ARMOUR]</input><localtiles>を押すか、装備したいアイテムを<input>クリック</input></localtiles>)、
+<input>$cmd[CMD_DISPLAY_SPELLS]</input>を押<localtiles>すか、記憶している呪文に<input>マウスオーバー</input></localtiles>して呪文の成功率を比較してみてください。
+<input>$cmd[CMD_REMOVE_ARMOUR]</input>を押<localtiles>すか、<input>クリック</input></localtiles>して装備を外すことができます。
 %%%%
 tutorial4 resting_reminder
 
-新たなエリアに入る前に体力と魔力をしっかりと最大まで回復しておきましょう。
-必要であれば、<input>$cmd[CMD_REST]</input><localtiles>、
-またはコマンドパネルの休憩タブを<input>クリック</input>
-</localtiles>で休息を取りましょう。
+# Make sure you are at full health and magic points before entering a new area.
+# If necessary, rest up with <input>$cmd[CMD_REST]</input><localtiles> or by
+# <input>mouseclick</input> in the command panel</localtiles>.
 
-また、アンデッドは呼吸をしませんので、
-しもべに影響を与えることなく悪臭の雲を使用することができます。
+# Also, undead don't breathe, so you can cast Mephitic Cloud without harming your
+# allies.
+新たなエリアに入る前に体力と魔力をしっかりと最大まで回復しておきましょう。
+必要であれば、<input>$cmd[CMD_REST]</input>を押<localtiles>すか、コマンドパネルの休憩アイコンを<input>クリック</input></localtiles>して休息をとりましょう。
+
+また、アンデッドは呼吸をしませんので、下僕を害することなく悪臭の雲を使用することができます。
 %%%%
 tutorial4 tutorial_end
 
-おめでとうございます、
-あなたはもう立派な魔法使いです!チュートリアルを終了するには階段を降りてください。
+# Congratulations, you're a real wizard now! To exit the tutorial, simply go down
+# these stairs.
+おめでとうございます、あなたはもう立派な魔法使いです！
+チュートリアルを終了するには階段を降りてください。
 %%%%
 tutorial4 exit
 
+# <yellow>Spellcasting commands</yellow>
+#   <input>$cmd[CMD_MEMORISE_SPELL]</input>  learn a new spell
+#   <input>$cmd[CMD_DISPLAY_SPELLS]</input>  check spell proficiency
+#   <input>$cmd[CMD_CAST_SPELL]</input>  cast a spell<localtiles>
+#   You can also learn new spells via the <w>memorisation tab</w>.
+#   You can cast memorised spells via <input>leftclick</input>, and read their descriptions and check your spell proficiency by <input>mouseover</input> or <input>rightclick</input></localtiles>
+
+#   <input>$cmd[CMD_READ]</input>  read a book to see spell descriptions
+#   <input>$cmd[CMD_REST]</input>  rest up to 100 turns to regain magic points and health
+#   <input>$cmd[CMD_SHOUT]</input>  order allies
+#   <input>$cmd[CMD_REMOVE_ARMOUR]</input>  take off armour
+
+#                                  <cyan>Press <input>any key</input> to clear this screen...</cyan>
 :nowrap
 <yellow>魔法コマンド</yellow>
   <input>$cmd[CMD_MEMORISE_SPELL]</input>  新たに呪文を記憶する
@@ -871,7 +935,7 @@ tutorial4 exit
 
   <input>$cmd[CMD_READ]</input>  魔法書の説明文を読む、忘却の巻物で呪文を忘れる
   <input>$cmd[CMD_REST]</input>  100ターン休息して魔力と体力を回復させる。
-  <input>$cmd[CMD_SHOUT]</input>  しもべに命令する
+  <input>$cmd[CMD_SHOUT]</input>  下僕に命令する
   <input>$cmd[CMD_REMOVE_ARMOUR]</input>  防具を外す
 
 
