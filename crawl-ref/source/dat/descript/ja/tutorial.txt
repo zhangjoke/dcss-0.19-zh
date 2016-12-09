@@ -941,100 +941,147 @@ tutorial4 exit
 
                                  <cyan>この画面は<w>任意のキー</w>を押すと終了します...</cyan>
 %%%%
+##############################################
+# Tutorial map 5: Gods and divine abilities  #
+##############################################
 tutorial5 start
 
+# In this lesson you're going to learn about gods and how to use their powers.
 このレッスンでは神々とその能力の使い方について学んでいきましょう。
 %%%%
 tutorial5 dungeon_overview
 
-この先にあるのは怒れるトログの祭壇です。トログは数多くいる神々の一柱です。
-実際のゲームでは、<input>$cmd[CMD_DISPLAY_OVERMAP]</input><localtiles>、
-またはコマンドパネル内の <input>ダンジョン全体図ボタンをクリック</input>
-</localtiles>からそれまでに発見した全ての祭壇や施設の一覧を見ることができます。
+# Up ahead is an altar to Trog the Wrathful! Trog is just one of many gods. In a
+# real game, you can check <input>$cmd[CMD_DISPLAY_OVERMAP]</input><localtiles>
+# or <input>click the dungeon overmap button</input> in the command
+# panel</localtiles> for a list of all altars and other interesting features
+# found so far.
+この先にあるのは怒れるトログの祭壇です！ トログは数多くいる神々の一柱です。
+実際のゲームでは、<input>$cmd[CMD_DISPLAY_OVERMAP]</input>を押<localtiles>すか、コマンドパネル<input>ダンジョン全体図ボタンをクリック</input></localtiles>してそれまでに発見した全ての祭壇や施設の一覧を見ることができます。
 %%%%
 tutorial5 altar
 
-祭壇の上で<input>$cmd[CMD_PRAY]</input>を押すと、<localtiles>
-(または<input>コマンドパネル内をクリック</input>するか、
-キャラクターを<input>Shift-クリック</input>)</localtiles>
-その神があなたにどのような恩恵をもたらすのか知ることができ、
-入信することができます。その画面を表示している際に、
-<input>!</input>を押す<localtiles>、
-または<input>右クリック</input>する</localtiles>ことで、
-あなたの信仰する神についてのより詳細な説明を見ることができます。
+# You can pray on an altar with <input>$cmd[CMD_GO_DOWNSTAIRS]</input>
+# <localtiles> (or by <input>left clicking</input> on your character)</localtiles>
+# to get an idea what a god offers you, and to join the faith. If
+# you press <input>!</input><localtiles> or
+# <input>rightclick</input></localtiles> on the religion screen, you can see a
+# more detailed description.
 
-大文字の<input>Y</input>を押してあなたの選択を確かなものにしてください。
+# Confirm your choice with an uppercase <input>Y</input>.
+祭壇の上で<input>$cmd[CMD_GO_UPSTAIRS] または $cmd[CMD_GO_DOWNSTAIRS]</input>を押す<localtiles>
+(または<input>コマンドパネル内をクリック</input>するか、プレイヤーキャラを<input>Shift-クリック</input>)
+</localtiles>と、その神があなたにどのような恩恵をもたらすのか知ることができ、入信することができます。
+その画面を表示している際に、
+<input>!</input>を押す<localtiles>か、または<input>右クリック</input>する</localtiles>ことで、
+神についてのより詳細な説明を見ることができます。
+
+入信するには大文字の<input>Y</input>を押して決定してください。
 %%%%
 tutorial5 religion
 
-<input>$cmd[CMD_DISPLAY_RELIGION]</input>で現在の信仰を見ることができる<localtiles>(コマンドパネルの<w>religion
-button</w>から、
-またはキャラクターの上で<input>Shift-クリック</input>)</localtiles>。
-加えて<input>!</input><localtiles>または<input>右クリック</input>
-</localtiles>で信仰する神のより詳細な説明を参照することができます。
+# Have a look at your current religious standing with
+# <input>$cmd[CMD_DISPLAY_RELIGION]</input><localtiles> (or via the <w>religion
+# button</w> in the command panel, or by <input>Shift-rightclicking</input> on
+# the player tile)</localtiles>. Again, pressing <input>!</input><localtiles> or
+# <input>rightclicking</input></localtiles> will bring up a more detailed
+# description of your god.
+<input>$cmd[CMD_DISPLAY_RELIGION]</input>で現在の信仰を見ることができます<localtiles>(コマンドパネルの<w>信仰アイコン</w>から、
+またはプレイヤーキャラの上で<input>Shift-右クリック</input>)</localtiles>。
+先程と同様に、<input>!</input><localtiles>または<input>右クリック</input>
+</localtiles>で今信仰している神のより詳細な説明を見ることができます。
 %%%%
 tutorial5 piety_on_kill
 
-幾柱かの神々は彼らの名のもとにおいてのモンスターの殺害を非常に好みます。さぁ、
-虐殺の始まりだ!
-%%%%
-tutorial5 sacrificing
-
-死体の上で<input>$cmd[CMD_PRAY]</input><localtiles>、または<w>command
-panel</w></localtiles>でトログへ供物を捧げることができる。やってみましょう!
+# Some gods really like it if you kill monsters in their name. Let the slaughter
+# begin!
+幾柱かの神々は彼らの名のもとにおいてのモンスターの殺害を非常に好みます。
+さぁ、虐殺の始まりだ！
 %%%%
 tutorial5 burn_book
 
-トログは本を燃やすことを喜ぶだろう(<input>$cmd[CMD_USE_ABILITY]</input>
-<localtiles>または<w>command panel</w></localtiles>)。時には、
-本を燃やす前に(<input>$cmd[CMD_WAIT]</input>で)モンスターが本の上に乗ることを待つことになるだろう。
+# Trog will like it if you burn that book (with
+# <input>$cmd[CMD_USE_ABILITY]</input><localtiles> or via the <w>command
+# panel</w></localtiles>). Sometimes, you might want to wait (with
+# <input>$cmd[CMD_WAIT]</input>) for a monster to step on it before doing
+# so.
+トログは本を燃やす(<input>$cmd[CMD_USE_ABILITY]</input>を押す<localtiles>、または<w>コマンドパネル</w>から選択</localtiles>)ことを喜びます。
+本を燃やす前に(<input>$cmd[CMD_WAIT]</input>で)モンスターが本の上に乗ることを待つのもいいでしょう。
 %%%%
 tutorial5 berserk
 
-特に強力な敵に相対するとき、<input>$cmd[CMD_USE_ABILITY]</input>
-<localtiles>または<w>command
-panel</w>から</localtiles>トログの狂戦士化の力を行使しようと思うに違いない。
+# Against particularly tough foes, you may want to use Trog's Berserk power with
+# <input>$cmd[CMD_USE_ABILITY]</input><localtiles> or via the <w>command
+# panel</w></localtiles>.
+特に強力な敵に対しては、<input>$cmd[CMD_USE_ABILITY]</input>を押<localtiles>すか、
+<w>コマンドパネル</w>からアイコンを選択</localtiles>してトログの狂戦士化の力を行使するのがいいでしょう。
 %%%%
 tutorial5 exhaustion
 
-狂戦士の怒りを使用すると非常に疲労してしまいます。
-疲労している間は狂戦士化することができず、減速もします。
+# A berserker rage is truly exhausting. While fatigued, you cannot berserk again
+# and are also slowed. It's best to rest with <input>$cmd[CMD_REST]</input>
+# <localtiles> (or via the <w>command panel</w>)</localtiles> until you feel fit
+# again.
+バーサークした後は非常に疲労してしまいます。
+疲労している間は再びバーサークすることができず、減速もします。
 <input>$cmd[CMD_REST]</input><localtiles>
-(または<w>コマンドパネル</w>から)</localtiles>で体調がもとに戻るまで休息をとるのが最善でしょう。
+(または<w>コマンドパネル</w>から休息アイコンを選択)</localtiles>で体調がもとに戻るまで休息をとるのが最善でしょう。
 %%%%
 tutorial5 hunger
 
-非常に空腹な状態ではあなたは狂戦士化することができないので、
-常に何らかの食料を持ち歩く必要がある。これは死体を解体して食肉にするか、
-トログへ供物として捧げるかの選択を時に迫られるということだ。
+# Berserking also causes a large amount of hunger. You cannot berserk while very
+# hungry, so you should always carry some food with you.
+バーサークすると満腹度の大幅な消費をも引き起こします。
+満腹度が｢とても空腹｣以下であるとバーサークすることはできないため、常に何らかの食料を持ち歩く必要があります。
 %%%%
 tutorial5 berserk2
 
-狂戦士化は複数の敵を相手にする場合にも非常に有効だ-その効果が無くなるまでの間の話ではあるが。
+# Berserk is also really useful against multiple enemies — as long as you don't
+# run out of steam in-between.
+狂戦士化は複数の敵を相手にする場合にも非常に有効です――その効果が切れるまでの間に限った話ですが。
 %%%%
 tutorial5 tutorial_end
 
-おめでとうございます!あなたは最後のレッスンを終え、
-ゲーム本編をプレイする準備ができました。ご武運を!
+# Congratulations! You've finished the last tutorial lesson and are now ready for
+# the real game. Good luck!
+
+# To exit the tutorial, just go down these stairs.
+おめでとうございます！
+あなたは最後のレッスンを終え、ゲーム本編をプレイする準備ができました。ご武運を！
 
 チュートリアルを終了するには、階段を下りてください。
 %%%%
 tutorial5 exit
 
+# <yellow>Religious commands</yellow>
+#   <input>$cmd[CMD_GO_DOWNSTAIRS]</input>  pray at an altar to join a god
+#   <input>$cmd[CMD_USE_ABILITY]</input>  use a divine ability
+#   <input>$cmd[CMD_DISPLAY_RELIGION]</input>  check your religious standing<localtiles>
+#   A <input>rightclick</input> on the player tile will also bring up the religion screen.</localtiles>
+
+# <yellow>Resting</yellow>
+#   <input>$cmd[CMD_WAIT]</input>  wait and rest a single turn
+#   <input>$cmd[CMD_REST]</input>  wait and rest up to 100 turns
+
+# <yellow>Other commands</yellow>
+#   <input>$cmd[CMD_DISPLAY_OVERMAP]</input> display an overview of the dungeon
+#   <input>$cmd[CMD_DISPLAY_COMMANDS]/</input>  search the description database
+
+#                                  <cyan>Press <input>any key</input> to clear this screen...</cyan>
 :nowrap
 <yellow>信仰関連のコマンド</yellow>
-  <input>$cmd[CMD_PRAY]</input>  祭壇に祈りを捧げ入信する、死体を捧げる
-  <input>$cmd[CMD_USE_ABILITY]</input>  神の力を行使する
-  <input>$cmd[CMD_DISPLAY_RELIGION]</input>  あなたの信仰の評価を確認する<localtiles>
+  <input>$cmd[CMD_GO_UPSTAIRS] または $cmd[CMD_GO_DOWNSTAIRS]</input>  祭壇に祈りを捧げ入信する
+  <input>$cmd[CMD_USE_ABILITY]</input>           神の力を行使する
+  <input>$cmd[CMD_DISPLAY_RELIGION]</input>           あなたの信仰の評価を確認する<localtiles>
   キャラクターを<input>右クリック</input>することでも信仰画面が表示される。</localtiles>
 
 <yellow>休息</yellow>
-  <input>$cmd[CMD_WAIT]</input>  1ターン待機し、休息する
-  <input>$cmd[CMD_REST]</input>  100ターン待機し、休息する
+  <input>$cmd[CMD_WAIT]</input>           1ターン待機し、休息する
+  <input>$cmd[CMD_REST]</input>           100ターン待機し、休息する
 
 <yellow>その他のコマンド</yellow>
-  <input>$cmd[CMD_DISPLAY_OVERMAP]</input> ダンジョンの概観を表示する
-  <input>$cmd[CMD_DISPLAY_COMMANDS]/</input>  解説一覧から探す
+  <input>$cmd[CMD_DISPLAY_OVERMAP]</input>      ダンジョンの概観を表示する
+  <input>$cmd[CMD_DISPLAY_COMMANDS]/</input>          解説一覧から探す
 
                                  <cyan>この画面は<input>任意のキー</input>を押すと終了します...</cyan>
 %%%%
