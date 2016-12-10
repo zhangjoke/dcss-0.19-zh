@@ -1703,6 +1703,12 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
 
         if (Hints.hints_type == HINT_MAGIC_CHAR)
         {
+#ifdef USE_TILE
+            text << jtrans_notrim("\nhint new level magic char use tile");
+#else
+            text << jtrans_notrim("\nhint new level magic char");
+#endif
+            /*
             text << "\nGaining an experience level also lets you learn more "
                     "difficult spells. You can memorise a second spell "
                     "with <w>%</w>"
@@ -1710,12 +1716,18 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
                     ", or by <w>clicking</w> on it in the memorisation tab"
 #endif
                     ".";
+            */
             cmd.push_back(CMD_MEMORISE_SPELL);
         }
         break;
 
     case HINT_SKILL_RAISE:
-
+#ifdef USE_TILE_WEB
+        text << jtrans("hint skill raise use tile web");
+#else
+        text << jtrans("hint skill raise");
+#endif
+        /*
         text << "One of your skills just reached a milestone. The skills you "
                 "use are automatically trained whenever you gain experience, "
                 "by killing monsters. By default, experience goes to skills "
@@ -1726,6 +1738,7 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
                 "<console>type <w>%</w>.</console>"
                 "<tiles>click on the skill tab in the bottom-right.</tiles>";
 #endif
+        */
         cmd.push_back(CMD_DISPLAY_SKILLS);
         break;
 
@@ -1754,6 +1767,8 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
         break;
 
     case HINT_CHOOSE_STAT:
+        text << jtrans("hint choose stat");
+        /*
         text << "Every third level, you get to choose an attribute to raise: "
                 "strength, intelligence, or dexterity.\n"
                 "<w>Strength</w> makes heavy armour less cumbersome and "
@@ -1761,6 +1776,7 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
                 "<w>Intelligence</w> makes your spells more reliable and "
                 "powerful.\n"
                 "<w>Dexterity</w> increases your evasion and stealth.";
+        */
         break;
 
     case HINT_YOU_ENCHANTED:
@@ -1804,14 +1820,20 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
         break;
 
     case HINT_YOU_CURSED:
+        text << jtrans("hint you cursed");
+        /*
         text << "Cursed equipment, once worn or wielded, cannot be dropped or "
                 "removed. Scrolls of remove curse will remove all curses "
                 "from your current equipment.";
+        */
         break;
 
     case HINT_REMOVED_CURSE:
+        text << jtrans("hint removed curse");
+        /*
         text << "The curses on your worn equipment have been removed, so you "
                 "can now unequip any previously cursed items.";
+        */
         break;
 
     case HINT_YOU_HUNGRY:
@@ -1838,6 +1860,12 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
         break;
 
     case HINT_MULTI_PICKUP:
+#ifdef USE_TILE
+        text << jtrans("hint multi pickup use tile");
+#else
+        text << jtrans("hint multi pickup");
+#endif
+        /*
         text << "There are a lot of items here. You choose what to pick up "
                 "from a menu: type <w>%</w> "
 #ifdef USE_TILE
@@ -1845,6 +1873,7 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
 #endif
                 "to enter the pickup menu. To leave the menu, confirm your "
                 "selection with <w>Enter</w>.";
+        */
         cmd.push_back(CMD_PICKUP);
         break;
 
@@ -1957,8 +1986,11 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
         break;
 
     case HINT_HEALING_POTIONS:
+        text << jtrans("hint healing potions");
+        /*
         text << "Your health is getting dangerously low. Retreating and/or "
                 "quaffing a potion of heal wounds or curing might be a good idea.";
+        */
         break;
 
     case HINT_NEED_HEALING:
@@ -2117,6 +2149,12 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
         // tutorial.
         if (you.evokable_flight())
         {
+#ifdef USE_TILE_LOCAL
+            text << jtrans("hint new ability item flying use tile local");
+#else
+            text << jtrans("hint new ability item flying");
+#endif
+            /*
             text << "Flight will allow you to cross deep water or lava. To "
                     "activate it, select the corresponding ability in the "
                     "ability menu (<w>%</w>"
@@ -2126,6 +2164,7 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
                     "). Once flying, keep an eye on the status line and "
                     "messages, as most forms of flight have a limited "
                     "duration.";
+            */
         }
         else
         {
@@ -2140,6 +2179,8 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
         break;
 
     case HINT_ITEM_RESISTANCES:
+        text << jtrans("hint item resistances");
+        /*
         text << "Equipping this item affects your resistances. Check the "
                 "overview screen (<w>%</w>"
 #ifdef USE_TILE_LOCAL
@@ -2148,6 +2189,7 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
 #endif
                 ") for details.";
         cmd.push_back(CMD_RESISTS_SCREEN);
+        */
         break;
 
     case HINT_FLYING:
@@ -2516,6 +2558,8 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
 
         if (!crawl_state.game_is_hints())
         {
+            text << jtrans("hint spell miscast");
+            /*
             text << "Miscasting a spell can have nasty consequences, "
                     "particularly for the more difficult spells. Your chance "
                     "of successfully casting a spell increases with your magic "
@@ -2525,6 +2569,7 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
                     "or mouse over the spell tiles "
 #endif
                     "to check your current failure rates.";
+            */
             cmd.push_back(CMD_DISPLAY_SPELLS);
             break;
         }
@@ -2723,8 +2768,11 @@ void learned_something_new(hints_event_type seen_what, coord_def gc)
         cmd.push_back(CMD_WAIT);
         break;
     case HINT_ANIMATE_CORPSE_SKELETON:
+        text << jtrans("hint animate corpse skeleton");
+        /*
         text << "As long as a monster has a skeleton, Animate Skeleton also "
                 "works on unskeletalized corpses.";
+        */
         break;
     default:
         text << "You've found something new (but I don't know what)!";
