@@ -35,15 +35,13 @@ tutorial1 diagonal
 #                /|\                     /|\
 #               <w>1 2 3</w> <w>                  $cmd[CMD_MOVE_DOWN_LEFT] $cmd[CMD_MOVE_DOWN] $cmd[CMD_MOVE_DOWN_RIGHT]</w>
 :nowrap
-あなたは<input>テンキー</input>(Numlockキーでオンオフ切り替え)または、<input>viライクキー</input>を使って斜め方向にも移動できます。
+あなたは<input>テンキー</input>(Numlockキーでオンオフ切り替え)または、 <input>viライクキー</input><localtiles>、 マウス操作</localtiles>を使って斜め方向にも移動できます。
 
-  テンキー:     <w>7 8 9</w>       viライクキー:   <w>$cmd[CMD_MOVE_UP_LEFT] $cmd[CMD_MOVE_UP] $cmd[CMD_MOVE_UP_RIGHT]</w>
+  テンキー:     <w>7 8 9</w>       viライクキー:   <w>$cmd[CMD_MOVE_UP_LEFT] $cmd[CMD_MOVE_UP] $cmd[CMD_MOVE_UP_RIGHT]</w><localtiles>    マウス操作: 目標の場所の床を<w>クリック</w></localtiles>
                  \|/                         \|/
                 <w>4</w>-<w>.</w>-<w>6</w> <w>                      $cmd[CMD_MOVE_LEFT]</w>-<w>.</w>-<w>$cmd[CMD_MOVE_RIGHT]</w>
                  /|\                         /|\
                 <w>1 2 3</w> <w>                      $cmd[CMD_MOVE_DOWN_LEFT] $cmd[CMD_MOVE_DOWN] $cmd[CMD_MOVE_DOWN_RIGHT]</w>
-
-<localtiles>同様に<input>マウスクリック</input>でも移動することが可能です。</localtiles>
 %%%%
 tutorial1 shiftmove
 
@@ -782,7 +780,7 @@ tutorial4 undead
 # Unlike most monsters, zombies and skeletons do not regenerate health.
 # <localtiles> You can also attempt to re-cast the last spell you used by
 # pressing <input>Ctrl+leftclick</input> on the monster.</localtiles>
-他のモンスターとは違い、 アンデッドは体力が回復することがありません。
+他のモンスターとは違い、 ゾンビや骸骨類は体力が回復することがありません。
 <localtiles>モンスターの上で<input>Ctrl+クリック</input>を押すことで、最後に唱えた呪文を再度唱えることができます。</localtiles>
 %%%%
 tutorial4 spell_success
@@ -938,11 +936,10 @@ tutorial4 exit
 <input>マウスオーバー</input>または<input>右クリック</input>で呪文の説明と熟練度を参照できます。
 </localtiles>
 
-  <input>$cmd[CMD_READ]</input>  魔法書の説明文を読む、忘却の巻物で呪文を忘れる (<w>r</w>ead)
+  <input>$cmd[CMD_READ]</input>  魔法書を読んで呪文の説明文を見る (<w>r</w>ead)
   <input>$cmd[CMD_REST]</input>  100ターン休息して魔力と体力を回復させる。
   <input>$cmd[CMD_SHOUT]</input>  下僕に命令する (<w>t</w>ell)
   <input>$cmd[CMD_REMOVE_ARMOUR]</input>  防具を外す (<w>T</w>ake off)
-
 
                                  <cyan>この画面は <input>任意のキー</input> を押すと終了します...</cyan>
 %%%%
@@ -1076,7 +1073,7 @@ tutorial5 exit
   <input>$cmd[CMD_GO_UPSTAIRS] または $cmd[CMD_GO_DOWNSTAIRS]</input>  祭壇に祈りを捧げ入信する
   <input>$cmd[CMD_USE_ABILITY]</input>           神の力を行使する (<w>a</w>bility)
   <input>$cmd[CMD_DISPLAY_RELIGION]</input>           あなたの信仰の評価を確認する<localtiles>
-  キャラクターを<input>右クリック</input>することでも信仰画面が表示される。</localtiles>
+  キャラクターを<input>右クリック</input>することでも信仰画面が表示されます。</localtiles>
 
 <yellow>休息</yellow>
   <input>$cmd[CMD_WAIT]</input>           1ターン待機し、 休息する
