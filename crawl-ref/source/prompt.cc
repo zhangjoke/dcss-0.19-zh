@@ -8,6 +8,7 @@
 #include "prompt.h"
 
 #include "clua.h"
+#include "database.h"
 #include "delay.h"
 #include "libutil.h"
 #include "macro.h"
@@ -35,7 +36,7 @@ bool yes_or_no(const char* fmt, ...)
     va_end(args);
     buf[sizeof(buf)-1] = 0;
 
-    mprf(MSGCH_PROMPT, "%s (Confirm with \"yes\".) ", buf);
+    mprf(MSGCH_PROMPT, jtrans_notrimc("%s (Confirm with \"yes\".) "), buf);
 
     if (cancellable_get_line(buf, sizeof buf))
         return false;
@@ -62,7 +63,7 @@ bool yesno(const char *str, bool allow_lowercase, int default_answer, bool clear
     if (res == MB_FALSE)
         return false;
 
-    string prompt = make_stringf("%s ", str ? str : "Buggy prompt?");
+    string prompt = make_stringf("%s ", str ? jtransc(str) : "Buggy prompt?");
 
 #ifdef TOUCH_UI
     Popup *pop = new Popup(prompt);
@@ -133,8 +134,8 @@ bool yesno(const char *str, bool allow_lowercase, int default_answer, bool clear
             bool upper = !allow_lowercase
                          && (tmp == 'n' || tmp == 'y'
                              || crawl_state.game_is_hints_tutorial());
-            const string pr = make_stringf("%s[Y]es or [N]o only, please.",
-                                           upper ? "Uppercase " : "");
+            const string pr = make_stringf(jtransc("%s[Y]es or [N]o only, please."),
+                                           jtransc(upper ? "Uppercase " : ""));
 #ifdef TOUCH_UI
             status->text = pr;
 #else
@@ -188,11 +189,11 @@ static string _list_allowed_keys(char yes1, char yes2, bool lowered = false,
                                  bool allow_all = false)
 {
     string result = " [";
-    result += (lowered ? "(y)es" : "(Y)es");
+    result += (lowered ? "(y)はい" : "(Y)はい");
     result += _list_alternative_yes(yes1, yes2, lowered);
+    result += (lowered ? "/(n)いいえ/(q)キャンセル" : "/(N)いいえ/(Q)キャンセル");
     if (allow_all)
-        result += (lowered? "/(a)ll" : "/(A)ll");
-    result += (lowered ? "/(n)o/(q)uit" : "/(N)o/(Q)uit");
+        result += (lowered? "/(a)全部" : "/(A)全部");
     result += "]";
 
     return result;
@@ -210,7 +211,7 @@ int yesnoquit(const char* str, bool allow_lowercase, int default_answer, bool al
     mouse_control mc(MOUSE_MODE_YESNO);
 
     string prompt =
-    make_stringf("%s%s ", str ? str : "Buggy prompt?",
+    make_stringf("%s%s ", str ? jtransc(str) : "Buggy prompt?",
                  _list_allowed_keys(alt_yes, alt_yes2,
                                     allow_lowercase, allow_all).c_str());
     while (true)
@@ -251,8 +252,8 @@ int yesnoquit(const char* str, bool allow_lowercase, int default_answer, bool al
                 bool upper = !allow_lowercase
                              && (tmp == 'n' || tmp == 'y' || tmp == 'a'
                                  || crawl_state.game_is_hints_tutorial());
-                mprf("Choose %s[Y]es%s, [N]o, [Q]uit, or [A]ll!",
-                     upper ? "uppercase " : "",
+                mprf(jtransc("Choose %s[Y]es%s, [N]o, [Q]uit, or [A]ll!"),
+                     jtransc(upper ? "uppercase " : ""),
                      _list_alternative_yes(alt_yes, alt_yes2, false, true).c_str());
             }
         }
@@ -261,8 +262,8 @@ int yesnoquit(const char* str, bool allow_lowercase, int default_answer, bool al
             bool upper = !allow_lowercase
                          && (tmp == 'n' || tmp == 'y'
                              || crawl_state.game_is_hints_tutorial());
-            mprf("%s[Y]es%s, [N]o or [Q]uit only, please.",
-                 upper ? "Uppercase " : "",
+            mprf(jtransc("%s[Y]es%s, [N]o or [Q]uit only, please."),
+                 jtransc(upper ? "Uppercase " : ""),
                  _list_alternative_yes(alt_yes, alt_yes2, false, true).c_str());
         }
     }
@@ -276,7 +277,7 @@ int yesnoquit(const char* str, bool allow_lowercase, int default_answer, bool al
  *         0 if the user escaped;
  *         the number chosen otherwise.
  */
-int prompt_for_quantity(const char *prompt)
+int prompt_for_quantity(const string &prompt)
 {
     msgwin_prompt(prompt);
 
@@ -298,11 +299,11 @@ int prompt_for_quantity(const char *prompt)
  *               if false, the sentinel is 0.
  * @return the chosen number, or the chosen sentinel value.
  */
-int prompt_for_int(const char *prompt, bool nonneg)
+int prompt_for_int(const string &prompt, bool nonneg)
 {
     char specs[80];
 
-    msgwin_get_line(prompt, specs, sizeof(specs));
+    msgwin_get_line(jtrans(prompt), specs, sizeof(specs));
 
     if (specs[0] == '\0')
         return nonneg ? -1 : 0;
@@ -316,7 +317,7 @@ int prompt_for_int(const char *prompt, bool nonneg)
     return ret;
 }
 
-double prompt_for_float(const char* prompt)
+double prompt_for_float(const string &prompt)
 {
     char specs[80];
 
