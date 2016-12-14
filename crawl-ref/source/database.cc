@@ -210,6 +210,7 @@ static TextDB AllDBs[] =
            "jtrans_jewellery_name.txt",
            "jtrans_rune_name.txt",
            "jtrans_misc_name.txt",
+           "jtrans_book_name.txt",
 
            /*
            "jtrans_duration_data.txt",
