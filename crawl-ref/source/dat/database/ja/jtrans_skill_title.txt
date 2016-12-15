@@ -793,14 +793,6 @@ Shapeless @Genus@
 
 クルーザー級
 %%%%
-[title]Middle
-
-ミドル級
-%%%%
-[title]Light
-
-ライト級
-%%%%
 [title]Feather
 
 フェザー級
@@ -809,17 +801,33 @@ Shapeless @Genus@
 
 フライ級
 %%%%
-[title]Bacteria
+[title]Light
 
-バクテリア級
+ライト級
+%%%%
+[title]Middle
+
+ミドル級
 %%%%
 [title]Adventurer
 
 冒険者
 %%%%
+[title]Worldbinder
+
+世界を束ねし者
+%%%%
+[title]Planerender
+
+次元を引き裂く者
+%%%%
 [title]Blademaster
 
 剣豪
+%%%%
+[title]Blood Saint
+
+血塗られし聖者
 %%%%
 [title]Master Archer
 
