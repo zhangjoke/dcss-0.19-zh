@@ -599,9 +599,9 @@
 
 秘呪に通じる者
 %%%%
-[title]Soothsayer
+# [title]Soothsayer
 
-予言者
+# Nemelexと重複
 %%%%
 [title]Seer
 

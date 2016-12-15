@@ -11,9 +11,9 @@
 
 戦士
 %%%%
-[title]Warrior
+# [title]Warrior
 
-勇士
+# Okawaru信仰称号と重複
 %%%%
 [title]Slayer
 
@@ -715,9 +715,9 @@ Shapeless @Genus@
 
 異端者
 %%%%
-[title]Apostate
+# [title]Apostate
 
-背教者
+# Beogh信仰称号と重複
 %%%%
 [skill]Evocations
 
