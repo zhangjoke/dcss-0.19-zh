@@ -198,6 +198,7 @@ static TextDB AllDBs[] =
            "jtrans_character.txt",
            "jtrans_monster_name.txt",
            "jtrans_skill_title.txt",
+           "jtrans_divine_title.txt",
            "jtrans_weapon_name.txt",
            "jtrans_armour_name.txt",
            "jtrans_missile_name.txt",
