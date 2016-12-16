@@ -309,7 +309,7 @@
 %%%%
 [title]Intangible
 
-無形の者
+捉えがたき者
 %%%%
 [skill]Stealth
 
@@ -357,7 +357,7 @@
 %%%%
 [title]@Adj@ Barricade
 
-@Adj@の防塞
+@Adj@の防護壁
 %%%%
 [skill]Unarmed Combat
 
@@ -437,7 +437,7 @@
 %%%%
 [title]Vexing
 
-敵対者
+悩ませる者
 %%%%
 [title]Jinx
 
@@ -461,7 +461,7 @@
 %%%%
 [title]Charmwright
 
-秘術師
+魔除け職人
 %%%%
 [title]Infuser
 
@@ -569,7 +569,7 @@
 %%%%
 [title]Malleable
 
-変身術師
+形無き者
 %%%%
 Shapeless @Genus@
 
@@ -613,7 +613,7 @@ Shapeless @Genus@
 %%%%
 [title]Gelid
 
-氷の魔術師
+凍てつく者
 %%%%
 [title]Cryomancer
 
@@ -746,19 +746,19 @@ Shapeless @Genus@
 # Unarmed Combat (martial arts)
 [title]Insei
 
-門弟
+入門者
 %%%%
 [title]Martial Artist
 
-有段者
+門弟
 %%%%
 [title]Black Belt
 
-師範代
+有段者
 %%%%
 [title]Sensei
 
-達人
+師範代
 %%%%
 [title]Grand Master
 
