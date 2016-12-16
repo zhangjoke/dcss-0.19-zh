@@ -767,10 +767,12 @@ very ugly thing
 fire vortex
 
 炎の渦
+# (無印)ファイアボルテックスから変更
 %%%%
 spatial vortex
 
 時空の渦
+# (無印)時空ボルテックスから変更
 %%%%
 spatial maelstrom
 
@@ -882,6 +884,7 @@ ghost moth
 moth of wrath
 
 憤怒せる蛾
+# (無印)忿怒せる蛾から変更
 %%%%
 # 'z'
 wight
@@ -891,6 +894,7 @@ wight
 skeletal warrior
 
 骸骨の戦士
+# (無印)骸骨戦士から変更
 %%%%
 ancient champion
 
@@ -1282,7 +1286,8 @@ two-headed ogre
 %%%%
 ogre mage
 
-オーガメイジ
+オーガの魔術師
+# (無印)オーガメイジから変更
 %%%%
 # 'P'
 plant
@@ -1440,15 +1445,18 @@ deep troll shaman
 # 'V'
 vampire
 
-ヴァンパイア
+吸血鬼
+# (無印)ヴァンパイアから変更
 %%%%
 vampire knight
 
-ヴァンパイアの騎士
+吸血鬼の騎士
+# (無印)ヴァンパイアの騎士から変更
 %%%%
 vampire mage
 
-ヴァンパイアメイジ
+吸血鬼の魔術師
+# (無印)ヴァンパイアメイジから変更
 %%%%
 jiangshi
 
