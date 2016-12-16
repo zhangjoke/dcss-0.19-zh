@@ -104,7 +104,7 @@ static string _char_description(const newgame_def& ng)
     else if (_is_random_job(ng.job))
     {
         const string j = jtrans(ng.job == JOB_RANDOM ? "Random {species}" : "Viable {species}");
-        return make_stringf(j.c_str(), jtransc(species_name(ng.species)));
+        return make_stringf(j.c_str(), species_name_jc(ng.species));
     }
     else if (_is_random_species(ng.species))
     {
@@ -113,7 +113,7 @@ static string _char_description(const newgame_def& ng)
     }
     else
         return make_stringf(jtransc("{species} {job}"),
-                            jtransc(species_name(ng.species)),
+                            species_name_jc(ng.species),
                             tagged_jtransc("[job]", get_job_name(ng.job)));
 }
 
@@ -121,7 +121,7 @@ static string _welcome(const newgame_def& ng)
 {
     string text;
     if (ng.species != SP_UNKNOWN)
-        text = jtrans(species_name(ng.species));
+        text = species_name_j(ng.species);
     if (ng.job != JOB_UNKNOWN)
     {
         if (!text.empty())
@@ -394,10 +394,10 @@ static bool _reroll_random(newgame_def& ng)
 {
     clrscr();
 
-    string specs = chop_string(species_name(ng.species), 79, false);
+    string specs = chop_string(species_name_j(ng.species), 79, false);
 
     cprintf(jtrans_notrimc("You are a%s %s %s.\n"),
-            jtransc(specs), tagged_jtransc("[job]", get_job_name(ng.job)));
+            specs.c_str(), tagged_jtransc("[job]", get_job_name(ng.job)));
 
     cprintf(sp2nbspc(jtrans_notrim("\nDo you want to play this combination? (ynq) [y]")));
     char c = getchm();
@@ -582,10 +582,10 @@ bool choose_game(newgame_def& ng, newgame_def& choice,
     {
         clrscr();
 
-        string specs = chop_string(species_name(ng.species), 79, false);
+        string specs = chop_string(species_name_j(ng.species), 79, false);
 
         cprintf(jtrans_notrimc("You are a%s %s %s.\n"),
-                jtransc(specs), taggged_jtransc("[job]", get_job_name(ng.job)));
+                specs.c_str(), taggged_jtransc("[job]", get_job_name(ng.job)));
 
         enter_player_name(choice);
         ng.name = choice.name;
@@ -699,7 +699,7 @@ static void _construct_species_menu(const newgame_def& ng,
         }
         text = index_to_letter(pos);
         text += " - ";
-        text += jtrans(species_name(species));
+        text += species_name_j(species);
         tmp->set_text(text);
         ASSERT(pos < items_in_column * 3);
         min_coord.x = X_MARGIN + (pos / items_in_column) * COLUMN_WIDTH;

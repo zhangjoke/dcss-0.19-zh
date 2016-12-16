@@ -33,6 +33,8 @@ enum species_name_type
     SPNAME_ADJ
 };
 string species_name(species_type speci, species_name_type spname = SPNAME_PLAIN);
+#define species_name_j(sp) (tagged_jtrans("[spec name]", species_name(sp)))
+#define species_name_jc(sp) (species_name_j(sp).c_str())
 species_type str_to_species(const string &species);
 string species_walking_verb(species_type sp);
 const vector<string>& fake_mutations(species_type species, bool terse);

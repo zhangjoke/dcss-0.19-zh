@@ -1,0 +1,105 @@
+%%%%
+[spec name]Centaur
+
+<centaur>
+%%%%
+[spec name]Deep Dwarf
+
+<deep dwarf>
+%%%%
+[spec name]Deep Elf
+
+闇エルフ
+%%%%
+[spec name]Demigod
+
+<demigod>
+%%%%
+[spec name]Demonspawn
+
+<demonspawn>
+%%%%
+[spec name]Draconian
+
+<draconian>
+%%%%
+[spec name]Formicid
+
+<formicid>
+%%%%
+[spec name]Felid
+
+<felid>
+%%%%
+[spec name]Ghoul
+
+<ghoul>
+%%%%
+[spec name]Gargoyle
+
+<gargoyle>
+%%%%
+[spec name]Halfling
+
+<halfling>
+%%%%
+[spec name]High Elf
+
+ハイエルフ
+%%%%
+[spec name]Hill Orc
+
+丘オーク
+%%%%
+[spec name]Human
+
+<human>
+%%%%
+[spec name]Kobold
+
+<kobold>
+%%%%
+[spec name]Merfolk
+
+<merfolk>
+%%%%
+[spec name]Minotaur
+
+<minotaur>
+%%%%
+[spec name]Mummy
+
+<mummy>
+%%%%
+[spec name]Naga
+
+<naga>
+%%%%
+[spec name]Octopode
+
+<octopode>
+%%%%
+[spec name]Ogre
+
+<ogre>
+%%%%
+[spec name]Spriggan
+
+<spriggan>
+%%%%
+[spec name]Tengu
+
+<tengu>
+%%%%
+[spec name]Troll
+
+<troll>
+%%%%
+[spec name]Vampire
+
+<vampire>
+%%%%
+[spec name]Vine Stalker
+
+<vine stalker>
+%%%%
