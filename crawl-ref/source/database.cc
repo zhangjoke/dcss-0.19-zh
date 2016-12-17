@@ -1041,12 +1041,12 @@ bool jtrans_has_key(const string &key)
     return (jtrans(key) != key);
 }
 
-string tagged_jtrans(const string &tag, const string& key, bool linefeed)
+string tagged_jtrans(const string &prefix, const string &key, const string &suffix)
 {
-    if (jtrans_has_key(tag + key))
-        return jtrans(tag + key, linefeed);
+    if (jtrans_has_key(prefix + key + suffix))
+        return jtrans(prefix + key + suffix);
     else
-        return jtrans(key, linefeed);
+        return jtrans(key);
 }
 
 string jtrans_notrim(const string &key)
