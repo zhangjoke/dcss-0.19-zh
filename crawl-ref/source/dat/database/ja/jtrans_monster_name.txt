@@ -154,7 +154,7 @@ draconian knight
 %%%%
 draconian scorcher
 
-ドラコニアンの魔道士
+ドラコニアンの焼却者
 %%%%
 # 'e'
 elf
@@ -327,7 +327,7 @@ spriggan
 %%%%
 spriggan rider
 
-スプリガンの乗り手
+スプリガンの騎手
 %%%%
 spriggan druid
 
@@ -339,7 +339,7 @@ spriggan berserker
 %%%%
 spriggan air mage
 
-スプリガンの風の精霊使い
+スプリガンの風術師
 %%%%
 spriggan defender
 
@@ -414,7 +414,7 @@ merfolk javelineer
 %%%%
 merfolk aquamancer
 
-水棲の民の占水術師
+水棲の民の水占術師
 %%%%
 siren
 
@@ -1248,7 +1248,7 @@ snaplasher vine segment
 # 'S'
 snake
 
-蛇
+ヘビ
 %%%%
 ball python
 
@@ -1301,7 +1301,7 @@ deep troll
 %%%%
 deep troll earth mage
 
-洞窟トロルの地霊術師
+洞窟トロルの地術師
 %%%%
 deep troll shaman
 
@@ -1387,7 +1387,7 @@ large abomination
 %%%%
 thrashing horror
 
-のたうち回る恐怖
+のたうつ恐怖
 %%%%
 tentacled monstrosity
 
@@ -1534,7 +1534,7 @@ salamander mystic
 # '@'
 Hellbinder
 
-地獄に繋がれしもの
+地獄を束ねしもの
 %%%%
 Cloud Mage
 
@@ -1610,7 +1610,7 @@ black sun
 # '5'
 crimson imp
 
-インプ
+赤インプ
 %%%%
 quasit
 
@@ -1929,7 +1929,7 @@ the Lernaean hydra
 %%%%
 Lernaean hydra
 
-『レルネーのヒドラ』
+<the Lernaean hydra>
 %%%%
 the Serpent of Hell
 
@@ -1937,7 +1937,7 @@ the Serpent of Hell
 %%%%
 Serpent of Hell
 
-『地獄のサーペント』
+<the Serpent of Hell>
 %%%%
 Duvessa
 
@@ -1953,7 +1953,7 @@ Fannar
 %%%%
 Prince Ribbit
 
-『王子リビット』
+『リビット王子』
 %%%%
 Ijyb
 
