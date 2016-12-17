@@ -10,6 +10,7 @@ int strwidth(const char *s);
 int strwidth(const string &s);
 string chop_string(const char *s, int width, bool spaces = true);
 string chop_string(const string &s, int width, bool spaces = true);
+#define chop_stringc(s, w) (chop_string(s, w).c_str())
 string chop_tagged_string(const char *s, int width, bool spaces = true);
 string chop_tagged_string(const string &s, int width, bool spaces = true);
 

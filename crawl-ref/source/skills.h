@@ -79,7 +79,7 @@ string skill_title_by_rank(
     int piety = you.piety);
 unsigned get_skill_rank(unsigned skill_lev);
 
-string player_title(bool the = true);
+string player_title(bool the = false);
 
 skill_type best_skill(skill_type min_skill, skill_type max_skill,
                       skill_type excl_skill = SK_NONE);

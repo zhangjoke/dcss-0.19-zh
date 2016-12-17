@@ -190,6 +190,7 @@ static TextDB AllDBs[] =
            "jtrans_output.txt",
            */
            "jtrans_prompt.txt",
+           "jtrans_skills.txt",
            "jtrans_tutorial.txt",
 
            "jtrans_dat_des_sprint.txt",

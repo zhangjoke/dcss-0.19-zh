@@ -15,6 +15,7 @@
 #include <sstream>
 
 #include "ability.h"
+#include "database.h"
 #include "describe-god.h"
 #include "evoke.h"
 #include "exercise.h"
@@ -33,6 +34,7 @@
 #include "sprint.h"
 #include "state.h"
 #include "stringutil.h"
+#include "unicode.h"
 #include "unwind.h"
 
 // MAX_COST_LIMIT is the maximum XP amount it will cost to raise a skill
@@ -283,22 +285,23 @@ static void _change_skill_level(skill_type exsk, int n)
     // are you drained/crosstrained/ash'd in the relevant skill?
     const bool specify_base = you.skill(exsk, 1) != you.skill(exsk, 1, true);
     if (you.skills[exsk] == MAX_SKILL_LEVEL)
-        mprf(MSGCH_INTRINSIC_GAIN, "You have mastered %s!", skill_name(exsk));
+        mprf(MSGCH_INTRINSIC_GAIN, jtransc("You have mastered %s!"),
+             tagged_jtransc("[skill]", skill_name(exsk)));
     else if (abs(n) == 1 && you.num_turns)
     {
-        mprf(MSGCH_INTRINSIC_GAIN, "Your %s%s skill %s to level %d!",
-             specify_base ? "base " : "",
-             skill_name(exsk), (n > 0) ? "increases" : "decreases",
-             you.skills[exsk]);
+        mprf(MSGCH_INTRINSIC_GAIN, jtransc("Your %s%s skill %s to level %d!"),
+             specify_base ? "補正なしの" : "",
+             tagged_jtransc("[skill]", skill_name(exsk)),
+             you.skills[exsk], jtransc((n > 0) ? "increases" : "decreases"));
     }
     else if (you.num_turns)
     {
-        mprf(MSGCH_INTRINSIC_GAIN, "Your %s%s skill %s %d levels and is now "
-             "at level %d!",
-             specify_base ? "base " : "",
-             skill_name(exsk),
-             (n > 0) ? "gained" : "lost",
-             abs(n), you.skills[exsk]);
+        mprf(MSGCH_INTRINSIC_GAIN, jtransc("Your %s%s skill %s %d levels and is now "
+                                           "at level %d!"),
+             specify_base ? "補正なしの" : "",
+             tagged_jtransc("[skill]", skill_name(exsk)),
+             abs(n), jtransc((n > 0) ? "gained" : "lost"),
+             you.skills[exsk]);
     }
 
     if (you.skills[exsk] == n && n > 0)
@@ -470,7 +473,10 @@ static void _check_abil_skills()
 
 string skill_names(const skill_set &skills)
 {
-    return comma_separated_fn(begin(skills), end(skills), skill_name);
+    //    return comma_separated_fn(begin(skills), end(skills), skill_name);
+    return to_separated_fn(begin(skills), end(skills),
+                           [] (const skill_type &st) { return tagged_jtrans("[skill]", skill_name(st)); },
+                           "・", "・", "・");
 }
 
 static void _check_start_train()
@@ -496,7 +502,7 @@ static void _check_start_train()
             ++it;
 
     if (!skills.empty())
-        mprf("You resume training %s.", skill_names(skills).c_str());
+        mprf(jtransc("You resume training %s."), skill_names(skills).c_str());
 
     you.start_train.clear();
 }
@@ -525,7 +531,7 @@ static void _check_stop_train()
 
     if (!skills.empty())
     {
-        mprf("You stop training %s.", skill_names(skills).c_str());
+        mprf(jtransc("You stop training %s."), skill_names(skills).c_str());
         check_selected_skills();
     }
 
@@ -711,7 +717,7 @@ bool check_selected_skills()
 
     if (trainable_skill)
     {
-        mpr("You need to enable at least one skill for training.");
+        mpr(jtrans("You need to enable at least one skill for training."));
         more();
         reset_training();
         skill_menu();
@@ -722,7 +728,7 @@ bool check_selected_skills()
     if (could_train && !you.received_noskill_warning)
     {
         you.received_noskill_warning = true;
-        mpr("You cannot train any new skill.");
+        mpr(jtrans("You cannot train any new skill."));
     }
 
     return false;
@@ -1316,16 +1322,16 @@ string skill_title_by_rank(skill_type best_skill, uint8_t skill_rank,
 
     const map<string, string> replacements =
     {
-        { "Adj", species_name(species, SPNAME_ADJ) },
-        { "Genus", species_name(species, SPNAME_GENUS) },
-        { "genus", lowercase_string(species_name(species, SPNAME_GENUS)) },
-        { "Genus_Short", species == SP_DEMIGOD ? "God" :
-                           species_name(species, SPNAME_GENUS) },
-        { "Walker", species_walking_verb(species) + "er" },
-        { "Weight", _stk_weight(species) },
+        { "Adj", species_adj_j(species, SPNAME_ADJ) },
+        { "Genus", species_genus_j(species, SPNAME_GENUS) },
+        { "genus", species_genus_j(species, SPNAME_GENUS) },
+        { "Genus_Short", species == SP_DEMIGOD ? jtrans("God") :
+                           species_genus_j(species, SPNAME_GENUS) },
+        { "Walker", jtrans(species_walking_verb(species)) + jtrans("er") },
+        { "Weight", tagged_jtrans("[title]", _stk_weight(species)) },
     };
 
-    return replace_keys(result, replacements);
+    return replace_keys(tagged_jtrans("[title]", result), replacements);
 }
 
 /** What is the player's current title.
@@ -1614,22 +1620,24 @@ void dump_skills(string &text)
     {
         int real = you.skill((skill_type)i, 10, true);
         int cur  = you.skill((skill_type)i, 10);
+        string lvl = real == 270 ? "  27" :
+                     real >= 100 ? make_stringf("%.1f", real * 0.1)
+                                 : make_stringf(" %.1f", real * 0.1);
         if (real > 0 || (!you.auto_training && you.train[i] > 0))
         {
-            text += make_stringf(" %c Level %.*f%s %s\n",
+            text += make_stringf(jtrans_notrimc(" %c Level %.*f%s %s\n"),
                                  real == 270       ? 'O' :
                                  !you.can_train[i] ? ' ' :
                                  you.train[i] == 2 ? '*' :
                                  you.train[i]      ? '+' :
                                                      '-',
-                                 real == 270 ? 0 : 1,
-                                 real * 0.1,
+                                 chop_stringc(tagged_jtrans("[skill]", skill_name(static_cast<skill_type>(i))) + "スキル", 16),
+                                 lvl.c_str(),
                                  real != cur
                                      ? make_stringf("(%.*f)",
                                            cur == 270 ? 0 : 1,
                                            cur * 0.1).c_str()
-                                     : "",
-                                 skill_name(static_cast<skill_type>(i)));
+                                 : "");
         }
     }
 }

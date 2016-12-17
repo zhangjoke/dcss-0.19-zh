@@ -1,0 +1,57 @@
+%%%%
+You have mastered %s!
+
+あなたは%sスキルをマスターした！
+%%%%
+Your %s%s skill %s to level %d!
+
+あなたの%s%sスキルはレベル%dに%sした！
+%%%%
+increases
+
+増加
+%%%%
+decreases
+
+減少
+%%%%
+Your %s%s skill %s %d levels and is now at level %d!
+
+あなたの%s%sスキルは%dレベル%sレベル%dになった！
+%%%%
+gained
+
+増えて
+%%%%
+lost
+
+失って
+%%%%
+You resume training %s.
+
+あなたは%sスキルの訓練を再開した。
+%%%%
+You stop training %s.
+
+あなたは%sスキルの訓練を中断した。
+%%%%
+You need to enable at least one skill for training.
+
+あなたは少なくとも一つのスキルを訓練しないといけない。
+%%%%
+You cannot train any new skill.
+
+あなたはこれ以上新たなスキルを訓練することはできない。
+%%%%
+God
+
+神
+%%%%
+er
+
+者
+%%%%
+%c Level %.*f%s %s
+
+%c %-16s %s%sレベル
+%%%%
