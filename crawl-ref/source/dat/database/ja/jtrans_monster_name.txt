@@ -1,4 +1,16 @@
 %%%%
+################################################################
+#   daction.cc
+################################################################
+%%%%
+freed slave
+
+解放奴隷
+%%%%
+################################################################
+#   mon-data.h
+################################################################
+%%%%
 # 'a'
 worker ant
 
@@ -475,10 +487,6 @@ slave
 
 奴隷
 %%%%
-freed slave
-
-解放奴隷
-%%%%
 hell knight
 
 地獄の騎士
@@ -703,14 +711,6 @@ elephant slug
 
 象ナメクジ
 %%%%
-eldritch tentacle
-
-別次元の触手
-%%%%
-eldritch tentacle segment
-
-触手の一部
-%%%%
 # 'x'
 unseen horror
 
@@ -735,10 +735,6 @@ ancient zyme
 worldbinder
 
 ワールドバインダー
-%%%%
-octopode
-
-オクトポード
 %%%%
 # 'y'
 killer bee
@@ -1063,22 +1059,6 @@ merged slime creature
 
 合体したスライム
 %%%%
-large slime creature
-
-大きなスライム
-%%%%
-very large slime creature
-
-とても大きなスライム
-%%%%
-enormous slime creature
-
-巨大なスライム
-%%%%
-titanic slime creature
-
-超巨大なスライム
-%%%%
 azure jelly
 
 紺碧ジェリー
@@ -1162,14 +1142,6 @@ naga warrior
 nagaraja
 
 ナーガの豪族
-%%%%
-salamander
-
-サラマンダー
-%%%%
-salamander mystic
-
-サラマンダーの秘伝者
 %%%%
 # 'O'
 ogre
@@ -1264,6 +1236,7 @@ dryad
 
 ドライアド
 %%%%
+# 'w'
 snaplasher vine
 
 鞭打蔦
@@ -1312,10 +1285,6 @@ shock serpent
 mana viper
 
 マナバイパー
-%%%%
-lava snake
-
-溶岩蛇
 %%%%
 # 'T'
 troll
@@ -1444,18 +1413,6 @@ starcursed mass
 
 呪われし群れ
 %%%%
-kraken
-
-クラーケン
-%%%%
-tentacle
-
-触手
-%%%%
-tentacle segment
-
-触手の一部
-%%%%
 # 'Y'
 dream sheep
 
@@ -1519,6 +1476,37 @@ electric eel
 
 電気ウナギ
 %%%%
+kraken
+
+クラーケン
+%%%%
+tentacle
+
+触手
+%%%%
+tentacle segment
+
+触手の一部
+%%%%
+# 'x'
+octopode
+
+オクトポード
+%%%%
+# 'S'
+lava snake
+
+溶岩蛇
+%%%%
+# 'N'
+salamander
+
+サラマンダー
+%%%%
+salamander mystic
+
+サラマンダーの秘伝者
+%%%%
 # '@'
 Hellbinder
 
@@ -1544,6 +1532,15 @@ dancing weapon
 spectral weapon
 
 幽体の武器
+%%%%
+# 'w'
+eldritch tentacle
+
+別次元の触手
+%%%%
+eldritch tentacle segment
+
+触手の一部
 %%%%
 # '6'
 demonspawn
@@ -1865,32 +1862,7 @@ death cob
 
 殺人トウモロコシ
 %%%%
-sensed monster
-
-感知済のモンスター
-%%%%
-friendly sensed monster
-
-感知済の友好的なモンスター
-%%%%
-trivial sensed monster
-
-感知済の取るに足らないモンスター
-%%%%
-easy sensed monster
-
-感知済の弱いモンスター
-%%%%
-tough sensed monster
-
-感知済の強いモンスター
-%%%%
-nasty sensed monster
-
-感知済の凶悪なモンスター
-%%%%
-############################## unique monsters ##############################
-%%%%
+# unique monsters
 Mennas
 
 『メナス』
@@ -2214,4 +2186,49 @@ Asmodeus
 Ereshkigal
 
 『エレシュキガル』
+%%%%
+# an unspecified monster
+sensed monster
+
+感知済みのモンスター
+%%%%
+friendly sensed monster
+
+感知済みの友好的なモンスター
+%%%%
+trivial sensed monster
+
+感知済みの取るに足らないモンスター
+%%%%
+easy sensed monster
+
+感知済みの弱いモンスター
+%%%%
+tough sensed monster
+
+感知済みの強いモンスター
+%%%%
+nasty sensed monster
+
+感知済みの凶悪なモンスター
+%%%%
+################################################################
+#   mon-info.cc
+################################################################
+%%%%
+large slime creature
+
+大きなスライム
+%%%%
+very large slime creature
+
+とても大きなスライム
+%%%%
+enormous slime creature
+
+巨大なスライム
+%%%%
+titanic slime creature
+
+超巨大なスライム
 %%%%
