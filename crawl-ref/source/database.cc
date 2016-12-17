@@ -1004,6 +1004,14 @@ string getHintString(const string &key)
 
 /////////////////////////////////////////////////////////////////////////////
 // Jtrans DB specific functions.
+
+/**
+ * jtrans(nullptr)しても例外が飛ばないようにするためのワンクッション
+ *
+ * @param key JtransDBに問い合わせたいキー文字列
+ * @param linefeed trueなら語末に改行を付与する(デフォルトfalse)
+ * @returns JtransDBのキー文字列keyに対応する文字列を返す
+ */
 string jtrans(const char* key, const bool linefeed)
 {
     // for string(nullptr) error
@@ -1012,6 +1020,17 @@ string jtrans(const char* key, const bool linefeed)
     return jtrans(str, linefeed);
 }
 
+/**
+ * JtransDBオブジェクトからキー文字列keyに対応する文字列を引いて返す。
+ * 文頭文末の改行・半角空白・タブは無視され、大文字小文字も区別されない。
+ * key中の改行は"\n"に変換された上で辞書を引く。
+ * 空文字のkeyには空文字を返す。
+ * keyに対応する文字列が見つからなかった場合、keyを返す。
+ *
+ * @param key JtransDBに問い合わせたいキー文字列
+ * @param linefeed trueなら語末に改行を付与する(デフォルトfalse)
+ * @returns JtransDBのキー文字列keyに対応する文字列を返す
+ */
 string jtrans(const string &key, const bool linefeed)
 {
     if (key == "") return "";
@@ -1034,6 +1053,13 @@ string jtrans(const string &key, const bool linefeed)
     return text;
 }
 
+/**
+ * ある文字列keyがJtransDB内にキー文字列として存在するか否かを返す。
+ * 空文字列が渡された場合はfalseとして扱う。
+ *
+ * @param key JtransDBに問い合わせたいキー文字列
+ * @returns JtransDBのキー文字列keyに対応する文字列を返す
+ */
 bool jtrans_has_key(const string &key)
 {
     if (key == "") return false;
@@ -1041,6 +1067,16 @@ bool jtrans_has_key(const string &key)
     return (jtrans(key) != key);
 }
 
+/**
+ * prefix + key + suffix(デフォルトで空文字列)がJtransDBにキーとして存在した
+ * 場合、jtrans(prefix + key + suffix)を返す。
+ * 存在しなかった場合、jtrans(key)を返す。(0.16-jaとの動作の差違に注意)
+ *
+ * @param prefix keyの前に付加される文字列 (例: "[title]", "wand of ")
+ * @param key JtransDBに問い合わせたいキー文字列
+ * @param suffix keyの後に付加される文字列 (例: " rune of Zot")
+ * @returns JtransDBのキー文字列prefix + key + suffixに対応する文字列を返す
+ */
 string tagged_jtrans(const string &prefix, const string &key, const string &suffix)
 {
     if (jtrans_has_key(prefix + key + suffix))
@@ -1049,6 +1085,16 @@ string tagged_jtrans(const string &prefix, const string &key, const string &suff
         return jtrans(key);
 }
 
+/**
+ * JtransDBオブジェクトからキー文字列keyに対応する文字列を引いて返す。
+ * 文頭文末の改行・半角空白・タブは維持される。
+ * 例:
+ * jtrans("\nTest - ") -> "テスト -"
+ * jtrans_notrim("\nTest - ") -> "\nテスト - "
+ *
+ * @param key JtransDBに問い合わせたいキー文字列
+ * @returns JtransDBのキー文字列keyに対応する文字列を返す
+ */
 string jtrans_notrim(const string &key)
 {
     string lhs = key.substr(0, key.find_first_not_of(" \t\n\r"));
