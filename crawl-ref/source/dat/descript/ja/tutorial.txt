@@ -801,7 +801,7 @@ tutorial4 mephitic_cloud
 # At experience level 3, you'll be able to increase one of your stats — choosing
 # <input>I</input>ntelligence will help your spellcasting even further.
 悪臭の雲はレベル3の呪文なので、 あなたはまだ覚えることができません。
-すぐにレベルを上げるため、 たくさんのトレーニング用ダミーが用意されています(今回は投擲用の石はありません)。
+すぐにレベルを上げるため、 たくさんの訓練用ダミーが用意されています(今回は投擲用の石はありません)。
 
 レベル3になると、 能力値をどれか一つ強化することができます(<input>I</input>を押して、 知力を選ぶことで呪文詠唱のさらなる助けとなります)。
 %%%%
