@@ -474,9 +474,9 @@ orc high priest
 
 オークの大司祭
 %%%%
+# TAG_MAJOR_VERSION == 34
 lava orc
 
-溶岩オーク
 %%%%
 # 'p'
 human
@@ -1467,6 +1467,30 @@ simulacrum
 
 幻像
 %%%%
+small zombie
+
+# dummy name
+%%%%
+small skeleton
+
+# dummy name
+%%%%
+small simulacrum
+
+# dummy name
+%%%%
+large zombie
+
+# dummy name
+%%%%
+large skeleton
+
+# dummy name
+%%%%
+large simulacrum
+
+# dummy name
+%%%%
 spectral thing
 
 幽体
@@ -1523,6 +1547,10 @@ player
 player illusion
 
 プレイヤーの幻影
+%%%%
+# shadow
+
+# player's shadow
 %%%%
 # '('
 dancing weapon
@@ -2186,6 +2214,11 @@ Asmodeus
 Ereshkigal
 
 『エレシュキガル』
+%%%%
+# for wizmode
+test spawner
+
+# 訳不要
 %%%%
 # an unspecified monster
 sensed monster
