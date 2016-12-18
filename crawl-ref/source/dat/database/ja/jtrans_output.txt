@@ -15,11 +15,11 @@ Nothing quivered
 
 (射撃準備していない)
 %%%%
-WIZARD
+# WIZARD
 
 # 訳不要
 %%%%
-EXPLORE
+# EXPLORE
 
 # 訳不要
 %%%%
@@ -223,10 +223,6 @@ Turns: %d, Time:
 
 経過ターン: %d プレイ時間
 %%%%
-Next:
-
-次Lv:
-%%%%
 God:
 
 信仰:
@@ -307,9 +303,9 @@ Rnd*Rage
 
 突発狂乱
 %%%%
-Clarity
+# Clarity
 
-明晰
+# jtrans_mutations.txtに記載
 %%%%
 NoTele
 

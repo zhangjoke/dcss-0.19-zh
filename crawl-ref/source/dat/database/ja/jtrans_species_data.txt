@@ -73,9 +73,9 @@ recharge devices
 
 <red draconian>
 %%%%
-You can breathe blasts of fire.
+# You can breathe blasts of fire.
 
-あなたは強烈な火炎のブレスを吐くことができる。
+# jtrans_mutations.txtに記載
 %%%%
 breathe fire
 
@@ -518,8 +518,9 @@ fire immunity
 
 %%%%
 # TAG_MAJOR_VERSION == 34
-cold vulnerability
+# cold vulnerability
 
+# jtrans_mutations.txtに記載
 %%%%
 # ??
 [spec name]Yak
