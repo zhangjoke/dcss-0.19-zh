@@ -8,15 +8,15 @@ tough skin
 
 強靱な皮膚
 %%%%
-You have tough skin (AC +1).
+You have tough skin. (AC +1)
 
 あなたは強靭な皮膚を持っている。(AC +1)
 %%%%
-You have very tough skin (AC +2).
+You have very tough skin. (AC +2)
 
 あなたは非常に強靭な皮膚を持っている。(AC +2)
 %%%%
-You have extremely tough skin (AC +3).
+You have extremely tough skin. (AC +3)
 
 あなたは極めて強靭な皮膚を持っている。(AC +3)
 %%%%
@@ -27,10 +27,6 @@ Your skin toughens.
 Your skin feels delicate.
 
 あなたの皮膚は柔らかくなった。
-%%%%
-tough skin (AC +1)
-
-
 %%%%
 # MUT_STRONG
 strong
@@ -45,10 +41,6 @@ Your muscles are very strong. (Str +4)
 
 あなたの筋肉は非常に強い。(腕力 +4)
 %%%%
-strong muscles (Str +2)
-
-
-%%%%
 # MUT_CLEVER
 clever
 
@@ -61,10 +53,6 @@ Your mind is acute. (Int +2)
 Your mind is very acute. (Int +4)
 
 あなたの精神は非常に鋭い。(知力 +4)
-%%%%
-mental acuity (Int +2)
-
-
 %%%%
 # MUT_AGILE
 agile
@@ -79,18 +67,14 @@ You are very agile. (Dex +4)
 
 あなたは非常に機敏だ。(器用 +4)
 %%%%
-agility (Dex +2)
-
-
-%%%%
 # MUT_POISON_RESISTANCE
 poison resistance
 
 毒耐性
 %%%%
-Your system is resistant to poisons.
+Your system is resistant to poisons. (rPois)
 
-あなたの体は毒に対する耐性を持っている。
+あなたの体は毒に対する耐性を持っている。(rPois)
 %%%%
 You feel resistant to poisons.
 
@@ -125,10 +109,6 @@ You feel able to eat a more balanced diet.
 
 あなたはもっとバランスの良い食事を取れるようになったようだ。
 %%%%
-carnivorousness
-
-肉食性
-%%%%
 # MUT_HERBIVOROUS
 herbivore
 
@@ -150,26 +130,22 @@ You hunger for vegetation.
 
 あなたは野菜に飢えている。
 %%%%
-herbivorousness
-
-草食性
-%%%%
 # MUT_HEAT_RESISTANCE
 fire resistance
 
 火炎耐性
 %%%%
-Your flesh is heat resistant.
+Your flesh is heat resistant. (rF+)
 
-あなたの体は熱に耐性がある。
+あなたの体は熱に耐性がある。(rF+)
 %%%%
-Your flesh is very heat resistant.
+Your flesh is very heat resistant. (rF++)
 
-あなたの体は熱にかなりの耐性がある。
+あなたの体は熱にかなりの耐性がある。(rF++)
 %%%%
-Your flesh is almost immune to the effects of heat.
+Your flesh is almost immune to the effects of heat. (rF+++)
 
-あなたの体は熱の影響をほぼ無効化する。
+あなたの体は熱の影響をほぼ無効化する。(rF+++)
 %%%%
 You feel resistant to heat.
 
@@ -187,26 +163,22 @@ You feel less heat resistant.
 
 あなたは少し熱に強くなくなったようだ。
 %%%%
-heat resistance
-
-火炎耐性
-%%%%
 # MUT_COLD_RESISTANCE
 cold resistance
 
 冷気耐性
 %%%%
-Your flesh is cold resistant.
+Your flesh is cold resistant. (rC+)
 
-あなたの体は冷気に耐性がある。
+あなたの体は冷気に耐性がある。(rC+)
 %%%%
-Your flesh is very cold resistant.
+Your flesh is very cold resistant. (rC++)
 
-あなたの体は冷気にかなりの耐性がある。
+あなたの体は冷気にかなりの耐性がある。(rC++)
 %%%%
-Your flesh is almost immune to the effects of cold.
+Your flesh is almost immune to the effects of cold. (rC+++)
 
-あなたの体は冷気の影響をほぼ無効化する。
+あなたの体は冷気の影響をほぼ無効化する。(rC+++)
 %%%%
 You feel resistant to cold.
 
@@ -229,17 +201,17 @@ heat vulnerability
 
 熱に弱い
 %%%%
-You are vulnerable to heat.
+You are vulnerable to heat. (rF-)
 
-あなたは熱に弱い。
+あなたは熱に弱い。(rF-)
 %%%%
-You are very vulnerable to heat.
+You are very vulnerable to heat. (rF--)
 
-あなたはかなり熱に弱い。
+あなたはかなり熱に弱い。(rF--)
 %%%%
-You are extremely vulnerable to heat.
+You are extremely vulnerable to heat. (rF---)
 
-あなたはきわめて熱に弱い。
+あなたはきわめて熱に弱い。(rF---)
 %%%%
 You feel vulnerable to heat.
 
@@ -258,17 +230,17 @@ cold vulnerability
 
 冷気に弱い
 %%%%
-You are vulnerable to cold.
+You are vulnerable to cold. (rC-)
 
-あなたは冷気に弱い。
+あなたは冷気に弱い。(rC-)
 %%%%
-You are very vulnerable to cold.
+You are very vulnerable to cold. (rC--)
 
-あなたはかなり冷気に弱い。
+あなたはかなり冷気に弱い。(rC--)
 %%%%
-You are extremely vulnerable to cold.
+You are extremely vulnerable to cold. (rC---)
 
-あなたはきわめて冷気に弱い。
+あなたはきわめて冷気に弱い。(rC---)
 %%%%
 You feel vulnerable to cold.
 
@@ -315,18 +287,14 @@ Your demonic guardian is weakened.
 
 あなたの守護者は弱くなった。
 %%%%
-a demonic guardian
-
-悪魔の従者
-%%%%
 # MUT_SHOCK_RESISTANCE
 electricity resistance
 
 電撃耐性
 %%%%
-You are resistant to electric shocks.
+You are resistant to electric shocks. (rElec)
 
-あなたは電撃への耐性を持っている。
+あなたは電撃への耐性を持っている。(rElec)
 %%%%
 You feel insulated.
 
@@ -335,10 +303,6 @@ You feel insulated.
 You feel conductive.
 
 あなたは導電体に戻ったようだ。
-%%%%
-electrical resistance
-
-電撃耐性
 %%%%
 # MUT_SHOCK_VULNERABILITY
 electricity vulnerability
@@ -356,10 +320,6 @@ You feel vulnerable to electricity.
 You feel less vulnerable to electricity.
 
 あなたは電撃に弱くなくなったようだ。
-%%%%
-electrical vulnerability
-
-電撃に弱い
 %%%%
 # MUT_REGENERATION
 regeneration
@@ -390,38 +350,46 @@ Your rate of healing slows.
 
 あなたの治癒速度は遅くなった。
 %%%%
-# MUT_SLOW_HEALING
-slow healing
+# MUT_SLOW_REGENERATION
+slow regeneration
 
 遅再生
 %%%%
-[sacrifice]slow healing
-
-(遅再生)
-%%%%
-You heal slowly when monsters are visible.
+You regenerate slowly when monsters are visible.
 
 あなたはモンスターが視界にいる間回復が遅くなる。
 %%%%
-You do not heal naturally when monsters are visible.
+You do not regenerate when monsters are visible.
 
 あなたはモンスターが視界にいる間自然に回復しない。
 %%%%
-You do not heal naturally.
+You do not regenerate.
 
 あなたは自然回復しない。
 %%%%
-Your natural healing is weakened.
+Your regeneration weakens near monsters.
 
-あなたの自然回復力は弱くなった。
+あなたの傷の回復は敵の近くでは弱まるようになった。
 %%%%
-You stop healing.
+Your regeneration stops near monsters.
 
-あなたは回復しなくなった。
+あなたの傷の回復は敵の近くでは止まるようになった。
 %%%%
-Your natural healing is strengthened.
+Your regeneration stops completely.
 
-あなたの自然回復力が強まった。
+あなたの傷の回復は完全に止まった。
+%%%%
+Your regeneration returns to normal.
+
+あなたの傷の回復は通常に戻った。
+%%%%
+Your regeneration begins to work slowly in the presence of monsters.
+
+あなたの傷は敵のいるところでもゆっくりと回復するようになった。
+%%%%
+You begin to regenerate when monsters are not visible.
+
+あなたは敵が見えないところでは回復するようになった。
 %%%%
 # MUT_FAST_METABOLISM
 fast metabolism
@@ -474,14 +442,6 @@ You are very weak. (Str -4)
 
 あなたはとても力が弱い。(腕力 -4)
 %%%%
-weak muscles (Str -2)
-
-
-%%%%
-[sacrifice]weak muscles (Str -2)
-
-(腕力 -2)
-%%%%
 # MUT_DOPEY
 dopey
 
@@ -495,14 +455,6 @@ You are very dopey. (Int -4)
 
 あなたはとても愚かだ。(知力 -4)
 %%%%
-dopiness (-2 Int)
-
-
-%%%%
-[sacrifice]dopiness (-2 Int)
-
-(知力 -2)
-%%%%
 # MUT_CLUMSY
 clumsy
 
@@ -515,14 +467,6 @@ You are clumsy. (Dex -2)
 You are very clumsy. (Dex -4)
 
 あなたはとても不器用だ。(器用 -4)
-%%%%
-clumsiness (Dex -2)
-
-
-%%%%
-[sacrifice]clumsiness (Dex -2)
-
-(器用 -2)
 %%%%
 # MUT_TELEPORT_CONTROL
 teleport control
@@ -546,17 +490,17 @@ teleportitis
 
 不随意瞬間移動
 %%%%
-Space occasionally distorts in your vicinity.
+You are occasionally teleported next to monsters.
 
-あなたの近くでたまに空間が歪む。
+あなたはまれにモンスターの隣にテレポートするようになった。
 %%%%
-Space sometimes distorts in your vicinity.
+You are sometimes teleported next to monsters.
 
-あなたの近くで時々空間が歪む。
+あなたは時々モンスターの隣にテレポートするようになった。
 %%%%
-Space frequently distorts in your vicinity.
+You are often teleported next to monsters.
 
-あなたの近くで頻繁に空間が歪む。
+あなたはしばしばモンスターの隣にテレポートするようになった。
 %%%%
 You feel weirdly uncertain.
 
@@ -570,26 +514,22 @@ You feel stable.
 
 あなたは安定したような気分になった。
 %%%%
-chronic teleportation
-
-
-%%%%
 # MUT_MAGIC_RESISTANCE
 magic resistance
 
 魔法防御
 %%%%
-You are resistant to hostile enchantments.
+You are resistant to hostile enchantments. (MR+)
 
-あなたは敵対的な魔法に対する耐性がある。
+あなたは敵対的な魔法に対する耐性がある。(MR+)
 %%%%
-You are highly resistant to hostile enchantments.
+You are highly resistant to hostile enchantments. (MR++)
 
-あなたは敵対的な魔法に対して高い耐性がある。
+あなたは敵対的な魔法に対して高い耐性がある。(MR++)
 %%%%
-You are extremely resistant to the effects of hostile enchantments.
+You are extremely resistant to the effects of hostile enchantments. (MR+++)
 
-あなたは敵対的な魔法の効力に対して極めて耐性がある。
+あなたは敵対的な魔法の効力に対して極めて耐性がある。(MR+++)
 %%%%
 You feel resistant to hostile enchantments.
 
@@ -658,9 +598,9 @@ see invisible
 
 霊視
 %%%%
-You have supernaturally acute eyesight.
+You have supernaturally acute eyesight. (SInv)
 
-あなたは超自然的な鋭い視力を持っている。
+あなたは超自然的な鋭い視力を持っている。(SInv)
 %%%%
 Your vision sharpens.
 
@@ -669,10 +609,6 @@ Your vision sharpens.
 Your vision seems duller.
 
 あなたの視力は鈍くなった。
-%%%%
-enhanced sight
-
-
 %%%%
 # MUT_DEFORMED
 deformed body
@@ -691,10 +627,6 @@ Your body's shape seems more normal.
 
 あなたの肉体は奇形的でなくなった。
 %%%%
-deformation of the body
-
-奇形の体
-%%%%
 # MUT_SPIT_POISON
 spit poison
 
@@ -704,13 +636,9 @@ You can spit poison.
 
 あなたは毒液を吐くことができる。
 %%%%
-You can spit moderately strong poison.
+You can exhale a cloud of poison.
 
-あなたはそこそこ強力な毒液を吐くことができる。
-%%%%
-You can spit strong poison.
-
-あなたは強力な毒液を吐くことができる。
+あなたは毒の雲を吐き出すことができる。
 %%%%
 There is a nasty taste in your mouth for a moment.
 
@@ -720,67 +648,67 @@ You feel an ache in your throat.
 
 あなたは喉の奥が痛むのを感じた。
 %%%%
-poisonous spittle
-
-
-%%%%
 # MUT_BREATHE_FLAMES
+# TAG_MAJOR_VERSION == 34
 breathe flames
 
 火のブレス
 %%%%
+# TAG_MAJOR_VERSION == 34
 You can breathe flames.
 
 あなたは火のブレスを吐くことができる。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You can breathe fire.
 
 あなたは炎のブレスを吐くことができる。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You can breathe blasts of fire.
 
 あなたは強烈な火炎のブレスを吐くことができる。
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your throat feels hot.
 
 あなたは喉が熱くなった。
 %%%%
+# TAG_MAJOR_VERSION == 34
 A chill runs up and down your throat.
 
 あなたの喉の奥は冷たくなった。
 %%%%
-fiery breath
-
-
-%%%%
 # MUT_JUMP
+# TAG_MAJOR_VERSION == 34
 jump
 
 跳躍
 %%%%
+# TAG_MAJOR_VERSION == 34
 You can jump attack at a short distance.
 
 あなたは短距離の飛びつき攻撃ができる。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You can jump attack at a medium distance.
 
 あなたは中距離の飛びつき攻撃ができる。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You can jump attack at a long distance.
 
 あなたは長距離の飛びつき攻撃ができる。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You feel more sure on your feet.
 
 あなたの跳躍力が高まったようだ。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You feel less sure on your feet.
 
 あなたの跳躍力が弱まったようだ。
-%%%%
-jumping
-
-跳躍
 %%%%
 # MUT_BLINK
 blink
@@ -789,89 +717,77 @@ blink
 %%%%
 You can translocate small distances at will.
 
-あなたは自分の意志で瞬間移動できる。
-%%%%
-You are good at translocating small distances at will.
-
-あなたは自分の意志で上手に瞬間移動できる。
-%%%%
-You can easily translocate small distances at will.
-
-あなたは容易く自分の意志で瞬間移動できる。
+あなたは自分がしたいときに短い距離を瞬間移動できる。
 %%%%
 You feel jittery.
 
-あなたは神経質になったようだ。
+あなたは落ちつかない気分になった。
 %%%%
-You feel more jittery.
+You no longer feel jittery.
 
-あなたはさらに神経質になったようだ。
-%%%%
-You feel even more jittery.
-
-あなたはさらにもっと神経質になったようだ。
-%%%%
-You feel a little less jittery.
-
-あなたは少し神経質でなくなったようだ。
-%%%%
-You feel less jittery.
-
-あなたは神経質でなくなった。
-%%%%
-ability to blink
-
-
+あなたは気分が落ちついたようだ。
 %%%%
 # MUT_STRONG_STIFF
+# TAG_MAJOR_VERSION == 34
 strong stiff
 
 硬直した筋肉
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your muscles are strong, but stiff (Str +1, Dex -1).
 
 あなたの筋肉は力強い、しかし硬すぎる。(腕力 +1, 器用 -1)
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your muscles are very strong, but stiff (Str +2, Dex -2).
 
 あなたの筋肉は非常に強い、しかし硬すぎる。(腕力 +2, 器用 -2)
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your muscles are extremely strong, but stiff (Str +3, Dex -3).
 
 あなたの筋肉はきわめて強い、しかし硬すぎる。(腕力 +3, 器用 -3)
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your muscles feel sore.
 
 あなたは筋肉痛を覚えた。
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your muscles feel loose.
 
 あなたの筋肉は弛緩した。
 %%%%
-strong, stiff muscles
-
-
-%%%%
 # MUT_FLEXIBLE_WEAK
+# TAG_MAJOR_VERSION == 34
 flexible weak
 
 柔軟な筋肉
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your muscles are flexible, but weak (Str -1, Dex +1).
 
 あなたの筋肉は柔軟だが弱々しい。(腕力 -1, 器用 +1).
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your muscles are very flexible, but weak (Str -2, Dex +2).
 
 あなたの筋肉は非常に柔軟だが弱々しい。(腕力 -2, 器用 +2)
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your muscles are extremely flexible, but weak (Str -3, Dex +3).
 
 あなたの筋肉は極めて柔軟だ、しかし弱々しい。(腕力 -3, 器用 +3)
 %%%%
-flexible, weak muscles
+# TAG_MAJOR_VERSION == 34
+# Your muscles feel loose.
 
+# strong stiff変異と重複
+%%%%
+# TAG_MAJOR_VERSION == 34
+# Your muscles feel sore.
 
+# strong stiff変異と重複
 %%%%
 # MUT_SCREAM
 screaming
@@ -914,14 +830,6 @@ Your urge to scream lessens.
 
 叫びたいという衝動は薄れた。
 %%%%
-chronic screaming
-
-
-%%%%
-[sacrifice]chronic screaming
-
-(叫ぶ衝動)
-%%%%
 # MUT_CLARITY
 clarity
 
@@ -938,10 +846,6 @@ Your thoughts seem clearer.
 Your thinking seems confused.
 
 あなたの思考は混濁した。
-%%%%
-clarity of thought
-
-
 %%%%
 # MUT_BERSERK
 berserk
@@ -980,26 +884,18 @@ You feel a little less angry.
 
 あなたは少し苛立ちがおさまった。
 %%%%
-berserk rage
-
-
-%%%%
 # MUT_DETERIORATION
 deterioration
 
 能力低下
 %%%%
-Your body is slowly deteriorating.
+Your body sometimes deteriorates upon taking damage.
 
-あなたは緩やかに能力が低下していく。
+あなたの体はダメージを受けた際に時々能力が低下する。
 %%%%
-Your body is deteriorating.
+Your body often deteriorates upon taking damage.
 
-あなたは次第に能力が低下していく。
-%%%%
-Your body is rapidly deteriorating.
-
-あなたは急速に能力が低下していく。
+あなたの体はダメージを受けた際にしばしば能力が低下する。
 %%%%
 You feel yourself wasting away.
 
@@ -1016,14 +912,6 @@ You feel healthier.
 You feel a little healthier.
 
 あなたは少し健康体に近づいた。
-%%%%
-deteriorating body
-
-
-%%%%
-[sacrifice]deteriorating body
-
-(慢性の能力低下)
 %%%%
 # MUT_BLURRY_VISION
 blurry vision
@@ -1046,9 +934,9 @@ Your vision blurs.
 
 あなたの視界はぼやけた。
 %%%%
-Your vision sharpens.
+# Your vision sharpens.
 
-あなたの視力は鋭くなった。
+# see invisible変異と重複
 %%%%
 Your vision sharpens a little.
 
@@ -1108,24 +996,20 @@ Your wild genetic ride slows down.
 
 あなたの荒ぶる遺伝子の流動は遅くなった。
 %%%%
-continuous evolution
-
-
-%%%%
 # MUT_FRAIL
 frail
 
 虚弱
 %%%%
-You are frail (-10% HP).
+You are frail. (-10% HP)
 
 あなたは虚弱だ。(-10% HP)
 %%%%
-You are very frail (-20% HP).
+You are very frail. (-20% HP)
 
 あなたは非常に虚弱だ。(-20% HP)
 %%%%
-You are extremely frail (-30% HP).
+You are extremely frail. (-30% HP)
 
 あなたは極めて虚弱だ。(-30% HP)
 %%%%
@@ -1137,34 +1021,22 @@ You feel robust.
 
 あなたは強健になった。
 %%%%
-frailty (-10% HP)
-
-
-%%%%
-[sacrifice]frailty (-10% HP)
-
-(HP -10%)
-%%%%
 # MUT_ROBUST
 robust
 
 強健
 %%%%
-You are robust (+10% HP).
+You are robust. (+10% HP)
 
 あなたは強健だ。(+10% HP)
 %%%%
-You are very robust (+20% HP).
+You are very robust. (+20% HP)
 
 あなたは非常に強健だ。(+20% HP)
 %%%%
-You are extremely robust (+30% HP).
+You are extremely robust. (+30% HP)
 
 あなたは極めて強健だ。(+30% HP)
-%%%%
-robustness (+10% HP)
-
-
 %%%%
 # MUT_UNBREATHING
 unbreathing
@@ -1198,17 +1070,17 @@ negative energy resistance
 
 負のエネルギーへの耐性
 %%%%
-You resist negative energy.
+You resist negative energy. (rN+)
 
-あなたは負のエネルギーに耐性がある。
+あなたは負のエネルギーに耐性がある。(rN+)
 %%%%
-You are quite resistant to negative energy.
+You are quite resistant to negative energy. (rN++)
 
-あなたは負のエネルギーに非常に耐性がある。
+あなたは負のエネルギーに非常に耐性がある。(rN++)
 %%%%
-You are immune to negative energy.
+You are immune to negative energy. (rN+++)
 
-あなたは負のエネルギーの影響を無効化する。
+あなたは負のエネルギーの影響を無効化する。(rN+++)
 %%%%
 You feel resistant to negative energy.
 
@@ -1218,22 +1090,69 @@ You feel more resistant to negative energy.
 
 あなたは負のエネルギーにさらに強くなったようだ。
 %%%%
-# MUT_HURL_HELLFIRE
-hurl hellfire
+# MUT_MUMMY_RESTORATION
+# TAG_MAJOR_VERSION == 34
+restore body
 
-地獄の業火
 %%%%
-You can hurl blasts of hellfire.
+# TAG_MAJOR_VERSION == 34
+You can restore your body by infusing magical energy.
 
-あなたは地獄の業火を放つことができる。
 %%%%
-You smell fire and brimstone.
+# TAG_MAJOR_VERSION == 34
+You can now infuse your body with magic to restore decomposition.
 
-あなたは火と硫黄の匂いを嗅いだ。
 %%%%
-the ability to hurl hellfire
+# MUT_NECRO_ENHANCER
+in touch with death
 
+死霊術強化
+%%%%
+You are in touch with the powers of death.
 
+あなたは死の力との接触を持っている。
+%%%%
+You are strongly in touch with the powers of death.
+
+あなたは死の力との強い接触を持っている。
+%%%%
+You feel more in touch with the powers of death.
+
+あなたは死の力との接触が強まったような気がした。
+%%%%
+# MUT_TENGU_FLIGHT
+able to fly
+
+飛行能力
+%%%%
+You can fly.
+
+あなたは空を飛べる。
+%%%%
+You can fly continuously.
+
+あなたは継続して空を飛べる。
+%%%%
+You have gained the ability to fly.
+
+あなたは飛行能力を得た。
+%%%%
+You can now fly continuously.
+
+あなたは継続して空を飛ぶことができるようになった。
+%%%%
+# MUT_HURL_DAMNATION
+hurl damnation
+
+地獄の鉄槌
+%%%%
+You can hurl damnation.
+
+あなたは地獄の鉄槌を浴びせることができる。
+%%%%
+You smell a hint of brimstone.
+
+あなたはかすかな硫黄の臭いを嗅ぎとった。
 %%%%
 # MUT_HORNS
 horns
@@ -1284,10 +1203,6 @@ Your mouth lengthens and hardens into a beak!
 Your beak shortens and softens into a mouth.
 
 あなたの嘴は短くなり、柔らかい口になった。
-%%%%
-a beak
-
-嘴
 %%%%
 # MUT_CLAWS
 claws
@@ -1413,9 +1328,9 @@ You have a pair of antennae on your head.
 
 あなたは頭に二本の触角を持っている。
 %%%%
-You have a pair of large antennae on your head (SInv).
+You have a pair of large antennae on your head. (SInv)
 
-あなたは頭に二本の大きな触角を持っている。(霊視)
+あなたは頭に二本の大きな触角を持っている。(SInv)
 %%%%
 A pair of antennae grows on your head!
 
@@ -1507,30 +1422,39 @@ Your tentacle spike recedes somewhat.
 
 あなたの触手の棘は少し小さくなった。
 %%%%
-a tentacle spike
-
-棘付き触手
-%%%%
 # MUT_BREATHE_POISON
+# TAG_MAJOR_VERSION == 34
 breathe poison
 
 毒のブレス
 %%%%
-You can exhale a cloud of poison.
+# TAG_MAJOR_VERSION == 34
+# You can exhale a cloud of poison.
 
-あなたは毒性の雲を吐き出すことができる。
+# spit poison変異と重複
 %%%%
+# TAG_MAJOR_VERSION == 34
 You taste something nasty.
 
 あなたの口の中に不快な味がした。
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your breath is less nasty.
 
 あなたの吐息はそれほど厄介ではなくなった。
 %%%%
-poisonous breath
+# MUT_CONSTRICTING_TAIL
+constrict 1
 
+尻尾拘束
+%%%%
+You can use your snake-like lower body to constrict enemies.
 
+あなたは蛇のような尻尾で敵を拘束できる。
+%%%%
+Your tail grows strong enough to constrict your enemies.
+
+あなたの尻尾は敵を拘束するのに十分なほど成長した。
 %%%%
 # MUT_STINGER
 stinger
@@ -1574,9 +1498,9 @@ big wings
 
 力強い翼
 %%%%
-Your wings are large and strong.
+Your large and strong wings let you fly indefinitely.
 
-あなたの翼は大きく、そして力強い。
+あなたは自らの大きくて力強い翼によっていつまでも空を飛ぶことができる。
 %%%%
 Your wings grow larger and stronger.
 
@@ -1587,29 +1511,25 @@ Your wings shrivel and weaken.
 あなたの翼は弱まり、縮まった。
 %%%%
 # MUT_SAPROVOROUS
+# TAG_MAJOR_VERSION == 34
 saprovores
 
-# obsolete
 %%%%
-You can tolerate rotten meat.s
+# TAG_MAJOR_VERSION == 34
+You can tolerate rotten meat.
 
-# obsolete
 %%%%
-You can eat rotten meat.s
+# TAG_MAJOR_VERSION == 34
+You can eat rotten meat.
 
-# obsolete
 %%%%
-You thrive on rotten meat.s
+# TAG_MAJOR_VERSION == 34
+You thrive on rotten meat.
 
-# obsolete
 %%%%
-You hunger for rotting flesh.s
+# TAG_MAJOR_VERSION == 34
+You hunger for rotting flesh.
 
-# obsolete
-%%%%
-saprovorous
-
-# obsolete
 %%%%
 # MUT_ROT_IMMUNITY
 rot immunity
@@ -1637,24 +1557,20 @@ You like to eat raw meat.
 
 あなたは生肉が好物だ。
 %%%%
-the ability to eat anything
-
-
-%%%%
 # MUT_SHAGGY_FUR
 shaggy fur
 
 毛皮
 %%%%
-You are covered in fur (AC +1).
+You are covered in fur. (AC +1)
 
 あなたは毛皮で覆われている。(AC +1)
 %%%%
-You are covered in thick fur (AC +2).
+You are covered in thick fur. (AC +2)
 
 あなたは厚い毛皮で覆われている。(AC +2)
 %%%%
-Your thick and shaggy fur keeps you warm (AC +3, rC+).
+Your thick and shaggy fur keeps you warm. (AC +3, rC+)
 
 あなたの厚く、毛むくじゃらの毛皮はあなたの温もりを保つ。(AC +3, rC+)
 %%%%
@@ -1687,15 +1603,15 @@ high mp
 
 魔力容量大
 %%%%
-You have an increased reservoir of magic (+10% MP).
+You have an increased reservoir of magic. (+10% MP)
 
 あなたの魔力の容量は増加している。(+10% MP)
 %%%%
-You have a considerably increased reservoir of magic (+20% MP).
+You have a considerably increased reservoir of magic. (+20% MP)
 
 あなたの魔力の容量はかなり増加している。(+20% MP)
 %%%%
-You have a greatly increased reservoir of magic (+30% MP).
+You have a greatly increased reservoir of magic. (+30% MP)
 
 あなたの魔力の容量は大いに増加している。(+30% MP)
 %%%%
@@ -1707,34 +1623,22 @@ You feel less energetic.
 
 あなたは魔力を失ったと感じた。
 %%%%
-increased magical capacity (+10% MP)
-
-
-%%%%
 # MUT_LOW_MAGIC
 low mp
 
 魔力容量小
 %%%%
-Your magical capacity is low (-10% MP).
+Your magical capacity is low. (-10% MP)
 
 あなたの魔力の容量は少ない。(-10% MP)
 %%%%
-Your magical capacity is very low (-20% MP).
+Your magical capacity is very low. (-20% MP)
 
 あなたの魔力の容量はとても少ない。(-20% MP)
 %%%%
-Your magical capacity is extremely low (-30% MP).
+Your magical capacity is extremely low. (-30% MP)
 
 あなたの魔力の容量はとてつもなく少ない。(-30% MP)
-%%%%
-reduced magical capacity (-10% MP)
-
-
-%%%%
-[sacrifice]reduced magical capacity (-10% MP)
-
-(MP -10%)
 %%%%
 # MUT_WILD_MAGIC
 wild magic
@@ -1770,7 +1674,7 @@ You feel more in control of your magic.
 あなたは少し魔法のコントロールを取り戻した。
 %%%%
 # MUT_PLACID_MAGIC
-placid magic
+subdued magic
 
 抑制された魔力
 %%%%
@@ -1807,25 +1711,25 @@ Your connection to magic feels less subdued.
 あなたは少し魔力の活発さを取り戻した。
 %%%%
 # MUT_FORLORN
+# TAG_MAJOR_VERSION == 34
 forlorn
 
 孤独
 %%%%
+# TAG_MAJOR_VERSION == 34
 You have difficulty communicating with the divine.
 
 あなたは神性との意思疎通が難しくなっている。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You feel forlorn.
 
 あなたは孤独を感じた。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You feel more spiritual.
 
 あなたはより神秘的な感じがした。
-%%%%
-difficulty communicating with the divine
-
-
 %%%%
 # MUT_STOCHASTIC_TORMENT_RESISTANCE
 50% torment resistance
@@ -1835,10 +1739,6 @@ difficulty communicating with the divine
 You are somewhat able to resist unholy torments (1 in 2 success).
 
 あなたは時々邪悪な苦痛に抵抗できる。(1/2の確率)
-%%%%
-intermittent torment resistance
-
-
 %%%%
 # MUT_PASSIVE_MAPPING
 sense surroundings
@@ -1873,10 +1773,6 @@ You feel slightly disoriented.
 
 あなたは軽い見当識喪失にかかった。
 %%%%
-passive mapping
-
-
-%%%%
 # MUT_ICEMAIL
 icemail
 
@@ -1884,50 +1780,39 @@ icemail
 %%%%
 A meltable icy envelope protects you from harm and freezing vapours (AC +
 
-氷の外套があなたを外敵や凍てつく大気から守っている。(AC +
+氷の外套があなたを外敵から守っている。(AC +
 %%%%
 An icy envelope takes form around you.
 
 氷の外套があなたの周りを覆った。
 %%%%
-icy armour
-
-氷の鎧
-%%%%
 # MUT_CONSERVE_SCROLLS
+# TAG_MAJOR_VERSION == 34
 conserve scrolls
 
-# obsolete
 %%%%
+# TAG_MAJOR_VERSION == 34
 You are very good at protecting items from fire.
 
-# obsolete
 %%%%
-You feel less concerned about heat.
+# TAG_MAJOR_VERSION == 34
+# You feel less concerned about heat.
 
-# obsolete
-%%%%
-scroll conservation
-
-# obsolete
+# flame cloud immunity変異と重複
 %%%%
 # MUT_CONSERVE_POTIONS
-
+# TAG_MAJOR_VERSION == 34
 conserve potions
 
-# obsolete
 %%%%
+# TAG_MAJOR_VERSION == 34
 You are very good at protecting items from cold.
 
-# obsolete
 %%%%
-You feel less concerned about cold.
+# TAG_MAJOR_VERSION == 34
+# You feel less concerned about cold.
 
-# obsolete
-%%%%
-potion conservation
-
-# obsolete
+# freezing cloud immunity変異と重複
 %%%%
 # MUT_PASSIVE_FREEZE
 passive freeze
@@ -1941,10 +1826,6 @@ A frigid envelope surrounds you and freezes all who hurt you.
 Your skin feels very cold.
 
 あなたの皮膚はとても冷たくなったと感じた。
-%%%%
-passive freezing of attackers
-
-
 %%%%
 # MUT_NIGHTSTALKER
 nightstalker
@@ -1983,10 +1864,6 @@ Your affinity for the darkness weakens.
 
 あなたの暗闇との親和性は弱くなった。
 %%%%
-attunement to the shadows
-
-
-%%%%
 # MUT_SPINY
 spiny
 
@@ -2024,26 +1901,22 @@ Your sharp spines retract somewhat.
 
 あなたの鋭い棘は幾らか消え去った。
 %%%%
-spines
-
-棘
-%%%%
 # MUT_POWERED_BY_DEATH
 powered by death
 
 死よりの力
 %%%%
-You can steal the life force of nearby defeated enemies.
+You regenerate a little health from kills.
 
-あなたは近くにある敵の屍骸から生命力を吸い取ることができる。
+あなたは敵を倒すことで少しばかり体力を回復するようになる。
 %%%%
-You can steal the life force of defeated enemies.
+You regenerate health from kills.
 
-あなたは敵の屍骸から生命力を吸い取ることができる。
+あなたは敵を倒すことで体力を回復するようになる。
 %%%%
-You can steal the life force of all defeated enemies in sight.
+You regenerate a lot of health from kills.
 
-あなたは視界内の全ての敵の屍骸から生命力を吸い取ることができる。
+あなたは敵を倒すことで体力を多く回復するようになる。
 %%%%
 A wave of death washes over you.
 
@@ -2060,10 +1933,6 @@ Your control of surrounding life forces is gone.
 Your control of surrounding life forces weakens.
 
 あなたの周囲の生命力を制御しにくくなった。
-%%%%
-power drawn from death
-
-
 %%%%
 # MUT_POWERED_BY_PAIN
 powered by pain
@@ -2093,10 +1962,6 @@ You feel even more energised by your suffering.
 You feel completely energised by your suffering.
 
 あなたは苦痛によっていっそう魔力が供給されるのを感じた。
-%%%%
-power drawn from pain
-
-
 %%%%
 # MUT_AUGMENTATION
 augmentation
@@ -2140,10 +2005,6 @@ You feel your magical essence form a protective shroud around your flesh.
 
 あなたを包む防御のオーラが魔力を帯びているのを感じた。
 %%%%
-a magic shield
-
-魔力の盾
-%%%%
 # MUT_MANA_REGENERATION
 magic regeneration
 
@@ -2156,10 +2017,6 @@ You regenerate magic rapidly.
 You feel your magic shroud grow more resilient.
 
 あなたの魔力はたちまち回復したようだ。
-%%%%
-mana regeneration
-
-魔力回復
 %%%%
 # MUT_MANA_LINK
 magic link
@@ -2174,24 +2031,20 @@ You feel your life force and your magical essence meld.
 
 あなたは体力と魔力が一体化したように感じた。
 %%%%
-a magic link
-
-魔力との絆
-%%%%
 # MUT_GELATINOUS_BODY
 gelatinous body
 
 ゼラチン状の体
 %%%%
-Your rubbery body absorbs attacks (AC +1).
+Your rubbery body absorbs attacks. (AC +1)
 
 あなたのゴムの体は攻撃を吸収する。(AC +1)
 %%%%
-Your pliable body absorbs attacks (AC +1, EV +1).
+Your pliable body absorbs attacks. (AC +1, EV +1)
 
 あなたの柔軟な体は攻撃を吸収する。(AC +1, 回避 +1)
 %%%%
-Your gelatinous body deflects attacks (AC +2, EV +2).
+Your gelatinous body deflects attacks. (AC +2, EV +2)
 
 あなたのゼラチン状の体は攻撃をはね返す。(AC +2, 回避 +2)
 %%%%
@@ -2219,26 +2072,22 @@ Your body becomes less viscous.
 
 あなたの体は粘着性を失った。
 %%%%
-a rubbery body (+AC/EV)
-
-
-%%%%
 # MUT_EYEBALLS
 eyeballs
 
 眼球
 %%%%
-Your body is partially covered in golden eyeballs (Acc +3).
+Your body has grown golden eyes which may confuse attackers. (Acc +3)
 
-あなたの体の一部は黄金の眼球で覆われている。(命中 +3)
+あなたの体には近接攻撃してくる者を混乱させる黄金の眼が付いている。(命中 +3)
 %%%%
-Your body is mostly covered in golden eyeballs (Acc +5).
+Your body has grown many golden eyes which may confuse attackers. (Acc +5)
 
-あなたの体の大部分は黄金の眼球で覆われている。(命中 +5)
+あなたの体には近接攻撃してくる者を混乱させるたくさんの黄金の眼が付いている。(命中 +5)
 %%%%
-Your body is completely covered in golden eyeballs (Acc +7, SInv).
+Your body is covered in golden eyes which may confuse attackers. (Acc +7, SInv)
 
-あなたの全身は黄金の眼球で覆われている。(命中 +7, 霊視)
+あなたの体は近接攻撃してくる者を混乱させる黄金の眼でびっしりと覆われている。(命中 +7, SInv)
 %%%%
 Eyeballs grow over part of your body.
 
@@ -2260,26 +2109,22 @@ The eyeballs on your body recede somewhat.
 
 あなたの身体の眼球がいくらか消え去った。
 %%%%
-covering eyeballs (+Acc)
-
-
-%%%%
 # MUT_TRANSLUCENT_SKIN
 translucent skin
 
 半透明な体
 %%%%
-Your skin is partially translucent (Stealth, -foe acc).
+Your translucent skin slightly reduces your foes' accuracy. (Stealth)
 
-あなたの体は部分的に透明だ。(隠密, 敵の命中-)
+あなたの半透明な体は相手の命中率をいくぶん低くする。(隠密)
 %%%%
-Your skin is mostly translucent (Stealth, -foe acc).
+Your translucent skin reduces your foes' accuracy. (Stealth)
 
-あなたの体はほとんど透明だ。(隠密, 敵の命中-)
+あなたの半透明な体は相手の命中率を低くする。(隠密)
 %%%%
-Your skin is entirely transparent (Stealth, -foe acc).
+Your transparent skin significantly reduces your foes' accuracy. (Stealth)
 
-あなたの体は完全に透明だ。(隠密, 敵の命中-)
+あなたの半透明な体は相手の命中率を著しく低くする。(隠密)
 %%%%
 Your skin becomes partially translucent.
 
@@ -2304,10 +2149,6 @@ Your skin's translucency fades.
 Your skin's transparency fades.
 
 あなたの肌の透明度が低くなった。
-%%%%
-translucent skin (Stealth and reduced enemy accuracy)
-
-
 %%%%
 # MUT_PSEUDOPODS
 pseudopods
@@ -2343,26 +2184,21 @@ Your pseudopods become smaller.
 あなたの仮足は小さくなった。
 %%%%
 # MUT_FOOD_JELLY
-
+# TAG_MAJOR_VERSION == 34
 spawn jellies when eating
 
-# obsolete
 %%%%
+# TAG_MAJOR_VERSION == 34
 You occasionally spawn a jelly by eating.
 
-# obsolete
 %%%%
+# TAG_MAJOR_VERSION == 34
 You feel more connected to the slimes.
 
-# obsolete
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your connection to the slimes vanishes.
 
-# obsolete
-%%%%
-jelly spawning when you eat
-
-# obsolete
 %%%%
 # MUT_ACIDIC_BITE
 acidic bite
@@ -2381,10 +2217,6 @@ Your mouth feels dry.
 
 あなたの口は乾燥したようだ。
 %%%%
-acidic saliva
-
-
-%%%%
 # MUT_ANTIMAGIC_BITE
 antimagic bite
 
@@ -2401,10 +2233,6 @@ You feel a sudden thirst for magic.
 Your magical appetite wanes.
 
 あなたの魔力に対する食欲は消えうせた。
-%%%%
-a magic-disrupting bite
-
-
 %%%%
 # MUT_NO_DEVICE_HEAL
 no device heal
@@ -2447,28 +2275,20 @@ Your system partly accepts artificial healing.
 
 あなたの体は人為的な回復をある程度受け入れる。
 %%%%
-insusceptibility to healing potions and wands
-
-
-%%%%
-[sacrifice]insusceptibility to healing potions and wands
-
-(道具による回復不可)
-%%%%
 # MUT_DISTORTION_FIELD
 repulsion field
 
 斥力場
 %%%%
-You are surrounded by a mild repulsion field (EV +2).
+You are surrounded by a mild repulsion field. (EV +2)
 
 あなたは弱い斥力場に覆われている。(回避 +2)
 %%%%
-You are surrounded by a moderate repulsion field (EV +3).
+You are surrounded by a moderate repulsion field. (EV +3)
 
 あなたは斥力場に覆われている。(回避 +3)
 %%%%
-You are surrounded by a strong repulsion field (EV +4, rMsl).
+You are surrounded by a strong repulsion field. (EV +4, RMsl)
 
 あなたは強力な斥力場に覆われている。(回避 +4, 飛来物防御)
 %%%%
@@ -2484,26 +2304,22 @@ You feel less repulsive.
 
 あなたの斥力が弱まったようだ。
 %%%%
-a repulsion field (+EV)
-
-
-%%%%
 # MUT_ICY_BLUE_SCALES
 icy blue scales
 
 氷のように青い鱗
 %%%%
-You are partially covered in icy blue scales (AC +1).
+You are partially covered in icy blue scales. (AC +2)
 
-あなたは氷のように青い鱗で部分的に覆われている。(AC +1)
+あなたは氷のように青い鱗で部分的に覆われている。(AC +2)
 %%%%
-You are mostly covered in icy blue scales (AC +3, EV -1).
+You are mostly covered in icy blue scales. (AC +3)
 
-あなたは氷のように青い鱗で大部分を覆われている。(AC +3, 回避 -1)
+あなたは氷のように青い鱗で大部分を覆われている。(AC +3)
 %%%%
-You are completely covered in icy blue scales (AC +4, EV -1, rC+).
+You are completely covered in icy blue scales. (AC +4, rC+)
 
-あなたは氷のように青い鱗で完全に覆われている。(AC +4, 回避 -1, rC+)
+あなたは氷のように青い鱗で完全に覆われている。(AC +4, rC+)
 %%%%
 Icy blue scales grow over part of your body.
 
@@ -2525,26 +2341,22 @@ Your icy blue scales recede somewhat.
 
 あなたの氷のように青い鱗がいくらか消え去った。
 %%%%
-icy blue scales (+AC)
-
-
-%%%%
 # MUT_IRIDESCENT_SCALES
 iridescent scales
 
 玉虫色の鱗
 %%%%
-You are partially covered in iridescent scales (AC +4).
+You are partially covered in iridescent scales. (AC +2)
 
-あなたは玉虫色の鱗で部分的に覆われている。(AC +4)
+あなたは玉虫色の鱗で部分的に覆われている。(AC +2)
 %%%%
-You are mostly covered in iridescent scales (AC +6).
+You are mostly covered in iridescent scales. (AC +4)
 
-あなたは玉虫色の鱗で大部分を覆われている。(AC +6)
+あなたは玉虫色の鱗で大部分を覆われている。(AC +4)
 %%%%
-You are completely covered in iridescent scales (AC +8).
+You are completely covered in iridescent scales. (AC +6)
 
-あなたは玉虫色の鱗で完全に覆われている。(AC +8)
+あなたは玉虫色の鱗で完全に覆われている。(AC +6)
 %%%%
 Iridescent scales grow over part of your body.
 
@@ -2554,7 +2366,7 @@ Iridescent scales spread over more of your body.
 
 玉虫色の鱗があなたの体をさらに覆った。
 %%%%
-Iridescent scales cover you completely.
+Iridescent scales cover your body completely.
 
 玉虫色の鱗があなたの体を完全に覆った。
 %%%%
@@ -2566,25 +2378,22 @@ Your iridescent scales recede somewhat.
 
 あなたの玉虫色の鱗がいくらか消え去った。
 %%%%
-iridescent scales (+AC)
-
-%%%%
 # MUT_LARGE_BONE_PLATES
 large bone plates
 
 大きな骨甲
 %%%%
-You are partially covered in large bone plates (AC +2, SH +2).
+You are partially covered in large bone plates. (SH +4)
 
-あなたは大きな骨甲で一部分を覆われている (AC +2, 盾 +2)
+あなたは大きな骨甲で一部分を覆われている。(盾 +4)
 %%%%
-You are mostly covered in large bone plates (AC +3, SH +3).
+You are mostly covered in large bone plates. (SH +6)
 
-あなたは大きな骨甲で大部分を覆われている。(AC +3, 盾 +3)
+あなたは大きな骨甲で大部分を覆われている。(盾 +6)
 %%%%
-You are completely covered in large bone plates (AC +4, SH +4).
+You are completely covered in large bone plates. (SH +8)
 
-あなたは大きな骨甲で完全に覆われている。(AC +4, 盾 +4)
+あなたは大きな骨甲で完全に覆われている。(盾 +8)
 %%%%
 Large bone plates grow over parts of your arms.
 
@@ -2606,26 +2415,22 @@ Your large bone plates recede somewhat.
 
 あなたの大きな骨甲がいくらか消え去った。
 %%%%
-large bone plates (+AC, +SH)
-
-
-%%%%
 # MUT_MOLTEN_SCALES
 molten scales
 
 溶岩状の鱗
 %%%%
-You are partially covered in molten scales (AC +1).
+You are partially covered in molten scales. (AC +2)
 
-あなたは溶岩状の鱗で一部分を覆われている。(AC +1)
+あなたは溶岩状の鱗で一部分を覆われている。(AC +2)
 %%%%
-You are mostly covered in molten scales (AC +3, EV -1).
+You are mostly covered in molten scales. (AC +3)
 
-あなたは溶岩状の鱗で大部分を覆われている。(AC +3, 回避 -1)
+あなたは溶岩状の鱗で大部分を覆われている。(AC +3)
 %%%%
-You are completely covered in molten scales (AC +4, EV -1, rF+).
+You are completely covered in molten scales. (AC +4, rF+)
 
-あなたは溶岩状の鱗で完全に覆われている。(AC +4, 回避 -1, rF+)
+あなたは溶岩状の鱗で完全に覆われている。(AC +4, rF+)
 %%%%
 Molten scales grow over part of your body.
 
@@ -2647,64 +2452,66 @@ Your molten scales recede somewhat.
 
 あなたの溶岩状の鱗がいくらか消え去った。
 %%%%
-molten scales (+AC)
-
-
-%%%%
 # MUT_ROUGH_BLACK_SCALES
+# TAG_MAJOR_VERSION == 34
 rough black scales
 
 ざらざらの黒い鱗
 %%%%
-You are partially covered in rough black scales (AC +4, Dex -1).
-あなたはざらざらした黒い鱗で一部分を覆われている。(AC +4, Dex -1)
-%%%%
-You are mostly covered in rough black scales (AC +7, Dex -2).
+# TAG_MAJOR_VERSION == 34
+You are partially covered in rough black scales. (AC +2, Dex -1)
 
-あなたはざらざらした黒い鱗で大部分を覆われている。(AC +7, Dex -2)
+あなたはざらざらした黒い鱗で一部分を覆われている。(AC +2, 器用 -1)
 %%%%
-You are completely covered in rough black scales (AC +10, Dex -3).
+# TAG_MAJOR_VERSION == 34
+You are mostly covered in rough black scales. (AC +5, Dex -2)
 
-あなたはざらざらした黒い鱗で完全に覆われている。(AC +10, Dex -3)
+あなたはざらざらした黒い鱗で大部分を覆われている。(AC +5, 器用 -2)
 %%%%
+# TAG_MAJOR_VERSION == 34
+You are completely covered in rough black scales. (AC +8, Dex -3)
+
+あなたはざらざらした黒い鱗で完全に覆われている。(AC +8, 器用 -3)
+%%%%
+# TAG_MAJOR_VERSION == 34
 Rough black scales grow over part of your body.
 
 ざらざらした黒い鱗があなたの体の一部に生えてきた。
 %%%%
+# TAG_MAJOR_VERSION == 34
 Rough black scales spread over more of your body.
 
 ざらざらした鱗があなたの体をさらに覆った。
 %%%%
-Rough black scales cover you completely.
+# TAG_MAJOR_VERSION == 34
+Rough black scales cover your body completely.
 
 ざらざらした黒い鱗があなたの体を完全に覆った。
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your rough black scales disappear.
 
 あなたのざらざらした黒い鱗が消えてしまった。
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your rough black scales recede somewhat.
 
-あなたの粗い黒い鱗がいくらか消え去った。
-%%%%
-rough, black scales (+AC, -Dex)
-
-
+あなたのざらざらした黒い鱗がいくらか消え去った。
 %%%%
 # MUT_RUGGED_BROWN_SCALES
 rugged brown scales
 
 頑丈な茶色の鱗
 %%%%
-You are partially covered in rugged brown scales (AC +1, +3% HP).
+You are partially covered in rugged brown scales. (AC +1, +3% HP)
 
 あなたは頑丈な茶色の鱗で一部分を覆われている。(AC +1, +3% HP)
 %%%%
-You are mostly covered in rugged brown scales (AC +2, +5% HP).
+You are mostly covered in rugged brown scales. (AC +2, +5% HP)
 
 あなたは頑丈な茶色の鱗で大部分を覆われている。(AC +2, +5% HP)
 %%%%
-You are completely covered in rugged brown scales (AC +3, +7% HP).
+You are completely covered in rugged brown scales. (AC +3, +7% HP)
 
 あなたは頑丈な茶色の鱗で完全に覆われている。(AC +3, +7% HP)
 %%%%
@@ -2716,7 +2523,7 @@ Rugged brown scales spread over more of your body.
 
 頑丈な茶色の鱗があなたの体を更に覆った。
 %%%%
-Rugged brown scales cover you completely.
+Rugged brown scales cover your body completely.
 
 頑丈な茶色の鱗があなたの体を完全に覆った。
 %%%%
@@ -2728,25 +2535,22 @@ Your rugged brown scales recede somewhat.
 
 あなたの頑丈な茶色の鱗がいくらか消え去った。
 %%%%
-rugged, brown scales (+AC, +HP)
-
-%%%%
 # MUT_SLIMY_GREEN_SCALES
 slimy green scales
 
 ねばねばした緑の鱗
 %%%%
-You are partially covered in slimy green scales (AC +2).
+You are partially covered in slimy green scales. (AC +2)
 
 あなたはねばねばした緑の鱗で一部分を覆われている。(AC +2)
 %%%%
-You are mostly covered in slimy green scales (AC +3).
+You are mostly covered in slimy green scales. (AC +3)
 
 あなたはねばねばした分を覆われている。(AC +3)
 %%%%
-You are completely covered in slimy green scales (AC +4, rPois).
+You are completely covered in slimy green scales. (AC +4, rPois)
 
-あなたはねばねばした緑の鱗で完全に覆われている (AC +4, 毒素耐性)
+あなたはねばねばした緑の鱗で完全に覆われている (AC +4, rPois)
 %%%%
 Slimy green scales grow over part of your body.
 
@@ -2768,24 +2572,20 @@ Your slimy green scales recede somewhat.
 
 あなたのねばねばした緑の鱗がいくらか消え去った。
 %%%%
-slimy, green scales (+AC)
-
-
-%%%%
 # MUT_THIN_METALLIC_SCALES
 thin metallic scales
 
 薄い金属性の鱗
 %%%%
-You are partially covered in thin metallic scales (AC +2).
+You are partially covered in thin metallic scales. (AC +2)
 
 あなたは薄い金属性の鱗で一部分を覆われている。(AC +2)
 %%%%
-You are mostly covered in thin metallic scales (AC +3).
+You are mostly covered in thin metallic scales. (AC +3)
 
 あなたは薄い金属性の鱗で大部分を覆われている。(AC +3)
 %%%%
-You are completely covered in thin metallic scales (AC +4, rElec).
+You are completely covered in thin metallic scales. (AC +4, rElec)
 
 あなたは薄い金属性の鱗で完全に覆われている。(AC +4, rElec)
 %%%%
@@ -2809,24 +2609,20 @@ Your thin metallic scales recede somewhat.
 
 あなたの薄い金属性の鱗がいくらか消え去った。
 %%%%
-thin, metallic scales (+AC)
-
-
-%%%%
 # MUT_THIN_SKELETAL_STRUCTURE
 thin skeletal structure
 
 薄い骨格構造
 %%%%
-You have a somewhat thin skeletal structure (Dex +2, Stealth).
+You have a somewhat thin skeletal structure. (Dex +2, Stealth)
 
 あなたはやや薄い骨格構造を持っている。(器用 +2, 隠密)
 %%%%
-You have a moderately thin skeletal structure (Dex +4, Stealth+).
+You have a moderately thin skeletal structure. (Dex +4, Stealth+)
 
 あなたは薄い骨格構造を持っている。(器用 +4, 隠密+)
 %%%%
-You have an unnaturally thin skeletal structure (Dex +6, Stealth++).
+You have an unnaturally thin skeletal structure. (Dex +6, Stealth++)
 
 あなたは不自然に薄い骨格構造を持っている。(器用 +6, 隠密++)
 %%%%
@@ -2850,26 +2646,22 @@ Your skeletal structure densifies.
 
 あなたの骨格構造は密度が高くなった。
 %%%%
-a thin skeletal structure (+Dex, Stealth)
-
-
-%%%%
 # MUT_YELLOW_SCALES
 yellow scales
 
 黄色の鱗
 %%%%
-You are partially covered in yellow scales (AC +2).
+You are partially covered in yellow scales. (AC +2)
 
 あなたは黄色の鱗で部分的に覆われている。(AC +2)
 %%%%
-You are mostly covered in yellow scales (AC +3).
+You are mostly covered in yellow scales. (AC +3)
 
 あなたは黄色の鱗で大部分を覆われている。(AC +3)
 %%%%
-You are completely covered in yellow scales (AC +4, rCorr).
+You are completely covered in yellow scales. (AC +4, rCorr)
 
-あなたは黄色の鱗で完全に覆われている。(AC +4, 腐食耐性)
+あなたは黄色の鱗で完全に覆われている。(AC +4, rCorr)
 %%%%
 Yellow scales grow over part of your body.
 
@@ -2891,26 +2683,80 @@ Your yellow scales recede somewhat.
 
 あなたの黄色の鱗がいくらか消え去った。
 %%%%
-yellow scales (+AC)
+# MUT_STURDY_FRAME
+sturdy frame
+
+頑健な骨格
+%%%%
+Your movements are slightly less encumbered by armour. (ER -2)
+
+あなたの動きは鎧によってそれほど阻害されない。(ER -2)
+%%%%
+Your movements are less encumbered by armour. (ER -4)
+
+あなたの動きは鎧によってあまり阻害されない。(ER -4)
+%%%%
+Your movements are significantly less encumbered by armour. (ER -6)
+
+あなたの動きは鎧によってほとんど阻害されない。(ER -6)
+%%%%
+You feel less encumbered by your armour.
 
 
+%%%%
+You feel more encumbered by your armour.
+
+
+%%%%
+# MUT_SANGUINE_ARMOUR
+sanguine armour
+
+血紅の鎧
+%%%%
+When seriously injured, your bleeding wounds create armour. (AC +
+
+あなたが重傷を負ったとき、傷口から流れる血が鎧を形成する。(AC +
+%%%%
+When seriously injured, your bleeding wounds create thick armour. (AC +
+
+あなたが重傷を負ったとき、傷口から流れる血が厚い鎧を形成する。(AC +
+%%%%
+When seriously injured, your bleeding wounds create very thick armour. (AC +
+
+あなたが重傷を負ったとき、傷口から流れる血が重厚な鎧を形成する。(AC +
+%%%%
+You feel your blood ready itself to protect you.
+
+あなたは自らの血が自身を守ってくれるような感じがした。
+%%%%
+You feel your blood thicken.
+
+あなたは血が濃くなったような気がした。
+%%%%
+You feel your blood become entirely quiescent.
+
+あなたは自らの血が力を失ったような感じがした。
+%%%%
+You feel your blood thin.
+
+あなたは血が薄まったような気がした。
 %%%%
 # MUT_CAMOUFLAGE
 camouflage
 
 迷彩
 %%%%
-Your skin changes colour to match your surroundings (Stealth).
+Your skin changes colour to match your surroundings (Stealth+).
 
-あなたの肌は周囲に合わせて色を変化させる。(隠密)
+あなたの肌は周囲に合わせて色を変化させる。(隠密+)
 %%%%
-Your skin blends seamlessly with your surroundings (Stealth).
+Your skin blends seamlessly with your surroundings (Stealth++).
 
-あなたの肌は継ぎ目無く周囲に溶け込む。(隠密)
+あなたの肌は継ぎ目無く周囲に溶け込む。(隠密++)
 %%%%
-Your skin perfectly mimics your surroundings (Stealth).
+Your skin perfectly mimics your surroundings (Stealth+++).
 
-あなたの肌は周囲を完全に模倣する。(隠密)
+あなたの肌は周囲を完全に模倣する。(隠密+++)
 %%%%
 Your skin functions as natural camouflage.
 
@@ -2941,22 +2787,18 @@ Your blood runs red-hot!
 
 あなたの血液は赤く熱く染まった！
 %%%%
-flaming blood
-
-
-%%%%
 # MUT_FOUL_STENCH
 foul stench
 
 汚らわしい悪臭
 %%%%
-You emit a foul stench.
+You may emit foul miasma when damaged in melee.
 
-あなたは汚らわしい悪臭を発している。
+あなたは近接攻撃を受けた際に汚らわしい瘴気を発することがある。
 %%%%
-You radiate miasma.
+You frequently emit foul miasma when damaged in melee.
 
-あなたは瘴気を発している。
+あなたは近接攻撃を受けた際にしばしば汚らわしい瘴気を発する。
 %%%%
 You begin to emit a foul stench of rot and decay.
 
@@ -2966,18 +2808,14 @@ You begin to radiate miasma.
 
 あなたは瘴気を発し始めた。
 %%%%
-a foul stench
-
-
-%%%%
 # MUT_TENDRILS
 tendrils
 
 粘着状の蔦
 %%%%
-Thin tendrils of slime have grown from your body.
+You are covered in slimy tendrils that may disarm your opponents.
 
-細いねばねばした蔦があなたの体から生えている。
+敵の持っている武器を取り落とさせるねばねばした蔦があなたを覆っている。
 %%%%
 Thin, slimy tendrils emerge from your body.
 
@@ -3004,10 +2842,6 @@ The jelly growth is reabsorbed into your body.
 
 ジェリーはあなたの身体に再吸収された。
 %%%%
-a jelly growth
-
-
-%%%%
 # MUT_JELLY_MISSILE
 jelly absorbing missiles
 
@@ -3016,10 +2850,6 @@ jelly absorbing missiles
 You have a small jelly attached to you that may absorb incoming projectiles.
 
 飛来物を吸収するジェリーがあなたの体に付いている。
-%%%%
-a missile-absorbing jelly
-
-
 %%%%
 # MUT_PETRIFICATION_RESISTANCE
 petrification resistance
@@ -3039,130 +2869,131 @@ You briefly stop moving.
 あなたの体の振動が止まった。
 %%%%
 # MUT_TRAMPLE_RESISTANCE
+# TAG_MAJOR_VERSION == 34
 trample resistance
 
-# obsolete
 %%%%
+# TAG_MAJOR_VERSION == 34
 You are resistant to trampling.
 
-# obsolete
 %%%%
+# TAG_MAJOR_VERSION == 34
 You feel steady.
 
-# obsolete
 %%%%
+# TAG_MAJOR_VERSION == 34
 You feel unsteady.
 
-# obsolete
 %%%%
+# TAG_MAJOR_VERSION == 34
 # MUT_CLING
 cling
 
 昇壁
 %%%%
+# TAG_MAJOR_VERSION == 34
 You can cling to walls.
 
 あなたは壁を登ることができる。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You feel sticky.
 
 あなたは粘り強くなった。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You feel slippery.
 
 あなたは滑りやすくなった。
 %%%%
-the ability to cling to walls
-
-
-%%%%
+# TAG_MAJOR_VERSION == 34
 # MUT_EXOSKELETON
 exoskeleton
 
 外骨格
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your body is surrounded by an exoskeleton. (buggy)
 
 あなたの体は虫のような外骨格に覆われている。
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your body is surrounded by a tough exoskeleton. (buggy)
 
 あなたの体は虫のような堅い外骨格に覆われている。
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your exoskeleton hardens.
 
 あなたの外骨格は堅くなった。
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your exoskeleton becomes even harder.
 
 あなたの外骨格は堅さを増した。
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your exoskeleton softens.
 
 あなたの外骨格は柔らかくなった。
 %%%%
-an exoskeleton
-
-外骨格
-%%%%
+# TAG_MAJOR_VERSION == 34
 # MUT_FUMES
 fuming
 
 煙幕
 %%%%
+# TAG_MAJOR_VERSION == 34
 You emit clouds of smoke.
 
 あなたは煙幕を発する。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You frequently emit clouds of smoke.
 
 あなたは頻繁に煙幕を発する。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You fume.
 
 あなたは煙たくなった。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You fume more.
 
 あなたはさらに煙たくなった。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You stop fuming.
 
 あなたは煙たくなくなった。
 %%%%
+# TAG_MAJOR_VERSION == 34
 You fume less.
 
 あなたは少し煙たくなくなった。
-%%%%
-chronic emission of smoke
-
-
 %%%%
 # MUT_BLACK_MARK
 black mark
 
 黒の紋様
 %%%%
-Your melee attacks sometimes drain vitality from your foes.
+Your melee attacks may debilitate your foes.
 
-あなたの近接攻撃はしばしば相手から生命力を奪い取る。
+あなたの近接攻撃は相手を衰弱させることがある。
 %%%%
 An ominous black mark forms on your body.
 
 不吉な黒の紋様があなたの体に刻まれた。
-%%%%
-a draining black mark
-
-
 %%%%
 # MUT_COLD_BLOODED
 cold-blooded
 
 冷血
 %%%%
-Your cold-blooded metabolism reacts poorly to cold.
+You are cold-blooded and may be slowed by cold attacks.
 
-あなたの冷たい血の代謝機能は冷気が苦手だ。
+あなたの血は冷たく、冷気による攻撃を受けると動きが鈍くなる。
 %%%%
 You feel cold-blooded.
 
@@ -3171,10 +3002,6 @@ You feel cold-blooded.
 You feel warm-blooded.
 
 あなたは血液が暖かくなったようだ。
-%%%%
-cold blood
-
-
 %%%%
 # MUT_FLAME_CLOUD_IMMUNITY
 flame cloud immunity
@@ -3189,10 +3016,6 @@ You feel less concerned about heat.
 
 あなたは熱気をあまり気にしなくなったようだ。
 %%%%
-immunity to flaming clouds
-
-
-%%%%
 # MUT_FREEZING_CLOUD_IMMUNITY
 freezing cloud immunity
 
@@ -3206,22 +3029,16 @@ You feel less concerned about cold.
 
 あなたは冷気をあまり気にしなくなったようだ。
 %%%%
-immunity to freezing clouds
-
-
-%%%%
+# TAG_MAJOR_VERSION == 34
 # MUT_SUSTAIN_ABILITIES
 sustain abilities
 
 能力維持
 %%%%
+# TAG_MAJOR_VERSION == 34
 Your attributes are resistant to harm.
 
 あなたの能力値は損なわれにくい。
-%%%%
-sustained abilities
-
-能力維持
 %%%%
 # MUT_NO_DRINK
 inability to drink while threatened
@@ -3240,10 +3057,6 @@ You can once more drink potions while threatened.
 
 あなたはふたたび危険時に薬を飲めるようになった。
 %%%%
-an inability to drink potions while threatened
-
-
-%%%%
 # MUT_NO_READ
 inability to read while threatened
 
@@ -3260,10 +3073,6 @@ You can no longer read scrolls while threatened.
 You can once more read scrolls while threatened.
 
 あなたはふたたび危険時に巻物を読めるようになった。
-%%%%
-an inability to drink while threatened
-
-
 %%%%
 # MUT_MISSING_HAND
 missing a hand
@@ -3282,10 +3091,6 @@ Your stump has regrown into a hand!
 
 片腕が付け根から生えてきた！
 %%%%
-a missing hand
-
-片腕欠損
-%%%%
 # MUT_NO_STEALTH
 no stealth
 
@@ -3302,10 +3107,6 @@ You can no longer be stealthy.
 You can once more be stealthy.
 
 あなたはふたたび人目を盗むことができるようになった。
-%%%%
-an inability to sneak
-
-
 %%%%
 # MUT_NO_ARTIFICE
 inability to use devices
@@ -3324,10 +3125,6 @@ You can once more study and use magical devices.
 
 あなたはふたたび魔道具を使うことができるようになった。
 %%%%
-an inability to evoke magical devices
-
-
-%%%%
 # MUT_NO_LOVE
 hated by all
 
@@ -3345,18 +3142,14 @@ You are no longer hated by all.
 
 あなたはもう全てには嫌われていない。
 %%%%
-inability to love
-
-
-%%%%
 # MUT_COWARDICE
 cowardly
 
 臆病
 %%%%
-You are a coward.
+Your cowardice makes you less effective in combat with threatening monsters.
 
-あなたは臆病者だ。
+あなたは脅威となるモンスターに対し、臆病さゆえ戦闘中にあまり力を発揮できない。
 %%%%
 You have lost your courage.
 
@@ -3365,10 +3158,6 @@ You have lost your courage.
 You have regained your courage.
 
 あなたは勇気を取り戻した。
-%%%%
-cowardice
-
-
 %%%%
 # MUT_NO_DODGING
 inability to train dodging
@@ -3421,10 +3210,6 @@ You can once more study and cast Air magic.
 
 あなたはふたたび風の魔術を唱えることができるようになった。
 %%%%
-inability to use Air magic
-
-
-%%%%
 # MUT_NO_CHARM_MAGIC
 no charms magic
 
@@ -3441,10 +3226,6 @@ You can no longer study or cast Charms magic.
 You can once more study and cast Charms magic.
 
 あなたはふたたび加護の魔術を唱えることができるようになった。
-%%%%
-inability to use Charms magic
-
-
 %%%%
 # MUT_NO_CONJURATION_MAGIC
 no conjurations magic
@@ -3463,10 +3244,6 @@ You can once more study and cast Conjurations magic.
 
 あなたはふたたび妖術を唱えることができるようになった。
 %%%%
-inability to use Conjurations magic
-
-
-%%%%
 # MUT_NO_EARTH_MAGIC
 no earth magic
 
@@ -3483,10 +3260,6 @@ You can no longer study or cast Earth magic.
 You can once more study and cast Earth magic.
 
 あなたはふたたび大地の魔術を唱えることができるようになった。
-%%%%
-inability to use Earth magic
-
-
 %%%%
 # MUT_NO_FIRE_MAGIC
 no fire magic
@@ -3505,10 +3278,6 @@ You can once more study and cast Fire magic.
 
 あなたはふたたび火の魔術を唱えることができるようになった。
 %%%%
-inability to use Fire magic
-
-
-%%%%
 # MUT_NO_HEXES_MAGIC
 no hexes magic
 
@@ -3525,10 +3294,6 @@ You can no longer study or cast Hexes magic.
 You can once more study and cast Hexes magic.
 
 あなたはふたたび呪術を唱えることができるようになった。
-%%%%
-inability to use Hexes magic
-
-
 %%%%
 # MUT_NO_ICE_MAGIC
 no ice magic
@@ -3547,10 +3312,6 @@ You can once more study and cast Ice magic.
 
 あなたはふたたび氷の魔術を唱えることができるようになった。
 %%%%
-inability to use Ice magic
-
-
-%%%%
 # MUT_NO_NECROMANCY_MAGIC
 no necromancy magic
 
@@ -3567,10 +3328,6 @@ You can no longer study or cast Necromancy magic.
 You can once more study and cast Necromancy magic.
 
 あなたはふたたび死霊術を唱えることができるようにあった。
-%%%%
-inability to use Necromancy magic
-
-
 %%%%
 # MUT_NO_POISON_MAGIC
 no poison magic
@@ -3589,10 +3346,6 @@ You can once more study and cast Poison magic.
 
 あなたはふたたび毒の魔術を唱えることができるようになった。
 %%%%
-inability to use Poison magic
-
-
-%%%%
 # MUT_NO_SUMMONING_MAGIC
 no summoning magic
 
@@ -3609,10 +3362,6 @@ You can no longer study or cast Summoning magic.
 You can once more study and cast Summoning magic.
 
 あなたはふたたび召喚術を唱えることができるようになった。
-%%%%
-inability to use Summoning magic
-
-
 %%%%
 # MUT_NO_TRANSLOCATION_MAGIC
 no translocations magic
@@ -3631,10 +3380,6 @@ You can once more study and cast Translocations magic.
 
 あなたはふたたび転位術を唱えることができるようになった。
 %%%%
-inability to use Translocations magic
-
-
-%%%%
 # MUT_NO_TRANSMUTATION_MAGIC
 no transmutations magic
 
@@ -3652,24 +3397,20 @@ You can once more study and cast Transmutations magic.
 
 あなたはふたたび変異術をとなえることができるようになった。
 %%%%
-inability to use Transmutations magic
-
-
-%%%%
 # MUT_PHYSICAL_VULNERABILITY
-vulnerability to harm
+reduced AC
 
 傷つきやすさ
 %%%%
-You take slightly more damage. (-3 AC)
+You take slightly more damage. (AC -3)
 
 あなたはやや傷つきやすい。(AC -3)
 %%%%
-You take more damage. (-6 AC)
+You take more damage. (AC -6)
 
 あなたは傷つきやすい。(AC -6)
 %%%%
-You take considerably more damage. (-9 AC)
+You take considerably more damage. (AC -9)
 
 あなたはかなり傷つきやすい。(AC -9)
 %%%%
@@ -3685,27 +3426,20 @@ You feel less vulnerable to harm.
 
 あなたは傷つきにくくなったようだ。
 %%%%
-vulnerability to harm (AC -3)
-
-
-%%%%
-[sacrifice]vulnerability to harm (AC -3)
-
-(AC -3)
-%%%%
 # MUT_SLOW_REFLEXES
-slow reflexes
+reduced EV
 
 回避低下
 %%%%
-You have somewhat slow reflexes. (-3 EV)
+You have somewhat slow reflexes. (EV -3)
+
 あなたは反射神経がいくらか遅くなったようだ。(回避 -3)
 %%%%
-You have slow reflexes. (-6 EV)
+You have slow reflexes. (EV -6)
 
 あなたは反射神経が遅くなったようだ。(回避 -6)
 %%%%
-You have very slow reflexes. (-9 EV)
+You have very slow reflexes. (EV -9)
 
 あなたは反射神経がとても遅くなったようだ。(回避 -9)
 %%%%
@@ -3725,30 +3459,22 @@ You reflexes speed back up.
 
 あなたの反射神経が少し回復した。
 %%%%
-slowed reflexes (EV -3)
-
-
-%%%%
-[sacrifice]slowed reflexes (EV -3)
-
-(EV -3)
-%%%%
 # MUT_MAGICAL_VULNERABILITY
 magic vulnerability
 
 魔法への脆弱性
 %%%%
-You are slightly vulnerable to magic.
+You are slightly vulnerable to magic. (MR-)
 
-あなたは魔法に対してやや弱い。
+あなたは魔法に対してやや弱い。(MR-)
 %%%%
-You are vulnerable to magic.
+You are vulnerable to magic. (MR--)
 
-あなたは魔法に弱い。
+あなたは魔法に弱い。(MR--)
 %%%%
-You are extremely vulnerable to magic.
+You are extremely vulnerable to magic. (MR---)
 
-あなたはきわめて魔法に弱い。
+あなたはきわめて魔法に弱い。(MR---)
 %%%%
 You feel vulnerable to magic.
 
@@ -3765,14 +3491,6 @@ You no longer feel vulnerable to magic.
 You feel less vulnerable to magic.
 
 あなたは少し魔法に弱くなくなった。
-%%%%
-vulnerability to magic (MR-)
-
-
-%%%%
-[sacrifice]vulnerability to magic (MR-)
-
-(MR-)
 %%%%
 # MUT_ANTI_WIZARDRY
 disrupted magic
@@ -3807,42 +3525,22 @@ Your ability to control magic is less disrupted.
 
 あなたの魔法制御能力への阻害は弱まった。
 %%%%
-disrupted casting (-Wiz)
-
-
-%%%%
-[sacrifice]disrupted casting (-Wiz)
-
-(-Wiz)
-%%%%
 # MUT_MP_WANDS
 MP-powered wands
 
 魔力を消費する杖
 %%%%
-You expend magic power (3 MP) to slightly strengthen your wands.
+You expend magic power (3 MP) to strengthen your wands.
 
-あなたは3MPを消費してワンドの効果を少し強くする。
+あなたは3MPを消費してワンドの効果を強くすることができる。
 %%%%
-You expend magic power (6 MP) to strengthen your wands.
+You feel your magical essence link to your wands.
 
-あなたは6MPを消費してワンドの効果を強くする。
+あなたは自らの魔力とワンドとの繋がりを感じた。
 %%%%
-You expend magic power (9 MP) to make your wands much stronger.
+Your magical essence is no longer linked to your wands.
 
-あなたは9MPを消費してワンドの効果をさらに強くする。
-%%%%
-You feel less able to contain your magic power.
-
-あなたは自身の魔力を保持できなくなっていくのを感じた。
-%%%%
-You can contain your magic power once more.
-
-あなたは再び自身の魔力を保持できるようになった。
-%%%%
-You feel more able to contain your magic power.
-
-あなたは自身の魔力をより保持できるようになった。
+あなたの魔力とワンドはもう繋がりがない。
 %%%%
 # MUT_UNSKILLED
 unskilled
@@ -3873,24 +3571,20 @@ You regain some skill.
 
 あなたはいくらか腕を取り戻した。
 %%%%
-a lack of skill
-
-
-%%%%
 # MUT_INEXPERIENCED
 inexperienced
 
 レベル低下
 %%%%
-You are somewhat inexperienced (-2 XL).
+You are somewhat inexperienced. (-2 XL)
 
 あなたはいくらか経験を失った。(レベル -2)
 %%%%
-You are inexperienced (-4 XL)
+You are inexperienced. (-4 XL)
 
 あなたは経験を失った。(レベル -4)
 %%%%
-You are extremely inexperienced (-6 XL).
+You are extremely inexperienced. (-6 XL)
 
 あなたはかなりの経験を失った。(レベル -6)
 %%%%
@@ -3906,21 +3600,48 @@ You regain some potential.
 
 あなたは少し経験を取り戻した。
 %%%%
-a lack of experience
-
-
-%%%%
 # MUT_PAWS
 sharp paws
 
 鋭い前足
 %%%%
-Your paws have sharp claws that are effective at stabbing.
+Your sharp claws are effective at attacking unaware monsters.
 
-あなたの前足には鋭い爪があり、急所を突くのに有効だ。
+あなたの持つ鋭い爪はこちらに気づいていないモンスターを攻撃するのに役立つ。
 %%%%
-claws that catch
+# MUT_MISSING_EYE
+missing an eye
 
+片目喪失
+%%%%
+You are missing an eye, making it more difficult to aim.
+
+あなたは片目を失っており、狙いをつけるのがより難しくなっている。
+%%%%
+Your right eye vanishes! The world loses its depth.
+
+あなたの右目が消え失せた！ 遠近感が分からなくなった。
+%%%%
+Your right eye suddenly reappears! The world regains its depth.
+
+あなたの右目が突然再生した！ 遠近感が元に戻った。
+%%%%
+# MUT_TEMPERATURE_SENSITIVITY
+temperature sensitive
+
+温度に敏感
+%%%%
+You are sensitive to extremes of temperature. (rF-, rC-)
+
+あなたは極端な温度環境に弱い。(rF-, rC-)
+%%%%
+You feel sensitive to extremes of temperature.
+
+あなたは極端な温度環境に弱くなった気がした。
+%%%%
+You no longer feel sensitive to extremes of temperature
+
+あなたは極端な温度環境に対し元通りの強さになった。
 %%%%
 ################################################################
 #   output.cc
