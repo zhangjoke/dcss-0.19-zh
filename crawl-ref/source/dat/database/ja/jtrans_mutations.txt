@@ -107,7 +107,7 @@ You hunger for flesh.
 %%%%
 You feel able to eat a more balanced diet.
 
-あなたはもっとバランスの良い食事を取れるようになったようだ。
+あなたはもっとバランスの良い食事を取ることができるようになった。
 %%%%
 # MUT_HERBIVOROUS
 herbivore
@@ -137,15 +137,15 @@ fire resistance
 %%%%
 Your flesh is heat resistant. (rF+)
 
-あなたの体は熱に耐性がある。(rF+)
+あなたの皮膚は熱に耐性がある。(rF+)
 %%%%
 Your flesh is very heat resistant. (rF++)
 
-あなたの体は熱にかなりの耐性がある。(rF++)
+あなたの皮膚は熱にかなりの耐性がある。(rF++)
 %%%%
 Your flesh is almost immune to the effects of heat. (rF+++)
 
-あなたの体は熱の影響をほぼ無効化する。(rF+++)
+あなたの皮膚は熱の影響をほぼ無効化する。(rF+++)
 %%%%
 You feel resistant to heat.
 
@@ -170,15 +170,15 @@ cold resistance
 %%%%
 Your flesh is cold resistant. (rC+)
 
-あなたの体は冷気に耐性がある。(rC+)
+あなたの皮膚は冷気に耐性がある。(rC+)
 %%%%
 Your flesh is very cold resistant. (rC++)
 
-あなたの体は冷気にかなりの耐性がある。(rC++)
+あなたの皮膚は冷気にかなりの耐性がある。(rC++)
 %%%%
 Your flesh is almost immune to the effects of cold. (rC+++)
 
-あなたの体は冷気の影響をほぼ無効化する。(rC+++)
+あなたの皮膚は冷気の影響をほぼ無効化する。(rC+++)
 %%%%
 You feel resistant to cold.
 
@@ -298,7 +298,7 @@ You are resistant to electric shocks. (rElec)
 %%%%
 You feel insulated.
 
-あなたは絶縁化されたようだ。
+あなたは絶縁体になったようだ。
 %%%%
 You feel conductive.
 
@@ -328,7 +328,7 @@ regeneration
 %%%%
 Your natural rate of healing is unusually fast.
 
-あなたの自然治癒速度は著しく速い。
+あなたの自然治癒の速度は著しく速い。
 %%%%
 You heal very quickly.
 
@@ -504,11 +504,11 @@ You are often teleported next to monsters.
 %%%%
 You feel weirdly uncertain.
 
-あなたは奇妙な不安定さを感じた。
+あなたは奇妙な不安定さを意識した。
 %%%%
 You feel even more weirdly uncertain.
 
-あなたはさらなる奇妙な不安定さを感じた。
+あなたはさらなる奇妙な不安定さを意識した。
 %%%%
 You feel stable.
 
@@ -521,35 +521,35 @@ magic resistance
 %%%%
 You are resistant to hostile enchantments. (MR+)
 
-あなたは敵対的な魔法に対する耐性がある。(MR+)
+あなたは敵対的な魔法に対して抵抗力がある。(MR+)
 %%%%
 You are highly resistant to hostile enchantments. (MR++)
 
-あなたは敵対的な魔法に対して高い耐性がある。(MR++)
+あなたは敵対的な魔法に対して高い抵抗力がある。(MR++)
 %%%%
 You are extremely resistant to the effects of hostile enchantments. (MR+++)
 
-あなたは敵対的な魔法の効力に対して極めて耐性がある。(MR+++)
+あなたは敵対的な魔法の影響に対して強力な抵抗力がある。(MR+++)
 %%%%
 You feel resistant to hostile enchantments.
 
-あなたは敵対的な魔法に対する耐性を得たようだ。
+あなたは敵対的な魔法への抵抗力を得た。
 %%%%
 You feel more resistant to hostile enchantments.
 
-あなたは敵対的な魔法に対する更なる耐性を得たようだ。
+あなたはさらに敵対的な魔法への抵抗力を得た。
 %%%%
 You feel almost impervious to the effects of hostile enchantments.
 
-あなたは敵対的な魔法の影響をほとんど受けないようだ。
+あなたは敵対的な魔法の効果にほとんど影響を受けなくなった。
 %%%%
 You feel less resistant to hostile enchantments.
 
-あなたの敵対的な魔法に対する耐性は薄れたようだ。
+あなたは敵対的な魔法への抵抗力が衰えたのを感じた。
 %%%%
 You feel vulnerable to hostile enchantments.
 
-あなたは敵対的な魔法に対して脆弱になったようだ。
+あなたは敵対的な魔法からの影響を受けるようになった。
 %%%%
 # MUT_FAST
 speed
@@ -570,11 +570,11 @@ You cover ground extremely quickly.
 %%%%
 You feel quick.
 
-あなたは素早くなったようだ。
+あなたは素早くなった。
 %%%%
 You feel sluggish.
 
-あなたは動きが緩慢になったようだ。
+あなたは動きが緩慢になった。
 %%%%
 # MUT_SLOW
 slowness
@@ -634,7 +634,7 @@ spit poison
 %%%%
 You can spit poison.
 
-あなたは毒液を吐くことができる。
+あなたは毒を吐き出すことができる。
 %%%%
 You can exhale a cloud of poison.
 
@@ -662,7 +662,7 @@ You can breathe flames.
 # TAG_MAJOR_VERSION == 34
 You can breathe fire.
 
-あなたは炎のブレスを吐くことができる。
+あなたは火炎のブレスを吐くことができる。
 %%%%
 # TAG_MAJOR_VERSION == 34
 You can breathe blasts of fire.
@@ -717,7 +717,7 @@ blink
 %%%%
 You can translocate small distances at will.
 
-あなたは自分がしたいときに短い距離を瞬間移動できる。
+あなたは自分がしたいときに短い距離を瞬間移動することができる。
 %%%%
 You feel jittery.
 
@@ -756,7 +756,7 @@ Your muscles feel sore.
 # TAG_MAJOR_VERSION == 34
 Your muscles feel loose.
 
-あなたの筋肉は弛緩した。
+あなたの筋肉は柔らかくなったようだ。
 %%%%
 # MUT_FLEXIBLE_WEAK
 # TAG_MAJOR_VERSION == 34
@@ -850,7 +850,7 @@ Your thinking seems confused.
 # MUT_BERSERK
 berserk
 
-狂乱化
+バーサーク
 %%%%
 You tend to lose your temper in combat.
 
@@ -866,11 +866,11 @@ You have an uncontrollable temper.
 %%%%
 You feel a little pissed off.
 
-あなたは少し腹立ちを覚えた。
+あなたは少し苛立ちを覚えた。
 %%%%
 You feel angry.
 
-あなたは腹立ちを覚えた。
+あなたは腹が立った。
 %%%%
 You feel extremely angry at everything!
 
@@ -949,11 +949,11 @@ mutation resistance
 %%%%
 You are somewhat resistant to further mutation.
 
-あなたは突然変異の進行に幾らかの抵抗力がある。
+あなたは突然変異の進行にいくらかの抵抗力がある。
 %%%%
 You are somewhat resistant to both further mutation and mutation removal.
 
-あなたは突然変異の進行と除去の両方に幾らかの抵抗力がある。
+あなたは突然変異の進行と除去の両方にいくらかの抵抗力がある。
 %%%%
 You are almost entirely resistant to further mutation and mutation removal.
 
@@ -1011,7 +1011,7 @@ You are very frail. (-20% HP)
 %%%%
 You are extremely frail. (-30% HP)
 
-あなたは極めて虚弱だ。(-30% HP)
+あなたはきわめて虚弱だ。(-30% HP)
 %%%%
 You feel frail.
 
@@ -1036,7 +1036,7 @@ You are very robust. (+20% HP)
 %%%%
 You are extremely robust. (+30% HP)
 
-あなたは極めて強健だ。(+30% HP)
+あなたはきわめて強健だ。(+30% HP)
 %%%%
 # MUT_UNBREATHING
 unbreathing
@@ -1152,7 +1152,7 @@ You can hurl damnation.
 %%%%
 You smell a hint of brimstone.
 
-あなたはかすかな硫黄の臭いを嗅ぎとった。
+あなたはかすかな硫黄の匂いを嗅ぎとった。
 %%%%
 # MUT_HORNS
 horns
@@ -1177,7 +1177,7 @@ A pair of horns grows on your head!
 %%%%
 The horns on your head grow some more.
 
-あなたの角が幾らか成長した。
+あなたの角がいくらか成長した。
 %%%%
 The horns on your head shrink away.
 
@@ -1231,7 +1231,7 @@ Your fingernails sharpen.
 %%%%
 Your hands twist into claws.
 
-あなたの手は鉤爪に変化した。
+あなたの手は鉤爪へと変化した。
 %%%%
 Your fingernails shrink to normal size.
 
@@ -1243,7 +1243,7 @@ Your fingernails look duller.
 %%%%
 Your hands feel fleshier.
 
-あなたの鉤爪は指に変化した。
+あなたの鉤爪は指へと変化した。
 %%%%
 # MUT_FANGS
 fangs
@@ -1297,7 +1297,7 @@ You have hoof-like feet.
 %%%%
 You have hooves in place of feet.
 
-あなたは足の替わりに蹄が生えている。
+あなたは足のかわりに蹄が生えている。
 %%%%
 Your feet thicken and deform.
 
@@ -1309,7 +1309,7 @@ Your feet have mutated into hooves.
 %%%%
 Your hooves expand and flesh out into feet!
 
-あなたの蹄が普通の足に変化した！
+あなたの蹄は普通の足へと変化した！
 %%%%
 Your hooves look more like feet.
 
@@ -1342,7 +1342,7 @@ The antennae on your head grow some more.
 %%%%
 The antennae on your head shrink away.
 
-あなたの頭の触角は消え去った。
+あなたの頭の触角は収縮してなくなった。
 %%%%
 The antennae on your head shrink a bit.
 
@@ -1504,7 +1504,7 @@ Your large and strong wings let you fly indefinitely.
 %%%%
 Your wings grow larger and stronger.
 
-あなたの翼は大きく力強く成長した。
+あなたの翼は大きく、力強く成長した。
 %%%%
 Your wings shrivel and weaken.
 
@@ -1771,7 +1771,7 @@ Your attunement to dungeon structure grows further.
 %%%%
 You feel slightly disoriented.
 
-あなたは軽い見当識喪失にかかった。
+あなたは少し見当識を失った。
 %%%%
 # MUT_ICEMAIL
 icemail
@@ -2091,7 +2091,7 @@ Your body is covered in golden eyes which may confuse attackers. (Acc +7, SInv)
 %%%%
 Eyeballs grow over part of your body.
 
-あなたの体の一部に眼球が生えてきた。
+眼球があなたの体の一部に生えてきた。
 %%%%
 Eyeballs cover a large portion of your body.
 
@@ -2282,7 +2282,7 @@ repulsion field
 %%%%
 You are surrounded by a mild repulsion field. (EV +2)
 
-あなたは弱い斥力場に覆われている。(回避 +2)
+あなたは緩やかな斥力場に覆われている。(回避 +2)
 %%%%
 You are surrounded by a moderate repulsion field. (EV +3)
 
@@ -2298,7 +2298,7 @@ You begin to radiate repulsive energy.
 %%%%
 Your repulsive radiation grows stronger.
 
-あなたの斥力が更に強くなった。
+あなたの斥力がさらに強くなった。
 %%%%
 You feel less repulsive.
 
@@ -2311,15 +2311,15 @@ icy blue scales
 %%%%
 You are partially covered in icy blue scales. (AC +2)
 
-あなたは氷のように青い鱗で部分的に覆われている。(AC +2)
+あなたの体は氷のように青い鱗で部分的に覆われている。(AC +2)
 %%%%
 You are mostly covered in icy blue scales. (AC +3)
 
-あなたは氷のように青い鱗で大部分を覆われている。(AC +3)
+あなたの体は氷のように青い鱗で大部分を覆われている。(AC +3)
 %%%%
 You are completely covered in icy blue scales. (AC +4, rC+)
 
-あなたは氷のように青い鱗で完全に覆われている。(AC +4, rC+)
+あなたの体は氷のように青い鱗で完全に覆われている。(AC +4, rC+)
 %%%%
 Icy blue scales grow over part of your body.
 
@@ -2348,15 +2348,15 @@ iridescent scales
 %%%%
 You are partially covered in iridescent scales. (AC +2)
 
-あなたは玉虫色の鱗で部分的に覆われている。(AC +2)
+あなたの体は玉虫色の鱗で部分的に覆われている。(AC +2)
 %%%%
 You are mostly covered in iridescent scales. (AC +4)
 
-あなたは玉虫色の鱗で大部分を覆われている。(AC +4)
+あなたの体は玉虫色の鱗で大部分を覆われている。(AC +4)
 %%%%
 You are completely covered in iridescent scales. (AC +6)
 
-あなたは玉虫色の鱗で完全に覆われている。(AC +6)
+あなたの体は玉虫色の鱗で完全に覆われている。(AC +6)
 %%%%
 Iridescent scales grow over part of your body.
 
@@ -2385,15 +2385,15 @@ large bone plates
 %%%%
 You are partially covered in large bone plates. (SH +4)
 
-あなたは大きな骨甲で一部分を覆われている。(盾 +4)
+あなたの体は大きな骨甲で部分的に覆われている。(盾 +4)
 %%%%
 You are mostly covered in large bone plates. (SH +6)
 
-あなたは大きな骨甲で大部分を覆われている。(盾 +6)
+あなたの体は大きな骨甲で大部分を覆われている。(盾 +6)
 %%%%
 You are completely covered in large bone plates. (SH +8)
 
-あなたは大きな骨甲で完全に覆われている。(盾 +8)
+あなたの体は大きな骨甲で完全に覆われている。(盾 +8)
 %%%%
 Large bone plates grow over parts of your arms.
 
@@ -2422,15 +2422,15 @@ molten scales
 %%%%
 You are partially covered in molten scales. (AC +2)
 
-あなたは溶岩状の鱗で一部分を覆われている。(AC +2)
+あなたの体は溶岩状の鱗で部分的に覆われている。(AC +2)
 %%%%
 You are mostly covered in molten scales. (AC +3)
 
-あなたは溶岩状の鱗で大部分を覆われている。(AC +3)
+あなたの体は溶岩状の鱗で大部分を覆われている。(AC +3)
 %%%%
 You are completely covered in molten scales. (AC +4, rF+)
 
-あなたは溶岩状の鱗で完全に覆われている。(AC +4, rF+)
+あなたの体は溶岩状の鱗で完全に覆われている。(AC +4, rF+)
 %%%%
 Molten scales grow over part of your body.
 
@@ -2461,17 +2461,17 @@ rough black scales
 # TAG_MAJOR_VERSION == 34
 You are partially covered in rough black scales. (AC +2, Dex -1)
 
-あなたはざらざらした黒い鱗で一部分を覆われている。(AC +2, 器用 -1)
+あなたの体はざらざらした黒い鱗で部分的に覆われている。(AC +2, 器用 -1)
 %%%%
 # TAG_MAJOR_VERSION == 34
 You are mostly covered in rough black scales. (AC +5, Dex -2)
 
-あなたはざらざらした黒い鱗で大部分を覆われている。(AC +5, 器用 -2)
+あなたの体はざらざらした黒い鱗で大部分を覆われている。(AC +5, 器用 -2)
 %%%%
 # TAG_MAJOR_VERSION == 34
 You are completely covered in rough black scales. (AC +8, Dex -3)
 
-あなたはざらざらした黒い鱗で完全に覆われている。(AC +8, 器用 -3)
+あなたの体はざらざらした黒い鱗で完全に覆われている。(AC +8, 器用 -3)
 %%%%
 # TAG_MAJOR_VERSION == 34
 Rough black scales grow over part of your body.
@@ -2481,7 +2481,7 @@ Rough black scales grow over part of your body.
 # TAG_MAJOR_VERSION == 34
 Rough black scales spread over more of your body.
 
-ざらざらした鱗があなたの体をさらに覆った。
+ざらざらした黒い鱗があなたの体をさらに覆った。
 %%%%
 # TAG_MAJOR_VERSION == 34
 Rough black scales cover your body completely.
@@ -2505,15 +2505,15 @@ rugged brown scales
 %%%%
 You are partially covered in rugged brown scales. (AC +1, +3% HP)
 
-あなたは頑丈な茶色の鱗で一部分を覆われている。(AC +1, +3% HP)
+あなたの体は頑丈な茶色の鱗で部分的に覆われている。(AC +1, +3% HP)
 %%%%
 You are mostly covered in rugged brown scales. (AC +2, +5% HP)
 
-あなたは頑丈な茶色の鱗で大部分を覆われている。(AC +2, +5% HP)
+あなたの体は頑丈な茶色の鱗で大部分を覆われている。(AC +2, +5% HP)
 %%%%
 You are completely covered in rugged brown scales. (AC +3, +7% HP)
 
-あなたは頑丈な茶色の鱗で完全に覆われている。(AC +3, +7% HP)
+あなたの体は頑丈な茶色の鱗で完全に覆われている。(AC +3, +7% HP)
 %%%%
 Rugged brown scales grow over part of your body.
 
@@ -2521,7 +2521,7 @@ Rugged brown scales grow over part of your body.
 %%%%
 Rugged brown scales spread over more of your body.
 
-頑丈な茶色の鱗があなたの体を更に覆った。
+頑丈な茶色の鱗があなたの体をさらに覆った。
 %%%%
 Rugged brown scales cover your body completely.
 
@@ -2542,15 +2542,15 @@ slimy green scales
 %%%%
 You are partially covered in slimy green scales. (AC +2)
 
-あなたはねばねばした緑の鱗で一部分を覆われている。(AC +2)
+あなたの体はねばねばした緑色の鱗で部分的に覆われている。(AC +2)
 %%%%
 You are mostly covered in slimy green scales. (AC +3)
 
-あなたはねばねばした分を覆われている。(AC +3)
+あなたの体はねばねばした緑の鱗で大部分を覆われている。(AC +3)
 %%%%
 You are completely covered in slimy green scales. (AC +4, rPois)
 
-あなたはねばねばした緑の鱗で完全に覆われている (AC +4, rPois)
+あなたの体はねばねばした緑の鱗で完全に覆われている。(AC +4, rPois)
 %%%%
 Slimy green scales grow over part of your body.
 
@@ -2579,15 +2579,15 @@ thin metallic scales
 %%%%
 You are partially covered in thin metallic scales. (AC +2)
 
-あなたは薄い金属性の鱗で一部分を覆われている。(AC +2)
+あなたの体は薄い金属性の鱗で部分的に覆われている。(AC +2)
 %%%%
 You are mostly covered in thin metallic scales. (AC +3)
 
-あなたは薄い金属性の鱗で大部分を覆われている。(AC +3)
+あなたの体は薄い金属性の鱗で大部分を覆われている。(AC +3)
 %%%%
 You are completely covered in thin metallic scales. (AC +4, rElec)
 
-あなたは薄い金属性の鱗で完全に覆われている。(AC +4, rElec)
+あなたの体は薄い金属性の鱗で完全に覆われている。(AC +4, rElec)
 %%%%
 Thin metallic scales grow over part of your body.
 
@@ -2653,15 +2653,15 @@ yellow scales
 %%%%
 You are partially covered in yellow scales. (AC +2)
 
-あなたは黄色の鱗で部分的に覆われている。(AC +2)
+あなたの体は黄色の鱗で部分的に覆われている。(AC +2)
 %%%%
 You are mostly covered in yellow scales. (AC +3)
 
-あなたは黄色の鱗で大部分を覆われている。(AC +3)
+あなたの体は黄色の鱗で大部分を覆われている。(AC +3)
 %%%%
 You are completely covered in yellow scales. (AC +4, rCorr)
 
-あなたは黄色の鱗で完全に覆われている。(AC +4, rCorr)
+あなたの体は黄色の鱗で完全に覆われている。(AC +4, rCorr)
 %%%%
 Yellow scales grow over part of your body.
 

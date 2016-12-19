@@ -283,7 +283,7 @@ four strong arms
 %%%%
 Your body is rotting away.
 
-あなたの体は腐敗しつつある。
+あなたの体は腐り落ちていく。
 %%%%
 You thrive on raw meat.
 
