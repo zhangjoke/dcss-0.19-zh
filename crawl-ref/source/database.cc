@@ -184,7 +184,6 @@ static TextDB AllDBs[] =
            "jtrans_autofight_lua.txt",
            "jtrans_magicspell.txt",
            */
-           "jtrans_mutation_data.txt",
            "jtrans_newgame.txt",
            "jtrans_output.txt",
            "jtrans_prompt.txt",
@@ -197,7 +196,6 @@ static TextDB AllDBs[] =
            
            "jtrans_character.txt",
            "jtrans_monster_name.txt",
-           "jtrans_species_data.txt",
            "jtrans_skill_title.txt",
            "jtrans_divine_title.txt",
            "jtrans_weapon_name.txt",
@@ -214,6 +212,8 @@ static TextDB AllDBs[] =
            "jtrans_staff_name.txt",
            "jtrans_rod_name.txt",
 
+           "jtrans_species_data.txt",
+           "jtrans_mutation_data.txt",
            /*
            "jtrans_duration_data.txt",
            "jtrans_zap_data.txt",

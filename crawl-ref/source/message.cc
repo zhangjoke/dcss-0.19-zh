@@ -1108,19 +1108,19 @@ void mprf(const char *format, ...)
     va_end(argp);
 }
 
-void mprf_noarg(msg_channel_type channel, int param, const string& msg)
+void mprf(msg_channel_type channel, int param, const string& msg)
 {
     _mpr(msg, channel, param, true, false);
 }
 
-void mprf_noarg(msg_channel_type channel, const string& msg)
+void mprf(msg_channel_type channel, const string& msg)
 {
-    mprf_noarg(channel, channel == MSGCH_GOD ? you.religion : 0, msg);
+    mprf(channel, channel == MSGCH_GOD ? you.religion : 0, msg);
 }
 
-void mprf_noarg(const string& msg)
+void mprf(const string& msg)
 {
-    mprf_noarg(MSGCH_PLAIN, msg);
+    mprf(MSGCH_PLAIN, msg);
 }
 
 void mprf_nojoin(msg_channel_type channel, const char *format, ...)
