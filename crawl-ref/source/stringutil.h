@@ -252,6 +252,9 @@ static inline string nbsp2sp(const string &s)
 }
 #define nbsp2spc(s) (nbsp2sp(s).c_str())
 
+// zero-width space
+#define ZWSP u8"\u200B"
+
 // Work around missing std::to_string. This will break when newlib adds
 // support for long double, which will enable std::to_string in libstdc++.
 //
@@ -297,5 +300,6 @@ namespace std
     }
 }
 #endif
+# define to_stringc(s) (to_string(s).c_str())
 
 #endif

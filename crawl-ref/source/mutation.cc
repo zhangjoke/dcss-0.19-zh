@@ -20,6 +20,7 @@
 #include "cio.h"
 #include "coordit.h"
 #include "dactions.h"
+#include "database.h"
 #include "delay.h"
 #include "english.h"
 #include "env.h"
@@ -348,6 +349,8 @@ static int _num_transient = 0;
 
 static string _annotate_form_based(string desc, bool suppressed)
 {
+    desc = jtrans(desc);
+
     if (suppressed)
     {
         desc = "<darkgrey>((" + desc + "))</darkgrey>";
@@ -366,7 +369,7 @@ static string _dragon_abil(string desc)
 string describe_mutations(bool center_title)
 {
     string result;
-    const char *mut_title = "Innate Abilities, Weirdness & Mutations";
+    const string mut_title = jtrans("Innate Abilities, Weirdness & Mutations");
 
     _num_full_suppressed = _num_part_suppressed = 0;
     _num_transient = 0;
@@ -381,7 +384,7 @@ string describe_mutations(bool center_title)
 
     result += "<white>";
     result += mut_title;
-    result += "</white>\n\n";
+    result += "</white>\n" ZWSP "\n";
 
     result += "<lightblue>";
     const string old_result = result;
@@ -398,19 +401,19 @@ string describe_mutations(bool center_title)
         else if (you.species == SP_MINOTAUR)
             result += _annotate_form_based(str, !form_keeps_mutations());
         else
-            result += str + "\n";
+            result += jtrans(str) + "\n";
     }
 
     if (you.racial_ac(false) > 0)
     {
-        const string scale_clause = string(scale_type(you.species))
-              + " scales are "
-              + (you.species == SP_GREY_DRACONIAN ? "very " : "") + "hard";
+        const string scale_clause = jtrans(scale_type(you.species))
+              + jtrans(" scales are ")
+              + jtrans(string(you.species == SP_GREY_DRACONIAN ? "very " : "") + "hard");
 
         result += _annotate_form_based(
-                    make_stringf("Your %s. (AC +%d)",
-                       you.species == SP_NAGA ? "serpentine skin is tough" :
-                       you.species == SP_GARGOYLE ? "stone body is resilient" :
+                    make_stringf(jtransc("Your %s. (AC +%d)"),
+                       you.species == SP_NAGA ? jtransc("serpentine skin is tough") :
+                       you.species == SP_GARGOYLE ? jtransc("stone body is resilient") :
                                                     scale_clause.c_str(),
                        you.racial_ac(false) / 100),
                     player_is_shapechanged()
@@ -421,11 +424,11 @@ string describe_mutations(bool center_title)
     if (you.species == SP_VAMPIRE)
     {
         if (you.hunger_state <= HS_STARVING)
-            result += "<green>You do not heal naturally.</green>\n";
+            result += jtrans_notrim("<green>You do not heal naturally.</green>\n");
         else if (you.hunger_state < HS_SATIATED)
-            result += "<green>You heal slowly.</green>\n";
+            result += jtrans_notrim("<green>You heal slowly.</green>\n");
         else if (you.hunger_state >= HS_FULL)
-            result += "<green>Your natural rate of healing is unusually fast.</green>\n";
+            result += jtrans_notrim("<green>Your natural rate of healing is unusually fast.</green>\n");
     }
 
     if (you.species == SP_OCTOPODE)
@@ -433,15 +436,13 @@ string describe_mutations(bool center_title)
         result += _annotate_form_based("You are amphibious.",
                                        !form_likes_water());
 
-        const string num_tentacles =
-               number_in_words(you.has_usable_tentacles(false));
         result += _annotate_form_based(
-            make_stringf("You can wear up to %s rings at the same time.",
-                         num_tentacles.c_str()),
+            make_stringf(jtransc("You can wear up to %s rings at the same time."),
+                         to_stringc(you.has_usable_tentacles(false))),
             !get_form()->slot_available(EQ_RING_EIGHT));
         result += _annotate_form_based(
-            make_stringf("You can use your tentacles to constrict %s enemies at once.",
-                         num_tentacles.c_str()),
+            make_stringf(jtransc("You can use your tentacles to constrict %s enemies at once."),
+                         to_stringc(you.has_usable_tentacles(false))),
             !form_keeps_mutations());
     }
 
@@ -450,14 +451,14 @@ string describe_mutations(bool center_title)
         switch (you.body_size(PSIZE_TORSO, true))
         {
         case SIZE_LITTLE:
-            result += "You are very small and have problems with some larger weapons.\n"
-                      "You are too small for most types of armour.\n";
+            result += jtrans_notrim("You are very small and have problems with some larger weapons.\n") +
+                      jtrans_notrim("You are too small for most types of armour.\n");
             break;
         case SIZE_SMALL:
-            result += "You are small and have problems with some larger weapons.\n";
+            result += jtrans_notrim("You are small and have problems with some larger weapons.\n");
             break;
         case SIZE_LARGE:
-            result += "You are too large for most types of armour.\n";
+            result += jtrans_notrim("You are too large for most types of armour.\n");
             break;
         default:
             break;
@@ -467,10 +468,10 @@ string describe_mutations(bool center_title)
     // Could move this into species-data, but then the hack that assumes
     // _dragon_abil should get called on all draconian fake muts would break.
     if (species_is_draconian(you.species))
-        result += "You cannot fit into any form of body armour.\n";
+        result += jtrans_notrim("You cannot fit into any form of body armour.\n");
 
     if (player_res_poison(false, false, false) == 3)
-        result += "You are immune to poison.\n";
+        result += jtrans_notrim("You are immune to poison.\n");
 
     result += "</lightblue>";
 
@@ -487,18 +488,18 @@ string describe_mutations(bool center_title)
     }
 
     if (have_passive(passive_t::water_walk))
-        result += "<green>You can walk on water.</green>\n";
+        result += jtrans_notrim("<green>You can walk on water.</green>\n");
     else if (you.can_water_walk())
     {
-        result += "<lightgreen>You can walk on water until reaching land."
-                  "</lightgreen>";
+        result += jtrans_notrim("<lightgreen>You can walk on water until reaching land."
+                                "</lightgreen>");
     }
 
     if (have_passive(passive_t::frail)
         || player_under_penance(GOD_HEPLIAKLQANA))
     {
-        result += "<lightred>Your life essence is reduced. (-10% HP)"
-                  "</lightred>\n";
+        result += jtrans_notrim("<lightred>Your life essence is reduced. (-10% HP)"
+                                "</lightred>\n");
     }
 
     // Now add removable mutations.
@@ -525,7 +526,7 @@ string describe_mutations(bool center_title)
     }
 
     if (result == old_result + "</lightblue>") // Nothing was added
-        result += "You are rather mundane.\n";
+        result += jtrans_notrim("You are rather mundane.\n");
 
     return result;
 }
@@ -557,35 +558,46 @@ static void _display_vampire_attributes()
     string result;
 
     const int lines = 12;
+
+#define COL_H_WIDTH 24
+#define COL_WIDTH 12
+#define COL_H(s) (chop_string(tagged_jtrans("[vamp attr]", s), COL_H_WIDTH))
+#define COL(s) (chop_string(tagged_jtrans("[vamp attr]", s), COL_WIDTH))
+
     string column[lines][5] =
     {
-        {"                     ", "<green>Full</green>       ", "Satiated   ", "<yellow>Thirsty</yellow>    ", "<lightred>Bloodless</lightred>"},
-                                 //Full       Satiated      Thirsty         Bloodless
-        {"Metabolism           ", "fast       ", "normal     ", "slow       ", "none  "},
+        {string(COL_H_WIDTH, ' ') + jtrans("<green>Full</green>       Satiated   <yellow>Thirsty</yellow>    <lightred>Bloodless</lightred>"), "", "", "", ""},
+                                            //Full                Satiated            Thirsty             Bloodless
+        {COL_H("Metabolism           "), COL("fast       "), COL("normal     "), COL("slow       "), COL("none  ")},
 
-        {"Regeneration         ", "fast       ", "normal     ", "slow       ", "none  "},
+        {COL_H("Regeneration         "), COL("fast       "), COL("normal     "), COL("slow       "), COL("none  ")},
 
-        {"Stealth boost        ", "none       ", "none       ", "minor      ", "major "},
+        {COL_H("Stealth boost        "), COL("none       "), COL("none       "), COL("minor      "), COL("major ")},
 
-        {"Hunger costs         ", "full       ", "full       ", "halved     ", "none  "},
+        {COL_H("Hunger costs         "), COL("full       "), COL("full       "), COL("halved     "), COL("none  ")},
 
-        {"\n<w>Resistances</w>\n"
-         "Poison resistance    ", "           ", "           ", "+          ", "immune"},
+        {jtrans_notrim("\n<w>Resistances</w>\n") +
+         COL_H("Poison resistance    "), COL("           "), COL("           "), COL("+          "), COL("immune")},
 
-        {"Cold resistance      ", "           ", "           ", "+          ", "++    "},
+        {COL_H("Cold resistance      "), COL("           "), COL("           "), COL("+          "), COL("++    ")},
 
-        {"Negative resistance  ", "           ", " +         ", "++         ", "+++   "},
+        {COL_H("Negative resistance  "), COL("           "), COL(" +         "), COL("++         "), COL("+++   ")},
 
-        {"Rotting resistance   ", "           ", "           ", "+          ", "+     "},
+        {COL_H("Rotting resistance   "), COL("           "), COL("           "), COL("+          "), COL("+     ")},
 
-        {"Torment resistance   ", "           ", "           ", "           ", "+     "},
+        {COL_H("Torment resistance   "), COL("           "), COL("           "), COL("           "), COL("+     ")},
 
-        {"\n<w>Transformations</w>\n"
-         "Bat form             ", "no         ", "yes        ", "yes        ", "yes   "},
+        {jtrans_notrim("\n<w>Transformations</w>\n") +
+         COL_H("Bat form             "), COL("no         "), COL("yes        "), COL("yes        "), COL("yes   ")},
 
-        {"Other forms and \n"
-         "berserk              ", "yes        ", "yes        ", "no         ", "no    "}
+        {jtrans_notrim("Other forms and \n") + 
+         COL_H("berserk              "), COL("yes        "), COL("yes        "), COL("no         "), COL("no    ")}
     };
+
+#undef COL_H_WIDTH
+#undef COL_WIDTH
+#undef COL_H
+#undef COL
 
     int current = 0;
     switch (you.hunger_state)
@@ -618,14 +630,14 @@ static void _display_vampire_attributes()
             if (y > 0 && x == current)
                 result += "</w>";
         }
-        result += "\n";
+        result += "\n" ZWSP;
     }
 
     result += "\n";
-    result += _vampire_Ascreen_footer;
+    result += jtrans(_vampire_Ascreen_footer);
 
     formatted_scroller attrib_menu;
-    attrib_menu.add_text(result);
+    attrib_menu.add_text(sp2nbsp(result));
 
     attrib_menu.show();
     if (attrib_menu.getkey() == '!'
@@ -723,17 +735,18 @@ void display_mutations()
 
     string extra = "";
     if (_num_part_suppressed)
-        extra += "<brown>()</brown>  : Partially suppressed.\n";
+        extra += jtrans_notrim("<brown>()</brown>  : Partially suppressed.\n");
     if (_num_full_suppressed)
-        extra += "<darkgrey>(())</darkgrey>: Completely suppressed.\n";
+        extra += jtrans_notrim("<darkgrey>(())</darkgrey>: Completely suppressed.\n");
     if (_num_transient)
-        extra += "<magenta>[]</magenta>   : Transient mutations.";
+        extra += jtrans("<magenta>[]</magenta>   : Transient mutations.");
     if (you.species == SP_VAMPIRE)
     {
         if (!extra.empty())
             extra += "\n";
 
-        extra += _vampire_Ascreen_footer;
+        extra += ZWSP "\n";
+        extra += jtrans(_vampire_Ascreen_footer);
     }
 
 #if TAG_MAJOR_VERSION == 34
@@ -1266,7 +1279,7 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
         if (!god_gift && _resist_mutation(mutclass, beneficial))
         {
             if (failMsg)
-                mprf(MSGCH_MUTATION, "You feel odd for a moment.");
+                mprf(MSGCH_MUTATION, jtrans("You feel odd for a moment."));
             return false;
         }
 
@@ -1275,7 +1288,7 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
             && (x_chance_in_y(you.piety, MAX_PIETY)
                 || x_chance_in_y(you.piety, MAX_PIETY + 22)))
         {
-            simple_god_message(" protects your body from mutation!");
+            simple_god_message(jtransc(" protects your body from mutation!"));
             return false;
         }
     }
@@ -1290,7 +1303,7 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
                 return false;
             // fallthrough to normal mut
         case MUTCLASS_NORMAL:
-            mprf(MSGCH_MUTATION, "Your body decomposes!");
+            mprf(MSGCH_MUTATION, jtrans("Your body decomposes!"));
             lose_stat(STAT_RANDOM, 1);
             return true;
         case MUTCLASS_INNATE:
@@ -1398,7 +1411,7 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
         {
         case MUT_STRONG: case MUT_AGILE:  case MUT_CLEVER:
         case MUT_WEAK:   case MUT_CLUMSY: case MUT_DOPEY:
-            mprf(MSGCH_MUTATION, "You feel %s.", _stat_mut_desc(mutat, true));
+            mprf(MSGCH_MUTATION, jtrans(make_stringf("You feel %s.", _stat_mut_desc(mutat, true))));
             gain_msg = false;
             break;
 
@@ -1406,14 +1419,14 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
             {
                 const char *arms;
                 if (you.species == SP_FELID)
-                    arms = "legs";
+                    arms = "脚"; // "legs"
                 else if (you.species == SP_OCTOPODE)
-                    arms = "tentacles";
+                    arms = "触腕"; // "tentacles"
                 else
                     break;
                 mprf(MSGCH_MUTATION, "%s",
-                     replace_all(mdef.gain[you.mutation[mutat]-1], "arms",
-                                 arms).c_str());
+                     replace_all(jtrans(mdef.gain[you.mutation[mutat]-1]), "腕", // "arms"
+                                 jtrans(arms)).c_str());
                 gain_msg = false;
             }
             break;
@@ -1422,13 +1435,13 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
             {
                 const char *hands;
                 if (you.species == SP_FELID)
-                    hands = "front paws";
+                    hands = "片方の前脚"; // "front paws"
                 else if (you.species == SP_OCTOPODE)
-                    hands = "tentacles";
+                    hands = "片方の触腕"; // "tentacles"
                 else
                     break;
                 mprf(MSGCH_MUTATION, "%s",
-                     replace_all(mdef.gain[you.mutation[mutat]-1], "hands",
+                     replace_all(jtrans(mdef.gain[you.mutation[mutat]-1]), "片腕", // "hands"
                                  hands).c_str());
                 gain_msg = false;
             }
@@ -1452,7 +1465,7 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
         notify_stat_change();
 
         if (gain_msg)
-            mprf(MSGCH_MUTATION, "%s", mdef.gain[you.mutation[mutat]-1]);
+            mprf(MSGCH_MUTATION, "%s", jtransc(mdef.gain[you.mutation[mutat]-1]));
 
         // Do post-mutation effects.
         switch (mutat)
@@ -1533,7 +1546,7 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
         if (mutclass != MUTCLASS_TEMPORARY)
         {
             take_note(Note(NOTE_GET_MUTATION, mutat, you.mutation[mutat],
-                           reason.c_str()));
+                           jtransc(reason)));
         }
         else
         {
@@ -1545,8 +1558,8 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
         if (you.hp <= 0)
         {
             ouch(0, KILLED_BY_FRAILTY, MID_NOBODY,
-                 make_stringf("gaining the %s mutation",
-                              mutation_name(mutat)).c_str());
+                 make_stringf(jtransc("gaining the %s mutation"),
+                              jtransc(mutation_name(mutat))).c_str());
         }
     }
 
@@ -1588,7 +1601,7 @@ static bool _delete_single_mutation_level(mutation_type mutat,
     {
     case MUT_STRONG: case MUT_AGILE:  case MUT_CLEVER:
     case MUT_WEAK:   case MUT_CLUMSY: case MUT_DOPEY:
-        mprf(MSGCH_MUTATION, "You feel %s.", _stat_mut_desc(mutat, false));
+        mprf(MSGCH_MUTATION, jtrans(make_stringf("You feel %s.", _stat_mut_desc(mutat, false))));
         lose_msg = false;
         break;
 
@@ -1628,7 +1641,7 @@ static bool _delete_single_mutation_level(mutation_type mutat,
     notify_stat_change();
 
     if (lose_msg)
-        mprf(MSGCH_MUTATION, "%s", mdef.lose[you.mutation[mutat]]);
+        mprf(MSGCH_MUTATION, "%s", jtransc(mdef.lose[you.mutation[mutat]]));
 
     // Do post-mutation effects.
     if (mutat == MUT_FRAIL || mutat == MUT_ROBUST
@@ -1640,12 +1653,12 @@ static bool _delete_single_mutation_level(mutation_type mutat,
         calc_mp();
 
     if (!transient)
-        take_note(Note(NOTE_LOSE_MUTATION, mutat, you.mutation[mutat], reason));
+        take_note(Note(NOTE_LOSE_MUTATION, mutat, you.mutation[mutat], jtrans(reason)));
 
     if (you.hp <= 0)
     {
         ouch(0, KILLED_BY_FRAILTY, MID_NOBODY,
-             make_stringf("losing the %s mutation", mutation_name(mutat)).c_str());
+             make_stringf(jtransc("losing the %s mutation"), jtransc(mutation_name(mutat))).c_str());
     }
 
     return true;
@@ -1669,7 +1682,7 @@ bool delete_mutation(mutation_type which_mutation, const string &reason,
                     || coinflip()))
             {
                 if (failMsg)
-                    mprf(MSGCH_MUTATION, "You feel rather odd for a moment.");
+                    mprf(MSGCH_MUTATION, jtrans("You feel rather odd for a moment."));
                 return false;
             }
         }
@@ -1866,17 +1879,17 @@ string mutation_desc(mutation_type mut, int level, bool colour,
     if (mut == MUT_ICEMAIL)
     {
         ostringstream ostr;
-        ostr << mdef.have[0] << player_icemail_armour_class() << ")";
+        ostr << jtrans(mdef.have[0]) << player_icemail_armour_class() << ")";
         result = ostr.str();
     }
     else if (mut == MUT_SANGUINE_ARMOUR)
     {
         ostringstream ostr;
-        ostr << mdef.have[level - 1] << sanguine_armour_bonus() / 100 << ")";
+        ostr << jtrans(mdef.have[level - 1]) << sanguine_armour_bonus() / 100 << ")";
         result = ostr.str();
     }
     else if (!ignore_player && you.species == SP_FELID && mut == MUT_CLAWS)
-        result = "You have sharp claws.";
+        result = jtrans("You have sharp claws.");
     else if (have_passive(passive_t::no_mp_regen) && mut == MUT_ANTIMAGIC_BITE)
         result = "Your bite disrupts the magic of your enemies.";
     else if (result.empty() && level > 0)
@@ -1886,19 +1899,19 @@ string mutation_desc(mutation_type mut, int level, bool colour,
     {
         if (fully_inactive)
         {
-            result = "((" + result + "))";
+            result = "((" + jtrans(result) + "))";
             ++_num_full_suppressed;
         }
         else if (partially_active)
         {
-            result = "(" + result + ")";
+            result = "(" + jtrans(result) + ")";
             ++_num_part_suppressed;
         }
     }
 
     if (temporary)
     {
-        result = "[" + result + "]";
+        result = "[" + jtrans(result) + "]";
         ++_num_transient;
     }
 
@@ -1937,7 +1950,7 @@ string mutation_desc(mutation_type mut, int level, bool colour,
 
         // Build the result
         ostringstream ostr;
-        ostr << '<' << colourname << '>' << result
+        ostr << '<' << colourname << '>' << jtrans(result)
              << "</" << colourname << '>';
         result = ostr.str();
     }
@@ -2234,7 +2247,7 @@ bool perma_mutate(mutation_type which_mut, int how_much, const string &reason)
             // at the cap for this facet, we are permafying a temporary
             // mutation. This would otherwise fail to produce any output in
             // some situations.
-            mprf(MSGCH_MUTATION, "Your mutations feel more permanent.");
+            mprf(MSGCH_MUTATION, jtrans("Your mutations feel more permanent."));
             take_note(Note(NOTE_PERM_MUTATION, which_mut,
                            you.mutation[which_mut], reason.c_str()));
         }
@@ -2334,7 +2347,7 @@ static bool _balance_demonic_guardian()
             && !one_chance_in(3)
             && !mons->has_ench(ENCH_LIFE_TIMER))
         {
-            mprf("%s %s!", mons->name(DESC_THE).c_str(),
+            mprf(jtransc("{mname} {poof msg}!"), mons->name(DESC_THE).c_str(),
                            summoned_poof_msg(*mons).c_str());
             monster_die(*mons, KILL_NONE, NON_MONSTER);
         }
