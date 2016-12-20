@@ -173,7 +173,6 @@ static TextDB AllDBs[] =
            "jtrans_godabil.txt",
            "jtrans_godblessing.txt",
            "jtrans_godconduct.txt",
-           "jtrans_godname.txt",
            "jtrans_godpassive.txt",
            "jtrans_godprayer.txt",
            "jtrans_godwrath.txt",
@@ -211,6 +210,7 @@ static TextDB AllDBs[] =
            "jtrans_book_name.txt",
            "jtrans_staff_name.txt",
            "jtrans_rod_name.txt",
+           "jtrans_god_name.txt",
 
            "jtrans_species_data.txt",
            "jtrans_monster_data.txt",
