@@ -59,12 +59,21 @@ Gozag Ym Sagoz the Greedy
 
 強欲なる『ゴザーグ・イム・サゴーズ』
 %%%%
+Hepliaklqana
+
+ヘプリアクルカナ
+%%%%
+Hepliaklqana the Forgotten
+
+忘れられし『ヘプリアクルカナ』
+%%%%
 Jiyva
 
 ジーヴァ
 %%%%
-# Jiyva lastname
+Jiyva lastname
 
+『ジーヴァ』
 %%%%
 Kikubaaqudgha
 
@@ -106,6 +115,14 @@ Warmaster Okawaru
 
 戦上手の『オカワル』
 %%%%
+Pakellas
+
+# obsolete: Pakellas
+%%%%
+Pakellas the Inventive
+
+# obsolete: Pakellas
+%%%%
 Qazlal
 
 クァズラル
@@ -145,6 +162,14 @@ Trog
 Trog the Wrathful
 
 激怒せる『トログ』
+%%%%
+Uskayaw
+
+ウスカヤー
+%%%%
+Uskayaw the Reveler
+
+酔客『ウスカヤー』
 %%%%
 Vehumet
 
