@@ -359,13 +359,25 @@ You regenerate slowly when monsters are visible.
 
 あなたはモンスターが視界にいる間回復が遅くなる。
 %%%%
+[sac desc]You regenerate slowly when monsters are visible.
+
+遅再生の軽微な変異
+%%%%
 You do not regenerate when monsters are visible.
 
 あなたはモンスターが視界にいる間自然に回復しない。
 %%%%
+[sac desc]You do not regenerate when monsters are visible.
+
+遅再生の変異
+%%%%
 You do not regenerate.
 
 あなたは自然回復しない。
+%%%%
+[sac desc]You do not regenerate.
+
+遅再生の重篤な変異
 %%%%
 Your regeneration weakens near monsters.
 
@@ -438,9 +450,17 @@ You are weak. (Str -2)
 
 あなたは力が弱い。(腕力 -2)
 %%%%
+[sac desc]You are weak. (Str -2)
+
+非力の変異(腕力 -2)
+%%%%
 You are very weak. (Str -4)
 
 あなたはとても力が弱い。(腕力 -4)
+%%%%
+[sac desc]You are very weak. (Str -4)
+
+非力の変異(腕力 -4)
 %%%%
 # MUT_DOPEY
 dopey
@@ -451,9 +471,17 @@ You are dopey. (Int -2)
 
 あなたは愚かだ。(知力 -2)
 %%%%
+[sac desc]You are dopey. (Int -2)
+
+愚鈍の変異(知力 -2)
+%%%%
 You are very dopey. (Int -4)
 
 あなたはとても愚かだ。(知力 -4)
+%%%%
+[sac desc]You are very dopey. (Int -4)
+
+愚鈍の変異(知力 -4)
 %%%%
 # MUT_CLUMSY
 clumsy
@@ -464,9 +492,17 @@ You are clumsy. (Dex -2)
 
 あなたは不器用だ。(器用 -2)
 %%%%
+[sac desc]You are clumsy. (Dex -2)
+
+不器用の変異(器用 -2)
+%%%%
 You are very clumsy. (Dex -4)
 
 あなたはとても不器用だ。(器用 -4)
+%%%%
+[sac desc]You are very clumsy. (Dex -4)
+
+不器用の変異(器用 -4)
 %%%%
 # MUT_TELEPORT_CONTROL
 teleport control
@@ -798,13 +834,25 @@ You occasionally shout uncontrollably at your foes.
 
 あなたはたまに敵に対し大声を抑えることができなくなる。
 %%%%
+[sac desc]You occasionally shout uncontrollably at your foes.
+
+叫び声の軽微な変異
+%%%%
 You sometimes yell uncontrollably at your foes.
 
 あなたは時々敵に対し大声を抑えることができなくなる。
 %%%%
+[sac desc]You sometimes yell uncontrollably at your foes.
+
+叫び声の変異
+%%%%
 You frequently scream uncontrollably at your foes.
 
 あなたは頻繁に敵に対し大声を抑えることができなくなる。
+%%%%
+[sac desc]You frequently scream uncontrollably at your foes.
+
+叫び声の重篤な変異
 %%%%
 You feel the urge to shout.
 
@@ -1005,13 +1053,25 @@ You are frail. (-10% HP)
 
 あなたは虚弱だ。(-10% HP)
 %%%%
+[sac desc]You are frail. (-10% HP)
+
+虚弱の変異(-10% HP)
+%%%%
 You are very frail. (-20% HP)
 
 あなたは非常に虚弱だ。(-20% HP)
 %%%%
+[sac desc]You are very frail. (-20% HP)
+
+虚弱の変異(-20% HP)
+%%%%
 You are extremely frail. (-30% HP)
 
 あなたはきわめて虚弱だ。(-30% HP)
+%%%%
+[sac desc]You are extremely frail. (-30% HP)
+
+虚弱の変異(-30% HP)
 %%%%
 You feel frail.
 
@@ -1632,13 +1692,25 @@ Your magical capacity is low. (-10% MP)
 
 あなたの魔力の容量は少ない。(-10% MP)
 %%%%
+[sac desc]Your magical capacity is low. (-10% MP)
+
+魔力容量減少の変異(-10% MP)
+%%%%
 Your magical capacity is very low. (-20% MP)
 
 あなたの魔力の容量はとても少ない。(-20% MP)
 %%%%
+[sac desc]Your magical capacity is very low. (-20% MP)
+
+魔力容量減少の変異(-20% MP)
+%%%%
 Your magical capacity is extremely low. (-30% MP)
 
 あなたの魔力の容量はとてつもなく少ない。(-30% MP)
+%%%%
+[sac desc]Your magical capacity is extremely low. (-30% MP)
+
+魔力容量減少の変異(-30% MP)
 %%%%
 # MUT_WILD_MAGIC
 wild magic
@@ -2243,13 +2315,25 @@ Potions and wands are less effective at restoring your health.
 
 薬や杖による体力の回復はあまり効果がない。
 %%%%
+[sac desc]Potions and wands are less effective at restoring your health.
+
+道具による回復不可の軽微な変異
+%%%%
 Potions and wands are poor at restoring your health.
 
 薬や杖による体力の回復はほとんど効果がない。
 %%%%
+[sac desc]Potions and wands are poor at restoring your health.
+
+道具による回復不可の変異
+%%%%
 Potions and wands cannot restore your health.
 
 薬や杖では体力が回復しない。
+%%%%
+[sac desc]Potions and wands cannot restore your health.
+
+道具による回復不可の重篤な変異
 %%%%
 Your system partially rejects artificial healing.
 
@@ -3406,13 +3490,25 @@ You take slightly more damage. (AC -3)
 
 あなたはやや傷つきやすい。(AC -3)
 %%%%
+[sac desc]You take slightly more damage. (AC -3)
+
+傷つきやすさの変異(AC -3)
+%%%%
 You take more damage. (AC -6)
 
 あなたは傷つきやすい。(AC -6)
 %%%%
+[sac desc]You take more damage. (AC -6)
+
+傷つきやすさの変異(AC -6)
+%%%%
 You take considerably more damage. (AC -9)
 
 あなたはかなり傷つきやすい。(AC -9)
+%%%%
+[sac desc]You take considerably more damage. (AC -9)
+
+傷つきやすさの変異(AC -9)
 %%%%
 You feel more vulnerable to harm.
 
@@ -3435,13 +3531,25 @@ You have somewhat slow reflexes. (EV -3)
 
 あなたは反射神経がいくらか遅くなったようだ。(回避 -3)
 %%%%
+[sac desc]You have somewhat slow reflexes. (EV -3)
+
+回避低下の変異(回避 -3)
+%%%%
 You have slow reflexes. (EV -6)
 
 あなたは反射神経が遅くなったようだ。(回避 -6)
 %%%%
+[sac desc]You have slow reflexes. (EV -6)
+
+回避低下の変異(回避 -6)
+%%%%
 You have very slow reflexes. (EV -9)
 
 あなたは反射神経がとても遅くなったようだ。(回避 -9)
+%%%%
+[sac desc]You have very slow reflexes. (EV -9)
+
+回避低下の変異(回避 -9)
 %%%%
 Your reflexes slow.
 
@@ -3468,13 +3576,25 @@ You are slightly vulnerable to magic. (MR-)
 
 あなたは魔法に対してやや弱い。(MR-)
 %%%%
+[sac desc]You are slightly vulnerable to magic. (MR-)
+
+脆弱化の変異(MR-)
+%%%%
 You are vulnerable to magic. (MR--)
 
 あなたは魔法に弱い。(MR--)
 %%%%
+[sac desc]You are vulnerable to magic. (MR--)
+
+脆弱化の変異(MR--)
+%%%%
 You are extremely vulnerable to magic. (MR---)
 
 あなたはきわめて魔法に弱い。(MR---)
+%%%%
+[sac desc]You are extremely vulnerable to magic. (MR---)
+
+脆弱化の変異(MR---)
 %%%%
 You feel vulnerable to magic.
 
@@ -3501,13 +3621,25 @@ Your casting is slightly disrupted.
 
 あなたの魔法は少し阻害されている。
 %%%%
+[sac desc]Your casting is slightly disrupted.
+
+魔法阻害の軽微な変異
+%%%%
 Your casting is disrupted.
 
 あなたの魔法は阻害されている。
 %%%%
+[sac desc]Your casting is disrupted.
+
+魔法阻害の変異
+%%%%
 Your casting is seriously disrupted.
 
 あなたの魔法はひどく阻害されている。
+%%%%
+[sac desc]Your casting is seriously disrupted.
+
+魔法阻害の重篤な変異
 %%%%
 Your ability to control magic is disrupted.
 

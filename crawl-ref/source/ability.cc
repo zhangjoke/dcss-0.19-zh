@@ -1088,7 +1088,7 @@ static string _sacrifice_desc(const ability_type ability)
     const CrawlVector &sacrifice_muts = you.props[sac_vec_key].get_vector();
     return make_stringf(jtrans_notrimc("\nAfter this sacrifice, you will find that {sac list}.\n"),
                comma_separated_fn(sacrifice_muts.begin(), sacrifice_muts.end(),
-                                  _desc_sac_mut).c_str()) + desc;
+                                  _desc_sac_mut, "、", "および").c_str()) + desc;
 }
 
 static inline string _spacer(const int length)

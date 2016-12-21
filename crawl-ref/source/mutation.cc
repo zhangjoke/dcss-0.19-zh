@@ -1830,8 +1830,7 @@ string mut_upgrade_summary(mutation_type mut)
         return nullptr;
 
     string mut_desc =
-        lowercase_first(mutation_desc(mut, you.mutation[mut] + 1));
-    strip_suffix(mut_desc, ".");
+        tagged_jtrans("[sac desc]", mutation_desc(mut, you.mutation[mut] + 1));
     return mut_desc;
 }
 
