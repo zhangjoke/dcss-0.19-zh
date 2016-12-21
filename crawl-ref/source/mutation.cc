@@ -1288,7 +1288,7 @@ bool mutate(mutation_type which_mutation, const string &reason, bool failMsg,
             && (x_chance_in_y(you.piety, MAX_PIETY)
                 || x_chance_in_y(you.piety, MAX_PIETY + 22)))
         {
-            simple_god_message(jtransc(" protects your body from mutation!"));
+            simple_god_message(" protects your body from mutation!");
             return false;
         }
     }

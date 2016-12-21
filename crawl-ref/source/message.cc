@@ -11,6 +11,7 @@
 
 #include "areas.h"
 #include "colour.h"
+#include "database.h"
 #include "delay.h"
 #include "english.h"
 #include "hints.h"
@@ -1791,7 +1792,7 @@ void canned_msg(canned_message_type which_message)
 // distant or invisible to the player ... look elsewhere for a function
 // permitting output of "It" messages for the invisible {dlb}
 // Intentionally avoids info and str_pass now. - bwr
-bool simple_monster_message(const monster& mons, const char *event,
+bool simple_monster_message(const monster& mons, const string &event,
                             msg_channel_type channel,
                             int param,
                             description_level_type descrip)
@@ -1801,7 +1802,7 @@ bool simple_monster_message(const monster& mons, const char *event,
             || mons.visible_to(&you)))
     {
         string msg = mons.name(descrip);
-        msg += event;
+        msg += jtrans_notrim(event.substr(event.find_first_not_of(" ")));
 
         if (channel == MSGCH_PLAIN && mons.wont_attack())
             channel = MSGCH_FRIEND_ACTION;
@@ -1814,9 +1815,10 @@ bool simple_monster_message(const monster& mons, const char *event,
 }
 
 // yet another wrapper for mpr() {dlb}:
-void simple_god_message(const char *event, god_type which_deity)
+void simple_god_message(const string &event, god_type which_deity)
 {
-    string msg = uppercase_first(god_name(which_deity)) + event;
+    string msg = jtrans(god_name(which_deity)) +
+                 jtrans_notrim(event.substr(event.find_first_not_of(" ")));
     god_speaks(which_deity, msg.c_str());
 }
 
