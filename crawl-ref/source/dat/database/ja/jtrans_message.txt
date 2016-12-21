@@ -1,4 +1,14 @@
 %%%%
+--more-- Press Space or click to continue. You can later reread messages with Ctrl-P.
+
+--続く-- メッセージ送りをするにはSpaceを押すか画面をクリックしてください。
+後でCtrl+Pを押すことで再度メッセージを読むこともできます。
+%%%%
+--more-- Press Space to continue. You can later reread messages with Ctrl-P.
+
+--続く-- メッセージ送りをするにはSpaceを押してください。
+後でCtrl+Pを押すことで再度メッセージを読むこともできます。
+%%%%
 --more--
 
 --続く--
@@ -37,7 +47,7 @@ You are too berserk!
 %%%%
 You're too confused!
 
-あなたは混乱している！
+あなたは混乱しすぎている！
 %%%%
 You can't do that in your present form.
 
@@ -69,7 +79,7 @@ There's nothing close enough!
 %%%%
 You don't have the energy to cast that spell.
 
-あなたには魔法を唱えるための活力が足りない。
+あなたには呪文を唱えるための活力が足りない。
 %%%%
 The spell fizzles.
 
@@ -78,6 +88,14 @@ The spell fizzles.
 Huh?
 
 なんだって？
+%%%%
+already
+
+すでに
+%%%%
+now
+
+もう
 %%%%
 Your mouth is %s empty.
 
@@ -135,10 +153,6 @@ You attempt to give life to the dead...
 
 あなたは死体に生命を与えようと試みた……
 %%%%
-The deck of cards disappears in a puff of smoke.
-
-カードのデッキはぽんっと煙を立てて消え去った。
-%%%%
 You cannot move.
 
 あなたは動けない。
@@ -150,4 +164,24 @@ You die...
 You see a ghostly outline there, and the spell fizzles.
 
 あなたはぼんやりとした輪郭を目にし、呪文は失敗した。
+%%%%
+You feel better.
+
+あなたは気分がよくなった。
+%%%%
+You feel your power returning.
+
+あなたは魔力が回復したようだ。
+%%%%
+You suddenly feel drained of magical energy!
+
+あなたは突然魔力を吸い取られた！
+%%%%
+There's something in the way.
+
+なにかが行く手を遮っている！
+%%%%
+You can't see that place.
+
+あなたからはその場所は見えない。
 %%%%
