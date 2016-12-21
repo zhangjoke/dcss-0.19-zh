@@ -141,8 +141,8 @@ static TextDB AllDBs[] =
             nullptr),
     TextDB("jtrans", "database/ja/",
            "jtrans.txt",
+           "jtrans_ability.txt",
            /*
-           "jtrans_abl_show.txt",
            "jtrans_abyss.txt",
            "jtrans_actor.txt",
            "jtrans_areas.txt",
