@@ -14,6 +14,31 @@ string chop_string(const string &s, int width, bool spaces = true);
 string chop_tagged_string(const char *s, int width, bool spaces = true);
 string chop_tagged_string(const string &s, int width, bool spaces = true);
 
+static inline string align_centre(const string&s, int width, char fillchar = ' ')
+{
+    int lspace = 0, rspace = 0;
+    string result;
+
+    if (strwidth(s) >= width)
+        return s;
+
+    lspace = (width - strwidth(s)) / 2;
+    rspace = width - strwidth(s) - lspace;
+
+    result = string(lspace, fillchar) + s + string(rspace, fillchar);
+
+    return result;
+}
+#define align_centrec(s, w) (align_centre(s, w).c_str())
+static inline string align_right(const string &s, int width, char fillchar = ' ')
+{
+    if (strwidth(s) >= width)
+        return s;
+
+    return string(width - strwidth(s), fillchar) + s;
+}
+#define align_rightc(s, w) (align_right(s, w).c_str())
+
 int wctoutf8(char *d, char32_t s);
 int utf8towc(char32_t *d, const char *s);
 #ifdef TARGET_OS_WINDOWS

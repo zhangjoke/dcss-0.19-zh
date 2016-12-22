@@ -1177,13 +1177,21 @@ Sorry, you can't do that.
 
 残念ながら、あなたはそのようなことはできない。
 %%%%
-Ability - do what?                 Cost                          Failure
+Ability - do what?
 
-能力 - どれを使用しますか？              コスト                    失敗率
+能力 - どれを使用しますか？
 %%%%
-Ability - describe what?           Cost                          Failure
+Cost
 
-能力 - どの説明を見ますか？              コスト                    失敗率
+コスト
+%%%%
+Failure
+
+失敗率
+%%%%
+Ability - describe what?
+
+能力 - どの説明を見ますか？
 %%%%
 Press '<w>!</w>' or '<w>?</w>' to toggle between ability selection and description.
 

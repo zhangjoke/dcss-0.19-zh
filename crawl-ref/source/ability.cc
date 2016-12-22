@@ -3174,27 +3174,28 @@ int choose_ability_menu(const vector<talent>& talents)
                              text_only);
 
     abil_menu.set_highlighter(nullptr);
+
+    string offset = tiles.is_controlled_from_web() ? string(4, ' ') : "";
+    string do_what   = offset + chop_string(jtrans_notrim("  Ability - do what?"), 32)
+                     + align_centre(jtrans("Cost"), 30)
+                     + align_centre(jtrans("Failure"), 12);
+    string desc_what = offset + chop_string(jtrans_notrim("  Ability - describe what?"), 32)
+                     + align_centre(jtrans("Cost"), 30)
+                     + align_centre(jtrans("Failure"), 12);
+
 #ifdef USE_TILE_LOCAL
     {
         // Hack like the one in spl-cast.cc:list_spells() to align the title.
         string me_title;
         
         ToggleableMenuEntry* me =
-            new ToggleableMenuEntry(jtrans("  Ability - do what?                 "
-                                           "Cost                          Failure"),
-                                    jtrans("  Ability - describe what?           "
-                                           "Cost                          Failure"),
-                                    MEL_ITEM);
+            new ToggleableMenuEntry(do_what, desc_what, MEL_ITEM);
         me->colour = BLUE;
         abil_menu.add_entry(me);
     }
 #else
     abil_menu.set_title(
-            new ToggleableMenuEntry(jtrans_notrim("  Ability - do what?                 "
-                                                  "Cost                          Failure"),
-                                    jtrans_notrim("  Ability - describe what?           "
-                                                  "Cost                          Failure"),
-                                MEL_TITLE));
+            new ToggleableMenuEntry(do_what, desc_what, MEL_TITLE));
 #endif
     abil_menu.set_tag("ability");
     abil_menu.add_toggle_key('!');
