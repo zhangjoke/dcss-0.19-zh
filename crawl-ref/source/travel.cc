@@ -24,6 +24,7 @@
 #include "command.h"
 #include "coordit.h"
 #include "dactions.h"
+#include "database.h"
 #include "directn.h"
 #include "delay.h"
 #include "dgn-overview.h"
@@ -2924,6 +2925,27 @@ string level_id::describe(bool long_name, bool with_number) const
                 result[0] = 't';
             result = make_stringf("Level %d of %s",
                       depth, result.c_str());
+        }
+        else if (depth)
+            result = make_stringf("%s:%d", result.c_str(), depth);
+        else
+            result = make_stringf("%s:$", result.c_str());
+    }
+    return result;
+}
+
+string level_id::describe_j(bool long_name, bool with_number) const
+{
+    string result = tagged_jtrans("[branch]",
+                    (long_name ? branches[branch].longname
+                               : branches[branch].abbrevname));
+
+    if (with_number && brdepth[branch] != 1)
+    {
+        if (long_name)
+        {
+            result = make_stringf(jtransc("Level %d of %s"),
+                                  result.c_str(), depth);
         }
         else if (depth)
             result = make_stringf("%s:%d", result.c_str(), depth);
