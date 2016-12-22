@@ -1,0 +1,5 @@
+# quoteで日本語を表示させようとした場合、
+# 文字列が途中で切れたり無限ループに陥ったりすることがあるため
+# 日本語の引用文を追加するのを控えるか、stringutil.cc/wordwrap_line()を
+# 直すかしてください。
+# https://github.com/dplusplus/dcss-0.16-ja/issues/12
