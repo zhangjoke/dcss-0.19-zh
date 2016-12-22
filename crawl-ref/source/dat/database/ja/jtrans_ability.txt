@@ -1,595 +1,595 @@
 %%%%
-No ability
+[ability]No ability
 
 特殊能力なし
 %%%%
-Spit Poison
+[ability]Spit Poison
 
 毒の唾液
 %%%%
-Blink
+[ability]Blink
 
 瞬間移動
 %%%%
-Breathe Fire
+[ability]Breathe Fire
 
 火炎のブレス
 %%%%
-Breathe Frost
+[ability]Breathe Frost
 
 凍気のブレス
 %%%%
-Breathe Poison Gas
+[ability]Breathe Poison Gas
 
 毒ガスのブレス
 %%%%
-Breathe Noxious Fumes
+[ability]Breathe Noxious Fumes
 
 悪臭雲のブレス
 %%%%
-Breathe Lightning
+[ability]Breathe Lightning
 
 稲妻のブレス
 %%%%
-Breathe Dispelling Energy
+[ability]Breathe Dispelling Energy
 
 解呪のブレス
 %%%%
-Breathe Sticky Flame
+[ability]Breathe Sticky Flame
 
 焼夷のブレス
 %%%%
-Breathe Steam
+[ability]Breathe Steam
 
 蒸気のブレス
 %%%%
-Bat Form
+[ability]Bat Form
 
 蝙蝠に変身
 %%%%
-Spit Acid
+[ability]Spit Acid
 
 酸の唾液
 %%%%
-Fly
+[ability]Fly
 
 飛行
 %%%%
-Stop Flying
+[ability]Stop Flying
 
 飛行の停止
 %%%%
-Hurl Damnation
+[ability]Hurl Damnation
 
 地獄の鉄槌
 %%%%
-Release Delayed Fireball
+[ability]Release Delayed Fireball
 
 遅延式ファイアボール
 %%%%
-Stop Singing
+[ability]Stop Singing
 
 歌うのをやめる
 %%%%
-Dig
+[ability]Dig
 
 掘削
 %%%%
-Shaft Self
+[ability]Shaft Self
 
 縦穴掘り
 %%%%
-Evoke Blink
+[ability]Evoke Blink
 
 瞬間移動の喚起
 %%%%
-Device Recharging
+[ability]Device Recharging
 
 魔道具の充填
 %%%%
-Evoke Berserk Rage
+[ability]Evoke Berserk Rage
 
 バーサークの喚起
 %%%%
-Evoke Invisibility
+[ability]Evoke Invisibility
 
 透明化の喚起
 %%%%
-Turn Visible
+[ability]Turn Visible
 
 可視の存在に戻る
 %%%%
-Evoke Flight
+[ability]Evoke Flight
 
 飛行の喚起
 %%%%
-Evoke Fog
+[ability]Evoke Fog
 
 煙幕の喚起
 %%%%
-End Transformation
+[ability]End Transformation
 
 変身の停止
 %%%%
 # Zin
-Recite
+[ability]Recite
 
 説法の朗読
 %%%%
-Vitalisation
+[ability]Vitalisation
 
 生命の活性化
 %%%%
-Imprison
+[ability]Imprison
 
 収監
 %%%%
-Sanctuary
+[ability]Sanctuary
 
 聖域
 %%%%
-Cure All Mutations
+[ability]Cure All Mutations
 
 全ての突然変異の治療
 %%%%
-Donate Gold
+[ability]Donate Gold
 
 喜捨
 %%%%
 # TSO
-Divine Shield
+[ability]Divine Shield
 
 神気の盾
 %%%%
-Cleansing Flame
+[ability]Cleansing Flame
 
 浄化の炎
 %%%%
-Summon Divine Warrior
+[ability]Summon Divine Warrior
 
 聖なる戦士の召喚
 %%%%
-Brand Weapon With Holy Wrath
+[ability]Brand Weapon With Holy Wrath
 
 祝福された武器を授かる
 %%%%
 # Kiku
-Receive Corpses
+[ability]Receive Corpses
 
 死体の受理
 %%%%
-Torment
+[ability]Torment
 
 苦痛の紋章
 %%%%
-Receive Necronomicon
+[ability]Receive Necronomicon
 
 ネクロノミコンを授かる
 %%%%
-Brand Weapon With Pain
+[ability]Brand Weapon With Pain
 
 苦痛の武器を授かる
 %%%%
 # Yred
-Injury Mirror
+[ability]Injury Mirror
 
 損傷の反射
 %%%%
-Animate Remains
+[ability]Animate Remains
 
 死骸の蘇生
 %%%%
-Recall Undead Slaves
+[ability]Recall Undead Slaves
 
 アンデッドの招集
 %%%%
-Animate Dead
+[ability]Animate Dead
 
 死骸の群れの蘇生
 %%%%
-Drain Life
+[ability]Drain Life
 
 生命力の吸収
 %%%%
-Enslave Soul
+[ability]Enslave Soul
 
 魂の隷属
 %%%%
 # Oka
-Heroism
+[ability]Heroism
 
 英雄化
 %%%%
-Finesse
+[ability]Finesse
 
 早業の技巧
 %%%%
-Minor Destruction
+[ability]Minor Destruction
 
 小さき破壊
 %%%%
-Lesser Servant of Makhleb
+[ability]Lesser Servant of Makhleb
 
 マクレブの小さきしもべ
 %%%%
-Major Destruction
+[ability]Major Destruction
 
 大いなる破壊
 %%%%
-Greater Servant of Makhleb
+[ability]Greater Servant of Makhleb
 
 マクレブの大いなるしもべ
 %%%%
 # Sif
-Divine Energy
+[ability]Divine Energy
 
 神気の供給
 %%%%
-Stop Divine Energy
+[ability]Stop Divine Energy
 
 神気の供給の停止
 %%%%
-Forget Spell
+[ability]Forget Spell
 
 呪文の忘却
 %%%%
-Channel Magic
+[ability]Channel Magic
 
 魔力回復強化
 %%%%
 # Trog
-Burn Spellbooks
+[ability]Burn Spellbooks
 
 魔法書の焼却
 %%%%
-Berserk
+[ability]Berserk
 
 バーサーク
 %%%%
-Trog's Hand
+[ability]Trog's Hand
 
 トログの御手
 %%%%
-Brothers in Arms
+[ability]Brothers in Arms
 
 戦友の召喚
 %%%%
 # Ely
-Divine Protection
+[ability]Divine Protection
 
 崖っ縁の防護
 %%%%
-Lesser Healing
+[ability]Lesser Healing
 
 小さき癒し
 %%%%
-Heal Other
+[ability]Heal Other
 
 他者への癒し
 %%%%
-Purification
+[ability]Purification
 
 聖杯の清め
 %%%%
-Greater Healing
+[ability]Greater Healing
 
 大いなる癒し
 %%%%
-Divine Vigour
+[ability]Divine Vigour
 
 神秘の活力
 %%%%
 # Lugonu
-Depart the Abyss
+[ability]Depart the Abyss
 
 アビスからの離脱
 %%%%
-Bend Space
+[ability]Bend Space
 
 空間の歪曲
 %%%%
-Banish
+[ability]Banish
 
 アビスへの追放
 %%%%
-Corrupt
+[ability]Corrupt
 
 階層の崩壊
 %%%%
-Enter the Abyss
+[ability]Enter the Abyss
 
 アビスへの退避
 %%%%
-Brand Weapon With Distortion
+[ability]Brand Weapon With Distortion
 
 歪曲の武器を授かる
 %%%%
 # Nemelex
-Triple Draw
+[ability]Triple Draw
 
 トリプル・ドロー
 %%%%
-Deal Four
+[ability]Deal Four
 
 ディール・フォー
 %%%%
-Stack Five
+[ability]Stack Five
 
 スタック・ファイブ
 %%%%
 # Beogh
-Smiting
+[ability]Smiting
 
 打擲の一撃
 %%%%
-Recall Orcish Followers
+[ability]Recall Orcish Followers
 
 オークの下僕の招集
 %%%%
-Give Item to Named Follower
+[ability]Give Item to Named Follower
 
 名のある仲間への下賜
 %%%%
-Resurrection
+[ability]Resurrection
 
 蘇生
 %%%%
 # Jiyva
-Request Jelly
+[ability]Request Jelly
 
 ジェリーの要請
 %%%%
-Slimify
+[ability]Slimify
 
 スライム化
 %%%%
-Cure Bad Mutation
+[ability]Cure Bad Mutation
 
 悪性変異の治療
 %%%%
 # Fedhas
-Fungal Bloom
+[ability]Fungal Bloom
 
 キノコの生育
 %%%%
-Evolution
+[ability]Evolution
 
 植物の改良
 %%%%
-Sunlight
+[ability]Sunlight
 
 陽光
 %%%%
-Growth
+[ability]Growth
 
 迷宮草の生育
 %%%%
-Reproduction
+[ability]Reproduction
 
 胞子の繁殖
 %%%%
-Rain
+[ability]Rain
 
 降雨
 %%%%
 # Chei
-Bend Time
+[ability]Bend Time
 
 時間の歪曲
 %%%%
-Temporal Distortion
+[ability]Temporal Distortion
 
 現世の歪曲
 %%%%
-Slouch
+[ability]Slouch
 
 素早きものの屈服
 %%%%
-Step From Time
+[ability]Step From Time
 
 時間からの離脱
 %%%%
 # Ashenzari
-Curse Item
+[ability]Curse Item
 
 アイテムの呪縛
 %%%%
-Scrying
+[ability]Scrying
 
 幻視
 %%%%
-Transfer Knowledge
+[ability]Transfer Knowledge
 
 知識の移行
 %%%%
-End Transfer Knowledge
+[ability]End Transfer Knowledge
 
 知識の移行の停止
 %%%%
 # Dithmenos
-Shadow Step
+[ability]Shadow Step
 
 影渡り
 %%%%
-Shadow Form
+[ability]Shadow Form
 
 影変化
 %%%%
 # Ru
-Draw Out Power
+[ability]Draw Out Power
 
 力の解放
 %%%%
-Power Leap
+[ability]Power Leap
 
 力強き跳躍
 %%%%
-Apocalypse
+[ability]Apocalypse
 
 黙示録
 %%%%
-Sacrifice Purity
+[ability]Sacrifice Purity
 
 清浄の犠牲
 %%%%
-Sacrifice Words
+[ability]Sacrifice Words
 
 言語の犠牲
 %%%%
-Sacrifice Drink
+[ability]Sacrifice Drink
 
 飲用の犠牲
 %%%%
-Sacrifice Essence
+[ability]Sacrifice Essence
 
 魔力の犠牲
 %%%%
-Sacrifice Health
+[ability]Sacrifice Health
 
 健常の犠牲
 %%%%
-Sacrifice Stealth
+[ability]Sacrifice Stealth
 
 隠密の犠牲
 %%%%
-Sacrifice Artifice
+[ability]Sacrifice Artifice
 
 発動の犠牲
 %%%%
-Sacrifice Love
+[ability]Sacrifice Love
 
 親愛の犠牲
 %%%%
-Sacrifice Courage
+[ability]Sacrifice Courage
 
 勇敢の犠牲
 %%%%
-Sacrifice Arcana
+[ability]Sacrifice Arcana
 
 秘術の犠牲
 %%%%
-Sacrifice Nimbleness
+[ability]Sacrifice Nimbleness
 
 敏捷の犠牲
 %%%%
-Sacrifice Durability
+[ability]Sacrifice Durability
 
 頑強の犠牲
 %%%%
-Sacrifice a Hand
+[ability]Sacrifice a Hand
 
 片腕の犠牲
 %%%%
-Sacrifice Experience
+[ability]Sacrifice Experience
 
 経験の犠牲
 %%%%
-Sacrifice Skill
+[ability]Sacrifice Skill
 
 鍛錬の犠牲
 %%%%
-Sacrifice an Eye
+[ability]Sacrifice an Eye
 
 片目の犠牲
 %%%%
-Sacrifice Resistance
+[ability]Sacrifice Resistance
 
 耐性の犠牲
 %%%%
-Reject Sacrifices
+[ability]Reject Sacrifices
 
 犠牲の拒否
 %%%%
 # Gozag
-Potion Petition
+[ability]Potion Petition
 
 水薬の陳情
 %%%%
-Call Merchant
+[ability]Call Merchant
 
 商人の誘致
 %%%%
-Bribe Branch
+[ability]Bribe Branch
 
 分岐の買収
 %%%%
 # Qaz
-Upheaval
+[ability]Upheaval
 
 自然の怒り
 %%%%
-Elemental Force
+[ability]Elemental Force
 
 精霊召喚
 %%%%
-Disaster Area
+[ability]Disaster Area
 
 天よりの災禍
 %%%%
 # Pakellas
-Device Surge
+[ability]Device Surge
 
 # obsolete: Pakellas
 %%%%
-Quick Charge
+[ability]Quick Charge
 
 # obsolete: Pakellas
 %%%%
-Supercharge
+[ability]Supercharge
 
 # obsolete: Pakellas
 %%%%
 # Uskayaw
-Stomp
+[ability]Stomp
 
 踏み鳴らし
 %%%%
-Line Pass
+[ability]Line Pass
 
 鎧袖一触
 %%%%
-Grand Finale
+[ability]Grand Finale
 
 グランド・フィナーレ
 %%%%
 # Hep
-Recall Ancestor
+[ability]Recall Ancestor
 
 祖霊の招集
 %%%%
-Transference
+[ability]Transference
 
 位置交換
 %%%%
-Idealise
+[ability]Idealise
 
 祖霊強化
 %%%%
-Ancestor Life: Knight
+[ability]Ancestor Life: Knight
 
 祖霊を騎士へと昇格
 %%%%
-Ancestor Life: Battlemage
+[ability]Ancestor Life: Battlemage
 
 祖霊を魔術師へと昇格
 %%%%
-Ancestor Life: Hexer
+[ability]Ancestor Life: Hexer
 
 祖霊を呪術師へと昇格
 %%%%
-Ancestor Identity
+[ability]Ancestor Identity
 
 祖霊への命名
 %%%%
-Stop Recall
+[ability]Stop Recall
 
 招集の停止
 %%%%
-Renounce Religion
+[ability]Renounce Religion
 
 信仰の放棄
 %%%%
-Convert to Beogh
+[ability]Convert to Beogh
 
 ベオへの改宗
 %%%%
