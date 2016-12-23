@@ -2786,11 +2786,11 @@ Your movements are significantly less encumbered by armour. (ER -6)
 %%%%
 You feel less encumbered by your armour.
 
-
+鎧はあなたの動きを阻害しにくくなった。
 %%%%
 You feel more encumbered by your armour.
 
-
+鎧はあなたの動きをもっと阻害するようになった。
 %%%%
 # MUT_SANGUINE_ARMOUR
 sanguine armour
