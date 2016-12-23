@@ -5,11 +5,17 @@
 %%%%
 [branch]the Dungeon
 
-迷宮
+<[branch]Dungeon>
 %%%%
 [branch]D
 
-迷宮
+<[branch]Dungeon>
+%%%%
+# [branch abbrj]タグは分岐の入口表記に使うので全角1文字にし、
+# <>表記で他の訳語を参照しない
+[branch abbrj]D
+
+迷
 %%%%
 [branch]Temple
 
@@ -19,17 +25,25 @@
 
 諸宗派の寺院
 %%%%
+[branch abbrj]
+
+寺
+%%%%
 [branch]Orcish Mines
 
 オークの坑道
 %%%%
 [branch]the Orcish Mines
 
-オークの坑道
+<[branch]Orcish Mines>
 %%%%
 [branch]Orc
 
 オーク
+%%%%
+[branch abbrj]Orc
+
+オ
 %%%%
 [branch]Elven Halls
 
@@ -37,37 +51,54 @@
 %%%%
 [branch]the Elven Halls
 
-エルフの大広間
+<[branch]Elven Halls>
 %%%%
 [branch]Elf
 
 エルフ
 %%%%
+[branch abbrj]Elf
+
+エ
+%%%%
+# 削除済み分岐も☆銘等で使われることがあるので残す
 [branch]Dwarven Hall
 
 ドワーフの大広間
 %%%%
 [branch]the Dwarven Hall
 
-ドワーフの大広間
+<[branch]Dwarven Hall>
 %%%%
 [branch]Dwarf
 
 ドワーフ
 %%%%
+[branch abbrj]Dwarf
+
+ド
+%%%%
 [branch]Lair
 
-獣の棲み処
+獣
 %%%%
 [branch]the Lair of Beasts
 
-獣の棲み処
+<[branch]Lair>
+%%%%
+[branch abbrj]Lair
+
+獣
 %%%%
 [branch]Swamp
 
 沼
 %%%%
 [branch]the Swamp
+
+<[branch]Swamp>
+%%%%
+[branch abbrj]Swamp
 
 沼
 %%%%
@@ -77,7 +108,11 @@
 %%%%
 [branch]the Shoals
 
-浅瀬
+<[branch]Shoals>
+%%%%
+[branch abbrj]Shoals
+
+浅
 %%%%
 [branch]Snake Pit
 
@@ -85,9 +120,13 @@
 %%%%
 [branch]the Snake Pit
 
-蛇穴
+<[branch]Snake Pit>
 %%%%
 [branch]Snake
+
+蛇
+%%%%
+[branch abbrj]Snake
 
 蛇
 %%%%
@@ -97,11 +136,15 @@
 %%%%
 [branch]the Spider Nest
 
-蜘蛛の穴ぐら
+<[branch]Spider Nest>
 %%%%
 [branch]Spider
 
 蜘蛛
+%%%%
+[branch abbrj]Spider
+
+蜘
 %%%%
 [branch]Slime Pits
 
@@ -109,11 +152,15 @@
 %%%%
 [branch]the Pits of Slime
 
-スライムの穴ぐら
+<[branch]Slime Pits>
 %%%%
 [branch]Slime
 
 スライム
+%%%%
+[branch abbrj]Slime
+
+ス
 %%%%
 [branch]Vaults
 
@@ -121,7 +168,11 @@
 %%%%
 [branch]the Vaults
 
-宝物庫
+<[branch]Vaults>
+%%%%
+[branch abbrj]Vaults
+
+宝
 %%%%
 [branch]Hall of Blades
 
@@ -129,11 +180,15 @@
 %%%%
 [branch]the Hall of Blades
 
-刃の広間
+<[branch]Hall of Blades>
 %%%%
 [branch]Blade
 
-刃の広間
+<[branch]Hall of Blades>
+%%%%
+[branch abbrj]Blade
+
+刃
 %%%%
 [branch]Crypt
 
@@ -141,7 +196,11 @@
 %%%%
 [branch]the Crypt
 
-地下墓地
+<[branch]Crypt>
+%%%%
+[branch abbrj]Crypt
+
+墓
 %%%%
 [branch]Tomb
 
@@ -151,6 +210,10 @@
 
 太古の霊廟
 %%%%
+[branch abbrj]Tomb
+
+廟
+%%%%
 [branch]Hell
 
 地獄
@@ -158,6 +221,10 @@
 [branch]the Vestibule of Hell
 
 地獄の入り口
+%%%%
+[branch abbrj]Hell
+
+獄
 %%%%
 Welcome to Hell!\nPlease enjoy your stay.
 
@@ -172,13 +239,21 @@ Welcome to Hell!\nPlease enjoy your stay.
 
 鉄の都ディース
 %%%%
+[branch abbrj]Dis
+
+鉄
+%%%%
 [branch]Gehenna
 
 ゲヘナ
 %%%%
 [branch]Geh
 
-ゲヘナ
+<[branch]Gehenna>
+%%%%
+[branch abbrj]Geh
+
+谷
 %%%%
 [branch]Cocytus
 
@@ -186,7 +261,11 @@ Welcome to Hell!\nPlease enjoy your stay.
 %%%%
 [branch]Coc
 
-コキュートス
+<[branch]Cocytus>
+%%%%
+[branch abbrj]Coc
+
+寒
 %%%%
 [branch]Tartarus
 
@@ -194,15 +273,28 @@ Welcome to Hell!\nPlease enjoy your stay.
 %%%%
 [branch]Tar
 
-タルタロス
+<[branch]Tartarus>
+%%%%
+[branch abbrj]Tar
+
+腐
 %%%%
 [branch]Zot
 
 ゾットの領域
 %%%%
+[branch abbrj]Zot
+
+ゾ
+%%%%
 [branch]the Realm of Zot
 
-ゾットの領域
+<[branch]Zot>
+%%%%
+Welcome to the Realm of Zot!\nYou feel the power of the Orb interfering with translocations here.
+
+ゾットの領域へよくぞ到達した！
+あなたはオーブの力がここでの空間転移を阻害しているのを感じ取った。
 %%%%
 [branch]Forest
 
@@ -212,13 +304,21 @@ Welcome to Hell!\nPlease enjoy your stay.
 
 魔法の森
 %%%%
+[branch abbrj]Forest
+
+森
+%%%%
 [branch]Abyss
 
 アビス
 %%%%
 [branch]the Abyss
 
-アビス
+<[branch]Abyss>
+%%%%
+[branch abbrj]Abyss
+
+淵
 %%%%
 [branch]Pandemonium
 
@@ -227,6 +327,10 @@ Welcome to Hell!\nPlease enjoy your stay.
 [branch]Pan
 
 万魔殿
+%%%%
+[branch abbrj]Pan
+
+万
 %%%%
 You enter the halls of Pandemonium!\nTo return, you must find a gate leading back.
 
@@ -239,11 +343,15 @@ You enter the halls of Pandemonium!\nTo return, you must find a gate leading bac
 %%%%
 [branch]a ziggurat
 
-ジグラット
+<[branch]Ziggurat>
 %%%%
 [branch]Zig
 
-ジグラット
+<[branch]Ziggurat>
+%%%%
+[branch abbrj]Zit
+
+ジ
 %%%%
 You land on top of a ziggurat so tall you cannot make out the ground.
 
@@ -255,11 +363,11 @@ You land on top of a ziggurat so tall you cannot make out the ground.
 %%%%
 [branch]a labyrinth
 
-ラビリンス
+<[branch]Labyrinth>
 %%%%
 [branch]Lab
 
-ラビリンス
+<[branch]Labyrinth>
 %%%%
 As you enter the labyrinth, previously moving walls settle noisily into place.\nYou hear the metallic echo of a distant snort before it fades into the rock.
 
@@ -272,7 +380,7 @@ As you enter the labyrinth, previously moving walls settle noisily into place.\n
 %%%%
 [branch]a bazaar
 
-バザール
+<[branch]Bazaar>
 %%%%
 You enter an inter-dimensional bazaar!
 
@@ -286,13 +394,21 @@ You enter an inter-dimensional bazaar!
 
 宝の埋蔵庫
 %%%%
+You enter a treasure trove!
+
+あなたは宝の埋蔵庫に足を踏み入れた！
+%%%%
 [branch]Sewer
 
 下水道
 %%%%
 [branch]a sewer
 
-下水道
+<[branch]Sewer>
+%%%%
+You enter a sewer!
+
+あなたは下水道に立ち入った！
 %%%%
 [branch]Ossuary
 
@@ -300,7 +416,11 @@ You enter an inter-dimensional bazaar!
 %%%%
 [branch]an ossuary
 
-納骨堂
+<[branch]Ossuary>
+%%%%
+You enter an ossuary!
+
+あなたは納骨堂に足を踏み入れた！
 %%%%
 [branch]Bailey
 
@@ -308,7 +428,11 @@ You enter an inter-dimensional bazaar!
 %%%%
 [branch]a bailey
 
-濠城
+<[branch]Bailey>
+%%%%
+You enter a bailey!
+
+あなたは濠城へと向かった！
 %%%%
 [branch]Ice Cave
 
@@ -316,11 +440,15 @@ You enter an inter-dimensional bazaar!
 %%%%
 [branch]an ice cave
 
-氷の洞穴
+<[branch]Ice Cave>
 %%%%
 [branch]IceCv
 
-氷の洞穴
+<[branch]Ice Cave>
+%%%%
+You enter an ice cave!
+
+あなたは氷の洞穴にもぐり込んだ！
 %%%%
 [branch]Volcano
 
@@ -328,7 +456,11 @@ You enter an inter-dimensional bazaar!
 %%%%
 [branch]a volcano
 
-火山
+<[branch]Volcano>
+%%%%
+You enter a volcano!
+
+あなたは火山の中に入った！
 %%%%
 [branch]Wizlab
 
@@ -336,7 +468,11 @@ You enter an inter-dimensional bazaar!
 %%%%
 [branch]a wizard's laboratory
 
-魔術研究所
+魔術師の研究所
+%%%%
+You enter a wizard's laboratory!
+
+あなたは魔術師の研究所へと足を踏み入れた！
 %%%%
 [branch]Depths
 
@@ -344,5 +480,21 @@ You enter an inter-dimensional bazaar!
 %%%%
 [branch]the Depths
 
-深層
+<[branch]Depths>
+%%%%
+[branch abbrj]Depths
+
+深
+%%%%
+[branch]Desolation
+
+荒野
+%%%%
+[branch]the Desolation of Salt
+
+塩の荒野
+%%%%
+You enter a great desolation of salt!
+
+あなたは広大な塩の荒野に足を踏み入れた！
 %%%%
