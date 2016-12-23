@@ -7,6 +7,50 @@ snickers.
 
 はくすくす笑った。
 %%%%
+[acq menu]Weapon
+
+武器
+%%%%
+[acq menu]Armour
+
+鎧・服
+%%%%
+[acq menu]Jewellery
+
+装身具
+%%%%
+[acq menu]Book
+
+魔法書・虎の巻
+%%%%
+[acq menu]Staff
+
+魔法の杖
+%%%%
+[acq menu]Wand
+
+ワンド
+%%%%
+[acq menu]Misc. Evocable
+
+発動アイテム
+%%%%
+[acq menu]Gold
+
+金貨
+%%%%
+[acq menu]Fruit
+
+果物
+%%%%
+[acq menu]Blood
+
+血液
+%%%%
+[acq menu]Food
+
+食料
+%%%%
 What kind of item would you like to acquire? (\ to view known items)
 
 どの種類のアイテムを獲得しますか？ ('\' コマンドで既知のアイテム一覧表示)
