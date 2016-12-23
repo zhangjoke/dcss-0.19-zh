@@ -201,7 +201,7 @@ function ($, map_knowledge, cr, dungeon_renderer, options, util) {
             }
             else
             {
-                group.name_span.text(monsters.length + " " + monsters[0].mon.plural);
+                group.name_span.text(monsters.length + "体の" + monsters[0].mon.name);
                 group.health_span.hide();
             }
 
