@@ -208,7 +208,7 @@ function ($, comm, enums, map_knowledge, messages, options) {
             elem.addClass("boosted_defense");
         else if (type == "ac" && player.has_status("corroded equipment"))
             elem.addClass("degenerated_defense");
-        else if (type == "sh" && player.god == "Qazlal"
+        else if (type == "sh" && (player.god == "Qazlal" || player.god == "クァズラル")
                  && player.piety_rank > 0)
             elem.addClass("boosted_defense");
     }
@@ -355,7 +355,7 @@ function ($, comm, enums, map_knowledge, messages, options) {
             else
                 species_god += player.species + " of " + player.god;
         }
-        if (player.god == "Xom")
+        if (player.god == "Xom" || player.god == "ゾム")
         {
             if (player.piety_rank >=0)
             {
@@ -365,6 +365,8 @@ function ($, comm, enums, map_knowledge, messages, options) {
             else
                 $("#stats_piety").text("......"); // very special plaything
         }
+        else if (player.god == "Gozag" || player.god == "ゴザーグ")
+            $("#stats_piety").text("");
         else if ((player.piety_rank > 0 || player.god != "")
                  && player.god != "Gozag")
         {
