@@ -1,37 +1,29 @@
 %%%%
-Sulking Sword
-
-憂う剣
-%%%%
 Singing Sword
 
 謳う剣
-%%%%
-Screaming Sword
-
-叫ぶ剣
 %%%%
 Wrath of Trog
 
 トログの怒り
 %%%%
-Mace of Variability
+mace of Variability
 
 変幻のメイス
 %%%%
-Glaive of Prune
+glaive of Prune
 
 プルーンのグレイブ
 %%%%
-Sword of Power
+sword of Power
 
 力の剣
 %%%%
-Staff of Olgreb
+staff of Olgreb
 
 オルグレブの杖
 %%%%
-Staff of Wucad Mu
+staff of Wucad Mu
 
 ウカド・ムーの杖
 %%%%
@@ -39,19 +31,19 @@ Vampire's Tooth
 
 吸血鬼の牙
 %%%%
-Scythe of Curses
+scythe of Curses
 
 呪いの大鎌
 %%%%
-Sceptre of Torment
+sceptre of Torment
 
 苦悩の王笏
 %%%%
-Sword of Zonguldrok
+sword of Zonguldrok
 
 ゾングルドルックの剣
 %%%%
-Sword of Cerebov
+sword of Cerebov
 
 セレボブの剣
 %%%%
@@ -63,7 +55,7 @@ flamberge
 
 フランベルジュ
 %%%%
-Staff of Dispater
+staff of Dispater
 
 ディスペータの杖
 %%%%
@@ -71,7 +63,7 @@ golden staff
 
 黄金の杖
 %%%%
-Sceptre of Asmodeus
+sceptre of Asmodeus
 
 アスモデウスの王笏
 %%%%
@@ -79,9 +71,9 @@ ruby sceptre
 
 ルビーの王笏
 %%%%
-faerie dragon armour
+faerie dragon scales
 
-フェアリードラゴンの鎧
+フェアリードラゴンの鱗一式
 %%%%
 demon blade "Bloodbane"
 
@@ -93,7 +85,7 @@ scimitar of Flaming Death
 %%%%
 eveningstar "Brilliance"
 
-輝けるイブニングスター
+輝きのイブニングスター
 %%%%
 demon blade "Leech"
 
@@ -101,7 +93,7 @@ demon blade "Leech"
 %%%%
 dagger of Chilly Death
 
-冷たき死のダガー
+冷たき死の短刀
 %%%%
 dagger "Morg"
 
@@ -111,9 +103,9 @@ scythe "Finisher"
 
 大鎌『とどめの一撃』
 %%%%
-greatsling "Punk"
+sling "Punk"
 
-大型スリング『パンク』
+スリング『パンク』
 %%%%
 bow of Krishna "Sharnga"
 
@@ -131,9 +123,9 @@ sword of Jihad
 
 聖戦の剣
 %%%%
-arbalest "Hellfire"
+arbalest "Damnation"
 
-アーバレスト『地獄の業火』
+アーバレスト『地獄の鉄槌』
 %%%%
 sword of the Doom Knight
 
@@ -166,10 +158,6 @@ heavy crossbow "Sniper"
 heavy crossbow
 
 大型クロスボウ
-%%%%
-triple xbow
-
-トリプルクロスボウ
 %%%%
 longbow "Piercer"
 
@@ -315,7 +303,7 @@ ratskin cloak
 
 鼠の毛皮のクローク
 %%%%
-shield of the gong
+shield of the Gong
 
 銅鑼の盾
 %%%%
@@ -411,10 +399,6 @@ Axe of Woe
 
 悲痛の斧
 %%%%
-exec axe
-
-処刑人の斧
-%%%%
 moon troll leather armour
 
 月世界のトロルの革鎧
@@ -463,19 +447,11 @@ Majin-Bo
 
 魔神棒
 %%%%
-quick blades "Gyre" and "Gimble"
+pair of quick blades "Gyre" and "Gimble"
 
 一対のクイックブレード『ジャイル』と『ギンブル』
 %%%%
-quick blade "Gyre"
-
-クイックブレード『ジャイル』
-%%%%
-quick blade "Gimble"
-
-クイックブレード『ギンブル』
-%%%%
-quick blades
+pair of quick blades
 
 一対のクイックブレード
 %%%%
@@ -487,7 +463,27 @@ crown of Eternal Torment
 
 永劫なる苦痛の王冠
 %%%%
-g.spiked club
+robe of Vines
 
-釘つき巨大棍棒
+蔓のローブ
+%%%%
+Kryia's mail coat
+
+クライア女王の帷子鎧
+%%%%
+frozen axe "Frostbite"
+
+凍れる斧『フロストバイト』
+%%%%
+armour of Talos
+
+タロスの鎧
+%%%%
+warlock's mirror
+
+魔法使いの鏡
+%%%%
+amulet of invisibility
+
+透明化の護符
 %%%%
