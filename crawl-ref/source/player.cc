@@ -25,6 +25,7 @@
 #include "chardump.h"
 #include "cloud.h"
 #include "coordit.h"
+#include "database.h"
 #include "delay.h"
 #include "dgn-overview.h"
 #include "dgnevent.h"
@@ -8461,8 +8462,13 @@ static bool _is_end_punct(char c)
 string player::hands_act(const string &plural_verb,
                          const string &object) const
 {
-    const bool space = !object.empty() && !_is_end_punct(object[0]);
-    return "Your " + hands_verb(plural_verb) + (space ? " " : "") + object;
+    string tmpl_key = make_stringf("your hands %s", plural_verb.c_str());
+    bool space = !object.empty() && !_is_end_punct(object[0]);
+    tmpl_key += (space ? " " : "") + object;
+    string tmpl = tagged_jtrans("[hands act]", tmpl_key);
+
+    return make_stringf(tmpl.c_str(),
+                        you.hand_name(true).c_str());
 }
 
 /**

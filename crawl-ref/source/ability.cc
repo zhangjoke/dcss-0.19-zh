@@ -2355,8 +2355,8 @@ static spret_type _do_ability(const ability_def& abil, bool fail)
         if (you.duration[DUR_FINESSE])
         {
             // "Your [hand(s)] get{s} new energy."
-            mprf(MSGCH_DURATION, "%s", tagged_jtransc("[hands_act]", "you hands get new energy"));
-//               you.hands_act("get", "new energy.").c_str());
+            mprf(MSGCH_DURATION, "%s",
+                 you.hands_act("get", "new energy.").c_str());
         }
         else
             mprf(MSGCH_DURATION, jtrans("You can now deal lightning-fast blows."));

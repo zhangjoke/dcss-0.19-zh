@@ -1052,7 +1052,7 @@ You gain the combat prowess of a mighty hero.
 
 あなたは英雄のような戦闘の才覚を得た。
 %%%%
-[hands_act]you hands act get new energy
+[hands act]your hands get new energy.
 
 あなたは更なる力を手にした。
 %%%%
