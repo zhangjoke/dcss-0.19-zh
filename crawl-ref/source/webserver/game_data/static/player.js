@@ -3,6 +3,11 @@ define(["jquery", "comm", "./enums", "./map_knowledge", "./messages",
 function ($, comm, enums, map_knowledge, messages, options) {
     "use strict";
 
+    function is_ja()
+    {
+        return Boolean(document.title.match(/-ja-/));
+    }
+
     var player = {}, last_time;
 
     var stat_boosters = {
@@ -151,7 +156,12 @@ function ($, comm, enums, map_knowledge, messages, options) {
             return elem;
         }
         else if (player.quiver_item == -1)
-            return "Nothing quivered";
+        {
+            if (is_ja())
+                return "(射撃準備していない)";
+            else
+                return "Nothing quivered";
+        }
         else
             return inventory_item_desc(player.quiver_item);
     }
@@ -198,7 +208,7 @@ function ($, comm, enums, map_knowledge, messages, options) {
             elem.addClass("boosted_defense");
         else if (type == "ac" && player.has_status("corroded equipment"))
             elem.addClass("degenerated_defense");
-        else if (type == "sh" && player.god == "Qazlal"
+        else if (type == "sh" && (player.god == "Qazlal" || player.god == "クァズラル")
                  && player.piety_rank > 0)
             elem.addClass("boosted_defense");
     }
@@ -302,7 +312,30 @@ function ($, comm, enums, map_knowledge, messages, options) {
                 if (player.species == "Djinni")
                     hp_cap = "Essence";
             }
-            $("#stats_hpline > .stats_caption").text(hp_cap+":");
+            if (is_ja())
+            {
+                $("#stats_hpline > .stats_caption").text("HP:");
+                $("#stats_mpline > .stats_caption").text("MP:");
+                $("#stats_ac").prev().text("AC:　");
+                $("#stats_ev").prev().text("回避:");
+                $("#stats_sh").prev().text("盾:　");
+                $("#stats_xl").prev().text("Lv:");
+                $("#stats_progress").prev().text("次Lv:");
+                $("#stats_gold").prev().text("所持金:");
+
+                $("#stats_str").prev().text("腕力:");
+                $("#stats_int").prev().text("知力:");
+                $("#stats_dex").prev().text("器用:");
+                $("#stats_place").prev().text("現在地:");
+
+                $("#stats_time_caption").text("時間:");
+                $("#stats_weapon").prev().text("手持武器:");
+                $("#stats_quiver").prev().text("射撃準備:");
+
+                $("#more").text("--続く--");
+            }
+            else
+                $("#stats_hpline > .stats_caption").text(hp_cap+":");
         }
         switch (player.species)
         {
@@ -314,10 +347,15 @@ function ($, comm, enums, map_knowledge, messages, options) {
                 break;
         }
 
-        var species_god = player.species;
+        var species_god = "";
         if (player.god != "")
-            species_god += " of " + player.god;
-        if (player.god == "Xom")
+        {
+            if (is_ja())
+                species_god += player.god + "の信徒";
+            else
+                species_god += player.species + " of " + player.god;
+        }
+        if (player.god == "Xom" || player.god == "ゾム")
         {
             if (player.piety_rank >=0)
             {
@@ -327,6 +365,8 @@ function ($, comm, enums, map_knowledge, messages, options) {
             else
                 $("#stats_piety").text("......"); // very special plaything
         }
+        else if (player.god == "Gozag" || player.god == "ゴザーグ")
+            $("#stats_piety").text("");
         else if ((player.piety_rank > 0 || player.god != "")
                  && player.god != "Gozag")
         {
@@ -369,14 +409,20 @@ function ($, comm, enums, map_knowledge, messages, options) {
 
         if (options.get("show_game_time") === true)
         {
-            $("#stats_time_caption").text("Time:");
+            if (is_ja())
+                $("#stats_time_caption").text("時間:");
+            else
+                $("#stats_time_caption").text("Time:");
             $("#stats_time").text((player.time / 10.0).toFixed(1));
             if (player.time_delta)
                 $("#stats_time").append(" (" + (player.time_delta / 10.0).toFixed(1) + ")");
         }
         else
         {
-            $("#stats_time_caption").text("Turn:");
+            if (is_ja())
+                $("#stats_time_caption").text("ターン:");
+            else
+                $("#stats_time_caption").text("Turn:");
             $("#stats_time").text(player.turn);
         }
 

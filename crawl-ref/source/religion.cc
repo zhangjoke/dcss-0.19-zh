@@ -2057,11 +2057,7 @@ string god_name(god_type which_god, bool long_name)
 
 string god_name_jiyva(bool second_name)
 {
-    string name = "Jiyva";
-    if (second_name)
-        name += " " + you.jiyva_second_name;
-
-    return name;
+    return "Jiyva";
 }
 
 god_type str_to_god(const string &_name, bool exact)
