@@ -195,7 +195,6 @@ static TextDB AllDBs[] =
            "jtrans_dat_des_sprint.txt",
            "jtrans_dat_des_tutorial.txt",
            
-           "jtrans_character.txt",
            "jtrans_skill_title.txt",
            "jtrans_divine_title.txt",
            "jtrans_weapon_name.txt",
@@ -214,6 +213,7 @@ static TextDB AllDBs[] =
            "jtrans_god_name.txt",
 
            "jtrans_branch_data.txt",
+           "jtrans_job_data.txt",
            "jtrans_species_data.txt",
            "jtrans_monster_data.txt",
            "jtrans_mutation_data.txt",
