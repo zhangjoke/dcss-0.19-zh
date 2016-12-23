@@ -212,15 +212,18 @@ static TextDB AllDBs[] =
            "jtrans_rod_name.txt",
            "jtrans_god_name.txt",
 
+           "jtrans_art_data.txt",
            "jtrans_branch_data.txt",
+           "jtrans_duration_data.txt",
+           "jtrans_feature_data.txt",
+           "jtrans_form_data.txt",
            "jtrans_job_data.txt",
-           "jtrans_species_data.txt",
            "jtrans_monster_data.txt",
            "jtrans_mutation_data.txt",
-           /*
-           "jtrans_duration_data.txt",
+           "jtrans_sacrifice_data.txt",
+           "jtrans_species_data.txt",
+           "jtrans_spell_data.txt",
            "jtrans_zap_data.txt",
-           */
            nullptr),
 };
 
