@@ -143,6 +143,7 @@ static TextDB AllDBs[] =
            "jtrans.txt",
            "jtrans_ability.txt",
            "jtrans_abyss.txt",
+           "jtrans_acquire.txt",
            /*
            "jtrans_actor.txt",
            "jtrans_areas.txt",
