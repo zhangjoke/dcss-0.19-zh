@@ -9,6 +9,7 @@
 #include "art-enum.h"
 #include "attack.h"
 #include "chardump.h"
+#include "database.h"
 #include "directn.h"
 #include "env.h"
 #include "fight.h" // apply_chunked_ac
@@ -419,6 +420,7 @@ bool actor::can_cling_to(const coord_def& p) const
  * @param stepped Whether the actor has taken a step.
  * @return the new clinging status.
  */
+
 bool actor::check_clinging(bool stepped, bool door)
 {
     bool was_clinging = is_wall_clinging();
@@ -434,9 +436,9 @@ bool actor::check_clinging(bool stepped, bool door)
     {
         if (you.can_see(*this))
         {
-            mprf("%s %s off the %s.", name(DESC_THE).c_str(),
-                 conj_verb("fall").c_str(),
-                 door ? "door" : "wall");
+            mprf(jtransc("%s %s off the %s."), name(DESC_THE).c_str(),
+                 conj_verb_j("fall").c_str(),
+                 jtransc(door ? "door" : "wall"));
         }
         apply_location_effects(pos());
     }
@@ -470,11 +472,10 @@ void actor::end_constriction(mid_t whom, bool intentional, bool quiet)
     if (!quiet && alive() && constrictee->alive()
         && (you.see_cell(pos()) || you.see_cell(constrictee->pos())))
     {
-        mprf("%s %s %s grip on %s.",
+        mprf(jtransc("%s %s %s grip on %s."),
                 name(DESC_THE).c_str(),
-                conj_verb(intentional ? "release" : "lose").c_str(),
-                pronoun(PRONOUN_POSSESSIVE).c_str(),
-                constrictee->name(DESC_THE).c_str());
+                constrictee->name(DESC_THE).c_str(),
+                conj_verb_j(intentional ? "release" : "lose").c_str());
     }
 
     if (constrictee->is_player())
@@ -657,12 +658,12 @@ void actor::handle_constriction()
         if (damage <= 0 && is_player()
             && you.can_see(*defender))
         {
-            exclamations = ", but do no damage.";
+            exclamations = jtrans(", but do no damage.");
         }
         else if (damage < HIT_WEAK)
-            exclamations = ".";
+            exclamations = "。";
         else if (damage < HIT_MED)
-            exclamations = "!";
+            exclamations = "！";
         else if (damage < HIT_STRONG)
             exclamations = "!!";
         else
@@ -678,29 +679,31 @@ void actor::handle_constriction()
 
         if (is_player() || you.can_see(*this))
         {
-            mprf("%s %s %s%s%s",
-                 (is_player() ? "You"
-                              : name(DESC_THE).c_str()),
-                 conj_verb("constrict").c_str(),
+            mprf(jtransc("%s %s %s%s%s"),
+                 jtransc(is_player() ? "You"
+                                     : name(DESC_THE)),
                  defender->name(DESC_THE).c_str(),
+                 conj_verb_j("constrict").c_str(),
+                 exclamations.c_str(),
 #ifdef DEBUG_DIAGNOSTICS
-                 make_stringf(" for %d", damage).c_str(),
+                 make_stringf(jtransc(" for %d"), damage).c_str()
 #else
-                 "",
+                 ""
 #endif
-                 exclamations.c_str());
+                 );
         }
         else if (you.can_see(*defender) || defender->is_player())
         {
-            mprf("%s %s constricted%s%s",
+            mprf(jtransc("%s %s constricted%s%s"),
                  defender->name(DESC_THE).c_str(),
-                 defender->conj_verb("are").c_str(),
+                 defender->conj_verb_j("are").c_str(),
+                 exclamations.c_str(),
 #ifdef DEBUG_DIAGNOSTICS
-                 make_stringf(" for %d", damage).c_str(),
+                 make_stringf(jtransc(" for %d"), damage).c_str()
 #else
-                 "",
+                 ""
 #endif
-                 exclamations.c_str());
+                 );
         }
 
         dprf("constrict at: %s df: %s base %d dur %d ac %d tsc %d inf %d",
@@ -805,7 +808,7 @@ bool actor::torpor_slowed() const
 string actor::resist_margin_phrase(int margin) const
 {
     if (res_magic() == MAG_IMMUNE)
-        return " " + conj_verb("are") + " unaffected.";
+        return conj_verb_j("are") + jtrans(" unaffected.");
 
     static const string resist_messages[][2] =
     {
@@ -820,8 +823,8 @@ string actor::resist_margin_phrase(int margin) const
     const int index = max(0, min((int)ARRAYSZ(resist_messages) - 1,
                                  ((margin + 45) / 15)));
 
-    return make_stringf(resist_messages[index][0].c_str(),
-                        conj_verb(resist_messages[index][1]).c_str());
+    return make_stringf(jtransc(resist_messages[index][0]),
+                        conj_verb_j(resist_messages[index][1]).c_str());
 }
 
 void actor::collide(coord_def newpos, const actor *agent, int pow)
@@ -848,10 +851,10 @@ void actor::collide(coord_def newpos, const actor *agent, int pow)
             behaviour_event(other->as_monster(), ME_WHACK, agent);
         if (you.can_see(*this) || you.can_see(*other))
         {
-            mprf("%s %s with %s!",
+            mprf(jtransc("%s %s with %s!"),
                  name(DESC_THE).c_str(),
-                 conj_verb("collide").c_str(),
-                 other->name(DESC_THE).c_str());
+                 other->name(DESC_THE).c_str(),
+                 conj_verb_j("collide").c_str());
         }
         const string thisname = name(DESC_A, true);
         const string othername = other->name(DESC_A, true);
@@ -870,17 +873,17 @@ void actor::collide(coord_def newpos, const actor *agent, int pow)
     {
         if (!can_pass_through_feat(grd(newpos)))
         {
-            mprf("%s %s into %s!",
-                 name(DESC_THE).c_str(), conj_verb("slam").c_str(),
-                 env.map_knowledge(newpos).known()
-                 ? feature_description_at(newpos, false, DESC_THE, false)
-                       .c_str()
-                 : "something");
+            mprf(jtransc("%s %s into %s!"),
+                 name(DESC_THE).c_str(),
+                 jtransc(env.map_knowledge(newpos).known()
+                         ? feature_description_at(newpos, false, DESC_THE, false).c_str()
+                         : "something"),
+                 conj_verb_j("slam").c_str());
         }
         else
         {
-            mprf("%s violently %s moving!",
-                 name(DESC_THE).c_str(), conj_verb("stop").c_str());
+            mprf(jtransc("%s violently %s moving!"),
+                 name(DESC_THE).c_str(), conj_verb_j("stop").c_str());
         }
     }
     hurt(agent, apply_ac(damage.roll()), BEAM_MISSILE,
@@ -892,4 +895,9 @@ void actor::collide(coord_def newpos, const actor *agent, int pow)
 bool actor::evil() const
 {
     return bool(holiness() & (MH_UNDEAD | MH_DEMONIC | MH_EVIL));
+}
+
+string actor::conj_verb_j(const string& verb, const string &tag) const
+{
+    return tagged_jtrans(tag, verb);
 }
