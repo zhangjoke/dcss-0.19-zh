@@ -117,7 +117,7 @@
 %%%%
 [feature]teleport trap
 
-テレポートの罠
+<teleport trap>
 %%%%
 # TAG_MAJOR_VERSION == 34
 [feature]shadow trap
@@ -129,23 +129,23 @@
 %%%%
 [feature]alarm trap
 
-警報の罠
+<alarm trap>
 %%%%
 [feature]Zot trap
 
-ゾットの罠
+<Zot trap>
 %%%%
 [feature]passage of Golubria
 
-ゴルブリアの通り道
+<passage of Golubria>
 %%%%
 [feature]shaft
 
-縦穴
+<shaft>
 %%%%
 [feature]web
 
-蜘蛛の巣
+<web>
 %%%%
 [feature]shop
 
