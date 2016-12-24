@@ -286,12 +286,12 @@ static void _change_skill_level(skill_type exsk, int n)
     const bool specify_base = you.skill(exsk, 1) != you.skill(exsk, 1, true);
     if (you.skills[exsk] == MAX_SKILL_LEVEL)
         mprf(MSGCH_INTRINSIC_GAIN, jtransc("You have mastered %s!"),
-             tagged_jtransc("[skill]", skill_name(exsk)));
+             skill_name_jc(exsk));
     else if (abs(n) == 1 && you.num_turns)
     {
         mprf(MSGCH_INTRINSIC_GAIN, jtransc("Your %s%s skill %s to level %d!"),
              specify_base ? "補正なしの" : "",
-             tagged_jtransc("[skill]", skill_name(exsk)),
+             skill_name_jc(exsk),
              you.skills[exsk], jtransc((n > 0) ? "increases" : "decreases"));
     }
     else if (you.num_turns)
@@ -299,7 +299,7 @@ static void _change_skill_level(skill_type exsk, int n)
         mprf(MSGCH_INTRINSIC_GAIN, jtransc("Your %s%s skill %s %d levels and is now "
                                            "at level %d!"),
              specify_base ? "補正なしの" : "",
-             tagged_jtransc("[skill]", skill_name(exsk)),
+             skill_name_jc(exsk),
              abs(n), jtransc((n > 0) ? "gained" : "lost"),
              you.skills[exsk]);
     }
@@ -475,7 +475,7 @@ string skill_names(const skill_set &skills)
 {
     //    return comma_separated_fn(begin(skills), end(skills), skill_name);
     return to_separated_fn(begin(skills), end(skills),
-                           [] (const skill_type &st) { return tagged_jtrans("[skill]", skill_name(st)); },
+                           [] (const skill_type &st) { return skill_name_j(st); },
                            "・", "・", "・");
 }
 
@@ -1182,6 +1182,16 @@ const char *skill_name(skill_type which_skill)
     return skill_titles[which_skill][0];
 }
 
+const string skill_name_j(skill_type which_skill)
+{
+    return skill_name_j(skill_name(which_skill));
+}
+
+const string skill_name_j(const string &name_en)
+{
+    return tagged_jtrans("[skill]", name_en);
+}
+
 skill_type str_to_skill(const string &skill)
 {
     for (skill_type sk = SK_FIRST_SKILL; sk < NUM_SKILLS; ++sk)
@@ -1631,7 +1641,7 @@ void dump_skills(string &text)
                                  you.train[i] == 2 ? '*' :
                                  you.train[i]      ? '+' :
                                                      '-',
-                                 chop_stringc(tagged_jtrans("[skill]", skill_name(static_cast<skill_type>(i))) + "スキル", 16),
+                                 chop_stringc(skill_name_j(static_cast<skill_type>(i)) + "スキル", 16),
                                  lvl.c_str(),
                                  real != cur
                                      ? make_stringf("(%.*f)",

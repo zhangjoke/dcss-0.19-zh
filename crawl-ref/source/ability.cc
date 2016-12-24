@@ -693,7 +693,7 @@ string print_abilities()
         {
             if (i)
                 text += ", ";
-            text += tagged_jtrans("[ability]", ability_name(talents[i].which));
+            text += ability_name_j(talents[i].which);
         }
     }
 
@@ -796,7 +796,7 @@ const string make_cost_description(ability_type ability)
     if (abil.flags & abflag::SACRIFICE)
     {
         ret += ", ";
-        ret += replace_all(tagged_jtrans("[ability]", ability_name(ability)), "の犠牲", "");
+        ret += replace_all(ability_name_j(ability), "の犠牲", "");
         ret += ru_sac_text(ability);
     }
 
@@ -1057,6 +1057,16 @@ const char* ability_name(ability_type ability)
     return get_ability_def(ability).name;
 }
 
+const string ability_name_j(ability_type ability)
+{
+    return ability_name_j(ability_name(ability));
+}
+
+const string ability_name_j(const string &name_en)
+{
+    return tagged_jtrans("[ability]", name_en);
+}
+
 vector<const char*> get_ability_names()
 {
     vector<const char*> result;
@@ -1100,7 +1110,7 @@ static inline string _spacer(const int length)
 string get_ability_desc(const ability_type ability)
 {
     string name_en = ability_name(ability);
-    string name = tagged_jtrans("[ability]", name_en);
+    string name = ability_name_j(ability);
 
     if (strwidth(name) + strwidth(name_en) + 5 > get_number_of_cols())
         name_en = "";
@@ -1331,7 +1341,7 @@ static bool _check_ability_possible(const ability_def& abil,
             if (action.matches(name))
             {
                 string prompt = make_stringf(jtransc("Really use {ability name}?"),
-                                             tagged_jtransc("[ability]", name));
+                                             ability_name_jc(name));
                 if (!yesno(prompt.c_str(), false, 'n'))
                 {
                     canned_msg(MSG_OK);
@@ -3303,7 +3313,7 @@ string describe_talent(const talent& tal)
 
     ostringstream desc;
     desc << left
-         << chop_string(tagged_jtrans("[ability]", ability_name(tal.which)), 32)
+         << chop_string(ability_name_j(tal.which), 32)
          << chop_string(make_cost_description(tal.which), 30)
          << chop_string(failure, 12);
     return desc.str();

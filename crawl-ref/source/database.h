@@ -128,4 +128,11 @@ string to_separated_line(Z start, Z end,
 
     return to_separated_fn(start, end, to_j, first, second, fin);
 }
+
+// tagged_jtrans shortcuts
+#define branch_name_j(br) (tagged_jtrans("[branch]", br))
+#define branch_name_jc(br) (branch_name_j(br).c_str())
+#define duration_name_j(en) (tagged_jtrans("[dur]", en))
+#define duration_name_jc(en) (duration_name_j(en).c_str())
+
 #endif

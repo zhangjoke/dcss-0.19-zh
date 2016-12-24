@@ -6,7 +6,8 @@
 const char *get_job_abbrev(job_type which_job);
 job_type get_job_by_abbrev(const char *abbrev);
 const char *get_job_name(job_type which_job);
-#define get_job_name_jc(job) (tagged_jtransc("[job]", get_job_name(job)))
+#define get_job_name_j(job) (tagged_jtrans("[job]", get_job_name(job)))
+#define get_job_name_jc(job) (get_job_name_j(job).c_str())
 job_type get_job_by_name(const char *name);
 bool job_recommends_species(job_type job, species_type species);
 

@@ -810,7 +810,7 @@ void TilesFramework::_send_player(bool force_full)
     const PlaceInfo& place = you.get_place_info();
     string abbrev_name = branches[place.branch].abbrevname;
 
-    _update_string(force_full, c.place, tagged_jtrans("[branch]", abbrev_name), "place");
+    _update_string(force_full, c.place, branch_name_j(abbrev_name), "place");
     _update_int(force_full, c.depth, brdepth[place.branch] > 1 ? you.depth : 0, "depth");
 
     if (m_origin.equals(-1, -1))
@@ -832,7 +832,7 @@ void TilesFramework::_send_player(bool force_full)
         {
             json_open_object();
             if (!status.light_text.empty())
-                json_write_string("light", tagged_jtrans("[dur]", status.light_text));
+                json_write_string("light", duration_name_j(status.light_text));
             if (!status.short_text.empty())
                 json_write_string("text", status.short_text);
             if (status.light_colour)

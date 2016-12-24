@@ -1055,7 +1055,7 @@ static void _print_status_lights(int y)
         if (end_x <= crawl_view.hudsz.x)
         {
             textcolour(lights[i_light].colour);
-            CPRINTF("%s", tagged_jtransc("[dur]", lights[i_light].text));
+            CPRINTF("%s", duration_name_jc(lights[i_light].text));
             if (end_x < crawl_view.hudsz.x)
                 CPRINTF(" ");
             ++i_light;
@@ -1078,7 +1078,7 @@ static void _print_status_lights(int y)
         if (lights.size() == 1)
         {
             textcolour(lights[0].colour);
-            CPRINTF("%s", tagged_jtransc("[dur]", lights[0].text));
+            CPRINTF("%s", duration_name_jc(lights[0].text));
         }
         else
         {
@@ -1088,12 +1088,12 @@ static void _print_status_lights(int y)
                 if (i_light == lights.size() - 1
                     && strwidth(lights[i_light].text) < crawl_view.hudsz.x - wherex())
                 {
-                    CPRINTF("%s", tagged_jtransc("[dur]", lights[i_light].text));
+                    CPRINTF("%s", duration_name_jc(lights[i_light].text));
                 }
                 else if ((int)lights.size() > crawl_view.hudsz.x / 2)
-                    CPRINTF("%.1s", tagged_jtransc("[dur]", lights[i_light].text));
+                    CPRINTF("%.1s", duration_name_jc(lights[i_light].text));
                 else
-                    CPRINTF("%.1s ", tagged_jtransc("[dur]", lights[i_light].text));
+                    CPRINTF("%.1s ", duration_name_jc(lights[i_light].text));
                 ++i_light;
             }
         }
@@ -1391,7 +1391,7 @@ void print_stats()
 static string _level_description_string_hud()
 {
     const PlaceInfo& place = you.get_place_info();
-    string abbrev_name = tagged_jtrans("[branch]", branches[place.branch].abbrevname);
+    string abbrev_name = branch_name_j(branches[place.branch].abbrevname);
 
     if (brdepth[place.branch] > 1)
         abbrev_name += make_stringf(":%d", you.depth);
@@ -2531,7 +2531,7 @@ static string _status_mut_abilities(int sw)
     for (unsigned i = 0; i <= STATUS_LAST_STATUS; ++i)
     {
         if (fill_status_info(i, &inf) && !inf.short_text.empty())
-            status.emplace_back(tagged_jtrans("[dur]", inf.short_text));
+            status.emplace_back(duration_name_j(inf.short_text));
     }
 
     int move_cost = (player_speed() * player_movement_speed()) / 10;

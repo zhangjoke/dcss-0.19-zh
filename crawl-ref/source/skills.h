@@ -68,6 +68,9 @@ int get_skill_progress(skill_type sk, int level, int points, int scale);
 int get_skill_progress(skill_type sk, int scale);
 int get_skill_percentage(const skill_type x);
 const char *skill_name(skill_type which_skill);
+const string skill_name_j(skill_type which_skill);
+const string skill_name_j(const string &name_en);
+#define skill_name_jc(sk) (skill_name_j(sk).c_str())
 skill_type str_to_skill(const string &skill);
 
 string skill_title_by_rank(

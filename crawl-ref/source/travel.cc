@@ -2936,9 +2936,9 @@ string level_id::describe(bool long_name, bool with_number) const
 
 string level_id::describe_j(bool long_name, bool with_number) const
 {
-    string result = tagged_jtrans("[branch]",
+    string result = branch_name_j
                     (long_name ? branches[branch].longname
-                               : branches[branch].abbrevname));
+                               : branches[branch].abbrevname);
 
     if (with_number && brdepth[branch] != 1)
     {

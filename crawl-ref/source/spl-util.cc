@@ -16,6 +16,7 @@
 
 #include "areas.h"
 #include "coordit.h"
+#include "database.h"
 #include "directn.h"
 #include "english.h"
 #include "env.h"
@@ -552,6 +553,16 @@ int count_bits(uint64_t bits)
 const char *spell_title(spell_type spell)
 {
     return _seekspell(spell)->title;
+}
+
+const string spell_title_j(spell_type which_spell)
+{
+    return spell_title_j(spell_title(which_spell));
+}
+
+const string spell_title_j(const string &name_en)
+{
+    return tagged_jtrans("[spell]", name_en);
 }
 
 // FUNCTION APPLICATORS: Idea from Juho Snellman <jsnell@lyseo.edu.ouka.fi>
