@@ -193,7 +193,7 @@ string no_selectables_message(int item_selector);
 
 string slot_description();
 
-int prompt_invent_item(const char *prompt,
+int prompt_invent_item(const string &prompt,
                        menu_type type,
                        int type_expect,
                        bool must_exist = true,
@@ -213,7 +213,7 @@ vector<SelItem> select_items(
                         invtitle_annotator titlefn = nullptr);
 
 vector<SelItem> prompt_invent_items(
-                        const char *prompt,
+                        const string &prompt,
                         menu_type type,
                         int type_expect,
                         invtitle_annotator titlefn = nullptr,

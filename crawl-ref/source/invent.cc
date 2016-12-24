@@ -17,6 +17,7 @@
 #include "artefact.h"
 #include "colour.h"
 #include "command.h"
+#include "database.h"
 #include "decks.h"
 #include "describe.h"
 #include "env.h"
@@ -1132,7 +1133,7 @@ bool any_items_of_type(int selector, int excluded_slot, bool inspect_floor)
 
 // Use title = nullptr for stock Inventory title
 // type = MT_DROP allows the multidrop toggle
-static unsigned char _invent_select(const char *title = nullptr,
+static unsigned char _invent_select(const string &title = "",
                                     menu_type type = MT_INVLIST,
                                     int item_selector = OSEL_ANY,
                                     int excluded_slot = -1,
@@ -1154,8 +1155,8 @@ static unsigned char _invent_select(const char *title = nullptr,
     menu.set_type(type);
 
     // Don't override title if there are no items.
-    if (title && menu.item_count())
-        menu.set_title(title);
+    if (!title.empty() && menu.item_count())
+        menu.set_title(jtrans(title));
 
     menu.show(true);
 
@@ -1174,7 +1175,7 @@ void display_inventory()
     while (true)
     {
         unsigned char select =
-            _invent_select(nullptr, MT_INVLIST, OSEL_ANY, -1, flags);
+            _invent_select("", MT_INVLIST, OSEL_ANY, -1, flags);
 
         if (isaalpha(select))
         {
@@ -1230,7 +1231,7 @@ static unsigned char _get_invent_quant(unsigned char keyin, int &quant)
 //
 // Note: This function never checks if the item is appropriate.
 vector<SelItem> prompt_invent_items(
-                        const char *prompt,
+                        const string &prompt,
                         menu_type mtype,
                         int type_expect,
                         invtitle_annotator titlefn,
@@ -1267,7 +1268,7 @@ vector<SelItem> prompt_invent_items(
         if (need_prompt)
         {
             mprf(MSGCH_PROMPT, "%s (<w>?</w> for menu, <w>Esc</w> to quit)",
-                 prompt);
+                 jtrans_notrimc(prompt));
         }
 
         if (need_getch)
@@ -1780,7 +1781,7 @@ bool check_warning_inscriptions(const item_def& item,
  *          - PROMPT_GOT_SPECIAL: if the player hits the "other_valid_char".
  *          - PROMPT_NOTHING:     if there are no matching items.
  */
-int prompt_invent_item(const char *prompt,
+int prompt_invent_item(const string &prompt,
                        menu_type mtype, int type_expect,
                        bool must_exist, bool auto_list,
                        bool allow_easy_quit,
@@ -1835,7 +1836,7 @@ int prompt_invent_item(const char *prompt,
         if (need_prompt)
         {
             mprf(MSGCH_PROMPT, "%s (<w>?</w> for menu, <w>Esc</w> to quit)",
-                 prompt);
+                 jtrans_notrimc(prompt));
         }
         else
             flush_prev_message();
