@@ -714,7 +714,7 @@ void TilesFramework::_send_player(bool force_full)
     string status_name = make_stringf("%s『%s』(%s)",
                                       jtransc(player_title(false)),
                                       you.your_name.c_str(),
-                                      jtransc(species_name(you.species)));
+                                      species_name_jc(you.species));
 
     _update_string(force_full, c.name, status_name, "name");
     _update_string(force_full, c.job_title, "", "title");
