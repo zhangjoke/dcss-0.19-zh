@@ -1265,9 +1265,9 @@ Your beak shortens and softens into a mouth.
 あなたの嘴は短くなり、柔らかい口になった。
 %%%%
 # MUT_CLAWS
-claws
+# claws
 
-爪
+# jtrans_form_data.txtと重複
 %%%%
 You have sharp fingernails.
 
