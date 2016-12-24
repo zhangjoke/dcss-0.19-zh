@@ -264,7 +264,7 @@ static void _nowrap_eol_cprintf_touchui(const char *format, ...)
         case TOUCH_V_TITL2:
             cprintf("%s%s %.4s", get_species_abbrev(you.species),
                                  get_job_abbrev(you.char_class),
-                                 god_name(you.religion).c_str());
+                                 god_name_jc(you.religion));
             TOUCH_UI_STATE = TOUCH_S_NULL; // suppress whatever else it was going to print
             break;
         default:
@@ -1183,7 +1183,7 @@ static void _redraw_title()
     NOWRAP_EOL_CPRINTF("%s", species.c_str());
     if (!you_worship(GOD_NO_GOD))
     {
-        string god = jtrans(god_name(you.religion)) + "の信徒";
+        string god = god_name_j(you.religion) + "の信徒";
         NOWRAP_EOL_CPRINTF("%s", god.c_str());
 
         string piety = _god_asterisks();
@@ -2034,7 +2034,7 @@ static string _overview_screen_title(int sw)
 static string _wiz_god_powers()
 {
     string godpowers = god_name(you.religion);
-    return make_stringf("%s %d (%d)", jtransc(god_name(you.religion)),
+    return make_stringf("%s %d (%d)", god_name_jc(you.religion),
                                       you.piety,
                                       you.duration[DUR_PIETY_POOL]);
 }
@@ -2045,7 +2045,7 @@ static string _god_powers()
     if (you_worship(GOD_NO_GOD))
         return "";
 
-    const string name = jtrans(god_name(you.religion));
+    const string name = god_name_j(you.religion);
     if (you_worship(GOD_GOZAG))
         return colour_string(name, _god_status_colour(god_colour(you.religion)));
 

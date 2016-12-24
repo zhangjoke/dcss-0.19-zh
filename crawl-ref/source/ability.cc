@@ -1129,7 +1129,7 @@ string get_ability_desc(const ability_type ability)
 
     if (god_hates_ability(ability, you.religion))
     {
-        lookup += jtrans(god_name(you.religion))
+        lookup += god_name_j(you.religion)
                 + jtransln(" frowns upon the use of this ability.\n");
     }
 
@@ -1295,7 +1295,7 @@ static bool _check_ability_possible(const ability_def& abil,
             if (!quiet)
             {
                 mprf(jtransc("You cannot call out to %s while silenced."),
-                     jtransc(god_name(you.religion)));
+                     god_name_jc(you.religion));
             }
             return false;
         }
@@ -2267,7 +2267,7 @@ static spret_type _do_ability(const ability_def& abil, bool fail)
         else
         {
             mprf(jtransc("You offer yourself to %s, and are filled with unholy energy."),
-                 jtransc(god_name(you.religion)));
+                 god_name_jc(you.religion));
         }
         you.duration[DUR_MIRROR_DAMAGE] = 9 * BASELINE_DELAY
                      + random2avg(you.piety * BASELINE_DELAY, 2) / 10;
@@ -2514,7 +2514,7 @@ static spret_type _do_ability(const ability_def& abil, bool fail)
         else
         {
             mprf(jtransc("You beseech %s to protect your life."),
-                 jtransc(god_name(you.religion)));
+                 god_name_jc(you.religion));
         }
         // Might be a decrease, this is intentional (like Yred).
         you.duration[DUR_LIFESAVING] = 9 * BASELINE_DELAY

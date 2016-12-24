@@ -1822,7 +1822,7 @@ bool simple_monster_message(const monster& mons, const string &event,
 // yet another wrapper for mpr() {dlb}:
 void simple_god_message(const string &event, god_type which_deity)
 {
-    string msg = jtrans(god_name(which_deity)) +
+    string msg = god_name_j(which_deity) +
                  jtrans_notrim(event.substr(event.find_first_not_of(" ")));
     god_speaks(which_deity, msg.c_str());
 }
