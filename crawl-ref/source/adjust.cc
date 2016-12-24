@@ -8,6 +8,7 @@
 #include "adjust.h"
 
 #include "ability.h"
+#include "database.h"
 #include "libutil.h"
 #include "invent.h"
 #include "items.h"
@@ -21,7 +22,7 @@ static void _adjust_ability();
 
 void adjust()
 {
-    mprf(MSGCH_PROMPT, "Adjust (i)tems, (s)pells, or (a)bilities? ");
+    mprf(MSGCH_PROMPT, jtrans_notrim("Adjust (i)tems, (s)pells, or (a)bilities? "));
 
     const int keyin = toalower(get_ch());
 
@@ -80,7 +81,7 @@ static void _adjust_spell()
     }
 
     // Select starting slot
-    mprf(MSGCH_PROMPT, "Adjust which spell? ");
+    mprf(MSGCH_PROMPT, jtrans_notrim("Adjust which spell? "));
     int keyin = list_spells(false, false, false, "Adjust which spell?");
 
     if (!isaalpha(keyin))
@@ -95,18 +96,18 @@ static void _adjust_spell()
 
     if (spell == SPELL_NO_SPELL)
     {
-        mpr("You don't know that spell.");
+        mpr(jtrans("You don't know that spell."));
         return;
     }
 
     // Print targeted spell.
-    mprf_nocap("%c - %s", keyin, spell_title(spell));
+    mprf_nocap("%c - %s", keyin, spell_title_jc(spell));
 
     // Select target slot.
     keyin = 0;
     while (!isaalpha(keyin))
     {
-        mprf(MSGCH_PROMPT, "Adjust to which letter? ");
+        mprf(MSGCH_PROMPT, jtrans_notrim("Adjust to which letter? "));
         keyin = get_ch();
         if (key_is_escape(keyin))
         {
@@ -134,13 +135,13 @@ static void _adjust_spell()
     you.spell_letter_table[index_1] = tmp;
 
     // print out spell in new slot
-    mprf_nocap("%c - %s", input_2, spell_title(get_spell_by_letter(input_2)));
+    mprf_nocap("%c - %s", input_2, spell_title_jc(get_spell_by_letter(input_2)));
 
     // print out other spell if one was involved (now at input_1)
     spell = get_spell_by_letter(input_1);
 
     if (spell != SPELL_NO_SPELL)
-        mprf_nocap("%c - %s", input_1, spell_title(spell));
+        mprf_nocap("%c - %s", input_1, spell_title_jc(spell));
 }
 
 static void _adjust_ability()
@@ -149,27 +150,27 @@ static void _adjust_ability()
 
     if (talents.empty())
     {
-        mpr("You don't currently have any abilities.");
+        mpr(jtrans("You don't currently have any abilities."));
         return;
     }
 
-    mprf(MSGCH_PROMPT, "Adjust which ability? ");
+    mprf(MSGCH_PROMPT, jtrans_notrim("Adjust which ability? "));
     int selected = choose_ability_menu(talents);
 
     // If we couldn't find anything, cancel out.
     if (selected == -1)
     {
-        mpr("No such ability.");
+        mpr(jtrans("No such ability."));
         return;
     }
 
     char old_key = static_cast<char>(talents[selected].hotkey);
 
-    mprf_nocap("%c - %s", old_key, ability_name(talents[selected].which));
+    mprf_nocap("%c - %s", old_key, ability_name_jc(talents[selected].which));
 
     const int index1 = letter_to_index(old_key);
 
-    mprf(MSGCH_PROMPT, "Adjust to which letter?");
+    mprf(MSGCH_PROMPT, jtrans("Adjust to which letter?"));
 
     const int keyin = get_ch();
 

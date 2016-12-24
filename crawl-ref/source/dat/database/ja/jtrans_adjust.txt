@@ -21,7 +21,7 @@ You don't know that spell.
 %%%%
 You don't currently have any abilities.
 
-あなたは今のところ能力を持っていない。
+あなたは今のところ発動できる能力を持っていない。
 %%%%
 Adjust which ability?
 
@@ -30,12 +30,4 @@ Adjust which ability?
 No such ability.
 
 そのキーには能力が割り当てされていません。
-%%%%
-Swapping with: %c - %s
-
-%c - %s とキー割り当てを交換しました。
-%%%%
-Moving to: %c - %s
-
-%c - %s にキー割り当てを変更しました。
 %%%%
