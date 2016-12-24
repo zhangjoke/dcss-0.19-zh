@@ -1,4 +1,12 @@
 %%%%
+You feel more conspicuous.
+
+あなたはうっすらと目に見えるようになりつつある。
+%%%%
+You flicker back into view.
+
+あなたは再び姿を現した。
+%%%%
 # light_text : ステータス欄表示
 # short_text : '%'コマンド用表示
 # name_text : wizmodeでの指定用(翻訳不要)
@@ -10,35 +18,31 @@
 %%%%
 [dur]agile
 
-器用＋
+器用強化
 %%%%
 You are agile.
 
-あなたは敏捷だ。
+あなたは機敏だ。
 %%%%
-[dur]-Mag
+You feel a little less agile now.
 
-反魔
-%%%%
-[dur]antimagic
-
-魔法阻害
-%%%%
-You have trouble accessing your magic.
-
-あなたは魔力が使えなくなっている。
+あなたの器用さが元に戻ったようだ。
 %%%%
 [dur]Berserk
 
-狂戦士化
+<berserk>
 %%%%
 [dur]berserking
 
-狂戦士化中
+バーサーク中
 %%%%
 You are possessed by a berserker rage.
 
 あなたは狂戦士の激怒に駆られている。
+%%%%
+You are no longer berserk.
+
+あなたのバーサークが解けた。
 %%%%
 [dur]Breath
 
@@ -46,11 +50,15 @@ You are possessed by a berserker rage.
 %%%%
 [dur]short of breath
 
-呼吸阻害
+<[dur]Breath>
 %%%%
 You are short of breath.
 
 あなたは息があがっている。
+%%%%
+You have got your breath back.
+
+あなたは再び呼吸が満足にできるようになった。
 %%%%
 [dur]Brill
 
@@ -58,11 +66,15 @@ You are short of breath.
 %%%%
 [dur]brilliant
 
-知力＋
+知力強化
 %%%%
 You are brilliant.
 
 あなたは知性の輝きを放っている。
+%%%%
+You feel a little less clever now.
+
+あなたの知力が元に戻ったようだ。
 %%%%
 [dur]Conf
 
@@ -76,29 +88,29 @@ You are confused.
 
 あなたは混乱している。
 %%%%
+You feel less confused.
+
+あなたの混乱は軽くなった。
+%%%%
 [dur]Touch
 
 混乱の手
 %%%%
 [dur]confusing touch
 
-混乱の手
+<[dur]Touch>
 %%%%
-[dur]cTele
+[hands act]your hands stop glowing.
 
-転位制御
-%%%%
-[dur]controlling teleports
-
-転位制御
-%%%%
-You can control teleportations.
-
-あなたは瞬間移動先を制御できる。
+あなたの%sから輝きが失せた。
 %%%%
 [dur]Corona
 
 照明
+%%%%
+You are no longer glowing.
+
+あなたはもう光を放っていない。
 %%%%
 [dur]DChan
 
@@ -111,6 +123,14 @@ You can control teleportations.
 You are channeling the dead.
 
 あなたは死と交信している。
+%%%%
+Your unholy channel expires.
+
+あなたの邪悪な霊力は尽きてしまった。
+%%%%
+Your unholy channel is weakening.
+
+あなたの邪悪な霊力が弱まっていく。
 %%%%
 [dur]Vit
 
@@ -152,9 +172,17 @@ You are exhausted.
 
 炎の雲を無効化
 %%%%
+Your ring of flames gutters out.
+
+炎の輪は弱まって消えた。
+%%%%
+Your ring of flames is guttering out.
+
+炎の輪が弱まりつつある。
+%%%%
 [dur]icy armour
 
-氷の鎧
+氷鎧
 %%%%
 You are protected by a layer of icy armour.
 
@@ -172,17 +200,17 @@ You are covered in liquid flames.
 
 あなたは燃えたぎる液体をかぶっている。
 %%%%
-[dur]-MR
+[dur]MR/2
 
-耐魔－
+耐魔半減
 %%%%
 [dur]vulnerable
 
-魔力耐性低下
+呪術耐性半減
 %%%%
-[dur]shielded
+You feel less vulnerable to hostile enchantments.
 
-魔法の盾
+あなたは敵対的な魔法への耐性が元に戻ったような気がした。
 %%%%
 [dur]Might
 
@@ -190,11 +218,15 @@ You are covered in liquid flames.
 %%%%
 [dur]mighty
 
-腕力＋
+腕力強化
 %%%%
 You are mighty.
 
 あなたは力強くなっている。
+%%%%
+You feel a little less mighty now.
+
+あなたの腕力が元に戻ったようだ。
 %%%%
 [dur]Para
 
@@ -238,11 +270,19 @@ You are turning to stone.
 %%%%
 [dur]resistant
 
-元素耐性
+<[dur]Resist>
 %%%%
 You resist elements.
 
 あなたは元素に対する耐性を持つ。
+%%%%
+Your resistance to elements expires.
+
+あなたの元素に対する耐性の効果が切れた。
+%%%%
+You start to feel less resistant.
+
+あなたの元素に対する耐性が弱まりつつある。
 %%%%
 [dur]Slime
 
@@ -252,6 +292,14 @@ You resist elements.
 
 スライム化の攻撃
 %%%%
+You feel less slimy.
+
+あなたのどろどろ感が薄れたような気がした。
+%%%%
+Your slime is starting to congeal.
+
+あなたに付着したスライムは凝固し始めている。
+%%%%
 [dur]sleeping
 
 睡眠中
@@ -259,14 +307,6 @@ You resist elements.
 You are sleeping.
 
 あなたは眠っている。
-%%%%
-[dur]stone skin
-
-石の肌
-%%%%
-Your skin is tough as stone.
-
-あなたの皮膚は石のようだ。
 %%%%
 [dur]Swift
 
@@ -276,21 +316,13 @@ You can move swiftly.
 
 あなたは軽快に動いている。
 %%%%
-[dur]Emp
-
-テレパシー
-%%%%
-[dur]empathic
-
-テレパシー
-%%%%
 [dur]Tele
 
 転位準備
 %%%%
 [dur]about to teleport
 
-転位準備
+<[dur]Tele>
 %%%%
 You are about to teleport.
 
@@ -304,13 +336,13 @@ You are about to teleport.
 
 死のとば口
 %%%%
-[dur]phasing
+Your life is in your own hands again!
 
-位相転位
+あなたは再び自らの生命をその手に取り戻した！
 %%%%
-You are out of phase with the material plane.
+Your time is quickly running out!
 
-あなたは物質界から位相がずれている。
+あなたに残された時間は急速に流れ去っていく！
 %%%%
 [dur]Quad
 
@@ -318,7 +350,11 @@ You are out of phase with the material plane.
 %%%%
 [dur]quad damage
 
-四倍ダメージ
+<quad damage>
+%%%%
+Quad Damage is wearing off.
+
+四重ダメージの効果は終了した。
 %%%%
 [dur]Sil
 
@@ -332,6 +368,10 @@ You radiate silence.
 
 あなたは静寂を放っている。
 %%%%
+Your hearing returns.
+
+あなたの周囲に音が戻った。
+%%%%
 [dur]Stealth
 
 隠密
@@ -339,6 +379,10 @@ You radiate silence.
 [dur]especially stealthy
 
 隠密状態
+%%%%
+You feel less stealthy.
+
+あなたの隠密性は低下したようだ。
 %%%%
 [dur]Fear
 
@@ -352,6 +396,10 @@ You are terrified.
 
 あなたは怯えている。
 %%%%
+Your fear fades away.
+
+あなたは恐怖心を振り払った。
+%%%%
 [dur]Mirror
 
 痛み分け
@@ -363,6 +411,10 @@ You are terrified.
 You mirror injuries.
 
 あなたは負った傷をそのまま返す。
+%%%%
+Your dark mirror aura disappears.
+
+痛み分けのオーラが消え去った。
 %%%%
 [dur]Scry
 
@@ -376,13 +428,17 @@ Your astral vision lets you see through walls.
 
 あなたの視界は壁を見透かす。
 %%%%
+Your astral sight fades away.
+
+あなたは壁を見透かすことができなくなった。
+%%%%
 [dur]Tornado
 
 竜巻
 %%%%
 You are in the eye of a mighty hurricane.
 
-あなたは台風の目の中にいる。
+あなたは大竜巻の中心にいる。
 %%%%
 [dur]Liquid
 
@@ -390,11 +446,15 @@ You are in the eye of a mighty hurricane.
 %%%%
 [dur]liquefying
 
-沼化
+<[dur]Liquid>
 %%%%
 The ground has become liquefied beneath your feet.
 
 あなたの足下の地面がぬかるんだ。
+%%%%
+The ground is no longer liquid beneath you.
+
+あなたの足下の地面はもうぬかるんでいない。
 %%%%
 [dur]Hero
 
@@ -408,6 +468,10 @@ You possess the skills of a mighty hero.
 
 あなたは英雄のごとき技巧を得た。
 %%%%
+You feel like a meek peon again.
+
+あなたは再び常人のようになった。
+%%%%
 [dur]Finesse
 
 早業
@@ -415,6 +479,10 @@ You possess the skills of a mighty hero.
 Your blows are lightning fast.
 
 あなたは電光石火の攻撃を放てる。
+%%%%
+[hands act]your hands slow down.
+
+あなたの%sの速さは元に戻った。
 %%%%
 [dur]Prot
 
@@ -428,6 +496,10 @@ You are calling for your life to be saved.
 
 あなたは生命の保護を請うている。
 %%%%
+Your divine protection fades away.
+
+聖なる守護の力は消え去った。
+%%%%
 [dur]Dark
 
 暗闇
@@ -439,6 +511,14 @@ You are calling for your life to be saved.
 You emit darkness.
 
 あなたは暗闇を発した。
+%%%%
+The ambient light returns to normal.
+
+周囲の明るさが元に戻った。
+%%%%
+The darkness around you begins to abate.
+
+周囲の暗闇が弱まりだした。
 %%%%
 [dur]Shroud
 
@@ -452,17 +532,33 @@ You are protected by a distorting shroud.
 
 あなたは歪曲する帷子に守られている。
 %%%%
+Your shroud unravels.
+
+ゴルブリアの帷子は消え去った。
+%%%%
+Your shroud begins to fray at the edges.
+
+ゴルブリアの帷子は端からぼろぼろになっていった。
+%%%%
+The winds around you calm down.
+
+あなたの周囲の風は止んだ。
+%%%%
 [dur]Disjoin
 
 解散
 %%%%
 [dur]disjoining
 
-解散
+<[dur]Disjoin>
 %%%%
 You are disjoining your surroundings.
 
 あなたは辺りを散り散りばらばらにしている。
+%%%%
+The translocation energy dissipates.
+
+転位術のエネルギーは消え去った。
 %%%%
 [dur]Mark
 
@@ -476,6 +572,10 @@ A sentinel's mark is revealing your location to enemies.
 
 番兵の印があなたの居場所を敵に知らせている。
 %%%%
+The sentinel's mark upon you fades away.
+
+あなたに押された番兵の印が消え去った。
+%%%%
 [dur]Infus
 
 強化
@@ -488,17 +588,33 @@ Your attacks are magically infused.
 
 あなたの攻撃には魔力が込められている。
 %%%%
+You are no longer magically infusing your attacks.
+
+あなたの攻撃はもう魔力で強化されていない。
+%%%%
+Your magical infusion is running out.
+
+魔力の強化が時間切れになりつつある。
+%%%%
 [dur]Slay
 
 戦歌
 %%%%
 [dur]singing
 
-戦歌
+殺戮の歌
 %%%%
 Your melee attacks are strengthened by your song.
 
 あなたの攻撃は歌によって強化されている。
+%%%%
+Your song has ended.
+
+あなたは歌い終えた。
+%%%%
+Your song is almost over.
+
+あなたの歌は終わりにさしかかりつつある。
 %%%%
 [dur]Flay
 
@@ -518,11 +634,15 @@ You are covered in terrible wounds.
 %%%%
 [dur]weakened
 
-虚弱
+<[dur]Weak>
 %%%%
 Your attacks are enfeebled.
 
 あなたの攻撃は弱められている。
+%%%%
+Your attacks no longer feel as feeble.
+
+あなたの攻撃はもう弱められていない。
 %%%%
 [dur]-Tele
 
@@ -536,6 +656,10 @@ You are firmly anchored to this plane.
 
 あなたはこの次元にしっかりと繋ぎ止められている。
 %%%%
+You are no longer firmly anchored in space.
+
+あなたはもう空間に繋ぎ止められていない。
+%%%%
 [dur]Toxic
 
 毒光
@@ -547,6 +671,10 @@ You are firmly anchored to this plane.
 You are radiating toxic energy.
 
 あなたは毒の力を放射している。
+%%%%
+Your toxic aura wanes.
+
+あなたの放つ毒のオーラは弱まった。
 %%%%
 [dur]Recite
 
@@ -574,15 +702,19 @@ Your movement is impeded by grasping roots.
 %%%%
 [dur]-rF
 
-耐火－
+火炎耐性低下
 %%%%
 [dur]fire vulnerable
 
-耐火－
+<[dur]-rF>
 %%%%
 You are more vulnerable to fire.
 
 あなたはさらに火に燃えやすくなった。
+%%%%
+You feel less vulnerable to fire.
+
+あなたは火に弱くなくなったようだ。
 %%%%
 [dur]Barbs
 
@@ -602,11 +734,15 @@ Manticore spikes are embedded in your body.
 %%%%
 [dur]poison vulnerable
 
-耐毒－
+毒耐性低下
 %%%%
 You are more vulnerable to poison.
 
 あなたはさらに毒に弱くなったようだ。
+%%%%
+You feel less vulnerable to poison.
+
+あなたは毒に弱くなくなったようだ。
 %%%%
 [dur]Frozen
 
@@ -616,17 +752,25 @@ You are partly encased in ice.
 
 あなたの体の一部は凍結している。
 %%%%
+The ice encasing you melts away.
+
+あなたを閉じ込めている氷が溶けた。
+%%%%
 [dur]Sap
 
 失率上昇
 %%%%
 [dur]sap magic
 
-失率上昇
+<[dur]Sap>
 %%%%
 Casting spells hinders your spell success.
 
 詠唱すればするほど成功しにくくなる。
+%%%%
+Your magic seems less tainted.
+
+あなたの魔術の制御力は元に戻った。
 %%%%
 [dur]PProj
 
@@ -640,9 +784,17 @@ You are teleporting projectiles to their destination.
 
 あなたは標的に対して飛び道具を直接送り込む。
 %%%%
+You are no longer teleporting projectiles to their destination.
+
+あなたはもう目標へ向かって投射物を送り込むことはできない。
+%%%%
 [dur]Forest
 
 森林
+%%%%
+Space becomes stable.
+
+周囲に静けさが戻った。
 %%%%
 [dur]Dragoncall
 
@@ -650,11 +802,19 @@ You are teleporting projectiles to their destination.
 %%%%
 [dur]dragon's call
 
-竜の召喚
+<[dur]Dragoncall>
 %%%%
 You are beckoning forth a horde of dragons.
 
-あなたは竜の大群を呼び出している。
+あなたはドラゴンの大群を呼び出している。
+%%%%
+The roar of the dragon horde subsides.
+
+ドラゴンの巣の咆哮は遠ざかっていった。
+%%%%
+You can once more reach out to the dragon horde.
+
+あなたは再びドラゴンの巣に手が届くようになった。
 %%%%
 [dur]Abj
 
@@ -662,11 +822,15 @@ You are beckoning forth a horde of dragons.
 %%%%
 [dur]aura of abjuration
 
-送還のオーラ
+解放のオーラ
 %%%%
 You are abjuring all hostile summons around you.
 
-あなたは周辺の召喚されし存在を送還しようとしている。
+あなたは周辺の敵意ある召喚されし存在を送還しようとしている。
+%%%%
+Your aura of abjuration expires.
+
+解放のオーラの効果は消えた。
 %%%%
 [dur]-Potion
 
@@ -674,11 +838,15 @@ You are abjuring all hostile summons around you.
 %%%%
 [dur]no potions
 
-薬×
+薬を飲めない
 %%%%
 You cannot drink potions.
 
 あなたは薬を飲めない。
+%%%%
+You can drink potions again.
+
+あなたは再び薬を飲むことができるようになった。
 %%%%
 [dur]rF+
 
@@ -686,11 +854,19 @@ You cannot drink potions.
 %%%%
 [dur]protected from fire
 
-耐火＋
+火耐性強化
 %%%%
 Qazlal is protecting you from fire.
 
 クァズラルはあなたを火から守っている。
+%%%%
+You feel less protected from fire.
+
+あなたの火への耐性が弱まった。
+%%%%
+Your protection from fire is fading.
+
+あなたの火への耐性が弱まりつつある。
 %%%%
 [dur]rC+
 
@@ -698,11 +874,19 @@ Qazlal is protecting you from fire.
 %%%%
 [dur]protected from cold
 
-耐冷＋
+冷気耐性強化
 %%%%
 Qazlal is protecting you from cold.
 
 クァズラルはあなたを冷気から守っている。
+%%%%
+You feel less protected from cold.
+
+あなたの冷気への耐性が弱まった。
+%%%%
+Your protection from cold is fading.
+
+あなたの冷気への耐性が弱まりつつある。
 %%%%
 [dur]rElec+
 
@@ -710,43 +894,51 @@ Qazlal is protecting you from cold.
 %%%%
 [dur]protected from electricity
 
-耐電＋
+電気耐性強化
 %%%%
 Qazlal is protecting you from electricity.
 
-クァズラルはあなたを電気から守ってくれる。
+クァズラルはあなたを電気から守っている。
+%%%%
+You feel less protected from electricity.
+
+あなたの電撃への耐性が弱まった。
+%%%%
+Your protection from electricity is fading.
+
+あなたの電撃への耐性が弱まりつつある。
 %%%%
 protected from physical damage
 
-物理防御＋
+物理防御強化
 %%%%
 Qazlal is protecting you from physical damage.
 
-クァズラルはあなたを物理ダメージから守ってくれる。
+クァズラルはあなたを物理ダメージから守っている。
+%%%%
+You feel less protected from physical attacks.
+
+あなたの物理ダメージへの耐性が弱まった。
+%%%%
+Your protection from physical attacks is fading.
+
+あなたの物理ダメージへの耐性が弱まりつつある。
 %%%%
 [dur]Corr
 
 腐蝕
 %%%%
-[dur]corroded equipment
+[dur]corroded
 
 装備の腐蝕
 %%%%
-Your equipment is corroded.
+You are corroded.
 
-あなたの装備が腐蝕している。
+あなたは腐蝕を受けている。
 %%%%
-[dur]Fort
+You are no longer corroded.
 
-不屈
-%%%%
-[dur]immense fortitude
-
-不屈
-%%%%
-You have immense fortitude and shrug off injury.
-
-あなたは不屈の精神を持っており、外傷を無視する。
+あなたはもう腐蝕していない。
 %%%%
 [dur]Horr
 
@@ -766,19 +958,15 @@ You are horrified, weakening your attacks and spells.
 %%%%
 [dur]no scrolls
 
-巻物×
+巻物を読めない
 %%%%
 You cannot read scrolls.
 
 あなたは巻物を読めない。
 %%%%
-[dur]icy shield
+You can read scrolls again.
 
-氷の盾
-%%%%
-You are shielded by a disc of ice.
-
-あなたは氷の円盤を盾にしている。
+あなたは再び巻物を読めるようになった。
 %%%%
 [dur]divine shield
 
@@ -794,11 +982,15 @@ You are shielded by the power of the Shining One.
 %%%%
 [dur]cleaving
 
-薙払い
+<[dur]Cleave>
 %%%%
 You are cleaving through your foes.
 
 あなたは敵の一群を薙ぎ払う。
+%%%%
+Your cleaving frenzy subsides.
+
+あなたは薙ぎ払う元気がなくなった。
 %%%%
 [dur]Ambros
 
@@ -807,4 +999,128 @@ You are cleaving through your foes.
 You are regenerating under the effects of ambrosia.
 
 あなたはアンブロシアの効果により再生している。
+%%%%
+[dur]Channel
+
+魔力供給
+%%%%
+You are rapidly regenerating magical energy.
+
+あなたの魔力は急速に回復する。
+%%%%
+[dur]Surge
+
+# obsolete: Pakellas
+%%%%
+[dur]device surging
+
+# obsolete: Pakellas
+%%%%
+You have readied a device surge.
+
+# obsolete: Pakellas
+%%%%
+Your device surge dissipates.
+
+# obsolete: Pakellas
+%%%%
+Your device surge is dissipating.
+
+# obsolete: Pakellas
+%%%%
+[dur]Howl
+
+遠吠
+%%%%
+[dur]doom-hounded
+
+地獄の遠吠え
+%%%%
+A terrible howling echoes in your mind.
+
+恐ろしい吠え声があなたの精神に響き渡った。
+%%%%
+The infernal howling subsides.
+
+地獄の遠吠えは遠ざかっていった。
+%%%%
+[dur]Vertigo
+
+酩酊
+%%%%
+Vertigo is making it harder to attack, cast, and dodge.
+
+酩酊しているため、攻撃や魔法、回避が難しくなる。
+%%%%
+The world stops spinning.
+
+世界がぐるぐる回転するのが止まった。
+%%%%
+[dur]Blood
+
+血鎧
+%%%%
+[dur]sanguine armour
+
+<sanguine armour>
+%%%%
+Your shed blood clings to and protects you.
+
+流した血液が固まってあなたを守った。
+%%%%
+Your blood armour dries and flakes away.
+
+あなたの血の鎧は乾いて剥がれ落ちた。
+%%%%
+[dur]protection aura
+
+防護のオーラ
+%%%%
+Your weapon is exuding a protective aura.
+
+あなたの武器から防護のオーラが放たれている。
+%%%%
+You flicker for a moment.
+
+あなたの姿が一瞬だけ明滅した
+%%%%
+You break out of your daze.
+
+あなたは誘惑を振り払った。
+%%%%
+Your skin stops crawling.
+
+皮膚のむずむずは完全に消えた。
+%%%%
+Your skin is crawling a little less now.
+
+皮膚があまりむずむずしなくなってきた。
+%%%%
+Your icy envelope is restored.
+
+あなたを覆う氷の鎧は修復された。
+%%%%
+You feel the effects of Trog's Hand fading.
+
+あなたはトログの御手による守護が薄れていくのを感じた。
+%%%%
+You regain access to your magic.
+
+あなたは魔力の制御を取り戻した。
+%%%%
+# TAG_MAJOR_VERSION == 34
+[dur]-Mag
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[dur]antimagic
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+You have trouble accessing your magic.
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+You regain control over your magic.
+
 %%%%

@@ -1,3 +1,5 @@
+#include "database.h"
+
 /**
  * Status defaults for durations.
  */
@@ -12,9 +14,9 @@ static void _end_weapon_brand()
 static void _end_invis()
 {
     if (you.invisible())
-        mprf(MSGCH_DURATION, "You feel more conspicuous.");
+        mprf(MSGCH_DURATION, jtrans("You feel more conspicuous."));
     else
-        mprf(MSGCH_DURATION, "You flicker back into view.");
+        mprf(MSGCH_DURATION, jtrans("You flicker back into view."));
     you.attribute[ATTR_INVIS_UNCANCELLABLE] = 0;
 }
 
@@ -461,7 +463,7 @@ static const duration_def duration_data[] =
       "You cannot drink potions.", D_NO_FLAGS,
       {{ "", []() {
           if (!you_foodless(true))
-              mprf(MSGCH_RECOVERY, "You can drink potions again.");
+              mprf(MSGCH_RECOVERY, jtrans("You can drink potions again."));
       }}}},
     { DUR_QAZLAL_FIRE_RES,
       LIGHTBLUE, "rF+",
