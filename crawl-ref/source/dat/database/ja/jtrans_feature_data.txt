@@ -1,7 +1,11 @@
 %%%%
+################################################################
+#   feature-data.h
+################################################################
+%%%%
 explore horizon
 
-# explore horizon
+# 訳不要
 %%%%
 closed door
 
@@ -13,7 +17,7 @@ runed door
 %%%%
 sealed door
 
-封印の印が刻まれた扉
+魔法で封印された扉
 %%%%
 tree
 
@@ -23,17 +27,13 @@ metal wall
 
 金属の壁
 %%%%
-wall of green crystal
+crystal wall
 
-緑水晶の壁
+水晶の壁
 %%%%
 rock wall
 
 岩の壁
-%%%%
-wall of the weird stuff which makes up Pandemonium
-
-パンデモニウムを構成する不気味な素材の壁
 %%%%
 slime covered rock wall
 
@@ -71,13 +71,13 @@ the endless lava
 
 終わりなき溶岩沼
 %%%%
+endless expanse of salt
+
+終わりなき塩の平原
+%%%%
 orcish idol
 
 オークの像
-%%%%
-idol of Beogh
-
-ベオの偶像
 %%%%
 granite statue
 
@@ -114,6 +114,38 @@ open door
 mechanical trap
 
 機械仕掛けの罠
+%%%%
+teleport trap
+
+テレポートの罠
+%%%%
+# TAG_MAJOR_VERSION == 34
+shadow trap
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+dormant shadow trap
+
+%%%%
+alarm trap
+
+警報の罠
+%%%%
+Zot trap
+
+ゾットの罠
+%%%%
+passage of Golubria
+
+ゴルブリアの通り道
+%%%%
+shaft
+
+縦穴
+%%%%
+web
+
+蜘蛛の巣
 %%%%
 shop
 
@@ -177,7 +209,7 @@ gateway back into the Dungeon
 %%%%
 one-way gate to the infinite horrors of the Abyss
 
-アビスの無限地獄への門
+アビスの無限地獄へと続く一方通行の門
 %%%%
 exit through the horrors of the Abyss
 
@@ -189,7 +221,7 @@ gateway leading out of the Abyss
 %%%%
 one-way gate leading to the halls of Pandemonium
 
-パンデモニウムの大広間へと続く門
+パンデモニウムの大広間へと続く一方通行の門
 %%%%
 gate leading to another region of Pandemonium
 
@@ -211,17 +243,17 @@ gate to the Realm of Zot
 
 ゾットの領域への門
 %%%%
+# TAG_MAJOR_VERSION == 34
+gate leading to a distant place
+
+%%%%
 gateway to a ziggurat
 
 ジグラットへの門
 %%%%
-flickering gateway to a bazaar
-
-バザールへ続くきらきら光る門
-%%%%
 gateway to a bazaar
 
-バザールへの門
+バザールへと続く門
 %%%%
 portal to a secret trove of treasure
 
@@ -250,6 +282,10 @@ dark tunnel
 magical portal
 
 魔法のポータル
+%%%%
+ruined gateway
+
+荒れ果てた門
 %%%%
 ice covered gate leading back out of this place
 
@@ -283,6 +319,22 @@ staircase back to the Dungeon
 
 ダンジョンへ戻る出口の階段
 %%%%
+# TAG_MAJOR_VERSION == 34
+staircase to the Dwarven Hall
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+staircase to the Enchanted Forest
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+staircase to the Hall of Blades
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+staircase back to the Vaults
+
+%%%%
 staircase to the Lair
 
 獣の棲み処への階段
@@ -290,10 +342,6 @@ staircase to the Lair
 staircase to the Crypt
 
 地下墓地への階段
-%%%%
-staircase back to the Vaults
-
-宝物庫へ戻る出口の階段
 %%%%
 staircase to the Ecumenical Temple
 
@@ -341,7 +389,7 @@ staircase to the Depths
 %%%%
 detected altar
 
-
+感知済みのなんらかの祭壇
 %%%%
 glowing silver altar of Zin
 
@@ -431,17 +479,33 @@ sacrificial altar of Ru
 
 『ルー』の生贄の祭壇
 %%%%
+faded altar of an unknown god
+
+どの神のものだか分からない寂れた祭壇
+%%%%
+oddly glowing altar of Pakellas
+
+# obsolete: Pakellas
+%%%%
+hide-covered altar of Uskayaw
+
+『ウスカヤー』の獣の皮に覆われた祭壇
+%%%%
+hazy altar of Hepliaklqana
+
+『ヘプリアクルカナ』の靄がかかった祭壇
+%%%%
 fountain of clear blue water
 
 澄んだ青い水の噴水
 %%%%
 fountain of sparkling water
 
-煌く水の噴水
+きらめく水の噴水
 %%%%
 fountain of blood
 
-血の噴水
+血の噴き出す噴水
 %%%%
 dry fountain
 
@@ -453,7 +517,7 @@ short-range portal
 %%%%
 sealed passage leading up
 
-封印された上り経路
+魔法で封印された上り経路
 %%%%
 sealed passage leading down
 
@@ -461,5 +525,5 @@ sealed passage leading down
 %%%%
 gateway leading deeper into the Abyss
 
-アビスの深層への門
+アビスのさらなる深層へと続く門
 %%%%
