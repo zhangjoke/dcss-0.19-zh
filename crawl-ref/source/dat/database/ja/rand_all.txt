@@ -1,4 +1,3 @@
-%%%%
 ######################################################
 # Randart Names
 # -------------
@@ -235,6 +234,7 @@ _time_name_
 
 # w:5
 # Spring
+w:5
 春
 
 # w:5
@@ -269,7 +269,7 @@ w:5
 収穫
 
 # Eternal Night
-永遠の夜
+明けざる夜
 
 # Eternity
 永劫
@@ -285,6 +285,14 @@ w:5
 
 # the Evening
 夕暮れ
+
+# the Equinox
+春分
+
+秋分
+
+# the Everdark
+常闇
 %%%%
 _sky_colour_name_
 
@@ -342,7 +350,10 @@ _sky_or_light_
 天国
 
 # the Skies Above
-空
+天空
+
+# the Endless Expanse
+果てなき空
 
 # the @_sky_colour_name_@ Skies
 @_sky_colour_name_@色の空
@@ -393,6 +404,30 @@ _virtue_name_
 
 # Modesty
 謙遜
+
+# Discretion
+分別
+
+# Wisdom
+賢明
+
+# Wariness
+慎重
+
+# Thoughtfulness
+思いやり
+
+# Kindness
+いたわり
+
+# Generosity
+雅量
+
+# Compassion
+哀れみ
+
+# Understanding
+理解
 %%%%
 _vice_name_
 
@@ -445,6 +480,15 @@ _vice_name_
 
 # Spite
 悪意
+
+# Youthful Indiscretion
+若気の至り
+
+# Foolhardiness
+無鉄砲
+
+# Recklessness
+蛮勇
 %%%%
 _destiny_name_
 
@@ -529,7 +573,7 @@ w:5
 千の
 
 # vague numbers
-# the 
+# the
 
 # the Many
 数多の
@@ -566,7 +610,7 @@ w:5
 陽気な
 
 # the Ancient
-古代の
+太古の
 
 # the Exiled
 追放された
@@ -585,6 +629,69 @@ w:5
 
 # the First
 始原の
+
+# the Neverending
+終わりなき
+
+# the Endless
+果てなき
+
+# the Lumpy
+瘤だらけの
+
+# the Disturbing
+不穏な
+
+# the Secret
+秘密の
+
+# the Wary
+慎重な
+
+# the Crushed
+砕かれた
+
+# the Battered
+壊れた
+
+# the Bruised
+傷ついた
+
+# the Unstoppable
+止められぬ
+
+# the Immovable
+不動の
+
+# the Foremost
+主たる
+
+# the Curious
+珍しい
+
+# the Insatiable
+飽くなき
+
+# the Bouncing
+元気な
+
+# the Thirsty
+渇いた
+
+# the Tired
+疲れた
+
+# the Ageless
+不老の
+
+# the Aged
+年経た
+
+# the Inquisitive
+知りたがりの
+
+# the Thoughtful
+思慮深き
 %%%%
 _thing_names_
 
@@ -616,7 +723,7 @@ _thing_names_
 祝福
 
 # Gods
-神
+神々
 
 # Spirits
 精霊

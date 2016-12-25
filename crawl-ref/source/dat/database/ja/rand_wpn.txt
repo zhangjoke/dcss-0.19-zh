@@ -1,4 +1,3 @@
-%%%%
 ######################################################
 # Randart Names
 # -------------
@@ -67,6 +66,9 @@ _power_name_
 
 # Magnificence
 壮大
+
+# Hubris
+傲慢
 %%%%
 _conflict_name_
 
@@ -76,7 +78,7 @@ _conflict_name_
 # Tension
 緊張
 
-# Dischord
+# Discord
 不和
 
 # Division
@@ -96,6 +98,13 @@ _conflict_name_
 
 # Quarrel
 口論
+
+# Resumed Hostilities
+
+# Fighting Over It
+
+# a Spat
+諍い
 %%%%
 _anger_name_
 
@@ -130,6 +139,11 @@ _anger_name_
 
 # Scorn
 軽蔑
+
+# Disproportionate Response
+
+# No More Talking
+絶交
 %%%%
 _battle_or_war_
 
@@ -143,7 +157,7 @@ _battle_or_war_
 戦争
 
 # Eternal War
-永遠の戦争
+終わりなき戦争
 
 # the Eternal Warrior
 永遠の戦士
@@ -163,6 +177,12 @@ _battle_or_war_
 # Ravage
 荒廃
 
+# Iconoclasm
+偶像破壊
+
+# Regicide
+大逆
+
 # Lemuel's Suggestions
 # the Warrior
 戦士
@@ -176,7 +196,10 @@ _battle_or_war_
 
 #killing
 # Blood-Lust
-血に飢えし
+血に飢えた
+
+# Callousness
+非人情
 
 # Joyful Slaughter
 快楽殺人者
@@ -299,9 +322,6 @@ death_or_doom
 # pain and misery
 # Infinite Pain
 無限の苦痛
-
-# Eternal Torment
-無間地獄
 
 # Dismemberment
 切断
@@ -438,7 +458,7 @@ _justice_name_
 無慈悲なる正義
 
 # Punishment
-打擲
+懲罰
 
 # Innocence
 無垢
@@ -462,6 +482,7 @@ _justice_name_
 虚偽告訴
 
 # Wrongful Imprisonment
+冤罪
 
 # Corporal Punishment
 体刑
@@ -477,6 +498,12 @@ _justice_name_
 
 # Blind Justice
 盲目的正義
+
+# Judgement
+審判
+
+# Accidental Termination
+予期せぬ終結
 %%%%
 _diviner_name_
 
@@ -504,7 +531,7 @@ _diviner_name_
 # Sybil
 
 # Seer
-先見者
+予見師
 %%%%
 _people_name_
 
@@ -521,7 +548,7 @@ _people_name_
 愚者
 
 # Ancients
-古代
+太古
 
 # Saviour
 救世主
@@ -555,6 +582,9 @@ _people_name_
 
 # Scavenger
 屑拾い
+
+# Pariah
+爪弾き者
 
 w:15
 @_diviner_name_@
@@ -663,7 +693,7 @@ w:5
 ロバ
 
 # Badger
-アマグマ
+アナグマ
 
 # Bear
 熊
@@ -729,14 +759,11 @@ _plant_name_
 # Puffball
 ホコリタケ
 
-# Slime-mold
+# Slime-mould
 ねばねばカビ
 %%%%
 # undead and evil beings
 _evil_stuff_
-
-# Curses
-呪い
 
 # Hell's Wrath
 地獄の怒り
@@ -754,7 +781,7 @@ _evil_stuff_
 獣
 
 # Shrieking Terror
-叫喚地獄の
+叫喚地獄
 
 # the Lurker
 蠢くもの
@@ -916,22 +943,31 @@ _chaos_name_
 災害
 
 # Imbalance
+不均衡
 
 # Disharmony
+不協和
 
 # Ambiguity
+曖昧
 
 # Change
+変容
 
 # Extremism
+極端
 
 # Impermanence
+儚さ
 
 # Constant Reorganisation
+改廃
 
 # Contradiction
+矛盾
 
 # Disarray
+乱雑
 
 # Disintegration
 分解
@@ -940,16 +976,25 @@ _chaos_name_
 溶解
 
 # Distraction
+散漫
 
 # Forced Transition
+強制変化
 
 # the Fray
+論争
 
 # Revolt
+反乱
 
 # Tumult
+騒動
 
 # Upheaval
+激変
+
+# Incongruity
+不調和
 %%%%
 _balance_or_order_
 
@@ -957,6 +1002,7 @@ _balance_or_order_
 中庸
 
 # the Median
+中央値
 
 # Departure
 出発
@@ -976,45 +1022,55 @@ _balance_or_order_
 # Bodily Harmony
 
 # Moderation
+穏健
 
 # Eternal Harmony
+永久調和
 
 # Peace
 平和
 
 # Equivalence
+等価
 
 # Balance
+均衡
 
 # Harmony
 調和
 
 # Fragile Peace
-はかなき平和
+儚き平和
 
 # Circularity
+循環性
 
 # Linearity
+線形性
 
 # Law
 秩序
 
-# Order
-
 # Accord
+一致
 
 # Conformity
+相似
 
 # Due Proportion
+釣りあい
 
 # Equilibrium
+平衡
 
 # the Establishment
+確立
 
 # the Final Decision
 最終決定
 
 # Propriety
+礼節
 %%%%
 _economics_or_politics_
 
@@ -1032,14 +1088,18 @@ _economics_or_politics_
 需要
 
 # Amortisation
+償還
 
 # Animal Spirits
 
 # Bankruptcy
+破産
 
 # Collusion
+談合
 
 # Compound Interest
+複利
 
 # Currency
 通貨
@@ -1048,30 +1108,38 @@ _economics_or_politics_
 借金
 
 # Dividends
+配当
 
 # Exchange
 両替
 
 # Growth
+増大
 
 # Income
+所得
 
 # Luxury
+贅沢
 
 # Profit
+利益
 
 # Risk Management
 危機管理
 
 # Taxation
+徴税
 
 # Valuable Assets
-
+資産
 
 # Welfare
+福祉
 
 # politics
 # the Imperium
+最高権力
 
 # Greatest Utility
 
@@ -1082,27 +1150,37 @@ _economics_or_politics_
 窓外投擲
 
 # the People
+人民
 
 # the Little People
+小市民
 
 # Wealth
+富
 
 # Poverty
+貧困
 
 # Reapportionment
+定数是正
 
 # Checks and Balances
+抑制と均衡
 
 # the Common Good
+公益
 
 # Conservatism
+保守主義
 
 # the Dark Horse
+ダークホース
 
 # the Demagogue
 デマゴーグ
 
 # Governance
+統治
 
 # the Lame Duck
 レームダック
@@ -1115,28 +1193,37 @@ _economics_or_politics_
 過激派
 
 # Royalism
+君主主義
 
 # the Silent Majority
+見えざる多数派
 
 # akrasiac patch
 # Impeachment
+弾劾
 
 # umm, quoi?
 # Freehold
 
 # Attainder
+公権喪失
 
 # Fee Simple
+所有権
 
 # Mandamus
+執行令状
 
 # Breach
+不履行
 
 # Fundamental Breach
 
 # Termination
+終結
 
 # Sequestration
+差し押さえ
 %%%%
 _place_name_
 
@@ -1183,13 +1270,16 @@ _place_name_
 迷路
 
 # the Pit
+穴ぐら
 
 # the Eternal Void
 永劫の虚無
 
 # Beyond
+最果て
 
 # the Blessed Realm
+祝福の地
 
 # the Desert
 砂漠
@@ -1242,40 +1332,54 @@ _discomfort_weapon_
 欲求不満
 
 # Chagrin
+無念
 
 # Dismay
+狼狽
 
 # Desperation
+自暴自棄
 
 # Shame
 恥
 
 # Embarrassment
+当惑
 
 # Annoyance
-いらだち
+苛立ち
 
 # Anxiety
+心配事
 
 # Urgency
+切迫
 
 # Awkwardness
+不自然さ
 
 # Dissatisfaction
+不満
 
 # Foul Odors
+悪臭
 
 # Flawed Execution
 
 # Gloom
+陰鬱
 
 # Inconvenience
+不便
 
 # Irritation
+立腹
 
 # Malaise
+沈滞
 
 # Stickiness
+べたつき
 
 # Uncomfortable Rashes
 %%%%
@@ -1288,31 +1392,42 @@ _mental_illness_weapon_
 ノイローゼ
 
 # Fixation
+執着
 
 # Megalomania
 誇大妄想
 
 # Egomania
+自己中心癖
 
 # Obsession
+強迫観念
 
 # Compulsion
+衝動
 
 # Fatigue
+疲労
 
 # Exhibitionism
+自己顕示
 
 # Insomnia
+不眠症
 
 # Oenomania
 
 # Perfectionism
+完璧主義
 
 # Pyromania
+放火癖
 
 # Satyriasis
+色情狂
 
 # Suicidal Tendencies
+自殺願望
 %%%%
 _philosophy_or_science_
 
@@ -1340,24 +1455,33 @@ _philosophy_name_
 # Panentheism
 
 # Agnosticism
+不可知論
 
 # Existentialism
+実存主義
 
 # Relativism
+相対主義
 
 # Absolutism
+絶対論
 
 # Abstinence
+禁欲
 
 # Hedonism
+快楽主義
 
 # Orthodoxy
 
 # Heresy
+異端
 
 # Free Expression
+表現の自由
 
 # the Ego
+自尊心
 
 # Optimism
 楽観主義
@@ -1370,68 +1494,91 @@ _philosophy_name_
 # Limitation
 
 # Levity
+不謹慎
 
 # Nihilism
 虚無主義
 
 # Pragmatism
+実用主義
 
 # Idealism
+理想主義
 
 # Activism
+行動主義
 
 # Altruism
+利他主義
 
 # Anarchy
 無秩序
 
 # Dogma
+教義
 
 # Egalitarianism
+平等主義
 
 # Elitism
+選良意識
 
 # Ethics
+倫理
 
 # Fallacy
+誤謬
 
 # Fanaticism
+狂信
 
 # Free Will
 自由意志
 
 # Liberalism
-リベラリズム
+自由主義
 
 # Morality
+道徳
 
 # Mysticism
+神秘主義
 
 # Rationality
+合理性
+
+# Mutualism
+共生
+
+# Syndicalism
 %%%%
 _science_name_
 
 # Reason
-理由
+道理
 
 # Unreason
+暴論
 
 # Calculation
-計算
+打算
 
 # Instinct
+直感
 
 # Intuition
 
 # Circular Logic
-回路論理
+循環論法
 
 # Context
 文脈
 
 # Articulation
+発音
 
 # the Mind
+精神
 
 # the Nexus
 
@@ -1448,7 +1595,7 @@ _science_name_
 無限
 
 # Quantum Leap
-量子跳躍
+量子飛躍
 
 # Gravity
 重力
@@ -1460,25 +1607,34 @@ _science_name_
 ビッグバン
 
 # the Boiling Point
+沸点
 
 # Classification
+分類
 
 # Evolution
 進化
 
 # Experimentation
+実験
 
 # Focus
+焦点
 
 # Inference
+推論
 
 # Inquiry
+探求
 
 # Objectivity
+客観性
 
 # Subjectivity
+主観性
 
 # Patterns
+様式
 
 # Theory
 理論
@@ -1520,6 +1676,7 @@ _item_name_
 羽根
 
 # Girdle
+帯
 
 # Horn
 角
@@ -1540,6 +1697,7 @@ _item_name_
 テント
 
 # Vase
+花瓶
 
 # Vine
 蔓
@@ -1551,6 +1709,7 @@ _item_name_
 車輪
 
 # Yoke
+軛
 
 # body parts
 # Heart
@@ -1610,6 +1769,7 @@ _substance_name_
 血玉髄
 
 # Oozing Pus
+うごめく膿
 
 # Ash
 灰
@@ -1622,6 +1782,7 @@ _substance_name_
 # Bodily Humours
 
 # Cobwebs
+蜘蛛の巣
 
 # Cheese
 チーズ
@@ -1630,13 +1791,16 @@ _substance_name_
 乾いた涙
 
 # Dung
+肥やし
 
 # Ointment
+軟膏
 
 # Paper
 紙
 
 # Rubbish
+がらくた
 
 # Salt
 塩
@@ -1647,12 +1811,14 @@ _substance_name_
 鮫皮
 
 # Terra Cotta
+テラコッタ
 
 # these don't really fit
 # Mana
 マナ
 
 # Yeast
+酵母
 
 # Spores
 胞子
@@ -1672,7 +1838,7 @@ other_weapon_name
 # Prescription
 
 # the Open Hand
-空手
+徒手空拳
 
 # Spontaneous Combustion
 
@@ -1681,6 +1847,7 @@ other_weapon_name
 # Terra Nullius
 
 # Desertification
+砂漠化
 
 # the Spinneret
 
@@ -1744,7 +1911,7 @@ short_monster_name_
 巨人
 
 # Beetle
-昆虫
+甲虫
 
 # Jelly
 ジェリー
@@ -1845,6 +2012,7 @@ w:5
 
 # w:5
 # Widowermaker
+w:5
 ウィドワメイカー
 
 # Lifebane
@@ -1906,12 +2074,14 @@ w:5
 
 # Lemuel's suggestions
 # Eviscerator
+殺し屋
 
 # Undertaker
 葬儀屋
 
 # Embalmer
 
+# Trog's @_anger_name_@
 トログの@_anger_name_@
 
 # Hellblazer
@@ -1935,6 +2105,7 @@ _joke_weapon_name_
 # Mud Pie of Death
 死の泥饅頭
 
+# Xom's @_xom_esteem_@
 ゾムの@_xom_esteem_@
 
 # String

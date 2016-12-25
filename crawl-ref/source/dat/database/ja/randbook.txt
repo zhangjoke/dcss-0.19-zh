@@ -1,5 +1,4 @@
-%%%%
-#####################################################
+######################################################
 # Randart Names
 # -------------
 # randbook.txt: keywords for randart BOOKS
@@ -11,8 +10,8 @@
 #  - fixed theme, varying level (Conjurations, Summoning/Earth, ...)
 #  - fixed level, varying theme (level 2 spells etc.)
 #
-# The books are filled with spells matching their type in spl-book.cc,
-# either make_book_theme_randart() or make_book_level_randart().
+# The books are filled with spells matching their type in randbook.cc,
+# either build_themed_book() or make_book_level_randart().
 # The name should likewise take into account the book's type.
 #
 # Themed books use one of the following two naming schemes:
@@ -44,7 +43,7 @@
 # information on randart naming.
 ######################################################
 # Book name should be set in make_book_level_randart() or
-# make_book_theme_randart(), so if this gets picked there's a bug.
+# build_themed_book(), so if this gets picked there's a bug.
 book
 
 Book of Bugginess
@@ -202,7 +201,7 @@ _book_adjective_
 宙に浮いている
 
 # droning
-うなり声を立てる
+退屈そうな
 
 # conspicuous
 人目を引く
@@ -317,20 +316,21 @@ _beginners_
 
 # w:2
 # Absolute Beginners
+w:2
 超初心者
 
-w:1
-Dummies
+# w:1
+# Dummies
 %%%%
 # level 1
 starting level book
 
+# @_the_book_magic_@ for @_beginners_@
 @_beginners_@にもわかる@_the_book_magic_@
-
-猫でもわかる@_the_book_magic_@
 
 # w:2
 # @_the_book_magic_@ 101
+w:2
 @_the_book_magic_@について 入門編
 
 # A Beginning Course on @_the_book_magic_@
@@ -380,7 +380,7 @@ w:1
 moderate level book
 
 # Advanced Steps in @_the_book_magic_@
-@_the_book_magic_@応用編
+@_the_book_magic_@ 応用編
 
 # The Advanced Guide to @_the_book_magic_@
 @_the_book_magic_@上級ガイド
@@ -401,7 +401,8 @@ moderate level book
 
 # w:1
 # Improving Your @_book_magic_@
-
+w:1
+@_book_magic_@ 上達編
 %%%%
 # powerful casters, used for high level books
 _powerful_caster_
@@ -419,6 +420,7 @@ w:3
 
 # w:3
 # Prophet
+w:3
 予言者
 
 # w:1
@@ -438,6 +440,7 @@ w:3
 
 # w:1
 # Sif Muna
+w:1
 シフ・ムーナ
 %%%%
 _last_or_lost_
@@ -544,10 +547,10 @@ w:3
 Fire
 
 # Fire
-火炎
+猛火
 
 # Flames
-猛火
+火炎
 
 # Heat
 熱
@@ -562,7 +565,7 @@ Fire
 点火
 
 # the Arsonist
-放火
+放火魔
 %%%%
 Hexes
 
@@ -573,6 +576,7 @@ Hexes
 呪い
 
 # Malediction
+呪詛
 
 # the Oath
 
@@ -607,6 +611,7 @@ Ice
 # the Glacier
 
 # the Frostbite
+凍傷
 %%%%
 Transmutation
 
@@ -671,6 +676,7 @@ Necromancy
 暗黒
 
 # Stolen Souls
+奪われし魂
 
 w:60
 @_Evil_adjective_@@_Evil_noun_@
@@ -717,6 +723,7 @@ Translocation
 旅行者
 
 # the Compass
+羅針盤
 
 # the Voyage
 航行
@@ -735,6 +742,7 @@ Poison
 服毒
 
 # Intoxication
+酩酊
 
 # Envenoming
 
@@ -792,7 +800,7 @@ Conjuration adj
 # w:5
 # Lethal
 w:5
-致命的
+致命的な
 %%%%
 Charms adj
 
@@ -875,7 +883,7 @@ Necromancy adj
 # w:5
 # Lethal
 w:5
-致命的
+致命的な
 
 # Doomed
 破滅的
@@ -889,6 +897,7 @@ w:5
 
 # w:5
 # Twisted
+w:5
 ねじくれた
 %%%%
 Summoning adj
@@ -971,225 +980,251 @@ Air adj
 # potential previous owners of books
 # __NONE is parsed to the empty string
 # First, combinations.
+# (These MUST be in alphabetical order; "Earth Conjurations owner" won't work!)
 highlevel Conjuration Earth owner
 
-# Dispater
-ディスペータ
+@Dispater@
 
 @Conjuration Earth owner@
 %%%%
 Conjuration Earth owner
 
-# Lee
-リー
+@Lee@
 
-# Lehudib
-レフディブ
+@Lehudib@
 %%%%
 highlevel Conjuration Fire owner
 
-# Asmodeus
-アスモデウス
+@Asmodeus@
 
-# Cerebov
-セレボブ
+@Cerebov@
 
 w:5
 __NONE
 %%%%
 highlevel Conjuration Necromancy owner
 
-# Ereshkigal
-エレシュキガル
+@Ereshkigal@
 
 __NONE
 %%%%
 highlevel Conjuration Summoning owner
 
-# Asmodeus
-アスモデウス
-# Dispater
-ディスペータ
+@Asmodeus@
+
+@Dispater@
 
 w:5
 __NONE
 %%%%
 Earth Transmutation owner
 
-# Roxanne
-ロクサーヌ
+@Roxanne@
 
 __NONE
 %%%%
 highlevel Earth Summoning owner
 
-# Dispater
-ディスペータ
+@Dispater@
 
 __NONE
 %%%%
 highlevel Fire Summoning owner
 
-# Asmodeus
-アスモデウス
+@Asmodeus@
 
 __NONE
 %%%%
 highlevel Necromancy Poison owner
 
-# Gloorx Vloq
-グルオルクス・ヴロック
+@Gloorx Vloq@
 
 __NONE
 %%%%
 Necromancy Transmutation owner
 
-# Cigotuvi
-シゴツヴィ
+@Cigotuvi@
 
 __NONE
 %%%%
 # Single spell schools.
 highlevel Conjuration owner
 
-# Asmodeus
-アスモデウス
+@Asmodeus@
 
-# Ereshkigal
-エレシュキガル
+@Ereshkigal@
 
-# Dispater
-ディスペータ
+@Dispater@
 
-# Cerebov
-セレボブ
+@Cerebov@
 
-# Lom Lobon
-ロム・ロボン
+@Lom Lobon@
 
-# Lehudib
-レフディブ
+@Lehudib@
 
 w:30
 @Conjuration owner@
 %%%%
 Conjuration owner
 
-# w:2
-# Lee
 w:2
-リー
+@Lee@
 
-# Lehudib
-レフディブ
+@Lehudib@
 
-# Iskenderun
-イスケンデルン
+@Iskenderun@
 %%%%
 highlevel Earth owner
 
-# Dispater
-ディスペータ
+@Dispater@
 
 w:30
 @Earth owner@
 %%%%
 Earth owner
 
-# Lehudib
-レフディブ
+@Lehudib@
 
-# Lee
-リー
+@Lee@
 
-# Roxanne
-ロクサーヌ
+@Roxanne@
 
 __NONE
 %%%%
 highlevel Fire owner
 
-# Asmodeus
-アスモデウス
+@Asmodeus@
 
-# Cerebov
-セレボブ
+@Cerebov@
 
 __NONE
 %%%%
 Ice owner
 
-# Ozocubu
-オゾクブ
+@Ozocubu
 
 __NONE
 %%%%
 highlevel Necromancy owner
 
-# Ereshkigal
-エレシュキガル
+@Ereshkigal@
 
-# Gloorx Vloq
-グルオルクス・ヴロック
+@Gloorx Vloq@
 
 w:40
 @Necromancy owner@
 %%%%
 Necromancy owner
 
-# Borgnjor
-ボーグンジョル
+@Borgnjor@
 
-# Cigotuvi
-シゴツヴィ
+@Cigotuvi@
 
-# Khufu
-クフ王
+@Khufu@
 %%%%
 highlevel Poison owner
 
-# Gloorx Vloq
-グルオルクス・ヴロック
+@Gloorx Vloq@
 
 @Poison owner@
 %%%%
 Poison owner
 
-# Olgreb
-オルグレブ
+@Olgreb@
 
-# Alistair
-アリステイア
+@Alistair@
 
 __NONE
 %%%%
 highlevel Summoning owner
 
-# Asmodeus
-アスモデウス
+@Asmodeus@
 
-# Dispater
-ディスペータ
+@Dispater@
 
-# Mnoleg
-ムノレグ
+@Mnoleg@
 
 __NONE
 %%%%
 highlevel Translocation owner
 
-# Lom Lobon
-ロム・ロボン
+@Lom Lobon@
 
 __NONE
 %%%%
 Transmutation owner
 
-# Cigotuvi
-シゴツヴィ
+@Cigotuvi@
 
-# Roxanne
-ロクサーヌ
+@Roxanne@
 
 __NONE
+%%%%
+Alistair
+
+アリステイア
+%%%%
+Asmodeus
+
+アスモデウス
+%%%%
+Borgnjor
+
+ボーグンジョル
+%%%%
+Cerebov
+
+セレボブ
+%%%%
+Cigotuvi
+
+シゴツヴィ
+%%%%
+Dispater
+
+ディスペータ
+%%%%
+Ereshkigal
+
+エレシュキガル
+%%%%
+Gloorx Vloq
+
+グロオルクス・ヴロック
+%%%%
+Iskenderun
+
+イスケンデルン
+%%%%
+Khufu
+
+クフ王
+%%%%
+Lee
+
+リー
+%%%%
+Lehudib
+
+レフディブ
+%%%%
+Lom Lobon
+
+ロム・ロボン
+%%%%
+Mnoleg
+
+ムノレグ
+%%%%
+Olgreb
+
+オルグレブ
+%%%%
+Ozocubu
+
+オゾクブ
+%%%%
+Roxanne
+
+ロクサーヌ
 %%%%

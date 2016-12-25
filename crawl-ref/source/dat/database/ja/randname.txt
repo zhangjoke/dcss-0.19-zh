@@ -1,4 +1,3 @@
-%%%%
 ###############################################################################
 # Randart Names
 # -------------
@@ -531,11 +530,11 @@ w:5
 ゾムの@_xom_esteem_@の
 
 w:2
-ゾムの@divine_esteem@
+ゾムの@divine_esteem@の
 
 # uses the long name
 w:1
-ゾムの@xom_name@
+@xom_name@の
 
 w:1
 @_game_name_@の
@@ -592,19 +591,19 @@ w:300
 general appearance
 
 # brightly glowing
-まばゆく輝く
+明るく輝く
 
 # smoking
-煙を放つ
+煙を上げる
 
 # scorched
 焼け焦げた
 
 # twisted
-ねじれた
+捻じ曲がった
 
 # shimmering
-ちかちか光る
+チカチカ光る
 
 # warped
 歪んだ
@@ -613,34 +612,34 @@ general appearance
 透明な
 
 # translucent
-半透明の
+半透明な
 
 # encrusted
-飾られた
+装飾された
 
 # pitted
 穴だらけの
 
 # slimy
-ねばねばした
+ぬるぬるした
 
 # polished
-磨かれた
+磨き上げられた
 
 # fine
-きれいな
+豪華な
 
 # crude
 粗末な
 
 # ancient
-古代の
+古ぼけた
 
 # faintly glowing
-かすかに輝く
+弱く輝く
 
 # steaming
-湯気をたてる
+蒸気を上げる
 
 # dazzling
 まばゆい
@@ -656,7 +655,7 @@ weapon appearance
 玉虫色の
 
 # bloodstained
-血まみれの
+血に染まった
 
 # crystal
 水晶の
@@ -665,7 +664,7 @@ weapon appearance
 宝石で飾られた
 
 # ichor-stained
-膿の染みついた
+膿のついた
 
 # w:3
 # ivory
@@ -694,10 +693,10 @@ w:180
 robe appearance
 
 # fabulously ornate
-きらびやかな
+素晴らしく飾り立てられた
 
 # dull
-さえない色の
+冴えない
 
 # sheer
 薄手の
@@ -715,16 +714,16 @@ robe appearance
 不気味な黒い
 
 # brightly glowing
-まばゆく輝く
+明るく輝く
 
 # smoking
-煙を放つ
+煙を上げる
 
 # twisted
-ねじれた
+捻じ曲がった
 
 # shimmering
-ちかちか光る
+チカチカ光る
 
 # warped
 歪んだ
@@ -733,10 +732,10 @@ robe appearance
 透明な
 
 # slimy
-ねばねばした
+ぬるぬるした
 
 # fine
-きれいな
+豪華な
 
 # crude
 粗末な
@@ -757,28 +756,28 @@ robe appearance
 古代の
 
 # faintly glowing
-かすかに輝く
+弱く輝く
 
 # steaming
-湯気をたてる
+蒸気を上げる
 
 # faintly humming
 かすかに唸る
 
 # bloodstained
-血まみれの
+血に染まった
 
 # heavily jewelled
-宝石で埋め尽くされた
+宝石に埋め尽くされた
 
 # ichor-stained
-膿の染みついた
+膿のついた
 
 # distressingly furry
 毛皮の
 
 # tattered
-ぼろぼろの
+着古した
 
 # silken
 絹の
@@ -799,7 +798,7 @@ w:3
 青銅の
 
 # w:2
-#@_gemstone_@-studded
+# @_gemstone_@-studded
 w:2
 @_gemstone_@の付いた
 
@@ -815,18 +814,19 @@ armour appearance
 かすかに唸る
 
 # bloodstained
-血まみれの
+血に染まった
 
 # heavily runed
-ルーンで埋め尽くされた
+ルーンに埋め尽くされた
 
 # jewelled
 宝石で飾られた
 
 # ichor-stained
-膿の染みついた
+膿のついた
 
 # distressingly furry
+毛皮の
 
 # spiked
 棘の生えた
@@ -924,16 +924,16 @@ _jewellery appearance_
 光り輝く
 
 # smoking
-煙を放つ
+煙を上げる
 
 # scorched
 焼け焦げた
 
 # shimmering
-ちかちか光る
+チカチカ光る
 
 # wavering
-波打った
+震える
 
 # warped
 歪んだ
@@ -942,34 +942,34 @@ _jewellery appearance_
 透明な
 
 # translucent
-半透明の
+半透明な
 
 # pitted
 穴だらけの
 
 # slimy
-ねばねばした
+ぬるぬるした
 
 # fine
-きれいな
+豪華な
 
 # crude
 粗末な
 
 # ancient
-古代の
+古ぼけた
 
 # brightly glowing
-まばゆく輝く
+明るく輝く
 
 # faintly glowing
-かすかに輝く
+弱く輝く
 
 # steaming
-湯気をたてる
+蒸気を上げる
 
 # heavily runed
-ルーンで埋め尽くされた
+ルーンに埋め尽くされた
 
 # vibrating
 振動する
@@ -987,6 +987,8 @@ _jewellery appearance_
 
 # w:2
 # serpentine
+w:2
+曲がりくねった
 %%%%
 _ring material_
 
@@ -1130,9 +1132,9 @@ _amulet material_
 %%%%
 ring appearance
 
-@_jewellery appearance_@@_ring material_@
+@_jewellery appearance_@ @_ring material_@
 %%%%
 amulet appearance
 
-@_jewellery appearance_@@_amulet material_@
+@_jewellery appearance_@ @_amulet material_@
 %%%%
