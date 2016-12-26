@@ -370,6 +370,7 @@ const vector<GameOption*> game_options::build_options_list()
 #if !defined(DGAMELAUNCH) || defined(DGL_REMEMBER_NAME)
         new BoolGameOption(SIMPLE_NAME(remember_name), true),
 #endif
+        new BoolGameOption(SIMPLE_NAME(vanilla_randart_name), false),
     };
 
 #undef SIMPLE_NAME
