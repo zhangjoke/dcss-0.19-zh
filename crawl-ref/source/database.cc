@@ -953,6 +953,16 @@ string getRandNameString(const string &itemtype, const string &suffix)
     return _getRandomisedStr(RandartDB, itemtype, suffix, num_replacements);
 }
 
+string getArteNameString(const string &itemtype, const string &suffix)
+{
+    int num_replacements = 0;
+
+    if (Options.vanilla_randart_name)
+        return _getRandomisedStr(RandartVanillaDB, itemtype, suffix, num_replacements);
+    else
+        return getRandNameString(itemtype, suffix);
+}
+
 /////////////////////////////////////////////////////////////////////////////
 // Help DB specific functions.
 
