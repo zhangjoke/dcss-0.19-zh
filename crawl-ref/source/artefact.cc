@@ -1136,7 +1136,7 @@ static bool _pick_db_name(const item_def &item)
 
 static string _artefact_name_lookup(const item_def &item, const string &lookup)
 {
-    const string name = getRandNameString(lookup);
+    const string name = getArteNameString(lookup);
     return name.empty() ? name : replace_name_parts(name, item);
 }
 
@@ -1199,10 +1199,10 @@ string make_artefact_name(const item_def &item, bool appearance)
 
     if (appearance)
     {
-        string appear = getRandNameString(lookup, " appearance");
+        string appear = getArteNameString(lookup, " appearance");
         if (appear.empty())
         {
-            appear = getRandNameString("general appearance");
+            appear = getArteNameString("general appearance");
             if (appear.empty()) // still nothing found?
                 appear = "non-descript";
         }

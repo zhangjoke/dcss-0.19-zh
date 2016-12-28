@@ -228,6 +228,13 @@ static TextDB AllDBs[] =
            "jtrans_spell_data.txt",
            "jtrans_zap_data.txt",
            nullptr),
+
+    TextDB("randart_vanilla", "database/ja/crawlj/",
+           "randname.txt",
+           "rand_wpn.txt",
+           "rand_arm.txt",
+           "rand_all.txt",
+           nullptr),
 };
 
 static TextDB& DescriptionDB = AllDBs[0];
@@ -241,6 +248,7 @@ static TextDB& HelpDB        = AllDBs[7];
 static TextDB& FAQDB         = AllDBs[8];
 static TextDB& HintsDB       = AllDBs[9];
 static TextDB& JtransDB      = AllDBs[10];
+static TextDB& RandartVanillaDB = AllDBs[11];
 
 static string _db_cache_path(string db, const char *lang)
 {
@@ -944,6 +952,16 @@ string getRandNameString(const string &itemtype, const string &suffix)
     int num_replacements = 0;
 
     return _getRandomisedStr(RandartDB, itemtype, suffix, num_replacements);
+}
+
+string getArteNameString(const string &itemtype, const string &suffix)
+{
+    int num_replacements = 0;
+
+    if (Options.vanilla_randart_name)
+        return _getRandomisedStr(RandartVanillaDB, itemtype, suffix, num_replacements);
+    else
+        return getRandNameString(itemtype, suffix);
 }
 
 /////////////////////////////////////////////////////////////////////////////
