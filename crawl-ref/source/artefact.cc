@@ -1237,10 +1237,10 @@ string make_artefact_name(const item_def &item, bool appearance)
             result += "of Bugginess";
         else
         {
-            if (ends_with(name, "の"))
+            if (!ends_with(name, "』"))
             {
                 // the xxx of Blood-Lust
-                if (name == "血に飢えたの")
+                if (starts_with(name, "血に飢え"))
                     name = "血に飢えた";
 
                 result += (name + basename);
