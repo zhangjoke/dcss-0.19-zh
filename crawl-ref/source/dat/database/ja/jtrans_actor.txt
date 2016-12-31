@@ -39,9 +39,9 @@ You
 
 あなた
 %%%%
-constrict
+[verb]constrict
 
-[verb]締めつけた
+締めつけた
 %%%%
 for %d
 
