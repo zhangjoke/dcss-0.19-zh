@@ -31,9 +31,9 @@ wall
 
 が、ダメージを与えられなかった。
 %%%%
-%s %s %s%s%s
+{attacker} {verb} {defender}{!}{dmg}
 
-%sは%sを締めつけた%s%s
+%sは%sを%s%s%s
 %%%%
 You
 
@@ -47,7 +47,7 @@ for %d
 
 (%d dmg)
 %%%%
-%s %s constricted%s%s
+{defender} {verb} constricted{!}{dmg}
 
 %s%s締めつけられている%s%s
 %%%%

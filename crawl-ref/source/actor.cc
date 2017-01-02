@@ -679,7 +679,7 @@ void actor::handle_constriction()
 
         if (is_player() || you.can_see(*this))
         {
-            mprf(jtransc("%s %s %s%s%s"),
+            mprf(jtransc("{attacker} {verb} {defender}{!}{dmg}"),
                  jtransc(is_player() ? "You"
                                      : name(DESC_THE)),
                  defender->name(DESC_THE).c_str(),
@@ -694,7 +694,7 @@ void actor::handle_constriction()
         }
         else if (you.can_see(*defender) || defender->is_player())
         {
-            mprf(jtransc("%s %s constricted%s%s"),
+            mprf(jtransc("{defender} {verb} constricted{!}{dmg}"),
                  defender->name(DESC_THE).c_str(),
                  defender->conj_verb_j("are").c_str(),
                  exclamations.c_str(),
