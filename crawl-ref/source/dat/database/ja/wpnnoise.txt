@@ -25,19 +25,25 @@
 %%%%
 shield of the gong
 
+# w:40
+# GONNNNG!
 w:40
-GONNNNG!
+ゴーン！ と銅鑼が鳴り響いた。
 
-BOUMMMMG!
+ガラーン！ と銅鑼が鳴り響いた。
 
-PTOANNNG!
+ボーン！ と銅鑼が鳴り響いた。
 
-PANG!
+# BOUMMMMG!
 
-BONNNG!
+# PTOANNNG!
+
+# PANG!
+
+# BONNNG!
 
 # scraping hit
-SHROANNG!
+# SHROANNG!
 
 ###############################################################################
 ###############################################################################
@@ -50,16 +56,23 @@ SHROANNG!
 %%%%
 frozen axe "frostbite"
 
-You hear the [roaring|howling|raging|gusting] winds of a [blizzard|squall|snowstorm].
+# You hear the [roaring|howling|raging|gusting] winds of a [blizzard|squall|snowstorm].
+あなたは荒れ狂う[吹雪|突風|雪嵐]の音を耳にした。
 
+# w:5
+# You hear ice [creaking|groaning|grinding|cracking].
 w:5
-You hear ice [creaking|groaning|grinding|cracking].
+あなたは氷のたてる音を耳にした。
 
+# w:1
+# You hear shards of ice [tinkling|chiming].
 w:1
-You hear shards of ice [tinkling|chiming].
+あなたは氷の破片がシャラシャラと鳴る音を耳にした。
 
+# w:1
+# You hear the [rumble|boom|crash] of [a glacier calving|icebergs colliding].
 w:1
-You hear the [rumble|boom|crash] of [a glacier calving|icebergs colliding].
+あなたは氷山が[ぶつかる|砕ける]音を耳にした。
 
 ###############################################################################
 ###############################################################################
@@ -85,8 +98,10 @@ w:28
 w:2
 @_instrumental_noises_@
 
+# w:20
+# SOUND:You hear @weapon_noise@
 w:20
-SOUND:You hear @weapon_noise@
+SOUND:あなたは@weapon_noise@
 
 ###############################################################################
 # Weapon chatter.
@@ -270,82 +285,120 @@ w:20
 weapon_noise
 
 ############ dungeon noises ############
-a shout.
+# a shout.
+叫び声を耳にした。
 
-an angry hiss.
+# an angry hiss.
+険悪なシューッという音を耳にした。
 
-a high-pitched scream!
+# a high-pitched scream!
+甲高い叫び声を耳にした！
 
-a roar!
+# a roar!
+咆哮を耳にした！
 
-a hideous shriek!
+# a hideous shriek!
+おぞましい金切り声を耳にした！
 
-a piteous moan.
+# a piteous moan.
+痛ましいうめき声を耳にした。
 
-a screech!
+# a screech!
+ギャーギャー鳴く声を耳にした！
 
-a bellow!
+# a bellow!
+唸り声を耳にした！
 
-a loud, deep croak!
+# a loud, deep croak!
+やかましくゲコゲコ鳴く声を耳にした！
 
-an angry buzzing noise.
+# an angry buzzing noise.
+剣呑なブンブンいう音を耳にした。
 
-a splashing noise.
+# a splashing noise.
+水のはねる音を耳にした。
 
-a sizzling sound.
+# a sizzling sound.
+ジュージューという音を耳にした。
 
-a loud clanging noise!
+# a loud clanging noise!
+重金属の触れ合うやかましい騒音を耳にした！
 
-a grinding noise.
+# a grinding noise.
+壁を削るような音を耳にした。
 
-a mighty clap of thunder!
+# a mighty clap of thunder!
+あなたは雷鳴が力強く轟くのを耳にした！
 
-a hideous screaming!
+# a hideous screaming!
+耳障りな金切り声を耳にした！
 
-a bark!
+# a bark!
+吠え声を耳にした！
 
-a rumbling sound.
+# a rumbling sound.
+ゴロゴロという音を耳にした。
 
-a crunching sound.
+# a crunching sound.
+何かをバリバリ噛み砕く音を耳にした。
 
-a distant "Zot"!
+# a distant "Zot"!
+遠くに『ゾット』の声を聞いた！
 
-the distant roaring of an enraged frog.
+# the distant roaring of an enraged frog.
+遠くでカエルが猛烈に鳴く声を耳にした。
 
 ############ other noises, usually not found in the dungeon ############
-a knock.
+# a knock.
+ノックする音を耳にした。
 
-a voice calling your name.
+# a voice calling your name.
+自分の名前を呼ぶ声を耳にした。
 
-a very strange noise.
+# a very strange noise.
+とても奇妙な物音を耳にした。
 
-someone snoring.
+# someone snoring.
+誰かのいびきを耳にした。
 
-someone calling for help!
+# someone calling for help!
+誰かが助けを呼ぶ声を耳にした！
 
-strange voices.
+# strange voices.
+奇妙な声を耳にした。
 
-maniacal laughter.
+# maniacal laughter.
+狂気の笑い声を聞いた。
 
-snatches of song.
+# snatches of song.
+何かの歌の断片を耳にした。
 
-a twanging sound.
+# a twanging sound.
+楽器がポロロンと鳴る音を耳にした。
 
-the chiming of a distant gong.
+# the chiming of a distant gong.
+遠くで鐘の鳴る音を耳にした。
 
-the tinkle of an enormous bell.
+# the tinkle of an enormous bell.
+巨大な鐘がガランガランと鳴る音を耳にした。
 
-an echo.
+# an echo.
+反響する音を耳にした。
 
-the wailing of sirens.
+# the wailing of sirens.
+セイレーンの泣き声を耳にした。
 
-a flourish of trumpets!
+# a flourish of trumpets!
+ラッパの音を耳にした！
 
-a strangely pleasant explosion.
+# a strangely pleasant explosion.
+奇妙で愉快な爆発音を耳にした。
 
-distant weeping.
+# distant weeping.
+遠くですすり泣く声を耳にした。
 
-a muffled joke.
+# a muffled joke.
+よく聞き取れない笑い話を耳にした。
 
 ###############################################################################
 ###############################################################################
