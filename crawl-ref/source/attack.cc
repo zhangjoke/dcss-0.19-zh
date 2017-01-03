@@ -314,12 +314,12 @@ string attack::anon_name(description_level_type desc)
         return "";
     case DESC_YOUR:
     case DESC_ITS:
-        return "something's";
+        return jtrans("something's");
     case DESC_THE:
     case DESC_A:
     case DESC_PLAIN:
     default:
-        return "something";
+        return jtrans("something");
     }
 }
 
@@ -467,12 +467,12 @@ bool attack::distortion_affects_defender()
     switch (choice)
     {
     case SMALL_DMG:
-        special_damage_message = make_stringf("Space bends around %s.",
+        special_damage_message = make_stringf(jtransc("Space bends around %s."),
                                               defender_name(false).c_str());
         special_damage += 1 + random2avg(7, 2);
         break;
     case BIG_DMG:
-        special_damage_message = make_stringf("Space warps horribly around %s!",
+        special_damage_message = make_stringf(jtransc("Space warps horribly around %s!"),
                                               defender_name(false).c_str());
         special_damage += 3 + random2avg(24, 2);
         break;
@@ -546,9 +546,9 @@ void attack::pain_affects_defender()
         if (special_damage && defender_visible)
         {
             special_damage_message =
-                make_stringf("%s %s in agony.",
+                make_stringf(jtransc("%s %s in agony."),
                              defender->name(DESC_THE).c_str(),
-                             defender->conj_verb("writhe").c_str());
+                             defender->conj_verb_j("writhe").c_str());
         }
     }
 }
@@ -601,7 +601,7 @@ static const vector<chaos_effect> chaos_effects = {
             if (obvious_effect)
             {
                 attack.special_damage_message =
-                    make_stringf("%s is duplicated!",
+                    make_stringf(jtransc("%s is duplicated!"),
                                  attack.defender_name(false).c_str());
             }
 
@@ -710,7 +710,8 @@ void attack::chaos_affects_defender()
     const chaos_effect &effect = *random_choose_weighted(weights);
 
 #ifdef NOTE_DEBUG_CHAOS_EFFECTS
-    take_note(Note(NOTE_MESSAGE, 0, 0, "CHAOS effect: " + effect.name), true);
+    take_note(Note(NOTE_MESSAGE, 0, 0, jtrans_notrim("CHAOS effect: ") +
+                                       tagged_jtrans("[chaos effect]", effect.name)), true);
 #endif
 
     if (effect.misc_effect && effect.misc_effect(*this))
@@ -871,7 +872,7 @@ brand_type attack::random_chaos_brand()
     // Pretty much duplicated by the chaos effect note,
     // which will be much more informative.
     if (brand != SPWPN_CHAOS)
-        take_note(Note(NOTE_MESSAGE, 0, 0, brand_name), true);
+        take_note(Note(NOTE_MESSAGE, 0, 0, jtrans(brand_name)), true);
 #endif
     return brand;
 }
@@ -907,11 +908,11 @@ void attack::do_miscast()
     {
         if (chaos_brand)
         {
-            cause = "a chaos effect from ";
             // Ignore a lot of item flags to make cause as short as possible,
             // so it will (hopefully) fit onto a single line in the death
             // cause screen.
-            cause += wep_name(DESC_YOUR, ignore_mask | ISFLAG_COSMETIC_MASK);
+            cause = make_stringf(jtransc("a chaos effect from %s"),
+                                 wep_name(DESC_YOUR, ignore_mask | ISFLAG_COSMETIC_MASK).c_str());
 
             if (miscast_target == attacker)
                 hand_str = wep_name(DESC_PLAIN, ignore_mask);
@@ -953,10 +954,10 @@ void attack::drain_defender()
         {
             special_damage_message =
                 make_stringf(
-                    "%s %s %s!",
+                    jtransc("{attacker} {verb} {defender}!"),
                     atk_name(DESC_THE).c_str(),
-                    attacker->conj_verb("drain").c_str(),
-                    defender_name(true).c_str());
+                    defender_name(true).c_str(),
+                    attacker->conj_verb_j("drain").c_str());
         }
     }
 }
@@ -965,10 +966,10 @@ void attack::drain_defender_speed()
 {
     if (needs_message)
     {
-        mprf("%s %s %s vigour!",
+        mprf(jtransc("%s %s %s vigour!"),
              atk_name(DESC_THE).c_str(),
-             attacker->conj_verb("drain").c_str(),
-             def_name(DESC_ITS).c_str());
+             def_name(DESC_ITS).c_str(),
+             attacker->conj_verb_j("drain").c_str());
     }
     defender->slow_down(attacker, 5 + random2(7));
 }
@@ -996,7 +997,7 @@ int attack::inflict_damage(int dam, beam_type flavour, bool clean)
 string attack::debug_damage_number()
 {
 #ifdef DEBUG_DIAGNOSTICS
-    return make_stringf(" for %d", damage_done);
+    return make_stringf(jtrans_notrimc(" for %d"), damage_done);
 #else
     return "";
 #endif
@@ -1009,9 +1010,9 @@ string attack::debug_damage_number()
 string attack::attack_strength_punctuation(int dmg)
 {
     if (dmg < HIT_WEAK)
-        return ".";
+        return jtrans(".");
     else if (dmg < HIT_MED)
-        return "!";
+        return jtrans("!");
     else if (dmg < HIT_STRONG)
         return "!!";
     else
@@ -1048,24 +1049,24 @@ void attack::stab_message()
         if (coinflip())
         {
             mprf("You %s %s from a blind spot!",
-                  (you.species == SP_FELID) ? "pounce on" : "strike",
-                  defender->name(DESC_THE).c_str());
+                 defender->name(DESC_THE).c_str(),
+                 tagged_jtransc("[stab verb]", (you.species == SP_FELID) ? "pounce on" : "strike"));
         }
         else
         {
-            mprf("You catch %s momentarily off-guard.",
+            mprf(jtransc("You catch %s momentarily off-guard."),
                   defender->name(DESC_THE).c_str());
         }
         break;
     case 4:     // confused/fleeing
         if (!one_chance_in(3))
         {
-            mprf("You catch %s completely off-guard!",
+            mprf(jtransc("You catch %s completely off-guard!"),
                   defender->name(DESC_THE).c_str());
         }
         else
         {
-            mprf("You %s %s from behind!",
+            mprf(jtransc("You %s %s from behind!"),
                   (you.species == SP_FELID) ? "pounce on" : "strike",
                   defender->name(DESC_THE).c_str());
         }
@@ -1074,11 +1075,11 @@ void attack::stab_message()
     case 1:
         if (you.species == SP_FELID && coinflip())
         {
-            mprf("You pounce on the unaware %s!",
+            mprf(jtransc("You pounce on the unaware %s!"),
                  defender->name(DESC_PLAIN).c_str());
             break;
         }
-        mprf("%s fails to defend %s.",
+        mprf(jtransc("%s fails to defend %s."),
               defender->name(DESC_THE).c_str(),
               defender->pronoun(PRONOUN_REFLEXIVE).c_str());
         break;
@@ -1127,7 +1128,7 @@ string attack::wep_name(description_level_type desc, iflags_t ignre_flags)
     }
 
     if (possessive)
-        name = apostrophise(atk_name(desc)) + " ";
+        name = atk_name(desc) + "の";
 
     name += weapon->name(DESC_PLAIN, false, false, false, false, ignre_flags);
 
@@ -1425,11 +1426,11 @@ bool attack::attack_shield_blocked(bool verbose)
 
         if (needs_message && verbose)
         {
-            mprf("%s %s %s attack.",
+            mprf(jtransc("{defender} {verb} {itself} attack."),
                  defender_name(false).c_str(),
-                 defender->conj_verb("block").c_str(),
-                 attacker == defender ? "its own"
-                                      : atk_name(DESC_ITS).c_str());
+                 jtransc(attacker == defender ? "its own"
+                                              : atk_name(DESC_ITS).c_str()),
+                 defender->conj_verb_j("block").c_str());
         }
 
         defender->shield_block_succeeded(attacker);
@@ -1594,7 +1595,7 @@ bool attack::apply_damage_brand(const char *what)
         {
             special_damage_message =
                 make_stringf(
-                    "%s %s%s",
+                    jtransc("{defender} {verb}{!}"),
                     defender_name(false).c_str(),
                     defender->conj_verb("convulse").c_str(),
                     attack_strength_punctuation(special_damage).c_str());
@@ -1606,10 +1607,10 @@ bool attack::apply_damage_brand(const char *what)
             break;
         else if (one_chance_in(3))
         {
-            special_damage_message =
+            special_damage_message = jtrans(
                 defender->is_player()?
                    "You are electrocuted!"
-                :  "There is a sudden explosion of sparks!";
+                :  "There is a sudden explosion of sparks!");
             special_damage = 8 + random2(13);
             special_damage_flavour = BEAM_ELECTRICITY;
             defender->expose_to_element(BEAM_ELECTRICITY, 2);
@@ -1657,12 +1658,12 @@ bool attack::apply_damage_brand(const char *what)
             {
                 if (defender->is_player())
                 {
-                    mprf("%s draws strength from your wounds!",
+                    mprf(jtransc("%s draws strength from your wounds!"),
                          attacker->name(DESC_THE).c_str());
                 }
                 else
                 {
-                    mprf("%s is healed.",
+                    mprf(jtransc("%s is healed."),
                          attacker->name(DESC_THE).c_str());
                 }
             }
@@ -1807,6 +1808,12 @@ bool attack::apply_damage_brand(const char *what)
  * calculation of base damage and other effects varies based on the type
  * of attack, but the calculation of elemental damage should be consistent.
  */
+
+static string conjugate_verb_j(const string &verb, bool plural)
+{
+    return tagged_jtrans("[verb]", verb);
+}
+
 void attack::calc_elemental_brand_damage(beam_type flavour,
                                          const char *verb,
                                          const char *what)
@@ -1818,12 +1825,12 @@ void attack::calc_elemental_brand_damage(beam_type flavour,
     {
         // XXX: assumes "what" is singular
         special_damage_message = make_stringf(
-            "%s %s %s%s",
+            jtransc("{attacker} {verb} {defender}{!}"),
             what ? what : atk_name(DESC_THE).c_str(),
-            what ? conjugate_verb(verb, false).c_str()
-                 : attacker->conj_verb(verb).c_str(),
             // Don't allow reflexive if the subject wasn't the attacker.
-            defender_name(!what).c_str(),
+            (defender_name(!what) + (strcmp(verb, "melt") ? "" : "の体")).c_str(),
+            what ? conjugate_verb_j(verb, false).c_str()
+                 : attacker->conj_verb_j(verb).c_str(),
             attack_strength_punctuation(special_damage).c_str());
     }
 }

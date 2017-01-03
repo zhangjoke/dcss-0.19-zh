@@ -1,7 +1,11 @@
 %%%%
-%s %s in the distortional energy.
+something's
 
-%sは歪曲の力を浴びた。
+何かの
+%%%%
+# something
+
+# jtrans_actor.txtと重複
 %%%%
 Space bends around %s.
 
@@ -13,47 +17,191 @@ Space warps horribly around %s!
 %%%%
 %s %s in agony.
 
-%sは苦痛に悶えた。
+%sは苦痛に%s。
 %%%%
-You give off a flash of multicoloured light!
+[verb]writhe
 
-あなたは色とりどりの光を放った！
+悶えた
 %%%%
-gives off a flash of multicoloured light!
+[chaos effect]clone
 
-は色とりどりの光を放った！
-%%%%
-There is a flash of multicoloured light!
-
-色とりどりの光が放たれた！
+分裂
 %%%%
 %s is duplicated!
 
 %sが二体になった！
 %%%%
-%s %s %s!
+[chaos effect]polymorph
 
-%sは%sを%s！
+変身
 %%%%
-%s %s %s vigour!
+[chaos effect]polymorph PPT_MORE
 
-%sは%sの活力を吸い取った！
+より強力なモンスターに変身
+%%%%
+[chaos effect]shifter
+
+変身能力者化
+%%%%
+[chaos effect]miscast
+
+魔法失敗
+%%%%
+[chaos effect]rage
+
+<berserk>
+%%%%
+[chaos effect]healing
+
+治癒
+%%%%
+[chaos effect]hasting
+
+加速
+%%%%
+[chaos effect]invisible
+
+透明化
+%%%%
+[chaos effect]slowing
+
+減速
+%%%%
+[chaos effect]paralysis
+
+麻痺
+%%%%
+[chaos effect]petrify
+
+石化
+%%%%
+CHAOS effect:
+
+カオス効果:
+%%%%
+protects you from inadvertent hurry.
+
+は意図しない加速からあなたを保護した。
+%%%%
+CHAOS brand: (plain)
+
+# for debug
+%%%%
+CHAOS brand: flaming
+
+# for debug
+%%%%
+CHAOS brand: freezing
+
+# for debug
+%%%%
+CHAOS brand: holy wrath
+
+# for debug
+%%%%
+CHAOS brand: electrocution
+
+# for debug
+%%%%
+CHAOS brand: venom
+
+# for debug
+%%%%
+CHAOS brand: draining
+
+# for debug
+%%%%
+CHAOS brand: distortion
+
+# for debug
+%%%%
+CHAOS brand: vampirism
+
+# for debug
+%%%%
+CHAOS brand: vorpal
+
+# for debug
+%%%%
+CHAOS brand: antimagic
+
+# for debug
+%%%%
+CHAOS brand: chaos
+
+# for debug
+%%%%
+CHAOS brand: confusion
+
+# for debug
+%%%%
+CHAOS brand: (other)
+
+# for debug
+%%%%
+a chaos effect from %s
+
+%sから受けたカオス効果
+%%%%
+{attacker} {verb} {defender}!
+
+%sは%sから%s！
+%%%%
+[verb]drain
+
+衰弱させた
+%%%%
+{attacker} {verb} {defender's} vigour!
+
+%sは%s活力を%s！
+%%%%
+for %d
+
+# jtrans_actor.txtと重複
+%%%%
+.
+
+。
+%%%%
+!
+
+！
+%%%%
+[adv]completely
+
+完全に
+%%%%
+[adv]closely
+
+きわどく
+%%%%
+[adv]barely
+
+ぎりぎり
 %%%%
 You %s %s from a blind spot!
 
 あなたは死角から%s%s！
 %%%%
+[stab verb]pounce on
+
+に飛びかかった
+%%%%
+[stab verb]strike
+
+を攻撃した
+%%%%
 You catch %s momentarily off-guard.
 
-あなたは%sの防御がおろそかになる一瞬を突いた。
+あなたの一撃は%sが防御を開けた瞬間をとらえた。
 %%%%
 You catch %s completely off-guard!
 
-あなたは防御ががら空きになった%sを攻撃した！
+あなたの一撃は%sが完全に無防備な瞬間をとらえた。
 %%%%
 You %s %s from behind!
 
-あなたは%s%s！
+あなたは背後から%s%s！
 %%%%
 You pounce on the unaware %s!
 
@@ -63,35 +211,59 @@ You pounce on the unaware %s!
 
 %sは防御できなかった。
 %%%%
-%s %s %s attack.
+{defender} {verb} {itself} attack.
 
-%sは%s攻撃を防いだ。
+%sは%s攻撃を%s。
 %%%%
-melt
+[verb]block
 
-溶かした
-%%%%
-melts
-
-溶かした
+防いだ
 %%%%
 its own
 
 自分自身の
 %%%%
+[verb]melt
+
+溶かした
+%%%%
+# [verb]burn
+
+# jtrans_art_func.txtと重複
+%%%%
+# [verb]freeze
+
+# jtrans_art_func.txtと重複
+%%%%
+{defender} {verb}{!}
+
+%sは%s%s
+%%%%
+# [verb]convulse
+
+# jtrans_art_func.txtと重複
+%%%%
 You are electrocuted!
 
-あなたは感電した！
+あなたは感電させられた！
 %%%%
 There is a sudden explosion of sparks!
 
-突然電気の火花が散った！
+突然、電光の爆発が巻き起こった！
 %%%%
-%s draws strength from your injuries!
+%s draws strength from your wounds!
 
-%はあなたの傷口から力を吸い取った！
+%sはあなたの傷から生命力を吸い取った！
 %%%%
 %s is healed.
 
 %sは回復した。
+%%%%
+[verb]damn
+
+打擲した
+%%%%
+{attacker} {verb} {defender}{!}
+
+%sは%sを%s%s
 %%%%
