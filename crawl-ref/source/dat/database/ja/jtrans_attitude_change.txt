@@ -5,31 +5,31 @@ abandons you!
 %%%%
 reclaims one of your granted undead slaves!
 
-はあなたに与えた不死のしもべを回収した！
+はあなたに与えた不死のしもべを一体回収した！
 %%%%
 reclaims your granted undead slaves!
 
-はあなたに与えた不死のしもべを回収した！
+はあなたに与えた不死のしもべを全て回収した！
 %%%%
 reclaims some of your granted undead slaves!
 
-はあなたに与えた不死のしもべを回収した！
+はあなたに与えた不死のしもべを何体か回収した！
 %%%%
 's voice booms out, "Who do you think you are?"
 
-の声が響き渡った: 『お前は何様のつもりだ？』
+の声が響き渡った。『おまえは何様のつもりだ？』
 %%%%
 One of your followers decides to abandon you.
 
-信奉者があなたを裏切った！
+信奉者の一人があなたを裏切った。
 %%%%
 Your followers decide to abandon you.
 
-信奉者があなたを裏切った！
+信奉者は皆あなたを裏切った。
 %%%%
 Some of your followers decide to abandon you.
 
-信奉者があなたを裏切った！
+信奉者のうち何人かがあなたを裏切った。
 %%%%
 %s stares at you suspiciously for a moment, then relaxes.
 
@@ -38,8 +38,4 @@ Some of your followers decide to abandon you.
 %s trembles before you.
 
 %sはあなたの前で揺れだした。
-%%%%
-%s looks hungrier.
-
-%sは飢えているようだ。
 %%%%
