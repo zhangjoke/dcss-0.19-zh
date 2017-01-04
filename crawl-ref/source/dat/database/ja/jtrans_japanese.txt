@@ -1,0 +1,65 @@
+%%%%
+[gender neuter]it
+
+それ
+%%%%
+[gender neuter]its
+
+その
+%%%%
+[gender neuter]itself
+
+自ら
+%%%%
+[gender neuter]it
+
+それを
+%%%%
+[gender male]he
+
+彼
+%%%%
+[gender male]his
+
+彼の
+%%%%
+[gender male]himself
+
+<[gender neuter]itself>
+%%%%
+[gender male]him
+
+彼を
+%%%%
+[gender female]she
+
+彼女
+%%%%
+[gender female]her
+
+彼女の
+%%%%
+[gender female]herself
+
+<[gender neuter]itself>
+%%%%
+[gender female]her
+
+彼女を
+%%%%
+[gender you]you
+
+<you>
+%%%%
+[gender you]your
+
+<your>
+%%%%
+[gender you]yourself
+
+自分自身
+%%%%
+[gender you]you
+
+<you>
+%%%%

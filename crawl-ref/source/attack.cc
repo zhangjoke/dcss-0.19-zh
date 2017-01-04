@@ -26,6 +26,7 @@
 #include "godpassive.h" // passive_t::no_haste
 #include "itemname.h"
 #include "itemprop.h"
+#include "japanese.h"
 #include "message.h"
 #include "mon-behv.h"
 #include "mon-clone.h"
@@ -330,7 +331,7 @@ string attack::anon_name(description_level_type desc)
  */
 string attack::anon_pronoun(pronoun_type pron)
 {
-    return decline_pronoun(GENDER_NEUTER, pron);
+    return decline_pronoun_j(GENDER_NEUTER, pron);
 }
 
 /* Initializes an attack, setting up base variables and values
@@ -1808,11 +1809,6 @@ bool attack::apply_damage_brand(const char *what)
  * calculation of base damage and other effects varies based on the type
  * of attack, but the calculation of elemental damage should be consistent.
  */
-
-static string conjugate_verb_j(const string &verb, bool plural)
-{
-    return tagged_jtrans("[verb]", verb);
-}
 
 void attack::calc_elemental_brand_damage(beam_type flavour,
                                          const char *verb,
