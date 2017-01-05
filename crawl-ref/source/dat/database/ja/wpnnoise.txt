@@ -328,7 +328,7 @@ weapon_noise
 壁を削るような音を耳にした。
 
 # a mighty clap of thunder!
-あなたは雷鳴が力強く轟くのを耳にした！
+雷鳴が力強く轟くのを耳にした！
 
 # a hideous screaming!
 耳障りな金切り声を耳にした！
