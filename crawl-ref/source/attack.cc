@@ -1049,7 +1049,7 @@ void attack::stab_message()
     case 6:     // big melee, monster surrounded/not paying attention
         if (coinflip())
         {
-            mprf("You %s %s from a blind spot!",
+            mprf(jtransc("You %s %s from a blind spot!"),
                  defender->name(DESC_THE).c_str(),
                  tagged_jtransc("[stab verb]", (you.species == SP_FELID) ? "pounce on" : "strike"));
         }
