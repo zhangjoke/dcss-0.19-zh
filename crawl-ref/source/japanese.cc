@@ -11,7 +11,7 @@
 
 const string conjugate_verb_j(const string &verb, bool /* ignore */)
 {
-    return tagged_jtrans("[verb]", verb);
+    return verb_j(verb);
 }
 
 static const char * const _pronoun_declension_j[][NUM_PRONOUN_CASES] =

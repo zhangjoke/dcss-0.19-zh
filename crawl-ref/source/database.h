@@ -137,5 +137,10 @@ string to_separated_line(Z start, Z end,
 #define duration_name_jc(en) (duration_name_j(en).c_str())
 #define zap_name_j(z) (tagged_jtrans("[zap]", z))
 #define zap_name_jc(z) (zap_name_j(z).c_str())
+static inline string verb_j(const string &verb, const string &tag = "[verb]")
+{
+    return tagged_jtrans(tag, verb);
+}
+#define verb_jc(v) (verb_j(v).c_str())
 
 #endif

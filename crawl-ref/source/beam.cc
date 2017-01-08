@@ -3341,7 +3341,7 @@ bool bolt::misses_player()
             hit_verb = engulfs ? "engulfs" : "hits";
         if (flavour != BEAM_VISUAL && !is_enchantment())
             mprf(jtransc("The %s %s you!"), name.c_str(),
-                 tagged_jtransc("[verb]", hit_verb));
+                 verb_jc(hit_verb));
         return false;
     }
 
@@ -3454,7 +3454,7 @@ bool bolt::misses_player()
 
         if (_test_beam_hit(real_tohit, dodge_more, pierce, defl, r))
             mprf(jtransc("The %s %s you!"), name.c_str(),
-                 tagged_jtransc("[verb]", hit_verb));
+                 verb_jc(hit_verb));
         else
             mprf(jtransc("Helpless, you fail to dodge the %s."),
                  zap_name_jc(name));
@@ -3922,7 +3922,7 @@ void bolt::affect_player()
             if (hit_verb.empty())
                 hit_verb = engulfs ? "engulfs" : "hits";
             mprf(jtransc("The %s %s you!"), name.c_str(),
-                 tagged_jtransc("[verb]", hit_verb));
+                 verb_jc(hit_verb));
         }
 
         affect_player_enchantment();
@@ -4861,7 +4861,7 @@ void bolt::affect_monster(monster* mon)
             {
                 mprf(jtransc("The %s %s %s."), name.c_str(),
                      mon->name(DESC_THE).c_str(),
-                     tagged_jtransc("[verb]", hit_verb));
+                     verb_jc(hit_verb));
             }
             else if (heard && !hit_noise_msg.empty())
                 mprf(MSGCH_SOUND, "%s", jtransc(hit_noise_msg));
@@ -4967,7 +4967,7 @@ void bolt::affect_monster(monster* mon)
                 msg::stream << make_stringf(jtransc("{name} {deflects} the {bolt name}!"),
                                             mon->name(DESC_THE).c_str(),
                                             name.c_str(),
-                                            tagged_jtransc("[verb]", deflects)) << endl;
+                                            verb_jc(deflects)) << endl;
             }
             else
             {
@@ -5020,7 +5020,7 @@ void bolt::affect_monster(monster* mon)
         mprf(jtransc("The %s %s %s."),
              name.c_str(),
              mon->name(DESC_THE).c_str(),
-             tagged_jtransc("[verb]", hit_verb));
+             verb_jc(hit_verb));
 
     }
     else if (heard && !hit_noise_msg.empty())

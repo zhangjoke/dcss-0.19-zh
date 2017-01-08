@@ -1051,7 +1051,7 @@ void attack::stab_message()
         {
             mprf(jtransc("You %s %s from a blind spot!"),
                  defender->name(DESC_THE).c_str(),
-                 tagged_jtransc("[stab verb]", (you.species == SP_FELID) ? "pounce on" : "strike"));
+                 verb_jc((you.species == SP_FELID) ? "pounce on" : "strike"), "[stab verb]");
         }
         else
         {
