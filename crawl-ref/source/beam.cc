@@ -25,6 +25,7 @@
 #include "cloud.h"
 #include "colour.h"
 #include "coordit.h"
+#include "database.h"
 #include "delay.h"
 #include "directn.h"
 #include "dungeon.h"
@@ -133,7 +134,7 @@ void bolt::emit_message(const char* m)
 {
     const string message = m;
     if (!message_cache.count(message))
-        mpr(m);
+        mpr(jtrans(m));
 
     message_cache.insert(message);
 }
@@ -253,7 +254,7 @@ spret_type zapping(zap_type ztype, int power, bolt &pbolt,
     zappy(ztype, power, false, pbolt);
 
     if (msg)
-        mpr(msg);
+        mpr(jtrans(msg));
 
     if (ztype == ZAP_LIGHTNING_BOLT)
     {
@@ -651,8 +652,8 @@ void bolt::initialise_fire()
             && !crawl_state.is_god_acting()
             && (!mon || !mon->observable()))
         {
-            mprf("%s appears from out of thin air!",
-                 article_a(name, false).c_str());
+            mprf(jtransc("%s appears from out of thin air!"),
+                 zap_name_jc(name));
         }
     }
 
@@ -848,7 +849,7 @@ void bolt::digging_wall_effect()
             {
                 if (!silenced(you.pos()))
                 {
-                    mprf(MSGCH_SOUND, "You hear a grinding noise.");
+                    mprf(MSGCH_SOUND, jtrans("You hear a grinding noise."));
                     obvious_effect = true; // You may still see the caster.
                     msg_generated = true;
                 }
@@ -862,7 +863,7 @@ void bolt::digging_wall_effect()
             if (feat == DNGN_GRATE)
             {
                 // XXX: should this change for monsters?
-                mpr("The damaged grate falls apart.");
+                mpr(jtrans("The damaged grate falls apart."));
                 return;
             }
             else if (feat == DNGN_SLIMY_WALL)
@@ -872,7 +873,7 @@ void bolt::digging_wall_effect()
             else
                 wall = "rock";
 
-            mprf("%s %s shatters into small pieces.",
+            mprf(jtransc("%s %s shatters into small pieces."),
                  agent() && agent()->is_player() ? "The" : "Some",
                  wall.c_str());
         }
@@ -945,7 +946,7 @@ static bool _destroy_wall_msg(dungeon_feature_type feat, const coord_def& p)
         if (see)
         {
             msg = (feature_description_at(p, false, DESC_THE, false)
-                   + " explodes into countless fragments.");
+                   + jtrans(" explodes into countless fragments."));
         }
         else if (hear)
         {
@@ -996,7 +997,7 @@ static bool _destroy_wall_msg(dungeon_feature_type feat, const coord_def& p)
 
     if (!msg.empty())
     {
-        mprf(chan, "%s", msg.c_str());
+        mprf(chan, "%s", jtransc(msg));
         return true;
     }
     else
@@ -1083,8 +1084,8 @@ void bolt::affect_wall()
             && !is_targeting && YOU_KILL(thrower) && !dont_stop_trees)
         {
             const string prompt =
-                make_stringf("Are you sure you want to %s %s?",
-                             burns_trees ? "burn" : "destroy",
+                make_stringf(make_stringf(jtransc("Are you sure you want to %s %s?"),
+                             burns_trees ? "burn" : "destroy").c_str(),
                              feature_description_at(pos(), false, DESC_THE,
                                                     false).c_str());
 
@@ -1309,23 +1310,24 @@ void bolt::do_fire()
             // of the player manually targeting something whose line of fire
             // is blocked, even though its line of sight isn't blocked. Give
             // a warning about this fact.
-            string prompt = "Your line of fire to ";
+            string prompt = "Your line of fire to {name} is blocked by {feat}. Continue anyway?";
+            string name_str, feat_str;
             const monster* mon = monster_at(target);
 
             if (mon && mon->observable())
-                prompt += mon->name(DESC_THE);
+                name_str += mon->name(DESC_THE);
             else
             {
-                prompt += "the targeted "
-                        + feature_description_at(target, false, DESC_PLAIN, false);
+                name_str += make_stringf(jtransc("the targeted %s"),
+                                     feature_description_at(target, false, DESC_PLAIN, false).c_str());
             }
 
-            prompt += " is blocked by "
-                    + (feat_is_solid(feat) ?
+            feat_str += (feat_is_solid(feat) ?
                         feature_description_at(pos(), false, DESC_A, false) :
                         monster_at(pos())->name(DESC_A));
 
-            prompt += ". Continue anyway?";
+            prompt = make_stringf(jtransc(prompt),
+                                  name_str.c_str(), feat_str.c_str());
 
             if (!yesno(prompt.c_str(), false, 'n'))
             {
@@ -1396,8 +1398,8 @@ void bolt::do_fire()
 
         if (flavour != BEAM_VISUAL && !was_seen && seen && !is_tracer)
         {
-            mprf("%s appears from out of your range of vision.",
-                 article_a(name, false).c_str());
+            mprf(jtransc("%s appears from out of your range of vision."),
+                 zap_name_jc(name));
         }
 
         // Reset chaos beams so that it won't be considered an invisible
@@ -2162,7 +2164,7 @@ static bool _curare_hits_player(actor* agent, int levels, string name,
 
         if (hurted)
         {
-            mpr("You have difficulty breathing.");
+            mpr(jtrans("You have difficulty breathing."));
             ouch(hurted, KILLED_BY_CURARE, agent->mid,
                  "curare-induced apnoea");
         }
@@ -2209,7 +2211,8 @@ int silver_damages_victim(actor* victim, int damage, string &dmg_msg)
     else
         return 0;
 
-    dmg_msg = "The silver sears " + victim->name(DESC_THE) + "!";
+    dmg_msg = make_stringf(jtransc("The silver sears {name}!"),
+                           victim->name(DESC_THE).c_str());
     return ret;
 }
 
@@ -2410,7 +2413,7 @@ static void _maybe_imb_explosion(bolt *parent, coord_def center)
         if (first && !beam.is_tracer)
         {
             if (you.see_cell(center))
-                mpr("The orb of energy explodes!");
+                mpr(jtrans("The orb of energy explodes!"));
             noisy(spell_effect_noise(SPELL_ISKENDERUNS_MYSTIC_BLAST),
                   center);
             first = false;
@@ -2439,7 +2442,7 @@ static void _malign_offering_effect(actor* victim, const actor* agent, int damag
     // The victim may die.
     coord_def c = victim->pos();
 
-    mprf("%s life force is offered up.", victim->name(DESC_ITS).c_str());
+    mprf(jtransc("%s life force is offered up."), victim->name(DESC_ITS).c_str());
     damage = victim->hurt(agent, damage, BEAM_MALIGN_OFFERING, KILLED_BY_BEAM,
                           "", "by a malign offering");
 
@@ -2453,8 +2456,8 @@ static void _malign_offering_effect(actor* victim, const actor* agent, int damag
         {
             if (ai->heal(max(1, damage * 2 / 3)) && you.can_see(**ai))
             {
-                mprf("%s %s healed.", ai->name(DESC_THE).c_str(),
-                                      ai->conj_verb("are").c_str());
+                mprf(jtransc("{name} {is} healed."), ai->name(DESC_THE).c_str(),
+                                                     ai->conj_verb_j("are").c_str());
             }
         }
     }
@@ -2665,7 +2668,7 @@ void bolt::affect_endpoint()
     case SPELL_PRIMAL_WAVE:
         if (you.see_cell(pos()))
         {
-            mpr("The wave splashes down.");
+            mpr(jtrans("The wave splashes down."));
             noisy(spell_effect_noise(SPELL_PRIMAL_WAVE), pos());
         }
         else
@@ -2719,7 +2722,7 @@ void bolt::drop_object()
     {
         if (you.see_cell(pos()))
         {
-            mprf("%s %s!",
+            mprf(jtransc("{name} {poof_msg}!"),
                  item->name(DESC_THE).c_str(),
                  summoned_poof_msg(agent() ? agent()->as_monster() : nullptr,
                                    *item).c_str());
@@ -2801,7 +2804,7 @@ void bolt::affect_ground()
             {
                 remove_mold(pos());
                 if (you.see_cell(pos()))
-                    mpr("A fungus suddenly grows.");
+                    mpr(jtrans("A fungus suddenly grows."));
 
             }
         }
@@ -2882,7 +2885,7 @@ void bolt::affect_place_clouds()
             || (cloud->type == CLOUD_FIRE && flavour == BEAM_COLD))
         {
             if (player_can_hear(p))
-                mprf(MSGCH_SOUND, "You hear a sizzling sound!");
+                mprf(MSGCH_SOUND, jtrans("You hear a sizzling sound!"));
 
             delete_cloud(p);
             extra_range_used += 5;
@@ -3287,8 +3290,8 @@ void bolt::tracer_affect_player()
     {
         if (!dont_stop_player && !harmless_to_player())
         {
-            string prompt = make_stringf("That %s is likely to hit you. Continue anyway?",
-                                         item ? name.c_str() : "beam");
+            string prompt = make_stringf(jtransc("That %s is likely to hit you. Continue anyway?"),
+                                         tagged_jtransc("[tracer_affect_player()]", item ? name.c_str() : "beam"));
 
             if (yesno(prompt.c_str(), false, 'n'))
             {
@@ -3337,7 +3340,8 @@ bool bolt::misses_player()
         if (hit_verb.empty())
             hit_verb = engulfs ? "engulfs" : "hits";
         if (flavour != BEAM_VISUAL && !is_enchantment())
-            mprf("The %s %s you!", name.c_str(), hit_verb.c_str());
+            mprf(jtransc("The %s %s you!"), name.c_str(),
+                 tagged_jtransc("[verb]", hit_verb));
         return false;
     }
 
@@ -3392,20 +3396,20 @@ bool bolt::misses_player()
             {
                 if (shield && is_shield(*shield) && shield_reflects(*shield))
                 {
-                    mprf("Your %s reflects the %s!",
+                    mprf(jtransc("Your %s reflects the %s!"),
                             shield->name(DESC_PLAIN).c_str(),
-                            refl_name.c_str());
+                            zap_name_jc(refl_name));
                 }
                 else
                 {
-                    mprf("The %s reflects off an invisible shield around you!",
-                            refl_name.c_str());
+                    mprf(jtransc("The %s reflects off an invisible shield around you!"),
+                            zap_name_jc(refl_name));
                 }
                 reflect();
             }
             else
             {
-                mprf("You block the %s.", name.c_str());
+                mprf(jtransc("You block the %s."), zap_name_jc(name));
                 finish_beam();
             }
             you.shield_block_succeeded(agent());
@@ -3430,14 +3434,14 @@ bool bolt::misses_player()
 
     if (!_test_beam_hit(real_tohit, dodge, pierce, 0, r))
     {
-        mprf("The %s misses you.", name.c_str());
+        mprf(jtransc("The %s misses you."), zap_name_jc(name));
         count_action(CACT_DODGE, DODGE_EVASION);
     }
     else if (defl && !_test_beam_hit(real_tohit, dodge, pierce, defl, r))
     {
         // active voice to imply stronger effect
-        mprf(defl == 1 ? "The %s is repelled." : "You deflect the %s!",
-             name.c_str());
+        mprf(jtransc(defl == 1 ? "The %s is repelled." : "You deflect the %s!"),
+             zap_name_jc(name));
         you.ablate_deflection();
         count_action(CACT_DODGE, DODGE_DEFLECT);
     }
@@ -3449,9 +3453,11 @@ bool bolt::misses_player()
             hit_verb = engulfs ? "engulfs" : "hits";
 
         if (_test_beam_hit(real_tohit, dodge_more, pierce, defl, r))
-            mprf("The %s %s you!", name.c_str(), hit_verb.c_str());
+            mprf(jtransc("The %s %s you!"), name.c_str(),
+                 tagged_jtransc("[verb]", hit_verb));
         else
-            mprf("Helpless, you fail to dodge the %s.", name.c_str());
+            mprf(jtransc("Helpless, you fail to dodge the %s."),
+                 zap_name_jc(name));
 
         miss = false;
     }
@@ -3474,9 +3480,9 @@ void bolt::affect_player_enchantment(bool resistible)
             const monster* mon = monster_by_mid(source_id);
             if (mon && !mon->observable())
             {
-                mprf("Something tries to affect you, but you %s.",
+                mprf(jtrans(make_stringf("Something tries to affect you, but you %s.",
                      you.res_magic() == MAG_IMMUNE ? "are unaffected"
-                                                   : "resist");
+                                                   : "resist")));
                 need_msg = false;
             }
         }
@@ -3488,7 +3494,7 @@ void bolt::affect_player_enchantment(bool resistible)
             {
                 // the message reflects the level of difficulty resisting.
                 const int margin = you.res_magic() - ench_power;
-                mprf("You%s", you.resist_margin_phrase(margin).c_str());
+                mprf(jtransc("You%s"), you.resist_margin_phrase(margin).c_str());
             }
         }
         // You *could* have gotten a free teleportation in the Abyss,
@@ -3530,7 +3536,7 @@ void bolt::affect_player_enchantment(bool resistible)
 
     case BEAM_MALMUTATE:
     case BEAM_UNRAVELLED_MAGIC:
-        mpr("Strange energies course through your body.");
+        mpr(jtrans("Strange energies course through your body."));
         you.malmutate(aux_source.empty() ? get_source_name() :
                       (get_source_name() + "/" + aux_source));
         obvious_effect = true;
@@ -3614,7 +3620,7 @@ void bolt::affect_player_enchantment(bool resistible)
         break;
 
     case BEAM_ENSLAVE:
-        mprf(MSGCH_WARN, "Your will is overpowered!");
+        mprf(MSGCH_WARN, jtrans("Your will is overpowered!"));
         confuse_player(5 + random2(3));
         obvious_effect = true;
         break;     // enslavement - confusion?
@@ -3622,7 +3628,7 @@ void bolt::affect_player_enchantment(bool resistible)
     case BEAM_BANISH:
         if (YOU_KILL(thrower))
         {
-            mpr("This spell isn't strong enough to banish yourself.");
+            mpr(jtrans("This spell isn't strong enough to banish yourself."));
             break;
         }
         you.banish(agent(), get_source_name(),
@@ -3638,7 +3644,7 @@ void bolt::affect_player_enchantment(bool resistible)
         const int dam = resist_adjust_damage(&you, flavour, damage.roll());
         if (dam)
         {
-            mpr("Pain shoots through your body!");
+            mpr(jtrans("Pain shoots through your body!"));
             internal_ouch(dam);
             obvious_effect = true;
         }
@@ -3659,7 +3665,7 @@ void bolt::affect_player_enchantment(bool resistible)
             break;
         }
 
-        mpr("You convulse!");
+        mpr(jtrans("You convulse!"));
 
         if (aux_source.empty())
             aux_source = "by dispel undead";
@@ -3669,7 +3675,7 @@ void bolt::affect_player_enchantment(bool resistible)
         break;
 
     case BEAM_DISINTEGRATION:
-        mpr("You are blasted!");
+        mpr(jtrans("You are blasted!"));
 
         if (aux_source.empty())
             aux_source = "disintegration bolt";
@@ -3688,7 +3694,7 @@ void bolt::affect_player_enchantment(bool resistible)
     case BEAM_PORKALATOR:
         if (!transform(ench_power, TRAN_PIG, true))
         {
-            mpr("You feel a momentary urge to oink.");
+            mpr(jtrans("You feel a momentary urge to oink."));
             break;
         }
 
@@ -3707,13 +3713,13 @@ void bolt::affect_player_enchantment(bool resistible)
         break;
 
     case BEAM_DIMENSION_ANCHOR:
-        mprf("You feel %sfirmly anchored in space.",
-             you.duration[DUR_DIMENSION_ANCHOR] ? "more " : "");
+        mprf(jtrans(make_stringf("You feel %sfirmly anchored in space.",
+             you.duration[DUR_DIMENSION_ANCHOR] ? "more " : "")));
         you.increase_duration(DUR_DIMENSION_ANCHOR, 12 + random2(15), 50);
         if (you.duration[DUR_TELEPORT])
         {
             you.duration[DUR_TELEPORT] = 0;
-            mpr("Your teleport is interrupted.");
+            mpr(jtrans("Your teleport is interrupted."));
         }
         you.redraw_evasion = true;
         obvious_effect = true;
@@ -3721,7 +3727,7 @@ void bolt::affect_player_enchantment(bool resistible)
 
     case BEAM_VULNERABILITY:
         if (!you.duration[DUR_LOWERED_MR])
-            mpr("Your magical defenses are stripped away!");
+            mpr(jtrans("Your magical defenses are stripped away!"));
         you.increase_duration(DUR_LOWERED_MR, 12 + random2(18), 50);
         obvious_effect = true;
         break;
@@ -3747,7 +3753,7 @@ void bolt::affect_player_enchantment(bool resistible)
             break;
         }
 
-        mpr("You feel yourself grow more vulnerable to poison.");
+        mpr(jtrans("You feel yourself grow more vulnerable to poison."));
         you.increase_duration(DUR_POISON_VULN, 12 + random2(18), 50);
         obvious_effect = true;
         break;
@@ -3765,8 +3771,8 @@ void bolt::affect_player_enchantment(bool resistible)
             canned_msg(MSG_NOTHING_HAPPENS);
             break;
         }
-        mprf(MSGCH_WARN, "Your magic feels %stainted.",
-             you.duration[DUR_SAP_MAGIC] ? "more " : "");
+        mprf(MSGCH_WARN, jtrans(make_stringf("Your magic feels %stainted.",
+             you.duration[DUR_SAP_MAGIC] ? "more " : "")));
         you.increase_duration(DUR_SAP_MAGIC, random_range(20, 30), 50);
         break;
 
@@ -3775,7 +3781,7 @@ void bolt::affect_player_enchantment(bool resistible)
         int amount = min(you.magic_points, random2avg(ench_power / 8, 3));
         if (!amount)
             break;
-        mprf(MSGCH_WARN, "You feel your power leaking away.");
+        mprf(MSGCH_WARN, jtrans("You feel your power leaking away."));
         drain_mp(amount);
         if (agent() && (agent()->type == MONS_EYE_OF_DRAINING
                         || agent()->type == MONS_GHOST_MOTH))
@@ -3809,7 +3815,7 @@ void bolt::affect_player_enchantment(bool resistible)
 
     default:
         // _All_ enchantments should be enumerated here!
-        mpr("Software bugs nibble your toes!");
+        mpr(jtrans("Software bugs nibble your toes!"));
         break;
     }
 
@@ -3915,7 +3921,8 @@ void bolt::affect_player()
         {
             if (hit_verb.empty())
                 hit_verb = engulfs ? "engulfs" : "hits";
-            mprf("The %s %s you!", name.c_str(), hit_verb.c_str());
+            mprf(jtransc("The %s %s you!"), name.c_str(),
+                 tagged_jtransc("[verb]", hit_verb));
         }
 
         affect_player_enchantment();
@@ -4007,7 +4014,7 @@ void bolt::affect_player()
             && item_is_jelly_edible(*item)
             && coinflip())
         {
-            mprf("Your attached jelly eats %s!", item->name(DESC_THE).c_str());
+            mprf(jtransc("Your attached jelly eats %s!"), item->name(DESC_THE).c_str());
             inc_hp(random2(hurted / 2));
             canned_msg(MSG_GAIN_HEALTH);
             drop_item = false;
@@ -4037,7 +4044,7 @@ void bolt::affect_player()
     // Manticore spikes
     if (origin_spell == SPELL_THROW_BARBS && hurted > 0)
     {
-        mpr("The barbed spikes become lodged in your body.");
+        mpr(jtrans("The barbed spikes become lodged in your body."));
         if (!you.duration[DUR_BARBS])
             you.set_duration(DUR_BARBS,  random_range(3, 6));
         else
@@ -4102,7 +4109,7 @@ void bolt::affect_player()
         }
         else
         {
-            mprf(MSGCH_WARN, "You are encased in ice.");
+            mprf(MSGCH_WARN, jtrans("You are encased in ice."));
             you.duration[DUR_FROZEN] = (2 + random2(3)) * BASELINE_DELAY;
         }
     }
@@ -4341,7 +4348,7 @@ void bolt::tracer_nonenchantment_affect_monster(monster* mon)
     if (!is_tracer && final > 0)
     {
         for (const string &msg : messages)
-            mprf(MSGCH_MONSTER_DAMAGE, "%s", msg.c_str());
+            mprf(MSGCH_MONSTER_DAMAGE, "%s", jtransc(msg));
     }
 
     // Either way, we could hit this monster, so update range used.
@@ -4565,7 +4572,7 @@ void bolt::monster_post_hit(monster* mon, int dmg)
                 {
                     if (you.see_cell(*ai))
                     {
-                        mprf("The sticky flame splashes onto %s!",
+                        mprf(jtransc("The sticky flame splashes onto %s!"),
                              victim->name(DESC_THE).c_str());
                     }
                     if (victim->is_player())
@@ -4678,15 +4685,15 @@ void bolt::knockback_actor(actor *act, int dam)
     {
         if (origin_spell == SPELL_CHILLING_BREATH)
         {
-            mprf("%s %s blown backwards by the freezing wind.",
+            mprf(jtransc("%s %s blown backwards by the freezing wind."),
                  act->name(DESC_THE).c_str(),
-                 act->conj_verb("are").c_str());
+                 act->conj_verb_j("are").c_str());
         }
         else
         {
-            mprf("%s %s knocked back by the %s.",
+            mprf(jtransc("%s %s knocked back by the %s."),
                  act->name(DESC_THE).c_str(),
-                 act->conj_verb("are").c_str(),
+                 act->conj_verb_j("are").c_str(),
                  name.c_str());
         }
     }
@@ -4728,16 +4735,16 @@ bool bolt::attempt_block(monster* mon)
         {
             if (shield && is_shield(*shield) && shield_reflects(*shield))
             {
-                mprf("%s reflects the %s off %s %s!",
+                mprf(jtransc("%s reflects the %s off %s %s!"),
                      mon->name(DESC_THE).c_str(),
                      name.c_str(),
-                     mon->pronoun(PRONOUN_POSSESSIVE).c_str(),
+//                   mon->pronoun(PRONOUN_POSSESSIVE).c_str(),
                      shield->name(DESC_PLAIN).c_str());
                 ident_reflector(shield);
             }
             else
             {
-                mprf("The %s bounces off an invisible shield around %s!",
+                mprf(jtransc("The %s bounces off an invisible shield around %s!"),
                      name.c_str(),
                      mon->name(DESC_THE).c_str());
 
@@ -4747,13 +4754,13 @@ bool bolt::attempt_block(monster* mon)
             }
         }
         else if (you.see_cell(pos()))
-            mprf("The %s bounces off of thin air!", name.c_str());
+            mprf(jtransc("The %s bounces off of thin air!"), name.c_str());
 
         reflect();
     }
     else if (you.see_cell(pos()))
     {
-        mprf("%s blocks the %s.",
+        mprf(jtransc("%s blocks the %s."),
              mon->name(DESC_THE).c_str(), name.c_str());
         finish_beam();
     }
@@ -4793,13 +4800,13 @@ void bolt::affect_monster(monster* mon)
         if (you.see_cell(mon->pos()))
         {
             if (testbits(mon->flags, MF_DEMONIC_GUARDIAN))
-                mpr("Your demonic guardian avoids your attack.");
+                mpr(jtrans("Your demonic guardian avoids your attack."));
             else if (!bush_immune(*mon))
             {
-                simple_god_message(
+                simple_god_message(jtrans(
                     make_stringf(" protects %s plant from harm.",
                         attitude == ATT_FRIENDLY ? "your" : "a").c_str(),
-                    GOD_FEDHAS);
+                    GOD_FEDHAS));
             }
         }
     }
@@ -4807,7 +4814,7 @@ void bolt::affect_monster(monster* mon)
     if (flavour == BEAM_WATER && mon->type == MONS_WATER_ELEMENTAL && !is_tracer)
     {
         if (you.see_cell(mon->pos()))
-            mprf("The %s passes through %s.", name.c_str(), mon->name(DESC_THE).c_str());
+            mprf(jtransc("The %s passes through %s."), name.c_str(), mon->name(DESC_THE).c_str());
     }
 
     if (ignores_monster(mon))
@@ -4852,11 +4859,12 @@ void bolt::affect_monster(monster* mon)
                 hit_verb = engulfs ? "engulfs" : "hits";
             if (you.see_cell(mon->pos()))
             {
-                mprf("The %s %s %s.", name.c_str(), hit_verb.c_str(),
-                     mon->name(DESC_THE).c_str());
+                mprf(jtransc("The %s %s %s."), name.c_str(),
+                     mon->name(DESC_THE).c_str(),
+                     tagged_jtransc("[verb]", hit_verb));
             }
             else if (heard && !hit_noise_msg.empty())
-                mprf(MSGCH_SOUND, "%s", hit_noise_msg.c_str());
+                mprf(MSGCH_SOUND, "%s", jtransc(hit_noise_msg));
         }
         // no to-hit check
         enchantment_affect_monster(mon);
@@ -4956,14 +4964,16 @@ void bolt::affect_monster(monster* mon)
             if (_test_beam_hit(beam_hit, rand_ev, pierce, 0, r))
             {
                 string deflects = (defl == 2) ? "deflects" : "repels";
-                msg::stream << mon->name(DESC_THE) << " "
-                            << deflects << " the " << name
-                            << '!' << endl;
+                msg::stream << make_stringf(jtransc("{name} {deflects} the {bolt name}!"),
+                                            mon->name(DESC_THE).c_str(),
+                                            name.c_str(),
+                                            tagged_jtransc("[verb]", deflects)) << endl;
             }
             else
             {
-                msg::stream << "The " << name << " misses "
-                            << mon->name(DESC_THE) << '.' << endl;
+                msg::stream << make_stringf(jtransc("The {bolt name} misses {name}."),
+                                            name.c_str(),
+                                            mon->name(DESC_THE).c_str()) << endl;
             }
         }
         if (deflected)
@@ -4984,7 +4994,9 @@ void bolt::affect_monster(monster* mon)
     if (you_worship(GOD_FEDHAS)
         && (flavour == BEAM_SPORE
             || source_id == MID_PLAYER
-               && aux_source.find("your miscasting") != string::npos))
+               && (aux_source.find("your miscasting") != string::npos ||
+                   (starts_with(aux_source, jtrans("your")) &&
+                    ends_with(aux_source, tagged_jtrans("[get_default_cause()]", "miscasting"))))))
     {
         conducts[0].enabled = false;
     }
@@ -5005,26 +5017,26 @@ void bolt::affect_monster(monster* mon)
         if (hit_verb.empty())
             hit_verb = engulfs ? "engulfs" : "hits";
 
-        mprf("The %s %s %s.",
+        mprf(jtransc("The %s %s %s."),
              name.c_str(),
-             hit_verb.c_str(),
-             mon->name(DESC_THE).c_str());
+             mon->name(DESC_THE).c_str(),
+             tagged_jtransc("[verb]", hit_verb));
 
     }
     else if (heard && !hit_noise_msg.empty())
-        mprf(MSGCH_SOUND, "%s", hit_noise_msg.c_str());
+        mprf(MSGCH_SOUND, "%s", jtransc(hit_noise_msg));
     // The player might hear something, if _they_ fired a missile
     // (not magic beam).
     else if (!silenced(you.pos()) && flavour == BEAM_MISSILE
              && YOU_KILL(thrower))
     {
-        mprf(MSGCH_SOUND, "The %s hits something.", name.c_str());
+        mprf(MSGCH_SOUND, jtransc("The %s hits something."), name.c_str());
     }
 
     if (final > 0)
     {
         for (const string &msg : messages)
-            mprf(MSGCH_MONSTER_DAMAGE, "%s", msg.c_str());
+            mprf(MSGCH_MONSTER_DAMAGE, "%s", jtransc(msg));
     }
 
     // Apply flavoured specials.
@@ -5289,9 +5301,9 @@ bool enchant_monster_invisible(monster* mon, const string &how)
         // Can't use simple_monster_message(*) here, since it checks
         // for visibility of the monster (and it's now invisible).
         // - bwr
-        mprf("%s %s%s",
+        mprf(jtransc(is_visible ? "{name} {how} for a moment." : "{name} {how}!"),
              monster_name.c_str(),
-             how.c_str(),
+             jtransc(how),
              is_visible ? " for a moment."
                         : "!");
 
@@ -5678,7 +5690,7 @@ mon_resist_type bolt::apply_enchantment_to_monster(monster* mon)
         {
             if (you.can_see(*mon))
             {
-                mprf("%s magical defenses are stripped away.",
+                mprf(jtransc("%s magical defenses are stripped away."),
                      mon->name(DESC_ITS).c_str());
                 obvious_effect = true;
             }
@@ -5736,7 +5748,7 @@ mon_resist_type bolt::apply_enchantment_to_monster(monster* mon)
         {
             if (you.can_see(*mon))
             {
-                mprf("%s seems less certain of %s magic.",
+                mprf(jtransc("%s seems less certain of %s magic."),
                      mon->name(DESC_THE).c_str(), mon->pronoun(PRONOUN_POSSESSIVE).c_str());
                 obvious_effect = true;
             }
@@ -5756,8 +5768,8 @@ mon_resist_type bolt::apply_enchantment_to_monster(monster* mon)
                                   dur));
         if (you.can_see(*mon))
         {
-            mprf("%s magic leaks into the air.",
-                 apostrophise(mon->name(DESC_THE)).c_str());
+            mprf(jtransc("%s magic leaks into the air."),
+                 mon->name(DESC_THE).c_str());
         }
 
         if (agent() && (agent()->type == MONS_EYE_OF_DRAINING
@@ -5918,8 +5930,8 @@ void bolt::refine_for_explosion()
 
     if (item != nullptr)
     {
-        seeMsg  = "The " + item->name(DESC_PLAIN, false, false, false)
-                  + " explodes!";
+        seeMsg  = make_stringf(jtransc("The {name} explodes!"),
+                               item->name(DESC_PLAIN, false, false, false).c_str());
         hearMsg = "You hear an explosion!";
     }
     else
@@ -5929,7 +5941,7 @@ void bolt::refine_for_explosion()
         if (explosion)
         {
             seeMsg = explosion->seeMsg;
-            hearMsg = make_stringf("You hear %s!", explosion->sound);
+            hearMsg = make_stringf(jtransc("You hear %s!"), jtransc(explosion->sound));
         }
         else
         {
@@ -5949,13 +5961,13 @@ void bolt::refine_for_explosion()
         heard = player_can_hear(target);
         // Check for see/hear/no msg.
         if (you.see_cell(target) || target == you.pos())
-            mpr(seeMsg);
+            mpr(jtrans(seeMsg));
         else
         {
             if (!heard)
                 msg_generated = false;
             else
-                mprf(MSGCH_SOUND, "%s", hearMsg.c_str());
+                mprf(MSGCH_SOUND, "%s", jtransc(hearMsg));
         }
     }
 }
@@ -6030,7 +6042,7 @@ bool bolt::explode(bool show_more, bool hole_in_the_middle)
     {
         if (!is_tracer && you.see_cell(pos()) && !name.empty())
         {
-            mprf(MSGCH_GOD, "By Zin's power, the %s is contained.",
+            mprf(MSGCH_GOD, jtransc("By Zin's power, the %s is contained."),
                  name.c_str());
             return true;
         }
@@ -6061,7 +6073,7 @@ bool bolt::explode(bool show_more, bool hole_in_the_middle)
         heard = heard || heard_expl;
 
         if (heard_expl && !explode_noise_msg.empty() && !you.see_cell(pos()))
-            mprf(MSGCH_SOUND, "%s", explode_noise_msg.c_str());
+            mprf(MSGCH_SOUND, "%s", jtransc(explode_noise_msg));
     }
 
     // Run DFS to determine which cells are influenced

@@ -135,5 +135,7 @@ string to_separated_line(Z start, Z end,
 #define branch_name_jc(br) (branch_name_j(br).c_str())
 #define duration_name_j(en) (tagged_jtrans("[dur]", en))
 #define duration_name_jc(en) (duration_name_j(en).c_str())
+#define zap_name_j(z) (tagged_jtrans("[zap]", z))
+#define zap_name_jc(z) (zap_name_j(z).c_str())
 
 #endif
