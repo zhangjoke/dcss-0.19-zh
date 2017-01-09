@@ -155,6 +155,7 @@ static TextDB AllDBs[] =
            "jtrans_beam.txt",
            "jtrans_behold.txt",
            "jtrans_branch.txt",
+           "jtrans_butcher.txt",
            "jtrans_chardump.txt",
            /*
            "jtrans_cloud.txt",
