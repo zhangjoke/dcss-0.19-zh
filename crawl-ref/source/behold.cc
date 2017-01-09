@@ -10,6 +10,7 @@
 #include "areas.h"
 #include "art-enum.h"
 #include "coord.h"
+#include "database.h"
 #include "env.h"
 #include "fprop.h"
 #include "state.h"
@@ -23,18 +24,18 @@ void player::add_beholder(const monster& mon, bool axe)
         {
             if (can_see(mon))
             {
-                mprf("%s's singing sounds muted, and has no effect on you.",
+                mprf(jtransc("%s's singing sounds muted, and has no effect on you."),
                      mon.name(DESC_THE).c_str());
             }
             else
-                mpr("The melody is strangely muted, and has no effect on you.");
+                mpr(jtrans("The melody is strangely muted, and has no effect on you."));
         }
         else
         {
             if (can_see(mon))
-                mprf("%s's is no longer quite as mesmerising!", mon.name(DESC_THE).c_str());
+                mprf(jtransc("%s's is no longer quite as mesmerising!"), mon.name(DESC_THE).c_str());
             else
-                mpr("Your mesmeriser suddenly seems less interesting!");
+                mpr(jtransc("Your mesmeriser suddenly seems less interesting!"));
         }
 
         return;
@@ -46,7 +47,7 @@ void player::add_beholder(const monster& mon, bool axe)
         beholders.push_back(mon.mid);
         if (!axe)
         {
-            mprf(MSGCH_WARN, "You are mesmerised by %s!",
+            mprf(MSGCH_WARN, jtransc("You are mesmerised by %s!"),
                              mon.name(DESC_THE).c_str());
         }
     }
@@ -126,7 +127,7 @@ void player::beholders_check_noise(int loudness, bool axe)
 
     if (loudness >= 20 && beheld())
     {
-        mpr("Jolted by the loud noise, you snap out of your trance!");
+        mpr(jtrans("Jolted by the loud noise, you snap out of your trance!"));
         clear_beholders();
         _removed_beholder();
     }
@@ -150,18 +151,18 @@ static void _removed_beholder_msg(const monster *mons)
         {
             if (you.can_see(mon))
             {
-                mprf("%s's singing becomes strangely muted.",
+                mprf(jtransc("%s's singing becomes strangely muted."),
                      mon.name(DESC_THE).c_str());
             }
             else
-                mpr("Something's singing becomes strangely muted.");
+                mpr(jtrans("Something's singing becomes strangely muted."));
         }
         else
         {
             if (you.can_see(mon))
-                mprf("%s's is no longer quite as mesmerising!", mon.name(DESC_THE).c_str());
+                mprf(jtransc("%s's is no longer quite as mesmerising!"), mon.name(DESC_THE).c_str());
             else
-                mpr("Your mesmeriser suddenly seems less interesting!");
+                mpr(jtrans("Your mesmeriser suddenly seems less interesting!"));
         }
 
         return;
@@ -173,26 +174,26 @@ static void _removed_beholder_msg(const monster *mons)
         {
             if (mons_is_siren_beholder(mon))
             {
-                mprf("You can no longer hear %s's singing!",
+                mprf(jtransc("You can no longer hear %s's singing!"),
                      mon.name(DESC_THE).c_str());
             }
             else
-                mpr("The silence clears your mind.");
+                mpr(jtrans("The silence clears your mind."));
             return;
         }
 
         if (mons_is_siren_beholder(mon))
-            mprf("%s stops singing.", mon.name(DESC_THE).c_str());
+            mprf(jtransc("%s stops singing."), mon.name(DESC_THE).c_str());
         else
-            mprf("%s is no longer quite as mesmerising!", mon.name(DESC_THE).c_str());
+            mprf(jtransc("%s is no longer quite as mesmerising!"), mon.name(DESC_THE).c_str());
 
         return;
     }
 
     if (mons_is_siren_beholder(mon))
-        mpr("Something stops singing.");
+        mpr(jtrans("Something stops singing."));
     else
-        mpr("Your mesmeriser is now quite boring!");
+        mpr(jtrans("Your mesmeriser is now quite boring!"));
 }
 
 // Update all beholders' status after changes.
@@ -249,8 +250,8 @@ void player::_removed_beholder(bool quiet)
         if (!quiet)
         {
             mprf(MSGCH_DURATION,
-                 coinflip() ? "You break out of your daze!"
-                            : "You are no longer entranced.");
+                 jtrans(coinflip() ? "You break out of your daze!"
+                                   : "You are no longer entranced."));
         }
     }
 }

@@ -1,35 +1,35 @@
 %%%%
 %s's singing sounds muted, and has no effect on you.
 
-%sの歌声は止み、あなたに影響を及ぼさなかった。
+%sの歌声は止み、あなたに影響を及ぼさなくなった。
 %%%%
 The melody is strangely muted, and has no effect on you.
 
-不思議と歌声が止み、あなたに影響を及ぼさなかった。
+不思議と歌声が止み、あなたに影響を及ぼさなくなった。
 %%%%
 %s's is no longer quite as mesmerising!
 
-%sはもはや魅了されていない！
+%sにはもはや魅了されていない！
 %%%%
 Your mesmeriser suddenly seems less interesting!
 
-突然に相手に興味が無くなった！
+突然、相手に興味がなくなった！
 %%%%
 You are mesmerised by %s!
 
 あなたは%sに魅了されている！
 %%%%
-For a moment, your mind becomes perfectly clear!
+Jolted by the loud noise, you snap out of your trance!
 
-一瞬、あなたの精神は完全に澄みきった！
+大きな物音にショックを受け、あなたはトランス状態から抜け出した！
 %%%%
 %s's singing becomes strangely muted.
 
-%sの歌声は奇妙に途切れた。
+%sの歌声は不思議と途切れた。
 %%%%
 Something's singing becomes strangely muted.
 
-何者かの歌声は奇妙に途切れた。
+何者かの歌声は不思議と途切れた。
 %%%%
 You can no longer hear %s's singing!
 
@@ -41,15 +41,15 @@ The silence clears your mind.
 %%%%
 %s stops singing.
 
-%sは歌うのを止めた。
+%sは歌うのをやめた。
 %%%%
 %s is no longer quite as mesmerising!
 
-%sはもはや魅了されていない！
+%sはもう魅力的ではなくなった！
 %%%%
 Something stops singing.
 
-何者かは歌うのを止めた。
+何者かは歌うのをやめた。
 %%%%
 Your mesmeriser is now quite boring!
 
