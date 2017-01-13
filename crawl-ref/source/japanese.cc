@@ -29,16 +29,30 @@ const string decline_pronoun_j(gender_type gender, pronoun_type variant)
     ASSERT_RANGE(gender, 0, NUM_GENDERS);
     ASSERT_RANGE(variant, 0, NUM_PRONOUN_CASES);
 
+    const char *variant_tag = "buggy";
+    switch (variant)
+    {
+    case PRONOUN_SUBJECTIVE: variant_tag = "subj"; break;
+    case PRONOUN_POSSESSIVE: variant_tag = "poss"; break;
+    case PRONOUN_REFLEXIVE:  variant_tag = "refl"; break;
+    case PRONOUN_OBJECTIVE:  variant_tag = "obj"; break;
+    default: break;
+    }
+
     switch (gender)
     {
     case GENDER_NEUTER:
-        return tagged_jtrans("[gender neuter]", _pronoun_declension_j[gender][variant]);
+        return tagged_jtrans(make_stringf("[gender neuter %s]", variant_tag),
+                             _pronoun_declension_j[gender][variant]);
     case GENDER_MALE:
-        return tagged_jtrans("[gender male]", _pronoun_declension_j[gender][variant]);
+        return tagged_jtrans(make_stringf("[gender male %s]", variant_tag),
+                             _pronoun_declension_j[gender][variant]);
     case GENDER_FEMALE:
-        return tagged_jtrans("[gender female]", _pronoun_declension_j[gender][variant]);
+        return tagged_jtrans(make_stringf("[gender female %s]", variant_tag),
+                             _pronoun_declension_j[gender][variant]);
     case GENDER_YOU:
-        return tagged_jtrans("[gender you]", _pronoun_declension_j[gender][variant]);
+        return tagged_jtrans(make_stringf("[gender you %s]", variant_tag),
+                             _pronoun_declension_j[gender][variant]);
     default:
         return make_stringf("buggy pronoun: %d, %d",
                             gender, variant);
