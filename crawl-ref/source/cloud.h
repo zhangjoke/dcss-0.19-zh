@@ -52,6 +52,7 @@ bool is_damaging_cloud(cloud_type type, bool temp = false, bool yours = false);
 bool is_harmless_cloud(cloud_type type);
 bool is_opaque_cloud(cloud_type ctype);
 string cloud_type_name(cloud_type type, bool terse = true);
+string cloud_type_name_j(cloud_type type, bool terse = true);
 cloud_type random_smoke_type();
 cloud_type cloud_name_to_type(const string &name);
 const cloud_tile_info& cloud_type_tile_info(cloud_type type);

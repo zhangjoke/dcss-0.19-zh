@@ -15,6 +15,7 @@
 #include "art-enum.h"
 #include "colour.h"
 #include "coordit.h"
+#include "database.h"
 #include "dungeon.h"
 #include "english.h"
 #include "godconduct.h"
@@ -426,7 +427,7 @@ static void _spread_fire(const cloud_struct &cloud)
             continue;
 
         if (you.see_cell(*ai))
-            mpr("The forest fire spreads!");
+            mpr(jtrans("The forest fire spreads!"));
         destroy_wall(*ai);
         env.cloud[*ai] = cloud;
         env.cloud[*ai].pos = *ai;
@@ -590,7 +591,7 @@ void manage_clouds()
         {
             const bool you_see = you.see_cell(cloud.pos);
             if (you_see && !you_worship(GOD_QAZLAL))
-                mpr("Lightning arcs down from a storm cloud!");
+                mpr(jtrans("Lightning arcs down from a storm cloud!"));
             noisy(spell_effect_noise(SPELL_LIGHTNING_BOLT), cloud.pos,
                   you_see || you_worship(GOD_QAZLAL) ? nullptr
                   : "You hear a mighty clap of thunder!");
@@ -634,7 +635,7 @@ static void _maybe_leave_water(const coord_def pos)
     if (grd(pos) != feat)
     {
         if (you.pos() == pos && you.ground_level())
-            mpr("The rain has left you waist-deep in water!");
+            mpr(jtrans("The rain has left you waist-deep in water!"));
         temp_change_terrain(pos, feat, random_range(500, 1000),
                             TERRAIN_CHANGE_FLOOD);
     }
@@ -985,10 +986,10 @@ static bool _actor_apply_cloud_side_effects(actor *act,
         {
             if (you.can_see(*act))
             {
-                mprf("%s %s in the rain.",
+                mprf(jtransc("%s %s in the rain."),
                      act->name(DESC_THE).c_str(),
-                     act->conj_verb(silenced(act->pos())?
-                                    "steam" : "sizzle").c_str());
+                     act->conj_verb_j(silenced(act->pos())?
+                                      "steam" : "sizzle").c_str());
             }
         }
         if (player)
@@ -1007,7 +1008,7 @@ static bool _actor_apply_cloud_side_effects(actor *act,
         {
             if (1 + random2(27) >= you.experience_level)
             {
-                mpr("You choke on the stench!");
+                mpr(jtrans("You choke on the stench!"));
                 // effectively one or two turns, since it will be
                 // decremented right away
                 confuse_player(coinflip() ? 3 : 2);
@@ -1078,7 +1079,7 @@ static bool _actor_apply_cloud_side_effects(actor *act,
     case CLOUD_MUTAGENIC:
         if (player)
         {
-            mpr("The mutagenic energy flows into you.");
+            mpr(jtrans("The mutagenic energy flows into you."));
             // It's possible that you got trampled into the mutagenic cloud
             // and it's not your fault... so we'll say it's not intentional.
             // (it's quite bad in any case, so players won't scum, probably.)
@@ -1231,7 +1232,7 @@ static int _actor_cloud_damage(const actor *act,
         }
 
         if (act->is_player())
-            mpr("You are struck by lightning!");
+            mpr(jtrans("You are struck by lightning!"));
         else if (you.can_see(*act))
         {
             simple_monster_message(*act->as_monster(),
@@ -1239,8 +1240,8 @@ static int _actor_cloud_damage(const actor *act,
         }
         else if (you.see_cell(act->pos()))
         {
-            mpr("Lightning from the thunderstorm strikes something you cannot "
-                "see.");
+            mpr(jtrans("Lightning from the thunderstorm strikes something you cannot "
+                       "see."));
         }
         noisy(spell_effect_noise(SPELL_LIGHTNING_BOLT), act->pos(),
               act->is_player() || you.see_cell(act->pos())
@@ -1314,7 +1315,7 @@ int actor_apply_cloud(actor *act)
              cloud.cloud_name().c_str());
 
         act->hurt(oppressor, final_damage, BEAM_MISSILE,
-                  KILLED_BY_CLOUD, "", cloud.cloud_name(true));
+                  KILLED_BY_CLOUD, "", cloud.cloud_name_j(true));
     }
 
     return final_damage;
@@ -1499,6 +1500,72 @@ string cloud_type_name(cloud_type type, bool terse)
     return clouds[type].verbose_name;
 }
 
+string cloud_type_name_j(cloud_type type, bool terse)
+{
+    if (type <= CLOUD_NONE || type >= NUM_CLOUD_TYPES)
+        return "buggy goodness(ja)";
+
+    ASSERT(clouds[type].terse_name);
+    if (terse || clouds[type].verbose_name == nullptr)
+        switch (type)
+        {
+        case CLOUD_FIRE:
+        case CLOUD_POISON:
+        case CLOUD_STEAM:
+            return jtrans(clouds[type].terse_name) + "の雲";
+
+        case CLOUD_MEPHITIC:
+        case CLOUD_RAIN:
+        case CLOUD_STORM:
+            return jtrans(clouds[type].terse_name) + "雲";
+
+        case CLOUD_COLD:
+        case CLOUD_BLACK_SMOKE:
+        case CLOUD_GREY_SMOKE:
+        case CLOUD_BLUE_SMOKE:
+        case CLOUD_PURPLE_SMOKE:
+        case CLOUD_TLOC_ENERGY:
+        case CLOUD_FOREST_FIRE:
+        case CLOUD_INK:
+        case CLOUD_PETRIFY:
+        case CLOUD_HOLY_FLAMES:
+        case CLOUD_MIASMA:
+        case CLOUD_MIST:
+        case CLOUD_CHAOS:
+        case CLOUD_MUTAGENIC:
+        case CLOUD_MAGIC_TRAIL:
+        case CLOUD_TORNADO:
+        case CLOUD_DUST:
+        case CLOUD_SPECTRAL:
+        case CLOUD_ACID:
+        case CLOUD_NEGATIVE_ENERGY:
+            return jtrans(clouds[type].terse_name);
+
+        default:
+            return "buggy cloud";
+        }
+    else
+        switch (type)
+        {
+        case CLOUD_FIRE:
+        case CLOUD_STEAM:
+            return jtrans(clouds[type].terse_name) + "の雲";
+
+        case CLOUD_RAIN:
+        case CLOUD_STORM:
+            return jtrans(clouds[type].terse_name) + "雲";
+
+        case CLOUD_COLD:
+        case CLOUD_TLOC_ENERGY:
+        case CLOUD_FOREST_FIRE:
+        case CLOUD_MIASMA:
+            return jtrans(clouds[type].terse_name);
+
+        default:
+            return "buggy verbose flame";
+        }
+}
+
 cloud_type cloud_name_to_type(const string &name)
 {
     const string lower_name = lowercase_string(name);
@@ -1586,6 +1653,11 @@ string cloud_struct::cloud_name(bool terse) const
     return cloud_type_name(type, terse);
 }
 
+string cloud_struct::cloud_name_j(bool terse) const
+{
+    return cloud_type_name_j(type, terse);
+}
+
 void cloud_struct::announce_actor_engulfed(const actor *act,
                                            bool beneficial) const
 {
@@ -1596,11 +1668,11 @@ void cloud_struct::announce_actor_engulfed(const actor *act,
     // Normal clouds. (Unmodified rain clouds have a different message.)
     if (type != CLOUD_RAIN && type != CLOUD_STORM)
     {
-        mprf("%s %s in %s.",
+        mprf(jtransc("%s %s in %s."),
              act->name(DESC_THE).c_str(),
-             beneficial ? act->conj_verb("bask").c_str()
-                        : (act->conj_verb("are") + " engulfed").c_str(),
-             cloud_name().c_str());
+             cloud_name_j().c_str(),
+             beneficial ? act->conj_verb_j("bask").c_str()
+                        : jtransc(" engulfed"));
         return;
     }
 
@@ -1608,10 +1680,10 @@ void cloud_struct::announce_actor_engulfed(const actor *act,
     // of spam reduction.
     if (act->is_player())
     {
-        mprf("%s %s standing in %s.",
+        mprf(jtransc("%s %s standing in %s."),
              act->name(DESC_THE).c_str(),
-             act->conj_verb("are").c_str(),
-             type == CLOUD_STORM ? "a thunderstorm" : "the rain");
+             act->conj_verb_j("are").c_str(),
+             tagged_jtransc("[cloud]", type == CLOUD_STORM ? "a thunderstorm" : "the rain"));
     }
 }
 
@@ -1773,11 +1845,11 @@ void start_still_winds()
 {
     delete_all_clouds();
     env.level_state |= LSTATE_STILL_WINDS;
-    mprf(MSGCH_WARN, "%s", "The air becomes perfectly still.");
+    mprf(MSGCH_WARN, "%s", jtransc("The air becomes perfectly still."));
 }
 
 void end_still_winds()
 {
     env.level_state &= ~LSTATE_STILL_WINDS;
-    mpr("The air resumes its normal movements.");
+    mpr(jtrans("The air resumes its normal movements."));
 }
