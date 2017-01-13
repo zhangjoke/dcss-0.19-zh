@@ -1,7 +1,11 @@
 %%%%
-Desecrating this corpse would be a sin. Continue anyway?
+It would be a sin to bottle or butcher this!
 
-この死体を捌くことに罪を感じる。それでも続けますか？
+この死体から採血したり解体するのは罪になるだろう！
+%%%%
+It would be a sin to butcher this!
+
+この死体を解体するのは罪になるだろう！
 %%%%
 You bottle the corpse's blood.
 
@@ -11,39 +15,51 @@ You butcher %s.
 
 あなたは%sを解体した。
 %%%%
-You enjoyed that.
-
-あなたはそれを楽しんだ。
-%%%%
 There isn't anything here!
 
 ここには何もない！
 %%%%
-There isn't anything to %sbutcher here.
+There isn't anything to bottle or butcher here.
 
-ここには%s解体するようなものはない。
+ここには採血したり食肉に解体できるようなものはない。
 %%%%
-bottle or
+There isn't anything to butcher here.
 
-採血したり
-%%%%
-There isn't anything suitable to %sbutcher here.
-
-ここには%s解体するのに適したものはない。
+ここには食肉に解体できるようなものはない。
 %%%%
 Choose a corpse to bottle or butcher
 
-解体や採血する死体を選んでください
+採血したり解体する死体を選んでください。
 %%%%
 Choose a corpse to butcher
 
-解体する死体を選んでください
+解体する死体を選んでください。
 %%%%
-%s %s? [(y)es/(c)hop/(n)o/(a)ll/(q)uit/?]
+%s %s? [(y)es/(c)hoosy/(n)o/(a)ll/(e)dible/(q)uit/?]
 
-%s%sする？[(y)はい/(c)解体/(n)いいえ/(a)残り全部/(q)中止/?]
+%s%sしますか？ [(y)はい/(c)選り好み/(n)いいえ/(a)残り全部/(e)可食のみ/(q)中止/?]
 %%%%
-There isn't anything else to %sbutcher here.
+[butchery()]Bottle
 
-ここには他に%s解体するようなものはない。
+から採血
+%%%%
+[butchery()]Butcher
+
+を解体
+%%%%
+There isn't anything edible to bottle or butcher here.
+
+ここには他に採血したり解体するような可食物はない。
+%%%%
+There isn't anything edible to butcher here.
+
+ここには他に解体するような可食物はない。
+%%%%
+There isn't anything else to bottle or butcher here.
+
+ここには他に採血したり解体するようなものはない。
+%%%%
+There isn't anything else to butcher here.
+
+ここには他に解体するようなものはない。
 %%%%
