@@ -21,6 +21,7 @@
 #include "artefact.h"
 #include "art-enum.h"
 #include "branch.h"
+#include "database.h"
 #include "describe.h"
 #include "dgn-overview.h"
 #include "dungeon.h"
@@ -32,6 +33,7 @@
 #include "invent.h"
 #include "itemprop.h"
 #include "items.h"
+#include "japanese.h"
 #include "kills.h"
 #include "libutil.h"
 #include "melee_attack.h"
@@ -89,6 +91,32 @@ static void _sdump_lua(dump_params &);
 #endif
 static bool _write_dump(const string &fname, const dump_params &,
                         bool print_dump_path = false);
+
+static string _multiline_trim_right(const string &text)
+{
+    vector<string> lines = split_string("\n", text, false, true);
+    for (string &line : lines)
+    {
+        string s = nbsp2sp(line);
+        line = trim_string_right(s);
+    }
+
+    return comma_separated_line(lines.begin(), lines.end(), "\n", "\n");
+}
+
+static string _trim_section(const string& section_text)
+{
+    if (trimmed_string(section_text).empty())
+        return "";
+
+    string text = _multiline_trim_right(section_text);
+
+    // trim '\n'
+    text.erase(0, text.find_first_not_of("\n"));
+    text.erase(text.find_last_not_of("\n") + 1);
+
+    return "\n" + text + "\n";
+}
 
 struct dump_section_handler
 {
@@ -188,48 +216,58 @@ bool dump_char(const string &fname, bool quiet, bool full_id,
 
 static void _sdump_header(dump_params &par)
 {
+    string text;
     string type = crawl_state.game_type_name();
     if (type.empty())
         type = CRAWL;
     else
         type += " DCSS";
 
-    par.text += " " + type + " version " + Version::Long;
+    text += " " + type + " 日本語版 " + Version::Long;
 #ifdef USE_TILE_LOCAL
-    par.text += " (tiles)";
+    text += " (tiles)";
 #elif defined(USE_TILE_WEB)
     if (::tiles.is_controlled_from_web())
-        par.text += " (webtiles)";
+        text += " (webtiles)";
     else
-        par.text += " (console)";
+        text += " (console)";
 #else
-    par.text += " (console)";
+    text += " (console)";
 #endif
-    par.text += " character file.\n\n";
+    text += jtrans_notrim(" character file.\n\n");
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_stats(dump_params &par)
 {
-    par.text += dump_overview_screen(par.full_id);
-    par.text += "\n\n";
+    par.text += _trim_section(dump_overview_screen(par.full_id));
 }
 
 static void _sdump_hunger(dump_params &par)
 {
-    if (par.se)
-        par.text += "You were ";
-    else
-        par.text += "You are ";
+    string text = jtrans(make_stringf("You are %s.",
+                                      hunger_level()));
 
-    par.text += hunger_level();
-    par.text += ".\n\n";
+    if (par.se)
+    {
+        text = replace_all(text, "だ。", "だった。");
+        text = replace_all(text, "い。", "かった。");
+        text = replace_all(text, "いる。", "いた。");
+        text = replace_all(text, "なる。", "なっていた。");
+    }
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_transform(dump_params &par)
 {
-    string &text(par.text);
+    string text;
     if (you.form)
-        text += get_form()->get_description(par.se) + "\n\n";}
+        text += get_form()->get_description(par.se) + "\n\n";
+
+    par.text += _trim_section(text);
+}
 
 static branch_type single_portals[] =
 {
@@ -246,82 +284,64 @@ static branch_type single_portals[] =
 
 static void _sdump_visits(dump_params &par)
 {
-    string &text(par.text);
-
-    string have = "have ";
-    string seen = "seen";
-    if (par.se) // you died -> past tense
-    {
-        have = "";
-        seen = "saw";
-    }
-
+    string text;
     vector<PlaceInfo> branches_visited = you.get_all_place_info(true, true);
 
     PlaceInfo branches_total;
     for (const PlaceInfo &branch : branches_visited)
         branches_total += branch;
 
-    text += make_stringf("You %svisited %d branch",
-                         have.c_str(), (int)branches_visited.size());
-    if (branches_visited.size() != 1)
-        text += "es";
+    text += make_stringf(jtransc("You %svisited %d branch"),
+                         (int)branches_visited.size())
+          + general_counter_suffix((int)branches_visited.size());
     if (brdepth[root_branch] > 1 || branches_visited.size() != 1)
     {
-        text += make_stringf(" of the dungeon, and %s %d of its levels.\n",
-                             seen.c_str(), branches_total.levels_seen);
+        text += make_stringf(jtranslnc(" of the dungeon, and %s %d of its levels.\n"),
+                             branches_total.levels_seen);
     }
+    else
+        text += "を訪れている。\n";
 
     PlaceInfo place_info = you.get_place_info(BRANCH_PANDEMONIUM);
     if (place_info.num_visits > 0)
     {
-        text += make_stringf("You %svisited Pandemonium %d time",
-                             have.c_str(), place_info.num_visits);
-        if (place_info.num_visits > 1)
-            text += "s";
-        text += make_stringf(", and %s %d of its levels.\n",
-                             seen.c_str(), place_info.levels_seen);
+        text += make_stringf(jtransc("You %svisited Pandemonium %d time"),
+                             place_info.num_visits);
+        text += make_stringf(jtrans_notrimc(", and %s %d of its levels.\n"),
+                             place_info.levels_seen);
     }
 
     place_info = you.get_place_info(BRANCH_ABYSS);
     if (place_info.num_visits > 0)
     {
-        text += make_stringf("You %svisited the Abyss %d time",
-                             have.c_str(), place_info.num_visits);
-        if (place_info.num_visits > 1)
-            text += "s";
-        text += ".\n";
+        text += make_stringf(jtransc("You %svisited the Abyss %d time"),
+                             place_info.num_visits);
+        text += jtrans_notrim(".\n");
     }
 
     place_info = you.get_place_info(BRANCH_BAZAAR);
     if (place_info.num_visits > 0)
     {
-        text += make_stringf("You %svisited %d bazaar",
-                             have.c_str(), place_info.num_visits);
-        if (place_info.num_visits > 1)
-            text += "s";
-        text += ".\n";
+        text += make_stringf(jtransc("You %svisited %d bazaar"),
+                             place_info.num_visits);
+        text += jtrans_notrim(".\n");
     }
 
     place_info = you.get_place_info(BRANCH_ZIGGURAT);
     if (place_info.num_visits > 0)
     {
         int num_zigs = place_info.num_visits;
-        text += make_stringf("You %s%s %d ziggurat",
-                             have.c_str(),
-                             (num_zigs == you.zigs_completed) ? "completed"
-                                                              : "visited",
-                             num_zigs);
-        if (num_zigs > 1)
-            text += "s";
+        text += make_stringf(jtransc("You %s%s %d ziggurat"),
+                             num_zigs,
+                             (num_zigs == you.zigs_completed) ? "を踏破し"
+                                                              : "に行き");
         if (num_zigs != you.zigs_completed && you.zigs_completed)
-            text += make_stringf(" (completing %d)", you.zigs_completed);
-        text += make_stringf(", and %s %d of %s levels",
-                             seen.c_str(), place_info.levels_seen,
-                             num_zigs > 1 ? "their" : "its");
+            text += make_stringf(jtransc(" (completing %d)"), you.zigs_completed);
+        text += make_stringf(jtransc(", and %s %d of %s levels"),
+                             place_info.levels_seen);
         if (num_zigs != 1 && !you.zigs_completed)
-            text += make_stringf(" (deepest: %d)", you.zig_max);
-        text += ".\n";
+            text += make_stringf(jtransc(" (deepest: %d)"), you.zig_max);
+        text += "\n";
     }
 
     vector<string> misc_portals;
@@ -330,70 +350,72 @@ static void _sdump_visits(dump_params &par)
         place_info = you.get_place_info(br);
         if (!place_info.num_visits)
             continue;
-        string name = branches[br].shortname;
+        string name = branch_name_j(branches[br].shortname);
         if (place_info.num_visits > 1)
-            name += make_stringf(" (%d times)", place_info.num_visits);
+            name += make_stringf(jtransc(" (%d times)"), place_info.num_visits);
         misc_portals.push_back(name);
     }
     if (!misc_portals.empty())
     {
-        text += "You " + have + "also visited: "
-                + comma_separated_line(misc_portals.begin(),
-                                       misc_portals.end())
-                + ".\n";
+        text += make_stringf(jtrans_notrimc("You {have} also visited: {portals}.\n"),
+                             to_separated_fn(misc_portals.begin(),
+                                             misc_portals.end(),
+                                             [](const string &s){ return branch_name_j(s); }).c_str());
     }
 
-    text += "\n";
+    if (par.se)
+        text = replace_all(text, "ている。", "ていた。");
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_gold(dump_params &par)
 {
-    string &text(par.text);
-
+    string text;
     int lines = 0;
-
-    const char* have = "have ";
-    if (par.se) // you died -> past tense
-        have = "";
 
     if (you.attribute[ATTR_GOLD_FOUND] > 0)
     {
         lines++;
-        text += make_stringf("You %scollected %d gold pieces.\n", have,
+        text += make_stringf(jtrans_notrimc("You %scollected %d gold pieces.\n"),
                              you.attribute[ATTR_GOLD_FOUND]);
     }
 
     if (you.attribute[ATTR_PURCHASES] > 0)
     {
         lines++;
-        text += make_stringf("You %sspent %d gold pieces at shops.\n", have,
+        text += make_stringf(jtrans_notrimc("You %sspent %d gold pieces at shops.\n"),
                              you.attribute[ATTR_PURCHASES]);
     }
 
     if (you.attribute[ATTR_DONATIONS] > 0)
     {
         lines++;
-        text += make_stringf("You %sdonated %d gold pieces to Zin.\n", have,
+        text += make_stringf(jtrans_notrimc("You %sdonated %d gold pieces to Zin.\n"),
                              you.attribute[ATTR_DONATIONS]);
     }
 
     if (you.attribute[ATTR_GOZAG_GOLD_USED] > 0)
     {
         lines++;
-        text += make_stringf("You %spaid %d gold pieces to Gozag.\n", have,
+        text += make_stringf(jtrans_notrimc("You %spaid %d gold pieces to Gozag.\n"),
                              you.attribute[ATTR_GOZAG_GOLD_USED]);
     }
 
     if (you.attribute[ATTR_MISC_SPENDING] > 0)
     {
         lines++;
-        text += make_stringf("You %sused %d gold pieces for miscellaneous "
-                             "purposes.\n", have,
+        text += make_stringf(jtrans_notrimc("You %sused %d gold pieces for miscellaneous "
+                                            "purposes.\n"),
                              you.attribute[ATTR_MISC_SPENDING]);
     }
 
-    if (lines > 0)
-        text += "\n";
+    if (par.se)
+    {
+        text = replace_all(text, "ている。", "ていた。");
+    }
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_misc(dump_params &par)
@@ -432,7 +454,7 @@ static string _sdump_turns_place_info(PlaceInfo place_info, string name = "")
 
     out =
         make_stringf("%14s | %5.1f | %5.1f | %5.1f | %5.1f | %5.1f | %13.1f\n",
-                     name.c_str(), a, b, c , d, e, f);
+                     align_rightc(branch_name_j(name), 14), a, b, c , d, e, f);
 
     out = replace_all(out, " nan ", " N/A ");
 
@@ -441,11 +463,12 @@ static string _sdump_turns_place_info(PlaceInfo place_info, string name = "")
 
 static void _sdump_turns_by_place(dump_params &par)
 {
-    string &text(par.text);
+    string text;
 
     vector<PlaceInfo> all_visited = you.get_all_place_info(true);
 
-    text +=
+    text += jtrans_notrim("table legend turns by place\n\n");
+/*
 "Table legend:\n"
 " A = Turns spent in this place as a percentage of turns spent in the\n"
 "     entire game.\n"
@@ -459,13 +482,14 @@ static void _sdump_turns_by_place(dump_params &par)
 "     non-inter-level travel turns spent in this place.\n"
 " F = Non-inter-level travel turns spent in this place divided by the\n"
 "     number of levels of this place that you've seen.\n\n";
+*/
 
     text += "               ";
     text += "    A       B       C       D       E               F\n";
     text += "               ";
     text += "+-------+-------+-------+-------+-------+----------------------\n";
 
-    text += _sdump_turns_place_info(you.global_info, "Total");
+    text += _sdump_turns_place_info(you.global_info, jtrans("Total"));
 
     for (const PlaceInfo &pi : all_visited)
         text += _sdump_turns_place_info(pi);
@@ -473,7 +497,7 @@ static void _sdump_turns_by_place(dump_params &par)
     text += "               ";
     text += "+-------+-------+-------+-------+-------+----------------------\n";
 
-    text += "\n";
+    par.text += _trim_section(text);
 }
 
 static void _sdump_newline(dump_params &par)
@@ -483,7 +507,10 @@ static void _sdump_newline(dump_params &par)
 
 static void _sdump_separator(dump_params &par)
 {
-    par.text += string(79, '-') + "\n";
+    if (!ends_with(par.text, "\n"))
+        par.text += "\n";
+
+    par.text += string(79, '-');
 }
 
 #ifdef CLUA_BINDINGS
@@ -526,28 +553,30 @@ string chardump_desc(const item_def& item)
 
 static void _sdump_messages(dump_params &par)
 {
+    string text;
     // A little message history:
     if (Options.dump_message_count > 0)
     {
-        par.text += "Message History\n\n";
-        par.text += get_last_messages(Options.dump_message_count);
+        text += jtrans_notrim("Message History\n\n");
+        text += get_last_messages(Options.dump_message_count);
     }
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_screenshot(dump_params &par)
 {
-    par.text += screenshot();
-    par.text += "\n\n";
+    string text = jtrans("screenshot header") + ":\n\n" + screenshot();
+    par.text += _trim_section(text);
 }
 
 static void _sdump_notes(dump_params &par)
 {
-    string &text(par.text);
+    string text;
     if (note_list.empty())
         return;
 
-    text += "Notes\n";
-    text += "Turn   | Place    | Note\n";
+    text += jtrans_notrim("Notes\nTurn   | Place    | Note\n");
     text += "-------+----------+-------------------------------------------\n";
     for (const Note &note : note_list)
     {
@@ -556,33 +585,37 @@ static void _sdump_notes(dump_params &par)
         text += note.describe();
         text += "\n";
     }
-    text += "\n";
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_location(dump_params &par)
 {
-    if (you.depth == 0 && player_in_branch(BRANCH_DUNGEON))
-        par.text += "You escaped";
-    else if (par.se)
-        par.text += "You were " + prep_branch_level_name();
-    else
-        par.text += "You are " + prep_branch_level_name();
+    string text;
 
-    par.text += ".";
-    par.text += "\n";
+    if (you.depth == 0 && player_in_branch(BRANCH_DUNGEON))
+        text += "You escaped";
+    else if (par.se)
+        text += make_stringf(jtransc("You were {in branch}"),
+                             prep_branch_level_name().c_str());
+    else
+        text += make_stringf(jtransc("You are {in branch}"),
+                             prep_branch_level_name().c_str());
+
+    par.text += _trim_section(text + jtrans("."));
 }
 
 static void _sdump_religion(dump_params &par)
 {
-    string &text(par.text);
+    string text;
     if (!you_worship(GOD_NO_GOD))
     {
         if (par.se)
-            text += "You worshipped ";
+            text += make_stringf(jtrans_notrimc("You worshipped {god name}.\n"),
+                                 god_name_j(you.religion).c_str());
         else
-            text += "You worship ";
-        text += god_name(you.religion);
-        text += ".\n";
+            text += make_stringf(jtrans_notrimc("You worship {god name}.\n"),
+                                 god_name_j(you.religion).c_str());
 
         if (!you_worship(GOD_XOM))
         {
@@ -593,22 +626,32 @@ static void _sdump_religion(dump_params &par)
             }
             else
             {
-                string verb = par.se ? "was" : "is";
+                string under_penance;
 
-                text += uppercase_first(god_name(you.religion));
-                text += " " + verb + " demanding penance.\n";
+                under_penance += make_stringf(jtrans_notrimc("{god name} demanding penance.\n"),
+                                              god_name_jc(you.religion));
+
+                if (par.se)
+                    under_penance = replace_all(under_penance, "ている。", "ていた。");
+
+                text += under_penance;
             }
         }
         else
         {
+            string xom_favour = jtrans(describe_xom_favour());
+
             if (par.se)
-                text += "You were ";
-            else
-                text += "You are ";
-            text += describe_xom_favour();
-            text += "\n";
+            {
+                xom_favour = replace_all(xom_favour, "た。", "ていた。");
+                xom_favour = replace_all(xom_favour, "だ。", "だった。");
+            }
+
+            text += xom_favour;
         }
     }
+
+    par.text += _trim_section(text);
 }
 
 static bool _dump_item_origin(const item_def &item)
@@ -662,7 +705,7 @@ static void _sdump_inventory(dump_params &par)
 {
     int i;
 
-    string &text(par.text);
+    string text;
 
     int inv_class2[NUM_OBJECT_CLASSES] = { 0, };
     int inv_count = 0;
@@ -678,13 +721,10 @@ static void _sdump_inventory(dump_params &par)
     }
 
     if (!inv_count)
-    {
-        text += "You aren't carrying anything.";
-        text += "\n";
-    }
+        text += jtrans_notrim("You aren't carrying anything.\n");
     else
     {
-        text += "Inventory:\n\n";
+        text += jtrans("Inventory:\n\n");
 
         for (int obj = 0; obj < NUM_OBJECT_CLASSES; obj++)
         {
@@ -693,7 +733,9 @@ static void _sdump_inventory(dump_params &par)
             if (inv_class2[i] == 0)
                 continue;
 
-            text += item_class_name(i);
+            if (!ends_with(text, "\n\n")) text += "\n";
+
+            text += make_stringf("[%s]", tagged_jtransc("[item class]", item_class_name(i)));
             text += "\n";
 
             for (const auto &item : you.inv)
@@ -713,25 +755,24 @@ static void _sdump_inventory(dump_params &par)
                     || Options.dump_book_spells
                        && item.base_type == OBJ_BOOKS)
                 {
-                    text += chardump_desc(item);
+                    text += chardump_desc(item) + "\n";
                 }
                 else
                     text += "\n";
             }
         }
     }
-    text += "\n\n";
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_skills(dump_params &par)
 {
-    string &text(par.text);
-
-    text += "   Skills:\n";
+    string text = jtrans_notrim("Skills:\n");
 
     dump_skills(text);
-    text += "\n";
-    text += "\n";
+
+    par.text += _trim_section(text);
 }
 
 static string spell_type_shortname(spschool_flag_type spell_class, bool slash)
@@ -741,51 +782,31 @@ static string spell_type_shortname(spschool_flag_type spell_class, bool slash)
     if (slash)
         ret = "/";
 
-    ret += spelltype_short_name(spell_class);
+    ret += tagged_jtrans("[spelltype]", spelltype_short_name(spell_class));
 
     return ret;
 }
 
 static void _sdump_spells(dump_params &par)
 {
-    string &text(par.text);
+    string text;
 
     int spell_levels = player_spell_levels();
 
-    string verb = par.se? "had" : "have";
-
-    if (spell_levels == 1)
-        text += "You " + verb + " one spell level left.";
-    else if (spell_levels == 0)
-    {
-        verb = par.se? "couldn't" : "cannot";
-
-        text += "You " + verb + " memorise any spells.";
-    }
+    if (spell_levels == 0)
+        text += jtrans("You {can't} memorise any spells.");
     else
-    {
-        if (par.se)
-            text += "You had ";
-        else
-            text += "You have ";
-        text += make_stringf("%d spell levels left.", spell_levels);
-    }
+        text += make_stringf(jtransc("you {have} %d spell levels left."), spell_levels);
 
     text += "\n";
 
     if (!you.spell_no)
-    {
-        verb = par.se? "didn't" : "don't";
-
-        text += "You " + verb + " know any spells.\n\n";
-    }
+        text += jtrans_notrim("You {don't} know any spells.\n\n");
     else
     {
-        verb = par.se? "knew" : "know";
+        text += jtrans_notrim("You {know} the following spells:\n\n");
 
-        text += "You " + verb + " the following spells:\n\n";
-
-        text += " Your Spells              Type           Power        Failure   Level  Hunger" "\n";
+        text += "   " + jtrans_notrim(" Your Spells              Type           Power        Failure   Level  Hunger" "\n");
 
         for (int j = 0; j < 52; j++)
         {
@@ -798,10 +819,9 @@ static void _sdump_spells(dump_params &par)
 
                 spell_line += letter;
                 spell_line += " - ";
-                spell_line += spell_title(spell);
+                spell_line += spell_title_j(spell);
 
-                spell_line = chop_string(spell_line, 24);
-                spell_line += "  ";
+                spell_line = chop_string(spell_line, 31);
 
                 bool already = false;
 
@@ -814,7 +834,7 @@ static void _sdump_spells(dump_params &par)
                     }
                 }
 
-                spell_line = chop_string(spell_line, 41);
+                spell_line = chop_string(spell_line, 42);
 
                 spell_line += spell_power_string(spell);
 
@@ -822,24 +842,32 @@ static void _sdump_spells(dump_params &par)
 
                 spell_line += failure_rate_to_string(raw_spell_fail(spell));
 
-                spell_line = chop_string(spell_line, 66);
+                spell_line = chop_string(spell_line, 62);
 
-                spell_line += make_stringf("%-5d", spell_difficulty(spell));
+                spell_line += make_stringf("%d       ", spell_difficulty(spell));
 
-                spell_line += spell_hunger_string(spell);
+                spell_line += make_stringf("%3s", spell_hunger_string(spell).c_str());
                 spell_line += "\n";
 
                 text += spell_line;
             }
         }
-        text += "\n\n";
     }
+
+    if (par.se)
+    {
+        text = replace_all(text, "い。", "かった。");
+        text = replace_all(text, "だ。", "だった。");
+        text = replace_all(text, "いる。", "いた。");
+        text = replace_all(text, "いる:", "いた:");
+    }
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_kills(dump_params &par)
 {
-    par.text += you.kills.kill_info();
-    par.text += "\n";
+    par.text += _trim_section(you.kills.kill_info());
 }
 
 static string _sdump_kills_place_info(PlaceInfo place_info, string name = "")
@@ -878,7 +906,7 @@ static string _sdump_kills_place_info(PlaceInfo place_info, string name = "")
     out =
         make_stringf("%14s | %5.1f | %5.1f | %5.1f | %5.1f | %5.1f |"
                      " %13.1f\n",
-                     name.c_str(), a, b, c , d, e, f);
+                     align_rightc(branch_name_jc(name), 14), a, b, c , d, e, f);
 
     out = replace_all(out, " nan ", " N/A ");
 
@@ -887,13 +915,14 @@ static string _sdump_kills_place_info(PlaceInfo place_info, string name = "")
 
 static void _sdump_kills_by_place(dump_params &par)
 {
-    string &text(par.text);
+    string text;
 
     vector<PlaceInfo> all_visited = you.get_all_place_info(true);
 
     string result = "";
 
-    string header =
+    string header = jtrans_notrim("table legend kills by place\n\n");
+/*
     "Table legend:\n"
     " A = Kills in this place as a percentage of kills in entire the game.\n"
     " B = Kills by you in this place as a percentage of kills by you in\n"
@@ -906,6 +935,7 @@ static void _sdump_kills_by_place(dump_params &par)
     "     gained in the entire game.\n"
     " F = Experience gained in this place divided by the number of levels of\n"
     "     this place that you have seen.\n\n";
+*/
 
     header += "               ";
     header += "    A       B       C       D       E               F\n";
@@ -915,22 +945,22 @@ static void _sdump_kills_by_place(dump_params &par)
     string footer = "               ";
     footer += "+-------+-------+-------+-------+-------+----------------------\n";
 
-    result += _sdump_kills_place_info(you.global_info, "Total");
+    result += _sdump_kills_place_info(you.global_info, jtrans("Total"));
 
     for (const PlaceInfo &pi : all_visited)
         result += _sdump_kills_place_info(pi);
 
     if (!result.empty())
         text += header + result + footer + "\n";
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_overview(dump_params &par)
 {
     string overview =
         formatted_string::parse_string(overview_description_string(false));
-    trim_string(overview);
-    par.text += overview;
-    par.text += "\n\n";
+    par.text += _trim_section(overview);
 }
 
 static void _sdump_hiscore(dump_params &par)
@@ -938,33 +968,36 @@ static void _sdump_hiscore(dump_params &par)
     if (!par.se)
         return;
 
-    string hiscore = hiscores_format_single_long(*(par.se), true);
-    trim_string(hiscore);
-    par.text += hiscore;
-    par.text += "\n\n";
+    string hiscore = "    " + hiscores_format_single_long(*(par.se), true);
+
+    par.text += _trim_section(hiscore);
 }
 
 static void _sdump_monster_list(dump_params &par)
 {
-    string monlist = mpr_monster_list(par.se);
+    string monlist = mpr_monster_list(par.se), text;
     trim_string(monlist);
     while (!monlist.empty())
-        par.text += wordwrap_line(monlist, 80) + "\n";
-    par.text += "\n";
+        text += wordwrap_line(monlist, 80) + "\n";
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_vault_list(dump_params &par)
 {
+    string text;
+
     if (par.full_id || par.se
 #ifdef WIZARD
         || you.wizard
 #endif
      )
     {
-        par.text += "Vault maps used:\n";
-        par.text += dump_vault_maps();
-        par.text += "\n";
+        text += jtrans_notrim("Vault maps used:\n");
+        text += dump_vault_maps();
     }
+
+    par.text += _trim_section(text);
 }
 
 static bool _sort_by_first(pair<int, FixedVector<int, 28> > a,
@@ -1147,10 +1180,10 @@ static string _describe_action_subtype(caction_type type, int compound_subtype)
         }
     }
     case CACT_CAST:
-        return spell_title((spell_type)subtype);
+        return spell_title_j((spell_type)subtype);
     case CACT_INVOKE:
     case CACT_ABIL:
-        return ability_name((ability_type)subtype);
+        return ability_name_j((ability_type)subtype);
     case CACT_EVOKE:
         if (subtype >= UNRAND_START && subtype <= UNRAND_LAST)
             return uppercase_first(get_unrand_entry(subtype)->name);
@@ -1197,6 +1230,8 @@ static string _describe_action_subtype(caction_type type, int compound_subtype)
 
 static void _sdump_action_counts(dump_params &par)
 {
+    string text;
+
     if (you.action_count.empty())
         return;
     int max_lt = (min<int>(you.max_level, 27) - 1) / 3;
@@ -1205,14 +1240,16 @@ static void _sdump_action_counts(dump_params &par)
     if (max_lt)
         max_lt++;
 
-    par.text += make_stringf("%-24s", "Action");
+    int width_1st = 10;
+    int width_2nd = strwidth(jtrans("Iskenderun's battlesphere")); // longest spell title
+    text += chop_string(jtrans("Action"), width_1st + width_2nd);
     for (int lt = 0; lt < max_lt; lt++)
-        par.text += make_stringf(" | %2d-%2d", lt * 3 + 1, lt * 3 + 3);
-    par.text += make_stringf(" || %5s", "total");
-    par.text += "\n-------------------------";
+        text += make_stringf(" | %2d-%2d", lt * 3 + 1, lt * 3 + 3);
+    text += make_stringf(" || %5s", jtransc("total"));
+    text += "\n" + string(width_1st + width_2nd + 1, '-');
     for (int lt = 0; lt < max_lt; lt++)
-        par.text += "+-------";
-    par.text += "++-------\n";
+        text += "+-------";
+    text += "++-------\n";
 
     for (int cact = 0; cact < NUM_CACTIONS; cact++)
     {
@@ -1236,31 +1273,38 @@ static void _sdump_action_counts(dump_params &par)
         {
             if (ac == action_vec.begin())
             {
-                par.text += _describe_action(caction_type(cact));
-                par.text += ": ";
+                text += align_right(tagged_jtrans("[desc action]",
+                                                  trimmed_string(_describe_action(caction_type(cact)))),
+                                    width_1st - 2);
+                text += ": ";
             }
             else
-                par.text += "       ";
-            par.text += chop_string(_describe_action_subtype(caction_type(cact), ac->first), 17);
+                text += string(width_1st, ' ');
+            text += chop_string(tagged_jtrans("[desc action]",
+                                              trimmed_string(_describe_action_subtype(caction_type(cact), ac->first))),
+                                width_2nd);
             for (int lt = 0; lt < max_lt; lt++)
             {
                 int ltotal = 0;
                 for (int i = lt * 3; i < lt * 3 + 3; i++)
                     ltotal += ac->second[i];
                 if (ltotal)
-                    par.text += make_stringf(" |%6d", ltotal);
+                    text += make_stringf(" |%6d", ltotal);
                 else
-                    par.text += " |      ";
+                    text += " |      ";
             }
-            par.text += make_stringf(" ||%6d", ac->second[27]);
-            par.text += "\n";
+            text += make_stringf(" ||%6d", ac->second[27]);
+            text += "\n";
         }
     }
-    par.text += "\n";
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_skill_gains(dump_params &par)
 {
+    string text;
+
     typedef map<int, int> XlToSkillLevelMap;
     map<skill_type, XlToSkillLevelMap> skill_gains;
     vector<skill_type> skill_order;
@@ -1294,43 +1338,43 @@ static void _sdump_skill_gains(dump_params &par)
         }
     }
 
-    par.text += "Skill      XL: |";
+    text += jtrans("Skill      XL: |");
+    int skill_column_width = strwidth(jtrans("Skill      XL: |"));
     for (xl = 1; xl <= max_xl; xl++)
-        par.text += make_stringf(" %2d", xl);
-    par.text += " |\n";
-    par.text += "---------------+";
+        text += make_stringf(" %2d", xl);
+    text += " |\n";
+    text += string(skill_column_width - 1, '-') + "+";
     for (xl = 1; xl <= max_xl; xl++)
-        par.text += "---";
-    par.text += "-+-----\n";
+        text += "---";
+    text += "-+-----\n";
 
     for (skill_type skill : skill_order)
     {
-        par.text += make_stringf("%-14s |", skill_name(skill));
+        text += chop_string(skill_name_jc(skill), skill_column_width - 1) + "|";
         const XlToSkillLevelMap &gains = skill_gains[skill];
         for (xl = 1; xl <= max_xl; xl++)
         {
             auto it = gains.find(xl);
             if (it != gains.end())
-                par.text += make_stringf(" %2d", it->second);
+                text += make_stringf(" %2d", it->second);
             else
-                par.text += "   ";
+                text += "   ";
         }
-        par.text += make_stringf(" | %4.1f\n",
+        text += make_stringf(" | %4.1f\n",
                                  you.skill(skill, 10, true) * 0.1);
     }
-    par.text += "\n";
+
+    par.text += _trim_section(text);
 }
 
 static void _sdump_mutations(dump_params &par)
 {
-    string &text(par.text);
+    string text;
 
     if (how_mutated(true, false))
-    {
-        text += "\n";
         text += (formatted_string::parse_string(describe_mutations(false)));
-        text += "\n\n";
-    }
+
+    par.text += _trim_section(text);
 }
 
 // Must match the order of hunger_state_t enums
@@ -1393,7 +1437,7 @@ void dump_map(FILE *fp, bool debug, bool dist)
         // To read the dumps, cat them or use less -R.
         // ansi2html can be used to make html.
 
-        fprintf(fp, "Vaults used:\n");
+        fprintf(fp, jtrans_notrimc("Vaults used:\n"));
         for (size_t i = 0; i < env.level_vaults.size(); ++i)
         {
             const vault_placement &vp(*env.level_vaults[i]);
@@ -1495,6 +1539,11 @@ void dump_map(const char* fname, bool debug, bool dist)
     fclose(fp);
 }
 
+static string _trim_dump(const string &dump_text)
+{
+    return trimmed_string(dump_text) + "\n";
+}
+
 static bool _write_dump(const string &fname, const dump_params &par, bool quiet)
 {
     bool succeeded = false;
@@ -1520,20 +1569,29 @@ static bool _write_dump(const string &fname, const dump_params &par, bool quiet)
 
     if (handle != nullptr)
     {
-        fputs(OUTS(par.text), handle);
+        string dump = _trim_dump(nbsp2sp(par.text));
+
+        fputs(OUTS(dump), handle);
         fclose(handle);
         succeeded = true;
         if (!quiet)
 #ifdef DGAMELAUNCH
-            mpr("Char dumped successfully.");
+            mpr(jtrans("Char dumped successfully."));
 #else
-            mprf("Char dumped to '%s'.", file_name.c_str());
+            mprf(jtransc("Char dumped to '%s'."), file_name.c_str());
 #endif
     }
     else
         mprf(MSGCH_ERROR, "Error opening file '%s'", file_name.c_str());
 
     return succeeded;
+}
+
+static string _ltrim_nbsp(const string &text)
+{
+    string str = nbsp2sp(text);
+    str.erase(0, str.find_first_not_of(" "));
+    return str;
 }
 
 void display_notes()
@@ -1543,13 +1601,15 @@ void display_notes()
     scr.set_more();
     scr.set_tag("notes");
     scr.set_highlighter(new MenuHighlighter);
-    scr.set_title(new MenuEntry("Turn   | Place    | Note"));
+    scr.set_title(new MenuEntry(jtrans("Turn   | Place    | Note")));
     for (const Note &note : note_list)
     {
         if (note.hidden())
             continue;
         string prefix = note.describe(true, true, false);
-        string suffix = note.describe(false, false, true);
+        string suffix = _ltrim_nbsp(note.describe(false, false, true));
+        int colwidth_turn = note.describe(true, false, false).length();
+        int colwidth_place = MAX_NOTE_PLACE_LEN + 2;
         if (suffix.empty())
             continue;
 
@@ -1565,8 +1625,9 @@ void display_notes()
         scr.add_entry(new MenuEntry(prefix + parts[0]));
         for (unsigned int j = 1; j < parts.size(); ++j)
         {
-            scr.add_entry(new MenuEntry(string(prefix.length()-2, ' ') +
-                                        string("| ") + parts[j]));
+            scr.add_entry(new MenuEntry(string(colwidth_turn, ' ') + "|" +
+                                        string(colwidth_place, ' ') + "| " +
+                                        parts[j]));
         }
     }
     scr.show();

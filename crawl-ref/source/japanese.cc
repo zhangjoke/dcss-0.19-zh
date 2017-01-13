@@ -44,3 +44,11 @@ const string decline_pronoun_j(gender_type gender, pronoun_type variant)
                             gender, variant);
     }
 }
+
+const char * general_counter_suffix(const int size)
+{
+    if (size <= 9)
+        return "つ";
+    else
+        return "個";
+}

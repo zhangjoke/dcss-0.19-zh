@@ -203,9 +203,9 @@ Please select your background.
 
 # jtrans_mutations.txtと重複
 %%%%
-# unarmed
+unarmed
 
-# jtrans_chardump.txtと重複
+素手
 %%%%
 large rocks
 

@@ -9,5 +9,6 @@
 
 const string conjugate_verb_j(const string &verb, bool plural);
 const string decline_pronoun_j(gender_type gender, pronoun_type variant);
+const char * general_counter_suffix(const int size);
 
 #endif
