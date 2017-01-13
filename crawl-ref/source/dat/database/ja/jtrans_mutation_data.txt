@@ -1306,9 +1306,9 @@ Your hands feel fleshier.
 あなたの鉤爪は指へと変化した。
 %%%%
 # MUT_FANGS
-fangs
+# fangs
 
-牙
+# jtrans_form_data.txtと重複
 %%%%
 You have very sharp teeth.
 

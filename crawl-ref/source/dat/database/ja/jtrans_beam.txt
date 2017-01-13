@@ -543,10 +543,6 @@ convulses!
 
 の魂を刈り取る準備が完了した。
 %%%%
-writhes in agony!
-
-%sは苦痛に悶えた！
-%%%%
 is blasted.
 
 は爆破された。

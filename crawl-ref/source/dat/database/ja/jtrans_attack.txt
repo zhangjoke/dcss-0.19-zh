@@ -155,7 +155,7 @@ a chaos effect from %s
 
 %sは%s活力を%s！
 %%%%
-for %d
+# for %d
 
 # jtrans_actor.txtと重複
 %%%%
