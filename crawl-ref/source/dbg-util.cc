@@ -8,6 +8,7 @@
 #include "dbg-util.h"
 
 #include "artefact.h"
+#include "database.h"
 #include "directn.h"
 #include "dungeon.h"
 #include "libutil.h"
@@ -349,7 +350,7 @@ void debug_dump_mon(const monster* mon, bool recurse)
 skill_type debug_prompt_for_skill(const char *prompt)
 {
     char specs[80];
-    msgwin_get_line_autohist(prompt, specs, sizeof(specs));
+    msgwin_get_line_autohist(jtrans_notrim(prompt), specs, sizeof(specs));
     if (specs[0] == '\0')
         return SK_NONE;
 
