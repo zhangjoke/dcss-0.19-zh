@@ -259,7 +259,7 @@ void apply_daction_to_mons(monster* mon, daction_type act, bool local,
             {
                 mon->flags |= MF_NAME_REPLACE | MF_NAME_DESCRIPTOR
                                   | MF_NAME_NOCORPSE;
-                mon->mname = "freed slave";
+                mon->mname = jtrans("freed slave");
             }
             else if (local)
                 simple_monster_message(*mon, hostile ? " turns on you!" : " becomes indifferent.");
@@ -489,7 +489,7 @@ static void _daction_hog_to_human(monster *mon, bool in_transit)
     behaviour_event(mon, ME_EVAL);
 
     if (could_see && !can_see)
-        mpr("The hog vanishes!");
+        mpr(jtrans("The hog vanishes!"));
     else if (!could_see && can_see)
-        mprf("%s appears from out of thin air!", mon->name(DESC_A).c_str());
+        mprf(jtransc("%s appears from out of thin air!"), mon->name(DESC_A).c_str());
 }
