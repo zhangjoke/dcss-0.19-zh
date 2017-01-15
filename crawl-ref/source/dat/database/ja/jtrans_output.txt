@@ -95,85 +95,41 @@ You can see
 
 武器
 %%%%
-[eq slot]Cloak
-
-外套
-%%%%
-[eq slot]Helmet
-
-兜/帽子
-%%%%
-[eq slot]Gloves
-
-手袋/籠手
-%%%%
-[eq slot]Boots
-
-靴
-%%%%
-[eq slot]Shield
-
-盾
-%%%%
-[eq slot]Armour
-
-鎧/服
-%%%%
-[eq slot]Left Ring
-
-左手の指輪
-%%%%
-[eq slot]Right Ring
-
-右手の指輪
-%%%%
-[eq slot]Amulet
-
-護符
-%%%%
 [eq slot]First Ring
 
-1個目の指輪
+<[eq slot]1st ring>
 %%%%
 [eq slot]Second Ring
 
-2個目の指輪
+<[eq slot]2nd ring>
 %%%%
 [eq slot]Third Ring
 
-3個目の指輪
+<[eq slot]3rd ring>
 %%%%
 [eq slot]Fourth Ring
 
-4個目の指輪
+<[eq slot]4th ring>
 %%%%
 [eq slot]Fifth Ring
 
-5個目の指輪
+<[eq slot]5th ring>
 %%%%
 [eq slot]Sixth Ring
 
-6個目の指輪
+<[eq slot]6th ring>
 %%%%
 [eq slot]Seventh Ring
 
-7個目の指輪
+<[eq slot]7th ring>
 %%%%
 [eq slot]Eighth Ring
 
-8個目の指輪
-%%%%
-[eq slot]Amulet Ring
-
-護符に付けた指輪
+<[eq slot]8th ring>
 %%%%
 [eq slot]Ring
 
-指輪
-%%%%
-[eq slot]Barding
-
-下肢
+<ring>
 %%%%
 Stlth
 

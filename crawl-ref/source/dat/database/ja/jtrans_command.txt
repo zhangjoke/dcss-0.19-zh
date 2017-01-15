@@ -1,8 +1,52 @@
 %%%%
+Lua user scripts
+
+Luaユーザースクリプト
+%%%%
+Tile support
+
+タイル機能
+%%%%
+Web Tile support
+
+Webtile機能
+%%%%
+Wizard mode
+
+ウィザードモード
+%%%%
+Debug mode
+
+デバッグモード
+%%%%
+POSIX regexps
+
+POSIX正規表現
+%%%%
+PCRE regexps
+
+PCRE正規表現
+%%%%
+Glob patterns
+
+Globパターンマッチ
+%%%%
+Sound support
+
+サウンド機能
+%%%%
+Milestones
+
+マイルストーン表示機能
+%%%%
 <w>Features</w>\n--------
 
 <w>コンパイル時に有効化された機能</w>
 ------------------------------
+%%%%
+Highlights
+
+重要な更新
 %%%%
 For earlier changes, see changelog.txt in the docs/ directory.
 
@@ -12,57 +56,211 @@ For a list of changes, see changelog.txt in the docs/ directory.
 
 変更点一覧を見るには、docs/changelog.txtを参照してください。
 %%%%
+[eq slot]Cloak
+
+外套
+%%%%
+[eq slot]Helmet
+
+兜/帽子
+%%%%
+[eq slot]Gloves
+
+手袋/籠手
+%%%%
+[eq slot]Shield
+
+<shield>
+%%%%
+[eq slot]Armour
+
+鎧/服
+%%%%
+[eq slot]Barding
+
+下肢
+%%%%
+[eq slot]Boots
+
+靴
+%%%%
+[eq slot]unknown
+
+不明
+%%%%
 (unavailable)
 
 (装備できない)
 %%%%
 (currently unavailable)
 
-(現在装備できない)
+(今のところ装備できない)
 %%%%
 (restricted)
 
 (制限されている)
 %%%%
-1st ring
+[eq slot]Left ring
+
+左手の指輪
+%%%%
+[eq slot]Right ring
+
+右手の指輪
+%%%%
+[eq slot]Amulet
+
+<amulet>
+%%%%
+[eq slot]1st ring
 
 1つめの指輪
 %%%%
-2nd ring
+[eq slot]2nd ring
 
 2つめの指輪
 %%%%
-3rd ring
+[eq slot]3rd ring
 
 3つめの指輪
 %%%%
-4th ring
+[eq slot]4th ring
 
 4つめの指輪
 %%%%
-5th ring
+[eq slot]5th ring
 
 5つめの指輪
 %%%%
-6th ring
+[eq slot]6th ring
 
 6つめの指輪
 %%%%
-7th ring
+[eq slot]7th ring
 
 7つめの指輪
 %%%%
-8th ring
+[eq slot]8th ring
 
 8つめの指輪
 %%%%
-Amulet ring
+[eq slot]Amulet ring
 
-護符の指輪
+護符に付けた指輪
 %%%%
-(currently unavailable)
+targeting help 1
 
-(現在装着できない)
+# <h>Examine surroundings ('<w>x</w><h>' in main):
+# <w>Esc</w> : cancel (also <w>Space</w>, <w>x</w>)
+# <w>Dir.</w>: move cursor in that direction
+# <w>.</w> : move to cursor (also <w>Enter</w>, <w>Del</w>)
+# <w>g</w> : pick up item at cursor
+# <w>v</w> : describe monster under cursor
+# <w>+</w> : cycle monsters forward (also <w>=</w>)
+# <w>-</w> : cycle monsters backward
+# <w>*</w> : cycle objects forward (also <w>'</w>)
+# <w>/</w> : cycle objects backward (also <w>;</w>)
+# <w>^</w> : cycle through traps
+# <w>_</w> : cycle through altars
+# <w><<</w>/<w>></w> : cycle through up/down stairs
+# <w>Tab</w> : cycle through shops and portals
+# <w>r</w> : move cursor to you
+# <w>e</w> : create/remove travel exclusion
+# <w>Ctrl-P</w> : repeat prompt
+<h>周辺を調べる (通常時に'<w>x</w><h>'コマンド):
+<w>Esc</w> : キャンセル (<w>Space</w>, <w>x</w>も同様)\n
+<w>(方向)</w>: その方向にカーソルを動かす
+<w>.</w> : 指定位置に移動 (<w>Enter</w>, <w>Del</w>も同様)
+<w>g</w> : 指定位置のアイテムを拾う
+<w>v</w> : 指定位置のモンスターの解説を見る
+<w>+</w> : モンスターを順に切り替え (<w>=</w>も同様)
+<w>-</w> : モンスターを逆順に切り替え
+<w>*</w> : アイテムを順に切り替え (<w>'</w>も同様)
+<w>/</w> : アイテムを逆順に切り替え (<w>;</w>も同様)
+<w>^</w> : 罠を順に切り替え
+<w>_</w> : 祭壇を順に切り替え
+<w><<</w>/<w>></w> : 上り/下り階段を切り替え
+<w>Tab</w> : 商店もしくはポータルを切り替え
+<w>r</w> : カーソルをプレイヤーの位置に戻す
+<w>e</w> : 立入禁止区域を設定/解除する
+<w>Ctrl+P</w> : プロンプトを再度表示
+%%%%
+targeting help wiz
+
+# <h>Wizard targeting commands:</h>
+# <w>Ctrl-C</w> : cycle through beam paths
+# <w>D</w>: get debugging information about the monster
+# <w>o</w>: give item to monster
+# <w>F</w>: cycle monster friendly/good neutral/neutral/hostile
+# <w>G</w>: make monster gain experience
+# <w>Ctrl-H</w>: heal the monster fully
+# <w>P</w>: apply divine blessing to monster
+# <w>m</w>: move monster or player
+# <w>M</w>: cause spell miscast for monster or player
+# <w>s</w>: force monster to shout or speak
+# <w>S</w>: make monster a summoned monster
+# <w>w</w>: calculate shortest path to any point on the map
+# <w>\"</w>: get debugging information about a portal
+# <w>~</w>: polymorph monster to specific type
+# <w>,</w>: bring down the monster to 1 hp
+# <w>(</w>: place a mimic
+# <w>Ctrl-B</w>: banish monster
+# <w>Ctrl-K</w>: kill monster
+<h>照準時のウィザードモード専用コマンド:</h>
+<w>Ctrl+C</w> : 射線表示に切り替え
+<w>D</w>      : 対象のモンスターのデバッグ情報を得る
+<w>o</w>      : 対象のモンスターにアイテムを持たせる
+<w>F</w>      : 対象のモンスターの状態を仲間/友好的/中立/敵対に切り替える
+<w>G</w>      : 対象のモンスターに経験値を与える
+<w>Ctrl+H</w> : 対象のモンスターを全快させる
+<w>P</w>      : 対象のモンスターに神の祝福を与える
+<w>m</w>      : 対象のモンスターやプレイヤーを強制的に移動する
+<w>M</w>      : 対象のモンスターやプレイヤーの呪文失敗を引き起こす
+<w>s</w>      : 対象のモンスターを叫ばせる、もしくは喋らせる
+<w>S</w>      : 対象のモンスターを召喚されたモンスターとして扱う
+<w>w</w>      : マップの任意の場所からの最短距離を計算する
+<w>"</w>      : ポータルのデバッグ情報を取得する
+<w>~</w>      : 対象のモンスターを変化させる
+<w>,</w>      : 対象のモンスターのHPを1に下げる
+<w>(</w>      : ミミックを配置する
+<w>Ctrl+B</w> : モンスターをアビスに追放する
+<w>Ctrl+K</w> : モンスターを殺す
+%%%%
+targeting help 2
+
+# <h>Targeting (zap wands, cast spells, etc.):
+# Most keys from examine surroundings work.
+# Some keys fire at the target. By default,
+# range is respected and beams don't stop.
+# <w>Enter</w> : fire (<w>Space</w>, <w>Del</w>)
+# <w>.</w> : fire, stop at target
+# <w>@</w> : fire, stop at target, ignore range
+# <w>!</w> : fire, don't stop, ignore range
+# <w>p</w> : fire at Previous target (also <w>f</w>)
+# <w>:</w> : show/hide beam path
+# <w>Shift-Dir.</w> : fire straight-line beam
+
+# <h>Firing or throwing a missile:
+# <w>(</w> : cycle to next suitable missile.
+# <w>)</w> : cycle to previous suitable missile.
+# <w>i</w> : choose from Inventory.
+<h>照準 (ワンドを振る、魔法を唱える等):
+xコマンドのサブコマンドがほとんど使える。
+いくつかのキーで標的に向けて発射する。
+通常では射程距離が考慮されるが、
+ビーム状の場合は停止しない。
+<w>Enter</w> : 発射 (<w>Space</w>, <w>Del</w>も同様)
+<w>.</w> : 発射して対象で止まる
+<w>@</w> : 発射して対象で止まる(距離を無視)
+<w>!</w> : 発射するが止まらない(距離を無視)
+<w>p</w> : 前回の標的を狙う (<w>f</w>も同様)
+<w>:</w> : 射線を表示/非表示する
+<w>Shift+(方向)</w> : 指定した方向に一直線に発射
+
+<h>飛び道具を射撃または投擲する際:
+<w>(</w> : 射撃/投擲に適したアイテムを順に選択
+<w>)</w> : 射撃/投擲に適したアイテムを逆順に選択
+<w>i</w> : 所持一覧から選択する
 %%%%
 No questions found in FAQ! Please submit a bug report!
 
@@ -76,168 +274,125 @@ No answer found in the FAQ! Please submit a bug report!
 
 回答が記載されていません！ バグ報告をお願いします！
 %%%%
-<h>Dungeon Crawl Help
+crawl help index use tile local
 
+# <h>Dungeon Crawl Help
+
+# Press one of the following keys to
+# obtain more information on a certain
+# aspect of Dungeon Crawl.
+# <w>?</w>: List of commands
+# <w>^</w>: Quickstart Guide
+# <w>:</w>: Browse character notes
+# <w>#</w>: Browse character dump
+# <w>~</w>: Macros help
+# <w>&</w>: Options help
+# <w>%</w>: Table of aptitudes
+# <w>/</w>: Lookup description
+# <w>Q</w>: FAQ
+# <w>T</w>: Tiles key help
+# <w>V</w>: Version information
+# <w>Home</w>: This screen
 <h>ダンジョンクロウル ヘルプ
-%%%%
-Press one of the following keys to\nobtain more information on a certain\naspect of Dungeon Crawl.
 
 ダンジョンクロウルについての詳細な
 ヘルプ情報を閲覧するには、項目の頭に
 記載されたキーを押してください。
-%%%%
-<w>?</w>: List of commands
 
 <w>?</w>: コマンド一覧
-%%%%
-<w>!</w>: Read Me!
-
-<w>!</w>: はじめに(未訳)
-%%%%
-<w>^</w>: Quickstart Guide
-
 <w>^</w>: クイックスタート(未訳)
-%%%%
-<w>:</w>: Browse character notes
-
 <w>:</w>: キャラクターの行動履歴を見る
-%%%%
-<w>~</w>: Macros help
-
+<w>#</w>: キャラクターダンプを閲覧
 <w>~</w>: マクロ機能ヘルプ(未訳)
-%%%%
-<w>&</w>: Options help
-
 <w>&</w>: オプション設定ヘルプ(未訳)
-%%%%
-<w>%</w>: Table of aptitudes
-
 <w>%</w>: 種族のスキル適性一覧(未訳)
-%%%%
-<w>/</w>: Lookup description
-
-<w>/</w>: 解説文閲覧(未訳)
-%%%%
-<w>Q</w>: FAQ
-
+<w>/</w>: 解説文閲覧(一部のみ翻訳)
 <w>Q</w>: FAQ(未訳)
-%%%%
-<w>V</w>: Version information
-
+<w>T</w>: タイルキーヘルプ(未訳)
 <w>V</w>: バージョン情報(未訳)
-%%%%
-<w>Home</w>: This screen
-
 <w>Home</w>: ゲームに戻る
-# ｢この画面に戻る｣とすべきだが、実際の動作としてはゲーム画面に戻る
 %%%%
-<h>Manual Contents
+crawl help index
 
-<h>マニュアル
+<h>ダンジョンクロウル ヘルプ
+
+ダンジョンクロウルについての詳細な
+ヘルプ情報を閲覧するには、項目の頭に
+記載されたキーを押してください。
+
+<w>?</w>: コマンド一覧
+<w>^</w>: クイックスタート(未訳)
+<w>:</w>: キャラクターの行動履歴を見る
+<w>#</w>: キャラクターダンプを閲覧
+<w>~</w>: マクロ機能ヘルプ(未訳)
+<w>&</w>: オプション設定ヘルプ(未訳)
+<w>%</w>: 種族のスキル適性一覧(未訳)
+<w>/</w>: 解説文閲覧(一部のみ翻訳)
+<w>Q</w>: FAQ(未訳)
+<w>V</w>: バージョン情報(未訳)
+<w>Home</w>: ゲームに戻る
 %%%%
-<w>*</w>       Table of contents
+manual contents
+
+# <h>Manual Contents
+
+# <w>*</w>       Table of contents
+# <w>A</w>.      Overview
+# <w>B</w>.      Starting Screen
+# <w>C</w>.      Attributes and Stats
+# <w>D</w>.      Exploring the Dungeon
+# <w>E</w>.      Experience and Skills
+# <w>F</w>.      Monsters
+# <w>G</w>.      Items
+# <w>H</w>.      Spellcasting
+# <w>I</w>.      Targeting
+# <w>J</w>.      Religion
+# <w>K</w>.      Mutations
+# <w>L</w>.      Licence, Contact, History
+# <w>M</w>.      Macros, Options, Performance
+# <w>N</w>.      Philosophy
+# <w>1</w>.      List of Character Species
+# <w>2</w>.      List of Character Backgrounds
+# <w>3</w>.      List of Skills
+# <w>4</w>.      List of Keys and Commands
+# <w>5</w>.      Inscriptions
+<h>マニュアル
 
 <w>*</w>       目次
-%%%%
-<w>A</w>.      Overview
-
 <w>A</w>.      概要(未訳)
-%%%%
-<w>B</w>.      Starting Screen
-
 <w>B</w>.      起動画面(未訳)
-%%%%
-<w>C</w>.      Attributes and Stats
-
 <w>C</w>.      能力値(未訳)
-%%%%
-<w>D</w>.      Exploring the Dungeon
-
 <w>D</w>.      ダンジョンの探索(未訳)
-%%%%
-<w>E</w>.      Experience and Skills
-
 <w>E</w>.      経験レベルおよびスキル(未訳)
-%%%%
-<w>F</w>.      Monsters
-
 <w>F</w>.      モンスター(未訳)
-%%%%
-<w>G</w>.      Items
-
 <w>G</w>.      アイテム(未訳)
-%%%%
-<w>H</w>.      Spellcasting
-
 <w>H</w>.      呪文の詠唱(未訳)
-%%%%
-<w>I</w>.      Targeting
-
 <w>I</w>.      照準合わせ(未訳)
-%%%%
-<w>J</w>.      Religion
-
 <w>J</w>.      信仰(未訳)
-%%%%
-<w>K</w>.      Mutations
-
 <w>K</w>.      突然変異(未訳)
-%%%%
-<w>L</w>.      Licence, Contact, History
-
 <w>L</w>.      ライセンス、連絡先および歴史(未訳)
-%%%%
-<w>M</w>.      Macros, Options, Performance
-
 <w>M</w>.      マクロおよびオプション設定(未訳)
-%%%%
-<w>N</w>.      Philosophy
-
 <w>N</w>.      ゲームの方向性(未訳)
-%%%%
-<w>1</w>.      List of Character Species
-
 <w>1</w>.      種族一覧(未訳)
-%%%%
-<w>2</w>.      List of Character Backgrounds
-
 <w>2</w>.      ゲーム開始時の職業一覧(未訳)
-%%%%
-<w>3</w>.      List of Skills
-
 <w>3</w>.      スキル一覧(未訳)
-%%%%
-<w>4</w>.      List of Keys and Commands
-
 <w>4</w>.      コマンド詳細一覧(未訳)
+<w>5</w>.      アイテムへの銘の効果(未訳)
 %%%%
-<w>5</w>.      List of Enchantments
+command movement help
 
-<w>5</w>.      ステータス表記一覧(未訳)
-%%%%
-<w>6</w>.      Inscriptions
-
-<w>6</w>.      アイテムへの銘の効果(未訳)
-%%%%
-<h>Movement:
-
+# <h>Movement:
+# To move in a direction or to attack,
+# use the numpad (try Numlock off and
+# on) or vi keys:
 <h>移動 / 攻撃:
-%%%%
-To move in a direction or to attack,
-
 目的の方向に移動または攻撃するには、
-%%%%
-use the numpad (try Numlock off and
-
 テンキーを使うかviライクなキーを使用
-%%%%
-on) or vi keys:
-
 すること。(Numlockに注意)
 %%%%
-<h>Rest/Search:
+<h>Rest:
 
-<h>休憩 / 捜索:
+<h>休憩:
 %%%%
 wait a turn (also <w>s</w>, <w>Del</w>)
 
@@ -247,17 +402,15 @@ rest and long wait; stops when
 
 休憩して長時間待機する。
 %%%%
-Health or Magic become full,
+command help rest
 
-HPやMPが全快になる、何かを発見す
-%%%%
-something is detected, or after
-
-る、100ターン経過することで解除
-%%%%
-100 turns over (<w>numpad-5</w>)
-
-される。(テンキーの<w>5</w>でも可)
+#     Health or Magic become full or
+#     something is detected. If Health
+#     and Magic are already full, stops
+#     when 100 turns over (<w>numpad-5</w>)
+    HPやMPが全快になる、何かを発見す
+    る、100ターン経過することで解除
+    される。(テンキーの<w>5</w>でも可)
 %%%%
 <h>Extended Movement:
 
@@ -293,13 +446,16 @@ set Waypoint
 
 <h>対象を自動で指定して攻撃:
 %%%%
-<w>Tab</w>       : attack nearest monster,\n            moving if necessary
+command help autofight
 
+# <h>Autofight:
+# <w>Tab</w>       : attack nearest monster,
+#             moving if necessary
+# <w>Shift-Tab</w> : attack nearest monster
+#             without moving
+<h>対象を自動で指定して攻撃:
 <w>Tab</w>       : 一番近くのモンスターを
             可能なら移動して攻撃する。
-%%%%
-<w>Shift-Tab</w> : attack nearest monster\n            without moving
-
 <w>Shift+Tab</w> : 一番近くのモンスターを
             移動せず攻撃する。
 %%%%
@@ -336,12 +492,12 @@ set Waypoint
 %%%%
 <blue>=</blue> : rings (<w>%</w>ut on and <w>%</w>emove)
 
-<blue>=</blue> : 指輪 / <w>%</w>)ut onで指にはめる。
+<blue>=</blue> : 指輪 / <w>%</w>)ut onで身につける。
     <w>%</w>)emoveで外す。
 %%%%
 <red>"</red> : amulets (<w>%</w>ut on and <w>%</w>emove)
 
-<red>"</red> : 護符 / <w>%</w>)ut onで身に付ける。
+<red>"</red> : 護符 / <w>%</w>)ut onで身につける。
     <w>%</w>)emoveで外す。
 %%%%
 <lightgrey>/</lightgrey> : wands (e<w>%</w>oke)
@@ -366,12 +522,15 @@ set Waypoint
 %%%%
 <yellow>$</yellow> : gold (<w>%</w> counts gold)
 
-<yellow>$</yellow> : 金貨 / <w>%</w>)で所持金を数える
+<yellow>$</yellow> : 金貨 / <w>%</w>)で所持金を数える。
 %%%%
-<lightmagenta>0</lightmagenta> : the Orb of Zot\n    Carry it to the surface and win!
+<lightmagenta>0</lightmagenta> : the Orb of Zot
 
 <lightmagenta>0</lightmagenta> : ゾットのオーブ
-    これを地上に持ち帰り勝利せよ！
+%%%%
+Carry it to the surface and win!
+
+これを地上に持ち帰り勝利せよ！
 %%%%
 <h>Other Gameplay Actions:
 
@@ -380,10 +539,6 @@ set Waypoint
 use special Ability (<w>%!</w> for help)
 
 特別な能力を使う。(<w>%!</w>でヘルプ表示)
-%%%%
-Pray (<w>%</w> and <w>%!</w> for help)
-
-祈る。(<w>%</w>→<w>%/!</w>でヘルプ表示)
 %%%%
 cast spell, abort without targets
 
@@ -477,13 +632,13 @@ Save and exit without query
 確認を省いてゲームを保存し、
          終了する。
 %%%%
-Suicide the current character
+Abandon the current character
 
-現在のキャラクターを死なせて
+現在のキャラクターを放棄して
 %%%%
 and quit the game
 
-ゲームを放棄する。
+ゲームを終了する。
 %%%%
 <h>Player Character Information:
 
@@ -497,9 +652,9 @@ show skill screen
 
 スキル画面を表示する。
 %%%%
-show resistances
+character overview
 
-耐性等を表示する。
+キャラクター概要を表示する。
 %%%%
 show religion screen
 
@@ -548,7 +703,6 @@ display experience info
 examine occupied tile and
 
 今いる場所を調べ、床のアイテム
-
 %%%%
 pickup part of a single stack
 
@@ -572,18 +726,9 @@ in view
 
 祭壇、その他一覧を見る。
 %%%%
-toggle terrain-only view
+toggle view layers
 
 地形のみ表示にする/戻す。
-%%%%
-colour monsters in view by HP
-
-視界のモンスターのHPを色で
-         表示する。
-%%%%
-show monster weapons
-
-モンスターの武器を見る。
 %%%%
 show dungeon Overview
 
@@ -609,13 +754,9 @@ show Inventory list
 
 インベントリ一覧を見る。
 %%%%
-show inventory of equipped items
-
-装備している武器・防具一覧を見る。
-%%%%
 inscribe item
 
-アイテムに銘を付ける。
+アイテムに銘をつける。
 %%%%
 Fire next appropriate item
 
@@ -679,7 +820,7 @@ eVoke wand and miscellaneous item
 %%%%
 <w>%</w>/<w>%</w> : Put on or Remove jewellery
 
-<w>%</w>/<w>%</w> : 装飾品を付け外しする。
+<w>%</w>/<w>%</w> : 装身具をつけ外しする。
 %%%%
 <h>Item Interaction (floor):
 
@@ -705,6 +846,10 @@ Drop the last item(s) you picked up
 
 最後に拾ったアイテムを床に置く。
 %%%%
+Bottle blood from a corpse
+
+死体から採血する。
+%%%%
 Chop up a corpse
 
 死体を刻んで肉に変える。
@@ -721,8 +866,14 @@ Eat food from floor
 
 <h>その他:
 %%%%
-Many commands have context sensitive help, among them <w>%</w>, <w>%</w>, <w>%</w> (or any form of targeting), <w>%</w>, and <w>%</w>.\nYou can read descriptions of your current spells (<w>%</w>), skills (<w>%?</w>) and abilities (<w>%!</w>).
+command additional help
 
+# "Many commands have context sensitive "
+# "help, among them <w>%</w>, <w>%</w>, <w>%</w> (or any "
+# "form of targeting), <w>%</w>, and <w>%</w>.\n"
+# "You can read descriptions of your "
+# "current spells (<w>%</w>), skills (<w>%?</w>) and "
+# "abilities (<w>%!</w>)."
 '<w>%</w>'、'<w>%</w>'(または任意の照準を必要とするコマンド)、'<w>%</w>'、'<w>%</w>'、'<w>%</w>'といった多くのコマンドについて文脈依存する操作体系がある。
 '<w>%</w>'コマンドで習得済みの魔法一覧、'<w>%?</w>'でスキル、'<w>%!</w>'で能力の解説を読むことができる。
 %%%%
@@ -736,18 +887,15 @@ Many commands have context sensitive help, among them <w>%</w>, <w>%</w>, <w>%</
 %%%%
 autoexplore
 
-自動探索
+<auto-explore>
 %%%%
-<h>Attacking monsters
+command help attacking monster
 
+# "<h>Attacking monsters\n"
+# "Walking into a monster will attack it\n"
+# "with the wielded weapon or barehanded."
 <h>モンスターへの攻撃:
-%%%%
-Walking into a monster will attack it
-
 モンスターのいる場所の方向を押すと、
-%%%%
-with the wielded weapon or barehanded.
-
 手にした武器や素手で攻撃できる。
 %%%%
 <h>Ranged combat and magic
@@ -767,9 +915,9 @@ Memorise a new spell
 
 呪文を新たに覚える。
 %%%%
-read a book to forget a spell
+read a book to see spell descriptions
 
-魔法書を破棄して呪文を忘却する。
+魔法書を読んで解説文を閲覧する。
 %%%%
 <console><cyan>)</cyan> : </console>hand weapons (<w>%</w>ield)
 
@@ -796,11 +944,11 @@ read a book to forget a spell
 %%%%
 <console><magenta>!</magenta> : </console>potions (<w>%</w>uaff)
 
-<console><magenta>!</magenta> : </console>水薬  / <w>%</w>)uaffで飲む。
+<console><magenta>!</magenta> : </console>薬 / <w>%</w>)uaffで飲む。
 %%%%
 <console><blue>=</blue> : </console>rings (<w>%</w>ut on and <w>%</w>emove)
 
-<console><blue>=</blue> : </console>指輪 / <w>%</w>)ut onで指にはめる。
+<console><blue>=</blue> : </console>指輪 / <w>%</w>)ut onで身につける。
     <w>%</w>)emoveで外す。
 %%%%
 <console><red>"</red> : </console>amulets (<w>%</w>ut on and <w>%</w>emove)
@@ -851,7 +999,7 @@ use an ability
 %%%%
 show character overview
 
-キャラクター概要を表示する。
+キャラクター概要を表示する
 %%%%
 show religion overview
 
@@ -861,393 +1009,214 @@ show map of the whole level
 
 フロア全体のマップを見る。
 %%%%
-<h>Targeting
+command help targeting
 
+# "\n<h>Targeting\n"
+# "<w>Enter</w> or <w>.</w> or <w>Del</w> : confirm target\n"
+# "<w>+</w> and <w>-</w> : cycle between targets\n"
+# "<w>f</w> or <w>p</w> : shoot at previous target\n"
+# "         if still alive and in sight\n"
 <h>照準合わせ:
-%%%%
-<w>Enter</w> or <w>.</w> or <w>Del</w> : confirm target
-
 <w>Enter</w>、<w>.</w>、<w>Del</w> : 目標を決定する。
-%%%%
-<w>+</w> and <w>-</w> : cycle between targets
-
 <w>+</w>/<w>-</w>  : 目標を順繰りに切り替える。
-%%%%
-<w>f</w> or <w>p</w> : shoot at previous target
-
 <w>f</w>、<w>p</w> : 前に指定した目標がまだ生きて
+         いて、視界内にいればそれを撃つ。
 %%%%
-if still alive and in sight
+wizard command help 1
 
-いて、視界内にいればそれを撃つ。
-%%%%
-<yellow>Player stats</yellow>
-
+# "<yellow>Player stats</yellow>\n"
+# "<w>A</w>      set all skills to level\n"
+# "<w>Ctrl-D</w> change enchantments/durations\n"
+# "<w>g</w>      exercise a skill\n"
+# "<w>l</w>      change experience level\n"
+# "<w>Ctrl-P</w> list props\n"
+# "<w>r</w>      change character's species\n"
+# "<w>s</w>      set skill to level\n"
+# "<w>x</w>      gain an experience level\n"
+# "<w>$</w>      set gold to a specified value\n"
+# "<w>]</w>      get a mutation\n"
+# "<w>_</w>      gain religion\n"
+# "<w>^</w>      set piety to a value\n"
+# "<w>@</w>      set Str Int Dex\n"
+# "<w>#</w>      load character from a dump file\n"
+# "<w>&</w>      list all divine followers\n"
+# "<w>=</w>      show info about skill points\n"
+# "\n"
+# "<yellow>Create level features</yellow>\n"
+# "<w>L</w>      place a vault by name\n"
+# "<w>T</w>      make a trap\n"
+# "<w>,</w>/<w>.</w>    create up/down staircase\n"
+# "<w>(</w>      turn cell into feature\n"
+# "<w>\\</w>      make a shop\n"
+# "<w>Ctrl-K</w> mark all vaults as unused\n"
+# "\n"
+# "<yellow>Other level related commands</yellow>\n"
+# "<w>Ctrl-A</w> generate new Abyss area\n"
+# "<w>b</w>      controlled blink\n"
+# "<w>B</w>      controlled teleport\n"
+# "<w>Ctrl-B</w> banish yourself to the Abyss\n"
+# "<w>k</w>      shift section of a labyrinth\n"
+# "<w>R</w>      change monster spawn rate\n"
+# "<w>Ctrl-S</w> change Abyss speed\n"
+# "<w>u</w>/<w>d</w>    shift up/down one level\n"
+# "<w>~</w>      go to a specific level\n"
+# "<w>:</w>      find branches and overflow\n"
+# "       temples in the dungeon\n"
+# "<w>;</w>      list known levels and counters\n"
+# "<w>{</w>      magic mapping\n"
+# "<w>}</w>      detect all traps on level\n"
+# "<w>Ctrl-W</w> change Shoals' tide speed\n"
+# "<w>Ctrl-E</w> dump level builder information\n"
+# "<w>Ctrl-R</w> regenerate current level\n"
+# "<w>P</w>      create a level based on a vault\n"
 <yellow>プレイヤー能力値:</yellow>
-%%%%
-<w>A</w>      set all skills to level
-
 <w>A</w>      すべてのスキルを指定値まで上げる
-%%%%
-<w>Ctrl-D</w> change enchantments/durations
-
 <w>Ctrl-D</w> 持続効果を変更する
-%%%%
-<w>g</w>      exercise a skill
-
 <w>g</w>      スキルを鍛える
-%%%%
-<w>l</w>      change experience level
-
 <w>l</w>      経験レベルを変更する
-%%%%
-<w>Ctrl-P</w> list props
-
 <w>Ctrl-P</w> プロパティを列挙する
-%%%%
-<w>r</w>      change character's species
-
 <w>r</w>      プレイヤー種族を変更する
-%%%%
-<w>s</w>      gain 20000 skill points
-
-<w>s</w>      20000スキルポイントを得る
-%%%%
-<w>S</w>      set skill to level
-
-<w>S</w>      スキルを指定値に設定する
-%%%%
-<w>x</w>      gain an experience level
-
+<w>s</w>      スキルを指定値に設定する
 <w>x</w>      経験レベルを1上げる
-%%%%
-<w>$</w>      get 1000 gold
-
-<w>$</w>      1000ゴールド得る
-%%%%
-<w>n</w>      lose all gold
-
-<w>n</w>      所持金をすべて失う
-%%%%
-<w>]</w>      get a mutation
-
+<w>$</w>      所持金を指定した値にする
 <w>]</w>      突然変異を得る
-%%%%
-<w>_</w>      gain religion
-
 <w>_</w>      指定した神を信仰する
-%%%%
-<w>^</w>      set piety to a value
-
 <w>^</w>      信仰値を変更する
-%%%%
-<w>@</w>      set Str Int Dex
-
-<w>@</w>      腕力/知力/器用を変更する
-%%%%
-<w>#</w>      load character from a dump file
-
+<w>@</w>      腕力/知力/器用さの値を変更する
 <w>#</w>      ダンプファイルからキャラクターを
-       読み込む
-%%%%
-<w>Ctrl-Z</w> gain lots of Zot Points
-
-<w>Ctrl-Z</w> 多くのゾットポイントを得る
-%%%%
-<w>&</w>      list all divine followers
-
+       読み込む(日本語版では現在非対応)
 <w>&</w>      神聖なる従者をすべて列挙する
-%%%%
-<w>=</w>      show info about skill points
-
 <w>=</w>      スキルポイントの情報を得る
-%%%%
-<yellow>Create level features</yellow>
 
 <yellow>階層の要素を編集する:</yellow>
-%%%%
-<w>L</w>      place a vault by name
-
 <w>L</w>      名前を指定してvaultを生成する
-%%%%
-<w>T</w>      make a trap
-
-<w>T</w>      罠を張る
-%%%%
-<w>,</w>/<w>.</w>    create up/down staircase
-
+<w>T</w>      罠を設置する
 <w>,</w>/<w>.</w>    上り/下り階段を生成する
-%%%%
-<w>(</w>      turn cell into feature
-
 <w>(</w>      このマスを別の地形に変える
-%%%%
-<w>\</w>      make a shop
-
 <w>\</w>      店を生成する
-%%%%
-<w>Ctrl-K</w> mark all vaults as unused
-
 <w>Ctrl-K</w> すべてのvaultを未使用扱いにする
-%%%%
-<yellow>Other level related commands</yellow>
 
 <yellow>その他の階層関連コマンド:</yellow>
-%%%%
-<w>Ctrl-A</w> generate new Abyss area
-
 <w>Ctrl-A</w> 新たなアビスの領域を生成する
-%%%%
-<w>b</w>      controlled blink
-
 <w>b</w>      行き先を制御しての瞬間移動
-%%%%
-<w>B</w>      controlled teleport
-
 <w>B</w>      行き先を制御してのテレポート
-%%%%
-<w>Ctrl-B</w> banish yourself to the Abyss
-
 <w>Ctrl-B</w> 自らをアビスに追放する
-%%%%
-<w>k</w>      shift section of a labyrinth
-
 <w>k</w>      ラビリンスの区域を変更する
-%%%%
-<w>R</w>      change monster spawn rate
-
 <w>R</w>      モンスターの生成率を変更する
-%%%%
-<w>Ctrl-S</w> change Abyss speed
-
 <w>Ctrl-S</w> アビスの変容速度を変更する
-%%%%
-<w>u</w>/<w>d</w>    shift up/down one level
-
 <w>u</w>/<w>d</w>    1階上/下へ移動する
-%%%%
-<w>~</w>      go to a specific level
-
 <w>~</w>      分岐やポータルに移動する
-%%%%
-<w>:</w>      find branches and overflow\n       temples in the dungeon
-
 <w>:</w>      分岐や寺院外の祭壇の場所を表示する
-%%%%
-temples in the dungeon
-
-表示する
-%%%%
-<w>;</w>      list known levels and counters
-
 <w>;</w>      既知の階層とカウンターを表示する
-%%%%
-<w>{</w>      magic mapping
-
 <w>{</w>      魔法の地図の効果
-%%%%
-<w>}</w>      detect all traps on level
-
 <w>}</w>      階層のすべての罠を感知する
-%%%%
-<w>Ctrl-W</w> change Shoals' tide speed
-
 <w>Ctrl-W</w> 浅瀬における潮の速度を変更する
-%%%%
-<w>Ctrl-E</w> dump level builder information
-
 <w>Ctrl-E</w> 階層構築情報を表示する
-%%%%
-<w>Ctrl-R</w> regenerate current level
-
 <w>Ctrl-R</w> 現在の階層を再構成する
-%%%%
-<w>P</w>      create a level based on a vault
-
 <w>P</w>      指定したvaultをもとに階層を作成する
 %%%%
-<yellow>Other player related effects</yellow>
+wizard command help 2
 
+# "<yellow>Other player related effects</yellow>\n"
+# "<w>c</w>      card effect\n"
+# "<w>Ctrl-G</w> save/load ghost (bones file)\n"
+# "<w>h</w>/<w>H</w>    heal yourself (super-Heal)\n"
+# "<w>e</w>      set hunger state\n"
+# "<w>X</w>      make Xom do something now\n"
+# "<w>z</w>      cast spell by number/name\n"
+# "<w>!</w>      memorise spell\n"
+# "<w>W</w>      god wrath\n"
+# "<w>w</w>      god mollification\n"
+# "<w>p</w>      polymorph into a form\n"
+# "<w>V</w>      toggle xray vision\n"
+# "<w>E</w>      (un)freeze time\n"
+
+# "<yellow>Monster related commands</yellow>\n"
+# "<w>m</w>/<w>M</w>    create specified monster\n"
+# "<w>D</w>      detect all monsters\n"
+# "<w>g</w>/<w>G</w>    dismiss all monsters\n"
+# "<w>"</w>      list monsters\n"
+
+# "<yellow>Item related commands</yellow>\n"
+# "<w>a</w>      acquirement\n"
+# "<w>C</w>      (un)curse item\n"
+# "<w>i</w>/<w>I</w>    identify/unidentify inventory\n"
+# "<w>y</w>/<w>Y</w>    id/unid item types+level items\n"
+# "<w>o</w>/<w>%</w>    create an object\n"
+# "<w>t</w>      tweak object properties\n"
+# "<w>v</w>      show gold value of an item\n"
+# "<w>-</w>      get a god gift\n"
+# "<w>|</w>      create all unrand artefacts\n"
+# "<w>+</w>      make randart from item\n"
+# "<w>'</w>      list items\n"
+# "<w>J</w>      Jiyva off-level sacrifice\n"
+
+# "<yellow>Debugging commands</yellow>\n"
+# "<w>f</w>      quick fight simulation\n"
+# "<w>F</w>      single scale fsim\n"
+# "<w>Ctrl-F</w> double scale fsim\n"
+# "<w>Ctrl-I</w> item generation stats\n"
+# "<w>O</w>      measure exploration time\n"
+# "<w>Ctrl-T</w> dungeon (D)Lua interpreter\n"
+# "<w>Ctrl-U</w> client (C)Lua interpreter\n"
+# "<w>Ctrl-X</w> Xom effect stats\n"
+# "<w>Ctrl-Q</w> make some debug messages quiet\n"
+# "<w>Ctrl-C</w> force a crash\n"
+
+# "<yellow>Other wizard commands</yellow>\n"
+# "(not prefixed with <w>&</w>!)\n"
+# "<w>x?</w>     list targeted commands\n"
+# "<w>X?</w>     list map-mode commands\n"
 <yellow>その他のプレイヤーに関する効果:</yellow>
-%%%%
-<w>c</w>      card effect
-
 <w>c</w>      カードを引く効果
-%%%%
-<w>Ctrl-G</w> save/load ghost (bones file)
-
-<w>Ctrl-G</w> bonesファイルから幽霊を
-       読み書きする
-%%%%
-<w>h</w>/<w>H</w>    heal yourself (super-Heal)
-
-<w>h</w>/<w>H</w>    自身を回復させる
-%%%%
-<w>e</w>      set hunger state
-
+<w>h</w>/<w>H</w>    全快し、腹一杯にする
 <w>e</w>      満腹度を変更する
-%%%%
-<w>X</w>      make Xom do something now
-
 <w>X</w>      ゾムに何かをさせる
-%%%%
-<w>z</w>      cast spell by number/name
-
 <w>z</w>      名前/番号を指定して魔法を使う
-%%%%
-<w>!</w>      memorise spell
-
 <w>!</w>      魔法を習得する
-%%%%
-<w>W</w>      god wrath
-
 <w>W</w>      神の怒りを落とす
-%%%%
-<w>w</w>      god mollification
-
 <w>w</w>      神の怒りをなだめる
-%%%%
-<w>p</w>      polymorph into a form
-
 <w>p</w>      さまざまな姿に変わる
-%%%%
-<w>V</w>      toggle xray vision
-
 <w>V</w>      壁透視の切り替え
-%%%%
-<yellow>Monster related commands</yellow>
+<w>E</w>      時間経過を停止/再開する
 
 <yellow>モンスター関連コマンド:</yellow>
-%%%%
-<w>D</w>      detect all monsters
-
-<w>D</w>      全てのモンスターを感知する
-%%%%
-<w>G</w>      dismiss all monsters
-
-<w>G</w>      モンスターを消す
-%%%%
-<w>m</w>/<w>M</w>    create monster by name/number
-
 <w>m</w>/<w>M</w>    名前または番号を指定して
        モンスターを生成する
-%%%%
-<w>"</w>      list monsters
-
+<w>D</w>      全てのモンスターを感知する
+<w>g</w>/<w>G</w>    モンスターを消す
 <w>"</w>      モンスターを列挙する
-%%%%
-<yellow>Item related commands</yellow>
 
 <yellow>アイテム関連コマンド:</yellow>
-%%%%
-<w>a</w>      acquirement
-
 <w>a</w>      獲得の効果
-%%%%
-<w>C</w>      (un)curse item
-
 <w>C</w>      アイテムを呪う/呪いを解く
-%%%%
-<w>i</w>/<w>I</w>    identify/unidentify inventory
-
 <w>i</w>      所持アイテム全部を鑑定する
 <w>I</w>      所持アイテム全部を未鑑定にする
-%%%%
-<w>y</w>/<w>Y</w>    id/unid item types+level items
-
 <w>y</w>      アイテム全部を鑑定する
 <w>Y</w>      アイテム全部を未鑑定にする
-%%%%
-<w>o</w>/<w>%</w>    create an object
-
 <w>o</w>/<w>%</w>    オブジェクトを生成する
-%%%%
-<w>t</w>      tweak object properties
-
 <w>t</w>      オブジェクトの設定値を変更する
-%%%%
-<w>v</w>      show gold value of an item
-
 <w>v</w>      アイテムの価値を表示する
-%%%%
-<w>-</w>      get a god gift
-
 <w>-</w>      神の授かり物を得る
-%%%%
-<w>|</w>      create all unrand artefacts
-
 <w>|</w>      全ての固定★を生成する
-%%%%
-<w>+</w>      make randart from item
-
 <w>+</w>      アイテムをベースに☆を生成する
-%%%%
-<w>'</w>      list items
-
 <w>'</w>      アイテムを列挙する
-%%%%
-<w>J</w>      Jiyva off-level sacrifice
-
 <w>J</w>      別の階層にあるアイテムを
        ジーヴァに捧げる
-%%%%
-<yellow>Debugging commands</yellow>
 
 <yellow>デバッグ用コマンド:</yellow>
-%%%%
-<w>f</w>      quick fight simulation
-
 <w>f</w>      簡易戦闘シミュレーション
-%%%%
-<w>F</w>      single scale fsim
-
 <w>F</w>      fsim(シングルスケール)
-%%%%
-<w>Ctrl-F</w> double scale fsim
-
 <w>Ctrl-F</w> fsim(ダブルスケール)
-%%%%
-<w>Ctrl-I</w> item generation stats
-
 <w>Ctrl-I</w> アイテム生成統計を出す
-%%%%
-<w>O</w>      measure exploration time
-
 <w>O</w>      探索ターンを計測する
-%%%%
-<w>Ctrl-T</w> dungeon (D)Lua interpreter
-
 <w>Ctrl-T</w> (D)Luaインタプリタ
-%%%%
-<w>Ctrl-U</w> client (C)Lua interpreter
-
 <w>Ctrl-U</w> (C)Luaインタプリタ
-%%%%
-<w>Ctrl-X</w> Xom effect stats
-
 <w>Ctrl-X</w> ゾム効果の統計を出す
-%%%%
-<w>Ctrl-Q</w> make some debug messages quiet
-
-<w>Ctrl-Q</w> デバッグメッセージを切る
-%%%%
-<w>Ctrl-C</w> force a crash
-
 <w>Ctrl-C</w> 強制的にクラッシュさせる
-%%%%
-<yellow>Other wizard commands</yellow>
 
 <yellow>その他のウィザードコマンド:</yellow>
-%%%%
-(not prefixed with <w>&</w>!)
-
 ('<w>&</w>'を頭に付けない！)
-%%%%
-<w>x?</w>     list targeted commands
-
 <w>x?</w>     照準コマンドを列挙する
-%%%%
-<w>X?</w>     list map-mode commands
-
 <w>X?</w>     フロアマップコマンドを列挙する
 %%%%
