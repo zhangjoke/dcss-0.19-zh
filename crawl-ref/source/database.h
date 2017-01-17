@@ -142,5 +142,10 @@ static inline string verb_j(const string &verb, const string &tag = "[verb]")
     return tagged_jtrans(tag, verb);
 }
 #define verb_jc(v) (verb_j(v).c_str())
+static inline string duration_j(const string &duration, const string &tag = "[dur]")
+{
+    return tagged_jtrans(tag, duration);
+}
+#define duration_jc(d) (duration_j(d).c_str())
 
 #endif

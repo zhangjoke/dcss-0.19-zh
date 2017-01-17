@@ -1,116 +1,15 @@
 %%%%
-deck of escape
-
-脱出のデッキ
-%%%%
-deck of destruction
-
-破壊のデッキ
-%%%%
-deck of dungeons
-
-迷宮のデッキ
-%%%%
-deck of summoning
-
-召喚のデッキ
-%%%%
-deck of wonders
-
-不思議のデッキ
-%%%%
-deck of oddities
-
-奇妙なデッキ
-%%%%
-deck of punishment
-
-懲罰のデッキ
-%%%%
-deck of war
-
-戦争のデッキ
-%%%%
-deck of changes
-
-変幻のデッキ
-%%%%
-deck of defence
-
-守護のデッキ
-%%%%
-This card doesn't seem to belong here.
-
-このカードはこのデッキのものではないようだ。
-%%%%
-# obsolete cards
-#
-# the Portal
-# the Warp
-# Battlelust
-# Metamorphosis
-# Shuffle
-# Experience
-# the Sage
-# the Trowel
-# the Minefield
-# the Genie
-# Vitrification
-# the Bargain
-# the Herd
-# the Bones
-%%%%
-[card]Water
-
-水
-%%%%
-[card]Swap
-
-交換
-%%%%
 [card]Velocity
 
 加速
 %%%%
-[card]Damnation
+[card]Exile
 
-天罰
-%%%%
-[card]Solitude
-
-孤独
+放浪
 %%%%
 [card]the Elixir
 
-秘薬
-%%%%
-[card]the Helm
-
-兜
-%%%%
-[card]the Blade
-
-刃
-%%%%
-[card]the Shadow
-
-影
-%%%%
-[card]the Potion
-
-水薬
-%%%%
-[card]Focus
-
-特化
-%%%%
-[card]the Helix
-
-二重螺旋
-%%%%
-[card]Dowsing
-
-探査
+霊薬
 %%%%
 [card]the Stairs
 
@@ -120,21 +19,9 @@ This card doesn't seem to belong here.
 
 玄室
 %%%%
-[card]the Banshee
-
-泣き女
-%%%%
 [card]Wild Magic
 
 暴走
-%%%%
-[card]Placid Magic
-
-沈静
-%%%%
-[card]the Crusade
-
-十字軍
 %%%%
 [card]the Elements
 
@@ -156,26 +43,6 @@ This card doesn't seem to belong here.
 
 野伏
 %%%%
-[card]Repulsiveness
-
-醜悪
-%%%%
-[card]Xom
-
-ゾム
-%%%%
-[card]Famine
-
-飢餓
-%%%%
-[card]the Feast
-
-御馳走
-%%%%
-[card]Warpwright
-
-移動罠
-%%%%
 [card]the Shaft
 
 縦穴
@@ -188,21 +55,9 @@ This card doesn't seem to belong here.
 
 雲烟
 %%%%
-[card]the Hammer
-
-金鎚
-%%%%
-[card]Venom
-
-猛毒
-%%%%
 [card]the Storm
 
 嵐
-%%%%
-[card]Fortitude
-
-堅牢
 %%%%
 [card]Pain
 
@@ -218,27 +73,15 @@ This card doesn't seem to belong here.
 %%%%
 [card]the Wraith
 
-掠奪
-%%%%
-[card]the Curse
-
-呪縛
+亡霊
 %%%%
 [card]the Swine
 
 豚
 %%%%
-[card]the Alchemist
-
-錬金術師
-%%%%
 [card]the Orb
 
 球体
-%%%%
-[card]the Mercenary
-
-傭兵
 %%%%
 [card]the Illusion
 
@@ -248,97 +91,197 @@ This card doesn't seem to belong here.
 
 堕落
 %%%%
-It may contain the following cards:
+[card]Famine
 
-このデッキには
+飢餓
 %%%%
-(One in a hundred cards may be drawn from the deck of oddities, instead.)
+# TAG_MAJOR_VERSION == 34
+[card]the Mercenary
 
-100枚に1枚の割合で「奇妙なデッキ」のカードが混じることがある。
 %%%%
-deal
+# TAG_MAJOR_VERSION == 34
+[card]the Alchemist
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Curse
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Venom
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Fortitude
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Hammer
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Xom
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Feast
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Warpwright
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Repulsiveness
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Placid Magic
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Crusade
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Helm
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Blade
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Shadow
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Potion
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Focus
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Helix
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Dowsing
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Banshee
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Solitude
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Portal
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Warp
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Battlelust
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Metamorphosis
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Shuffle
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Experience
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Sage
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Trowel
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Minefield
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Genie
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Vitrification
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Bargain
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Herd
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]the Bones
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Water
+
+%%%%
+# TAG_MAJOR_VERSION == 34
+[card]Swap
+
+%%%%
+It may contain the following cards: {card list}.
+
+このデッキには%sのカードが含まれている。
+%%%%
+[verb]deal
 
 使った
 %%%%
-draw
+[verb]draw
 
 引いた
 %%%%
-You %s a card... It is %s.
+You {verb} a card... It is {card name}.
 
 あなたは%sのカードを%s。
 %%%%
-This isn't a deck at all!
+disappears without a trace.
 
-# message for bug
+忽然と消え去った。
 %%%%
-Seems this deck never had any cards in the first place!
+glows slightly and disappears.
 
-# message for bug
+しばらくの間輝き、そして消え去った。
 %%%%
-'cards' property isn't a vector.
+glows with a rainbow of weird colours and disappears.
 
-# message for bug
+奇妙な虹色に輝き、そして消え去った。
 %%%%
-'cards' vector doesn't contain bytes.
+The deck of cards %s
 
-# message for bug
-%%%%
-Strange, this deck is already empty.
-
-# message for bug
-%%%%
-But there should have been
-
-# message for bug
-%%%%
-cards left.
-
-# message for bug
-%%%%
-A swarm of software bugs snatches the deck from you and whisks it away.
-
-# message for bug
-%%%%
-buggy cards found in the deck, discarding them.
-
-# message for bug
-%%%%
-Deck was created with zero cards???
-
-# message for bug
-%%%%
-Deck was created with *negative* cards?!
-
-# message for bug
-%%%%
-Deck has more cards than it was created with?
-
-# message for bug
-%%%%
-more cards than flags.
-
-# message for bug
-%%%%
-#            strm << "Have you used " << deck.used_count << " cards, or "
-#                 << (deck.initial_cards - num_cards) << "? Oops.";
-# message for bug
-%%%%
-#            strm << "There are " << num_cards << " cards left, not "
-#                 << (-deck.used_count) << ".  Oops.";
-# message for bug
-%%%%
-Problems might not have been completely fixed; still use deck?
-
-# message for bug
+カードのデッキは%s
 %%%%
 That isn't a deck!
 
 それはカードのデッキじゃない！
 %%%%
-You get a glimpse of the first card. It is %s.
+This is %s.
 
-あなたはデッキの一番上に%sのカードがあることを知った。
+これは%sだ。
 %%%%
 Deal from which deck?
 
@@ -360,9 +303,9 @@ Nemelex gives you another card to finish dealing.
 
 ネメレクス・ソベーはあなたが切りよくカードを使えるように追加のカードをよこした。
 %%%%
-It is usually found in decks of
+It is usually found in decks of {deck list} { or ... }.
 
-このカードは通常
+このカードは通常%s%sに含まれている。
 %%%%
 , or in Nemelex Xobeh's deck of punishment
 
@@ -376,9 +319,9 @@ It is normally not part of any deck.
 
 このカードは通常はどのカードのデッキにも含まれていない。
 %%%%
-No description found.
+# No description found.
 
-解説文が存在しません。
+# jtrans_ability.txtに記載
 %%%%
 Stack which deck?
 
@@ -422,19 +365,35 @@ seems to have exchanged this card behind your back!
 %%%%
 It's actually %s.
 
-それは実際は%sのカードだった。
+それは実際は%sだった。
+%%%%
+[adj]evil
+
+邪悪な
+%%%%
+[adj]poisonous
+
+毒の
+%%%%
+[adj]chaotic
+
+混沌の
+%%%%
+[adj]hasty
+
+加速させる
+%%%%
+[adj]fiery
+
+燃えさかる
 %%%%
 By %s power, the %s magic on the card dissipates harmlessly.
 
 %sの御業により、%s魔術のカードはあなたを害することなく消え去った。
 %%%%
-You spin around.
+# seems to speed up.
 
-あなたはその場で回転した。
-%%%%
-protects you from inadvertent hurry.
-
-はあなたを意図しない加速から保護した。
+# jtrans_beam.txtと重複
 %%%%
 is moving somewhat quickly.
 
@@ -444,10 +403,6 @@ drawing a card
 
 天罰のカードを引いたこと
 %%%%
-The power of the Abyss blocks your magic.
-
-アビスの力がそのカードの魔力を妨害している。
-%%%%
 A shaft materialises beneath you!
 
 あなたの足下に縦穴が出現した！
@@ -456,109 +411,37 @@ No stairs available to move.
 
 動かせるような階段がここにはない。
 %%%%
-dealt
+[verb]dealt
 
-使った
+<[verb]deal>
 %%%%
-drawn
+[verb]drawn
 
-引いた
+<[verb]draw>
 %%%%
-Releasing that poison makes you feel less healthy for a moment.
+You have %s %s.
 
-猛毒を放つことにより、一瞬だけあなたは具合が悪くなった。
+あなたは%sを%s。
 %%%%
-Releasing that poison leaves you vulnerable to poison.
+You radiate a wave of entropy!
 
-猛毒を放つことにより、あなたは毒に弱くなった。
+あなたはエントロピーの波動を発した！
 %%%%
-You feel resistant.
+# is healed.
 
-あなたは耐性が強まったような気がした。
-%%%%
-A magical shield forms in front of you.
-
-魔法の盾があなたの前方に形成された。
-%%%%
-%s %s %ssharp%s
-
-%sは%s%s鋭く%s見えた。
-%%%%
-oddly
-
-奇妙に
-%%%%
-(like it always does).
-
-いつものように
-%%%%
-Your cleaving ability is renewed.
-
-あなたの薙ぎ払いの能力の効果時間が延長された。
-%%%%
-You feel more catlike.
-
-あなたはさらに動きが静かになったようだ。
-%%%%
-Str
-
-腕力
-%%%%
-Int
-
-知力
-%%%%
-Dex
-
-器用さ
-%%%%
-You feel transcendent for a moment.
-
-あなたは一瞬超越的な感覚を覚えた。
-%%%%
-helix card
-
-二重螺旋のカード
-%%%%
-You sense traps nearby.
-
-あなたは近くにある罠を感知した。
-%%%%
-You sense items nearby.
-
-あなたは近くにあるアイテムを感知した。
-%%%%
-You feel telepathic!
-
-あなたはテレパシー能力が備わったように感じた！
+# jtrans_attack.txtと重複
 %%%%
 You somehow manage to escape divine attention...
 
 あなたはなんとか神の注意から逃れようとした……
 %%%%
-You feel a malignant aura surround you.
+You see a puff of smoke.
 
-あなたは周囲に悪意ある霊気がとりまくのを感じた。
-%%%%
-is converted.
-
-は改宗した。
+あなたの目の前でぼわんと煙が上がった。
 %%%%
 You sense the presence of something unfriendly.
 
-あなたは非友好的な何者かの存在を感じた。
-%%%%
-is unwilling to work for you!
-
-はあなたに従うつもりはない！
-%%%%
-You cannot afford %s fee of %d gold!
-
-あなたは%sを雇うのに必要な%dゴールドを持っていない！
-%%%%
-attacks!
-
-が攻撃してきた！
+あなたはなにか敵対的なものの存在を感じ取った。
 %%%%
 Pay %s fee of %d gold?
 
@@ -569,33 +452,21 @@ Hired %s for %d gold.
 %sを金貨%d枚で雇った
 # take_note
 %%%%
+attacks!
+
+が攻撃してきた！
+%%%%
 joins your ranks!
 
 はあなたの仲間に加わった！
-%%%%
-%d of your gold pieces vanish!
-
-%dゴールドが手元から消えた！
 %%%%
 Clouds appear around you!
 
 あなたの周囲に雲が湧きだした！
 %%%%
-You are filled with a great fortitude.
-
-あなたは不屈の精神を発揮した。
-%%%%
-You become more resolute.
-
-あなたはさらに決意を固めた。
-%%%%
 is dazed by the mutagenic energy.
 
 は変異性のエネルギーを浴びてふらふらしている。
-%%%%
-You feel magic draining away.
-
-あなたは魔力が吸われていくのを感じた。
 %%%%
 a card of wild magic
 
@@ -605,34 +476,17 @@ You feel a surge of magic.
 
 あなたは魔力の高まりを感じた。
 %%%%
-You have %s %s.
-
-あなたは%sのカードを%s。
-%%%%
-Xom laughs nastily.
-
-ゾムは嫌らしく笑った。
-%%%%
 You feel rather smug.
 
 あなたはどうってことない顔をしている。
 %%%%
-You feel a horrible emptiness.
-
-あなたは空しさを覚えた。
-%%%%
-You feel like a pig.
-
-あなたは豚のような気分になった。
-%%%%
+# TAG_MAJOR_VERSION == 34
 This type of card no longer exists!
 
-# obsolete
-そのカードはもう存在しない！
 %%%%
 You have %s a buggy card!
 
-# message for bug
+# for bug
 %%%%
 You hear Nemelex Xobeh chuckle.
 
