@@ -26,6 +26,7 @@
 #include "itemname.h"
 #include "itemprop.h"
 #include "item_use.h"
+#include "japanese.h"
 #include "message.h"
 #include "player-stats.h"
 #include "religion.h"
@@ -467,6 +468,11 @@ string player::name(description_level_type dt, bool, bool) const
 string player::pronoun(pronoun_type pro, bool /*force_visible*/) const
 {
     return decline_pronoun(GENDER_YOU, pro);
+}
+
+string player::pronoun_j(pronoun_type pro, bool /*force_visible*/) const
+{
+    return decline_pronoun_j(GENDER_YOU, pro);
 }
 
 string player::conj_verb(const string &verb) const

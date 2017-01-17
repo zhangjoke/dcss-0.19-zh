@@ -35,6 +35,7 @@
 #include "itemname.h"
 #include "itemprop.h"
 #include "items.h"
+#include "japanese.h"
 #include "libutil.h"
 #include "makeitem.h"
 #include "message.h"
@@ -2385,6 +2386,17 @@ string monster::pronoun(pronoun_type pro, bool force_visible) const
                                pro);
     }
     return mons_pronoun(type, pro, seen);
+}
+
+string monster::pronoun_j(pronoun_type pro, bool force_visible) const
+{
+    const bool seen = force_visible || you.can_see(*this);
+    if (seen && props.exists(MON_GENDER_KEY))
+    {
+        return decline_pronoun_j((gender_type)props[MON_GENDER_KEY].get_int(),
+                                 pro);
+    }
+    return mons_pronoun_j(type, pro, seen);
 }
 
 string monster::conj_verb(const string &verb) const
