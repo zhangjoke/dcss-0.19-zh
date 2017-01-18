@@ -977,7 +977,7 @@ static void _add_formatted_keyhelp(column_composer &cols)
     _add_command(cols, 0, CMD_REPEAT_CMD, jtrans("repeat next command # of times"), 2);
 
     cols.add_formatted(
-            1,
+            0,
             jtrans_notrim("<h>Non-Gameplay Commands / Info\n"));
 
     _add_command(cols, 0, CMD_REPLAY_MESSAGES, jtrans("show Previous messages"));
