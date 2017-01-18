@@ -2973,7 +2973,7 @@ static string _mon_enchantments_string(const monster_info& mi)
 
     if (!enchant_descriptors.empty())
     {
-        return uppercase_first(mi.pronoun(PRONOUN_SUBJECTIVE))
+        return uppercase_first(mi.pronoun_j(PRONOUN_SUBJECTIVE))
             + " is "
             + comma_separated_line(enchant_descriptors.begin(),
                                    enchant_descriptors.end())
@@ -3061,7 +3061,7 @@ static vector<string> _get_monster_desc_vector(const monster_info& mi)
 static string _get_monster_desc(const monster_info& mi)
 {
     string text    = "";
-    string pronoun = uppercase_first(mi.pronoun(PRONOUN_SUBJECTIVE));
+    string pronoun = uppercase_first(mi.pronoun_j(PRONOUN_SUBJECTIVE));
 
     if (mi.is(MB_CLINGING))
         text += pronoun + " is clinging to the wall.\n";
@@ -3117,7 +3117,7 @@ static string _get_monster_desc(const monster_info& mi)
 
     if (mi.is(MB_POSSESSABLE))
     {
-        text += string(mi.pronoun(PRONOUN_POSSESSIVE))
+        text += string(mi.pronoun_j(PRONOUN_POSSESSIVE))
                 + " soul is ripe for the taking.\n";
     }
     else if (mi.is(MB_ENSLAVED))
@@ -3131,7 +3131,7 @@ static string _get_monster_desc(const monster_info& mi)
 
     if (mi.fire_blocker)
     {
-        text += string("Your line of fire to ") + mi.pronoun(PRONOUN_OBJECTIVE)
+        text += string("Your line of fire to ") + mi.pronoun_j(PRONOUN_OBJECTIVE)
               + " is blocked by " // FIXME: renamed features
               + feature_description(mi.fire_blocker, NUM_TRAPS, "",
                                     DESC_A)

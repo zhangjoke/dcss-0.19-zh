@@ -3013,7 +3013,7 @@ static string _monster_attacks_description(const monster_info& mi)
 
     if (!attack_descs.empty())
     {
-        result << uppercase_first(mi.pronoun(PRONOUN_SUBJECTIVE));
+        result << uppercase_first(mi.pronoun_j(PRONOUN_SUBJECTIVE));
         result << " may attack to " << comma_separated_line(attack_descs.begin(), attack_descs.end());
         result << ".\n";
     }
@@ -3257,7 +3257,7 @@ static string _monster_stat_description(const monster_info& mi)
         resist_descriptions.push_back(tmp);
     }
 
-    const char* pronoun = mi.pronoun(PRONOUN_SUBJECTIVE);
+    const string pronoun = mi.pronoun_j(PRONOUN_SUBJECTIVE);
 
     if (mi.threat != MTHRT_UNDEF)
     {
@@ -3493,8 +3493,8 @@ void get_monster_db_desc(const monster_info& mi, describe_info &inf,
         inf.quote += "\n";
     inf.quote += quote2;
 
-    const string it = mi.pronoun(PRONOUN_SUBJECTIVE);
-    const string it_o = mi.pronoun(PRONOUN_OBJECTIVE);
+    const string it = mi.pronoun_j(PRONOUN_SUBJECTIVE);
+    const string it_o = mi.pronoun_j(PRONOUN_OBJECTIVE);
     const string It = uppercase_first(it);
 
     switch (mi.type)
@@ -3592,7 +3592,7 @@ void get_monster_db_desc(const monster_info& mi, describe_info &inf,
         if (curse_power > 10)
             inf.body << "powerful ";
         inf.body << "necromantic curse on "
-                 << mi.pronoun(PRONOUN_POSSESSIVE) << " foe when destroyed.\n";
+                 << mi.pronoun_j(PRONOUN_POSSESSIVE) << " foe when destroyed.\n";
     }
 
     // Get information on resistances, speed, etc.
@@ -3665,7 +3665,7 @@ void get_monster_db_desc(const monster_info& mi, describe_info &inf,
     else if (mons_class_leaves_hide(mi.type))
     {
         inf.body << "\nIf " << it << " is slain, it may be possible to "
-                    "recover " << mi.pronoun(PRONOUN_POSSESSIVE)
+                    "recover " << mi.pronoun_j(PRONOUN_POSSESSIVE)
                  << " hide, which can be used as armour.\n";
     }
 

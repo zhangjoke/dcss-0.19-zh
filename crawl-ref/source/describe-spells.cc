@@ -93,12 +93,12 @@ static string _ability_type_vulnerabilities(mon_spell_slot_flag type,
  * @param pronoun The monster pronoun to use (should be derived from PRONOUN_OBJECTIVE).
  * @return        A string to include in the spellbook description.
  */
-static string _describe_spell_filtering(mon_spell_slot_flag type, const char* pronoun)
+static string _describe_spell_filtering(mon_spell_slot_flag type, const string &pronoun)
 {
     const bool is_spell = type = MON_SPELL_WIZARD;
     return make_stringf(" (judging by the %s you have seen %s %s)",
                         is_spell ? "spells" : "abilities",
-                        pronoun,
+                        pronoun.c_str(),
                         is_spell ? "cast" : "use");
 }
 
@@ -119,7 +119,7 @@ static string _describe_spell_filtering(mon_spell_slot_flag type, const char* pr
  *                          "possesses the following natural abilities:"
  */
 static string _booktype_header(mon_spell_slot_flag type, size_t num_books,
-                               bool has_silencable, bool has_filtered, const char* pronoun)
+                               bool has_silencable, bool has_filtered, const string &pronoun)
 {
     const string vulnerabilities =
         _ability_type_vulnerabilities(type, has_silencable);
@@ -253,10 +253,10 @@ static void _monster_spellbooks(const monster_info &mi,
         {
             output_book.label +=
                 "\n" +
-                uppercase_first(mi.pronoun(PRONOUN_SUBJECTIVE)) +
+                uppercase_first(mi.pronoun_j(PRONOUN_SUBJECTIVE)) +
                 " " +
                 _booktype_header(type, valid_books.size(), has_silencable,
-                                 filtered_books, mi.pronoun(PRONOUN_OBJECTIVE));
+                                 filtered_books, mi.pronoun_j(PRONOUN_OBJECTIVE));
         }
         else
         {
@@ -322,7 +322,7 @@ spellset monster_spellset(const monster_info &mi)
         spellbook_contents output_book;
         output_book.label
           = make_stringf("You have seen %s using the following:",
-                         mi.pronoun(PRONOUN_SUBJECTIVE));
+                         mi.pronoun_j(PRONOUN_SUBJECTIVE).c_str());
         for (int spell : mi.props[SEEN_SPELLS_KEY].get_vector())
             output_book.spells.emplace_back((spell_type)spell);
         books.emplace_back(output_book);

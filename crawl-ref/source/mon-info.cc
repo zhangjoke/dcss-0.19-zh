@@ -23,6 +23,7 @@
 #include "ghost.h"
 #include "itemname.h"
 #include "itemprop.h"
+#include "japanese.h"
 #include "libutil.h"
 #include "los.h"
 #include "message.h"
@@ -1452,7 +1453,7 @@ vector<string> monster_info::attributes() const
     if (is(MB_BREATH_WEAPON))
     {
         v.push_back(string("catching ")
-                    + pronoun(PRONOUN_POSSESSIVE) + " breath");
+                    + pronoun_j(PRONOUN_POSSESSIVE) + " breath");
     }
     if (is(MB_DAZED))
         v.emplace_back("dazed");
@@ -1544,7 +1545,7 @@ vector<string> monster_info::attributes() const
     if (is(MB_PAIN_BOND))
     {
         v.push_back(string("sharing ")
-                    + pronoun(PRONOUN_POSSESSIVE) + " pain");
+                    + pronoun_j(PRONOUN_POSSESSIVE) + " pain");
     }
     if (is(MB_IDEALISED))
         v.emplace_back("idealised");
@@ -1563,7 +1564,7 @@ string monster_info::wounds_description_sentence() const
     if (wounds.empty())
         return "";
     else
-        return string(pronoun(PRONOUN_SUBJECTIVE)) + " is " + wounds + ".";
+        return string(pronoun_j(PRONOUN_SUBJECTIVE)) + " is " + wounds + ".";
 }
 
 string monster_info::wounds_description(bool use_colour) const
@@ -1856,4 +1857,14 @@ const char *monster_info::pronoun(pronoun_type variant) const
                                variant);
     }
     return mons_pronoun(type, variant, true);
+}
+
+const string monster_info::pronoun_j(pronoun_type variant) const
+{
+    if (props.exists(MON_GENDER_KEY))
+    {
+        return decline_pronoun_j((gender_type)props[MON_GENDER_KEY].get_int(),
+                               variant);
+    }
+    return mons_pronoun_j(type, variant, true);
 }
