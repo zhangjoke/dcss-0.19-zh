@@ -845,11 +845,11 @@ void monster::equip_weapon(item_def &item, bool msg)
             string hand = hand_name(true, &plural);
             mprf("%s %s briefly %s through it before %s manages to get a "
                  "firm grip on it.",
-                 pronoun(PRONOUN_POSSESSIVE).c_str(),
+                 pronoun_j(PRONOUN_POSSESSIVE).c_str(),
                  hand.c_str(),
                  // Not conj_verb: the monster isn't the subject.
                  conjugate_verb("pass", plural).c_str(),
-                 pronoun(PRONOUN_SUBJECTIVE).c_str());
+                 pronoun_j(PRONOUN_SUBJECTIVE).c_str());
         }
             break;
         case SPWPN_REAPING:
@@ -2782,7 +2782,7 @@ bool monster::go_frenzy(actor *source)
         del_ench(ENCH_SLOW, true); // Give no additional message.
         simple_monster_message(*this,
             make_stringf(" shakes off %s lethargy.",
-                         pronoun(PRONOUN_POSSESSIVE).c_str()).c_str());
+                         pronoun_j(PRONOUN_POSSESSIVE).c_str()).c_str());
     }
     del_ench(ENCH_HASTE, true);
     del_ench(ENCH_FATIGUE, true); // Give no additional message.
@@ -2821,7 +2821,7 @@ bool monster::go_berserk(bool intentional, bool /* potion */)
         del_ench(ENCH_SLOW, true); // Give no additional message.
         simple_monster_message(*this,
             make_stringf(" shakes off %s lethargy.",
-                         pronoun(PRONOUN_POSSESSIVE).c_str()).c_str());
+                         pronoun_j(PRONOUN_POSSESSIVE).c_str()).c_str());
     }
     del_ench(ENCH_FATIGUE, true); // Give no additional message.
     del_ench(ENCH_FEAR, true);    // Going berserk breaks fear.
@@ -6039,7 +6039,7 @@ bool monster::evoke_jewellery_effect(jewellery_type jtype)
         wield_melee_weapon();
 
     mprf("%s evokes %s %s.", name(DESC_THE).c_str(),
-         pronoun(PRONOUN_POSSESSIVE).c_str(),
+         pronoun_j(PRONOUN_POSSESSIVE).c_str(),
          jewellery_is_amulet(jtype) ? "amulet" : "ring");
 
     switch (jtype)
@@ -6100,7 +6100,7 @@ void monster::react_to_damage(const actor *oppressor, int damage,
                 else if (owner->alive() && you.can_see(*owner))
                 {
                     string buf = " shares ";
-                    buf += owner->pronoun(PRONOUN_POSSESSIVE);
+                    buf += owner->pronoun_j(PRONOUN_POSSESSIVE);
                     buf += " spectral weapon's damage!";
                     simple_monster_message(*owner->as_monster(), buf.c_str());
                 }
@@ -6178,7 +6178,7 @@ void monster::react_to_damage(const actor *oppressor, int damage,
                 if (observable())
                 {
                     mprf("As %s mount dies, %s plunges down into %s!",
-                         pronoun(PRONOUN_POSSESSIVE).c_str(),
+                         pronoun_j(PRONOUN_POSSESSIVE).c_str(),
                          name(DESC_THE).c_str(),
                          grd(pos()) == DNGN_LAVA ?
                              "lava and is incinerated" :
@@ -6189,7 +6189,7 @@ void monster::react_to_damage(const actor *oppressor, int damage,
             {
                 mprf("%s falls from %s now dead mount.",
                      name(DESC_THE).c_str(),
-                     pronoun(PRONOUN_POSSESSIVE).c_str());
+                     pronoun_j(PRONOUN_POSSESSIVE).c_str());
             }
         }
     }

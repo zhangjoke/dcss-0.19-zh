@@ -299,7 +299,7 @@ string attack::actor_name(const actor *a, description_level_type desc,
 string attack::actor_pronoun(const actor *a, pronoun_type pron,
                              bool actor_visible)
 {
-    return actor_visible ? a->pronoun(pron) : anon_pronoun(pron);
+    return actor_visible ? a->pronoun_j(pron) : anon_pronoun(pron);
 }
 
 /* Returns an anonymous actor's name
@@ -1082,7 +1082,7 @@ void attack::stab_message()
         }
         mprf(jtransc("%s fails to defend %s."),
               defender->name(DESC_THE).c_str(),
-              defender->pronoun(PRONOUN_REFLEXIVE).c_str());
+              defender->pronoun_j(PRONOUN_REFLEXIVE).c_str());
         break;
     }
 

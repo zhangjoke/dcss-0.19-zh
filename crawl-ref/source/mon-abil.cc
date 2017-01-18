@@ -747,7 +747,7 @@ static void _starcursed_scream(monster* mon, actor* target)
                                                   : MSGCH_MONSTER_SPELL,
                  "%s writhes in pain as voices assail %s mind.",
                  target->name(DESC_THE).c_str(),
-                 target->pronoun(PRONOUN_POSSESSIVE).c_str());
+                 target->pronoun_j(PRONOUN_POSSESSIVE).c_str());
         }
     }
     else

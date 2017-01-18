@@ -186,7 +186,7 @@ bool ranged_attack::handle_phase_blocked()
         {
             if (reflected_by_shield)
             {
-                punctuation = " off " + defender->pronoun(PRONOUN_POSSESSIVE)
+                punctuation = " off " + defender->pronoun_j(PRONOUN_POSSESSIVE)
                               + " " + defender_shield->name(DESC_PLAIN).c_str()
                               + "!";
                 ident_reflector(defender_shield);
@@ -194,7 +194,7 @@ bool ranged_attack::handle_phase_blocked()
             else
             {
                 punctuation = " off an invisible shield around "
-                            + defender->pronoun(PRONOUN_OBJECTIVE) + "!";
+                            + defender->pronoun_j(PRONOUN_OBJECTIVE) + "!";
 
                 item_def *amulet = defender->slot_item(EQ_AMULET, false);
                 if (amulet)

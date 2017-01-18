@@ -1826,7 +1826,7 @@ static void _special_corpse_messaging(monster &mons)
         if (!(mons.flags & MF_KNOWN_SHIFTER))
         {
             const string message = "'s shape twists and changes as "
-                                    + mons.pronoun(PRONOUN_SUBJECTIVE)
+                                    + mons.pronoun_j(PRONOUN_SUBJECTIVE)
                                     + " dies.";
             simple_monster_message(mons, message.c_str());
         }
@@ -1841,9 +1841,9 @@ static void _special_corpse_messaging(monster &mons)
                     : mons.number;
     unwind_var<unsigned int> number(mons.number, num);
     const string message = " returns to " +
-                            mons.pronoun(PRONOUN_POSSESSIVE) +
+                            mons.pronoun_j(PRONOUN_POSSESSIVE) +
                             " original shape as " +
-                            mons.pronoun(PRONOUN_SUBJECTIVE) +
+                            mons.pronoun_j(PRONOUN_SUBJECTIVE) +
                             " dies.";
     simple_monster_message(mons, message.c_str());
 }

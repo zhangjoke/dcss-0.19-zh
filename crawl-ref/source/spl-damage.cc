@@ -1820,7 +1820,7 @@ spret_type cast_ignite_poison(actor* agent, int pow, bool fail, bool tracer)
 
     mprf("%s %s the poison in %s surroundings!", agent->name(DESC_THE).c_str(),
          agent->conj_verb("ignite").c_str(),
-         agent->pronoun(PRONOUN_POSSESSIVE).c_str());
+         agent->pronoun_j(PRONOUN_POSSESSIVE).c_str());
 
     // this could conceivably cause crashes if the player dies midway through
     // maybe split it up...?

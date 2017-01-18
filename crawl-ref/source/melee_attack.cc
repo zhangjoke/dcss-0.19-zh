@@ -652,7 +652,7 @@ static void _hydra_consider_devouring(monster &defender)
         // handle this carefully, so the player knows what's going on
         mprf("You spit out %s as %s twists & changes in your mouth!",
              defender.name(DESC_THE).c_str(),
-             defender.pronoun(PRONOUN_SUBJECTIVE).c_str());
+             defender.pronoun_j(PRONOUN_SUBJECTIVE).c_str());
         return;
     }
 
@@ -1369,7 +1369,7 @@ bool melee_attack::player_aux_apply(unarmed_attack_type atk)
             {
                 mprf("You %s %s %s.",
                      have_passive(passive_t::no_mp_regen) ? "disrupt" : "drain",
-                     defender->as_monster()->pronoun(PRONOUN_POSSESSIVE).c_str(),
+                     defender->as_monster()->pronoun_j(PRONOUN_POSSESSIVE).c_str(),
                      spell_user ? "magic" : "power");
             }
 
@@ -2886,7 +2886,7 @@ void melee_attack::mons_apply_attack_flavour()
             {
                 mprf("%s drains %s %s.",
                      attacker->name(DESC_THE).c_str(),
-                     defender->pronoun(PRONOUN_POSSESSIVE).c_str(),
+                     defender->pronoun_j(PRONOUN_POSSESSIVE).c_str(),
                      spell_user ? "magic" : "power");
             }
 
@@ -3362,7 +3362,7 @@ bool melee_attack::do_knockback(bool trample)
             mprf("%s %s %s ground!",
                  defender_name(false).c_str(),
                  defender->conj_verb("hold").c_str(),
-                 defender->pronoun(PRONOUN_POSSESSIVE).c_str());
+                 defender->pronoun_j(PRONOUN_POSSESSIVE).c_str());
         }
 
         return false;
@@ -3611,7 +3611,7 @@ bool melee_attack::_player_vampire_draws_blood(const monster* mon, const int dam
     {
         mprf("You bite %s, and draw %s blood!",
              mon->name(DESC_THE, true).c_str(),
-             mon->pronoun(PRONOUN_POSSESSIVE).c_str());
+             mon->pronoun_j(PRONOUN_POSSESSIVE).c_str());
     }
     else
     {

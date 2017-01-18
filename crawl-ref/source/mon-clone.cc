@@ -130,13 +130,13 @@ static void _mons_summon_monster_illusion(monster* caster,
             {
                 mprf("%s seems to step out of %s!",
                      foe->name(DESC_THE).c_str(),
-                     foe->pronoun(PRONOUN_REFLEXIVE).c_str());
+                     foe->pronoun_j(PRONOUN_REFLEXIVE).c_str());
             }
             else
                 mprf("%s seems to draw %s out of %s!",
                      caster->name(DESC_THE).c_str(),
                      foe->name(DESC_THE).c_str(),
-                     foe->pronoun(PRONOUN_REFLEXIVE).c_str());
+                     foe->pronoun_j(PRONOUN_REFLEXIVE).c_str());
         }
     }
 }

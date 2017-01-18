@@ -1163,7 +1163,7 @@ static string _abyss_monster_creation_message(const monster* mon)
         { " emerges from chaos.", 13 },
         { " emerges from the beyond.", 26 },
         { make_stringf(" assembles %s!",
-                       mon->pronoun(PRONOUN_REFLEXIVE).c_str()), 33 },
+                       mon->pronoun_j(PRONOUN_REFLEXIVE).c_str()), 33 },
         { " erupts from nowhere.", 9 },
         { " bursts from nowhere.", 18 },
         { " is cast out of space.", 7 },
@@ -1283,7 +1283,7 @@ static inline bool _monster_warning(activity_interrupt_type ai,
             discover_shifter(*mon);
             god_warning = uppercase_first(god_name(you.religion))
                           + " warns you: "
-                          + uppercase_first(mon->pronoun(PRONOUN_SUBJECTIVE))
+                          + uppercase_first(mon->pronoun_j(PRONOUN_SUBJECTIVE))
                           + " is a foul ";
             if (mon->has_ench(ENCH_GLOWING_SHAPESHIFTER))
                 god_warning += "glowing ";
@@ -1306,7 +1306,7 @@ static inline bool _monster_warning(activity_interrupt_type ai,
             }
 
             (ash_id ? god_warning : text) +=
-                " " + uppercase_first(mon->pronoun(PRONOUN_SUBJECTIVE)) + " is"
+                " " + uppercase_first(mon->pronoun_j(PRONOUN_SUBJECTIVE)) + " is"
                 + (ash_id ? " " : "")
                 + mweap + ".";
         }

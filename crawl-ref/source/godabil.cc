@@ -41,6 +41,7 @@
 #include "itemprop.h"
 #include "items.h"
 #include "item_use.h"
+#include "japanese.h"
 #include "libutil.h"
 #include "losglobal.h"
 #include "macro.h"
@@ -1861,7 +1862,7 @@ void yred_make_enslaved_soul(monster* mon, bool force_hostile)
     remove_enslaved_soul_companion();
 
     const string whose = you.can_see(*mon) ? apostrophise(mon->name(DESC_THE))
-                                           : mon->pronoun(PRONOUN_POSSESSIVE);
+                                           : mon->pronoun_j(PRONOUN_POSSESSIVE);
 
     // Remove the monster's soul-enslaving enchantment, as it's no
     // longer needed.
@@ -4455,7 +4456,7 @@ static void _gozag_place_shop(int index)
 
     mprf(MSGCH_GOD, "%s invites you to visit %s %s%s%s.",
                     shop->shop_name.c_str(),
-                    decline_pronoun(gender, PRONOUN_POSSESSIVE),
+                    decline_pronoun_j(gender, PRONOUN_POSSESSIVE).c_str(),
                     shop_type_name(shop->type).c_str(),
                     !shop->shop_suffix_name.empty() ? " " : "",
                     shop->shop_suffix_name.c_str());
@@ -6343,7 +6344,7 @@ static int _apply_apocalypse(coord_def where)
         case 0:
             if (mons->antimagic_susceptible())
             {
-                message = " loses " + mons->pronoun(PRONOUN_POSSESSIVE)
+                message = " loses " + mons->pronoun_j(PRONOUN_POSSESSIVE)
                           + " magic into the devouring truth!";
                 enchantment = ENCH_ANTIMAGIC;
                 duration = 500 + random2(200);

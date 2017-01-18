@@ -302,7 +302,7 @@ static const map<spell_type, mons_spell_logic> spell_to_logic = {
             {
                 mprf("%s liquefies the ground around %s!",
                      caster.name(DESC_THE).c_str(),
-                     caster.pronoun(PRONOUN_REFLEXIVE).c_str());
+                     caster.pronoun_j(PRONOUN_REFLEXIVE).c_str());
                 flash_view_delay(UA_MONSTER, BROWN, 80);
             }
 
@@ -756,7 +756,7 @@ static void _cast_injury_mirror(monster &mons, mon_spell_slot slot, bolt&)
 {
     const string msg
         = make_stringf(" offers %s to %s, and fills with unholy energy.",
-                       mons.pronoun(PRONOUN_REFLEXIVE).c_str(),
+                       mons.pronoun_j(PRONOUN_REFLEXIVE).c_str(),
                        god_name(mons.god).c_str());
     simple_monster_message(mons, msg.c_str(), MSGCH_MONSTER_SPELL);
     mons.add_ench(mon_enchant(ENCH_MIRROR_DAMAGE, 0, &mons,
@@ -2636,7 +2636,7 @@ static bool _make_monster_angry(const monster* mon, monster* targ, bool actual)
             mprf("%s calls on %s to defend %s!",
                 mon->name(DESC_THE).c_str(),
                 targ->name(DESC_THE).c_str(),
-                mon->pronoun(PRONOUN_OBJECTIVE).c_str());
+                mon->pronoun_j(PRONOUN_OBJECTIVE).c_str());
         }
         else
             mprf("%s goads %s on!", mon->name(DESC_THE).c_str(),
@@ -4688,7 +4688,7 @@ static int _mons_mesmerise(monster* mons, bool actual)
         {
             mprf("%s draws you further into %s thrall.",
                     mons->name(DESC_THE).c_str(),
-                    mons->pronoun(PRONOUN_POSSESSIVE).c_str());
+                    mons->pronoun_j(PRONOUN_POSSESSIVE).c_str());
         }
     }
 
@@ -6519,7 +6519,7 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
     {
         simple_monster_message(*mons,
             make_stringf(" begins to accept %s allies' injuries.",
-                         mons->pronoun(PRONOUN_POSSESSIVE).c_str()).c_str());
+                         mons->pronoun_j(PRONOUN_POSSESSIVE).c_str()).c_str());
         // FIXME: allies preservers vs the player
         for (monster_near_iterator mi(mons, LOS_NO_TRANS); mi; ++mi)
         {
@@ -7083,7 +7083,7 @@ static void _speech_fill_target(string& targ_prep, string& target,
     if (pbolt.target == you.pos())
         target = "you";
     else if (pbolt.target == mons->pos())
-        target = mons->pronoun(PRONOUN_REFLEXIVE);
+        target = mons->pronoun_j(PRONOUN_REFLEXIVE);
     // Monsters should only use targeted spells while foe == MHITNOT
     // if they're targeting themselves.
     else if (mons->foe == MHITNOT && !mons_is_confused(*mons, true))

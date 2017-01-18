@@ -1119,7 +1119,7 @@ void behaviour_event(monster* mon, mon_event_type event, const actor *src,
                 mprf("%s attack snaps %s out of %s fear.",
                         src ? src->name(DESC_ITS).c_str() : "the",
                         mon->name(DESC_THE).c_str(),
-                        mon->pronoun(PRONOUN_POSSESSIVE).c_str());
+                        mon->pronoun_j(PRONOUN_POSSESSIVE).c_str());
             }
             mon->del_ench(ENCH_FEAR, true);
         }

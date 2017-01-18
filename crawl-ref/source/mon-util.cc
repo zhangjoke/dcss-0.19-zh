@@ -3413,7 +3413,7 @@ void mons_pacify(monster& mon, mon_attitude_type att, bool no_xp)
     {
         simple_monster_message(mon,
             make_stringf(" discards %s horn.",
-                         mon.pronoun(PRONOUN_POSSESSIVE).c_str()).c_str());
+                         mon.pronoun_j(PRONOUN_POSSESSIVE).c_str()).c_str());
         monster_drop_things(&mon, false, item_is_horn_of_geryon);
     }
 
@@ -4374,17 +4374,17 @@ string do_mon_str_replacements(const string &in_msg, const monster& mons,
     msg = replace_all(msg, "@The_monster@", mons.name(cap));
 
     msg = replace_all(msg, "@Subjective@",
-                      mons.pronoun(PRONOUN_SUBJECTIVE));
+                      mons.pronoun_j(PRONOUN_SUBJECTIVE));
     msg = replace_all(msg, "@subjective@",
-                      mons.pronoun(PRONOUN_SUBJECTIVE));
+                      mons.pronoun_j(PRONOUN_SUBJECTIVE));
     msg = replace_all(msg, "@Possessive@",
-                      mons.pronoun(PRONOUN_POSSESSIVE));
+                      mons.pronoun_j(PRONOUN_POSSESSIVE));
     msg = replace_all(msg, "@possessive@",
-                      mons.pronoun(PRONOUN_POSSESSIVE));
+                      mons.pronoun_j(PRONOUN_POSSESSIVE));
     msg = replace_all(msg, "@reflexive@",
-                      mons.pronoun(PRONOUN_REFLEXIVE));
+                      mons.pronoun_j(PRONOUN_REFLEXIVE));
     msg = replace_all(msg, "@objective@",
-                      mons.pronoun(PRONOUN_OBJECTIVE));
+                      mons.pronoun_j(PRONOUN_OBJECTIVE));
 
     // Body parts.
     bool   can_plural = false;
@@ -4465,7 +4465,7 @@ string do_mon_str_replacements(const string &in_msg, const monster& mons,
     {
         msg = replace_all(msg, "@a_God@", "a god");
         msg = replace_all(msg, "@A_God@", "A god");
-        const string possessive = mons.pronoun(PRONOUN_POSSESSIVE) + " god";
+        const string possessive = mons.pronoun_j(PRONOUN_POSSESSIVE) + " god";
         msg = replace_all(msg, "@possessive_God@", possessive);
         msg = replace_all(msg, "@Possessive_God@", uppercase_first(possessive));
 
@@ -5545,7 +5545,7 @@ void set_ancestor_spells(monster &ancestor, bool notify)
         {
             mprf("%s regains %s memory of %s.",
                  ancestor.name(DESC_YOUR, true).c_str(),
-                 ancestor.pronoun(PRONOUN_POSSESSIVE, true).c_str(),
+                 ancestor.pronoun_j(PRONOUN_POSSESSIVE, true).c_str(),
                  spell_title(spellslot.spell));
         }
     }

@@ -1560,7 +1560,7 @@ static void _drop_tomb(const coord_def& pos, bool premature, bool zin)
                  (mon) ? mon->name(DESC_THE).c_str()
                        : "the silver walls,",
                  (mon) ? make_stringf("from %s prison",
-                             mon->pronoun(PRONOUN_POSSESSIVE).c_str()).c_str()
+                             mon->pronoun_j(PRONOUN_POSSESSIVE).c_str()).c_str()
                        : "but there is nothing inside them");
         }
         else

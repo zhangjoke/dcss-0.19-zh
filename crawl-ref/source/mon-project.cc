@@ -544,7 +544,7 @@ move_again:
                         mprf("%s reflects %s with %s %s!",
                              victim->name(DESC_THE, true).c_str(),
                              mon.name(DESC_THE, true).c_str(),
-                             mon.pronoun(PRONOUN_POSSESSIVE).c_str(),
+                             mon.pronoun_j(PRONOUN_POSSESSIVE).c_str(),
                              shield->name(DESC_PLAIN).c_str());
                         ident_reflector(shield);
                     }

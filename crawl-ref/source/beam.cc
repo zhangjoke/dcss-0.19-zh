@@ -5749,7 +5749,7 @@ mon_resist_type bolt::apply_enchantment_to_monster(monster* mon)
             if (you.can_see(*mon))
             {
                 mprf(jtransc("%s seems less certain of %s magic."),
-                     mon->name(DESC_THE).c_str(), mon->pronoun(PRONOUN_POSSESSIVE).c_str());
+                     mon->name(DESC_THE).c_str(), mon->pronoun_j(PRONOUN_POSSESSIVE).c_str());
                 obvious_effect = true;
             }
         }

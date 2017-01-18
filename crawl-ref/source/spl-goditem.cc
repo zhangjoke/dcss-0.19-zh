@@ -94,7 +94,7 @@ string unpacifiable_reason(const monster &mon)
     {
         return make_stringf("You cannot pacify this monster while %s is "
                             "sleeping!",
-                            mon.pronoun(PRONOUN_SUBJECTIVE).c_str());
+                            mon.pronoun_j(PRONOUN_SUBJECTIVE).c_str());
     }
 
     // pacifiable, maybe!

@@ -1339,7 +1339,7 @@ static void _regain_memory(const monster &ancestor, string memory)
 {
     mprf("%s regains the memory of %s %s.",
          ancestor.name(DESC_YOUR, true).c_str(),
-         ancestor.pronoun(PRONOUN_POSSESSIVE, true).c_str(),
+         ancestor.pronoun_j(PRONOUN_POSSESSIVE, true).c_str(),
          memory.c_str());
 }
 
@@ -1419,7 +1419,7 @@ void upgrade_hepliaklqana_ancestor(bool quiet_force)
     {
         mprf("%s remembers more of %s old skill.",
              ancestor->name(DESC_YOUR, true).c_str(),
-             ancestor->pronoun(PRONOUN_POSSESSIVE, true).c_str());
+             ancestor->pronoun_j(PRONOUN_POSSESSIVE, true).c_str());
     }
 
     set_ancestor_spells(*ancestor, !quiet_force);
@@ -1447,7 +1447,7 @@ void upgrade_hepliaklqana_ancestor(bool quiet_force)
         {
             mprf("%s remembers %s %s %s.",
                  ancestor->name(DESC_YOUR, true).c_str(),
-                 ancestor->pronoun(PRONOUN_POSSESSIVE, true).c_str(),
+                 ancestor->pronoun_j(PRONOUN_POSSESSIVE, true).c_str(),
                  apostrophise(item_base_name(OBJ_WEAPONS, wpn)).c_str(),
                  brand_type_name(brand, brand != SPWPN_DRAINING));
         }

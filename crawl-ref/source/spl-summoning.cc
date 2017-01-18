@@ -2418,7 +2418,7 @@ void init_servitor(monster* servitor, actor* caster)
         mprf("%s %s a servant imbued with %s destructive magic!",
              caster->name(DESC_THE).c_str(),
              caster->conj_verb("summon").c_str(),
-             caster->pronoun(PRONOUN_POSSESSIVE).c_str());
+             caster->pronoun_j(PRONOUN_POSSESSIVE).c_str());
     }
     else
         simple_monster_message(*servitor, " appears!");
@@ -3106,7 +3106,7 @@ spret_type cast_spectral_weapon(actor *agent, int pow, god_type god, bool fail)
         if (you.can_see(*agent) && you.can_see(*mons))
         {
             string buf = " draws out ";
-            buf += agent->pronoun(PRONOUN_POSSESSIVE);
+            buf += agent->pronoun_j(PRONOUN_POSSESSIVE);
             buf += " weapon's spirit!";
             simple_monster_message(*agent->as_monster(), buf.c_str());
         }

@@ -515,7 +515,7 @@ void monster::remove_enchantment_effect(const mon_enchant &me, bool quiet)
         }
         else if (!mons_is_tentacle_or_tentacle_segment(type))
         {
-            msg = " seems to regain " + pronoun(PRONOUN_POSSESSIVE, true)
+            msg = " seems to regain " + pronoun_j(PRONOUN_POSSESSIVE, true)
                                       + " courage.";
         }
 
@@ -805,7 +805,7 @@ void monster::remove_enchantment_effect(const mon_enchant &me, bool quiet)
         if (!quiet)
         {
             const string msg = " seems to return to " +
-                               pronoun(PRONOUN_POSSESSIVE, true) +
+                               pronoun_j(PRONOUN_POSSESSIVE, true) +
                                " normal shape.";
             simple_monster_message(*this, msg.c_str());
         }
@@ -1155,7 +1155,7 @@ static bool _apply_grasping_roots(monster* mons)
             {
                 mprf("Roots rise up from beneath %s and drag %s %sto the ground.",
                      ai->name(DESC_THE).c_str(),
-                     ai->pronoun(PRONOUN_OBJECTIVE).c_str(),
+                     ai->pronoun_j(PRONOUN_OBJECTIVE).c_str(),
                      ai->is_monster() ? "" : "back ");
             }
         }
@@ -1933,7 +1933,7 @@ void monster::apply_enchantment(const mon_enchant &me)
         if (decay_enchantment(en))
         {
             const string msg = " is no longer sharing " +
-                               pronoun(PRONOUN_POSSESSIVE, true) +
+                               pronoun_j(PRONOUN_POSSESSIVE, true) +
                                " pain.";
             simple_monster_message(*this, msg.c_str());
         }
