@@ -192,7 +192,7 @@ static void dump_section(dump_params &par)
         }
     }
 }
-
+static string _trim_dump(const string &dump_text);
 static dump_params _get_dump(bool full_id = false,
                              const scorefile_entry *se = nullptr)
 {
@@ -1638,7 +1638,7 @@ void display_char_dump()
 {
     formatted_scroller scr;
     scr.set_flags(MF_ALWAYS_SHOW_MORE);
-    scr.add_raw_text(_get_dump().text, false, get_number_of_cols());
+    scr.add_raw_text(_trim_dump(_get_dump().text), false, get_number_of_cols());
     scr.set_more();
     scr.set_tag("dump");
     scr.show();
