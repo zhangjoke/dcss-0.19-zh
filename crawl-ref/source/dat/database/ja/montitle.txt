@@ -39,6 +39,11 @@ Azrael title
 # Azrael the Boundless Flame
 永劫の炎の『アズラエル』
 %%%%
+Bai Suzhen title
+
+# Bai Suzhen, Madame White Snake
+白蛇の婦人『白娘子』
+%%%%
 Boris title
 
 # Boris, Master of Life and Death
@@ -137,7 +142,7 @@ Geryon title
 Gloorx Vloq title
 
 # Gloorx Vloq, Demon Lord of Darkness
-暗闇の魔王『グルオルクス・ヴロック』
+暗闇の魔王『グロオルクス・ヴロック』
 %%%%
 Grum title
 
@@ -274,11 +279,6 @@ Nikola title
 # Nikola the Mad Inventor
 狂気の発明者『ニコラ』
 %%%%
-Norris title
-
-# Norris the Nihilist
-虚無主義者『ノリス』
-%%%%
 Pikel title
 
 # Pikel the Slaver
@@ -332,7 +332,7 @@ Snorg title
 Sojobo title
 
 # Sojobo, King of Tengu
-天狗の王『僧正坊』
+天狗の女王『僧正坊』
 %%%%
 Sonja title
 
@@ -358,11 +358,6 @@ Vashnia title
 
 # Vashnia the Elite Marksnaga
 ナーガの精鋭射手『ヴァシュニア』
-%%%%
-Wiglaf title
-
-# Wiglaf the Dwarf
-ドワーフの『ウィーグラフ』
 %%%%
 Xtahua title
 
