@@ -136,7 +136,8 @@ static void _interrupt_butchering(const char* action)
                {
                    return d->is_butcher();
                });
-    mprf("You stop %s the corpse%s.", action, multiple_corpses ? "s" : "");
+    mprf(jtransc("You stop %s the corpse%s."),
+         tagged_jtransc("[action]", action), multiple_corpses ? "s" : "");
 }
 
 bool BottleBloodDelay::try_interrupt()
@@ -155,7 +156,7 @@ bool MemoriseDelay::try_interrupt()
 {
     // Losing work here is okay... having to start from
     // scratch is a reasonable behaviour. -- bwr
-    mpr("Your memorisation is interrupted.");
+    mpr(jtrans("Your memorisation is interrupted."));
     return true;
 }
 
@@ -163,7 +164,7 @@ bool MultidropDelay::try_interrupt()
 {
     // No work lost
     if (!items.empty())
-        mpr("You stop dropping stuff.");
+        mpr(jtrans("You stop dropping stuff."));
     return true;
 }
 
@@ -188,7 +189,7 @@ bool MacroDelay::try_interrupt()
 
 static void _interrupt_vampire_feeding(item_def& corpse, int dur)
 {
-    mpr("You stop draining the corpse.");
+    mpr(jtrans("You stop draining the corpse."));
 
     _xom_check_corpse_waste();
 
@@ -198,7 +199,7 @@ static void _interrupt_vampire_feeding(item_def& corpse, int dur)
     {
         const item_def old_corpse = corpse;
 
-        mpr("All the blood oozes out of the corpse!");
+        mpr(jtrans("All the blood oozes out of the corpse!"));
 
         bleed_onto_floor(you.pos(), corpse.mon_type, dur, false);
 
@@ -227,7 +228,7 @@ bool EatDelay::try_interrupt()
         if (!crawl_state.disables[DIS_CONFIRMATIONS]
             && !yesno("Keep eating?", true, 'N', false))
         {
-            mpr("You stop eating.");
+            mpr(jtrans("You stop eating."));
             return true;
         }
         else
@@ -243,7 +244,7 @@ bool ArmourOnDelay::try_interrupt()
         if (!crawl_state.disables[DIS_CONFIRMATIONS]
             && !yesno("Keep equipping yourself?", false, 0, false))
         {
-            mpr("You stop putting on your armour.");
+            mpr(jtrans("You stop putting on your armour."));
             return true;
         }
         else
@@ -259,7 +260,7 @@ bool ArmourOffDelay::try_interrupt()
         if (!crawl_state.disables[DIS_CONFIRMATIONS]
             && !yesno("Keep disrobing?", false, 0, false))
         {
-            mpr("You stop removing your armour.");
+            mpr(jtrans("You stop removing your armour."));
             return true;
         }
         else
@@ -275,7 +276,7 @@ bool BlurryScrollDelay::try_interrupt()
         if (!crawl_state.disables[DIS_CONFIRMATIONS]
             && !yesno("Keep reading the scroll?", false, 0, false))
         {
-            mpr("You stop reading the scroll.");
+            mpr(jtrans("You stop reading the scroll."));
             return true;
         }
         else
@@ -286,25 +287,25 @@ bool BlurryScrollDelay::try_interrupt()
 
 bool AscendingStairsDelay::try_interrupt()
 {
-    mpr("You stop ascending the stairs.");
+    mpr(jtrans("You stop ascending the stairs."));
     return true;  // short... and probably what people want
 }
 
 bool DescendingStairsDelay::try_interrupt()
 {
-    mpr("You stop descending the stairs.");
+    mpr(jtrans("You stop descending the stairs."));
     return true;  // short... and probably what people want
 }
 
 bool PasswallDelay::try_interrupt()
 {
-    mpr("Your meditation is interrupted.");
+    mpr(jtrans("Your meditation is interrupted."));
     return true;
 }
 
 bool ShaftSelfDelay::try_interrupt()
 {
-    mpr("You stop digging.");
+    mpr(jtrans("You stop digging."));
     return true;
 }
 
@@ -427,7 +428,7 @@ static command_type _get_running_command()
         if (!is_resting() && you.running.hp == you.hp
             && you.running.mp == you.magic_points)
         {
-            mpr("Done waiting.");
+            mpr(jtrans("Done waiting."));
         }
 
         if (Options.rest_delay > 0)
@@ -492,38 +493,38 @@ void clear_macro_process_key_delay()
 
 void ArmourOnDelay::start()
 {
-    mprf(MSGCH_MULTITURN_ACTION, "You start putting on your armour.");
+    mprf(MSGCH_MULTITURN_ACTION, jtrans("You start putting on your armour."));
 }
 
 void ArmourOffDelay::start()
 {
-    mprf(MSGCH_MULTITURN_ACTION, "You start removing your armour.");
+    mprf(MSGCH_MULTITURN_ACTION, jtrans("You start removing your armour."));
 }
 
 void MemoriseDelay::start()
 {
     if (vehumet_is_offering(spell))
     {
-        string message = make_stringf(" grants you knowledge of %s.",
-            spell_title(spell));
+        string message = make_stringf(jtransc(" grants you knowledge of %s."),
+            spell_title_jc(spell));
         simple_god_message(message.c_str());
     }
-    mprf(MSGCH_MULTITURN_ACTION, "You start memorising the spell.");
+    mprf(MSGCH_MULTITURN_ACTION, jtrans("You start memorising the spell."));
 }
 
 void PasswallDelay::start()
 {
-    mprf(MSGCH_MULTITURN_ACTION, "You begin to meditate on the wall.");
+    mprf(MSGCH_MULTITURN_ACTION, jtrans("You begin to meditate on the wall."));
 }
 
 void ShaftSelfDelay::start()
 {
-    mprf(MSGCH_MULTITURN_ACTION, "You begin to dig a shaft.");
+    mprf(MSGCH_MULTITURN_ACTION, jtrans("You begin to dig a shaft."));
 }
 
 void BlurryScrollDelay::start()
 {
-    mprf(MSGCH_MULTITURN_ACTION, "You begin reading the scroll.");
+    mprf(MSGCH_MULTITURN_ACTION, jtrans("You begin reading the scroll."));
 }
 
 command_type RunDelay::move_cmd() const
@@ -631,8 +632,8 @@ bool FeedVampireDelay::invalidated()
     }
     else if (corpse.is_type(OBJ_CORPSES, CORPSE_SKELETON))
     {
-        mprf("The corpse has rotted away into a skeleton before "
-             "you could finish drinking it!");
+        mprf(jtrans("The corpse has rotted away into a skeleton before "
+                    "you could finish drinking it!"));
         _interrupt_vampire_feeding(corpse, duration);
         return true;
     }
@@ -647,7 +648,7 @@ bool EatDelay::invalidated()
     if (!can_eat(food, true)
         || !in_inventory(food) && food.pos != you.pos())
     {
-        mpr("You stop eating.");
+        mpr(jtrans("You stop eating."));
         return true;
     }
 
@@ -671,8 +672,8 @@ static bool _check_corpse_gone(item_def& item, const char* action)
     }
     else if (item.is_type(OBJ_CORPSES, CORPSE_SKELETON))
     {
-        mprf("The corpse has rotted away into a skeleton before "
-             "you could %s!", action);
+        mprf(jtrans(make_stringf("The corpse has rotted away into a skeleton before "
+                                 "you could %s!", action)));
         _xom_check_corpse_waste();
         return true;
     }
@@ -723,7 +724,7 @@ bool BlurryScrollDelay::invalidated()
 
 void FeedVampireDelay::tick()
 {
-    mprf(MSGCH_MULTITURN_ACTION, "You continue drinking.");
+    mprf(MSGCH_MULTITURN_ACTION, jtrans("You continue drinking."));
     vampire_nutrition_per_turn(corpse, 0);
 }
 
@@ -813,12 +814,11 @@ void JewelleryOnDelay::finish()
         && nasty_stasis(jewellery, OPER_PUTON)
         && item_ident(jewellery, ISFLAG_KNOW_TYPE))
     {
-        string prompt = "Really put on ";
-        prompt += jewellery.name(DESC_INVENTORY);
-        prompt += string(" while ")
-                  + (you.duration[DUR_TELEPORT] ? "about to teleport" :
-                     you.duration[DUR_SLOW] ? "slowed" : "hasted");
-        prompt += "?";
+        string prompt = make_stringf(jtransc("Really put on {jewellery} while {action}?"),
+                                     jewellery.name(DESC_INVENTORY).c_str(),
+                                     tagged_jtransc("[action]", (you.duration[DUR_TELEPORT] ? "about to teleport" :
+                                                                 you.duration[DUR_SLOW] ? "slowed" : "hasted")));
+
         if (!yesno(prompt.c_str(), false, 'n'))
             return;
     }
@@ -836,7 +836,7 @@ void ArmourOnDelay::finish()
 
     const equipment_type eq_slot = get_armour_slot(armour);
 
-    mprf("You finish putting on %s.", armour.name(DESC_YOUR).c_str());
+    mprf(jtransc("You finish putting on %s."), armour.name(DESC_A).c_str());
 
     if (eq_slot == EQ_BODY_ARMOUR)
     {
@@ -857,20 +857,20 @@ void ArmourOffDelay::finish()
     const equipment_type slot = get_armour_slot(armour);
     ASSERT(you.equip[slot] == armour.link);
 
-    mprf("You finish taking off %s.", armour.name(DESC_YOUR).c_str());
+    mprf(jtransc("You finish taking off %s."), armour.name(DESC_A).c_str());
     unequip_item(slot);
 }
 
 void EatDelay::finish()
 {
     if (food_turns(food) > 1) // If duration was just one turn, don't print.
-        mpr("You finish eating.");
+        mpr(jtrans("You finish eating."));
     finish_eating_item(food);
 }
 
 void FeedVampireDelay::finish()
 {
-    mpr("You finish drinking.");
+    mpr(jtrans("You finish drinking."));
 
     vampire_nutrition_per_turn(corpse, 1);
 
@@ -892,14 +892,14 @@ void FeedVampireDelay::finish()
 
 void MemoriseDelay::finish()
 {
-    mpr("You finish memorising.");
+    mpr(jtrans("You finish memorising."));
     add_spell_to_memory(spell);
     vehumet_accept_gift(spell);
 }
 
 void PasswallDelay::finish()
 {
-    mpr("You finish merging with the rock.");
+    mpr(jtrans("You finish merging with the rock."));
     // included in default force_more_message
 
     if (dest.x == 0 || dest.y == 0)
@@ -910,8 +910,8 @@ void PasswallDelay::finish()
     default:
         if (!you.is_habitable(dest))
         {
-            mpr("...yet there is something new on the other side. "
-                "You quickly turn back.");
+            mpr(jtrans("...yet there is something new on the other side. "
+                       "You quickly turn back."));
             redraw_screen();
             return;
         }
@@ -934,7 +934,7 @@ void PasswallDelay::finish()
         // Might still fail.
         if (monster_at(dest))
         {
-            mpr("...and sense your way blocked. You quickly turn back.");
+            mpr(jtrans("...and sense your way blocked. You quickly turn back."));
             redraw_screen();
             return;
         }
@@ -1188,7 +1188,7 @@ static inline bool _monster_warning(activity_interrupt_type ai,
 {
     if (ai == AI_SENSE_MONSTER)
     {
-        mprf(MSGCH_WARN, "You sense a monster nearby.");
+        mprf(MSGCH_WARN, jtrans("You sense a monster nearby."));
         return true;
     }
     if (ai != AI_SEE_MONSTER)
@@ -1214,7 +1214,7 @@ static inline bool _monster_warning(activity_interrupt_type ai,
         // during the previous turn.
         if (testbits(mon->flags, MF_WAS_IN_VIEW) && delay)
         {
-            mprf(MSGCH_WARN, "%s is too close now for your liking.",
+            mprf(MSGCH_WARN, jtransc("%s is too close now for your liking."),
                  mon->name(DESC_THE).c_str());
         }
     }
@@ -1228,6 +1228,7 @@ static inline bool _monster_warning(activity_interrupt_type ai,
         string text = getMiscString(mon->name(DESC_DBNAME) + " title");
         if (text.empty())
             text = mon->full_name(DESC_A);
+
         if (mon->type == MONS_PLAYER_GHOST)
         {
             text += make_stringf(" (%s)",
@@ -1236,38 +1237,40 @@ static inline bool _monster_warning(activity_interrupt_type ai,
         set_auto_exclude(mon);
 
         if (at.context == SC_DOOR)
-            text += " opens the door.";
+            text += jtrans(" opens the door.");
         else if (at.context == SC_GATE)
-            text += " opens the gate.";
+            text += jtrans(" opens the gate.");
         else if (at.context == SC_TELEPORT_IN)
-            text += " appears from thin air!";
+            text += jtrans(" appears from thin air!");
         else if (at.context == SC_LEAP_IN)
-            text += " leaps into view!";
+            text += jtrans(" leaps into view!");
         else if (at.context == SC_FISH_SURFACES)
         {
-            text += " bursts forth from the ";
+            const char *habitat;
             if (mons_primary_habitat(*mon) == HT_LAVA)
-                text += "lava";
+                habitat = "lava";
             else if (mons_primary_habitat(*mon) == HT_WATER)
-                text += "water";
+                habitat = "water";
             else
-                text += "realm of bugdom";
-            text += ".";
+                habitat = "realm of bugdom";
+
+            text += make_stringf(jtransc(" bursts forth from the {lava or water}."),
+                                 jtransc(habitat));
         }
         else if (at.context == SC_NONSWIMMER_SURFACES_FROM_DEEP)
-            text += " emerges from the water.";
+            text += jtrans(" emerges from the water.");
         else if (at.context == SC_UPSTAIRS)
-            text += " comes up the stairs.";
+            text += jtrans(" comes up the stairs.");
         else if (at.context == SC_DOWNSTAIRS)
-            text += " comes down the stairs.";
+            text += jtrans(" comes down the stairs.");
         else if (at.context == SC_ARCH)
-            text += " comes through the gate.";
+            text += jtrans(" comes through the gate.");
         else if (at.context == SC_ABYSS)
-            text += _abyss_monster_creation_message(mon);
+            text += jtrans(_abyss_monster_creation_message(mon));
         else if (at.context == SC_THROWN_IN)
-            text += " is thrown into view!";
+            text += jtrans(" is thrown into view!");
         else
-            text += " comes into view.";
+            text += jtrans(" comes into view.");
 
         bool ash_id = mon->props.exists("ash_id") && mon->props["ash_id"];
         bool zin_id = false;
@@ -1281,13 +1284,11 @@ static inline bool _monster_warning(activity_interrupt_type ai,
             zin_id = true;
             mon->props["zin_id"] = true;
             discover_shifter(*mon);
-            god_warning = uppercase_first(god_name(you.religion))
-                          + " warns you: "
-                          + uppercase_first(mon->pronoun_j(PRONOUN_SUBJECTIVE))
-                          + " is a foul ";
-            if (mon->has_ench(ENCH_GLOWING_SHAPESHIFTER))
-                god_warning += "glowing ";
-            god_warning += "shapeshifter.";
+            string mon_name = string(mon->has_ench(ENCH_GLOWING_SHAPESHIFTER) ? "glowing" : "") + "shapeshifter";
+            god_warning = make_stringf(jtransc("{god name} warns you: {subj} is a foul {(glowing) shapeshifter}."),
+                                       god_name_jc(you.religion),
+                                       mon->pronoun_j(PRONOUN_SUBJECTIVE).c_str(),
+                                       jtransc(mon_name));
         }
 
         monster_info mi(mon);
@@ -1301,14 +1302,13 @@ static inline bool _monster_warning(activity_interrupt_type ai,
         {
             if (ash_id)
             {
-                god_warning = uppercase_first(god_name(you.religion))
-                              + " warns you:";
+                god_warning = make_stringf(jtrans_notrimc("{god name} warns you: "),
+                                           god_name_jc(you.religion));
             }
 
             (ash_id ? god_warning : text) +=
-                " " + uppercase_first(mon->pronoun_j(PRONOUN_SUBJECTIVE)) + " is"
-                + (ash_id ? " " : "")
-                + mweap + ".";
+                mon->pronoun_j(PRONOUN_SUBJECTIVE) + verb_j(" is")
+                + mweap + jtrans(".");
         }
 
         if (msgs_buf)
@@ -1332,7 +1332,7 @@ static inline bool _monster_warning(activity_interrupt_type ai,
                     && mon->get_experience_level() >=
                        random2(you.experience_level))
                 {
-                    mprf(MSGCH_GOD, GOD_GOZAG, "Gozag incites %s against you.",
+                    mprf(MSGCH_GOD, GOD_GOZAG, jtransc("Gozag incites %s against you."),
                          mon->name(DESC_THE).c_str());
                     gozag_incite(mon);
                 }
@@ -1364,7 +1364,7 @@ void autotoggle_autopickup(bool off)
         {
             Options.autopickup_on = -1;
             mprf(MSGCH_WARN,
-                 "Deactivating autopickup; reactivate with <w>%s</w>.",
+                 jtransc("Deactivating autopickup; reactivate with <w>%s</w>."),
                  command_to_string(CMD_TOGGLE_AUTOPICKUP).c_str());
         }
         if (crawl_state.game_is_hints())
@@ -1376,7 +1376,7 @@ void autotoggle_autopickup(bool off)
     else if (Options.autopickup_on < 0) // was turned off automatically
     {
         Options.autopickup_on = 1;
-        mprf(MSGCH_WARN, "Reactivating autopickup.");
+        mprf(MSGCH_WARN, jtrans("Reactivating autopickup."));
     }
 }
 
@@ -1424,12 +1424,12 @@ bool interrupt_activity(activity_interrupt_type ai,
     if (ai == AI_FULL_HP && !you.running.notified_hp_full)
     {
         you.running.notified_hp_full = true;
-        mpr("HP restored.");
+        mpr(jtrans("HP restored."));
     }
     else if (ai == AI_FULL_MP && !you.running.notified_mp_full)
     {
         you.running.notified_mp_full = true;
-        mpr("Magic restored.");
+        mpr(jtrans("Magic restored."));
     }
 
     if (_should_stop_activity(delay.get(), ai, at))

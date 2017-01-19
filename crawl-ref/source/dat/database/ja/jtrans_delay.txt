@@ -1,15 +1,15 @@
 %%%%
 You stop %s the corpse%s.
 
-あなたは死体%sを中止した。
+あなたは死体%s手を止めた。
 %%%%
-butchering
+[action]bottling blood from
 
-の解体
+から採血する
 %%%%
-bottling blood from
+[action]butchering
 
-からの採血
+を解体する
 %%%%
 Your memorisation is interrupted.
 
@@ -21,59 +21,63 @@ You stop dropping stuff.
 %%%%
 You stop draining the corpse.
 
-あなたは死体から血を吸うのを中断した。
+あなたは死体から血を吸うのを中止した。
 %%%%
-All blood oozes out of the corpse!
+All the blood oozes out of the corpse!
 
-死体から血が流れ出した！
+死体から血が全て流れ出した！
+%%%%
+Keep eating?
+
+食事を続けますか？
+%%%%
+You stop eating.
+
+あなたは食事を中止した。
 %%%%
 Keep equipping yourself?
 
-装備するのを続けますか？
+このまま装備を続けますか？
+%%%%
+You stop putting on your armour.
+
+あなたは装備するのを中止した。
 %%%%
 Keep disrobing?
 
 装備を外すのを続けますか？
 %%%%
-You stop %s your armour.
+You stop removing your armour.
 
-あなたは%sのを中断した。
-%%%%
-putting on
-
-装備する
-%%%%
-removing
-
-装備を外す
+あなたは装備を外すのを中断した。
 %%%%
 Keep reading the scroll?
 
-巻物を読み続けますか？
+巻物を読むのを続けますか？
 %%%%
 You stop reading the scroll.
 
 あなたは巻物を読むのを中断した。
 %%%%
-You stop %s the stairs.
+You stop ascending the stairs.
 
-あなたは階段を%sのを中断した。
+あなたは階段を昇るのを中断した。
 %%%%
-ascending
+You stop descending the stairs.
 
-昇る
-%%%%
-descending
-
-下りる
+あなたは階段を降りるのを中断した。
 %%%%
 Your meditation is interrupted.
 
-あなたの瞑想は打ち破られた。
+あなたの瞑想は中断させられた。
 %%%%
 You stop digging.
 
 あなたは床を掘るのを中断した。
+%%%%
+Done waiting.
+
+待機終了。
 %%%%
 You start putting on your armour.
 
@@ -107,53 +111,41 @@ The corpse has rotted away into a skeleton before you could finish drinking it!
 
 死体はあなたが血を飲み終える前に腐敗して骨へと変わった！
 %%%%
-The corpse has rotted away into a skeleton before you could %s!
+The corpse has rotted away into a skeleton before you could butcher it!
 
-死体はあなたが%s前に腐敗して骨へと変わった！
+死体はあなたが解体する前に腐敗して骨へと変わった！
 %%%%
-bottle its blood
+The corpse has rotted away into a skeleton before you could bottle its blood!
 
-採血する
-%%%%
-butcher it
-
-解体する
-%%%%
-You continue putting on %s.
-
-あなたは%sを装備しようとしている。
-%%%%
-You continue taking off %s.
-
-あなたは%sを外そうとしている。
-%%%%
-You continue memorising.
-
-あなたは呪文の習得を続けている。
-%%%%
-You continue meditating on the rock.
-
-あなたは壁に向かって瞑想を続けている。
-%%%%
-You continue digging a shaft.
-
-あなたは床を掘り続けている。
-%%%%
-You continue reading the scroll.
-
-あなたは巻物を読み続けている。
-%%%%
-You continue eating.
-
-あなたは食事を続けている。
+死体はあなたが採血する前に腐敗して骨へと変わった！
 %%%%
 You continue drinking.
 
-あなたは吸血を続けている。
+あなたは血を飲むのをそのまま続けた。
+%%%%
+Really put on {jewellery} while {duration}?
+
+%sですが、本当に%sを身につけますか？
+%%%%
+[dur]about to teleport
+
+テレポート発動前
+%%%%
+[dur]slowed
+
+減速中
+%%%%
+[dur]hasted
+
+加速中
+%%%%
+You finish putting on %s.
+
+あなたは%sを身につけるのを終えた。
 %%%%
 You finish taking off %s.
 
-あなたは%sを外した。
+あなたは%sを脱いだ。
 %%%%
 You finish eating.
 
@@ -177,23 +169,11 @@ You finish merging with the rock.
 %%%%
 ...and sense your way blocked. You quickly turn back.
 
-……あなたは道がふさがれていることに気付き、さっと引き返した。
-%%%%
-You finish doing something.
-
-あなたは作業を終えた。
-%%%%
-You finish putting on %s.
-
-あなたは%sを装備した。
-%%%%
-Done waiting.
-
-待機終了。
+……しかし行く手がふさがれていることに気づき、さっと引き返した。
 %%%%
 appears in a burst of microwaves!
 
-はマイクロ波バーストと共に出現した！
+はマイクロ波バーストとともに出現した！
 %%%%
 pops from nullspace!
 
@@ -201,11 +181,11 @@ pops from nullspace!
 %%%%
 appears in a shower of translocational energy.
 
-は迸る転位術のエネルギーと共に出現した！
+はほとばしる転位のエネルギーと共に出現した！
 %%%%
 appears in a shower of sparks.
 
-は迸る火花と共に出現した！
+はほとばしる火花と共に出現した！
 %%%%
 materialises.
 
@@ -223,19 +203,19 @@ assembles %s!
 
 が出現した！
 %%%%
-erupts from nowhere!
+erupts from nowhere.
 
 はどこからともなく出現した！
 %%%%
-bursts from nowhere!
+bursts from nowhere.
 
 はどこからともなく出現した！
 %%%%
-is cast out of space!
+is cast out of space.
 
 は外宇宙から現れた！
 %%%%
-is cast out of reality!
+is cast out of reality.
 
 は現実の外から現れた！
 %%%%
@@ -255,13 +235,13 @@ punctures the fabric of the universe.
 
 は宇宙の構造を打ち破った！
 %%%%
-manifests%2$s!%1$.0s
+manifests!
 
 が%s現れた！
 %%%%
-with a bang
+manifests with a bang!
 
-爆発と共に
+が爆発とともに現れた！
 %%%%
 You sense a monster nearby.
 
@@ -269,7 +249,7 @@ You sense a monster nearby.
 %%%%
 %s is too close now for your liking.
 
-%sに近づきすぎている！
+%sに近づきすぎている。
 %%%%
 opens the door.
 
@@ -287,25 +267,9 @@ leaps into view!
 
 は視界に飛び込んできた！
 %%%%
-surfaces briefly.
+bursts forth from the {lava or water}.
 
-は素早く地上に出てきた。
-%%%%
-forms itself from the air.
-
-は大気中から出現した。
-%%%%
-leaps out from its hiding place under the floor!
-
-は床下の隠れ場所から現れた！
-%%%%
-surfaces.
-
-は地上に出てきた。
-%%%%
-bursts forth from the
-
-の中から突如現れた。
+は%sの中から突如現れた。
 %%%%
 lava
 
@@ -339,17 +303,13 @@ comes into view.
 
 に遭遇した。
 %%%%
-Zin warns you:
+{god name} warns you: {subj} is a foul {(glowing) shapeshifter}.
 
-ジンはあなたに警告した:
+%sはあなたに警告した: %sは不浄なる%sだ。
 %%%%
-is a foul
+{god name} warns you:
 
-は薄汚い
-%%%%
-Ashenzari warns you:
-
-アシェンザリはあなたに警告した:
+%sはあなたに警告した:
 %%%%
 Gozag incites %s against you.
 
