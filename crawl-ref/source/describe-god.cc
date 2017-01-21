@@ -560,8 +560,9 @@ static void _print_top_line(god_type which_god, int width)
 {
     const string godname = god_name_j(which_god, true);
     textcolour(god_colour(which_god));
-    const int len = width - strwidth(godname);
-    cprintf("%s%s\n", string(len / 2, ' ').c_str(), godname.c_str());
+    const int full_width = min(80, get_number_of_cols()) - 1;
+    const int len = (full_width - strwidth(godname)) / 2;
+    cprintf("%s%s\n", sp2nbspc(string(len - (full_width - width), ' ')), godname.c_str());
     textcolour(LIGHTGREY);
     cprintf("\n");
 }
@@ -971,7 +972,7 @@ static void _god_overview_description(god_type which_god, bool give_title)
         textcolour(LIGHTGREY);
     }
     // Center top line even if it already contains "Religion" (len = 8)
-    _print_top_line(which_god, numcols - (give_title ? 2*8 : 0));
+    _print_top_line(which_god, numcols - (give_title ? strwidth(jtrans("Religion")) : 0));
 
     // Print god's description.
     string god_desc = getLongDescription(god_name(which_god));
