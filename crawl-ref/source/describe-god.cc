@@ -701,11 +701,11 @@ static void _describe_god_powers(god_type which_god)
     textcolour(LIGHTGREY);
     const char *header = "Granted powers:";
     const char *cost   = "(Cost)";
-    string align = string(min(80, get_number_of_cols()) - 1
-                          - strwidth(jtrans(header))
-                          - strwidth(jtrans(cost)), ' ');
+    string spaces = string(min(80, max(0, get_number_of_cols() - 1
+                                                               - strwidth(jtrans(header))
+                                                               - strwidth(jtrans(cost)))), ' ');
     cprintf("\n\n%s%s%s\n", jtransc(header),
-            sp2nbspc(align),
+            sp2nbspc(spaces),
             jtransc(cost));
 
 
@@ -948,11 +948,9 @@ static void _describe_god_powers(god_type which_god)
         string abil_cost = "(" + make_cost_description(power.abil) + ")";
         if (abil_cost == "(None)" || abil_cost == make_stringf("(%s)", jtransc("None")))
             abil_cost = "";
-        string align = string(min(80, get_number_of_cols()) - 1
-                              - desc_len - strwidth(abil_cost), ' ');
 
         cprintf("%s%s%s\n", buf.c_str(),
-                align.c_str(),
+                sp2nbspc(string(min(80, max(0, get_number_of_cols() - 1 - desc_len - strwidth(abil_cost))), ' ')),
                 abil_cost.c_str());
         textcolour(god_colour(which_god));
     }
