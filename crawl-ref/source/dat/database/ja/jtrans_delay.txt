@@ -127,15 +127,15 @@ Really put on {jewellery} while {duration}?
 
 %sですが、本当に%sを身につけますか？
 %%%%
-[dur]about to teleport
+[action]about to teleport
 
 テレポート発動前
 %%%%
-[dur]slowed
+[action]slowed
 
 減速中
 %%%%
-[dur]hasted
+[action]hasted
 
 加速中
 %%%%

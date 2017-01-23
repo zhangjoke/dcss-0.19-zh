@@ -815,9 +815,9 @@ void JewelleryOnDelay::finish()
         && item_ident(jewellery, ISFLAG_KNOW_TYPE))
     {
         string prompt = make_stringf(jtransc("Really put on {jewellery} while {action}?"),
-                                     jewellery.name(DESC_INVENTORY).c_str(),
                                      tagged_jtransc("[action]", (you.duration[DUR_TELEPORT] ? "about to teleport" :
-                                                                 you.duration[DUR_SLOW] ? "slowed" : "hasted")));
+                                                                 you.duration[DUR_SLOW] ? "slowed" : "hasted")),
+                                     jewellery.name(DESC_INVENTORY).c_str());
 
         if (!yesno(prompt.c_str(), false, 'n'))
             return;
