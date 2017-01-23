@@ -1,0 +1,37 @@
+%%%%
+%s has mastered %s:
+
+%sは%sを習得している:
+%%%%
+one of the following spellbooks
+
+下記の魔法書のうち1つ
+%%%%
+the following spells
+
+下記の呪文
+%%%%
+%s possesses one of the following sets of %s abilities:
+
+%sは下記の能力群のうち1つを持っている:
+%%%%
+%s possesses the following %s abilities:
+
+%sは下記の能力を持っている:
+%%%%
+Set
+
+組み合わせ
+%%%%
+Spells                             Type                      Level
+
+呪文名                           種類                       レベル
+%%%%
+Select a spell to read its description
+
+解説文を読むにはそれぞれの呪文を選択してください。
+%%%%
+, to memorize it or to forget it
+
+呪文を記憶/忘却したり、
+%%%%
