@@ -9,6 +9,7 @@
 #include "describe-spells.h"
 
 #include "cio.h"
+#include "database.h"
 #include "delay.h"
 #include "describe.h"
 #include "externs.h"
@@ -20,6 +21,7 @@
 #include "monster.h" // SEEN_SPELLS_KEY
 #include "prompt.h"
 #include "religion.h"
+#include "skills.h"
 #include "spl-book.h"
 #include "spl-util.h"
 #include "stringutil.h"
@@ -78,10 +80,10 @@ static string _ability_type_vulnerabilities(mon_spell_slot_flag type,
     const bool antimagicable
         = type == MON_SPELL_WIZARD || type == MON_SPELL_MAGICAL;
     ASSERT(silencable || antimagicable);
-    return make_stringf(", which are affected by%s%s%s",
+    return jtrans(make_stringf(", which are affected by%s%s%s",
                         silencable ? " silence" : "",
                         silencable && antimagicable ? " and" : "",
-                        antimagicable ? " antimagic" : "");
+                        antimagicable ? " antimagic" : ""));
 }
 
 /**
@@ -96,8 +98,8 @@ static string _ability_type_vulnerabilities(mon_spell_slot_flag type,
 static string _describe_spell_filtering(mon_spell_slot_flag type, const string &pronoun)
 {
     const bool is_spell = type = MON_SPELL_WIZARD;
-    return make_stringf(" (judging by the %s you have seen %s %s)",
-                        is_spell ? "spells" : "abilities",
+    return make_stringf(jtransc(" (judging by the %s you have seen %s %s)"),
+                        jtransc(is_spell ? "spells" : "abilities"),
                         pronoun.c_str(),
                         is_spell ? "cast" : "use");
 }
@@ -128,18 +130,18 @@ static string _booktype_header(mon_spell_slot_flag type, size_t num_books,
 
     if (type == MON_SPELL_WIZARD)
     {
-        return make_stringf("has mastered %s%s%s:",
-                            num_books > 1 ? "one of the following spellbooks"
-                                          : "the following spells",
+        return make_stringf(jtransc("has mastered %s%s%s:"),
                             spell_filter_desc.c_str(),
+                            jtransc(num_books > 1 ? "one of the following spellbooks"
+                                                  : "the following spells"),
                             vulnerabilities.c_str());
     }
 
-    const string descriptor = _ability_type_descriptor(type);
+    const string descriptor = tagged_jtrans("[descriptor]", _ability_type_descriptor(type));
 
-    return make_stringf("possesses the following %s abilities%s%s:",
-                        descriptor.c_str(),
+    return make_stringf(jtransc("possesses the following %s abilities%s%s:"),
                         spell_filter_desc.c_str(),
+                        descriptor.c_str(),
                         vulnerabilities.c_str());
 }
 
@@ -224,7 +226,7 @@ static void _monster_spellbooks(const monster_info &mi,
     if (num_books == 0)
         return;
 
-    const string set_name = type == MON_SPELL_WIZARD ? "Book" : "Set";
+    const string set_name = jtrans(type == MON_SPELL_WIZARD ? "Book" : "Set");
 
     // filter out books we know this monster can't cast (conflicting books)
     std::vector<size_t> valid_books;
@@ -251,16 +253,19 @@ static void _monster_spellbooks(const monster_info &mi,
 
         if (i == 0 || ability_case)
         {
+            string pronoun = uppercase_first(mi.pronoun_j(PRONOUN_SUBJECTIVE));
+            if (pronoun == jtrans("It"))
+                pronoun = "このモンスター";
+
             output_book.label +=
                 "\n" +
-                uppercase_first(mi.pronoun_j(PRONOUN_SUBJECTIVE)) +
-                " " +
+                pronoun +
                 _booktype_header(type, valid_books.size(), has_silencable,
                                  filtered_books, mi.pronoun_j(PRONOUN_OBJECTIVE));
         }
         else
         {
-            output_book.label += make_stringf("\n%s %d:",
+            output_book.label += make_stringf(jtrans_notrimc("\n%s %d:"),
                                               set_name.c_str(), (int) i + 1);
         }
 
@@ -321,7 +326,7 @@ spellset monster_spellset(const monster_info &mi)
     {
         spellbook_contents output_book;
         output_book.label
-          = make_stringf("You have seen %s using the following:",
+          = make_stringf(jtransc("You have seen %s using the following:"),
                          mi.pronoun_j(PRONOUN_SUBJECTIVE).c_str());
         for (int spell : mi.props[SEEN_SPELLS_KEY].get_vector())
             output_book.spells.emplace_back((spell_type)spell);
@@ -417,7 +422,7 @@ static string _spell_schools(spell_type spell)
 
         if (!schools.empty())
             schools += "/";
-        schools += spelltype_long_name(school_flag);
+        schools += skill_name_j(spelltype_short_name(school_flag));
     }
 
     return schools;
@@ -486,7 +491,7 @@ static void _describe_book(const spellbook_contents &book,
 
     // only display header for book/rod spells
     if (source_item)
-        description.cprintf("\n Spells                             Type                      Level");
+        description.cprintf(jtrans_notrim("\n Spells                             Type                      Level"));
     description.cprintf("\n");
 
     // list spells in two columns, instead of one? (monster books)
@@ -511,16 +516,20 @@ static void _describe_book(const spellbook_contents &book,
 #endif
             && (get_spell_flags(spell) & SPFLAG_MR_CHECK))
         {
-            description.cprintf("%c - (%d%%) %s",
-                            spell_letter,
-                            hex_chance(spell, hd),
-                            chop_string(spell_title(spell), 22).c_str());
+            string desc = make_stringf("%c - (%d%%) %s",
+                                       spell_letter,
+                                       hex_chance(spell, hd),
+                                       spell_title_jc(spell));
+
+            description.cprintf(chop_string(desc, 35));
         }
         else
         {
-            description.cprintf("%c - %s",
-                            spell_letter,
-                            chop_string(spell_title(spell), 29).c_str());
+            string desc = make_stringf("%c - %s",
+                                       spell_letter,
+                                       spell_title_jc(spell));
+
+            description.cprintf(chop_string(desc, 35));
         }
 
         // only display type & level for book/rod spells
@@ -536,7 +545,7 @@ static void _describe_book(const spellbook_contents &book,
         }
 
         string schools =
-            source_item->base_type == OBJ_RODS ? "Evocations"
+            source_item->base_type == OBJ_RODS ? skill_name_j("Evocations")
                                                : _spell_schools(spell);
         description.cprintf("%s%d\n",
                             chop_string(schools, 30).c_str(),
@@ -545,6 +554,9 @@ static void _describe_book(const spellbook_contents &book,
 
     // are we halfway through a column?
     if (doublecolumn && book.spells.size() % 2)
+        description.cprintf("\n");
+
+    if (source_item)
         description.cprintf("\n");
 }
 
@@ -614,10 +626,9 @@ void list_spellset(const spellset &spells, const monster_info *mon_owner,
 
     description.textcolour(LIGHTGREY);
 
-    description.cprintf("Select a spell to read its description");
-    if (can_memorise)
-        description.cprintf(" or to to memorise it");
-    description.cprintf(".\n");
+    string desc = make_stringf(jtrans_notrimc("Select a spell to read its description { or ... }.\n"),
+                               jtransc(can_memorise ? " or to to memorise it" : ""));
+    description.cprintf(desc);
 
     spell_scroller ssc(spells, mon_owner, source_item);
     ssc.wrap_formatted_string(description);

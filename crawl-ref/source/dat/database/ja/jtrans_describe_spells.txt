@@ -1,37 +1,81 @@
 %%%%
-%s has mastered %s:
+[descriptor]natural
 
-%sは%sを習得している:
+生得的な能力を持って
+%%%%
+[descriptor]magical
+
+魔法を習得して
+%%%%
+[descriptor]divine
+
+能力を神から授かって
+%%%%
+, which are affected by silence
+
+が、静寂効果の影響を受けている
+%%%%
+, which are affected by silence and antimagic
+
+が、静寂および反魔法効果の影響を受けている
+%%%%
+, which are affected by antimagic
+
+が、反魔法効果の影響を受けている
+%%%%
+(judging by the %s you have seen %s %s)
+
+(あなたが目にした%sから判断すると)
+%%%%
+spells
+
+魔法
+%%%%
+abilities
+
+能力
+%%%%
+has mastered %s%s%s:
+
+は%s%sを習得している%s:
 %%%%
 one of the following spellbooks
 
-下記の魔法書のうち1つ
+下記の魔法書のうちひとつ
 %%%%
 the following spells
 
 下記の呪文
 %%%%
-%s possesses one of the following sets of %s abilities:
+possesses the following %s abilities%s%s:
 
-%sは下記の能力群のうち1つを持っている:
+は%s下記の%sいる%s:
 %%%%
-%s possesses the following %s abilities:
+Book
 
-%sは下記の能力を持っている:
+魔法書
 %%%%
 Set
 
 組み合わせ
 %%%%
+%s %d:
+
+%s%d:
+%%%%
+You have seen %s using the following:
+
+あなたは%sが以下の魔法を使ったのを目にした:
+%%%%
 Spells                             Type                      Level
 
-呪文名                           種類                       レベル
+呪文名                           系統                       レベル
 %%%%
-Select a spell to read its description
+Select a spell to read its description { or ... }.
 
-解説文を読むにはそれぞれの呪文を選択してください。
+%s解説文を読むにはそれぞれの呪文を選択してください。
 %%%%
-, to memorize it or to forget it
+or to to memorise it
 
-呪文を記憶/忘却したり、
+呪文を記憶したり、
 %%%%
