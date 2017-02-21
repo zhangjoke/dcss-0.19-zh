@@ -57,3 +57,36 @@ const char * general_counter_suffix(const int size)
     else
         return "個";
 }
+
+string jconj_verb(const string& verb, jconj conj)
+{
+    string v = verb;
+
+    switch (conj)
+    {
+        // 必要に応じて随時追加
+    case JCONJ_IRRE:  break;
+    case JCONJ_CONT:  break;
+    case JCONJ_TERM:  break;
+    case JCONJ_ATTR:  break;
+    case JCONJ_HYPO:  break;
+    case JCONJ_IMPR:  break;
+    case JCONJ_PERF:
+        v = replace_all(v, "立てる", "立てた");
+        v = replace_all(v, "鳴く", "鳴いた");
+        v = replace_all(v, "放つ", "放った");
+        v = replace_all(v, "吠える", "吠えた");
+        break;
+    case JCONJ_PASS:
+        v = replace_all(v, "を追放した", "が追放された"); // _takenote_kill_verb()
+        v = replace_all(v, "を中立化した", "が中立化させられた");
+        v = replace_all(v, "を隷属させた", "が隷属させられた");
+        v = replace_all(v, "をスライムに変えた", "がスライムに変えられた");
+        v = replace_all(v, "を殺した", "が殺された");
+        break;
+    case JCONJ_PRES:
+        v = replace_all(v, "射撃した", "射撃する");
+    }
+
+    return v;
+}

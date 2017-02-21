@@ -2904,6 +2904,12 @@ string feature_description_at(const coord_def& where, bool covering,
     }
 }
 
+string feature_description_at_en(const coord_def& where, bool covering,
+                                 description_level_type dtype, bool add_stop)
+{
+    return "";
+}
+
 static string _describe_monster_weapon(const monster_info& mi, bool ident)
 {
     string desc = "";

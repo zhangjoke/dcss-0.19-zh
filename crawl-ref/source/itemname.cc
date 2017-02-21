@@ -325,6 +325,13 @@ string item_def::name(description_level_type descrip, bool terse, bool ident,
     return buff.str();
 }
 
+string item_def::name_en(description_level_type descrip, bool terse, bool ident,
+                         bool with_inscription, bool quantity_in_words,
+                         iflags_t ignore_flags) const
+{
+    return name(descrip, terse, ident, with_inscription, quantity_in_words, ignore_flags);
+}
+
 static bool _missile_brand_is_prefix(special_missile_type brand)
 {
     switch (brand)

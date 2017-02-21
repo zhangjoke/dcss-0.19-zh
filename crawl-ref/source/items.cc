@@ -1224,7 +1224,7 @@ bool origin_is_acquirement(const item_def& item, item_source_type *type)
     return false;
 }
 
-string origin_desc(const item_def &item)
+string origin_desc(const item_def &item, bool add_stop)
 {
     if (!origin_describable(item))
         return "";

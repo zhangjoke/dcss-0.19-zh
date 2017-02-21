@@ -1062,6 +1062,11 @@ string monster_info::common_name(description_level_type desc) const
     return s;
 }
 
+string monster_info::common_name_en(description_level_type desc) const
+{
+    return "{common name en}";
+}
+
 bool monster_info::has_proper_name() const
 {
     return !mname.empty() && !mons_is_ghost_demon(type)
@@ -1095,6 +1100,11 @@ string monster_info::full_name(description_level_type desc) const
     }
     else
         return common_name(desc);
+}
+
+string monster_info::full_name_en(description_level_type desc) const
+{
+    return "{full name en}";
 }
 
 // Needed because gcc 4.3 sort does not like comparison functions that take

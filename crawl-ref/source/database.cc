@@ -1057,6 +1057,7 @@ string jtrans(const char* key, const bool linefeed)
  * key中の改行は"\n"に変換された上で辞書を引く。
  * 空文字のkeyには空文字を返す。
  * keyに対応する文字列が見つからなかった場合、keyを返す。
+ * 対応する文字列が"__NONE"なら、空文字を返す。
  *
  * @param key JtransDBに問い合わせたいキー文字列
  * @param linefeed trueなら語末に改行を付与する(デフォルトfalse)
@@ -1074,6 +1075,7 @@ string jtrans(const string &key, const bool linefeed)
     string text = _query_database(JtransDB, tmp_key, true, true);
 
     if (text == "") return key;
+    if (trimmed_string(text) == "__NONE") return "";
 
     if (!linefeed)
     {
