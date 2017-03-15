@@ -231,6 +231,8 @@ static TextDB AllDBs[] =
            "jtrans_species_data.txt",
            "jtrans_spell_data.txt",
            "jtrans_zap_data.txt",
+
+           "montitle.txt",
            nullptr),
 
     TextDB("randart_vanilla", "database/ja/crawlj/",
