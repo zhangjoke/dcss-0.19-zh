@@ -947,6 +947,11 @@ string monster_info::_apply_adjusted_description(description_level_type desc,
 
 string monster_info::common_name(description_level_type desc) const
 {
+    return common_name_en(desc);
+}
+
+string monster_info::common_name_en(description_level_type desc) const
+{
     const string core = _core_name();
     const bool nocore = mons_class_is_zombified(type)
                           && mons_is_unique(base_type)
@@ -1062,11 +1067,6 @@ string monster_info::common_name(description_level_type desc) const
     return s;
 }
 
-string monster_info::common_name_en(description_level_type desc) const
-{
-    return "{common name en}";
-}
-
 bool monster_info::has_proper_name() const
 {
     return !mname.empty() && !mons_is_ghost_demon(type)
@@ -1093,9 +1093,21 @@ string monster_info::full_name(description_level_type desc) const
 
     if (has_proper_name())
     {
-        string s = mname + " the " + common_name();
+        string bra = "『", ket = "』";
+        string stripped_mname = replace_all(mname, ket, "");
+        string::size_type found;
+
+        if ((found = mname.find(bra, 0)) != string::npos)
+        {
+            stripped_mname.replace(0, found + bra.length(), "");
+            bra = "の" + bra;
+        }
+
+        // (例)オークの戦士『Alork』
+        string s = common_name() + bra + stripped_mname + ket;
+
         if (desc == DESC_ITS)
-            s = apostrophise(s);
+            s += "の";
         return s;
     }
     else
@@ -1104,7 +1116,18 @@ string monster_info::full_name(description_level_type desc) const
 
 string monster_info::full_name_en(description_level_type desc) const
 {
-    return "{full name en}";
+    if (desc == DESC_NONE)
+        return "";
+
+    if (has_proper_name())
+    {
+        string s = mname + " the " + common_name();
+        if (desc == DESC_ITS)
+            s = apostrophise(s);
+        return s;
+    }
+    else
+        return common_name_en(desc);
 }
 
 // Needed because gcc 4.3 sort does not like comparison functions that take
