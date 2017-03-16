@@ -3530,18 +3530,19 @@ string serpent_of_hell_flavour(monster_type m)
 
 static string _get_unique_title(const string &key)
 {
-    return jtrans_has_key(key) ? jtrans(key) : "";
+    return getMiscString(key + " title");
 }
 
 // Fetches the monster's database description and reads it into inf.
 void get_monster_db_desc(const monster_info& mi, describe_info &inf,
                          bool &has_stat_desc, bool force_seen)
 {
-    string desc, desc_en;
+    string desc, desc_en, monname;
     if (inf.title.empty())
     {
-        desc = getMiscString(mi.common_name(DESC_DBNAME) + " title");
-        desc_en = _get_unique_title(mi.common_name_en(DESC_DBNAME) + " title");
+        monname = mi.common_name_en(DESC_DBNAME);
+        desc = jtrans(_get_unique_title(monname));
+        desc_en = _get_unique_title(monname);
 
         if (desc_en.empty())
         {
