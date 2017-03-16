@@ -2108,17 +2108,17 @@ gelatinous body
 
 ゼラチン状の体
 %%%%
-Your rubbery body absorbs attacks. (AC +1)
+Your rubbery body absorbs attacks. (AC +1, EV +1)
 
-あなたのゴムの体は攻撃を吸収する。(AC +1)
+あなたのゴムの体は攻撃を吸収する。(AC +1, 回避 +1)
 %%%%
-Your pliable body absorbs attacks. (AC +1, EV +1)
+Your pliable body absorbs attacks. (AC +2, EV +2)
 
-あなたの柔軟な体は攻撃を吸収する。(AC +1, 回避 +1)
+あなたの柔軟な体は攻撃を吸収する。(AC +2, 回避 +2)
 %%%%
-Your gelatinous body deflects attacks. (AC +2, EV +2)
+Your gelatinous body deflects attacks. (AC +3, EV +3)
 
-あなたのゼラチン状の体は攻撃をはね返す。(AC +2, 回避 +2)
+あなたのゼラチン状の体は攻撃をはね返す。(AC +3, 回避 +3)
 %%%%
 Your body becomes stretchy.
 
