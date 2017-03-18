@@ -1,7 +1,7 @@
 %%%%
 <white>Dungeon Overview and Level Annotations</white>
 
-ダンジョンの外観と階層の特記事項
+<white>ダンジョンの外観と階層の特記事項</white>
 %%%%
 <green>Branches:</green>
 
@@ -39,7 +39,7 @@
 %%%%
 <green>Annotations:</green>
 
-<green>特記事項:</green>
+<green>特記事項: </green>
 %%%%
 %d runed door%s
 
@@ -51,7 +51,7 @@ corrupted
 %%%%
 Annotate level on other end of current stairs?
 
-この階段の向こうの階層に注釈を付けますか？ [y/(n)]
+この階段の向こうの階層に注釈を付けますか？
 %%%%
 Current level annotation: <lightgrey>%s</lightgrey>
 
