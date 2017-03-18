@@ -64,8 +64,24 @@ bool yesno(const char *str, bool allow_lowercase, int default_answer, bool clear
         return false;
 
     string prompt = make_stringf("%s ", str ? jtransc(str) : "Buggy prompt?");
-    if (str && !allow_lowercase)
-        prompt += "[Y/N] ";
+    if (str)
+    {
+        char y = 'y', n = 'n';
+        string yn;
+
+        if (default_answer == 'n')
+            yn = "[%c/(%c)] ";
+        else
+            yn = "[(%c)/%c] ";
+
+        if (!allow_lowercase)
+        {
+            y = toupper(y);
+            n = toupper(n);
+        }
+
+        prompt += make_stringf(yn.c_str(), y, n);
+    }
 
 #ifdef TOUCH_UI
     Popup *pop = new Popup(prompt);
