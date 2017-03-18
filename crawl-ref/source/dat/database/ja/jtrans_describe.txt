@@ -2199,15 +2199,11 @@ This cloud is opaque; one tile will not block vision, but multiple will.
 
 この雲は不透明で、タイル1マス程度なら見通せるがそれ以上重なると向こう側が見えなくなる。
 %%%%
-Clouds of this kind an adventurer makes will vanish %s once outside their sight.
+Clouds of this kind an adventurer makes will vanish quickly once outside their sight.
 
-冒険者の作り出したこの種の雲は、視界から外れると%s消え去ってしまう。
+冒険者の作り出したこの種の雲は、視界から外れると急速に消え去ってしまう。
 %%%%
-[adj]quickly
+Clouds of this kind an adventurer makes will vanish almost instantly once outside their sight.
 
-急速に
-%%%%
-[adj]almost instantly
-
-ほとんど同時に
+冒険者の作り出したこの種の雲は、視界から外れるやいなや消え去ってしまう。
 %%%%

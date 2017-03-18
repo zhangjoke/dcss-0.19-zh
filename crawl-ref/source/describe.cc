@@ -4137,8 +4137,8 @@ string extra_cloud_info(cloud_type cloud_type)
         jtrans_notrim("\nThis cloud is opaque; one tile will not block vision, but "
                       "multiple will.");
     const string vanish_info
-        = make_stringf(jtrans_notrimc("\nClouds of this kind an adventurer makes will vanish "
-                                      "%s once outside their sight."),
-                       adj_jc(opaque ? "quickly" : "almost instantly"));
+        = jtrans_notrim(make_stringf("\nClouds of this kind an adventurer makes will vanish "
+                                     "%s once outside their sight.",
+                                     (opaque ? "quickly" : "almost instantly")));
     return opacity_info + vanish_info;
 }
