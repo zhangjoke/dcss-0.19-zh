@@ -160,6 +160,7 @@ static TextDB AllDBs[] =
            "jtrans_cloud.txt",
            "jtrans_command.txt",
            "jtrans_dactions.txt",
+           "jtrans_dbg_util.txt",
            "jtrans_decks.txt",
            "jtrans_delay.txt",
            "jtrans_describe_god.txt",
