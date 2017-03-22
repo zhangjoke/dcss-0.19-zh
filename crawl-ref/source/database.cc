@@ -170,6 +170,7 @@ static TextDB AllDBs[] =
            "jtrans_dgn_shoals.txt",
            "jtrans_directn.txt",
            "jtrans_dungeon.txt",
+           "jtrans_end.txt",
            /*
            "jtrans_effects.txt",
            "jtrans_evoke.txt",
