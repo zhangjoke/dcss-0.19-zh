@@ -24,5 +24,7 @@ const string conjugate_verb_j(const string &verb, bool plural);
 const string decline_pronoun_j(gender_type gender, pronoun_type variant);
 const char * general_counter_suffix(const int size);
 string jconj_verb(const string& verb, jconj conj);
+string thing_do_grammar_j(description_level_type dtype, bool add_stop,
+                          bool force_article, string desc);
 
 #endif

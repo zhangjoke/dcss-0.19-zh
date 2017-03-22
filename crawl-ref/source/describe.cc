@@ -906,12 +906,6 @@ static string _handedness_string(const item_def &item)
     return description;
 }
 
-static string adj_j(const string &adj)
-{
-    return tagged_jtrans("[adj]", adj);
-}
-#define adj_jc(a) (adj_j(a).c_str())
-
 static string _describe_weapon(const item_def &item, bool verbose)
 {
     string description;

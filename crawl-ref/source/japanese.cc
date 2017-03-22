@@ -90,3 +90,25 @@ string jconj_verb(const string& verb, jconj conj)
 
     return v;
 }
+
+/*
+ * english.cc/thing_do_grammar()の代替
+ * 英語処理が必要な箇所もあるためthing_do_grammarは残す
+ */
+string thing_do_grammar_j(description_level_type dtype, bool add_stop,
+                        bool force_article, string desc)
+{
+    if (dtype == DESC_PLAIN || !force_article)
+        return desc;
+
+    switch (dtype)
+    {
+    case DESC_THE:
+    case DESC_A:
+        return desc;
+    case DESC_NONE:
+        return "";
+    default:
+        return desc;
+    }
+}

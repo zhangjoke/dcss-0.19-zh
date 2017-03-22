@@ -63,6 +63,15 @@ string tagged_jtrans(const string &prefix, const string &key, const string &suff
 string jtrans_notrim(const string &key);
 #define jtrans_notrimc(x) (jtrans_notrim(x).c_str())
 
+template<typename C1, typename C2>
+void append_container_jtrans(C1& container_base, const C2& container_append)
+{
+    for (auto val : container_append)
+    {
+        container_base.push_back(jtrans(val));
+    }
+}
+
 /**
  * 渡されたシーケンスの各要素を変換しながら適切に繋ぐ
  *
@@ -147,5 +156,9 @@ static inline string duration_j(const string &duration, const string &tag = "[du
     return tagged_jtrans(tag, duration);
 }
 #define duration_jc(d) (duration_j(d).c_str())
+#define adj_j(a) (tagged_jtrans("[adj]", a))
+#define adj_jc(a) (adj_j(a).c_str())
+#define feature_name_j(f) (tagged_jtrans("[feature]", f))
+#define feature_name_jc(f) (feature_name_j(f).c_str())
 
 #endif
