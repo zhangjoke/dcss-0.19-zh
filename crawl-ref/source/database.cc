@@ -172,8 +172,8 @@ static TextDB AllDBs[] =
            "jtrans_dungeon.txt",
            "jtrans_end.txt",
            "jtrans_evoke.txt",
-           /*
            "jtrans_exclude.txt",
+           /*
            "jtrans_fearmonger.txt",
            "jtrans_fight.txt",
            "jtrans_file.txt",

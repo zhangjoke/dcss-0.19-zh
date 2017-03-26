@@ -1,0 +1,29 @@
+%%%%
+Marking area around %s as unsafe for travelling.
+
+この%sの周囲を自動移動の禁止範囲に指定した。
+%%%%
+upstairs
+
+上り階段
+%%%%
+downstairs
+
+下り階段
+%%%%
+%d %s
+
+%s x%d
+%%%%
+%d %sexclusion%s
+
+%dつの注意対象%s
+%%%%
+exclusion
+
+注意対象
+%%%%
+exclusions
+
+注意対象
+%%%%
