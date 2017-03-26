@@ -5,7 +5,7 @@ You cannot attack while held in a net.
 %%%%
 You cannot attack while caught in a web.
 
-蜘蛛の巣に巻き付かれている間は攻撃できない。
+蜘蛛の巣に巻きつかれている間は攻撃できない。
 %%%%
 Attack whom?
 
@@ -14,14 +14,6 @@ Attack whom?
 Your weapon cannot reach that far!
 
 あなたの武器はそこまで届かない！
-%%%%
-You swing wildly and hit a wall.
-
-あなたは勢いよく振り回して壁を叩いた。
-%%%%
-There's a wall in the way.
-
-そこには壁がある。
 %%%%
 You could not reach far enough!
 
@@ -38,14 +30,6 @@ You reach to attack!
 Something you can't see
 
 なにか目に見えないもの
-%%%%
-You swing wildly%s
-
-あなたは勢いよく振り回し
-%%%%
-and almost hit yourself!
-
-て自分に当てそうになった！
 %%%%
 You attack empty space.
 
@@ -67,25 +51,21 @@ Nothing answers your call.
 
 あなたの呼びかけに応える者はいなかった。
 %%%%
-These balls have not yet been approved for use by djinn.
+#if TAG_MAJOR_VERSION == 34
+These balls have not yet been approved for use by djinn. (OOC: they're supposed to work, but need a redesign.)
 
-# obsolete
 %%%%
-(OOC: they're supposed to work, but need a redesign.)
+You are unable to concentrate on the shapes in the crystal ball.
 
-# obsolete
+あなたは水晶玉に浮かぶ像に集中することができなかった。
 %%%%
-You lack the intelligence to focus on the shapes in the ball.
+Your reserves of magic are too empty for the crystal ball to function.
 
-あなたは水晶玉に向かって集中するには知性に欠けている。
+あなたの魔力はすっかり空になっているため、水晶玉を使うことができない。
 %%%%
-You are unable to concentrate on the shapes in the ball.
+Your reserves of magic are already full.
 
-あなたは水晶玉に向かって集中することができない。
-%%%%
-With no energy to recover, the crystal ball of energy is presently useless to you.
-
-既に魔力がいっぱいなので、魔力の水晶球を使っても今のところ無意味だ。
+あなたの魔力はすでにいっぱいだ。
 %%%%
 You lack the skill to use this item.
 
@@ -111,6 +91,10 @@ You cannot evoke magical items.
 
 あなたは魔法のアイテムを発動できない。
 %%%%
+'s wrath prevents you from evoking devices!
+
+# obsolete: Pakellas
+%%%%
 Zap which item?
 
 どのアイテムを振りますか？
@@ -118,6 +102,10 @@ Zap which item?
 You can't zap that!
 
 あなたはそれを振れない！
+%%%%
+Sorry, this wand was removed!
+
+# 訳不要
 %%%%
 This wand has no charges.
 
@@ -130,14 +118,6 @@ Zapping:
 <lightred>(will waste charges)</lightred>
 
 <lightred>(余分に残り回数を消耗します)</lightred>
-%%%%
-%s prevents hasting.
-
-%sは加速するのを妨げた。
-%%%%
-You cannot haste.
-
-あなたは加速できない。
 %%%%
 Evoking this partially-identified wand wasted a few charges.
 
@@ -155,6 +135,10 @@ Charge which item?
 
 どのアイテムに充填しますか？
 %%%%
+Really abort (and waste the scroll)?
+
+本当に中断しますか？ (巻物は消費されます)
+%%%%
 Choose an item to recharge, or Esc to abort.
 
 再充填するアイテムを選択するか、Escキーで中断してください。
@@ -166,6 +150,14 @@ and now has %d charge%s
 %s %s for a moment%s.
 
 %sは一瞬%s%s。
+%%%%
+[verb]glows
+
+輝いた
+%%%%
+[verb]flickers
+
+明滅した
 %%%%
 It has %d charges and is fully charged.
 
@@ -187,37 +179,45 @@ You open the lid...
 
 あなたは蓋を開いた……
 %%%%
-...but the box appears empty, and falls apart.
-
-……しかし中は空っぽだったので、匣を捨てた。
-%%%%
 ...but nothing happens.
 
 ……しかし何事も起こらなかった。
 %%%%
-...and something leaps out!
+...and %s %s out!
 
-……すると何かが飛び出してきた！
+……すると%sが飛び出してきた！
 %%%%
+The now-empty box falls apart.
+
+空になった箱はバラバラになった。
+%%%
 You reach into the bag...
 
 あなたは袋の中を探った……
-%%%%
-...but the bag is empty, and unravels at your touch.
-
-……しかし中は空っぽだったので、袋を捨てた。
 %%%%
 ...and things crawl out!
 
 ……すると何かが這い出てきた！
 %%%%
+The now-empty bag unravels in your hand.
+
+空になった袋はあなたの手の中でぼろぼろになった。
+%%%%
+You can't place a gateway to a ziggurat here.
+
+ここにはジグラットへの門を設置することはできない。
+%%%%
+Finish your current ziggurat first!
+
+今いるジグラットを脱出してからにしてください！
+%%%%
+You set the figurine down, and a mystic portal to a ziggurat forms.
+
+あなたが模型を下に置くと、ジグラットへの不思議なポータルが出現した。
+%%%%
 You gaze into the crystal ball.
 
 あなたは水晶球にじっと見入った。
-%%%%
-using a ball of energy
-
-魔力の水晶球を使って
 %%%%
 You feel your power drain away!
 
@@ -234,6 +234,10 @@ Aim the lamp in which direction?
 The flames dance!
 
 炎が舞い踊った！
+%%%%
+[zap]trail of fire
+
+尾を引く炎
 %%%%
 card
 
@@ -257,31 +261,11 @@ You are blown backwards!
 %%%%
 %s %s blown away by the wind.
 
-%sは風によって吹き飛ばされた。
+%s%s風によって吹き飛ばされた。
 %%%%
 The monsters around you are blown away!
 
 あなたの周囲にいるモンスターは吹き飛ばされた！
-%%%%
-The winds coalesce and take form.
-
-風が集まって具現化した。
-%%%%
-The dungeon trembles and rubble falls from the walls!
-
-迷宮が揺れ、壁が崩れ落ちた。
-%%%%
-falling rubble
-
-落ちてきた瓦礫
-%%%%
-The door collapses!
-
-扉が崩れた！
-%%%%
-The rubble rises up and takes form.
-
-瓦礫が集まって生命が吹き込まれた。
 %%%%
 Aim the phial where?
 
@@ -319,10 +303,6 @@ mirrored by the player character
 
 あなたに鏡でコピーされた
 %%%%
-mirrored by
-
-鏡でコピーされた
-%%%%
 You reflect %s with the mirror, and the mirror shatters!
 
 あなたが%sの姿を映すと、鏡は粉々に砕けた！
@@ -343,10 +323,6 @@ You cannot evoke items in this form.
 Evoke which item? (* to show all)
 
 どのアイテムを発動させますか？ (* で全アイテムから選択)
-%%%%
-Your reserves of magic are already full.
-
-あなたの魔力は既にいっぱいだ。
 %%%%
 You channel some magical energy.
 
