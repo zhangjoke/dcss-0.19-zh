@@ -2357,6 +2357,12 @@ string monster::name(description_level_type desc, bool force_vis,
     ;
 }
 
+string monster::name_en(description_level_type desc, bool force_vis,
+                        bool force_article) const
+{
+    return name(desc, force_vis, force_article);
+}
+
 string monster::base_name(description_level_type desc, bool force_vis) const
 {
     string s = _mon_special_name(*this, desc, force_vis);

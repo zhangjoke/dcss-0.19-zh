@@ -13,6 +13,7 @@
 #include "cloud.h"
 #include "coord.h"
 #include "coordit.h"
+#include "database.h"
 #include "dgn-overview.h"
 #include "english.h"
 #include "env.h"
@@ -50,11 +51,13 @@ static bool _need_auto_exclude(const monster* mon, bool sleepy = false)
     // This only works if the name is lowercased.
     string name = mon->name(DESC_BASENAME, mon->is_stationary()
                                            && testbits(mon->flags, MF_SEEN));
-    lowercase(name);
+    string name_en = mon->name_en(DESC_BASENAME, mon->is_stationary()
+                                           && testbits(mon->flags, MF_SEEN));
+    lowercase(name_en);
 
     for (const text_pattern &pat : Options.auto_exclude)
     {
-        if (pat.matches(name)
+        if ((pat.matches(name) || pat.matches(name_en))
             && _mon_needs_auto_exclude(mon, sleepy)
             && (mon->attitude == ATT_HOSTILE
                 || mon->type == MONS_HYPERACTIVE_BALLISTOMYCETE))
@@ -95,7 +98,7 @@ void set_auto_exclude(const monster* mon)
         //        (as is possible for some vaults), this could be really
         //        annoying. (jpeg)
         mprf(MSGCH_WARN,
-             "Marking area around %s as unsafe for travelling.",
+             jtransc("Marking area around %s as unsafe for travelling."),
              mon->name(DESC_THE).c_str());
 
 #ifdef USE_TILE
@@ -152,7 +155,7 @@ bool travel_exclude::affects(const coord_def& p) const
 {
     if (!uptodate)
     {
-        mprf(MSGCH_ERROR, "exclusion not up-to-date: e (%d,%d) p (%d,%d)",
+        mprf(MSGCH_ERROR, jtransc("exclusion not up-to-date: e (%d,%d) p (%d,%d)"),
              pos.x, pos.y, p.x, p.y);
     }
     if (radius == 0)
@@ -476,7 +479,7 @@ void set_exclude(const coord_def &p, int radius, bool autoexcl, bool vaultexcl,
         if (exc->desc.empty() && defer_updates)
         {
             if (cloud_struct* cloud = cloud_at(p))
-                exc->desc = cloud->cloud_name(true) + " cloud";
+                exc->desc = cloud->cloud_name_j(true);
         }
         else if (exc->radius == radius)
             return;
@@ -516,7 +519,7 @@ void set_exclude(const coord_def &p, int radius, bool autoexcl, bool vaultexcl,
             }
         }
         else if (cloud_struct* cloud = cloud_at(p))
-            desc = cloud->cloud_name(true) + " cloud";
+            desc = cloud->cloud_name_j(true);
 
         curr_excludes.add_exclude(p, radius, autoexcl, desc, vaultexcl);
     }
@@ -566,7 +569,10 @@ string exclude_set::get_exclusion_desc()
             continue;
 
         if (ex.desc != "")
-            desc.push_back(ex.desc);
+        {
+            ex.desc = replace_all(ex.desc, "(detected)", jtrans("(detected)"));
+            desc.push_back(jtrans(ex.desc));
+        }
         else
             count_other++;
     }
@@ -594,8 +600,8 @@ string exclude_set::get_exclusion_desc()
                         desc.push_back(old_desc);
                     else
                     {
-                        desc.push_back(make_stringf("%d %s",
-                                       count, pluralise(old_desc).c_str()));
+                        desc.push_back(make_stringf(jtransc("%d %s"),
+                                       old_desc.c_str(), count));
                         count = 1;
                     }
                     old_desc = tmp;
@@ -606,16 +612,16 @@ string exclude_set::get_exclusion_desc()
             desc.push_back(old_desc);
         else
         {
-            desc.push_back(make_stringf("%d %s",
-                           count, pluralise(old_desc).c_str()));
+            desc.push_back(make_stringf(jtransc("%d %s"),
+                           old_desc.c_str(), count));
         }
     }
 
     if (count_other > 0)
     {
-        desc.push_back(make_stringf("%d %sexclusion%s",
-                                    count_other, desc.empty() ? "" : "more ",
-                                    count_other > 1 ? "s" : ""));
+        desc.push_back(make_stringf(jtransc("%d %sexclusion%s"),
+                                    count_other,
+                                    jtransc(count_other > 1 ? "exclusions" : "exclusion")));
     }
     else if (desc.empty())
         return "";
@@ -626,10 +632,10 @@ string exclude_set::get_exclusion_desc()
         desc_str += "exclusion";
         if (desc.size() > 1)
             desc_str += "s";
-        desc_str += ": ";
+        desc_str = jtrans(desc_str) + ": ";
     }
     return desc_str + comma_separated_line(desc.begin(), desc.end(),
-                                           " and ", ", ");
+                                           ", ", ", ");
 }
 
 void marshallExcludes(writer& outf, const exclude_set& excludes)

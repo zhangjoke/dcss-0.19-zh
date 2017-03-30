@@ -310,6 +310,8 @@ public:
 
     string name(description_level_type type, bool force_visible = false,
                 bool force_article = false) const override;
+    string name_en(description_level_type type, bool force_visible = false,
+                   bool force_article = false) const;
 
     // Base name of the monster, bypassing any mname setting. For an orc priest
     // named Arbolt, name() will return "Arbolt", but base_name() will return
