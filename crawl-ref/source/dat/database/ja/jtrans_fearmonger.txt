@@ -1,0 +1,21 @@
+%%%%
+%s's aura of fear is muted, and has no effect on you.
+
+%sの恐怖のオーラは無効化され、あなたに何の影響も及ぼさなかった。
+%%%%
+The fearful aura is strangely muted, and has no effect on you.
+
+恐怖のオーラが無効化され、あなたに何の影響も及ぼさなかった。
+%%%%
+You are terrified of %s!
+
+あなたは%sを恐れている！
+%%%%
+For a moment, your terror fades away!
+
+一瞬にしてあなたの恐怖は消え去った！
+%%%%
+You are no longer terrified.
+
+あなたはもう恐怖に怯えていない。
+%%%%
