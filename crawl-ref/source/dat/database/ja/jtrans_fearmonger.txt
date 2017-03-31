@@ -11,9 +11,9 @@ You are terrified of %s!
 
 あなたは%sを恐れている！
 %%%%
-For a moment, your terror fades away!
+Jolted by the loud noise, you snap out of your terror!
 
-一瞬にしてあなたの恐怖は消え去った！
+あなたは大きな物音に刺激され、恐怖から抜け出した！
 %%%%
 You are no longer terrified.
 
