@@ -1,0 +1,13 @@
+%%%%
+%s hops backward while attacking.
+
+%sは攻撃中に後ろへと跳ねた。
+%%%%
+Really attack while wielding
+
+本当にあなたの手にしている
+%%%%
+This could place you under penance!
+
+神に懺悔をする羽目になりますよ！
+%%%%
