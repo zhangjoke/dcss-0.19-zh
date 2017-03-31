@@ -3,11 +3,51 @@
 
 %sは攻撃中に後ろへと跳ねた。
 %%%%
-Really attack while wielding
+Really attack while wielding %s?
 
-本当にあなたの手にしている
+本当にあなたの手にしている%sで攻撃しますか？
+%%%%
+Really attack barehanded?
+
+本当に素手で攻撃しますか？
 %%%%
 This could place you under penance!
 
 神に懺悔をする羽目になりますよ！
+%%%%
+, despite your sanctuary
+
+聖域内で
+%%%%
+, when you might land in your sanctuary
+
+聖域内に着地する可能性がある
+%%%%
+your ally
+
+あなたの従者である
+%%%%
+ally
+
+従者である
+%%%%
+[adj]helpless
+
+哀れな
+%%%%
+[adj]neutral
+
+中立な
+%%%%
+[adj]non-hostile
+
+敵対的でない
+%%%%
+Really %s%s%s?%s
+
+本当に%s%s%sますか？ %s
+%%%%
+This attack would place you under penance!
+
+<This could place you under penance!>
 %%%%
