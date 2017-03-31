@@ -383,9 +383,9 @@ is wreathed by an umbra.
 
 は影の帳に包まれている。
 %%%%
-is mindless.
+# is mindless.
 
-は精神構造を持たない。
+# jtrans_describe.txtと重複
 %%%%
 is chaotic.
 
@@ -403,9 +403,9 @@ is reflecting injuries back at attackers.
 
 は自らが受けた傷を攻撃者に返す。
 %%%%
-is filled with an inner flame.
+# is filled with an inner flame.
 
-は内なる炎に満たされている。
+# jtrans_beam.txtと重複
 %%%%
 Your line of fire to %s is blocked by %s
 
@@ -458,10 +458,6 @@ is bathed in translocational energy
 This square %s.
 
 この場所は%s。
-%%%%
-There is a cloud of %s here.
-
-ここには%sがある。
 %%%%
 You see %s here.
 
