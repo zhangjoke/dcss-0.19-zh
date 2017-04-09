@@ -47,13 +47,13 @@ curr_PlaceInfo:: num_visits: %d, levels_seen: %d
 
 %sはその場で動かなくなった。
 %%%%
-Save macros?
+# Save macros?
 
-マクロを保存しますか？
+# jtrans_end.txtと重複
 %%%%
-Char dump unsuccessful! Sorry about that.
+# Char dump unsuccessful! Sorry about that.
 
-残念ながらキャラクター情報のファイル出力に失敗しました。
+# jtrans_end.txtと重複
 %%%%
 See you soon, %s!
 

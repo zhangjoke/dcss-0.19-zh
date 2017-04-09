@@ -71,9 +71,9 @@ Turn:
 
 友好的な
 %%%%
-[adj]neutral
+# [adj]neutral
 
-中立的な
+# jtrans_fight.txtと重複
 %%%%
 There were no monsters in sight!
 
