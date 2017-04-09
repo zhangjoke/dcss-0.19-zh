@@ -1,4 +1,8 @@
 %%%%
+%s reflects your damage back at you!
+
+%sはあなたの与えたダメージをそのまま返した！
+%%%%
 Your damage is reflected back at you!
 
 あなたの与えたダメージがそのまま返ってきた！
@@ -15,15 +19,15 @@ suffers a backlash!
 
 %sは体を%s震わせた。
 %%%%
-alarmingly
+[adj]alarmingly
 
 猛烈に
 %%%%
-violently
+[adj]violently
 
 激しく
 %%%%
-vigorously
+[adj]vigorously
 
 勢いよく
 %%%%
@@ -35,11 +39,11 @@ vigorously
 
 %sは%s体のジェリーの群れを生み出した。
 %%%%
-One of the royal jelly's fragments survives.
+One of the Royal Jelly's fragments survives.
 
 『ロイヤルジェリー』の破片の一つはまだ生き残っている。
 %%%%
-The dying royal jelly spits out %s more jellies.
+The dying Royal Jelly spits out %s more jellies.
 
 『ロイヤルジェリー』は死に際に%s体のジェリーの群れを生み出した。
 %%%%
@@ -51,21 +55,17 @@ shudders and withdraws towards its neighbour.
 
 は身を震わせ、隣の群れから遠ざかった。
 %%%%
-%s electric aura discharges%s!
+%s electric aura discharges%s, shocking %s!
 
-%s電気のオーラが%s放電した！
+%s電気のオーラが%s放電し、%sを感電させた！
 %%%%
-The air sparks with electricity!
+The air sparks with electricity, shocking %s!
 
-電気の火花が空中で炸裂した！
-%%%%
-The lightning shocks %s.
-
-%sは稲妻を浴びた。
+電気の火花が空中で炸裂し、%sを感電させた！
 %%%%
 a shock serpent
 
-電撃の大蛇
+<shock serpent>
 %%%%
 electric aura
 
