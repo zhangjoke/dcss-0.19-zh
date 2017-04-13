@@ -158,6 +158,8 @@ static inline string duration_j(const string &duration, const string &tag = "[du
 #define duration_jc(d) (duration_j(d).c_str())
 #define adj_j(a) (tagged_jtrans("[adj]", a))
 #define adj_jc(a) (adj_j(a).c_str())
+#define adv_j(a) (tagged_jtrans("[adv]", a))
+#define adv_jc(a) (adv_j(a).c_str())
 #define feature_name_j(f) (tagged_jtrans("[feature]", f))
 #define feature_name_jc(f) (feature_name_j(f).c_str())
 

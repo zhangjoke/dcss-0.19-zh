@@ -160,7 +160,7 @@ bool prompt_eat_item(int slot)
     item_def* item = nullptr;
     if (slot == -1)
     {
-        item = use_an_item(OBJ_FOOD, OPER_EAT, "Eat which item?");
+        item = use_an_item(OBJ_FOOD, OPER_EAT, jtransc("Eat which item?"));
         if (!item)
             return false;
     }
@@ -182,7 +182,7 @@ static bool _eat_check(bool check_hunger = true, bool silent = false)
     {
         if (!silent)
         {
-            mpr("You can't eat.");
+            mpr(jtrans("You can't eat."));
             crawl_state.zero_turns_taken();
         }
         return false;
@@ -195,8 +195,8 @@ static bool _eat_check(bool check_hunger = true, bool silent = false)
     {
         if (!silent)
         {
-            mprf("You're too full to %s anything.",
-                 you.species == SP_VAMPIRE ? "drain" : "eat");
+            mpr(jtrans(make_stringf("You're too full to %s anything.",
+                                    you.species == SP_VAMPIRE ? "drain" : "eat")));
             crawl_state.zero_turns_taken();
         }
         return false;
@@ -221,7 +221,7 @@ bool eat_food(int slot)
     }
 
     if (you.species == SP_VAMPIRE)
-        mpr("There's nothing here to drain!");
+        mpr(jtrans("There's nothing here to drain!"));
 
     return prompt_eat_item(slot);
 }
@@ -234,6 +234,8 @@ static string _how_hungry()
         return "thirsty";
     return "hungry";
 }
+#define _how_hungry_j() (tagged_jtrans("[hunger]", _how_hungry()))
+#define _how_hungry_jc() (_how_hungry_j().c_str())
 
 // "initial" is true when setting the player's initial hunger state on game
 // start or load: in that case it's not really a change, so we suppress the
@@ -270,8 +272,8 @@ bool food_change(bool initial)
             case UFR_TOO_DEAD:
                 if (you.duration[DUR_TRANSFORMATION] > 2 * BASELINE_DELAY)
                 {
-                    mprf(MSGCH_DURATION, "Your blood-deprived body can't sustain "
-                                         "your transformation much longer.");
+                    mprf(MSGCH_DURATION, jtrans("Your blood-deprived body can't sustain "
+                                                "your transformation much longer."));
                     you.set_duration(DUR_TRANSFORMATION, 2);
                 }
                 break;
@@ -279,8 +281,8 @@ bool food_change(bool initial)
                 if (you.duration[DUR_TRANSFORMATION] > 5 * BASELINE_DELAY)
                 {
                     print_stats();
-                    mprf(MSGCH_WARN, "Your blood-filled body can't sustain your "
-                                     "transformation much longer.");
+                    mprf(MSGCH_WARN, jtrans("Your blood-filled body can't sustain your "
+                                            "transformation much longer."));
 
                     // Give more time because suddenly stopping flying can be fatal.
                     you.set_duration(DUR_TRANSFORMATION, 5);
@@ -290,26 +292,26 @@ bool food_change(bool initial)
                 if (newstate == HS_ENGORGED && is_vampire_feeding()) // Alive
                 {
                     print_stats();
-                    mpr("You can't stomach any more blood right now.");
+                    mpr(jtrans("You can't stomach any more blood right now."));
                 }
             }
         }
 
         if (!initial)
         {
-            string msg = "You ";
+            string msg;
             switch (you.hunger_state)
             {
             case HS_FAINTING:
-                msg += "are fainting from starvation!";
+                msg += jtrans("You are fainting from starvation!");
                 mprf(MSGCH_FOOD, less_hungry, "%s", msg.c_str());
                 break;
 
             case HS_STARVING:
                 if (you.species == SP_VAMPIRE)
-                    msg += "feel devoid of blood!";
+                    msg += jtrans("You feel devoid of blood!");
                 else
-                    msg += "are starving!";
+                    msg += jtrans("You are starving!");
 
                 mprf(MSGCH_FOOD, less_hungry, "%s", msg.c_str());
 
@@ -319,9 +321,9 @@ bool food_change(bool initial)
 
             case HS_NEAR_STARVING:
                 if (you.species == SP_VAMPIRE)
-                    msg += "feel almost devoid of blood!";
+                    msg += jtrans("You feel almost devoid of blood!");
                 else
-                    msg += "are near starving!";
+                    msg += jtrans("You are near starving!");
 
                 mprf(MSGCH_FOOD, less_hungry, "%s", msg.c_str());
 
@@ -330,11 +332,9 @@ bool food_change(bool initial)
 
             case HS_VERY_HUNGRY:
             case HS_HUNGRY:
-                msg += "are feeling ";
-                if (you.hunger_state == HS_VERY_HUNGRY)
-                    msg += "very ";
-                msg += _how_hungry();
-                msg += ".";
+                msg += make_stringf(jtransc("You are feeling %s %s."),
+                                    adv_jc(you.hunger_state == HS_VERY_HUNGRY ? "very " : ""),
+                                    _how_hungry_jc());
 
                 mprf(MSGCH_FOOD, less_hungry, "%s", msg.c_str());
 
@@ -354,29 +354,23 @@ bool food_change(bool initial)
 static void _describe_food_change(int food_increment)
 {
     const int magnitude = abs(food_increment);
-    string msg;
+    string msg, adv;
 
     if (magnitude == 0)
         return;
 
-    msg = "You feel ";
-
     if (magnitude <= 100)
-        msg += "slightly ";
+        adv = "slightly ";
     else if (magnitude <= 350)
-        msg += "somewhat ";
+        adv = "somewhat ";
     else if (magnitude <= 800)
-        msg += "quite a bit ";
+        adv = "quite a bit ";
     else
-        msg += "a lot ";
+        adv = "a lot ";
 
-    if ((you.hunger_state > HS_SATIATED) ^ (food_increment < 0))
-        msg += "more ";
-    else
-        msg += "less ";
-
-    msg += _how_hungry().c_str();
-    msg += ".";
+    msg = make_stringf(jtransc("You feel %s%s."),
+                       adv_jc(adv),
+                       _how_hungry_jc());
     mpr(msg);
 }
 
@@ -399,8 +393,8 @@ bool eat_item(item_def &food)
     else
         start_delay<EatDelay>(food_turns(food) - 1, food);
 
-    mprf("You start eating %s%s.", food.quantity > 1 ? "one of " : "",
-                                   food.name(DESC_THE).c_str());
+    mprf(jtransc("You start eating %s%s."), food.name(DESC_THE).c_str(),
+                                            jtransc(food.quantity > 1 ? "one of " : ""));
     you.turn_is_over = true;
     return true;
 }
@@ -416,7 +410,7 @@ static void _finished_eating_message(food_type type)
     {
         if (food_is_meaty(type))
         {
-            mpr("Blech - you need greens!");
+            mpr(jtrans("Blech - you need greens!"));
             return;
         }
     }
@@ -425,12 +419,12 @@ static void _finished_eating_message(food_type type)
         switch (type)
         {
         case FOOD_MEAT_RATION:
-            mpr("That meat ration really hit the spot!");
+            mpr(jtrans("That meat ration really hit the spot!"));
             return;
         case FOOD_BEEF_JERKY:
-            mprf("That beef jerky was %s!",
+            mprf(jtransc("That beef jerky was %s!"), jtransc(
                  one_chance_in(4) ? "jerk-a-riffic"
-                                  : "delicious");
+                                  : "delicious"));
             return;
         default:
             break;
@@ -441,7 +435,7 @@ static void _finished_eating_message(food_type type)
     {
         if (food_is_veggie(type))
         {
-            mpr("Blech - you need meat!");
+            mpr(jtrans("Blech - you need meat!"));
             return;
         }
     }
@@ -450,13 +444,13 @@ static void _finished_eating_message(food_type type)
         switch (type)
         {
         case FOOD_BREAD_RATION:
-            mpr("That bread ration really hit the spot!");
+            mpr(jtrans("That bread ration really hit the spot!"));
             return;
         case FOOD_FRUIT:
         {
             string taste = getMiscString("eating_fruit");
             if (taste.empty())
-                taste = "Eugh, buggy fruit.";
+                taste = jtrans("Eugh, buggy fruit.");
             mpr(taste);
             break;
         }
@@ -468,21 +462,21 @@ static void _finished_eating_message(food_type type)
     switch (type)
     {
     case FOOD_ROYAL_JELLY:
-        mpr("That royal jelly was delicious!");
+        mpr(jtrans("That royal jelly was delicious!"));
         break;
     case FOOD_PIZZA:
     {
         if (!Options.pizzas.empty())
         {
             const string za = Options.pizzas[random2(Options.pizzas.size())];
-            mprf("Mmm... %s.", trimmed_string(za).c_str());
+            mprf(jtransc("Mmm... %s."), trimmed_string(za).c_str());
             break;
         }
 
         const string taste = getMiscString("eating_pizza");
         if (taste.empty())
         {
-            mpr("Bleh, bug pizza.");
+            mpr(jtrans("Bleh, bug pizza."));
             break;
         }
 
@@ -637,10 +631,10 @@ int prompt_eat_chunks(bool only_auto)
                 return 0;
             else
             {
-                mprf(MSGCH_PROMPT, "%s %s%s? (ye/n/q)",
-                     (you.species == SP_VAMPIRE ? "Drink blood from" : "Eat"),
-                     ((item->quantity > 1) ? "one of " : ""),
-                     item_name.c_str());
+                mprf(MSGCH_PROMPT, jtransc("%s %s%s? (ye/n/q)"),
+                     item_name.c_str(),
+                     jtransc(((item->quantity > 1) ? "one of " : "")),
+                     tagged_jtransc("[prompt verb]", (you.species == SP_VAMPIRE ? "Drink blood from" : "Eat")));
             }
 
             int keyin = autoeat ? 'y' : toalower(getchm(KMC_CONFIRM));
@@ -660,11 +654,11 @@ int prompt_eat_chunks(bool only_auto)
                 {
                     if (autoeat)
                     {
-                        mprf("%s %s%s.",
-                             (you.species == SP_VAMPIRE ? "Drinking blood from"
-                                                        : "Eating"),
-                             ((item->quantity > 1) ? "one of " : ""),
-                             item_name.c_str());
+                        mprf(jtransc("%s %s%s."),
+                             item_name.c_str(),
+                             jtransc((item->quantity > 1) ? "one of " : ""),
+                             tagged_jtransc("[prompt verb]", (you.species == SP_VAMPIRE ? "Drinking blood from"
+                                                                                        : "Eating")));
                     }
 
                     return eat_item(*item) ? 1 : 0;
@@ -711,9 +705,9 @@ static void _chunk_nutrition_message(int nutrition)
 {
     int perc_nutrition = nutrition * 100 / CHUNK_BASE_NUTRITION;
     if (perc_nutrition < 15)
-        mpr("That was extremely unsatisfying.");
+        mpr(jtrans("That was extremely unsatisfying."));
     else if (perc_nutrition < 35)
-        mpr("That was not very filling.");
+        mpr(jtrans("That was not very filling."));
 }
 
 static int _apply_herbivore_nutrition_effects(int nutrition)
@@ -749,7 +743,7 @@ static int _chunk_nutrition(int likes_chunks)
 #ifdef DEBUG_DIAGNOSTICS
     const int epercent = effective_nutrition * 100 / nutrition;
     mprf(MSGCH_DIAGNOSTICS,
-            "Gourmand factor: %d, chunk base: %d, effective: %d, %%: %d",
+            jtransc("Gourmand factor: %d, chunk base: %d, effective: %d, %%: %d"),
                 gourmand, nutrition, effective_nutrition, epercent);
 #endif
 
@@ -790,7 +784,7 @@ static void _eat_chunk(item_def& food)
     switch (chunk_effect)
     {
     case CE_MUTAGEN:
-        mpr("This meat tastes really weird.");
+        mpr(jtrans("This meat tastes really weird."));
         mutate(RANDOM_MUTATION, "mutagenic meat");
         did_god_conduct(DID_DELIBERATE_MUTATING, 10);
         xom_is_stimulated(100);
@@ -805,14 +799,14 @@ static void _eat_chunk(item_def& food)
             _heal_from_food(hp_amt);
         }
 
-        mprf("This raw flesh %s", _chunk_flavour_phrase(likes_chunks));
+        mprf(jtransc("This raw flesh %s"), jtransc(_chunk_flavour_phrase(likes_chunks)));
         do_eat = true;
         break;
     }
 
     case CE_NOXIOUS:
     case CE_NOCORPSE:
-        mprf(MSGCH_ERROR, "This flesh (%d) tastes buggy!", chunk_effect);
+        mprf(MSGCH_ERROR, jtransc("This flesh (%d) tastes buggy!"), chunk_effect);
         break;
     }
 
@@ -874,9 +868,9 @@ void vampire_nutrition_per_turn(const item_def &corpse, int feeding)
 
     if (start_feeding)
     {
-        mprf("This %sblood tastes delicious!",
+        mprf(jtransc("This %sblood tastes delicious!"), jtransc(
              mons_class_flag(mons_type, M_WARM_BLOOD) ? "warm "
-                                                      : "");
+                                                      : ""));
     }
 
     if (!end_feeding)
@@ -1016,7 +1010,7 @@ bool is_forbidden_food(const item_def &food)
  */
 bool can_eat(const item_def &food, bool suppress_msg, bool check_hunger)
 {
-#define FAIL(msg) { if (!suppress_msg) mpr(msg); return false; }
+#define FAIL(msg) { if (!suppress_msg) mpr(jtrans(msg)); return false; }
     if (food.base_type != OBJ_FOOD && food.base_type != OBJ_CORPSES)
     {
         FAIL("That's not food!");
@@ -1120,7 +1114,7 @@ static bool _vampire_consume_corpse(item_def& corpse)
 
     if (!mons_has_blood(corpse.mon_type))
     {
-        mpr("There is no blood in this body!");
+        mpr(jtrans("There is no blood in this body!"));
         return false;
     }
 
@@ -1149,7 +1143,7 @@ static void _heal_from_food(int hp_amt)
 
     if (player_rotted())
     {
-        mpr("You feel more resilient.");
+        mpr(jtrans("You feel more resilient."));
         unrot_hp(1);
     }
 
@@ -1192,12 +1186,12 @@ void handle_starvation()
     {
         if (!you.cannot_act() && one_chance_in(40))
         {
-            mprf(MSGCH_FOOD, "You lose consciousness!");
+            mprf(MSGCH_FOOD, jtrans("You lose consciousness!"));
             stop_running();
 
             int turns = 5 + random2(8);
             if (!you.duration[DUR_PARALYSIS])
-                take_note(Note(NOTE_PARALYSIS, min(turns, 13), 0, "fainting"));
+                take_note(Note(NOTE_PARALYSIS, min(turns, 13), 0, jtrans("fainting")));
             you.increase_duration(DUR_PARALYSIS, turns, 13);
             if (you_worship(GOD_XOM))
                 xom_is_stimulated(get_tension() > 0 ? 200 : 100);
@@ -1213,12 +1207,12 @@ void handle_starvation()
                 });
             if (it != end(you.inv) && can_eat(*it, true))
             {
-                mpr("As you are about to starve, you manage to eat something.");
+                mpr(jtrans("As you are about to starve, you manage to eat something."));
                 eat_item(*it);
                 return;
             }
 
-            mprf(MSGCH_FOOD, "You have starved to death.");
+            mprf(MSGCH_FOOD, jtrans("You have starved to death."));
             ouch(INSTANT_DEATH, KILLED_BY_STARVATION);
             if (!you.pending_revival) // if we're still here...
                 set_hunger(HUNGER_DEFAULT, true);

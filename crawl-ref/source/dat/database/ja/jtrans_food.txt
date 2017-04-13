@@ -3,37 +3,49 @@ Eat which item?
 
 どれを食べる？
 %%%%
-You can't eat that!
-
-それは食べられない！
-%%%%
 You can't eat.
 
 あなたは食事ができない。
 %%%%
-You're too full to %s anything.
+You're too full to drain anything.
 
-満腹すぎてこれ以上%sができない。
+満腹すぎてこれ以上吸血ができない。
+%%%%
+You're too full to eat anything.
+
+満腹すぎてこれ以上食事ができない。
 %%%%
 There's nothing here to drain!
 
 吸血できるものがない！
 %%%%
-Your blood-deprived body can't sustain your rage any longer.
+[hunger]full
 
-あなたの血を失った肉体ではもうバーサーク状態を維持できない。
+満腹な
+%%%%
+[hunger]thirsty
+
+渇いている
+%%%%
+[hunger]hungry
+
+空腹な
 %%%%
 Your blood-deprived body can't sustain your transformation much longer.
 
-あなたの血を失った肉体ではもはや変化し続けることができない。
+あなたは血の気がなさすぎて、もはや変化し続けることができない。
 %%%%
 Your blood-filled body can't sustain your transformation much longer.
 
-あなたの血に満ちた肉体はもはや変化し続けることができない。
+あなたは血の気が多すぎて、もはや変化し続けることができない。
 %%%%
 You can't stomach any more blood right now.
 
 あなたはこれ以上血を蓄えることはできない。
+%%%%
+You are fainting from starvation!
+
+あなたは空腹すぎてふらふらしている！
 %%%%
 You feel devoid of blood!
 
@@ -51,17 +63,109 @@ You are near starving!
 
 あなたは餓死しそうだ！
 %%%%
-%s %s%s? (ye/n/q/i?)
+You are feeling %s %s.
 
-%s%s%sますか？ (ye/n/q/i?)
+あなたは%s%sようだ。
+%%%%
+[adv]very
+
+とても
+%%%%
+You feel %s%s.
+
+あなたは%s%sようだ。
+%%%%
+[adv]slightly
+
+少し
+%%%%
+[adv]somewhat
+
+いくぶん
+%%%%
+[adv]quite a bit
+
+かなり
+%%%%
+[adv]a lot
+
+非常に
+%%%%
+You start eating %s%s.
+
+あなたは%s%sを食べはじめた。
+%%%%
+one of
+
+のうちの一つ
+%%%%
+Blech - you need greens!
+
+オエ……。あなたには野菜が必要だ！
+%%%%
+That meat ration really hit the spot!
+
+肉の保存食は実に満足のいく食事だ！
+%%%%
+That beef jerky was %s!
+
+このビーフジャーキーは%s！
+%%%%
+jerk-a-riffic
+
+噛みごたえがある
+%%%%
+delicious
+
+うまい
+%%%%
+Blech - you need meat!
+
+オエ……。あなたには肉が必要だ！
+%%%%
+That bread ration really hit the spot!
+
+パンの保存食は実に満足のいく食事だ！
+%%%%
+Eugh, buggy fruit.
+
+# 訳不要
+%%%%
+That royal jelly was delicious!
+
+このロイヤルゼリーはうまい！
+%%%%
+Mmm... %s.
+
+むむむ…… %sだ。
+%%%%
+Bleh, bug pizza.
+
+# 訳不要
 %%%%
 %s %s%s? (ye/n/q)
 
-%s%sを食べますか？ (ye/n/q)
+%s%s%sますか？ (ye/n/q)
 %%%%
-You refuse to eat these food items.
+[prompt verb]Drink blood from
 
-あなたはこの食品を食べることを拒否した。
+から血を吸い
+%%%%
+[prompt verb]Eat
+
+を食べ
+%%%%
+%s %s%s.
+
+%s%s%sいる。
+%%%%
+[prompt verb]Drinking blood from
+
+から血を吸って
+%%%%
+[prompt verb]Eating
+
+を食べて
 %%%%
 tastes terrible.
 
@@ -99,6 +203,10 @@ That was not very filling.
 
 それは食べごたえがなかった。
 %%%%
+#ifdef DEBUG_DIAGNOSTICS
+Gourmand factor: %d, chunk base: %d, effective: %d, %%: %d
+
+%%%%
 This meat tastes really weird.
 
 この肉はとても奇妙な味がする。
@@ -111,61 +219,25 @@ This raw flesh %s
 
 この生肉%s
 %%%%
-Blech - you need greens!
+This flesh (%d) tastes buggy!
 
-オエ……。あなたには野菜が必要だ！
-%%%%
-That meat ration really hit the spot!
-
-肉の保存食は実に満足の行く食事だ！
-%%%%
-That beef jerky was %s!
-
-このビーフジャーキーは%s！
-%%%%
-jerk-a-riffic
-
-噛みごたえがある
-%%%%
-delicious
-
-うまい
-%%%%
-Blech - you need meat!
-
-オエ……。あなたには肉が必要だ！
-%%%%
-That bread ration really hit the spot!
-
-パンの保存食は実に満足の行く食事だ！
-%%%%
-That royal jelly was delicious!
-
-このロイヤルゼリーはうまい！
-%%%%
-Mmm... %s.
-
-むむむ…… %sだ。
+# 訳不要
 %%%%
 This %sblood tastes delicious!
 
 この%s血は美味だ！
 %%%%
-This blood tastes really weird!
+warm
 
-この血は奇妙な味がした！
+温かい
 %%%%
-mutagenic blood
+That's not food!
 
-変異性の血液
+それは食べ物ではない！
 %%%%
-It contains deadly poison!
+It is completely inedible.
 
-これは致命的な毒を含んでいる！
-%%%%
-It is caustic! Not only inedible but also greatly harmful!
-
-それは腐食性だ！ 食べられないだけでなく非常に有害だ！
+これは全く食えたものではない。
 %%%%
 Blech - you need blood!
 
@@ -195,6 +267,14 @@ You lose consciousness!
 
 あなたは意識を失った！
 %%%%
+fainting
+
+空腹による卒倒
+%%%%
+As you are about to starve, you manage to eat something.
+
+今にも餓死しそうなため、あなたは何かを食べようとした。
+%%%%
 You have starved to death.
 
 あなたは飢え死にした。
@@ -202,4 +282,8 @@ You have starved to death.
 N/A
 
 －
+%%%%
+# None
+
+# jtrans_ability.txtと重複
 %%%%
