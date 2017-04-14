@@ -29,7 +29,7 @@ front leg
 
 前脚
 %%%%
-crawl onto
+[verb]crawl onto
 
 這い回った
 %%%%
@@ -50,7 +50,7 @@ blade-form
 
 刃の手の形態
 %%%%
-shred
+[verb]shred
 
 切り刻んだ
 %%%%
@@ -71,7 +71,7 @@ a stone statue.
 
 石像化
 %%%%
-place yourself before
+[verb]place yourself before
 
 腰を据えた
 %%%%
@@ -96,9 +96,13 @@ front paw
 
 前脚
 %%%%
-bow your head before
+[verb]bow your head before
 
 おじぎをした
+%%%%
+[form flesh equivalent]ice
+
+氷の獣の姿
 %%%%
 # TRAN_DRAGON
 [form]Dragon
@@ -112,6 +116,10 @@ dragon-form
 a fearsome dragon!
 
 恐ろしいドラゴンの姿を
+%%%%
+[verb]maul
+
+めちゃめちゃにした
 %%%%
 [form]roar
 
@@ -210,7 +218,7 @@ Branches
 
 枝
 %%%%
-smack
+[verb]smack
 
 ぴしゃりと打った
 %%%%
@@ -288,7 +296,7 @@ strand
 
 下部
 %%%%
-swirl around
+[verb]swirl around
 
 渦を巻いた
 %%%%
@@ -338,7 +346,7 @@ hypha
 
 菌糸
 %%%%
-release spores on
+[verb]release spores on
 
 胞子を放った
 %%%%
@@ -355,6 +363,10 @@ a swirling mass of dark shadows.
 
 渦巻く漆黒の影の姿を
 %%%%
+[form flesh equivalent]shadow
+
+影の姿
+%%%%
 # TRAN_HYDRA
 [form]Hydra
 
@@ -364,15 +376,15 @@ hydra-form
 
 ヒドラの形態
 %%%%
-nip at
+[verb]nip at
 
 つねった
 %%%%
-gouge
+[verb]gouge
 
-えぐった
+[verb]えぐった
 %%%%
-chomp
+[verb]chomp
 
 むしゃむしゃ食べた
 %%%%

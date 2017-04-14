@@ -3603,9 +3603,9 @@ void god_pitch(god_type which_god)
         mpr("You bow before the missionary of Beogh.");
     else
     {
-        mprf("You %s the altar of %s.",
-             get_form()->player_prayer_action().c_str(),
-             god_name(which_god).c_str());
+        mprf(jtransc("You %s the altar of %s."),
+             verb_jc(get_form()->player_prayer_action()),
+             god_name_jc(which_god));
     }
     // these are included in default force_more_message
 

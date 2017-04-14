@@ -215,7 +215,7 @@ static void _decrement_petrification(int delay)
                                             get_form()->flesh_equivalent;
 
         mprf(MSGCH_DURATION, "You turn to %s and can move again.",
-             flesh_equiv.c_str());
+             tagged_jtransc("[form flesh equivalent]", flesh_equiv.c_str()));
     }
 
     if (you.duration[DUR_PETRIFYING])
