@@ -1,4 +1,108 @@
 %%%%
+blessed by the Shining One
+
+輝けるものに祝福された
+%%%%
+corrupted by Lugonu
+
+ルゴヌに崩壊と歪曲の力を与えられた
+%%%%
+bloodied by Kikubaaqudgha
+
+キクバークッグァに苦痛の力を与えられた
+%%%%
+touched by the gods
+
+神の力を与えられた
+%%%%
+Brand which weapon?
+
+どの武器を強化してもらいますか？
+%%%%
+Do you wish to have {your weapon} {which flavour}?
+
+%s%sことを望みますか？
+%%%%
+bloodied with pain
+
+を苦痛と血に染める
+%%%%
+corrupted with distortion
+
+に崩壊と歪曲の力を授かる
+%%%%
+blessed with holy wrath
+
+を神に祝福してもらう
+%%%%
+{old name} {blessing description}
+
+%sは%s
+%%%%
+Your %s shines brightly!
+
+あなたの%sはまばゆく輝いた！
+%%%%
+# booms: Use this gift wisely!
+
+# jtrans_ability.txtと重複
+%%%%
+You don't have anything to sacrifice.
+
+あなたは寄付する金を持っていない。
+%%%%
+Do you wish to donate half of your money?
+
+所持金の半分を寄付しますか？
+%%%%
+A donation of $%d amounts to an increase of piety by %d.
+
+$%dの寄付により信仰値が%d上昇した。
+%%%%
+finds your generosity lacking.
+
+はあなたには気前のよさが足りないと感じた。
+%%%%
+You feel that you will soon be absolved of all your sins.
+
+あなたはもうすぐ全ての罪が赦されるような気がした。
+%%%%
+You feel that your burden of sins will soon be lighter.
+
+あなたはもうすぐ罪の重荷が軽くなるような気がした。
+%%%%
+exalted by your worship
+
+あなたの崇拝を誇りにしている
+%%%%
+extremely pleased with you
+
+あなたに極めて満足している
+%%%%
+greatly pleased with you
+
+あなたに大いに満足している
+%%%%
+most pleased with you
+
+あなたにかなり満足している
+%%%%
+pleased with you
+
+あなたに満足している
+%%%%
+aware of your devotion
+
+あなたの献身に気付いている
+%%%%
+noncommittal
+
+あなたに特別な関心を持っていない
+%%%%
+You feel that %s will soon be %s%s
+
+%sは%sようだ%s
+%%%%
 It was the word of Zin that there would not be @sin_noun@...
 
 %%%%
@@ -146,7 +250,7 @@ Zin looked out upon the remains of the @sinners@...
 The law of Zin demands thee...
 
 %%%%
-...be @virtue@, and that the punishment for @sin_noun@...
+...be @virtuous@, and that the punishment for @sin_noun@...
 
 %%%%
 ...shall be swift and harsh!
@@ -242,6 +346,44 @@ The @sinners@ stood before Zin, and in that instant...
 ...for that is the word of Zin, and Zin's word is law.
 
 %%%%
+hordes of the Abyss
+
+%%%%
+bastard children of Xom
+
+%%%%
+amorphous wretches
+
+%%%%
+fetid masses
+
+%%%%
+agents of filth
+
+%%%%
+squalid dregs
+
+%%%%
+unbelievers
+
+%%%%
+heretics
+
+%%%%
+guilty
+
+%%%%
+legions of the damned
+
+%%%%
+servants of Hell
+
+%%%%
+forces of darkness
+
+%%%%
+# *_text[][]は省略
+%%%%
 Abominations
 
 忌まわしきもの
@@ -257,6 +399,14 @@ Apostates
 Anathema
 
 破門の書
+%%%%
+Bugginess
+
+# 訳不要
+%%%%
+'bookname' chapter:verse
+
+『%s』%d章%d節
 %%%%
 Finish your current sermon first, please.
 
@@ -297,30 +447,6 @@ is awed by your recitation.
 is aghast at the heresy of your recitation.
 
 はあなたが朗読する異教の説法に仰天している。
-%%%%
-'s eyes and ears begin to bleed.
-
-の目と耳から血が流れ出した。
-%%%%
-%s bleeds profusely from %s eyes and ears.
-
-%sの目と耳から大量の血が流れ出した。
-%%%%
-'s chaotic flesh is covered in bleeding sores.
-
-の混沌の肉体は全身血を流す傷口でいっぱいだ。
-%%%%
-'s chaotic flesh erupts into weeping sores!
-
-の混沌の肉体は急に傷口が全身に開いた！
-%%%%
-'s impure flesh is covered in bleeding sores.
-
-の不純なる肉体は全身血を流す傷口でいっぱいだ。
-%%%%
-'s impure flesh erupts into weeping sores!
-
-の不純なる肉体は急に傷口が全身に開いた！
 %%%%
 is smitten by the wrath of Zin.
 
@@ -374,7 +500,15 @@ melts away into a sizzling puddle of chaotic flesh.
 
 の混沌の肉体は溶けて煮えたぎる血だまりと化した。
 %%%%
-'s impure flesh begins to rot away.
+'s chaotic flesh is covered in bleeding sores.
+
+の混沌の肉体は全身血を流す傷口でいっぱいだ。
+%%%%
+'s chaotic flesh erupts into weeping sores!
+
+の混沌の肉体は急に傷口が全身に開いた！
+%%%%
+'s impure flesh rots away.
 
 の不純なる肉体は腐りはじめた。
 %%%%
@@ -386,10 +520,6 @@ is turned into a pillar of salt by the wrath of Zin!
 
 はジンの怒りを受けて塩の柱へと変化した！
 %%%%
-Your recitation is interrupted.
-
-あなたの朗読は中断された。
-%%%%
 grants you divine stamina.
 
 はあなたの生命力を活性化させた。
@@ -398,9 +528,9 @@ Your divine stamina fades away.
 
 あなたの生命力は通常に戻った。
 %%%%
-You have no mutations to be cured!
+Do you wish to cure all of your mutations?
 
-あなたの体には治療すべき突然変異はない！
+自らの突然変異を全て治療しますか？
 %%%%
 draws all chaos from your body!
 
@@ -474,13 +604,29 @@ You cannot see a spellbook to ignite!
 
 燃やせる魔法書が見える所にない！
 %%%%
+Your skin crawls.
+
+あなたの皮膚はむずむずしてきた。
+%%%%
+You feel resistant to hostile enchantments.
+
+あなたは敵対的な魔法に対する耐性を得たようだ。
+%%%%
+# Your skin stops crawling.
+
+# jtrans_duration_data.txtと重複
+%%%%
+You feel less resistant to hostile enchantments.
+
+あなたは敵対的な魔法への抵抗力が衰えたのを感じた。
+%%%%
 That's not an orcish ally!
 
 それはオーク族の仲間ではない！
 %%%%
 That orc has not proved itself worthy of your gift.
 
-そのオークはあなたに物を授かるほど名を上げていない。
+そのオークはあなたに物を授かるに足るほど名を上げていない。
 %%%%
 %s has already been given a gift.
 
@@ -498,21 +644,29 @@ Give which item?
 
 どのアイテムを与えますか？
 %%%%
-%s can't use that.
+You can't give that to %s.
 
-%sはそれを扱えない。
+%sにそれを与えることはできない。
 %%%%
-You call upon nearby slimes to pray to %s.
+%s can't equip that with a two-handed weapon.
 
-あなたは近くのスライム族に%sへの祈りを捧げるように頼んだ。
+%sはそれを両手持ちの武器と同時には装備できない。
 %%%%
-The nearby slimes join the prayer.
+Resurrect %s?
 
-近くのスライム族の群れが祈りに加わった。
+%sを蘇らせますか？
 %%%%
-A nearby slime joins the prayer.
+There's nobody else here you can resurrect.
 
-近くのスライム族が祈りに加わった。
+蘇らせることのできる死体は他になかった。
+%%%%
+There's nobody here you can resurrect.
+
+蘇らせることのできる死体はなかった。
+%%%%
+There's no room!
+
+部屋がない！
 %%%%
 You have no bad mutations to be cured!
 
@@ -526,10 +680,6 @@ You feel cleansed.
 
 あなたは浄化されたような気持ちがした。
 %%%%
-There are no remains here to animate!
-
-ここには蘇らせる死体がない！
-%%%%
 %s soul %s.
 
 %sの魂は%s。
@@ -540,7 +690,7 @@ is now yours
 %%%%
 fights you
 
-はあなたに反抗した
+あなたに反抗した
 %%%%
 delivers you corpses!
 
@@ -553,6 +703,14 @@ delivers you a corpse!
 can find no cadavers for you!
 
 はあなたに授ける死体を手配できなかった！
+%%%%
+Do you wish to receive a Necronomicon?
+
+ネクロノミコンを受け取ることを望みますか？
+%%%%
+grants you a gift!
+
+はあなたに贈り物を授けた！
 %%%%
 Some toadstools
 
@@ -594,6 +752,14 @@ A toadstool grows %s.
 
 からかさキノコが%sで生長した。
 %%%%
+at your feet
+
+あなたの足元
+%%%%
+before you
+
+あなたの目の前
+%%%%
 's flesh rots away.
 
 の屍肉は腐り落ちた。
@@ -606,9 +772,9 @@ That felt like a moral victory.
 
 それは精神的勝利を感じさせた。
 %%%%
-appreciates your contribution to the ecosystem.
+# appreciates your contribution to the ecosystem.
 
-は生態系へのあなたの貢献を喜んだ。
+# jtrans_end.txtと重複
 %%%%
 A plant, strengthened by %s, grows up from the ground.
 
@@ -638,6 +804,10 @@ Some water evaporates in the bright sunlight.
 
 まばゆい陽光を浴びて水が蒸発した。
 %%%%
+(%d max)
+
+(最大%d)
+%%%%
 %d pieces of fruit are consumed!
 
 果物が%d個消費された！
@@ -666,25 +836,17 @@ Will you create these spores?
 
 巨大胞子を生成しますか？
 %%%%
-cannot be evolved
-
-進化できない
-%%%%
-can evolve into
-
-に進化できる
-%%%%
-The mold grows into a ballistomycete.
-
-カビが生長して放出菌糸になった。
-%%%%
-Your piety has decreased.
-
-あなたの信仰値が減少した。
-%%%%
 No evolvable flora in sight.
 
 進化させる対象が見える所にない。
+%%%%
+can evolve into %s
+
+%sに進化できる
+%%%%
+cannot be evolved
+
+進化できない
 %%%%
 Select plant or fungus to evolve.
 
@@ -702,13 +864,17 @@ You can evolve only complete plants, not seeds.
 
 あなたが進化させられるのは生長した植物であり、種ではない。
 %%%%
-has already reached the pinnacle of evolution.
-
-はこれ以上進化させられない。
-%%%%
 Only plants or fungi may be evolved.
 
 植物もしくはキノコ類のみ進化させることができます。
+%%%%
+Stone cannot grow or evolve.
+
+石化した状態では進化させられない。
+%%%%
+has already reached the pinnacle of evolution.
+
+はこれ以上進化させられない。
 %%%%
 Not enough fruit available.
 
@@ -722,6 +888,22 @@ appears stronger.
 
 は強大になった。
 %%%%
+can now spit acid continuously.
+
+は絶え間なく酸を吐き出すことができる。
+%%%%
+can now spit acid quickly.
+
+はきわめて素早く酸を吐き出すことができる。
+%%%%
+can now spit acid rather quickly.
+
+は素早く酸を吐き出すことができる。
+%%%%
+can now spit acid somewhat quickly.
+
+はわりと素早く酸を吐き出すことができる。
+%%%%
 can now pick up its mycelia and move.
 
 は菌糸を振りまいて歩くことができるようになった。
@@ -730,15 +912,15 @@ appears agitated.
 
 は活発化した。
 %%%%
-%s basks in the distortional energy.
+Your piety has decreased.
 
-%sは歪曲のエネルギーを吸収した。
+あなたの信仰値が減少した。
 %%%%
 Space bends %saround you!
 
 あなたの周りの空間が%s歪んだ！
 %%%%
-sharply
+[adv]sharply
 
 急激に
 %%%%
@@ -757,6 +939,10 @@ rebukes %s.
 There's no one hasty visible. Invoke Slouch anyway?
 
 見える範囲に素早い敵がいませんが、それでも屈服を発動させますか？
+%%%%
+[stop attack prompt]harm
+
+傷つけ
 %%%%
 You can feel time thicken for a moment.
 
@@ -790,6 +976,22 @@ You %s forgetting about %s and learning about %s.
 
 あなたは%sスキルを忘れて%sスキルを覚えるのを%s。
 %%%%
+[verb]have finished
+
+終えた
+%%%%
+[verb]stop
+
+中断した
+%%%%
+Curse which item? (%d remove curse scroll%s left) (Esc to abort)
+
+どのアイテムを呪縛しますか？ (%d巻の解呪の巻物を所持) (Escでキャンセル)
+%%%%
+You can't curse that!
+
+そのアイテムを呪縛することはできない！
+%%%%
 The priest welcomes you and lets you live.
 
 オークの司祭はあなたを歓迎し、友好的になった。
@@ -802,10 +1004,6 @@ Aiming: <white>Shadow Step</white>
 
 照準: <white>影渡り</white>
 %%%%
-engulfs
-
-をとりまいた
-%%%%
 Something blocks your shadow step.
 
 何かがあなたの影渡りを妨害した。
@@ -813,10 +1011,6 @@ Something blocks your shadow step.
 You step into %s shadow.
 
 あなたは%sの影へと移動した。
-%%%%
-%s mimicks your spell!
-
-%sがあなたの呪文を真似した！
 %%%%
 You need at least %d gold to purchase potions right now!
 
@@ -838,11 +1032,11 @@ You currently need %d gold to open negotiations with a merchant.
 
 商人との交渉を始めるにはまず%dゴールドが必要だ。
 %%%%
-No merchants are willing to come to this level in the absence of new frontiers.
+No merchants are willing to come to this location.
 
-このうまみのない階層に来ようとする商人はいなかった。
+このような場所に来ようとする商人はいなかった。
 %%%%
-You need to be standing on an open floor tile to call a shop here.
+You need to be standing on open floor to call a merchant.
 
 あなたが店を招致するにはある程度開けた場所に立っている必要がある。
 %%%%
@@ -853,6 +1047,10 @@ Blood
 Carrion
 
 腐肉
+%%%%
+%s's
+
+%sの
 %%%%
 [%c] %5d gold - %s %s %s
 
@@ -868,15 +1066,11 @@ You don't have enough gold to fund that merchant!
 %%%%
 %s shop name:%s%s%s gozag
 
-
+# 訳不要
 %%%%
-%s sets up shop in %s.
+%s invites you to visit %s %s%s%s.
 
-%sは%sに店を開いた。
-%%%%
-A shop appears before you!
-
-店があなたの目の前に現れた！
+%sは%s%s%s%sへとあなたを招いている。
 %%%%
 Your bribe of %s has been exhausted.
 
@@ -902,6 +1096,10 @@ Do you want to bribe the denizens of %s?
 
 %sの住人を買収しますか？
 %%%%
+[branch]the Hells
+
+<[branch]Hell>
+%%%%
 spreads your bribe to %s!
 
 はあなたの買収契約を%sに広めた！
@@ -910,17 +1108,41 @@ Aiming: <white>Upheaval</white>
 
 照準: <white>自然の怒り</white>
 %%%%
+There is %s there.
+
+そこには%sがある。
+%%%%
+[zap]blast of magma
+
+溶岩の奔流
+%%%%
+# [verb]engulfs
+
+# jtrans_beam.txtと重複
+%%%%
 Magma suddenly erupts from the ground!
 
 突然地面からマグマが湧きあがった！
+%%%%
+[zap]blast of ice
+
+猛吹雪
 %%%%
 A blizzard blasts the area with ice!
 
 周囲の空間を猛吹雪が襲った！
 %%%%
+[zap]cutting wind
+
+カマイタチ
+%%%%
 A storm cloud blasts the area with cutting wind!
 
 雷雲が巻き起こり、周囲をカマイタチが切り裂いた！
+%%%%
+[zap]blast of rubble
+
+石つぶて
 %%%%
 The ground shakes violently, spewing rubble!
 
@@ -932,7 +1154,7 @@ Ka-crash!
 %%%%
 You can't see any clouds you can empower.
 
-生命を吹き込むことができる雲が見える所にない。
+見える所には生命を吹き込むことができる雲がない。
 %%%%
 Clouds arounds you coalesce and take form!
 
@@ -982,10 +1204,6 @@ Ru asks you to %s.
 
 ルーはあなたに%sかと尋ねた。
 %%%%
-This is %s sacrifice.
-
-それは%s犠牲だ。
-%%%%
 Do you really want to make this sacrifice?
 
 本当にそれを代償として捧げますか？
@@ -1001,6 +1219,22 @@ You can no longer wear %s!
 You put %s back on %s %s!
 
 あなたは%sを%s%sに付け替えた！
+%%%%
+another
+
+別の
+%%%%
+your other
+
+もう片方の
+%%%%
+This is %s sacrifice. Piety after sacrifice: %s
+
+それは%s犠牲だ。捧げた後の信仰値は[%s]となる。
+%%%%
+sac hand txt
+
+%sを捧げる
 %%%%
 indicates that your awakening is complete.
 
@@ -1056,7 +1290,7 @@ Aiming: <white>Power Leap</white>
 %%%%
 Cancelling leap due to HUP.
 
-HUPシグナルを受信したため、跳躍をキャンセルします。
+HUPシグナルを受信したため、跳躍を中断します。
 %%%%
 You cannot leap away from %s!
 
@@ -1068,7 +1302,7 @@ You cannot leap closer to %s!
 %%%%
 You can't leap on top of the monster!
 
-あなたはモンスターの頭上に跳ぶことはできない！
+あなたはモンスターの真上に跳ぶことはできない！
 %%%%
 You can't leap into the sea!
 
@@ -1078,17 +1312,13 @@ You can't leap into the sea of lava!
 
 あなたは溶岩の海に飛び込むことはできない！
 %%%%
-You can only leap to visible locations.
-
-あなたは目に見える場所にしか跳ぶことができない。
-%%%%
 Something unexpectedly blocked you, preventing you from leaping!
 
 何者かが不意にあなたの跳躍を妨げた！
 %%%%
-magic into the devouring truth!
+loses %s magic into the devouring truth!
 
-魔力を失い、事実に飲み込まれた！
+は%sの魔力を失い、事実に飲み込まれた！
 %%%%
 is paralysed by terrible understanding!
 
@@ -1105,4 +1335,177 @@ There are no visible enemies. Unleash your apocalypse anyway?
 You reveal the great annihilating truth to your foes!
 
 あなたは絶大なる惨劇という現実を敵に突きつけた！
+%%%%
+The surge fizzles.
+
+# obsolete: Pakellas
+%%%%
+You stomp with the beat, sending a shockwave through the revelers around you!
+
+あなたは拍子に乗って足を踏み鳴らし、周囲の観客に衝撃を与えた！
+%%%%
+You can't repeat line pass.
+
+あなたは鎧袖一触を連続して繰り返すことはできない。
+%%%%
+Aiming: <white>Line Pass</white>
+
+照準: <white>鎧袖一触</white>
+%%%%
+Cancelling line pass due to HUP.
+
+HUPシグナルを受信したため、鎧袖一触を中断します。
+%%%%
+You cannot move away from %s!
+
+あなたは%sから遠ざかることができない！
+%%%%
+You cannot move closer to %s!
+
+あなたは%sに近づくことができない！
+%%%%
+You can't stand on top of the monster!
+
+あなたはモンスターの真上に立つことはできない！
+%%%%
+You can't line pass into the sea!
+
+<You can't leap into the sea!>
+%%%%
+You can't line pass into the sea of lava!
+
+<You can't leap into the sea of lava!>
+%%%%
+You can't walk through walls!
+
+あなたは壁を通り抜けることはできない！
+%%%%
+Something unexpectedly blocked you, preventing you from passing!
+
+何者かが不意にあなたの移動を妨げた！
+%%%%
+No encores!
+
+アンコールはもうない！
+%%%%
+Aiming: <white>Grand Finale</white>
+
+照準: <white>グランド・フィナーレ</white>
+%%%%
+Cancelling grand finale due to HUP.
+
+HUPシグナルを受信したため、グランド・フィナーレを中断します。
+%%%%
+You can't perceive a target there!
+
+その場所の目標は選択できない！
+%%%%
+You would fall into the sea!
+
+海中に飛び込んでしまう！
+%%%%
+You would fall into the sea of lava!
+
+溶岩の海に飛び込んでしまう！
+%%%%
+%s explodes violently!
+
+%sの体は激しく爆発した！
+%%%%
+You spring back to your original position.
+
+あなたはぴょんと跳んで元の場所へと戻った。
+%%%%
+You can't make this choice while your ancestor is elsewhere.
+
+祖霊がどこかに存在している間はそれを選択できない。
+%%%%
+Are you sure you want to remember your ancestor as %s?
+
+本当に%sの祖霊の記憶を呼び覚ましますか？
+%%%%
+It is so.
+
+そうしよう。
+%%%%
+remembered their ancestor %s as %s.
+
+%sの祖霊『%s』を呼び覚ました
+%%%%
+You have no ancestor to preserve!
+
+祖霊を呼び出していない！
+%%%%
+%s is not nearby!
+
+祖霊『%s』は近くにいない！
+%%%%
+grants %s healing and protection!
+
+は%sに癒しと防護の力を授けた！
+%%%%
+is fully restored!
+
+は完全に回復した！
+%%%%
+# is healed somewhat.
+
+# jtrans_beam.txtと重複
+%%%%
+Select a target.
+
+対象を選択してください。
+%%%%
+is drained by nostalgia.
+
+は懐旧の念にとらわれた。
+%%%%
+You can't see anything there. Try transferring anyway?
+
+そこには何も見えませんが、それでも位置交換を行いますか？
+%%%%
+You can't transfer your ancestor with themself.
+
+位置交換で同じ対象を選ぶことはできない。
+%%%%
+You can't transfer that.
+
+それは位置を動かすことはできない。
+%%%%
+%s can't be transferred into %s.
+
+%sを%sの位置と入れ替えることはできない。
+%%%%
+%s swap%s with %s!
+
+%sは%sと入れ替わった！
+%%%%
+Remember %s name as what?
+
+祖霊『%s』の名前をどう変更しますか？
+%%%%
+Yes, %s is definitely a better name.
+
+ええ、『%s』はより良い名前に違いありません。
+%%%%
+neither
+
+どちらでもない
+%%%%
+male
+
+男性
+%%%%
+female
+
+女性
+%%%%
+Was %s a) male, b) female, or c) neither? (Currently %s.)
+
+%sの性別を (a)男性 (b)女性 (c)どちらでもない のどれにしますか？
+(現在: %s)
+%%%%
+%s was always %s, you're pretty sure.
+
+%sの性別はもともと%s%sような気がしてきた。
 %%%%

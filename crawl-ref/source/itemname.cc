@@ -21,6 +21,7 @@
 #include "cio.h"
 #include "colour.h"
 #include "command.h"
+#include "database.h"
 #include "decks.h"
 #include "describe.h"
 #include "dgn-overview.h"
@@ -696,6 +697,13 @@ const char* potion_type_name(int potiontype)
     case POT_BENEFICIAL_MUTATION: return "beneficial mutation";
     default:                    return "bugginess";
     }
+}
+
+const char* potion_type_name_j(int potiontype)
+{
+    string jname = jtrans(string("potion of ") + potion_type_name(potiontype));
+
+    return replace_all(jname, "の薬", "").c_str();
 }
 
 static const char* scroll_type_name(int scrolltype)
