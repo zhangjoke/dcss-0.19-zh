@@ -567,9 +567,9 @@ You are extremely resistant to the effects of hostile enchantments. (MR+++)
 
 あなたは敵対的な魔法の影響に対して強力な抵抗力がある。(MR+++)
 %%%%
-You feel resistant to hostile enchantments.
+# You feel resistant to hostile enchantments.
 
-あなたは敵対的な魔法への抵抗力を得た。
+# jtrans_godabil.txtと重複
 %%%%
 You feel more resistant to hostile enchantments.
 
@@ -579,9 +579,9 @@ You feel almost impervious to the effects of hostile enchantments.
 
 あなたは敵対的な魔法の効果にほとんど影響を受けなくなった。
 %%%%
-You feel less resistant to hostile enchantments.
+# You feel less resistant to hostile enchantments.
 
-あなたは敵対的な魔法への抵抗力が衰えたのを感じた。
+# jtrans_godabil.txtと重複
 %%%%
 You feel vulnerable to hostile enchantments.
 
