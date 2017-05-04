@@ -196,7 +196,7 @@ void wizard_list_companions()
 {
     if (companion_list.size() == 0)
     {
-        mpr("You have no companions.");
+        mpr(jtrans("You have no companions."));
         return;
     }
 
