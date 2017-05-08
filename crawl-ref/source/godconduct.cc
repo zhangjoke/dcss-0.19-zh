@@ -2,6 +2,7 @@
 
 #include "godconduct.h"
 
+#include "database.h"
 #include "fight.h"
 #include "godabil.h" // ru sac key
 #include "goditem.h" // is_*_spell
@@ -492,8 +493,8 @@ string get_god_dislikes(god_type which_god)
         return "";
 
     string text;
-    vector<string> dislikes;        // Piety loss
-    vector<string> really_dislikes; // Penance
+    vector<string> dislikes, dislikes_j;               // Piety loss
+    vector<string> really_dislikes, really_dislikes_j; // Penance
 
     for (const auto& entry : divine_peeves[which_god])
     {
@@ -514,11 +515,9 @@ string get_god_dislikes(god_type which_god)
 
     if (!dislikes.empty())
     {
-        text += uppercase_first(god_name(which_god));
-        text += " dislikes it when ";
-        text += comma_separated_line(dislikes.begin(), dislikes.end(),
-                                     " or ", ", ");
-        text += ".";
+        text += god_name_j(which_god);
+        text += make_stringf(jtransc(" dislikes it when %s."),
+                             to_separated_line(dislikes.begin(), dislikes.end()).c_str());
 
         if (!really_dislikes.empty())
             text += " ";
@@ -526,12 +525,10 @@ string get_god_dislikes(god_type which_god)
 
     if (!really_dislikes.empty())
     {
-        text += uppercase_first(god_name(which_god));
-        text += " strongly dislikes it when ";
-        text += comma_separated_line(really_dislikes.begin(),
-                                     really_dislikes.end(),
-                                     " or ", ", ");
-        text += ".";
+        text += god_name_j(which_god);
+        text += make_stringf(jtransc(" strongly dislikes it when %s."),
+                             to_separated_line(really_dislikes.begin(),
+                                               really_dislikes.end()).c_str());
     }
 
     return text;
@@ -679,8 +676,8 @@ static like_response okawaru_kill(const char* desc)
             if (piety > 3200)
             {
                 mprf(MSGCH_GOD, you.religion,
-                     "<white>%s is honoured by your kill.</white>",
-                     uppercase_first(god_name(you.religion)).c_str());
+                     jtransc("<white>%s is honoured by your kill.</white>"),
+                     god_name_jc(you.religion));
             }
             else if (piety > 9) // might still be miniscule
                 simple_god_message(" accepts your kill.");
@@ -1121,9 +1118,9 @@ string get_god_likes(god_type which_god)
     if (which_god == GOD_NO_GOD || which_god == GOD_XOM)
         return "";
 
-    string text = uppercase_first(god_name(which_god));
-    vector<string> likes;
-    vector<string> really_likes;
+    string text = god_name_j(which_god);
+    vector<string> likes, likes_j;
+    vector<string> really_likes, really_likes_j;
 
     // Unique/unusual piety gain methods first.
     switch (which_god)
@@ -1164,24 +1161,26 @@ string get_god_likes(god_type which_god)
         text += " doesn't like anything? This is a bug; please report it.";
     else
     {
+        append_container_jtrans(likes_j, likes);
+        append_container_jtrans(really_likes_j, really_likes);
+
         if (!likes.empty())
         {
-            text += " likes it when ";
-            text += comma_separated_line(likes.begin(), likes.end());
-            text += ".";
+            text += make_stringf(jtransc(" likes it when %s."),
+                                 to_separated_line(likes_j.begin(), likes_j.end()).c_str());
+
             if (!really_likes.empty())
             {
                 text += " ";
-                text += uppercase_first(god_name(which_god));
+                text += god_name_j(which_god);
             }
         }
 
         if (!really_likes.empty())
         {
-            text += " especially likes it when ";
-            text += comma_separated_line(really_likes.begin(),
-                                         really_likes.end());
-            text += ".";
+            text += make_stringf(jtransc(" especially likes it when %s."),
+                                 to_separated_line(really_likes_j.begin(),
+                                                   really_likes_j.end()).c_str());
         }
     }
 
