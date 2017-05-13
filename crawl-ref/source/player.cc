@@ -8468,7 +8468,8 @@ string player::hands_act(const string &plural_verb,
     string tmpl = tagged_jtrans("[hands act]", tmpl_key);
 
     return make_stringf(tmpl.c_str(),
-                        you.hand_name(true).c_str());
+                        you.hand_name(true).c_str()) +
+        (ends_with(object, "\n") ? "\n" : "");
 }
 
 /**
