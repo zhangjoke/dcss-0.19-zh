@@ -102,9 +102,9 @@ static string _god_wrath_name(god_type god)
 {
     const bool use_full_name = god == GOD_FEDHAS; // fedhas is very formal.
                                                   // apparently.
-    return make_stringf("the %s of %s",
+    return jtrans(make_stringf("the %s of %s",
                         _god_wrath_adjectives[god],
-                        god_name(god, use_full_name).c_str());
+                        god_name(god, use_full_name).c_str()));
 }
 
 static mgen_data _wrath_mon_data(monster_type mtyp, god_type god)
@@ -462,7 +462,7 @@ static bool _cheibriados_retribution()
             break;
     // High tension wrath
     case 3:
-        mpr("You lose track of time.");
+        mpr(jtrans("You lose track of time."));
         you.put_to_sleep(nullptr, 30 + random2(20));
         dec_penance(god, 1);
         if (one_chance_in(wrath_type - 2))
@@ -471,7 +471,7 @@ static bool _cheibriados_retribution()
     case 2:
         if (you.duration[DUR_SLOW] < 180 * BASELINE_DELAY)
         {
-            mprf(MSGCH_WARN, "You feel the world leave you behind!");
+            mprf(MSGCH_WARN, jtrans("You feel the world leave you behind!"));
             you.set_duration(DUR_EXHAUSTED, 200);
             slow_player(100);
         }
@@ -480,7 +480,7 @@ static bool _cheibriados_retribution()
             break;
     // Low tension
     case 1:
-        mpr("Time shudders.");
+        mpr(jtrans("Time shudders."));
         cheibriados_time_step(2+random2(4));
         if (one_chance_in(3))
             break;
@@ -858,7 +858,7 @@ static bool _trog_retribution()
             if (!you.duration[DUR_PARALYSIS])
             {
                 dec_penance(god, 3);
-                mprf(MSGCH_WARN, "You suddenly pass out!");
+                mprf(MSGCH_WARN, jtrans("You suddenly pass out!"));
                 const int turns = 2 + random2(6);
                 take_note(Note(NOTE_PARALYSIS, min(turns, 13), 0, "Trog"));
                 you.increase_duration(DUR_PARALYSIS, turns, 13);
@@ -870,7 +870,7 @@ static bool _trog_retribution()
             if (you.duration[DUR_SLOW] < 180 * BASELINE_DELAY)
             {
                 dec_penance(god, 1);
-                mprf(MSGCH_WARN, "You suddenly feel exhausted!");
+                mprf(MSGCH_WARN, jtrans("You suddenly feel exhausted!"));
                 you.set_duration(DUR_EXHAUSTED, 200);
                 slow_player(100);
             }
@@ -884,7 +884,7 @@ static bool _trog_retribution()
         //    we'll leave this effect in, but we'll remove the wild
         //    fire magic. -- bwr
         dec_penance(god, 2);
-        mprf(MSGCH_WARN, "You feel Trog's fiery rage upon you!");
+        mprf(MSGCH_WARN, jtrans("You feel Trog's fiery rage upon you!"));
         MiscastEffect(&you, nullptr, GOD_MISCAST + god, SPTYP_FIRE,
                       8 + you.experience_level, random2avg(98, 3),
                       _god_wrath_name(god));
@@ -952,7 +952,7 @@ static bool _beogh_retribution()
             msg << " throws "
                 << (num_created == 1 ? "an implement" : "implements")
                 << " of electrocution at you.";
-            simple_god_message(msg.str().c_str(), god);
+            simple_god_message(jtransc(msg.str()), god);
             break;
         } // else fall through
     }
@@ -1084,7 +1084,7 @@ static void _lugonu_transloc_retribution()
     {
         // Give extra opportunities for embarrassing teleports.
         simple_god_message("'s wrath finds you!", god);
-        mpr("Space warps around you!");
+        mpr(jtrans("Space warps around you!"));
         if (!one_chance_in(3))
             you_teleport_now();
         else
@@ -1701,7 +1701,8 @@ bool drain_wands()
     if (wands.empty())
         return false;
 
-    mpr_comma_separated_list("Magical energy is drained from your ", wands);
+    mprf(MSGCH_PLAIN, make_stringf(jtransc("Magical energy is drained from %"),
+                                   to_separated_line(wands.begin(), wands.end())));
     return true;
 }
 
@@ -1725,7 +1726,7 @@ static bool _uskayaw_retribution()
     case 1:
         if (mon && mon->can_go_berserk())
         {
-            simple_god_message(make_stringf(" drives %s into a dance frenzy!",
+            simple_god_message(make_stringf(jtransc(" drives %s into a dance frenzy!"),
                                      mon->name(DESC_THE).c_str()).c_str(), god);
             mon->go_berserk(true);
             return true;
@@ -1807,8 +1808,8 @@ bool divine_retribution(god_type god, bool no_bonus, bool force)
 
     default:
 #if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_RELIGION)
-        mprf(MSGCH_DIAGNOSTICS, "No retribution defined for %s.",
-             god_name(god).c_str());
+        mprf(MSGCH_DIAGNOSTICS, jtransc("No retribution defined for %s."),
+             god_name_jc(god));
 #endif
         return false;
     }
@@ -1821,14 +1822,14 @@ bool divine_retribution(god_type god, bool no_bonus, bool force)
     {
         if (coinflip())
         {
-            mprf(MSGCH_WARN, "The divine experience confuses you!");
+            mprf(MSGCH_WARN, jtrans("The divine experience confuses you!"));
             confuse_player(5 + random2(3));
         }
         else
         {
             if (you.duration[DUR_SLOW] < 180 * BASELINE_DELAY)
             {
-                mprf(MSGCH_WARN, "The divine experience drains your vigour!");
+                mprf(MSGCH_WARN, jtrans("The divine experience drains your vigour!"));
 
                 slow_player(random2(20));
             }
@@ -1876,7 +1877,8 @@ static void _god_smites_you(god_type god, const char *message,
     if (death_type != KILLED_BY_BEOGH_SMITING
         && death_type != KILLED_BY_TSO_SMITING)
     {
-        aux = "smitten by " + god_name(god);
+        aux = make_stringf(jtransc("smitten by %s"),
+                           god_name_jc(god));
     }
 
     // If there's a message, display it before smiting.

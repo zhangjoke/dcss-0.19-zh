@@ -45,7 +45,7 @@ The wrath of Nemelex Xobeh
 %%%%
 The displeasure of Elyvilon
 
-エリヴィロンの不満
+エリヴィロンの不興
 %%%%
 The touch of Lugonu
 
@@ -87,6 +87,18 @@ The disappointment of Ru
 
 ルーの失望
 %%%%
+The progress of Pakellas
+
+# obsolete: Pakellas
+%%%%
+The fury of Uskayaw
+
+ウスカヤーの怒り
+%%%%
+The memory of Hepliaklqana
+
+# unused
+%%%%
 sends the divine host to punish you for your evil ways!
 
 は邪悪な行いをしたあなたに神の軍勢を差し向けた！
@@ -101,15 +113,11 @@ booms out: "Take the path of righteousness! REPENT!"
 %%%%
 You feel the Shining One's silent rage upon you!
 
-あなたは輝けるものの声なき怒りをその身に感じた。
+あなたは輝けるものの声なき怒りをその身に感じた！
 %%%%
 draws some chaos from your body!
 
-はあなたの体から混沌を抜き取った。
-%%%%
-Zin's wrath
-
-ジンの怒り
+はあなたの体から混沌を抜き取った！
 %%%%
 rids your body of chaos!
 
@@ -219,10 +227,6 @@ has no time to punish you... now.
 
 の声が轟き渡った: 『我が怒りを受けよ！』
 %%%%
-divine retribution from Trog
-
-トログの天罰
-%%%%
 You suddenly pass out!
 
 あなたは突然意識を失った！
@@ -253,7 +257,7 @@ is still gathering forces against you.
 %%%%
 sends forces against you!
 
-はあなたに手勢を差し向けた。
+はあなたに手勢を差し向けた！
 %%%%
 's forces are busy with other wars.
 
@@ -263,14 +267,6 @@ sends forces against you!
 
 はあなたに怒りをぶつけた。
 %%%%
-divine retribution from Sif Muna
-
-シフ・ムーナの天罰
-%%%%
-You suddenly feel drained of magical energy!
-
-あなたは突然魔力を吸われたような気がした！
-%%%%
 's wrath finds you!
 
 はあなたに怒りをぶつけた！
@@ -279,7 +275,11 @@ Lugonu's touch
 
 ルゴヌの御手
 %%%%
-makes you draw from the Deck of Punishment.
+Space warps around you!
+
+あなたの周囲の空間が歪んだ！
+%%%%
+makes you draw from the deck of Punishment.
 
 はあなたに懲罰のデッキからカードを引かせた。
 %%%%
@@ -287,13 +287,9 @@ You feel Jiyva alter your body.
 
 ジーヴァがあなたの体を変容させたような気がした。
 %%%%
-Jiyva's wrath
+'s gift of slime is revoked.
 
-ジーヴァの怒り
-%%%%
-'s putrescence saturates %s!
-
-は%sをスライムへと変えた！
+が授けたスライムの変異が失われた。
 %%%%
 Mutagenic energy floods into your body!
 
@@ -363,29 +359,41 @@ causes a mighty clap of thunder!
 
 は轟く雷鳴を引き起こした！
 %%%%
+Magical energy is drained from your %s
+
+あなたの%sから魔力が吸い取られた。
+%%%%
+drives %s into a dance frenzy!
+
+は%sに狂乱のダンスを踊らせた！
+%%%%
+booms out, "Time for someone else to take a solo"
+
+の声が轟き渡った: 『他の誰かに踊らせるとするか』
+%%%%
+booms out: "Revellers, it's time to dance!"
+
+の声が轟き渡った: 『酔客どもよ、ダンスの時間だ！』
+%%%%
+# if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_RELIGION)
+No retribution defined for %s.
+
+%%%%
 The divine experience confuses you!
 
 神の手によりあなたは混乱した！
 %%%%
-The divine experience leaves you feeling exhausted!
+The divine experience drains your vigour!
 
-神の手によりあなたは疲労困憊した！
-%%%%
-Beogh is angry!
-
-ベオは怒った！
-%%%%
-"Mortal, I have averted the wrath of %s... this time."
-
-『定命の者よ、今回は%sの怒りを逸らしてやろう……』
+神の手によりあなたは活力を吸い取られた！
 %%%%
 blasts you with cleansing flame!
 
 は浄化の炎をあなたに浴びせた！
 %%%%
-smitten by
+smitten by %s
 
-に打擲された
+%sに打擲された
 %%%%
 smites you!
 
