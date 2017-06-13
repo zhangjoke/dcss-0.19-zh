@@ -1,4 +1,7 @@
 %%%%
+[  Up/Down or PgUp/PgDn to scroll.         Esc or R-click exits.  ]
+
+%%%%
 their own shadow
 
 自らの影
@@ -14,10 +17,6 @@ themself
 (glowing shapeshifter)
 
 (暴走した変身能力者)
-%%%%
-the pandemonium lord
-
-パンデモニウムの君主
 %%%%
 (illusionary)
 
@@ -55,65 +54,97 @@ Was a Plaything of Xom.
 
 ゾムの慰みものであった。
 %%%%
+the Champion of
+
+の敬虔なる大司祭
+%%%%
+a High Priest of
+
+の大司祭
+%%%%
+an Elder of
+
+の高位の司祭
+%%%%
+a Priest of
+
+の司祭
+%%%%
+a Believer of
+
+の熱心な信者
+%%%%
+a Follower of
+
+の信者
+%%%%
+an Initiate of
+
+の入会者
+%%%%
 Was %s of %s%s
 
-%sの%s%sであった。
-%%%%
-the Champion
-
-敬虔なる大司祭
-%%%%
-a High Priest
-
-大司祭
-%%%%
-an Elder
-
-高位の司祭
-%%%%
-a Priest
-
-司祭
-%%%%
-a Believer
-
-熱心な信者
-%%%%
-a Follower
-
-信者
-%%%%
-an Initiate
-
-入会者
+%s%s%sであった。
 %%%%
 (penitent).
 
 (贖罪中)
 %%%%
+killed by %s
+
+%sに殺された
+%%%%
+%s's headbutt
+
+%sの頭突き
+%%%%
+Headbutted by
+
+%sの頭突きで殺された
+%%%%
+squashed by %s
+
+%sに轢かれた
+%%%%
+Rolled over by
+
+%sに轢かれて死んだ
+%%%%
+%s's spines
+
+%sの棘
+%%%%
+Impaled on %s's spines
+
+%sの棘に串刺しにされて死んだ
+%%%%
 Succumbed to poison
 
 毒死
 %%%%
-poisoned by
+poisoned by %s
 
-による毒を受けた
+%sによる毒を受けた
 %%%%
-Succumbed to
+Succumbed to %s
 
-に冒されて死んだ
+%sに冒されて死んだ
 %%%%
-their own
+Succumbed to %s %s
 
-自ら
+%sの%sに冒されて死んだ
 %%%%
-cloud of
+cloud of %s
 
-の雲
+%sの雲
 %%%%
 Engulfed by %s%s %s
 
 %s%s%sに包まれて死んだ
+%%%%
+their own
+
+自ら
 %%%%
 Killed by their own %s
 
@@ -123,17 +154,13 @@ Killed %s
 
 %sで死んだ
 %%%%
-Killed by themself
+Killed from afar by themself
 
-自殺した
+自分自身を撃って死んだ
 %%%%
-Killed by
+Killed from afar by %s
 
-で死んだ
-%%%%
-Killed from afar by
-
-撃たれて死んだ
+%sに撃たれて死んだ
 %%%%
 Turned to ash by lava
 
@@ -155,9 +182,9 @@ Sank and fell apart
 
 水に沈んでバラバラになった
 %%%%
-drowned by
+drowned by %s
 
-に溺れさせられた
+%sに溺れさせられた
 %%%%
 drowned
 
@@ -195,6 +222,10 @@ Killed by triggering %s
 
 %sを発動させて死んだ
 %%%%
+left
+
+脱出
+%%%%
 Got out of the dungeon
 
 ダンジョンを脱出した
@@ -231,9 +262,17 @@ Entered wizard mode
 
 ウィザードモードに入った
 %%%%
+drained
+
+衰弱
+%%%%
 Drained of all life
 
 すべての生命力を吸われた
+%%%%
+by %s
+
+%sに
 %%%%
 starvation
 
@@ -263,6 +302,10 @@ Burnt to a crisp
 
 黒焦げになって死んだ
 %%%%
+wild magic
+
+暴走する魔力
+%%%%
 Killed by wild magic
 
 魔力の暴走によって死んだ
@@ -275,9 +318,9 @@ Killed for Xom's enjoyment
 
 ゾムにもてあそばれて死んだ
 %%%%
-rotting
+# rotting
 
-腐敗
+# jtrans_describe.txtと重複
 %%%%
 Rotted away
 
@@ -295,9 +338,9 @@ bad targeting
 
 狙いを外し
 %%%%
-a badly aimed
+a badly aimed %s
 
-の狙いを外し
+%sの狙いを外し
 %%%%
 reflected bolt
 
@@ -327,9 +370,9 @@ Shot themself with
 
 自らに
 %%%%
-spore
+a beam
 
-胞子
+<beam>
 %%%%
 Killed by an exploding
 
@@ -337,9 +380,13 @@ Killed by an exploding
 %%%%
 smitten by Shining One
 
+輝けるものの打擲
+%%%%
+Smitten by the Shining One
+
 輝けるものの打擲によって死んだ
 %%%%
-smitten by Beogh
+Smitten by Beogh
 
 ベオの打擲によって死んだ
 %%%%
@@ -351,7 +398,7 @@ Turned to stone
 
 体が石になって死んだ
 %%%%
-Died
+died
 
 死亡
 %%%%
@@ -370,6 +417,10 @@ fell through a gate
 Fell down through a gate
 
 ゲートをくぐり抜けて死亡
+%%%%
+Splashed by %s's acid
+
+%sの酸を浴びて死んだ
 %%%%
 Splashed with acid
 
@@ -395,25 +446,49 @@ Blew themself up
 
 自らを分解して死んだ
 %%%%
-Blown up by
+Blown up by %s
 
-に分解させられて死んだ
+%sに分解させられて死んだ
 %%%%
-fraility
+mirror damage
+
+はね返されたダメージ
+%%%%
+Killed by mirror damage
+
+はね返されたダメージで殺された
+%%%%
+frailty
 
 虚弱体質
 %%%%
-Became unviable by
+Became unviable by %s
 
-でHPが底をついて死んだ
+%sでHPが底をついて死んだ
 %%%%
 barbs
 
 逆棘
 %%%%
-Succumbed to a manticore's barbed spikes
+Succumbed to barbed spike wounds
 
 マンティコアの逆棘で傷ついて死んだ
+%%%%
+%s's throw
+
+%sの投擲
+%%%%
+Thrown by %s
+
+%sに投げ飛ばされて死んだ
+%%%%
+%s collision
+
+%sとの衝突
+%%%%
+Collided with %s
+
+%sと衝突して死んだ
 %%%%
 ... %s %d rune%s
 
