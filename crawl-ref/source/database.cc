@@ -188,6 +188,7 @@ static TextDB AllDBs[] =
            "jtrans_hints.txt",
            "jtrans_hiscores.txt",
            "jtrans_initfile.txt",
+           "jtrans_invent.txt",
            "jtrans_japanese.txt",
            /*
            "jtrans_autofight_lua.txt",
