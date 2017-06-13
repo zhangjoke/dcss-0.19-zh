@@ -675,7 +675,7 @@ static void _display_god_blessing(monster* follower, god_type god,
     ASSERT(follower); // XXX: change to monster &follower
 
     string whom = you.can_see(*follower) ? follower->name(DESC_THE)
-    : "a follower";
+    : jtrans("a follower");
 
     simple_god_message(make_stringf(jtransc(" blesses %s with %s."),
                                     whom.c_str(),
