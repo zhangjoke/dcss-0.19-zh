@@ -84,8 +84,8 @@ InvEntry::InvEntry(const item_def &i)
 
     if (item_is_stationary_net(i))
     {
-        text += make_stringf(" (holding %s)",
-                             net_holdee(i)->name(DESC_A).c_str());
+        text += make_stringf(jtrans_notrimc(" (holding %s)"),
+                             net_holdee(i)->name(DESC_PLAIN).c_str());
     }
 
     if (i.base_type != OBJ_GOLD && in_inventory(i))
@@ -335,12 +335,12 @@ void InvMenu::set_preselect(const vector<SelItem> *pre)
 
 string slot_description()
 {
-    return make_stringf("%d/%d slots", inv_count(), ENDOFPACK);
+    return make_stringf(jtransc("%d/%d slots"), inv_count(), ENDOFPACK);
 }
 
 void InvMenu::set_title(const string &s)
 {
-    set_title(new InvTitle(this, s.empty() ? "Inventory: " + slot_description()
+    set_title(new InvTitle(this, s.empty() ? jtrans_notrim("Inventory: ") + slot_description()
                                            : s,
                            title_annotate));
 }
@@ -469,7 +469,7 @@ void InvMenu::load_inv_items(int item_selector, int excluded_slot,
     load_items(tobeshown, procfn);
 
     if (!item_count())
-        set_title(no_selectables_message(item_selector));
+        set_title(jtrans(no_selectables_message(item_selector)));
     else
         set_title("");
 }
@@ -775,7 +775,7 @@ menu_letter InvMenu::load_items(const vector<const item_def*> &mitems,
         if (!inv_class[i])
             continue;
 
-        string subtitle = item_class_name(i);
+        string subtitle = item_class_name_j(i);
 
         // Mention the class selection shortcuts.
         if (is_set(MF_MULTISELECT))
@@ -788,13 +788,19 @@ menu_letter InvMenu::load_items(const vector<const item_def*> &mitems,
                 const string str = "Magical Staves ";
                 subtitle += string(strwidth(str) - strwidth(subtitle),
                                    ' ');
-                subtitle += "(select all with <w>";
+
+                string glys;
                 for (char gly : glyphs)
-                    subtitle += gly;
-                subtitle += "</w><blue>)";
+                    glys += gly;
+                string right_text = make_stringf(jtransc("(select all with <w>%s</w><blue>)"),
+                                                 glys.c_str());
+                subtitle += string(get_number_of_cols() - strwidth(right_text)
+                                                        - strwidth(subtitle) + 14,
+                                   ' ')
+                          + right_text;
             }
         }
-        add_entry(new MenuEntry(subtitle, MEL_SUBTITLE));
+        add_entry(new MenuEntry(sp2nbsp(subtitle), MEL_SUBTITLE));
 
         items_in_class.clear();
 
@@ -935,6 +941,11 @@ const char *item_class_name(int type, bool terse)
     return "";
 }
 
+const string item_class_name_j(int type, bool terse)
+{
+    return tagged_jtrans("[item class]", item_class_name(type, terse));
+}
+
 const char* item_slot_name(equipment_type type)
 {
     switch (type)
@@ -959,7 +970,7 @@ vector<SelItem> select_items(const vector<const item_def*> &items,
     {
         InvMenu menu;
         menu.set_type(mtype);
-        menu.set_title(title);
+        menu.set_title(jtrans(title));
         if (mtype == MT_PICKUP)
             menu.set_tag("pickup");
 
@@ -1267,7 +1278,7 @@ vector<SelItem> prompt_invent_items(
 
         if (need_prompt)
         {
-            mprf(MSGCH_PROMPT, "%s (<w>?</w> for menu, <w>Esc</w> to quit)",
+            mprf(MSGCH_PROMPT, jtransc("%s (<w>?</w> for menu, <w>Esc</w> to quit)"),
                  jtrans_notrimc(prompt));
         }
 
@@ -1346,7 +1357,7 @@ vector<SelItem> prompt_invent_items(
             ret = letter_to_index(keyin);
 
             if (!you.inv[ret].defined())
-                mpr("You don't have any such object.");
+                mpr(jtrans("You don't have any such object."));
             else
                 break;
         }
@@ -1425,7 +1436,7 @@ bool check_old_item_warning(const item_def& item,
                              operation_types oper)
 {
     item_def old_item;
-    string prompt;
+    string prompt, old_name;
     bool penance = false;
     if (oper == OPER_WIELD) // can we safely unwield old item?
     {
@@ -1439,8 +1450,6 @@ bool check_old_item_warning(const item_def& item,
         old_item = *you.weapon();
         if (!needs_handle_warning(old_item, OPER_WIELD, penance))
             return true;
-
-        prompt += "Really unwield ";
     }
     else if (oper == OPER_WEAR) // can we safely take off old item?
     {
@@ -1456,8 +1465,6 @@ bool check_old_item_warning(const item_def& item,
 
         if (!needs_handle_warning(old_item, OPER_TAKEOFF, penance))
             return true;
-
-        prompt += "Really take off ";
     }
     else if (oper == OPER_PUTON) // can we safely remove old item?
     {
@@ -1473,8 +1480,6 @@ bool check_old_item_warning(const item_def& item,
             old_item = you.inv[equip];
             if (!needs_handle_warning(old_item, OPER_TAKEOFF, penance))
                 return true;
-
-            prompt += "Really remove ";
         }
         else // rings handled in prompt_ring_to_remove
             return true;
@@ -1483,10 +1488,26 @@ bool check_old_item_warning(const item_def& item,
         return true;
 
     // now ask
-    prompt += old_item.name(DESC_INVENTORY);
-    prompt += "?";
+    old_name = old_item.name(DESC_INVENTORY);
+
+    switch (oper)
+    {
+    case OPER_WIELD:
+        prompt += make_stringf(jtransc("Really unwield %s?"),
+                               old_name.c_str());
+        break;
+    case OPER_WEAR:
+        prompt += make_stringf(jtransc("Really take off %s?"),
+                               old_name.c_str());
+    case OPER_PUTON:
+        prompt += make_stringf(jtransc("Really remove %s?"),
+                               old_name.c_str());
+    default:
+        prompt += "buggy prompt";
+    }
+
     if (penance)
-        prompt += " This could place you under penance!";
+        prompt += jtrans_notrim(" This could place you under penance!");
     return yesno(prompt.c_str(), false, 'n');
 }
 
@@ -1725,19 +1746,24 @@ bool check_warning_inscriptions(const item_def& item,
         }
 
         // XXX: duplicates a check in delay.cc:_finish_delay()
-        string prompt = "Really " + _operation_verb(oper) + " ";
-        prompt += (in_inventory(item) ? item.name(DESC_INVENTORY)
-                                      : item.name(DESC_A));
+        string prompt = jtrans("Really ");
+
         if (nasty_stasis(item, oper)
             && item_ident(item, ISFLAG_KNOW_TYPE))
         {
-            prompt += string(" while ")
+            prompt += jtrans(string(" while ")
                       + (you.duration[DUR_TELEPORT] ? "about to teleport" :
-                         you.duration[DUR_SLOW] ? "slowed" : "hasted");
+                         you.duration[DUR_SLOW] ? "slowed" : "hasted"));
         }
-        prompt += "?";
+
+        prompt += (in_inventory(item) ? " " + item.name(DESC_INVENTORY)
+                                      : item.name(DESC_A)) + "を"
+                + tagged_jtrans("[oper verb]", _operation_verb(oper));
+
+        prompt += "ますか？";
+
         if (penance)
-            prompt += " This could place you under penance!";
+            prompt += jtrans_notrim(" This could place you under penance!");
         return yesno(prompt.c_str(), false, 'n')
                && check_old_item_warning(item, oper);
     }
@@ -1804,7 +1830,7 @@ int prompt_invent_item(const string &prompt,
         && type_expect != OSEL_WIELD)
     {
         mprf(MSGCH_PROMPT, "%s",
-             no_selectables_message(type_expect).c_str());
+             jtransc(no_selectables_message(type_expect)));
         return PROMPT_NOTHING;
     }
 
@@ -1835,7 +1861,7 @@ int prompt_invent_item(const string &prompt,
 
         if (need_prompt)
         {
-            mprf(MSGCH_PROMPT, "%s (<w>?</w> for menu, <w>Esc</w> to quit)",
+            mprf(MSGCH_PROMPT, jtransc("%s (<w>?</w> for menu, <w>Esc</w> to quit)"),
                  jtrans_notrimc(prompt));
         }
         else
@@ -1934,7 +1960,7 @@ int prompt_invent_item(const string &prompt,
             ret = letter_to_index(keyin);
 
             if (must_exist && !you.inv[ret].defined())
-                mpr("You don't have any such object.");
+                mpr(jtrans("You don't have any such object."));
             else if (!do_warning || check_warning_inscriptions(you.inv[ret], oper))
                 break;
         }
@@ -1999,8 +2025,9 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
                       bool all_wands, bool msg, bool equip)
 {
     const string error = item_is_melded(item)
-            ? "Your " + item.name(DESC_QUALNAME) + " is melded into your body."
-            : "That item can only be evoked when wielded.";
+            ? make_stringf(jtransc("Your %s is melded into your body."),
+                           item.name(DESC_QUALNAME).c_str())
+            : jtrans("That item can only be evoked when wielded.");
 
     const bool no_evocables = player_mutation_level(MUT_NO_ARTIFICE);
     const char* const no_evocable_error = "You cannot evoke magical items.";
@@ -2014,7 +2041,7 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
             if (no_evocables)
             {
                 if (msg)
-                    mpr(no_evocable_error);
+                    mpr(jtrans(no_evocable_error));
                 return false;
             }
 
@@ -2037,7 +2064,7 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
     {
         // the rest are forbidden under sac evocables.
         if (msg)
-            mpr(no_evocable_error);
+            mpr(jtrans(no_evocable_error));
         return false;
     }
 
@@ -2053,7 +2080,7 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
         if (item.used_count == ZAPCOUNT_EMPTY)
         {
             if (msg)
-                mpr("This wand has no charges.");
+                mpr(jtrans("This wand has no charges."));
             return false;
         }
         return true;
@@ -2074,7 +2101,7 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
         }
 
         if (msg)
-            mpr("That item cannot be evoked!");
+            mpr(jtrans("That item cannot be evoked!"));
         return false;
 
     case OBJ_RODS:
@@ -2100,7 +2127,7 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
             return true;
         }
         if (msg)
-            mpr("That item cannot be evoked!");
+            mpr(jtrans("That item cannot be evoked!"));
         return false;
 
 #if TAG_MAJOR_VERSION == 34
@@ -2116,7 +2143,7 @@ bool item_is_evokable(const item_def &item, bool reach, bool known,
 
     default:
         if (msg)
-            mpr("That item cannot be evoked!");
+            mpr(jtrans("That item cannot be evoked!"));
         return false;
     }
 }
