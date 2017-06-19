@@ -6411,7 +6411,7 @@ bool pakellas_check_quick_charge(bool quiet)
     if (!any_items_of_type(OSEL_DIVINE_RECHARGE))
     {
         if (!quiet)
-            mpr(no_selectables_message(OSEL_DIVINE_RECHARGE));
+            mpr(jtrans(no_selectables_message(OSEL_DIVINE_RECHARGE)));
         return false;
     }
 
