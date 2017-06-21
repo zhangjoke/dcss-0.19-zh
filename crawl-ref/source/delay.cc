@@ -459,7 +459,7 @@ static bool _can_read_scroll(const item_def& scroll)
     if (!player_can_read())
         return false;
 
-    const string illiteracy_reason = cannot_read_item_reason(scroll);
+    const string illiteracy_reason = jtrans(cannot_read_item_reason(scroll));
     if (illiteracy_reason.empty())
         return true;
 
