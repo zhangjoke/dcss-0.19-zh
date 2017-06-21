@@ -1,4 +1,16 @@
 %%%%
+Inventory Items
+
+所持中のアイテム
+%%%%
+(',' to select)
+
+(',' で選択)
+%%%%
+Floor Items
+
+足下に落ちているアイテム
+%%%%
 Your weapon is melded into your body!
 
 武器はあなたの体と融合している！
@@ -7,13 +19,13 @@ You can't wield anything in your present form.
 
 現在の姿では何も手にすることができない。
 %%%%
-You can't unwield your weapon%s!
+You can't unwield your weapon to draw a new one!
 
-あなたは武器を手放%sことができない！
+あなたは武器を手放して新たな武器を持つことができない！
 %%%%
-to draw a new one
+You can't unwield your weapon!
 
-して新たな武器を持つ
+あなたは武器を手放すことができない！
 %%%%
 You can't wield that without your missing limb.
 
@@ -35,9 +47,9 @@ This weapon is vampiric, and you must be Full or above to equip it.
 
 この吸血の武器は満腹状態以上でないと装備できない。
 %%%%
+#if TAG_MAJOR_VERSION == 34
 As you grasp it, you feel your magic disrupted. Quickly, you stop.
 
-# obsolete
 %%%%
 Wield which item (- for none, * to show all)?
 
@@ -47,13 +59,13 @@ You are already wielding that!
 
 あなたはそれを既に手に持っている！
 %%%%
-The bond with your blade fades away.
+# Really unwield %s?
 
-あなたと刃の間の繋がりが薄れていった。
+# jtrans_invent.txtと重複
 %%%%
-Really unwield %s?
+# This could place you under penance!
 
-本当に%sを手放しますか？
+# jtrans_fight.txtと重複
 %%%%
 You can't wear anything.
 
@@ -75,21 +87,29 @@ You can't wear that!
 
 それを装備することはできない！
 %%%%
-Your wings%s won't fit in that.
+Your wings won't fit in that.
 
-あなたの翼は%sそれに合わない。
+あなたはその大きな翼が邪魔でその防具を装備できない。
 %%%%
-, even vestigial as they are,
+Your wings, even vestigial as they are, won't fit in that.
 
-退化していたとしても
+あなたはその翼が邪魔でその防具を装備できない。
 %%%%
 You can wear that only in your normal form.
 
-あなたは通常の状態でないとそれを装備することができない。
+あなたは通常の姿でないとそれを装備することができない。
 %%%%
-You don't have enough limbs.
+You need the rest of your tentacles for walking.
 
-あなたは盾を持つには腕が足りない。
+残りの触手は歩行するのに必要だ。
+%%%%
+You'd need another %s to do that!
+
+それを装備するにはもう一本腕が必要だ！
+%%%%
+You'd need three %s to do that!
+
+それを装備するには三本目の腕が必要だ！
 %%%%
 You have no feet.
 
@@ -111,21 +131,17 @@ You'd need your %s free.
 
 あなたは%sを自由にする必要がある。
 %%%%
-You have no %s!
-
-あなたには%sがない！
-%%%%
 You can't wear this over your hauberk.
 
-あなたは鎖かたびらの上からそれを装備するができない。
+あなたは鎖かたびらの上からそれを装備することはできない。
 %%%%
 This armour is too big for you!
 
-この鎧はあなたには大きすぎる！
+この防具はあなたには大きすぎる！
 %%%%
 This armour is too small for you!
 
-この鎧はあなたには小さすぎる！
+この防具はあなたには小さすぎる！
 %%%%
 You can't wear a glove with your huge claw%s!
 
@@ -133,7 +149,7 @@ You can't wear a glove with your huge claw%s!
 %%%%
 You can't wear boots with hooves!
 
-あなたは蹄が邪魔してブーツを装備できない。
+あなたは蹄が邪魔してブーツを装備できない！
 %%%%
 Boots don't fit your talons!
 
@@ -175,9 +191,9 @@ You can't wear that in your present form.
 
 現在の姿ではそれを装備できない。
 %%%%
-You don't have any such object.
+# You don't have any such object.
 
-あなたはそのようなものを持っていない。
+# jtrans_invent.txtと重複
 %%%%
 You are wielding that object!
 
@@ -186,18 +202,6 @@ You are wielding that object!
 You're already wearing that object!
 
 あなたは既にそれを装備している！
-%%%%
-You need the rest of your tentacles for walking.
-
-あなたの残りの触手は歩くのに必要だ。
-%%%%
-You'd need another %s to do that!
-
-それを装備するにはもう一本腕が必要だ！
-%%%%
-You'd need three %s to do that!
-
-それを装備するには3本目の腕が必要だ！
 %%%%
 You aren't wearing that!
 
@@ -223,6 +227,26 @@ You're wearing all the rings you can. Remove which one?
 
 (<w>?</w> で一覧から選択, <w>Esc</w> でキャンセル)
 %%%%
+</w> or
+
+</w> または
+%%%%
+Unwield
+
+手放す
+%%%%
+Remov
+
+脱ぐ
+%%%%
+Wield
+
+手にする
+%%%%
+Wear
+
+装備する
+%%%%
 %sing this item will reduce your %s to zero or below. Continue?
 
 このアイテムを%sと、あなたの%sはゼロ以下に低下します。それでも続けますか？
@@ -233,7 +257,7 @@ Losing flight right now would be fatal!
 %%%%
 You're already wearing %s cursed ring%s!%s
 
-あなたは既に%sつの呪われた指輪を身につけている！ %s
+あなたは既に%sつの呪われた指輪を身につけている！%s
 %%%%
 Isn't that enough for you?
 
@@ -242,10 +266,6 @@ Isn't that enough for you?
 Put ring on which %s? (<w>Esc</w> to cancel)
 
 どちらの%sに指輪をはめますか？ (<w>Esc</w> でキャンセル)
-%%%%
-</w> or
-
-</w> または
 %%%%
 </w> - no ring
 
@@ -269,11 +289,11 @@ You are wielding that object.
 %%%%
 You can only put on jewellery.
 
-身に飾ることができるのは装飾品だけだ。
+装身具以外のもので身を飾ることはできない。
 %%%%
 Put on which piece of jewellery?
 
-どの装飾品を身につけますか？
+どの装身具を外しますか？
 %%%%
 You aren't wearing any unmelded rings or amulets.
 
@@ -285,7 +305,7 @@ You aren't wearing any rings or amulets.
 %%%%
 Remove which piece of jewellery?
 
-どの装飾品を外しますか？
+どの装身具を外しますか？
 %%%%
 You aren't wearing that.
 
@@ -293,7 +313,7 @@ You aren't wearing that.
 %%%%
 That isn't a piece of jewellery.
 
-それは装飾品ではない。
+それは装身具ではない。
 %%%%
 I don't think you really meant that.
 
@@ -319,14 +339,6 @@ You remove %s.
 
 あなたは%sを外した。
 %%%%
-You can't turn invisible.
-
-あなたは姿をくらますことはできない。
-%%%%
-Invisibility will do you no good right now; use anyway?
-
-この状態で透明化することは得策ではない。それでも使いますか？
-%%%%
 You don't have anything to inscribe.
 
 銘を付けるようなアイテムを持っていない。
@@ -341,7 +353,7 @@ Use <w>e</w> to drain blood from corpses.
 %%%%
 You can't drink.
 
-あなたは飲むことができない。
+あなたはものを飲むことができない。
 %%%%
 You cannot drink potions in your current state!
 
@@ -355,17 +367,9 @@ You can't drink that!
 
 そのアイテムは飲めない！
 %%%%
-You are much too full right now.
-
-あなたは腹がいっぱいですぐには飲めない。
-%%%%
-Really drink that potion of blood?
-
-本当に血液の薬を飲みますか？
-%%%%
 petitions for your drink to fail.
 
-はあなたが飲むのを妨げた。
+はあなたが薬を飲むのを妨げた。
 %%%%
 %s emits a brilliant flash of light!
 
@@ -374,10 +378,6 @@ petitions for your drink to fail.
 %s projects an invisible shield of force!
 
 %sは目に見えない力場の盾を形成した！
-%%%%
-%s emits a repelling force!
-
-%sは攻撃を逸らす力場を生み出した！
 %%%%
 %s is engulfed in flames!
 
@@ -407,45 +407,29 @@ petitions for your drink to fail.
 
 %sはめまぐるしく色が変わる輝きを放った。
 %%%%
-Brand which weapon?
+%s oozes corrosive slime.
 
-どれを魔力の武器にしますか？
+%sは腐食性の粘液を滴らせた。
+%%%%
+# Really abort (and waste the scroll)?
+
+# jtrans_evoke.txtと重複
+%%%%
+# Brand which weapon?
+
+# jtrans_godabil.txtと重複
 %%%%
 Enchant which weapon?
 
 どの武器を強化しますか？
 %%%%
-Really abort (and waste the scroll)?
-
-本当に中断しますか？ (巻物は消費されます)
-%%%%
-Choose a valid weapon, or Esc to abort.
-
-ちゃんとした武器を選ぶか、Escキーで中断してください。
-%%%%
 %s glows red for a moment.
 
 %sは一瞬赤く輝いた。
 %%%%
-%s glows silver for a moment.
-
-%sは一瞬銀色に輝いた。
-%%%%
-%s very briefly gains a red sheen.
-
-%sは一瞬赤い光沢を帯びた。
-%%%%
 Identify which item? (\ to view known items)
 
-どのアイテムを鑑定しますか？ (\で既知のアイテム一覧)
-%%%%
-Choose an unidentified item, or Esc to abort.
-
-未鑑定のアイテムを選択するか、Escキーで中断してください。
-%%%%
-%s glows purple and changes!
-
-%sは紫色に輝き、形を変えた！
+どのアイテムを鑑定しますか？ (\で既知のアイテム一覧を表示)
 %%%%
 %s glows green for a moment.
 
@@ -455,21 +439,17 @@ Enchant which item?
 
 どのアイテムを強化しますか？
 %%%%
-Choose some type of armour to enchant, or Esc to abort.
-
-強化する防具を選択するか、Escキーで中断してください。
-%%%%
 The dust glows %s!
 
 床の塵は%sに輝いた！
 %%%%
-The scroll reassembles itself in your %s!
-
-巻物はあなたの%sの中で再構成された！
-%%%%
 %s glows %s for a moment.
 
 %sは一瞬%sに輝いた。
+%%%%
+your %s glow %s for a moment.
+
+あなたの%sは一瞬%sに輝いた。
 %%%%
 Your bandages flutter.
 
@@ -495,10 +475,6 @@ Your nose twitches suddenly!
 
 あなたの鼻が突然ひくひくした！
 %%%%
-You hear the tinkle of a tiny bell.
-
-あなたはベルの鳴る音を耳にした。
-%%%%
 You hear %s.
 
 あなたは%sを耳にした。
@@ -507,9 +483,9 @@ Reading books requires mental cohesion, which you lack.
 
 魔法書を読むには集中力が必要だが、今のあなたにはそれが欠けている。
 %%%%
+#if TAG_MAJOR_VERSION == 34
 This item has been removed, sorry!
 
-# obsolete
 %%%%
 Magic quickly surges around you.
 
@@ -531,29 +507,37 @@ You cannot read scrolls in your current state!
 
 現状では巻物を読むことができない！
 %%%%
+#if TAG_MAJOR_VERSION == 34
 You'd burn any scroll you tried to read!
 
-# obsolete
 %%%%
 You have no spells to forget!
 
 あなたは呪文を何一つ覚えていない！
 %%%%
+#if TAG_MAJOR_VERSION == 34
 This scroll only affects a wielded weapon!
 
-この巻物は今手にしている武器にのみ効果がある！
 %%%%
+#if TAG_MAJOR_VERSION == 34
 Your weapon is already cursed!
 
-あなたの持つ武器はすでに呪われている！
 %%%%
+#if TAG_MAJOR_VERSION == 34
 Holy weapons cannot be cursed!
 
-神聖なる武器を呪うことはできない！
 %%%%
 Read which item?
 
 どれを読みますか？
+%%%%
+Your blink will be uncontrolled - continue anyway?
+
+あなたは現状瞬間移動先を制御できない。 それでも続けますか？
+%%%%
+Really read with blurry vision while enemies are nearby?
+
+近くに敵がいますが、本当に時間をかけて巻物を読みますか？
 %%%%
 You almost manage to decipher the scroll, but fail in this attempt.
 
@@ -563,9 +547,9 @@ As you read the %s, it crumbles to dust.
 
 あなたが%sを読むと、巻物は崩れ去った。
 %%%%
-Your blink will be uncontrolled - continue anyway?
+The Orb prevents control of your translocation!
 
-あなたは現状瞬間移動先を制御できない - それでも続けますか？
+ゾットのオーブはあなたが行使する転位術の制御を妨げている！
 %%%%
 This is a scroll of acquirement!
 
@@ -578,6 +562,10 @@ You assume a fearsome visage.
 You hear a loud clanging noise!
 
 あなたは雑音が鳴り響くのを聞いた！
+%%%%
+# The air is too still for clouds to form.
+
+# jtrans_ability.txtと重複
 %%%%
 The scroll dissolves into smoke.
 
@@ -595,9 +583,9 @@ The air around you briefly surges with heat, but it dissipates.
 
 あなたの周りの空気がしばらく熱くなったが、すぐに消え去った。
 %%%%
+#if TAG_MAJOR_VERSION == 34
 %s very briefly gain%s a black sheen.
 
-%sは一瞬黒い光沢を帯びた。
 %%%%
 It is a scroll of enchant weapon.
 
@@ -619,17 +607,21 @@ It is a scroll of enchant armour.
 
 これは防具強化の巻物だ。
 %%%%
+It is a scroll of amnesia.
+
+これは記憶喪失の巻物だ。
+%%%%
 You feel forgetful for a moment.
 
 あなたは一瞬忘れっぽくなった気がした。
 %%%%
+Read a buggy scroll, please report this.
+
+# 訳不要
+%%%%
 It %s a %s.
 
 これは%sだ。
-%%%%
-Your stasis keeps you stable.
-
-あなたの体質は停滞状態を維持した。
 %%%%
 You can't pick that up.
 
