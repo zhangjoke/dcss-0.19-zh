@@ -190,6 +190,7 @@ static TextDB AllDBs[] =
            "jtrans_initfile.txt",
            "jtrans_invent.txt",
            "jtrans_item_use.txt",
+           "jtrans_itemname.txt",
            "jtrans_japanese.txt",
            /*
            "jtrans_autofight_lua.txt",
