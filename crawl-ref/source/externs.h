@@ -663,6 +663,8 @@ public:
 private:
     string name_aux(description_level_type desc, bool terse, bool ident,
                     bool with_inscription, iflags_t ignore_flags) const;
+    string name_aux_en(description_level_type desc, bool terse, bool ident,
+                       bool with_inscription, iflags_t ignore_flags) const;
 
     colour_t randart_colour() const;
 
