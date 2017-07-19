@@ -112,3 +112,265 @@ string thing_do_grammar_j(description_level_type dtype, bool add_stop,
         return desc;
     }
 }
+
+const char * counter_suffix_armour(const item_def& item)
+{
+    switch(item.sub_type) // see itemprop-enum.h::enum armour_type
+    {
+    case ARM_ROBE:
+    case ARM_LEATHER_ARMOUR:
+    case ARM_RING_MAIL:
+    case ARM_SCALE_MAIL:
+    case ARM_CHAIN_MAIL:
+    case ARM_PLATE_ARMOUR:
+    case ARM_CLOAK:
+    case ARM_TROLL_LEATHER_ARMOUR:
+    case ARM_FIRE_DRAGON_ARMOUR:
+    case ARM_ICE_DRAGON_ARMOUR:
+    case ARM_STEAM_DRAGON_ARMOUR:
+    case ARM_MOTTLED_DRAGON_ARMOUR:
+    case ARM_STORM_DRAGON_ARMOUR:
+    case ARM_GOLD_DRAGON_ARMOUR:
+    case ARM_SWAMP_DRAGON_ARMOUR:
+    case ARM_PEARL_DRAGON_ARMOUR:
+    case ARM_SHADOW_DRAGON_ARMOUR:
+    case ARM_QUICKSILVER_DRAGON_ARMOUR:
+    case ARM_CENTAUR_BARDING:
+    case ARM_NAGA_BARDING:
+        return "着";
+
+    case ARM_HAT:
+    case ARM_HELMET:
+        return "つ";
+
+    case ARM_GLOVES:
+        return "組";
+
+    case ARM_BOOTS:
+        return "足";
+
+    case ARM_BUCKLER:
+    case ARM_SHIELD:
+    case ARM_LARGE_SHIELD:
+    case ARM_ANIMAL_SKIN:
+#if TAG_MAJOR_VERSION == 34
+    case ARM_TROLL_HIDE:
+    case ARM_FIRE_DRAGON_HIDE:
+    case ARM_ICE_DRAGON_HIDE:
+    case ARM_STEAM_DRAGON_HIDE:
+    case ARM_MOTTLED_DRAGON_HIDE:
+    case ARM_STORM_DRAGON_HIDE:
+    case ARM_GOLD_DRAGON_HIDE:
+    case ARM_SWAMP_DRAGON_HIDE:
+    case ARM_PEARL_DRAGON_HIDE:
+    case ARM_SHADOW_DRAGON_HIDE:
+    case ARM_QUICKSILVER_DRAGON_HIDE:
+#endif
+        return "枚";
+
+    default:
+        return "(buggy)";
+    }
+}
+
+const char * counter_suffix_misc(const item_def& item)
+{
+    switch(item.sub_type) // see itemprop-enum.h::enum misc_item_type
+    {
+    case MISC_FAN_OF_GALES:
+    case MISC_LAMP_OF_FIRE:
+#if TAG_MAJOR_VERSION == 34
+    case MISC_STONE_OF_TREMORS:
+    case MISC_BUGGY_LANTERN_OF_SHADOWS:
+#endif
+    case MISC_HORN_OF_GERYON:
+    case MISC_BOX_OF_BEASTS:
+    case MISC_CRYSTAL_BALL_OF_ENERGY:
+    case MISC_RUNE_OF_ZOT:
+    case MISC_QUAD_DAMAGE:
+    case MISC_ZIGGURAT:
+        return "個";
+
+    case MISC_DISC_OF_STORMS:
+    case MISC_PHANTOM_MIRROR:
+        return "枚";
+
+    case MISC_DECK_OF_ESCAPE:
+    case MISC_DECK_OF_DESTRUCTION:
+    case MISC_DECK_OF_SUMMONING:
+    case MISC_DECK_OF_PUNISHMENT:
+#if TAG_MAJOR_VERSION == 34
+    case MISC_DECK_OF_WONDERS:
+    case MISC_DECK_OF_WAR:
+    case MISC_DECK_OF_CHANGES:
+    case MISC_DECK_OF_DEFENCE:
+#endif
+        return "組";
+
+    case MISC_PHIAL_OF_FLOODS:
+        return "本";
+
+    case MISC_SACK_OF_SPIDERS:
+        return "袋";
+
+    default:
+        return "(buggy)";
+    }
+}
+
+const char * counter_suffix_missile(const item_def& item)
+{
+    switch(item.sub_type)
+    {
+    case MI_NEEDLE:
+    case MI_ARROW:
+    case MI_BOLT:
+    case MI_JAVELIN:
+    case MI_TOMAHAWK:
+        return "本";
+
+    case MI_STONE:
+    case MI_LARGE_ROCK:
+    case MI_SLING_BULLET:
+        return "個";
+
+    case MI_THROWING_NET:
+        return "枚";
+
+    default:
+        return "(buggy)";
+    }
+}
+
+const char * counter_suffix_weapon(const item_def& item)
+{
+    switch(item.sub_type) // see itemprop-enum.h
+    {
+    case WPN_CLUB:
+    case WPN_WHIP:
+#if TAG_MAJOR_VERSION == 34
+    case WPN_HAMMER:
+#endif
+    case WPN_MACE:
+    case WPN_MORNINGSTAR:
+    case WPN_EVENINGSTAR:
+    case WPN_GREAT_MACE:
+    case WPN_SPEAR:
+    case WPN_TRIDENT:
+    case WPN_HALBERD:
+    case WPN_GLAIVE:
+    case WPN_BARDICHE:
+    case WPN_BLOWGUN:
+#if TAG_MAJOR_VERSION > 34
+    case WPN_HUNTING_SLING:
+    case WPN_FUSTIBALUS:
+#endif
+    case WPN_DEMON_WHIP:
+    case WPN_GIANT_CLUB:
+    case WPN_GIANT_SPIKED_CLUB:
+    case WPN_DEMON_TRIDENT:
+    case WPN_STAFF:
+    case WPN_QUARTERSTAFF:
+    case WPN_LAJATANG:
+    case WPN_SACRED_SCOURGE:
+    case WPN_TRISHULA:
+        return "本";
+
+    case WPN_FLAIL:
+    case WPN_DIRE_FLAIL:
+    case WPN_DAGGER:
+    case WPN_QUICK_BLADE:
+    case WPN_SHORT_SWORD:
+    case WPN_RAPIER:
+#if TAG_MAJOR_VERSION > 34
+    case WPN_CUTLASS:
+#endif
+    case WPN_FALCHION:
+    case WPN_LONG_SWORD:
+    case WPN_SCIMITAR:
+    case WPN_GREAT_SWORD:
+    case WPN_DEMON_BLADE:
+    case WPN_DOUBLE_SWORD:
+    case WPN_TRIPLE_SWORD:
+    case WPN_SCYTHE:
+#if TAG_MAJOR_VERSION == 34
+    case WPN_BLESSED_FALCHION:
+    case WPN_BLESSED_LONG_SWORD:
+    case WPN_BLESSED_SCIMITAR:
+    case WPN_BLESSED_GREAT_SWORD:
+#endif
+    case WPN_EUDEMON_BLADE:
+#if TAG_MAJOR_VERSION == 34
+    case WPN_BLESSED_DOUBLE_SWORD:
+    case WPN_BLESSED_TRIPLE_SWORD:
+#endif
+        return "振";
+
+    case WPN_HAND_AXE:
+    case WPN_WAR_AXE:
+    case WPN_BROAD_AXE:
+    case WPN_BATTLEAXE:
+    case WPN_EXECUTIONERS_AXE:
+        return "挺";
+
+#if TAG_MAJOR_VERSION > 34
+    case WPN_HAND_CROSSBOW:
+#endif
+    case WPN_ARBALEST:
+#if TAG_MAJOR_VERSION > 34
+    case WPN_TRIPLE_CROSSBOW:
+#endif
+        return "丁";
+
+    case WPN_SHORTBOW:
+    case WPN_LONGBOW:
+        return "張";
+
+    default:
+        return "(buggy)";
+    }
+}
+
+/**
+ * アイテム種別に応じた助数詞を返す
+ */
+const char * counter_suffix(const item_def &item)
+{
+    switch (item.base_type)
+    {
+    case OBJ_WEAPONS:
+        return counter_suffix_weapon(item);
+    case OBJ_ARMOUR:
+        return counter_suffix_armour(item);
+    case OBJ_MISCELLANY:
+        return counter_suffix_misc(item);
+    case OBJ_MISSILES:
+        return counter_suffix_missile(item);
+
+    case OBJ_POTIONS:
+    case OBJ_WANDS:
+    case OBJ_RODS:
+    case OBJ_STAVES:
+        return "本";
+
+    case OBJ_FOOD:
+    case OBJ_JEWELLERY:
+    case OBJ_ORBS:
+        return "個";
+
+    case OBJ_SCROLLS:
+        return "巻";
+
+    case OBJ_GOLD:
+        return "枚";
+
+    case OBJ_BOOKS:
+        return "冊";
+
+    case OBJ_CORPSES:
+        return "体";
+
+    default:
+        return "(buggy)";
+    }
+}

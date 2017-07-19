@@ -26,5 +26,10 @@ const char * general_counter_suffix(const int size);
 string jconj_verb(const string& verb, jconj conj);
 string thing_do_grammar_j(description_level_type dtype, bool add_stop,
                           bool force_article, string desc);
+const char * counter_suffix_armour(const item_def& item);
+const char * counter_suffix_misc(const item_def& item);
+const char * counter_suffix_missile(const item_def& item);
+const char * counter_suffix_weapon(const item_def& item);
+const char * counter_suffix(const item_def &item);
 
 #endif

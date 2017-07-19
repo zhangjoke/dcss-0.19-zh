@@ -128,8 +128,9 @@ void make_name_tests();
 
 const char* brand_type_name(int brand, bool terse) PURE;
 const char* weapon_brand_name(const item_def& item, bool terse, int override_brand = 0) PURE;
-const char* armour_ego_name(const item_def& item, bool terse);
-const char* missile_brand_name(const item_def& item, mbn_type t);
+const string armour_ego_name(const item_def& item, bool terse);
+const string missile_brand_name(const item_def& item, mbn_type t);
+const char* missile_brand_name_en(const item_def& item, mbn_type t);
 
 bool item_type_has_ids(object_class_type base_type);
 bool get_ident_type(const item_def &item);
@@ -148,6 +149,8 @@ item_kind item_kind_by_name(const string &name);
 vector<string> item_name_list_for_glyph(char32_t glyph);
 
 const char* rune_type_name(short p);
+const string rune_type_name_j(short p, bool verbose = false);
+#define rune_type_name_jc(p) (rune_type_name_j(p).c_str())
 
 bool   is_named_corpse(const item_def &corpse);
 string get_corpse_name(const item_def &corpse,
@@ -161,7 +164,7 @@ string sub_type_string(const item_def &item, bool known = true);
 string ego_type_string(const item_def &item, bool terse = false, int override_brand = 0);
 string ghost_brand_name(int brand);
 
-const char* potion_type_name(int potiontype);  //used in xom.cc
-const char* potion_type_name_j(int potiontype);
+const string potion_type_name(int potiontype);  //used in xom.cc
+const string potion_type_name_j(int potiontype);
 const char* jewellery_effect_name(int jeweltype, bool terse = false) PURE; //used in l_item.cc
 #endif
