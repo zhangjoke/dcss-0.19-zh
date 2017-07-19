@@ -1,20 +1,22 @@
-When reporting a bug, please include the following:
+不具合等を報告する際は、下記の情報を埋めていただけると助かります。
 
-**PLATFORM:**
-*e.g. "local tiles", "webtiles", or "console". Putting this in the labels is
-also fine.*
+**環境:**
+例: ｢webtile版｣｢コンソール版｣｢タイル版｣など。
+タイル版はサポートしないこともありますが、一応書いておいてください。
 
-**VERSION:**
-*e.g. "0.18", ""0.19-a0-1891-ge1d1fe8". If you can launch the game, you can
-find this information by pressing ?V; the version will be at the top of the
-screen. If not, check the changelog in the 'docs' directory.*
+**バージョン:**
+例: ｢0.18｣｢0.19-a0-1891-ge1d1fe8｣など。
+'?'→'V'コマンドで画面上部にバージョン番号が表示されるので、そのままコピー&ペーストしてください。
 
-**DESCRIPTION:**
-*What happened? What went wrong? What else was going on at the time of the
-problem? Can you reproduce the issue? If you have a save file or crash files,
-please also include those; if you ask, we can help you find them.*
+**概要:**
+どのような不具合が生じたか簡潔に書いてください。
 
-Please do not use this to request features, unless you are one of Crawl's
-developers.
+- 本家英語版と動作が違う
+- 特定の操作でクラッシュする
+- 表示されるメッセージがおかしい、または誤訳
+- などなど……
 
-Thanks!
+webtile版でゲームがクラッシュした場合、表示されるクラッシュダンプのURLも併記しただけると助かります。
+
+
+迅速な修正のため、ご協力よろしくお願いします！
