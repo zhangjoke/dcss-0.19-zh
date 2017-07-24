@@ -277,7 +277,7 @@ The water rises up and takes form.
 %%%%
 Aiming: <white>Phantom Mirror</white>
 
-発動: <white>幻影の鏡</white>
+照準: <white>幻影の鏡</white>
 %%%%
 You can't use the mirror on yourself.
 
