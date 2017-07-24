@@ -17,7 +17,7 @@ Young Poisoner's Handbook
 %%%%
 Fen Folio
 
-フェン・フォリオ
+沼沢の書
 %%%%
 # TAG_MAJOR_VERSION == 34
 Akashic Record
