@@ -107,7 +107,7 @@ amulet of magic regeneration
 
 魔力再生の護符
 %%%%
-amulet of gourmand
+amulet of the gourmand
 
 悪食の護符
 %%%%
@@ -129,7 +129,7 @@ amulet of inaccuracy
 %%%%
 amulet of nothing
 
-# ★護符のベースアイテム。訳不要
+普通の護符
 %%%%
 amulet of guardian spirit
 
