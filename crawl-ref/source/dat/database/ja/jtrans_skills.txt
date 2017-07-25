@@ -47,9 +47,9 @@ God
 
 神
 %%%%
-er
+# er
 
-者
+# jtrans_describe_god.txtと重複
 %%%%
 %c Level %.*f%s %s
 
