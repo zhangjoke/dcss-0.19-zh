@@ -37,7 +37,7 @@ ally
 %%%%
 [adj]neutral
 
-中立な
+中立的な
 %%%%
 [adj]non-hostile
 
