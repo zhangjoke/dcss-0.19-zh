@@ -914,7 +914,7 @@ Are you sure you want to shaft yourself?
 %%%%
 Aiming: <white>Delayed Fireball</white>
 
-目標: <white>遅延式ファイアボール</white>
+照準: <white>遅延式ファイアボール</white>
 %%%%
 spit at
 
