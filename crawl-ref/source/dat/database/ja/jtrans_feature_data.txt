@@ -21,7 +21,7 @@
 %%%%
 [feature]tree
 
-木
+樹木
 %%%%
 [feature]metal wall
 
