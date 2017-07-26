@@ -11,7 +11,3 @@ Your %s glows black for a moment.
 
 あなたの%sは一瞬黒く輝いた。
 %%%%
-preserves the curse.
-
-はそれを呪ったままにした。
-%%%%
