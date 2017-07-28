@@ -1,7 +1,23 @@
 %%%%
 Too many items on level, removing some.
 
-階層のアイテムが多すぎるため、いくつかを削除しました。
+階層にあるアイテムが多すぎるため、いくつかを削除しました。
+%%%%
+Item %s claims to be held by monster %s, but it isn't in the monster's inventory.
+
+# 訳不要
+%%%%
+#ifdef DEBUG
+BUG WARNING: Problems unlinking item '%s', (%d, %d)!!!
+
+%%%%
+#ifdef DEBUG
+BUG WARNING: Item didn't seem to be linked at all.
+
+%%%%
+You see here %s.
+
+ここには%sがある。
 %%%%
 Items here:
 
@@ -19,21 +35,49 @@ Pick up what?
 
 何を拾いますか？
 %%%%
+(<Enter> or tap header to pick up)
+
+(拾い上げるには <Enter> を押すか、または画面上部をタップしてください。
+%%%%
 Select pick up quantity by entering a number, then select the item
 
-個数を指定して拾うには数字を押した後に選択してください。
+個数を指定して拾うには、数字を押した後に選択してください。
 %%%%
 You can't carry that many items.
 
 あなたはこれ以上多くのアイテムを持つことはできない。
 %%%%
+found %s.
+
+%sを手に入れた
+%%%%
 found the Orb of Zot!
 
 ゾットのオーブを手に入れた！
 %%%%
+a player ghost
+
+<player ghost>
+%%%%
+a pandemonium lord
+
+<pandemonium lord>
+%%%%
+[base item type]centaur barding
+
+馬甲
+%%%%
+[base item type]naga barding
+
+具装
+%%%%
 hide
 
 皮
+%%%%
+deck
+
+デッキ
 %%%%
 Original Equipment
 
@@ -45,15 +89,15 @@ You bought it in a shop
 %%%%
 Buggy Original Equipment:
 
-# message for bug
+# 訳不要
 %%%%
 You acquired it
 
 あなたは%sでこの%sを獲得した
 %%%%
+#if TAG_MAJOR_VERSION == 34
 You drew the Genie
 
-# obsolete
 %%%%
 Your wizardly powers created it
 
@@ -65,7 +109,7 @@ gifted it to you
 %%%%
 You stumbled upon it
 
-# message for bug
+# 訳不要
 %%%%
 You subdued it
 
@@ -78,6 +122,10 @@ You took it off
 You found it
 
 あなたは%sでこの%sを見つけた
+%%%%
+# You can't pick that up.
+
+# jtrans_item_use.txtと重複
 %%%%
 Are you sure you want to pick up this pile of gold now?
 
@@ -107,17 +155,17 @@ Pick up %s? ((y)es/(n)o/(a)ll/(m)enu/*?g,/q)
 
 %sを拾いますか？ ((y)はい/(n)いいえ/(a)全部/(m)一覧/*?g,/q)
 %%%%
+(gained %d)
+
+(新たに%d枚入手)
+%%%%
 You now have %d gold piece%s%s.
 
 あなたは今%d枚の金貨を持っている。%s
 %%%%
-You must possess at least fifteen runes to touch the sacred Orb which you defend.
-
-# for zotdef
-%%%%
 You pick up the %s rune and feel its power.
 
-あなたは%sを手にし、その力を感じた。
+あなたは%sのルーンを手にし、その力を感じた。
 %%%%
 You have collected all the runes! Now go and win!
 
@@ -137,19 +185,11 @@ Press } to see all the runes you have collected.
 %%%%
 You feel the abyssal rune guiding you out of this place.
 
-あなたは深淵のルーンがあなたをアビスの外に導こうとしているような気がした。
+あなたは深淵のルーンがあなたをアビスの外へと導こうとしているような気がした。
 %%%%
 You pick up the Orb of Zot!
 
 あなたはゾットのオーブを手にした！
-%%%%
-The lords of Pandemonium are not amused. Beware!
-
-パンデモニウムの君主たちは不機嫌になった。気をつけろ！
-%%%%
-tells them not to hurry.
-
-は彼らにあまり急ぐなと伝えた。
 %%%%
 Now all you have to do is get back out of the dungeon!
 
@@ -163,9 +203,13 @@ You will have to take that off first.
 
 まず装備を外してからにしてください。
 %%%%
+# %s is stuck to you!
+
+# jtrans_item_use.txtと重複
+%%%%
 Too many items on this level, not dropping the item.
 
-この階はアイテムが多すぎるため、そのアイテムを置かなかった。
+この階層にはアイテムが多すぎるため、そのアイテムを置かなかった。
 %%%%
 You drop %s.
 
@@ -183,6 +227,10 @@ Drop what?
 
 何を置きますか？
 %%%%
+(<Enter> or tap header to drop)
+
+(床に置くには <Enter> を押すか、または画面上部をタップしてください。
+%%%%
 Your pack is full.
 
 あなたの荷袋は満杯だ。
@@ -191,21 +239,13 @@ Which rune (ESC to exit)?
 
 ルーンの種類を選択してください (ESCでキャンセル)
 %%%%
-[a] escape     [b] destruction [c] summoning [d] wonders
+[a] escape [b] destruction [c] summoning? (ESC to exit)
 
-[a] 脱出   [b] 破壊   [c] 召喚   [d] 不思議
-%%%%
-[e] war         [f] changes  [g] defence
-
-[e] 戦争   [f] 変幻   [g] 守護
-%%%%
-Which deck (ESC to exit)?
-
-デッキの種類を選択してください (ESCでキャンセル)
+[a]脱出 [b]破壊 [c]召喚 (ESCでキャンセル)
 %%%%
 [a] plain [b] ornate [c] legendary? (ESC to exit)
 
-[a] 普通  [b] レア  [c] 伝説的 を選択してください (Escでキャンセル)
+[a]普通 [b]レア [c]伝説的 (ESCでキャンセル)
 %%%%
 How many cards?
 
@@ -217,19 +257,16 @@ What ego type?
 %%%%
 A manual for which skill?
 
-どのスキルの虎の巻ですか？
+どのスキルの虎の巻にしますか？
 %%%%
 Sorry, no books on that skill today.
 
 申し訳ありませんが、そのスキルの虎の巻はありません。
 %%%%
-[%c] random
+## turns away from rotting? [ENTER for fully fresh]
+wishing blood potion prompt
 
-# not used
-%%%%
-What kind of item mimic?
-
-# not used
+腐敗するまで何ターンを指定しますか？ [Enterで最大ターンになります]
 %%%%
 You have identified the last %s.
 
