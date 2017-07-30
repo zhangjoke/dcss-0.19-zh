@@ -1,0 +1,37 @@
+%%%%
+Grand Total: %d creatures vanquished
+
+総計: %d体のモンスターを倒した。
+%%%%
+Vanquished Creatures
+
+倒したモンスター:
+%%%%
+%d creature%s vanquished.
+
+%d体のモンスターを倒した。
+%%%%
+(once)
+
+(1回)
+%%%%
+(twice)
+
+(2回)
+%%%%
+(thrice)
+
+(3回)
+%%%%
+(%d times)
+
+(%d回)
+%%%%
+(shapeshifter)
+
+(変身能力者)
+%%%%
+%u creature%s vanquished.
+
+%u体のモンスターを倒した。
+%%%%
