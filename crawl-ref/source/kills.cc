@@ -10,6 +10,7 @@
 #include <algorithm>
 
 #include "clua.h"
+#include "database.h"
 #include "describe.h"
 #include "english.h"
 #include "files.h"
@@ -142,9 +143,9 @@ string KillMaster::kill_info() const
 
         add_kill_info(killtext,
                        kills,
-                       count,
+                       count, tagged_jtrans("[kill category]",
                        i == KC_YOU ? nullptr
-                                   : category_name((kill_category) i),
+                                   : category_name((kill_category) i)).c_str(),
                        needseparator);
         needseparator = true;
     }
@@ -152,11 +153,8 @@ string KillMaster::kill_info() const
     string grandt;
     if (categories > 1)
     {
-        char buf[200];
-        snprintf(buf, sizeof buf,
-                "Grand Total: %d creatures vanquished",
-                grandtotal);
-        grandt = buf;
+        grandt = make_stringf(jtransc("Grand Total: %d creatures vanquished"),
+                              grandtotal);
     }
 
 #ifdef CLUA_BINDINGS
@@ -216,7 +214,7 @@ void KillMaster::add_kill_info(string &killtext,
         if (separator)
             killtext += "\n";
 
-        killtext += "Vanquished Creatures";
+        killtext += jtrans("Vanquished Creatures");
         if (category)
             killtext += string(" (") + category + ")";
 
@@ -225,7 +223,7 @@ void KillMaster::add_kill_info(string &killtext,
         for (const kill_exp &kill : kills)
             killtext += "  " + kill.desc + "\n";
 
-        killtext += make_stringf("%d creature%s vanquished.\n",
+        killtext += make_stringf(jtrans_notrimc("%d creature%s vanquished.\n"),
                                  count, count == 1 ? "" : "s");
     }
 #ifdef CLUA_BINDINGS
@@ -409,12 +407,11 @@ static string n_names(const string &name, int n)
 {
     if (n > 1)
     {
-        char buf[20];
-        snprintf(buf, sizeof buf, "%d ", n);
-        return buf + pluralise_monster(name);
+        return make_stringf(jtransc("%d {name}"),
+                            n, jtransc(name));
     }
     else
-        return article_a(name, false);
+        return jtrans(name);
 }
 
 // Returns a string describing the number of times a unique has been killed.
@@ -422,23 +419,24 @@ static string n_names(const string &name, int n)
 //
 static string kill_times(int kills)
 {
-    char buf[50];
+    string times;
     switch (kills)
     {
     case 1:
-        strcpy(buf, " (once)");
+        times = jtrans_notrim(" (once)");
         break;
     case 2:
-        strcpy(buf, " (twice)");
+        times = jtrans_notrim(" (twice)");
         break;
     case 3:
-        strcpy(buf, " (thrice)");
+        times = jtrans_notrim(" (thrice)");
         break;
     default:
-        snprintf(buf, sizeof buf, " (%d times)", kills);
+        times = make_stringf(jtrans_notrimc(" (%d times)"),
+                             kills);
         break;
     }
-    return string(buf);
+    return times;
 }
 
 void kill_def::merge(const kill_def &k, bool uniq)
@@ -473,23 +471,27 @@ string kill_def::base_name(const kill_monster_desc &md) const
 {
     string name;
     if (md.monnum == MONS_PANDEMONIUM_LORD)
-        name = "pandemonium lord";
+        name = jtrans("pandemonium lord");
     else
         name = mons_type_name(md.monnum, DESC_PLAIN);
 
     switch (md.modifier)
     {
     case kill_monster_desc::M_ZOMBIE:
-        name += " zombie";
+        name = make_stringf(jtransc("{monster} zombie"),
+                            name.c_str());
         break;
     case kill_monster_desc::M_SKELETON:
-        name += " skeleton";
+        name = make_stringf(jtransc("{monster} skeleton"),
+                            name.c_str());
         break;
     case kill_monster_desc::M_SIMULACRUM:
-        name += " simulacrum";
+        name = make_stringf(jtransc("{monster} simulacrum"),
+                            name.c_str());
         break;
     case kill_monster_desc::M_SPECTRE:
-        name = "spectral " + name;
+        name = make_stringf(jtransc("spectral {monster}"),
+                            name.c_str());
         break;
     default:
         // Silence compiler warning about not handling M_NORMAL and
@@ -502,7 +504,7 @@ string kill_def::base_name(const kill_monster_desc &md) const
 
 string kill_def::info(const kill_monster_desc &md) const
 {
-    string name = base_name(md);
+    string name = jtrans(base_name(md));
 
     if (!mons_is_unique(md.monnum))
     {
@@ -516,7 +518,7 @@ string kill_def::info(const kill_monster_desc &md) const
             && md.monnum != MONS_SHAPESHIFTER
             && md.monnum != MONS_GLOWING_SHAPESHIFTER)
         {
-            name += " (shapeshifter)";
+            name += jtrans(" (shapeshifter)");
         }
     }
     else if (kills > 1)
@@ -539,12 +541,12 @@ string kill_def::append_places(const kill_monster_desc &md,
             || Options.dump_kill_places == KDO_ALL_PLACES)
     {
         string augmented = name;
-        augmented += " (";
+        augmented += "(";
         for (auto iter = places.begin(); iter != places.end(); ++iter)
         {
             if (iter != places.begin())
                 augmented += " ";
-            augmented += iter->describe();
+            augmented += iter->describe_j();
         }
         augmented += ")";
         return augmented;
@@ -600,7 +602,8 @@ kill_ghost::kill_ghost(const monster* mon)
     if (mon->type == MONS_PLAYER_GHOST && !mon->is_summoned())
     {
         monster_info mi(mon);
-        ghost_name = "The ghost of " + get_ghost_description(mi, true);
+        ghost_name = make_stringf(jtransc("The ghost of {monster}"),
+                                  get_ghost_description(mi, true).c_str());
     }
 }
 
@@ -608,7 +611,7 @@ string kill_ghost::info() const
 {
     return ghost_name
            + (Options.dump_kill_places != KDO_NO_PLACES ?
-                " (" + place.describe() + ")" :
+                " (" + place.describe_j() + ")" :
                 string(""));
 }
 
@@ -961,7 +964,7 @@ static int kill_lualc_summary(lua_State *ls)
     *buf = 0;
     if (count)
     {
-        snprintf(buf, sizeof buf, "%u creature%s vanquished.",
+        snprintf(buf, sizeof buf, jtransc("%u creature%s vanquished."),
                 count, count > 1? "s" : "");
     }
     lua_pushstring(ls, buf);
