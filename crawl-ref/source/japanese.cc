@@ -113,7 +113,7 @@ string thing_do_grammar_j(description_level_type dtype, bool add_stop,
     }
 }
 
-const char * counter_suffix_armour(const item_def& item)
+static const char * _counter_suffix_armour(const item_def& item)
 {
     switch(item.sub_type) // see itemprop-enum.h::enum armour_type
     {
@@ -169,11 +169,11 @@ const char * counter_suffix_armour(const item_def& item)
         return "枚";
 
     default:
-        return "(buggy)";
+        return "[buggy suffix: see _counter_suffix_armour()]";
     }
 }
 
-const char * counter_suffix_misc(const item_def& item)
+static const char * _counter_suffix_misc(const item_def& item)
 {
     switch(item.sub_type) // see itemprop-enum.h::enum misc_item_type
     {
@@ -214,11 +214,11 @@ const char * counter_suffix_misc(const item_def& item)
         return "袋";
 
     default:
-        return "(buggy)";
+        return "[buggy suffix: see _counter_suffix_misc()]";
     }
 }
 
-const char * counter_suffix_missile(const item_def& item)
+static const char * _counter_suffix_missile(const item_def& item)
 {
     switch(item.sub_type)
     {
@@ -238,11 +238,11 @@ const char * counter_suffix_missile(const item_def& item)
         return "枚";
 
     default:
-        return "(buggy)";
+        return "[buggy suffix: see _counter_suffix_missile()]";
     }
 }
 
-const char * counter_suffix_weapon(const item_def& item)
+static const char * _counter_suffix_weapon(const item_def& item)
 {
     switch(item.sub_type) // see itemprop-enum.h
     {
@@ -327,7 +327,7 @@ const char * counter_suffix_weapon(const item_def& item)
         return "張";
 
     default:
-        return "(buggy)";
+        return "[buggy suffix: see _counter_suffix_weapon()]";
     }
 }
 
@@ -339,13 +339,13 @@ const char * counter_suffix(const item_def &item)
     switch (item.base_type)
     {
     case OBJ_WEAPONS:
-        return counter_suffix_weapon(item);
+        return _counter_suffix_weapon(item);
     case OBJ_ARMOUR:
-        return counter_suffix_armour(item);
+        return _counter_suffix_armour(item);
     case OBJ_MISCELLANY:
-        return counter_suffix_misc(item);
+        return _counter_suffix_misc(item);
     case OBJ_MISSILES:
-        return counter_suffix_missile(item);
+        return _counter_suffix_missile(item);
 
     case OBJ_POTIONS:
     case OBJ_WANDS:
@@ -371,6 +371,64 @@ const char * counter_suffix(const item_def &item)
         return "体";
 
     default:
-        return "(buggy)";
+        return "[buggy suffix: see couter_suffix()]";
     }
+}
+
+const string jpluralise(const string &name, const string &prefix, const string &suffix)
+{
+    return prefix + jtrans(name) + suffix;
+}
+
+/*
+ * english.cc/apply_description()の代替
+ */
+string apply_description_j(description_level_type desc, const string &name,
+                           int quantity, bool in_words)
+{
+    switch (desc)
+    {
+    case DESC_A:
+        return quantity > 1 ? make_stringf("%d %s", quantity, jtransc(name))
+                            : jtrans(name);
+    case DESC_YOUR:
+        return jtrans("your ") + jtrans(name);
+    case DESC_THE:
+    case DESC_PLAIN:
+    default:
+        return jtrans(name);
+    }
+}
+
+string get_desc_quantity_j(const int quant, const int total, string whose)
+{
+    if (total == quant)
+        return whose;
+    else if (quant == 1)
+        return whose + "のうちの一つ";
+    else if (quant == 2)
+        return whose + "のうちの二つ";
+    else if (quant >= total * 3 / 4)
+        return whose + "のほとんど";
+    else
+        return whose + "のうちいくつか";
+}
+
+/**
+ * 0～27の範囲の数値を漢数字変換(ヒドラ系モンスター用)
+ */
+string jnumber_for_hydra_heads(int heads)
+{
+    ASSERT((0 < heads) && (heads <= 27)); // for Lernaean hydra
+
+    string nums[10] = {"", "一", "二", "三", "四", "五", "六", "七", "八", "九"};
+    string num;
+
+    if(heads >= 20)
+        num += nums[heads / 10];
+    if(heads >= 10)
+        num += "十";
+    num += nums[heads % 10];
+
+    return num;
 }
