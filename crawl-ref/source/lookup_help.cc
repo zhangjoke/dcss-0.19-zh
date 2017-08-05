@@ -238,14 +238,14 @@ public:
 
     void set_prompt()
     {
-        string prompt = "Describe which? ";
+        string prompt = jtrans_notrim("Describe which? ");
 
         if (toggleable_sort)
         {
             if (sort_alpha)
-                prompt += "(CTRL-S to sort by monster toughness)";
+                prompt += jtrans("(CTRL-S to sort by monster toughness)");
             else
-                prompt += "(CTRL-S to sort by name)";
+                prompt += jtrans("(CTRL-S to sort by name)");
         }
         set_title(new MenuEntry(prompt, MEL_TITLE));
     }
@@ -586,29 +586,25 @@ static string _spell_sources(const spell_type spell)
     }
 
     if (books.empty() && rods.empty())
-        return "\n\nThis spell is not found in any books or rods.";
+        return jtrans_notrim("\n\nThis spell is not found in any books or rods.");
 
     string desc;
 
     if (!books.empty())
     {
-        desc += "\n\nThis spell can be found in the following book";
-        if (books.size() > 1)
-            desc += "s";
+        desc += jtrans_notrim("\n\nThis spell can be found in the following book");
         desc += ":\n ";
         desc += comma_separated_line(books.begin(), books.end(), "\n ", "\n ");
     }
 
     if (!rods.empty())
     {
-        desc += "\n\nThis spell can be found in the following rod";
-        if (rods.size() > 1)
-            desc += "s";
+        desc += jtrans_notrim("\n\nThis spell can be found in the following rod");
         desc += ":\n ";
         desc += comma_separated_line(rods.begin(), rods.end(), "\n ", "\n ");
     }
 
-    return desc;
+    return sp2nbsp(desc);
 }
 
 /**
@@ -797,7 +793,7 @@ string LookupType::prompt_string() const
     ASSERT(symbol_pos != string::npos);
 
     prompt_str.replace(symbol_pos, 1, make_stringf("(%c)", toupper(symbol)));
-    return prompt_str;
+    return jtrans(prompt_str);
 }
 
 /**
@@ -944,8 +940,9 @@ string LookupType::key_to_menu_str(const string &key) const
 int LookupType::describe(const string &key, bool exact_match) const
 {
     const string footer
-        = exact_match ? "This entry is an exact match for '" + key
-        + "'. To see non-exact matches, press space."
+        = exact_match ? make_stringf(jtransc("This entry is an exact match for '%s"
+                                             "'. To see non-exact matches, press space."),
+                                     key.c_str())
         : "";
     return describer(key, suffix(), footer);
 }
@@ -1063,7 +1060,7 @@ static int _describe_card(const string &key, const string &suffix,
     const string card_name = key.substr(0, key.size() - suffix.size());
     const card_type card = name_to_card(card_name);
     ASSERT(card != NUM_CARDS);
-    return _describe_key(key, suffix, footer, which_decks(card) + "\n");
+    return _describe_key(key, suffix, footer, "\n" + which_decks(card) + "\n");
 }
 
 /**
@@ -1162,9 +1159,9 @@ static string _branch_entry_runes(branch_type br)
 
     if (num_runes > 0)
     {
-        desc = make_stringf("\n\nThis %s can only be entered while carrying "
-                            "at least %d rune%s of Zot.",
-                            br == BRANCH_ZIGGURAT ? "portal" : "branch",
+        desc = make_stringf(jtrans_notrimc("\n\nThis %s can only be entered while carrying "
+                                           "at least %d rune%s of Zot."),
+                            jtransc(br == BRANCH_ZIGGURAT ? "portal" : "branch"),
                             num_runes, num_runes > 1 ? "s" : "");
     }
 
@@ -1179,9 +1176,9 @@ static string _branch_depth(branch_type br)
     // Abyss depth is explained in the description.
     if (depth > 1 && br != BRANCH_ABYSS)
     {
-        desc = make_stringf("\n\nThis %s is %d levels deep.",
+        desc = make_stringf(jtrans_notrimc("\n\nThis %s is %d levels deep."), jtransc(
                             br == BRANCH_ZIGGURAT ? "portal"
-                                                  : "branch",
+                                                  : "branch"),
                             depth);
     }
 
@@ -1202,14 +1199,15 @@ static string _branch_location(branch_type br)
         if (min == max)
         {
             if (branches[parent].numlevels == 1)
-                desc += "in ";
+                desc = make_stringf(jtrans_notrimc(desc + "in %s."),
+                                    branch_name_jc(branches[parent].longname));
             else
-                desc += make_stringf("on level %d of ", min);
+                desc = make_stringf(jtrans_notrimc(desc + "on level %d of %s."),
+                                    branch_name_jc(branches[parent].longname), min);
         }
         else
-            desc += make_stringf("between levels %d and %d of ", min, max);
-        desc += branches[parent].longname;
-        desc += ".";
+            desc = make_stringf(jtrans_notrimc(desc + "between levels %d and %d of %s."),
+                                branch_name_jc(branches[parent].longname), min, max);
     }
 
     return desc;
@@ -1222,15 +1220,14 @@ static string _branch_subbranches(branch_type br)
 
     for (branch_iterator it; it; ++it)
         if (it->parent_branch == br && !branch_is_unfinished(it->id))
-            subbranch_names.push_back(it->longname);
+            subbranch_names.push_back(branch_name_j(it->longname));
 
     // Lair's random branches are explained in the description.
     if (!subbranch_names.empty() && br != BRANCH_LAIR)
     {
-        desc += make_stringf("\n\nThis branch contains the entrance%s to %s.",
-                             subbranch_names.size() > 1 ? "s" : "",
-                             comma_separated_line(begin(subbranch_names),
-                                                  end(subbranch_names)).c_str());
+        desc += make_stringf(jtrans_notrimc("\n\nThis branch contains the entrance%s to %s."),
+                             to_separated_line(begin(subbranch_names),
+                                               end(subbranch_names)).c_str());
     }
 
     return desc;
@@ -1339,18 +1336,19 @@ static string _prompt_for_regex(const LookupType &lookup_type, string &err)
 {
     const string type = lowercase_string(lookup_type.type);
     const string extra = lookup_type.supports_glyph_lookup() ?
-        make_stringf(" Enter a single letter to list %s displayed by that"
-                     " symbol.", pluralise(type).c_str()) :
+        make_stringf(jtrans_notrimc(" Enter a single letter to list %s displayed by that"
+                                    " symbol."),
+                     tagged_jtransc("[help type]", type)) :
         "";
     mprf(MSGCH_PROMPT,
-         "Describe a %s; partial names and regexps are fine.%s",
-         type.c_str(), extra.c_str());
+         jtransc("Describe a %s; partial names and regexps are fine.%s"),
+         tagged_jtransc("[help type]", type), extra.c_str());
 
-    mprf(MSGCH_PROMPT, "Describe what? ");
+    mprf(MSGCH_PROMPT, jtrans_notrim("Describe what? "));
     char buf[80];
     if (cancellable_get_line(buf, sizeof(buf)) || buf[0] == '\0')
     {
-        err = "Okay, then.";
+        err = jtrans("Okay, then.");
         return "";
     }
 
@@ -1389,25 +1387,25 @@ static string _keylist_invalid_reason(const vector<string> &key_list,
                                       const string &regex,
                                       bool by_symbol)
 {
-    const string plur_type = pluralise(type);
-
     if (key_list.empty())
     {
         if (by_symbol)
-            return "No " + plur_type + " with symbol '" + regex + "'.";
-        return "No matching " + plur_type + ".";
+            return make_stringf(jtransc("No %s with symbol '%s'."),
+                                regex.c_str(), tagged_jtransc("[help type]", type));
+        return make_stringf(jtransc("No matching %s."),
+                            tagged_jtransc("[help type]", type));
     }
 
     if (key_list.size() > 52)
     {
         if (by_symbol)
         {
-            return "Too many " + plur_type + " with symbol '" + regex +
-                    "' to display.";
+            return make_stringf(jtransc("Too many %s with symbol '%s' to display."),
+                                regex.c_str(), tagged_jtransc("[help type]", type));
         }
 
-        return make_stringf("Too many matching %s (%d) to display.",
-                            plur_type.c_str(), (int) key_list.size());
+        return make_stringf(jtransc("Too many matching %s (%d) to display."),
+                            tagged_jtransc("[help type]", type), (int) key_list.size());
     }
 
     // we're good!
@@ -1425,9 +1423,9 @@ static bool _find_description(string &response)
 {
 
     const string lookup_type_prompts =
-        comma_separated_fn(lookup_types.begin(), lookup_types.end(),
-                           mem_fn(&LookupType::prompt_string), " or ");
-    mprf(MSGCH_PROMPT, "Describe a %s? ", lookup_type_prompts.c_str());
+        to_separated_fn(lookup_types.begin(), lookup_types.end(),
+                        mem_fn(&LookupType::prompt_string), "、", "、", "、");
+    mprf(MSGCH_PROMPT, jtrans_notrimc("Describe a %s? "), lookup_type_prompts.c_str());
 
     int ch;
     {
@@ -1454,7 +1452,7 @@ static bool _find_description(string &response)
     // not actually sure how to trigger this branch...
     if (want_regex && regex.empty())
     {
-        response = "Description must contain at least one non-space.";
+        response = jtrans("Description must contain at least one non-space.");
         return true;
     }
 
@@ -1509,5 +1507,5 @@ void keyhelp_query_descriptions()
     }
 
     viewwindow();
-    mpr("Okay, then.");
+    mpr(jtrans("Okay, then."));
 }
