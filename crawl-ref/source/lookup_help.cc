@@ -755,7 +755,8 @@ static MenuEntry* _spell_menu_gen(char letter, const string &str, string &key)
  */
 static MenuEntry* _skill_menu_gen(char letter, const string &str, string &key)
 {
-    MenuEntry* me = _simple_menu_gen(letter, str, key);
+    MenuEntry* me = new MenuEntry(skill_name_j(str) + "スキル", MEL_ITEM, 1, letter);
+    me->data = &key;
 
 #ifdef USE_TILE
     const skill_type skill = str_to_skill(str);
@@ -1068,6 +1069,43 @@ static int _describe_spell(const string &key, const string &suffix,
     return _describe_key(key, suffix, footer, spell_info + source_info, "[spell]");
 }
 
+/**
+ * Describe the skill with the given name.
+ *
+ * @param key       The name of the skill in question.
+ * @param suffix    A suffix to trim from the key when making the title.
+ * @param footer    A footer to append to the end of descriptions.
+ * @return          The keypress the user made to exit.
+ */
+static int _describe_skill(const string &key, const string &suffix,
+                           string footer)
+{
+    describe_info inf;
+    inf.quote = getQuoteString(key);
+
+    const string desc = getLongDescription(key);
+    const int width = min(80, get_number_of_cols());
+
+    inf.body << desc;
+
+    string title_en = key;
+    strip_suffix(title_en, suffix);
+    title_en = uppercase_first(title_en);
+    string title_ja = skill_name_j(title_en) + "スキル";
+    string spacer = _spacer(get_number_of_cols() - strwidth(title_ja)
+                                                 - strwidth(title_en) - 1);
+    linebreak_string(footer, width - 1);
+
+    inf.footer = footer;
+    inf.title  = title_ja + spacer + title_en;
+
+#ifdef USE_TILE_WEB
+    tiles_crt_control show_as_menu(CRT_MENU, "description");
+#endif
+
+    print_description(inf);
+    return getchm();
+}
 
 /**
  * Describe the card with the given name.
@@ -1298,7 +1336,7 @@ static const vector<LookupType> lookup_types = {
                lookup_type::DB_SUFFIX | lookup_type::SUPPORT_TILES),
     LookupType('K', "skill", nullptr, nullptr,
                nullptr, _get_skill_keys, _skill_menu_gen,
-               _describe_generic,
+               _describe_skill,
                lookup_type::SUPPORT_TILES),
     LookupType('A', "ability", _recap_ability_keys, _ability_filter,
                nullptr, nullptr, _ability_menu_gen,
