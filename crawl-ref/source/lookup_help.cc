@@ -735,7 +735,8 @@ static MenuEntry* _ability_menu_gen(char letter, const string &str, string &key)
  */
 static MenuEntry* _spell_menu_gen(char letter, const string &str, string &key)
 {
-    MenuEntry* me = _simple_menu_gen(letter, str, key);
+    MenuEntry* me = new MenuEntry(str + "/" + spell_title_j(str), MEL_ITEM, 1, letter);
+    me->data = &key;
 
     const spell_type spell = spell_by_name(str);
 #ifdef USE_TILE
@@ -1064,7 +1065,7 @@ static int _describe_spell(const string &key, const string &suffix,
 
     const string spell_info = player_spell_desc(spell);
     const string source_info = _spell_sources(spell);
-    return _describe_key(key, suffix, footer, spell_info + source_info);
+    return _describe_key(key, suffix, footer, spell_info + source_info, "[spell]");
 }
 
 
