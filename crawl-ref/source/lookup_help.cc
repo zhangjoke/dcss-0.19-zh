@@ -662,7 +662,7 @@ static MenuEntry* _monster_menu_gen(char letter, const string &str,
     prefix += colour_to_str(colour);
     prefix += ">) ";
 
-    const string title = prefix + name;
+    const string title = prefix + name + "/" + jtrans(name);
 #else
     const string &title = name;
 #endif
