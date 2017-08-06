@@ -46,6 +46,7 @@
 #include "tilepick.h"
 #include "tileview.h"
 #endif
+#include "unicode.h"
 #include "view.h"
 #include "viewchar.h"
 
@@ -702,6 +703,18 @@ static MenuEntry* _god_menu_gen(char letter, const string &str, string &key)
 }
 
 /**
+ * Generate a ?/B menu entry. (ref. _simple_menu_gen()).
+ */
+static MenuEntry* _branch_menu_gen(char letter, const string &str, string &key)
+{
+    string longname = branches[branch_by_shortname(str)].longname;
+
+    MenuEntry* me = new MenuEntry(branch_name_j(longname), MEL_ITEM, 1, letter);
+    me->data = &key;
+    return me;
+}
+
+/**
  * Generate a ?/A menu entry. (ref. _simple_menu_gen()).
  */
 static MenuEntry* _ability_menu_gen(char letter, const string &str, string &key)
@@ -956,8 +969,14 @@ int LookupType::describe(const string &key, bool exact_match) const
  * @param extra_info    Extra info to append to the database description.
  * @return              The keypress the user made to exit.
  */
+static string _spacer(const int length)
+{
+    return length < 0 ? "" : string(length, ' ');
+}
+
 static int _describe_key(const string &key, const string &suffix,
-                         string footer, const string &extra_info)
+                         string footer, const string &extra_info,
+                         const string &tag = "", const string &title = "")
 {
     describe_info inf;
     inf.quote = getQuoteString(key);
@@ -967,13 +986,16 @@ static int _describe_key(const string &key, const string &suffix,
 
     inf.body << desc << extra_info;
 
-    string title = key;
-    strip_suffix(title, suffix);
-    title = uppercase_first(title);
+    string title_en = title.empty() ? key : title;
+    strip_suffix(title_en, suffix);
+    title_en = uppercase_first(title_en);
+    string title_ja = tagged_jtrans(tag, title_en);
+    string spacer = _spacer(get_number_of_cols() - strwidth(title_ja)
+                                                 - strwidth(title_en) - 1);
     linebreak_string(footer, width - 1);
 
     inf.footer = footer;
-    inf.title  = title;
+    inf.title  = title_ja + spacer + title_en;
 
 #ifdef USE_TILE_WEB
     tiles_crt_control show_as_menu(CRT_MENU, "description");
@@ -1260,7 +1282,7 @@ static int _describe_branch(const string &key, const string &suffix,
             + "\n\n"
             + branch_rune_desc(branch, false);
 
-    return _describe_key(key, suffix, footer, info);
+    return _describe_key(key, suffix, footer, info, "[branch]", branches[branch].longname);
 }
 
 /// All types of ?/ queries the player can enter.
@@ -1298,7 +1320,7 @@ static const vector<LookupType> lookup_types = {
                _describe_god,
                lookup_type::SUPPORT_TILES),
     LookupType('B', "branch", nullptr, nullptr,
-               nullptr, _get_branch_keys, _simple_menu_gen,
+               nullptr, _get_branch_keys, _branch_menu_gen,
                _describe_branch,
                lookup_type::DISABLE_SORT),
     LookupType('L', "cloud", nullptr, nullptr,
