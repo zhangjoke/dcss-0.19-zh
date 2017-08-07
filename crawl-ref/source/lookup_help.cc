@@ -719,7 +719,8 @@ static MenuEntry* _branch_menu_gen(char letter, const string &str, string &key)
  */
 static MenuEntry* _ability_menu_gen(char letter, const string &str, string &key)
 {
-    MenuEntry* me = _simple_menu_gen(letter, str, key);
+    MenuEntry* me = new MenuEntry(str + "/" + ability_name_j(str), MEL_ITEM, 1, letter);
+    me->data = &key;
 
 #ifdef USE_TILE
     const ability_type ability = ability_by_name(str);
@@ -1108,6 +1109,44 @@ static int _describe_skill(const string &key, const string &suffix,
 }
 
 /**
+ * Describe the ability with the given name.
+ *
+ * @param key       The name of the ability in question.
+ * @param suffix    A suffix to trim from the key when making the title.
+ * @param footer    A footer to append to the end of descriptions.
+ * @return          The keypress the user made to exit.
+ */
+static int _describe_ability(const string &key, const string &suffix,
+                             string footer)
+{
+    describe_info inf;
+    inf.quote = getQuoteString(key);
+
+    const string desc = getLongDescription(key);
+    const int width = min(80, get_number_of_cols());
+
+    inf.body << desc;
+
+    string title_en = key;
+    strip_suffix(title_en, suffix);
+    title_en = uppercase_first(title_en);
+    string title_ja = ability_name_j(title_en);
+    string spacer = _spacer(get_number_of_cols() - strwidth(title_ja)
+                                                 - strwidth(title_en) - 1);
+    linebreak_string(footer, width - 1);
+
+    inf.footer = footer;
+    inf.title  = title_ja + spacer + title_en;
+
+#ifdef USE_TILE_WEB
+    tiles_crt_control show_as_menu(CRT_MENU, "description");
+#endif
+
+    print_description(inf);
+    return getchm();
+}
+
+/**
  * Describe the card with the given name.
  *
  * @param key       The name of the card in question.
@@ -1340,7 +1379,7 @@ static const vector<LookupType> lookup_types = {
                lookup_type::SUPPORT_TILES),
     LookupType('A', "ability", _recap_ability_keys, _ability_filter,
                nullptr, nullptr, _ability_menu_gen,
-               _describe_generic,
+               _describe_ability,
                lookup_type::DB_SUFFIX | lookup_type::SUPPORT_TILES),
     LookupType('C', "card", _recap_card_keys, _card_filter,
                nullptr, nullptr, _simple_menu_gen,
