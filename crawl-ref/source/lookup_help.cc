@@ -736,7 +736,7 @@ static MenuEntry* _ability_menu_gen(char letter, const string &str, string &key)
  */
 static MenuEntry* _card_menu_gen(char letter, const string &str, string &key)
 {
-    MenuEntry* me = new MenuEntry(str + "/" + card_name_j(name_to_card(replace_all(str, "The ", "the ")), true),
+    MenuEntry* me = new MenuEntry(str + "/" + card_name_j(str, true),
                                   MEL_ITEM, 1, letter);
     me->data = &key;
     return me;

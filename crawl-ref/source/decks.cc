@@ -326,8 +326,12 @@ const char* card_name(card_type card)
 
 const string card_name_j(card_type card, bool card_of)
 {
-    return tagged_jtrans("[card]", card_name(card)) +
-        (card_of ? "のカード" : "");
+    return card_name_j(card_name(card), card_of);
+}
+
+const string card_name_j(const string &name, bool card_of)
+{
+    return tagged_jtrans("[card]", name) + (card_of ? "のカード" : "");
 }
 
 const char* card_name_jc(card_type card, bool card_of)
