@@ -474,7 +474,7 @@ void wizard_toggle_dprf()
 
         int diag = keyin - '0';
         Options.quiet_debug_messages.set(diag, !Options.quiet_debug_messages[diag]);
-        mprf(jtransc("%s messages will be %s.", diag_names[diag],
+        mprf(jtransc("%s messages will be %s."), diag_names[diag],
              Options.quiet_debug_messages[diag] ? "suppressed" : "printed");
         return;
     }
