@@ -732,6 +732,17 @@ static MenuEntry* _ability_menu_gen(char letter, const string &str, string &key)
 }
 
 /**
+ * Generate a ?/C menu entry. (ref. _simple_menu_gen()).
+ */
+static MenuEntry* _card_menu_gen(char letter, const string &str, string &key)
+{
+    MenuEntry* me = new MenuEntry(str + "/" + card_name_j(name_to_card(replace_all(str, "The ", "the ")), true),
+                                  MEL_ITEM, 1, letter);
+    me->data = &key;
+    return me;
+}
+
+/**
  * Generate a ?/S menu entry. (ref. _simple_menu_gen()).
  */
 static MenuEntry* _spell_menu_gen(char letter, const string &str, string &key)
@@ -1160,7 +1171,32 @@ static int _describe_card(const string &key, const string &suffix,
     const string card_name = key.substr(0, key.size() - suffix.size());
     const card_type card = name_to_card(card_name);
     ASSERT(card != NUM_CARDS);
-    return _describe_key(key, suffix, footer, "\n" + which_decks(card) + "\n");
+
+    describe_info inf;
+    inf.quote = getQuoteString(key);
+
+    const string desc = getLongDescription(key);
+    const int width = min(80, get_number_of_cols());
+
+    inf.body << desc << ("\n" + which_decks(card) + "\n");
+
+    string title_en = key;
+    strip_suffix(title_en, suffix);
+    title_en = uppercase_first(title_en);
+    string title_ja = card_name_j(card, true);
+    string spacer = _spacer(get_number_of_cols() - strwidth(title_ja)
+                                                 - strwidth(title_en) - 1);
+    linebreak_string(footer, width - 1);
+
+    inf.footer = footer;
+    inf.title  = title_ja + spacer + title_en;
+
+#ifdef USE_TILE_WEB
+    tiles_crt_control show_as_menu(CRT_MENU, "description");
+#endif
+
+    print_description(inf);
+    return getchm();
 }
 
 /**
@@ -1382,7 +1418,7 @@ static const vector<LookupType> lookup_types = {
                _describe_ability,
                lookup_type::DB_SUFFIX | lookup_type::SUPPORT_TILES),
     LookupType('C', "card", _recap_card_keys, _card_filter,
-               nullptr, nullptr, _simple_menu_gen,
+               nullptr, nullptr, _card_menu_gen,
                _describe_card,
                lookup_type::DB_SUFFIX),
     LookupType('I', "item", nullptr, _item_filter,
