@@ -195,7 +195,9 @@ string item_def::name(description_level_type descrip, bool terse, bool ident,
         default:
             if (base_type != OBJ_BOOKS)
             {
-                if (is_unrandom_artefact(*this))
+                if (is_unrandom_artefact(*this) ||
+                    item_is_orb(*this) ||
+                    item_is_horn_of_geryon(*this))
                     buff << "★";
                 else if (is_artefact(*this))
                     buff << "☆";
