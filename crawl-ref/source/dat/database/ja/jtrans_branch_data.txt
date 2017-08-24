@@ -84,7 +84,7 @@
 %%%%
 [branch]the Lair of Beasts
 
-<[branch]Lair>
+獣の棲み処
 %%%%
 [branch abbrj]Lair
 
