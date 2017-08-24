@@ -3460,6 +3460,8 @@ static string _monster_stat_description(const monster_info& mi)
         }
         result << jtrans_notrim(".\n");
     }
+    else if (did_speed)
+        result << jtrans_notrim(".\n");
 
     if (mi.type == MONS_SHADOW)
     {
