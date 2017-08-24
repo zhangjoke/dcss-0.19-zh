@@ -1807,9 +1807,9 @@ static string _cosmetic_text(const item_def &weap, iflags_t ignore_flags)
     switch (desc)
     {
         case ISFLAG_RUNED:
-            return jtrans("runed ");
+            return "runed ";
         case ISFLAG_GLOWING:
-            return jtrans("glowing ");
+            return "glowing ";
         default:
             return "";
     }
@@ -1981,7 +1981,7 @@ static string _name_weapon(const item_def &weap, description_level_type desc,
                                && !(ignore_flags & ISFLAG_COSMETIC_MASK);
 
     const string cosmetic_text
-        = show_cosmetic ? _cosmetic_text(weap, ignore_flags) : "";
+        = show_cosmetic ? jtrans(_cosmetic_text(weap, ignore_flags)) : "";
     const string ego_prefix
         = _ego_prefix(weap, desc, terse, ident, ignore_flags);
     const string curse_suffix
