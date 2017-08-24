@@ -1719,8 +1719,8 @@ string get_item_description(const item_def &item, bool verbose,
     if (!dump && !lookup)
     {
         string name = item.name(DESC_INVENTORY_EQUIP);
-        string name_en = (item.base_type == OBJ_BOOKS &&
-                          is_artefact(item)) ? "" :
+        string name_en = (item.base_type == OBJ_BOOKS && is_artefact(item)) ? "" :
+                         (is_artefact(item) && !is_unrandom_artefact(item)) ? "" :
                           is_artefact(item) ? uppercase_first(item.name_en(DESC_THE))
                                             : uppercase_first(item.name_en(DESC_A));
         string spacer = _spacer(get_number_of_cols() - strwidth(name)
