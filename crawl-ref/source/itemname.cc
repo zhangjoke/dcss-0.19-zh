@@ -1830,14 +1830,14 @@ static string _ego_prefix(const item_def &weap, description_level_type desc,
     switch (get_weapon_brand(weap))
     {
         case SPWPN_VAMPIRISM:
-            return item_adj_j("vampiric ");
+            return tagged_jtrans("[ego prefix]", "vampiric ");
         case SPWPN_ANTIMAGIC:
-            return item_adj_j("antimagic ");
+            return tagged_jtrans("[ego prefix]", "antimagic ");
         case SPWPN_NORMAL:
             if (!_know_pluses(weap, desc, ident, ignore_flags)
                 && get_equip_desc(weap))
             {
-                return item_adj_j("enchanted ");
+                return tagged_jtrans("[ego prefix]", "enchanted ");
             }
             // fallthrough to default
         case SPWPN_VORPAL:

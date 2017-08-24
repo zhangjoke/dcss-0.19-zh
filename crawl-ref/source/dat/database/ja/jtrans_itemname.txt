@@ -1247,9 +1247,21 @@ uncursed
 
 呪われていない
 %%%%
-[item adj]vampiric
+runed
+
+ルーンが刻まれた
+%%%%
+glowing
+
+輝く
+%%%%
+[ego prefix]vampiric
 
 吸血の
+%%%%
+[ego prefix]antimagic
+
+反魔法の
 %%%%
 [ego prefix]enchanted
 
