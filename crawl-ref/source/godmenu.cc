@@ -50,7 +50,7 @@ string GodMenuEntry::get_text(const bool unused) const
     {
         char buf[300];
         snprintf(buf, sizeof buf, " <%s>%c</%s> %c %s",  colour_text.c_str(),
-                 hotkeys[0], colour_text.c_str(), preselected ? '+' : '-', text.c_str());
+                 hotkeys[0], colour_text.c_str(), preselected ? '+' : '-', jtransc(text));
         return string(buf);
     }
     return text;
