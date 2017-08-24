@@ -165,7 +165,7 @@ Okay, then.
 %%%%
 No %s with symbol '%s'.
 
-'%s'に該当する%sはありません。
+'%s'に該当する%sは見つかりませんでした。
 %%%%
 No matching %s.
 
