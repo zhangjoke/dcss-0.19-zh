@@ -9,5 +9,5 @@ This branch is unnaturally silent, and so sound travels much further.
 %%%%
 This branch contains the %s rune%s of Zot.
 
-この分岐には%sが収められている。
+この分岐の奥底には%sが隠されている。
 %%%%
