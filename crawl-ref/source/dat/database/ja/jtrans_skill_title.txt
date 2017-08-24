@@ -335,6 +335,10 @@
 
 忍者
 %%%%
+[skill]Stabbing
+
+急所突き
+%%%%
 [skill]Shields
 
 盾
@@ -358,6 +362,10 @@
 [title]@Adj@ Barricade
 
 @Adj@の防護壁
+%%%%
+[skill]Traps
+
+罠
 %%%%
 [skill]Unarmed Combat
 
