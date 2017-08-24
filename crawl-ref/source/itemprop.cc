@@ -15,6 +15,7 @@
 
 #include "artefact.h"
 #include "art-enum.h"
+#include "database.h"
 #include "decks.h"
 #include "describe.h"
 #include "godpassive.h"
@@ -820,8 +821,8 @@ bool curse_an_item(bool ignore_holy_wrath)
     // allowing these would enable mummy scumming
     if (have_passive(passive_t::want_curses))
     {
-        mprf(MSGCH_GOD, "The curse is absorbed by %s.",
-             god_name(you.religion).c_str());
+        mprf(MSGCH_GOD, jtransc("The curse is absorbed by %s."),
+             god_name_jc(you.religion));
         return false;
     }
 
@@ -879,7 +880,7 @@ void do_curse_item(item_def &item, bool quiet)
             const bool was_known = is_artefact(item)
                                  ? artefact_known_property(item, ARTP_BRAND)
                                  : item_ident(item, ISFLAG_KNOW_TYPE);
-            mprf("Your %s glows black briefly, but repels the curse.",
+            mprf(jtransc("Your %s glows black briefly, but repels the curse."),
                  item.name(DESC_PLAIN).c_str());
             if (is_artefact(item))
                 artefact_learn_prop(item, ARTP_BRAND);
@@ -894,7 +895,7 @@ void do_curse_item(item_def &item, bool quiet)
 
     if (!quiet)
     {
-        mprf("Your %s glows black for a moment.",
+        mprf(jtransc("Your %s glows black for a moment."),
              item.name(DESC_PLAIN).c_str());
 
         // If we get the message, we know the item is cursed now.

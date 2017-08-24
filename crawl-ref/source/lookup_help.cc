@@ -743,6 +743,16 @@ static MenuEntry* _card_menu_gen(char letter, const string &str, string &key)
 }
 
 /**
+ * Generate a ?/I menu entry. (ref. _simple_menu_gen()).
+ */
+static MenuEntry* _item_menu_gen(char letter, const string &str, string &key)
+{
+    MenuEntry* me = new MenuEntry(str + "/" + jtrans(str), MEL_ITEM, 1, letter);
+    me->data = &key;
+    return me;
+}
+
+/**
  * Generate a ?/S menu entry. (ref. _simple_menu_gen()).
  */
 static MenuEntry* _spell_menu_gen(char letter, const string &str, string &key)
@@ -1422,7 +1432,7 @@ static const vector<LookupType> lookup_types = {
                _describe_card,
                lookup_type::DB_SUFFIX),
     LookupType('I', "item", nullptr, _item_filter,
-               item_name_list_for_glyph, nullptr, _simple_menu_gen,
+               item_name_list_for_glyph, nullptr, _item_menu_gen,
                _describe_item,
                lookup_type::NONE),
     LookupType('F', "feature", _recap_feat_keys, _feature_filter,
