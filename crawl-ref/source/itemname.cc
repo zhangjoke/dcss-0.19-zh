@@ -1983,7 +1983,7 @@ static string _name_weapon(const item_def &weap, description_level_type desc,
     const string cosmetic_text
         = show_cosmetic ? jtrans(_cosmetic_text(weap, ignore_flags)) : "";
     const string ego_prefix
-        = _ego_prefix(weap, desc, terse, ident, ignore_flags);
+        = _ego_prefix(weap, desc, false, ident, ignore_flags);
     const string curse_suffix
         = know_curse && weap.cursed() && terse ? jtrans_notrim(" (curse)") :  "";
     return curse_prefix + cosmetic_text + ego_prefix
