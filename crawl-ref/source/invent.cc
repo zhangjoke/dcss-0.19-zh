@@ -795,7 +795,7 @@ menu_letter InvMenu::load_items(const vector<const item_def*> &mitems,
                 string right_text = make_stringf(jtransc("(select all with <w>%s</w><blue>)"),
                                                  glys.c_str());
                 subtitle += string(get_number_of_cols() - strwidth(right_text)
-                                                        - strwidth(subtitle) + 14,
+                                                        - strwidth(subtitle) + 13,
                                    ' ')
                           + right_text;
             }
