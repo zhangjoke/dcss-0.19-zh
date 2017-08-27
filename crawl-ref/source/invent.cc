@@ -784,11 +784,6 @@ menu_letter InvMenu::load_items(const vector<const item_def*> &mitems,
             get_class_hotkeys(i, glyphs);
             if (!glyphs.empty())
             {
-                // longest string
-                const string str = "Magical Staves ";
-                subtitle += string(strwidth(str) - strwidth(subtitle),
-                                   ' ');
-
                 string glys;
                 for (char gly : glyphs)
                     glys += gly;
