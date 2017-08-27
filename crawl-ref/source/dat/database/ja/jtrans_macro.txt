@@ -1,23 +1,35 @@
 %%%%
+Couldn't open %s for writing!
+
+ファイル%sを書き込み用として開くことができません！
+%%%%
+(Key replay ran out of keys)
+
+# 訳不要
+%%%%
 Input %s action:
 
 %sの動作を入力してください:
 %%%%
-level-map
+[keymc]default
 
-階層マップ画面
+通常画面の
 %%%%
-targeting
+[keymc]level-map
 
-ターゲット画面
+階層マップ画面の
 %%%%
-confirm
+[keymc]targeting
 
-確認画面
+ターゲット画面の
 %%%%
-menu
+[keymc]confirm
 
-メニュー画面
+確認画面の
+%%%%
+[keymc]menu
+
+メニュー画面の
 %%%%
 keymap
 
@@ -64,6 +76,18 @@ Deleted %s for '%s'.
 Created %s '%s' => '%s'.
 
 %sでの'%s'キーから'%s'への対応を作成しました。
+%%%%
+Cannot parse marcos += %s , there is only one argument
+
+# 訳不要
+%%%%
+'%s' is not a valid macro or keymap context (macros += %s)
+
+# 訳不要
+%%%%
+Cannot parse marcos += %s , there are only two arguments
+
+# 訳不要
 %%%%
 key_to_command(): command '%s' (%d:%d) wrong for desired context
 

@@ -32,6 +32,7 @@
 #include <vector>
 
 #include "cio.h"
+#include "database.h"
 #include "files.h"
 #include "initfile.h"
 #include "libutil.h"
@@ -343,11 +344,75 @@ static keyseq parse_keyseq(string s)
     return v;
 }
 
+static string _special_keys_to_string_for_macro_trigger(int key)
+{
+    const bool shift = (key >= CK_SHIFT_UP && key <= CK_SHIFT_PGDN);
+    const bool ctrl  = (key >= CK_CTRL_UP && key <= CK_CTRL_PGDN);
+
+    string cmd = "";
+
+    if (shift)
+    {
+        key -= (CK_SHIFT_UP - CK_UP);
+        cmd = "Shift-";
+    }
+    else if (ctrl)
+    {
+        key -= (CK_CTRL_UP - CK_UP);
+        cmd = "Ctrl-";
+    }
+
+    switch (key)
+    {
+    case CK_ENTER:  cmd += "Enter"; break;
+    case CK_BKSP:   cmd += "Backspace"; break;
+    CASE_ESCAPE     cmd += "Esc"; break;
+    case CK_DELETE: cmd += "Del"; break;
+    case CK_UP:     cmd += "Up"; break;
+    case CK_DOWN:   cmd += "Down"; break;
+    case CK_LEFT:   cmd += "Left"; break;
+    case CK_RIGHT:  cmd += "Right"; break;
+    case CK_INSERT: cmd += "Ins"; break;
+    case CK_HOME:   cmd += "Home"; break;
+    case CK_END:    cmd += "End"; break;
+    case CK_CLEAR:  cmd += "Clear"; break;
+    case CK_PGUP:   cmd += "PgUp"; break;
+    case CK_PGDN:   cmd += "PgDn"; break;
+
+    case CK_F1:  case CK_F2:  case CK_F3:  case CK_F4:
+    case CK_F5:  case CK_F6:  case CK_F7:  case CK_F8:
+    case CK_F9:  case CK_F10: case CK_F11: case CK_F12:
+    {
+        int fnkey = CK_F1 - key + 1;
+        if (1 <= fnkey && fnkey <= 12)
+            cmd += make_stringf("[F%d]", fnkey);
+        break;
+    }
+#define CASE_CTRL(CH) case CONTROL(CH): cmd += string("Ctrl-") + CH; break;
+    CASE_CTRL('A'); CASE_CTRL('B'); CASE_CTRL('C'); CASE_CTRL('D');
+    CASE_CTRL('E'); CASE_CTRL('F');
+    //no CONTROL-G (duplicate to ESCAPE)
+    //no CONTROL-H (duplicate to CK_BKSP)
+    CASE_CTRL('I'); CASE_CTRL('J'); CASE_CTRL('K'); CASE_CTRL('L');
+    //no CONTROL-M (duplicate to CK_ENTER)
+    CASE_CTRL('N'); CASE_CTRL('O'); CASE_CTRL('P'); CASE_CTRL('Q');
+    CASE_CTRL('R'); CASE_CTRL('S'); CASE_CTRL('T'); CASE_CTRL('U');
+    CASE_CTRL('V'); CASE_CTRL('W'); CASE_CTRL('X'); CASE_CTRL('Y');
+    CASE_CTRL('Z');
+#undef CASE_CTRL
+
+    default:
+        cmd += make_stringf("%d", key);
+    }
+
+    return cmd;
+}
+
 /*
  * Serialises a key sequence into a string of the format described
  * above.
  */
-static string vtostr(const keyseq &seq)
+static string vtostr(const keyseq &seq, bool display_only = false)
 {
     ostringstream s;
 
@@ -369,6 +434,8 @@ static string vtostr(const keyseq &seq)
         {
             if (key == KEY_MACRO_MORE_PROTECT)
                 s << "\\{!more}";
+            else if (display_only)
+                s << _special_keys_to_string_for_macro_trigger(key);
             else
             {
                 char buff[20];
@@ -665,7 +732,7 @@ void macro_save()
     f = fopen_u(macrofile.c_str(), "w");
     if (!f)
     {
-        mprf(MSGCH_ERROR, "Couldn't open %s for writing!", macrofile.c_str());
+        mprf(MSGCH_ERROR, jtransc("Couldn't open %s for writing!"), macrofile.c_str());
         return;
     }
 
@@ -703,7 +770,7 @@ static keyseq _getch_mul(int (*rgetch)() = nullptr)
     // get new keys from the user.
     if (crawl_state.is_replaying_keys())
     {
-        mprf(MSGCH_ERROR, "(Key replay ran out of keys)");
+        mprf(MSGCH_ERROR, jtrans("(Key replay ran out of keys)"));
         crawl_state.cancel_cmd_repeat();
         crawl_state.cancel_cmd_again();
     }
@@ -827,7 +894,7 @@ void flush_input_buffer(int reason)
 
 static string _macro_prompt_string(const string &macro_type)
 {
-    return make_stringf("Input %s action: ", macro_type.c_str());
+    return make_stringf(jtrans_notrimc("Input %s action: "), macro_type.c_str());
 }
 
 static void _macro_prompt(const string &macro_type)
@@ -880,14 +947,15 @@ static void _input_action_text(const string &macro_type, keyseq* action)
 
 static string _macro_type_name(bool keymap, KeymapContext keymc)
 {
-    return make_stringf("%s%s",
-                        keymap ? (keymc == KMC_DEFAULT    ? "default " :
-                                  keymc == KMC_LEVELMAP   ? "level-map " :
-                                  keymc == KMC_TARGETING  ? "targeting " :
-                                  keymc == KMC_CONFIRM    ? "confirm " :
-                                  keymc == KMC_MENU       ? "menu "
-                                  : "buggy") : "",
-                        (keymap ? "keymap" : "macro"));
+    string keymc_str = keymap ? (keymc == KMC_DEFAULT    ? "default " :
+                                 keymc == KMC_LEVELMAP   ? "level-map " :
+                                 keymc == KMC_TARGETING  ? "targeting " :
+                                 keymc == KMC_CONFIRM    ? "confirm " :
+                                 keymc == KMC_MENU       ? "menu "
+                                 : "buggy") : "";
+
+    return make_stringf("%s%s", tagged_jtransc("[keymc]", keymc_str),
+                        jtransc(keymap ? "keymap" : "macro"));
 }
 
 void macro_add_query()
@@ -898,9 +966,9 @@ void macro_add_query()
     KeymapContext keymc = KMC_DEFAULT;
 
     clear_messages();
-    mprf(MSGCH_PROMPT, "(m)acro, (M)acro raw, keymap "
-                       "[(k) default, (x) level-map, (t)argeting, "
-                       "(c)onfirm, m(e)nu], (s)ave? ");
+    mprf(MSGCH_PROMPT, jtrans("(m)acro, (M)acro raw, keymap "
+                              "[(k) default, (x) level-map, (t)argeting, "
+                              "(c)onfirm, m(e)nu], (s)ave? "));
     input = m_getch();
     int low = toalower(input);
 
@@ -936,20 +1004,20 @@ void macro_add_query()
     }
     else if (input == 's')
     {
-        mpr("Saving macros.");
+        mpr(jtrans("Saving macros."));
         macro_save();
         return;
     }
     else
     {
-        mpr("Aborting.");
+        mpr(jtrans("Aborting."));
         return;
     }
 
     // reference to the appropriate mapping
     macromap &mapref = (keymap ? Keymaps[keymc] : Macros);
     const string macro_type = _macro_type_name(keymap, keymc);
-    const string trigger_prompt = make_stringf("Input %s trigger key: ",
+    const string trigger_prompt = make_stringf(jtrans_notrimc("Input %s trigger key: "),
                                                macro_type.c_str());
     msgwin_prompt(trigger_prompt);
 
@@ -957,14 +1025,14 @@ void macro_add_query()
     mouse_control mc(MOUSE_MODE_MACRO);
     key = _getch_mul();
 
-    msgwin_reply(vtostr(key));
+    msgwin_reply(vtostr(key, true));
 
     if (mapref.count(key) && !mapref[key].empty())
     {
         string action = vtostr(mapref[key]);
         action = replace_all(action, "<", "<<");
-        mprf(MSGCH_WARN, "Current Action: %s", action.c_str());
-        mprf(MSGCH_PROMPT, "Do you wish to (r)edefine, (c)lear, or (a)bort? ");
+        mprf(MSGCH_WARN, jtransc("Current Action: %s"), action.c_str());
+        mprf(MSGCH_PROMPT, jtrans_notrim("Do you wish to (r)edefine, (c)lear, or (a)bort? "));
 
         input = m_getch();
 
@@ -976,9 +1044,9 @@ void macro_add_query()
         }
         else if (input == 'c')
         {
-            mprf("Cleared %s '%s' => '%s'.",
-                 macro_type.c_str(),
-                 vtostr(key).c_str(),
+            mprf(jtransc("Cleared %s '%s' => '%s'."),
+                 jtransc(macro_type),
+                 vtostr(key, true).c_str(),
                  vtostr(mapref[key]).c_str());
             macro_del(mapref, key);
             crawl_state.unsaved_macros = true;
@@ -997,9 +1065,9 @@ void macro_add_query()
         const bool deleted_macro = macro_del(mapref, key);
         if (deleted_macro)
         {
-            mprf("Deleted %s for '%s'.",
-                 macro_type.c_str(),
-                 vtostr(key).c_str());
+            mprf(jtransc("Deleted %s for '%s'."),
+                 jtransc(macro_type),
+                 vtostr(key, true).c_str());
         }
         else
             canned_msg(MSG_OK);
@@ -1007,9 +1075,9 @@ void macro_add_query()
     else
     {
         macro_add(mapref, key, action);
-        mprf("Created %s '%s' => '%s'.",
-             macro_type.c_str(),
-             vtostr(key).c_str(), vtostr(action).c_str());
+        mprf(jtransc("Created %s '%s' => '%s'."),
+             jtransc(macro_type),
+             vtostr(key, true).c_str(), vtostr(action).c_str());
     }
 
     crawl_state.unsaved_macros = true;
@@ -1081,7 +1149,7 @@ string read_rc_file_macro(const string& field)
     const int first_space = field.find(' ');
 
     if (first_space < 0)
-        return "Cannot parse marcos += %s , there is only one argument";
+        return jtrans("Cannot parse marcos += %s , there is only one argument");
 
     // Start by deciding what context the macro/keymap is in
     const string context = field.substr(0, first_space);
@@ -1108,8 +1176,8 @@ string read_rc_file_macro(const string& field)
     else if (context == "M")
         keymap = false;
     else
-        return "'" + context
-                   + "' is not a valid macro or keymap context (macros += %s)";
+        return make_stringf(jtransc("'%s' is not a valid macro or keymap context (macros += %s)"),
+                            context.c_str());
 
     // Now grab the key and action to be performed
     const string key_and_action = field.substr((first_space + 1));
@@ -1117,7 +1185,7 @@ string read_rc_file_macro(const string& field)
     const int second_space = key_and_action.find(' ');
 
     if (second_space < 0)
-        return "Cannot parse marcos += %s , there are only two arguments";
+        return jtrans("Cannot parse marcos += %s , there are only two arguments");
 
     const string macro_key_string = key_and_action.substr(0, second_space);
     const string action_string = key_and_action.substr((second_space + 1));
@@ -1293,9 +1361,9 @@ command_type key_to_command(int key, KeymapContext context)
 
         if (cmd_context != context)
         {
-            mprf(MSGCH_ERROR,
+            mprf(MSGCH_ERROR, jtransc(
                  "key_to_command(): command '%s' (%d:%d) wrong for desired "
-                 "context",
+                 "context"),
                  command_to_name(cmd).c_str(), -key - CMD_NO_CMD,
                  CMD_MAX_CMD + key);
             if (is_processing_macro())
@@ -1360,25 +1428,25 @@ void bind_command_to_key(command_type cmd, int key)
     {
         if (command_name == "CMD_NO_CMD")
         {
-            mprf(MSGCH_ERROR, "Cannot bind command #%d to a key.",
+            mprf(MSGCH_ERROR, jtransc("Cannot bind command #%d to a key."),
                  (int) cmd);
             return;
         }
 
-        mprf(MSGCH_ERROR, "Cannot bind command '%s' to a key.",
+        mprf(MSGCH_ERROR, jtransc("Cannot bind command '%s' to a key."),
              command_name.c_str());
         return;
     }
 
     if (is_userfunction(key))
     {
-        mprf(MSGCH_ERROR, "Cannot bind user function keys to a command.");
+        mprf(MSGCH_ERROR, jtrans("Cannot bind user function keys to a command."));
         return;
     }
 
     if (is_synthetic_key(key))
     {
-        mprf(MSGCH_ERROR, "Cannot bind synthetic keys to a command.");
+        mprf(MSGCH_ERROR, jtrans("Cannot bind synthetic keys to a command."));
         return;
     }
 
