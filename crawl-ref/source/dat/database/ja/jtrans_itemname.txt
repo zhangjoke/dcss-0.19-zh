@@ -1537,19 +1537,19 @@ runes
 %%%%
 unknown %s
 
-不明な%s
+未鑑定の%s
 %%%%
 Items not yet recognised: (toggle with -)
 
-未鑑定のアイテム一覧 (- で切り替え)
+未鑑定のアイテム一覧 (- で切替)
 %%%%
 Recognised items. (- for unrecognised, select to toggle autopickup)
 
-認識しているアイテム一覧 (- で切り替え、選択して自動拾い切り替え)
+認識済アイテム一覧 (- で未鑑定分を表示、選択して自動拾いを切替)
 %%%%
 You recognise all items. (Select to toggle autopickup)
 
-あなたはすべてのアイテムを認識している。 (選択して自動拾い切り替え)
+あなたはすべてのアイテムを鑑定済だ。 (選択して自動拾いを切替)
 %%%%
 (_ for help)
 
