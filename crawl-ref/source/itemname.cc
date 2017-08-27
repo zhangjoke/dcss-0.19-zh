@@ -3454,7 +3454,7 @@ public:
 
         return make_stringf(" %c%c%c%c%s", hotkeys[0], need_cursor ? '[' : ' ',
                                            symbol, need_cursor ? ']' : ' ',
-                                           jtransc(name));
+                                           item_class_name_jc(name));
     }
 
     virtual int highlight_colour() const override

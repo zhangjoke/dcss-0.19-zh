@@ -231,6 +231,8 @@ void identify_inventory();
 
 const char *item_class_name(int type, bool terse = false);
 const string item_class_name_j(int type, bool terse = false);
+const string item_class_name_j(const string &name);
+#define item_class_name_jc(arg) (item_class_name_j(arg).c_str())
 const char *item_slot_name(equipment_type type);
 
 bool check_old_item_warning(const item_def& item, operation_types oper);

@@ -938,7 +938,12 @@ const char *item_class_name(int type, bool terse)
 
 const string item_class_name_j(int type, bool terse)
 {
-    return tagged_jtrans("[item class]", item_class_name(type, terse));
+    return item_class_name_j(item_class_name(type, terse));
+}
+
+const string item_class_name_j(const string &name)
+{
+    return tagged_jtrans("[item class]", name);
 }
 
 const char* item_slot_name(equipment_type type)
