@@ -25,7 +25,7 @@ Fangs
 
 キーキー鳴く
 %%%%
-front leg
+[form]front leg
 
 前脚
 %%%%
@@ -54,7 +54,7 @@ blade-form
 
 切り刻んだ
 %%%%
-scythe-like blade
+[form]scythe-like blade
 
 鎌のような刃
 %%%%
@@ -92,7 +92,7 @@ a creature of crystalline ice.
 
 水晶のように透き通った氷の生き物の姿を
 %%%%
-front paw
+[form]front paw
 
 前脚
 %%%%
@@ -125,7 +125,7 @@ a fearsome dragon!
 
 吠える
 %%%%
-foreclaw
+[form]foreclaw
 
 前脚の爪
 %%%%
@@ -180,7 +180,7 @@ a filthy swine.
 
 ブーブーと鳴く
 %%%%
-front trotter
+[form]front trotter
 
 前脚
 %%%%
@@ -226,7 +226,7 @@ Branches
 
 きしむ音を立てる
 %%%%
-branch
+[form]branch
 
 枝
 %%%%
@@ -280,7 +280,7 @@ an insubstantial wisp.
 
 稀薄な霧の姿を
 %%%%
-Misty tendrils
+[from]Misty tendrils
 
 霧の手先
 %%%%
@@ -342,7 +342,7 @@ release spores at
 
 胞子を放つ
 %%%%
-hypha
+[form]hypha
 
 菌糸
 %%%%
