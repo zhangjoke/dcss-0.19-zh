@@ -12,6 +12,7 @@
 #include "art-enum.h" // unrand -> magic staff silliness
 #include "artefact.h"
 #include "colour.h"
+#include "database.h"
 #include "decks.h"
 #include "describe.h"
 #include "dungeon.h"
@@ -43,7 +44,8 @@ int create_item_named(string name, coord_def p, string *error)
     if (item != NON_ITEM)
         link_items();
     else if (error)
-        *error = "Failed to create item '" + name + "'";
+        *error = make_stringf(jtransc("Failed to create item '%s'"),
+                              name.c_str());
 
     return item;
 }
@@ -2010,7 +2012,7 @@ int items(bool allow_uniques,
         || item.base_type == OBJ_MISSILES
           && !is_missile_brand_ok(item.sub_type, item.brand, false))
     {
-        mprf(MSGCH_ERROR, "Invalid brand on item %s, annulling.",
+        mprf(MSGCH_ERROR, jtransc("Invalid brand on item %s, annulling."),
             item.name(DESC_PLAIN, false, true, false, false, ISFLAG_KNOW_PLUSES
                       | ISFLAG_KNOW_CURSE).c_str());
         item.brand = 0;
@@ -2228,7 +2230,7 @@ void makeitem_tests()
     int i, level;
     item_def item;
 
-    mpr("Running generate_weapon_item tests.");
+    mpr(jtrans("Running generate_weapon_item tests."));
     for (i = 0; i < 10000; ++i)
     {
         item.clear();
@@ -2254,7 +2256,7 @@ void makeitem_tests()
                               level);
     }
 
-    mpr("Running generate_armour_item tests.");
+    mpr(jtrans("Running generate_armour_item tests."));
     for (i = 0; i < 10000; ++i)
     {
         item.clear();
