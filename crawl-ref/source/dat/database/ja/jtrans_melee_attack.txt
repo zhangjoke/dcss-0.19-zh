@@ -1,0 +1,738 @@
+%%%%
+You attempt to attack %s, but flinch away in fear!
+
+あなたは%sを攻撃しようとしたが尻込みした！
+%%%%
+%s strikes at %s from the darkness!
+
+%sは%sを闇討ちした！
+%%%%
+%s momentarily %s out as %s attack passes through %s%s
+
+%sは一瞬存在を薄めて%s攻撃をすり抜けた。
+%%%%
+%s shroud bends %s attack away%s
+
+%s帷子は%s攻撃を逸らした%s
+%%%%
+%s shroud falls apart!
+
+%s帷子は霧消した！
+%%%%
+You %sdevour %s!
+
+あなたは%s%sをむさぼり食らった！
+%%%%
+You spit out %s as %s twists & changes in your mouth!
+
+あなたは口の中で捻れて変化した%sを吐きだした！
+%%%%
+Your tendrils lash around %s %s and pull it to the ground!
+
+あなたの蔦が%sの%sを地面にはたき落とした！
+%%%%
+blocks your attack.
+
+はあなたの攻撃を防いだ。
+%%%%
+grab
+
+掴んだ
+%%%%
+[auxname]grab
+
+掴み
+%%%%
+kick
+
+蹴った
+%%%%
+[auxname]kick
+
+蹴り
+%%%%
+claw
+
+かきむしった
+%%%%
+pierce
+
+刺し貫いた
+%%%%
+[auxname]tentacle spike
+
+棘の生えた触手
+%%%%
+headbutt
+
+頭突きをした
+%%%%
+[auxname]headbutt
+
+頭突き
+%%%%
+peck
+
+ついばんだ
+%%%%
+[auxname]peck
+
+ついばみ
+%%%%
+tail-slap
+
+尻尾で打ちつけた
+%%%%
+[auxname]tail-slap
+
+尻尾の一撃
+%%%%
+punch
+
+殴った
+%%%%
+[auxname]slash
+
+切り払い
+%%%%
+[auxname]claw
+
+爪
+%%%%
+[auxname]tentacle-slap
+
+触手の一撃
+%%%%
+[auxname]punch
+
+パンチ
+%%%%
+bite
+
+噛んだ
+%%%%
+[auxname]bite
+
+噛みつき
+%%%%
+bludgeon
+
+殴りつけた
+%%%%
+[auxname]bludgeon
+
+殴打
+%%%%
+squeeze
+
+締めつけた
+%%%%
+[auxname]squeeze
+
+締めつけ
+%%%%
+Your %s passes through %s as %s momentarily phases out.
+
+あなたの%sは一瞬存在の薄まった%sをすり抜けた。
+%%%%
+Your %s misses %s.
+
+あなたの%sは%sに躱された。
+%%%%
+%s is splashed with acid.
+
+%sは酸のしぶきを浴びた。
+%%%%
+You drain %s %s.
+
+あなたは%s%sを吸い取った。
+%%%%
+magic
+
+呪文
+%%%%
+power
+
+魔力
+%%%%
+You feel invigorated.
+
+あなたは活力を得た。
+%%%%
+You %s %s%s.
+
+あなたは%s%s%s%s。
+%%%%
+, but do no damage
+
+が、ダメージを与えられなかった
+%%%%
+You %s %s%s%s
+
+あなたは%s%s%s%s%s
+%%%%
+hit
+
+攻撃した
+%%%%
+clumsily bash
+
+不器用に殴打した
+%%%%
+puncture
+
+刺した
+%%%%
+impale
+
+突き刺した
+%%%%
+like the proverbial pig
+
+豚の丸焼きのように
+%%%%
+attack
+
+攻撃した
+%%%%
+'s weak point
+
+の急所
+%%%%
+like a pig
+
+豚のように
+%%%%
+skewer
+
+刺し貫いた
+%%%%
+like a kebab
+
+ケバブの肉のように
+%%%%
+stick
+
+突き刺した
+%%%%
+like a pincushion
+
+針山のように
+%%%%
+perforate
+
+穴を開けた
+%%%%
+like a sieve
+
+ふるいのように
+%%%%
+slash
+
+切り払った
+%%%%
+slice
+
+切り裂いた
+%%%%
+dice
+
+細切れにした
+%%%%
+like an onion
+
+玉ねぎのように
+%%%%
+fracture
+
+打ち砕いた
+%%%%
+into splinters
+
+木っ端微塵に
+%%%%
+carve
+
+切り分けた
+%%%%
+like the proverbial ham
+
+ハムのように
+%%%%
+like a turkey
+
+七面鳥のように
+%%%%
+shave
+
+毛皮を刈り取った
+%%%%
+like a pillowcase
+
+枕カバーのように
+%%%%
+like a ripe choko
+
+熟したハヤトウリのように
+%%%%
+cut
+
+切り裂いた
+%%%%
+into ribbons
+
+リボンのように
+%%%%
+like a ham
+
+ハムのように
+%%%%
+chop
+
+ぶった切った
+%%%%
+into pieces
+
+バラバラに
+%%%%
+thump
+
+殴打した
+%%%%
+sock
+
+殴った
+%%%%
+shatter
+
+粉砕した
+%%%%
+splatter
+
+変えた
+%%%%
+into a gooey mess
+
+べたべたした肉塊に
+%%%%
+crush
+
+潰した
+%%%%
+like a grape
+
+ブドウ粒のように
+%%%%
+beat
+
+叩いた
+%%%%
+like a drum
+
+太鼓のように
+%%%%
+like a gong
+
+銅鑼のように
+%%%%
+pound
+
+叩きつけた
+%%%%
+like an anvil
+
+金床のように
+%%%%
+flatten
+
+ぺしゃんこにした
+%%%%
+like a pancake
+
+パンケーキのように
+%%%%
+whack
+
+ぴしゃりと打った
+%%%%
+thrash
+
+鞭打った
+%%%%
+punish
+
+懲罰した
+%%%%
+, causing immense pain
+
+激痛を与えて
+%%%%
+devastate
+
+打ちのめした
+%%%%
+scratch
+
+引っかいた
+%%%%
+mangle
+
+めちゃくちゃに傷つけた
+%%%%
+eviscerate
+
+内臓をくりぬいた
+%%%%
+batter
+
+叩きのめした
+%%%%
+punch
+
+殴った
+%%%%
+pummel
+
+殴り倒した
+%%%%
+squash
+
+ぺしゃんこにした
+%%%%
+like the proverbial ant
+
+蟻のように
+%%%%
+pound
+
+叩きつけた
+%%%%
+into fine dust
+
+塵になるまで
+%%%%
+like a punching bag
+
+サンドバッグのように
+%%%%
+pulverise
+
+叩き潰した
+%%%%
+like an ant
+
+蟻のように
+%%%%
+into a bloody pulp
+
+血の塊になるまで
+%%%%
+You feel your flesh %s away!
+
+あなたの肉が%s！
+%%%%
+looks less resilient
+
+は元気を失ったようだ
+%%%%
+The flame cauterises the wound!
+
+炎が傷口を焼いた！
+%%%%
+grows two more!
+
+の首がさらに2本増えた！
+%%%%
+You grow two more!
+
+あなたの首がさらに2本増えた！
+%%%%
+%s %s %s last head off!
+
+%sは%sの最後の首を%s！
+%%%%
+%s %s one of %s heads off!
+
+%sは%sの首を一本%s！
+%%%%
+is burned by acid!
+
+は酸で焼かれた！
+%%%%
+%s %s electrocuted!
+
+%sは電撃を受けた！
+%%%%
+%s freeze%s %s!
+
+%sは%sを凍りつかせた！
+%%%%
+%s crush%s %s!
+
+%sは%sの体を粉砕した！
+%%%%
+%s burn%s %s!
+
+%sは%sを燃やした！
+%%%%
+%s convulse%s in agony!
+
+%sは苦痛に身もだえした！
+%%%%
+%s tries to attack %s, but flinches away.
+
+%sは%sを攻撃しようとしたが尻込みしている。
+%%%%
+%s blade passes through %s shield.
+
+%s刃は%s盾を突き抜けた。
+%%%%
+# klown_attack
+poke
+
+小突いた
+%%%%
+prod
+
+刺した
+%%%%
+flog
+
+鞭打った
+%%%%
+pound
+
+突き砕いた
+%%%%
+slap
+
+打ちつけた
+%%%%
+tickle
+
+軽く撫でた
+%%%%
+defenestrate
+
+放り投げた
+%%%%
+sucker-punch
+
+予想外の殴打を加えた
+%%%%
+elbow
+
+肘で打った
+%%%%
+pinch
+
+挟んだ
+%%%%
+strangle-hug
+
+締め上げた
+%%%%
+tease
+
+ぐしゃぐしゃにした
+%%%%
+eye-gouge
+
+眼を抉った
+%%%%
+karate-kick
+
+空手の蹴りを放った
+%%%%
+headlock
+
+ヘッドロックを放った
+%%%%
+wrestle
+
+取っ組み合いをした
+%%%%
+trip-wire
+
+罠にかけた
+%%%%
+kneecap
+
+膝を狙って攻撃した
+%%%%
+sting
+
+刺した
+%%%%
+release spore at
+
+胞子を振りまいた
+%%%%
+touch
+
+触れた
+%%%%
+engulf
+
+とりまいた
+%%%%
+tentacle-slap
+
+触手で打ちつけた
+%%%%
+gore
+
+突き刺した
+%%%%
+constrict
+
+拘束した
+%%%%
+trample
+
+突き飛ばした
+%%%%
+trunk-slap
+
+鼻で打ちつけた
+%%%%
+pounce on
+
+襲いかかった
+%%%%
+from afar
+
+遠くから
+%%%%
+%s poisons %s!
+
+%sは%sを毒に冒した！
+%%%%
+%s partially resist%s.
+
+%sはいくらか耐性を示した。
+%%%%
+%s %s covered in liquid flames%s
+
+%sは燃えたぎる液体に包まれた%s
+%%%%
+You are splashed with acid!
+
+あなたは酸のしぶきを浴びた！
+%%%%
+mutagenic touch
+
+変異の手
+%%%%
+%s %s engulfed in flames%s
+
+%sは炎に包まれた%s
+%%%%
+%s %s strength from %s injuries!
+
+%sは%sの傷口から力を吸い取った！
+%%%%
+%s %s engulfed in a cloud of spores!
+
+%sは胞子の雲の中に包まれた！
+%%%%
+Your divine stamina protects you from poison!
+
+あなたの活性化された生命力が毒をはねのけた！
+%%%%
+%s drains %s %s.
+
+%sは%s%sを吸い取った。
+%%%%
+looks very invigorated.
+
+はとても元気になったようだ。
+%%%%
+looks invigorated.
+
+は元気になったようだ。
+%%%%
+%s %s %s.
+
+%sは%sを%s。
+%%%%
+%s %s %s in water!
+
+%sは%sを水に包んだ！
+%%%%
+%s magical defenses are stripped away!
+
+%s魔法的防御は破られた！
+%%%%
+The air around %s erupts in flames!
+
+%sの周囲の大気は炎に吹き飛ばされた！
+%%%%
+is very cold.
+
+は非常に寒そうだ。
+%%%%
+is singed by your heat.
+
+# obsolete
+%%%%
+The eyeballs on your body gaze at %s.
+
+あなたの体を覆う眼球は%sを見据えた。
+%%%%
+is struck by your spines.
+
+はあなたの棘で傷ついた。
+%%%%
+%s %s struck by %s %s.
+
+%sは%s棘で傷ついた。
+%%%%
+You emit a cloud of foul miasma!
+
+あなたは瘴気の雲を生み出した！
+%%%%
+%s furiously retaliates!
+
+%sは怒って反撃した！
+%%%%
+%s headbutts %s, but does no damage.
+
+%sは%sに頭突きをしたが、ダメージを与えられなかった。
+%%%%
+%s headbutts %s%s
+
+%sは%sに頭突きをした%s
+%%%%
+You furiously retaliate!
+
+あなたは怒って反撃した！
+%%%%
+You headbutt %s, but do no damage.
+
+あなたは%sに頭突きをしたが、ダメージを与えられなかった。
+%%%%
+You headbutt %s%s
+
+あなたは%sに頭突きをした%s
+%%%%
+%s %s %s ground!
+
+%sは一歩も退かなかった！
+%%%%
+%s %s backwards!
+
+%sは後ろに突き飛ばされた！
+%%%%
+You bite %s, and draw %s blood!
+
+あなたは%sに噛みつき、血液を吸った！
+%%%%
+You draw %s blood!
+
+あなたは%sの血液を吸った！
+%%%%
+You feel %sbetter.
+
+あなたは%s気分が良くなった。
+%%%%
