@@ -198,6 +198,7 @@ static TextDB AllDBs[] =
            "jtrans_lookup_help.txt",
            "jtrans_macro.txt",
            "jtrans_main.txt",
+           "jtrans_makeitem.txt",
            /*
            "jtrans_autofight_lua.txt",
            "jtrans_magicspell.txt",
