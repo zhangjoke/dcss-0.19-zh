@@ -3,21 +3,26 @@ Upgraded the game from %s to %s
 
 ゲームバージョンを%sから%sに更新した
 %%%%
-Welcome
+Welcome,
 
-ようこそ
+ようこそ、
 %%%%
-Welcome back
+Welcome back,
 
-よくぞ帰ってきた
+よくぞ帰ってきた、
+%%%%
+{name} the {species} {job}.</yellow>
+
+%sの%s『%s』よ。</yellow>
 %%%%
 Press <w>?</w> for a list of commands and other information.
 
 コマンド一覧やその他の情報を見るには <w>?</w>キー を押してください。
 %%%%
-Command line options:
+# Command line options:
 
-コマンドラインオプション:
+# オプション一覧はデータベース初期化の前に呼ばれるため
+# 訳する場合はmain.ccを直接変更する
 %%%%
 You wake up in a daze, and can't recall much.
 
@@ -27,6 +32,10 @@ set off with:
 
 は以下の装備を持って出発した:
 %%%%
+{name}, the {species} {job}, began the quest for the Orb.
+
+%sの%s『%s』がオーブを探す冒険を始めた
+%%%%
 began the quest for the Orb.
 
 オーブを探す冒険を始めた
@@ -35,21 +44,25 @@ You started the game in wizard mode.
 
 あなたはウィザードモードでゲームを開始した
 %%%%
-Press any key to start the hints mode intro, or Escape to skip it.
-
-任意のキーを押すことで解説文を表示できます。(Escキーで飛ばせます)
-%%%%
 You can only abyss_teleport() inside the Abyss.
 
 このコマンドはアビス内部でしか使えません。
 %%%%
+wizard command
+
+ウィザードモードでの操作
+%%%%
+Intentional crash
+
+故意のクラッシュ
+%%%%
+Running Jiyva off-level sacrifice.
+
+別の階層にあるアイテムをジーヴァに捧げます。
+%%%%
 This only makes sense in a labyrinth!
 
-このコマンドはラビリンス内部でしか使えません。
-%%%%
-But you're not in Zot Defence!
-
-このコマンドはゾットディフェンスモード中でしか使えません。
+このコマンドはラビリンス内部でしか使えません！
 %%%%
 Cost level: %d  Total experience: %d  Next cost level: %d Skill cost: %d
 
@@ -101,7 +114,7 @@ Do you really want to enter explore mode?
 %%%%
 Entered explore mode.
 
-探索モードに移行した。
+探索モードに移行した
 %%%%
 Can't repeat entering explore mode
 
@@ -171,17 +184,17 @@ Infinite lua loop detected, aborting.
 
 luaスクリプトの無限ループを検知したため、中断しました。
 %%%%
-You cannot move away from %s!
+# You cannot move away from %s!
 
-あなたは%sから遠ざかることができない！
+# jtrans_godabil.txtと重複
 %%%%
 You can't do that while held in a net.
 
-あなたは網で拘束されている間は階段を上り下りできない。
+網で拘束されている間は階段を上り下りできない。
 %%%%
 You can't do that while caught in a web.
 
-あなたは蜘蛛の巣に巻き付かれている間は階段を上り下りできない。
+蜘蛛の巣に巻きつかれている間は階段を上り下りできない。
 %%%%
 There is nothing on the other side of the stone arch.
 
@@ -203,25 +216,37 @@ You can't go up here!
 
 ここでは上れない！
 %%%%
-If you enter this portal you will not be able to return immediately. Continue?
+You need a rune to enter this place.
 
-一旦このポータルに突入するとすぐには出られません。それでも入りますか？
+この場所に入るにはルーンが必要だ。
+%%%%
+You need at least %d runes to enter this place.
+
+この場所に入るには少なくとも%d個のルーンが必要だ。
+%%%%
+If you enter this portal you might not be able to return immediately. Continue?
+
+一旦このポータルに突入するとすぐには出られないかもしれません。それでも入りますか？
 %%%%
 Are you sure you wish to approach this portal? There's no telling what its forces would wreak upon your fragile self.
 
-本当にこのポータルに近づきますか？ その発する力があなた自身にどう影響を及ぼすか全くわかりません。
+本当にこのポータルに近づきますか？ その発する力があなた自身にどういった影響を及ぼすか全くわかりません。
 %%%%
-An item of great power still resides in this realm, and once you leave you can never return. Are you sure you want to leave?
+A rune of Zot still resides in this realm, and once you leave you can never return. Are you sure you want to leave?
 
-強大な力を持ったルーンが未だこのフロアに残されており、一度ここを離れると決して戻ることはできません。本当に立ち去りますか？
+何らかのルーンが未だこのフロアに残されており、一度ここを離れると決して戻ることはできません。本当に立ち去りますか？
 %%%%
 Are you sure you want to leave this ziggurat?
 
 本当にジグラットを立ち去りますか？
 %%%%
+Really leave the Orb behind?
+
+本当にオーブを置いていきますか？
+%%%%
 Are you sure you want to leave %s?%s
 
-本当に%sを立ち去りますか？
+本当に%sを立ち去りますか？%s
 %%%%
 This will make you lose the game!
 
@@ -231,9 +256,21 @@ Alright, then stay!
 
 了解しました。
 %%%%
+Really go through this one-way escape hatch?
+
+本当に一方通行の脱出ハッチを通り抜けますか？
+%%%%
+Really dive through this shaft in the floor?
+
+本当に床に空いた縦穴に飛びこみますか？
+%%%%
+This passage doesn't lead anywhere!
+
+この通り道はどこにも通じていない！
+%%%%
 You are a level %d %s %s.
 
-あなたはレベル%dの%sで職業は%sです。
+あなたは%sの%s(レベル%d)です。
 %%%%
 You are %d%% of the way to level %d.
 
@@ -259,17 +296,25 @@ Play time:
 
 プレイ時間:
 %%%%
-turns)
+(%d turns)
 
-ターン)
+(%dターン)
+%%%%
+#ifdef DEBUG_DIAGNOSTICS
+Gourmand charge: %d
+
+%%%%
+#ifdef DEBUG_DIAGNOSTICS
+Turns spent on this level: %d
+
 %%%%
 You can't remove your fur, sorry.
 
 残念ながら、自分の毛皮を脱ぐことはできない。
 %%%%
-You can't wear or remove anything in your present form.
+# You can't wear or remove anything in your present form.
 
-現在の姿では脱ぐことはできない。
+# jtrans_item_use.txtと重複
 %%%%
 Take off which item?
 
@@ -303,15 +348,23 @@ Clearing level map.
 
 階層のマップを消去した。
 %%%%
+#ifdef USE_TILE_LOCAL
 Move the cursor to view the level map, or type <w>?</w> for a list of commands.
 
-# USE_TILE_LOCAL
 階層マップを見るにはカーソルを動かすか、<w>?</w>キーを押してコマンド一覧を見てください。
 %%%%
+#ifdef USE_TILE_LOCAL
 Returning to the game...
 
-# USE_TILE_LOCAL
 ゲームへ復帰中……
+%%%%
+You can't grasp things well enough to throw them.
+
+あなたはそれを投げるべく手に握ることは得意ではない。
+%%%%
+#ifdef DEBUG_QUIVER
+next slot: %d, item: %s
+
 %%%%
 No other missiles available. Use F to throw any item.
 
@@ -325,19 +378,31 @@ You have %d gold piece%s.
 
 あなたは今%d枚の金貨を持っている。
 %%%%
-Autopickup is now %s.
+You have 0 gold piece.
 
-アイテム自動拾いを%sしました。
+あなたは一文無しだ。
 %%%%
-You carefully extract the manticore spikes from your body.
+You should not fight recklessly!
+
+あなたはむやみに攻撃すべきではない！
+%%%%
+Autopickup is now on.
+
+アイテム自動拾いを開始しました。
+%%%%
+Autopickup is now off.
+
+アイテム自動拾いを停止しました。
+%%%%
+You carefully extract the barbed spikes from your body.
 
 あなたは食い込んだ逆棘を注意深く抜き取った。
 %%%%
-Char dump unsuccessful! Sorry about that.
+# Char dump unsuccessful! Sorry about that.
 
-残念ながらキャラクターのダンプは失敗しました。
+# jtrans_end.txtと重複
 %%%%
-Save game and return to main manu?
+Save game and return to main menu?
 
 セーブしてメインメニューに戻りますか？
 %%%%
@@ -361,6 +426,10 @@ Unknown command.
 
 そのコマンドは存在しません。
 %%%%
+Press <w>%</w> or <w>%</w> to pray at altars.
+
+祭壇で祈るには <w>%</w> もしくは <w>%</w> を押してください。
+%%%%
 You have a vision of a gate.
 
 あなたは門の幻影を目にした。
@@ -375,7 +444,7 @@ You are cast into the Abyss!
 %%%%
 You are cast deeper into the Abyss!
 
-あなたはアビスのさらなる奥に追放された！
+あなたはアビスのさらなる奥深くへと追放された！
 %%%%
 The Abyss bends around you!
 
@@ -397,17 +466,61 @@ Sorry, but your quest for the Orb is now rather pointless. You quit...
 
 あなたの冒険は今や目的を見失っている……ゲームを終了しました。
 %%%%
+#if defined(DEBUG_TENSION) || defined(DEBUG_RELIGION)
+TENSION = %d
+
+%%%%
+Are you sure you want to %s while confused and next to %s %s?
+
+%s本当に%sしますか？ 間違えて%sに落ちる危険があります。
+%%%%
+stumble around
+
+移動
+%%%%
+swing wildly
+
+攻撃
+%%%%
+# lava
+
+# jtrans_delay.txtと重複
+%%%%
+deep water
+
+<[feature]some deep water>
+%%%%
+while you are losing your buoyancy
+
+飛行能力が失われようとしていますが、
+%%%%
+while your transformation is expiring
+
+変身が解けようとしていますが、
+%%%%
+Are you sure you want to %s while confused and next to %s?
+
+あなたは混乱しており、%sのそばに立っています。それでも%sしますか？
+%%%%
+You're too confused to attack without stumbling around!
+
+あなたは混乱していたので、攻撃しようとしてよろめいてしまった。
+%%%%
+You nearly hit yourself!
+
+あなたは自分自身を打ちすえるところだった！
+%%%%
+[stop attack prompt]attack
+
+攻撃し
+%%%%
 You swing at nothing.
 
 あなたは空振りした。
 %%%%
-You can't open doors in your present form.
-
-現在の姿ではドアを開けることができない。
-%%%%
 There's nothing to open nearby.
 
-開けるものが周囲にはない。
+周囲には開けられるようなものがない。
 %%%%
 Which direction?
 
@@ -429,17 +542,17 @@ There isn't anything that you can open there!
 
 ここにはあなたが開けられるものはない！
 %%%%
-You can't close doors in your present form.
+You can't close doors while held in a net.
 
-現在の姿ではドアを閉めることができない。
+網で拘束されている間はドアを閉めることはできない。
 %%%%
-You can't close doors while %s.
+You can't close doors while caught in a web.
 
-あなたは%s間はドアを閉めることができない。
+蜘蛛の巣に巻きつかれている間はドアを閉めることはできない。
 %%%%
 There's nothing to close nearby.
 
-閉めるものが周囲にはない。
+周囲には閉められるようなものがない。
 %%%%
 You can't close doors on yourself!
 
@@ -473,15 +586,15 @@ You swap places.
 
 あなたはお互いの場所を交換した。
 %%%%
-deep water
+%s %s twisted violently and ejected from the portal!
 
-深い水脈
+%sの体は乱暴にねじられ、ポータルから排出された！
 %%%%
-(Use ctrl+direction to attack without moving)
+entering a malign gateway
 
-(Ctrl+(方向)でその場を動かずに攻撃できます)
+邪悪なる通り道に足を踏み入れて
 %%%%
-You cannot move. (Use ctrl+direction to attack without moving)
+You cannot move. (Use ctrl+direction to attack without moving.)
 
 あなたはその場を動けない。(Ctrl+(方向)でその場を動かずに攻撃できます)
 %%%%
@@ -505,6 +618,14 @@ You %s carefully through the %s.
 
 あなたは慎重に%sを通り抜けた。
 %%%%
+[feature]fungus
+
+群生する茸
+%%%%
+[feature]plants
+
+草むら
+%%%%
 You can't dig through that.
 
 あなたはその場所を掘り抜けない。
@@ -513,13 +634,17 @@ You retract your mandibles.
 
 あなたは大顎をひっこめた。
 %%%%
+refuses to make way for you. (Use ctrl+direction to attack.)
+
+は道を譲ろうとはしていない。(Ctrl+(方向)で攻撃できます)
+%%%%
 You're too terrified to move while being watched!
 
 あなたは怯えすぎており、見つめられている間動くことができない！
 %%%%
-Are you sure you want to leave the Orb unguarded?
+You nearly stumble into %s!
 
-# for zotdef
+あなたはもう少しで%sに踏み込むところだった！
 %%%%
 The barbs in your skin will harm you if you move. Continue?
 
@@ -541,7 +666,7 @@ The barbed spikes dig painfully into your body as you move.
 
 あなたが動いたせいで逆棘はさらに食い込んだ。
 %%%%
-The manticore spikes snap loose.
+The barbed spikes snap loose.
 
 マンティコアの逆棘は緩んで抜け落ちた。
 %%%%
@@ -557,9 +682,9 @@ You cannot walk through the dense trees.
 
 あなたは密集した森林を通り抜けることができない。
 %%%%
-You cannot move closer to %s!
+# You cannot move closer to %s!
 
-あなたは%sに近づくことができない！
+# jtrans_godabil.txtと重複
 %%%%
 Can't repeat a command which takes no turns (unless it's a wizard command), cancelling
 
