@@ -1,4 +1,16 @@
 %%%%
+# [stop attack prompt]attack
+
+# jtrans_main.txtと重複
+%%%%
+[stop attack prompt]attack near
+
+近くを攻撃し
+%%%%
+Attack delay %d, multiplier %1.1f
+
+# for debug
+%%%%
 You attempt to attack %s, but flinch away in fear!
 
 あなたは%sを攻撃しようとしたが尻込みした！
@@ -7,9 +19,17 @@ You attempt to attack %s, but flinch away in fear!
 
 %sは%sを闇討ちした！
 %%%%
-%s momentarily %s out as %s attack passes through %s%s
+%s%s misses %s%s
 
-%sは一瞬存在を薄めて%s攻撃をすり抜けた。
+%sは%sへの攻撃を%s外した%s
+%%%%
+Infusion: dmg = %d hurt = %d
+
+# for debug
+%%%%
+%s %s %s but %s no damage.
+
+%sは%s%s%sが、損傷を与えなかった。
 %%%%
 %s shroud bends %s attack away%s
 
@@ -23,13 +43,45 @@ You %sdevour %s!
 
 あなたは%s%sをむさぼり食らった！
 %%%%
+hungrily
+
+ガツガツと
+%%%%
+It tastes like %s.
+
+%sのような味がする。
+%%%%
+Spicy!
+
+ぴりっとした味だ！
+%%%%
+healed for %d (%d hd)
+
+# for debug
+%%%%
+considering devouring
+
+# for debug
+%%%%
+chunk ok
+
+# for debug
+%%%%
 You spit out %s as %s twists & changes in your mouth!
 
 あなたは口の中で捻れて変化した%sを吐きだした！
 %%%%
-Your tendrils lash around %s %s and pull it to the ground!
+shifter ok
 
-あなたの蔦が%sの%sを地面にはたき落とした！
+# for debug
+%%%%
+god ok
+
+# for debug
+%%%%
+corpse ok
+
+# for debug
 %%%%
 blocks your attack.
 
@@ -39,7 +91,7 @@ grab
 
 掴んだ
 %%%%
-[auxname]grab
+[aux verb]grab
 
 掴み
 %%%%
@@ -47,7 +99,7 @@ kick
 
 蹴った
 %%%%
-[auxname]kick
+[aux verb]kick
 
 蹴り
 %%%%
@@ -55,11 +107,15 @@ claw
 
 かきむしった
 %%%%
+[aux verb]claw
+
+爪
+%%%%
 pierce
 
 刺し貫いた
 %%%%
-[auxname]tentacle spike
+[aux verb]tentacle spike
 
 棘の生えた触手
 %%%%
@@ -67,7 +123,7 @@ headbutt
 
 頭突きをした
 %%%%
-[auxname]headbutt
+[aux verb]headbutt
 
 頭突き
 %%%%
@@ -75,7 +131,7 @@ peck
 
 ついばんだ
 %%%%
-[auxname]peck
+[aux verb]peck
 
 ついばみ
 %%%%
@@ -83,7 +139,7 @@ tail-slap
 
 尻尾で打ちつけた
 %%%%
-[auxname]tail-slap
+[aux verb]tail-slap
 
 尻尾の一撃
 %%%%
@@ -91,27 +147,27 @@ punch
 
 殴った
 %%%%
-[auxname]slash
-
-切り払い
-%%%%
-[auxname]claw
-
-爪
-%%%%
-[auxname]tentacle-slap
-
-触手の一撃
-%%%%
-[auxname]punch
+[aux verb]punch
 
 パンチ
 %%%%
+slash
+
+切り払った
+%%%%
+[aux verb]slash
+
+切り払い
+%%%%
+[aux verb]tentacle-slap
+
+触手の一撃
+%%%%
 bite
 
-噛んだ
+嚙んだ
 %%%%
-[auxname]bite
+[aux verb]bite
 
 噛みつき
 %%%%
@@ -119,7 +175,7 @@ bludgeon
 
 殴りつけた
 %%%%
-[auxname]bludgeon
+[aux verb]bludgeon
 
 殴打
 %%%%
@@ -127,25 +183,25 @@ squeeze
 
 締めつけた
 %%%%
-[auxname]squeeze
+[aux verb]squeeze
 
 締めつけ
 %%%%
-Your %s passes through %s as %s momentarily phases out.
-
-あなたの%sは一瞬存在の薄まった%sをすり抜けた。
-%%%%
 Your %s misses %s.
 
-あなたの%sは%sに躱された。
+%sはあなたの%sを躱した。
 %%%%
-%s is splashed with acid.
+You %s %s %s.
 
-%sは酸のしぶきを浴びた。
+あなたは%s%sを%s。
 %%%%
-You drain %s %s.
+[verb]disrupt
 
-あなたは%s%sを吸い取った。
+阻害した
+%%%%
+# [verb]drain
+
+# jtrans_attack.txtと重複
 %%%%
 magic
 
@@ -171,27 +227,43 @@ You %s %s%s%s
 
 あなたは%s%s%s%s%s
 %%%%
-hit
+Your {armour} prevents you from hitting
+
+あなたは自分の%sが邪魔で%sを攻撃できなかった。
+%%%%
+Your shield prevents you from hitting
+
+あなたは自分の盾が邪魔で%sを攻撃できなかった。
+%%%%
+Your shield and {armour} prevent you from hitting
+
+あなたは自分の盾と%sが邪魔で%sを攻撃できなかった。
+%%%%
+[verb]hit
 
 攻撃した
 %%%%
-clumsily bash
+[verb]clumsily bash
 
 不器用に殴打した
 %%%%
-puncture
+[verb]puncture
 
 刺した
 %%%%
-impale
+[verb]impale
 
 突き刺した
+%%%%
+[verb]spit
+
+刺し貫いた
 %%%%
 like the proverbial pig
 
 豚の丸焼きのように
 %%%%
-attack
+[verb]attack
 
 攻撃した
 %%%%
@@ -203,7 +275,7 @@ like a pig
 
 豚のように
 %%%%
-skewer
+[verb]skewer
 
 刺し貫いた
 %%%%
@@ -211,7 +283,7 @@ like a kebab
 
 ケバブの肉のように
 %%%%
-stick
+[verb]stick
 
 突き刺した
 %%%%
@@ -219,7 +291,7 @@ like a pincushion
 
 針山のように
 %%%%
-perforate
+[verb]perforate
 
 穴を開けた
 %%%%
@@ -227,15 +299,11 @@ like a sieve
 
 ふるいのように
 %%%%
-slash
-
-切り払った
-%%%%
-slice
+[verb]slice
 
 切り裂いた
 %%%%
-dice
+[verb]dice
 
 細切れにした
 %%%%
@@ -243,7 +311,7 @@ like an onion
 
 玉ねぎのように
 %%%%
-fracture
+[verb]fracture
 
 打ち砕いた
 %%%%
@@ -251,7 +319,7 @@ into splinters
 
 木っ端微塵に
 %%%%
-carve
+[verb]carve
 
 切り分けた
 %%%%
@@ -263,7 +331,7 @@ like a turkey
 
 七面鳥のように
 %%%%
-shave
+[verb]shave
 
 毛皮を刈り取った
 %%%%
@@ -275,7 +343,7 @@ like a ripe choko
 
 熟したハヤトウリのように
 %%%%
-cut
+[verb]cut
 
 切り裂いた
 %%%%
@@ -287,27 +355,27 @@ like a ham
 
 ハムのように
 %%%%
-chop
+# [verb]chop
 
-ぶった切った
+# jtrans_art_func.txtと重複
 %%%%
-into pieces
+# into pieces
 
-バラバラに
+# jtrans_art_func.txtと重複
 %%%%
-thump
+[verb]thump
 
 殴打した
 %%%%
-sock
+[verb]sock
 
 殴った
 %%%%
-shatter
+[verb]shatter
 
 粉砕した
 %%%%
-splatter
+[verb]splatter
 
 変えた
 %%%%
@@ -315,15 +383,15 @@ into a gooey mess
 
 べたべたした肉塊に
 %%%%
-crush
+# [verb]crush
 
-潰した
+# jtrans_art_func.txtと重複
 %%%%
 like a grape
 
 ブドウ粒のように
 %%%%
-beat
+[verb]beat
 
 叩いた
 %%%%
@@ -331,11 +399,15 @@ like a drum
 
 太鼓のように
 %%%%
+[verb]hammer
+
+叩いた
+%%%%
 like a gong
 
-銅鑼のように
+太鼓のように
 %%%%
-pound
+[verb]pound
 
 叩きつけた
 %%%%
@@ -343,7 +415,7 @@ like an anvil
 
 金床のように
 %%%%
-flatten
+[verb]flatten
 
 ぺしゃんこにした
 %%%%
@@ -351,15 +423,15 @@ like a pancake
 
 パンケーキのように
 %%%%
-whack
+[verb]whack
 
 ぴしゃりと打った
 %%%%
-thrash
+[verb]thrash
 
 鞭打った
 %%%%
-punish
+[verb]punish
 
 懲罰した
 %%%%
@@ -367,45 +439,37 @@ punish
 
 激痛を与えて
 %%%%
-devastate
+[verb]devastate
 
 打ちのめした
 %%%%
-scratch
+[verb]scratch
 
 引っかいた
 %%%%
-mangle
+[verb]mangle
 
 めちゃくちゃに傷つけた
 %%%%
-eviscerate
+[verb]eviscerate
 
 内臓をくりぬいた
 %%%%
-batter
+[verb]batter
 
 叩きのめした
 %%%%
-punch
-
-殴った
-%%%%
-pummel
+[verb]pummel
 
 殴り倒した
 %%%%
-squash
+[verb]squash
 
 ぺしゃんこにした
 %%%%
 like the proverbial ant
 
 蟻のように
-%%%%
-pound
-
-叩きつけた
 %%%%
 into fine dust
 
@@ -415,9 +479,9 @@ like a punching bag
 
 サンドバッグのように
 %%%%
-pulverise
+# [verb]pulverise
 
-叩き潰した
+# jtrans_art_func.txtと重複
 %%%%
 like an ant
 
@@ -427,25 +491,53 @@ into a bloody pulp
 
 血の塊になるまで
 %%%%
-You feel your flesh %s away!
+Special damage to %s: %d, flavour: %d
 
-あなたの肉が%s！
+# for debug
 %%%%
-looks less resilient
+You feel your flesh rotting away!
 
-は元気を失ったようだ
+あなたの肉体が腐り落ちていった！
+%%%%
+%s looks less resilient!
+
+%sは元気を失ったようだ！
 %%%%
 The flame cauterises the wound!
 
-炎が傷口を焼いた！
+炎が傷口を焼灼する！
 %%%%
 grows two more!
 
 の首がさらに2本増えた！
 %%%%
-You grow two more!
+[claw verb]rip
 
-あなたの首がさらに2本増えた！
+切り裂いた
+%%%%
+[claw verb]tear
+
+切り裂いた
+%%%%
+[claw verb]claw
+
+切り裂いた
+%%%%
+[slice verb]slice
+
+切り落とした
+%%%%
+[slice verb]lop
+
+断ち切った
+%%%%
+[slice verb]chop
+
+はねた
+%%%%
+[slice verb]hack
+
+切り裂いた
 %%%%
 %s %s %s last head off!
 
@@ -453,7 +545,11 @@ You grow two more!
 %%%%
 %s %s one of %s heads off!
 
-%sは%sの首を一本%s！
+%sは%sの首を1本%s！
+%%%%
+[hands act]your hands burn!
+
+あなたの%sは焼かれた！
 %%%%
 is burned by acid!
 
@@ -475,128 +571,124 @@ is burned by acid!
 
 %sは%sを燃やした！
 %%%%
-%s convulse%s in agony!
+%s %s in agony!
 
-%sは苦痛に身もだえした！
+%sは苦痛に%s！
 %%%%
-%s tries to attack %s, but flinches away.
+# [verb]writhe
 
-%sは%sを攻撃しようとしたが尻込みしている。
-%%%%
-%s blade passes through %s shield.
-
-%s刃は%s盾を突き抜けた。
+# jtrans_attack.txtと重複
 %%%%
 # klown_attack
-poke
+[verb]poke
 
 小突いた
 %%%%
-prod
+[verb]prod
 
 刺した
 %%%%
-flog
+[verb]flog
 
 鞭打った
 %%%%
-pound
-
-突き砕いた
-%%%%
-slap
+[verb]slap
 
 打ちつけた
 %%%%
-tickle
+[verb]tickle
 
 軽く撫でた
 %%%%
-defenestrate
+[verb]defenestrate
 
 放り投げた
 %%%%
-sucker-punch
+[verb]sucker-punch
 
 予想外の殴打を加えた
 %%%%
-elbow
+[verb]elbow
 
 肘で打った
 %%%%
-pinch
+[verb]pinch
 
-挟んだ
+つまんだ
 %%%%
-strangle-hug
+[verb]strangle-hug
 
 締め上げた
 %%%%
-tease
+[verb]tease
 
 ぐしゃぐしゃにした
 %%%%
-eye-gouge
+[verb]eye-gouge
 
 眼を抉った
 %%%%
-karate-kick
+[verb]karate-kick
 
 空手の蹴りを放った
 %%%%
-headlock
+[verb]headlock
 
 ヘッドロックを放った
 %%%%
-wrestle
+[verb]wrestle
 
 取っ組み合いをした
 %%%%
-trip-wire
+[verb]trip-wire
 
 罠にかけた
 %%%%
-kneecap
+[verb]kneecap
 
 膝を狙って攻撃した
 %%%%
-sting
+[verb]sting
 
 刺した
 %%%%
-release spore at
+[verb]release spores at
 
 胞子を振りまいた
 %%%%
-touch
+[verb]touch
 
 触れた
 %%%%
-engulf
+[verb]engulf
 
 とりまいた
 %%%%
-tentacle-slap
-
-触手で打ちつけた
-%%%%
-gore
+[verb]gore
 
 突き刺した
 %%%%
-constrict
+# [verb]constrict
 
-拘束した
+# jtrans_actor.txtと重複
 %%%%
-trample
+[verb]trample
 
 突き飛ばした
 %%%%
-trunk-slap
+[verb]trunk-slap
 
 鼻で打ちつけた
 %%%%
-pounce on
+#if TAG_MAJOR_VERSION == 34
+[verb]snap closed at
+
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[verb]splash
+
+%%%%
+[verb]pounce on
 
 襲いかかった
 %%%%
@@ -604,21 +696,25 @@ from afar
 
 遠くから
 %%%%
+with %s
+
+%sで
+%%%%
+You %s %s%s%s%s
+
+あなたは%s%s%s%s%s%s%s
+%%%%
 %s poisons %s!
 
 %sは%sを毒に冒した！
 %%%%
-%s partially resist%s.
-
-%sはいくらか耐性を示した。
-%%%%
 %s %s covered in liquid flames%s
 
-%sは燃えたぎる液体に包まれた%s
+%s%s燃えたぎる液体に包まれた%s
 %%%%
-You are splashed with acid!
+{attacker}'s mutagenic touch
 
-あなたは酸のしぶきを浴びた！
+%sによる変異の手
 %%%%
 mutagenic touch
 
@@ -626,19 +722,43 @@ mutagenic touch
 %%%%
 %s %s engulfed in flames%s
 
-%sは炎に包まれた%s
+%s%s炎に包まれた%s
+%%%%
+%s %s %s%s
+
+%sは%s%s%s
+%%%%
+[verb]shock
+
+電撃を与えた
+%%%%
+Shock damage: %d
+
+# for debug
 %%%%
 %s %s strength from %s injuries!
 
-%sは%sの傷口から力を吸い取った！
+%sは%s傷口から力を吸い取った！
+%%%%
+# [verb]draw
+
+# jtrans_decks.txtと重複
 %%%%
 %s %s engulfed in a cloud of spores!
 
-%sは胞子の雲の中に包まれた！
+%s%s胞子の雲の中に包まれた！
 %%%%
 Your divine stamina protects you from poison!
 
 あなたの活性化された生命力が毒をはねのけた！
+%%%%
+[verb]infuriate
+
+激怒させた
+%%%%
+[verb]sear
+
+の体を灼いた
 %%%%
 %s drains %s %s.
 
@@ -652,33 +772,37 @@ looks invigorated.
 
 は元気になったようだ。
 %%%%
-%s %s %s.
-
-%sは%sを%s。
-%%%%
 %s %s %s in water!
 
-%sは%sを水に包んだ！
+%sは%sを水で%s！
 %%%%
 %s magical defenses are stripped away!
 
 %s魔法的防御は破られた！
 %%%%
-The air around %s erupts in flames!
+[verb]drown
 
-%sの周囲の大気は炎に吹き飛ばされた！
+溺れさせた
 %%%%
 is very cold.
 
 は非常に寒そうだ。
 %%%%
+#if TAG_MAJOR_VERSION == 34
 is singed by your heat.
 
-# obsolete
 %%%%
 The eyeballs on your body gaze at %s.
 
-あなたの体を覆う眼球は%sを見据えた。
+あなたの体を覆う眼球は%sをにらみつけた。
+%%%%
+Your tendrils lash around %s %s and pull it to the ground!
+
+あなたの蔦が%sの%sを地面にはたき落とした！
+%%%%
+Spiny: dmg = %d hurt = %d
+
+# for debug
 %%%%
 is struck by your spines.
 
@@ -686,7 +810,7 @@ is struck by your spines.
 %%%%
 %s %s struck by %s %s.
 
-%sは%s棘で傷ついた。
+%s%s棘で傷ついた。
 %%%%
 You emit a cloud of foul miasma!
 
@@ -708,6 +832,10 @@ You furiously retaliate!
 
 あなたは怒って反撃した！
 %%%%
+Retaliation: dmg = %d hurt = %d
+
+# for debug
+%%%%
 You headbutt %s, but do no damage.
 
 あなたは%sに頭突きをしたが、ダメージを与えられなかった。
@@ -716,13 +844,33 @@ You headbutt %s%s
 
 あなたは%sに頭突きをした%s
 %%%%
+%s riposte%s.
+
+%sは反撃した。
+%%%%
 %s %s %s ground!
 
 %sは一歩も退かなかった！
 %%%%
+[verb]hold
+
+# 訳不要
+%%%%
+[verb]stumble
+
+# 訳不要
+%%%%
+[verb]are shoved
+
+# 訳不要
+%%%%
 %s %s backwards!
 
 %sは後ろに突き飛ばされた！
+%%%%
+Stab damage vs %s: %d
+
+# for debug
 %%%%
 You bite %s, and draw %s blood!
 
@@ -731,8 +879,4 @@ You bite %s, and draw %s blood!
 You draw %s blood!
 
 あなたは%sの血液を吸った！
-%%%%
-You feel %sbetter.
-
-あなたは%s気分が良くなった。
 %%%%
