@@ -78,7 +78,7 @@ struct message_particle
         // TODO: colour the repeats indicator?
         string rep = "";
         if (repeats > 1)
-            rep = make_stringf(" x%d", repeats);
+            rep = make_stringf(jtrans_notrimc(" x%d"), repeats);
         return text + rep;
     }
 
@@ -86,7 +86,7 @@ struct message_particle
     {
         string rep = "";
         if (repeats > 1)
-            rep = make_stringf(" x%d", repeats);
+            rep = make_stringf(jtrans_notrimc(" x%d"), repeats);
         return pure_text() + rep;
     }
 
@@ -1373,7 +1373,7 @@ static void _mpr(string text, msg_channel_type channel, int param, bool nojoin,
 
 static string show_prompt(string prompt)
 {
-    mprf(MSGCH_PROMPT, "%s", prompt.c_str());
+    mprf(MSGCH_PROMPT, "%s", jtrans_notrimc(prompt));
 
     // FIXME: duplicating mpr code.
     msg_colour_type colour = prepare_message(prompt, MSGCH_PROMPT, 0);
@@ -1441,7 +1441,8 @@ void mpr_comma_separated_list(const string &prefix,
                               const string &andc,
                               const string &comma,
                               const msg_channel_type channel,
-                              const int param)
+                              const int param,
+                              const string &outs)
 {
     string out = prefix;
 
@@ -1454,7 +1455,7 @@ void mpr_comma_separated_list(const string &prefix,
         else if (i == (size - 2))
             out += andc;
         else if (i == (size - 1))
-            out += ".";
+            out += outs;
     }
     _mpr(out, channel, param);
 }
@@ -1724,17 +1725,13 @@ void canned_msg(canned_message_type which_message)
             const char* when =
             (which_message == MSG_EMPTY_HANDED_ALREADY ? "already" : "now");
             if (you.species == SP_FELID)
-                mprf(jtransc("Your mouth is %s empty."),
-                     tagged_jtransc("[canned_msg()]", when));
+                mprf(jtrans(make_stringf("Your mouth is %s empty.", when)));
             else if (you.has_usable_claws(true))
-                mprf(jtransc("You are %s empty-clawed."),
-                     tagged_jtransc("[canned_msg()]", when));
+                mprf(jtrans(make_stringf("You are %s empty-clawed.", when)));
             else if (you.has_usable_tentacles(true))
-                mprf(jtransc("You are %s empty-tentacled."),
-                     tagged_jtransc("[canned_msg()]", when));
+                mprf(jtrans(make_stringf("You are %s empty-tentacled.", when)));
             else
-                mprf(jtransc("You are %s empty-handed."),
-                     tagged_jtransc("[canned_msg()]", when));
+                mprf(jtrans(make_stringf("You are %s empty-handed.", when)));
             break;
         }
         case MSG_YOU_BLINK:

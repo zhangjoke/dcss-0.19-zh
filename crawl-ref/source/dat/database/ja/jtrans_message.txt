@@ -1,13 +1,15 @@
 %%%%
---more-- Press Space or click to continue. You can later reread messages with Ctrl-P.
+x%d
 
---続く-- メッセージ送りをするにはSpaceを押すか画面をクリックしてください。
-後でCtrl+Pを押すことで再度メッセージを読むこともできます。
+(x%d)
 %%%%
 --more-- Press Space to continue. You can later reread messages with Ctrl-P.
 
---続く-- メッセージ送りをするにはSpaceを押してください。
-後でCtrl+Pを押すことで再度メッセージを読むこともできます。
+--続く-- 続けるにはSpaceを押してください。 後でCtrl-Pを押すことで再度読むこともできます。
+%%%%
+--more-- Press Space or click to continue. You can later reread messages with Ctrl-P.
+
+--続く-- 続けるにはSpaceを押すか画面をクリックしてください。 後でCtrl-Pを押すことで再度読むこともできます。
 %%%%
 --more--
 
@@ -17,13 +19,13 @@ Something appears %s!
 
 %sに何かが現れた！
 %%%%
-at your feet
+# at your feet
 
-あなたの足元
+# jtrans_godabil.txtと重複
 %%%%
-before you
+# before you
 
-あなたの目の前
+# jtrans_godabil.txtと重複
 %%%%
 Nothing appears to happen.
 
@@ -53,17 +55,17 @@ You can't do that in your present form.
 
 あなたは現在の姿ではそうすることはできない。
 %%%%
-You aren't carrying anything.
+# You aren't carrying anything.
 
-あなたは何も持ち運んでいない。
+# jtrans_chardump.txtと重複
 %%%%
 You can't do that yet.
 
 あなたはまだそれをできない。
 %%%%
-Okay, then.
+# Okay, then.
 
-了解。
+# jtrans_lookup_help.txtと重複
 %%%%
 Why would you want to do that?
 
@@ -89,29 +91,37 @@ Huh?
 
 なんだって？
 %%%%
-already
+Your mouth is already empty.
 
-すでに
+あなたの口は既に空っぽだ。
 %%%%
-now
+Your mouth is now empty.
 
-もう
+あなたの口はもう空っぽだ。
 %%%%
-Your mouth is %s empty.
+You are already empty-clawed.
 
-あなたの口は%s空っぽだ。
+<You are already empty-handed.>
 %%%%
-You are %s empty-clawed.
+You are now empty-clawed.
 
-あなたは%s何も持っていない。
+<You are now empty-handed.>
 %%%%
-You are %s empty-tentacled.
+You are already empty-tentacled.
 
-あなたは%s何も持っていない。
+<You are already empty-handed.>
 %%%%
-You are %s empty-handed.
+You are now empty-tentacled.
 
-あなたは%s何も持っていない。
+<You are now empty-handed.>
+%%%%
+You are already empty-handed.
+
+あなたは既に何も持っていない。
+%%%%
+You are now empty-handed.
+
+あなたはもう何も持っていない。
 %%%%
 You blink.
 
@@ -139,7 +149,7 @@ You feel momentarily disoriented.
 %%%%
 You're too hungry.
 
-あなたは空腹すぎる。
+あなたは腹が減りすぎている。
 %%%%
 You detect nothing.
 
@@ -175,13 +185,13 @@ You feel your power returning.
 %%%%
 You suddenly feel drained of magical energy!
 
-あなたは突然魔力を吸い取られた！
+あなたは突然魔力を吸われたような気がした！
 %%%%
-There's something in the way.
+# There's something in the way.
 
-なにかが行く手を遮っている！
+# jtrans_directn.txtと重複
 %%%%
-You can't see that place.
+# You can't see that place.
 
-あなたからはその場所は見えない。
+# jtrans_directn.txtと重複
 %%%%
