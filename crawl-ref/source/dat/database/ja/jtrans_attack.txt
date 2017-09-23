@@ -145,7 +145,7 @@ a chaos effect from %s
 %%%%
 {attacker} {verb} {defender}!
 
-%sは%sから%s！
+%sは%sを%s！
 %%%%
 [verb]drain
 

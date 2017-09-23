@@ -967,7 +967,7 @@ void attack::drain_defender_speed()
 {
     if (needs_message)
     {
-        mprf(jtransc("%s %s %s vigour!"),
+        mprf(jtransc("{attacker} {verb} {defender's} vigour!"),
              atk_name(DESC_THE).c_str(),
              def_name(DESC_ITS).c_str(),
              attacker->conj_verb_j("drain").c_str());
