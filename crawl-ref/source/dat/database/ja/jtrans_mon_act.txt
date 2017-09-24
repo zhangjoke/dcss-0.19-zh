@@ -3,6 +3,10 @@ pulls free of the water.
 
 は水の呪縛から逃れた。
 %%%%
+%s fails to swap with %s, constricted.
+
+# for debug
+%%%%
 %s and %s swap places.
 
 %sは%sと位置を入れ替えた。
@@ -35,6 +39,14 @@ zaps a rod.
 
 はロッドを振った。
 %%%%
+rod charge: %d, %d
+
+# for debug
+%%%%
+using rod with power %d
+
+# for debug
+%%%%
 is stunned by your will and fails to attack.
 
 はあなたの意志に従って目を回し、攻撃に失敗した。
@@ -43,13 +55,29 @@ You redirect %s's attack!
 
 あなたは%sの攻撃を逸らした！
 %%%%
-stays still, afraid of the %s.
+#ifdef DEBUG
+for monster '%s' consumed no energy
 
-は%sに気を取られて立ちすくんだ。
 %%%%
 falls limply to the ground.
 
 はだらりと地面に垂れ下がった。
+%%%%
+#ifdef DEBUG_MONS_SCAN
+Monster %s became detached from mgrd in handle_monster_move() loop
+
+%%%%
+#ifdef DEBUG_MONS_SCAN
+[[[[[[[[[[[[[[[[[[
+
+%%%%
+#ifdef DEBUG_MONS_SCAN
+]]]]]]]]]]]]]]]]]]
+
+%%%%
+#ifdef DEBUG_MONS_SCAN
+Monster %s re-attached itself to mgrd in handle_monster_move() loop
+
 %%%%
 crackles loudly.
 
@@ -67,6 +95,14 @@ is distracted by the nearby gold.
 
 は近くの金貨に目を奪われている。
 %%%%
+is distracted by your gold.
+
+はあなたの金貨に目を奪われている。
+%%%%
+is distracted by imaginary riches.
+
+はありもしない金貨に目を奪われている。
+%%%%
 Something you can't see is thrashing in a web.
 
 何か目に見えないものが蜘蛛の巣の中でのたうっている。
@@ -75,13 +111,13 @@ struggles to get unstuck from the web.
 
 は蜘蛛の巣から抜けだそうともがいている。
 %%%%
+pulls away from the web.
+
+は蜘蛛の巣から抜け出した。
+%%%%
 Something wriggles in the net.
 
 何かが網の中でうごめいている。
-%%%%
-struggles to escape the net.
-
-は網から逃れようともがいている。
 %%%%
 struggles against the net.
 
@@ -103,6 +139,10 @@ Being near %s leaves you feeling lethargic.
 
 あなたは%sの近くにいるため無気力感が湧いてきた。
 %%%%
+%s watery aura covers %s
+
+%sの放つ水のオーラが%sを覆った。
+%%%%
 splits in two!
 
 は二つに分裂した！
@@ -111,33 +151,37 @@ You hear a squelching noise.
 
 あなたはガボガボという音を耳にした。
 %%%%
+%s eating %s
+
+# for debug
+%%%%
 You hear a%s slurping noise.
 
 あなたは%s物を食べる音を耳にした。
 %%%%
-appreciates your sacrifice.
+distant
 
-はあなたの捧げ物に喜んでいる。
+遠くで
 %%%%
-twists violently!
+opens the %s.
 
-は体を急激にくねらせた！
+%sを開けた。
 %%%%
-devours the net!
-
-は網をむさぼり食った！
-%%%%
-%s eats %s.
-
-%sは%sを食らった。
-%%%%
-Something unseen %s
+Something unseen {open the %s.}
 
 何かが%s
+%%%%
+{monster} {open the %s.}
+
+%sが%s
 %%%%
 %s grows in the wake of %s.
 
 %sは%sの活動と共に育ちはじめた。
+%%%%
+Alerting monster %s at (%d,%d)
+
+# for debug
 %%%%
 escapes!
 
@@ -183,6 +227,10 @@ falters for a moment.
 
 %sが木をなぎ倒している！
 %%%%
+# Something
+
+# jtrans_actor.txtと重複
+%%%%
 You hear a crashing sound.
 
 あなたは何かが壊れる音を耳にした。
@@ -191,7 +239,35 @@ You hear a sizzling sound.
 
 あなたはジュージューという音を耳にした。
 %%%%
-You hear a grinding noise.
+# You hear a grinding noise.
 
-あなたは軋むような音を耳にした。
+# jtrans_beam.txtと重複
+%%%%
+BUG: %s was marked as follower when not following!
+
+# for debug
+%%%%
+%s is skipping movement in order to follow.
+
+# for debug
+%%%%
+#if TAG_MAJOR_VERSION == 34
+%s is %s by your radiant heat.
+
+%%%%
+#if TAG_MAJOR_VERSION == 34
+blasted
+
+%%%%
+#if TAG_MAJOR_VERSION == 34
+burned
+
+%%%%
+#ifdef DEBUG_DIAGNOSTICS
+%s %s %d damage from heat.
+
+%%%%
+#ifdef DEBUG_DIAGNOSTICS
+[verb]take
+
 %%%%
