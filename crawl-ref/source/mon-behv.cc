@@ -744,7 +744,7 @@ void handle_behaviour(monster* mon)
                     || isPacified)
                 {
 #ifdef DEBUG_PATHFIND
-                    mpr("It's been too long! Stop travelling.");
+                    mpr(jtrans("It's been too long! Stop travelling."));
 #endif
                     mon->travel_path.clear();
                     mon->travel_target = MTRAV_NONE;
@@ -1116,8 +1116,8 @@ void behaviour_event(monster* mon, mon_event_type event, const actor *src,
 
             if (you.can_see(*mon))
             {
-                mprf("%s attack snaps %s out of %s fear.",
-                        src ? src->name(DESC_ITS).c_str() : "the",
+                mprf(jtransc("%s attack snaps %s out of %s fear."),
+                        src ? src->name(DESC_ITS).c_str() : "",
                         mon->name(DESC_THE).c_str(),
                         mon->pronoun_j(PRONOUN_POSSESSIVE).c_str());
             }
@@ -1333,7 +1333,7 @@ void behaviour_event(monster* mon, mon_event_type event, const actor *src,
 
     // mons_speaks_msg already handles the LOS check.
     if (!msg.empty() && mon->visible_to(&you))
-        mons_speaks_msg(mon, msg, MSGCH_TALK, silenced(mon->pos()));
+        mons_speaks_msg(mon, jtrans(msg), MSGCH_TALK, silenced(mon->pos()));
 
     if (mons_allows_beogh_now(*mon))
     {
@@ -1346,9 +1346,9 @@ void behaviour_event(monster* mon, mon_event_type event, const actor *src,
             {
                 ASSERT_RANGE(get_talent(ABIL_CONVERT_TO_BEOGH, false).hotkey,
                              'A', 'z' + 1);
-                mprf("(press <w>%c</w> on the <w>%s</w>bility menu to convert to Beogh)",
-                     get_talent(ABIL_CONVERT_TO_BEOGH, false).hotkey,
-                     command_to_string(CMD_USE_ABILITY).c_str());
+                mprf(jtransc("(press <w>%c</w> on the <w>%s</w>bility menu to convert to Beogh)"),
+                     command_to_string(CMD_USE_ABILITY).c_str(),
+                     get_talent(ABIL_CONVERT_TO_BEOGH, false).hotkey);
                 you.attribute[ATTR_SEEN_BEOGH] = 1;
             }
         }
@@ -1430,20 +1430,20 @@ static void _mons_indicate_level_exit(const monster* mon)
     else if (feat_is_travelable_stair(feat))
     {
         command_type dir = feat_stair_direction(feat);
-        simple_monster_message(*mon,
+        simple_monster_message(*mon, jtransc(
             make_stringf(" %s the %s.",
                 dir == CMD_GO_UPSTAIRS     ? "goes up" :
                 dir == CMD_GO_DOWNSTAIRS   ? "goes down"
                                            : "takes",
                 feat_is_escape_hatch(feat) ? "escape hatch"
-                                           : "stairs").c_str());
+                                           : "stairs").c_str()));
     }
     else if (is_shaft)
     {
-        simple_monster_message(*mon,
+        simple_monster_message(*mon, jtransc(
             make_stringf(" %s the shaft.",
                 mon->airborne() ? "goes down"
-                                : "jumps into").c_str());
+                                : "jumps into").c_str()));
     }
 }
 

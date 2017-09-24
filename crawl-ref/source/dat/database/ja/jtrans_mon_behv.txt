@@ -1,4 +1,8 @@
 %%%%
+#ifdef DEBUG_PATHFIND
+It's been too long! Stop travelling.
+
+%%%%
 %s attack snaps %s out of %s fear.
 
 %s攻撃によって%sから恐怖が振り払われた。
@@ -15,11 +19,43 @@ PLAIN:追い詰められた@The_monster@は戦いを始めた！
 
 (ベオに改宗するには<w>%s</w>bilityメニューで <w>%c</w> を押してください)
 %%%%
+Monster %d forgot about foe %d. (Previous foe_memory: %d)
+
+# for debug
+%%%%
 passes through the gate.
 
 は門をくぐり抜けた。
 %%%%
-%s the shaft.
+goes up the escape hatch.
 
-は縦穴%s。
+は脱出ハッチを昇った。
+%%%%
+goes down the escape hatch.
+
+は脱出ハッチを下りた。
+%%%%
+takes the escape hatch.
+
+は脱出ハッチを通り抜けた。
+%%%%
+goes up the stairs.
+
+は階段を昇った。
+%%%%
+goes down the stairs.
+
+は階段を下りた。
+%%%%
+takes the stairs.
+
+は階段を通り抜けた。
+%%%%
+goes down the shaft.
+
+は縦穴を下りた。
+%%%%
+jumps into the shaft.
+
+は縦穴に飛び込んだ。
 %%%%
