@@ -1,15 +1,15 @@
 %%%%
-its kin
+basks in your mutagenic energy and changes!
 
-同族
+はあなたの放つ変異性のエネルギーを浴び、姿を変えた！
 %%%%
-its neighbour
+basks in the mutagenic energy from its kin and changes!
 
-仲間
+は同族が放つ変異性のエネルギーを浴び、姿を変えた！
 %%%%
-basks in the mutagenic energy%s and changes!
+basks in the mutagenic energy and changes!
 
-は%s放たれる変異性のエネルギーを浴び、姿を変えた！
+は変異性のエネルギーを浴び、姿を変えた！
 %%%%
 %s splits.
 
@@ -17,11 +17,15 @@ basks in the mutagenic energy%s and changes!
 %%%%
 Two %s merge%s%s.
 
-2体の%sは合体し%s%s%sた。
+2体の%sは合体し%sた。
+%%%%
+to form %s
+
+て%sになっ
 %%%%
 %s merges with %s%s%s.
 
-%sは%sと合体し%s%s%sた。
+%sは%sと合体し%s%sた。
 %%%%
 %s suddenly becomes %s.
 
@@ -47,6 +51,10 @@ A slime creature suddenly disappears!
 
 スライムは突然消え去った！
 %%%%
+Chorus size: %d
+
+# for debug
+%%%%
 A cacophony of accursed wailing tears at your sanity!
 
 忌まわしくも悲しげな不協和音によってあなたは正気を失った！
@@ -71,10 +79,6 @@ accursed screaming
 
 忌まわしき悲鳴
 %%%%
-%s flickers out of the living world.
-
-%sは点滅してこの世から消え去った。
-%%%%
 %s sacrifices itself to reknit %s!
 
 %sは自らを生贄に捧げ、%sを復活させた！
@@ -91,10 +95,6 @@ Angry insects surge out from beneath %s foliage!
 
 怒り狂った蜂が巣から飛び出した！
 %%%%
-Agitated ravens fly out from beneath %s foliage!
-
-カラスが巣から飛び出した！
-%%%%
 You escape the reach of the grasping roots.
 
 あなたは木の根の届く範囲から逃れた。
@@ -102,18 +102,6 @@ You escape the reach of the grasping roots.
 flickers out of sight
 
 点滅して見えなくなった
-%%%%
-withdraws into its shell!
-
-は甲羅の中に引っ込んだ！
-%%%%
-curls into a ball and rolls away!
-
-は丸まって遠くに転がっていった！
-%%%%
-curls into a ball and starts rolling!
-
-は丸まって転がりだした！
 %%%%
 flows with the water.
 
