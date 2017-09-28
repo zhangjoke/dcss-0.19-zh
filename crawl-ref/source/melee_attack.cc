@@ -1470,19 +1470,19 @@ string melee_attack::player_why_missed()
         if (armour_miss && !shield_miss)
             return make_stringf(jtransc("Your {armour} prevents you from hitting "),
                                 armour_name.c_str(),
-                                defender->name(DESC_PLAIN));
+                                defender->name(DESC_PLAIN).c_str());
         else if (shield_miss && !armour_miss)
             return make_stringf(jtransc("Your shield prevents you from hitting "),
-                                defender->name(DESC_PLAIN));
+                                defender->name(DESC_PLAIN).c_str());
         else
             return make_stringf(jtransc("Your shield and {armour} prevent you from hitting "),
                                 armour_name.c_str(),
-                                defender->name(DESC_PLAIN));
+                                defender->name(DESC_PLAIN).c_str());
     }
 
     return make_stringf(jtransc("You {evasion margin} miss {name}"),
                         adv_jc(evasion_margin_adverb()),
-                        defender->name(DESC_PLAIN));
+                        defender->name(DESC_PLAIN).c_str());
 }
 
 void melee_attack::player_warn_miss()
