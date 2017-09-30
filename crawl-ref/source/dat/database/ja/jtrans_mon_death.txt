@@ -1,0 +1,373 @@
+%%%%
+You feel a bit more experienced.
+
+あなたは少し経験を積んだ気がした。
+%%%%
+turns back into a corpse!
+
+は死体に戻った！
+%%%%
+%s appears out of nowhere!
+
+%sがどこからともなく現れた！
+%%%%
+the ghost of
+
+の幽霊
+%%%%
+%s heals %s%s
+
+%sは%sを癒した%s
+%%%%
+With an infernal shudder, the power ruling this place vanishes!
+
+恐ろしい振動とともに、この場を支配する力が消滅した！
+%%%%
+With infernal noise, the power ruling this place vanishes!
+
+恐ろしい轟音とともに、この場を支配する力が消滅した！
+%%%%
+averts the curse.
+
+は呪いを防いだ。
+%%%%
+You feel nervous for a moment...
+
+あなたは一瞬神経質になった……
+%%%%
+You feel extremely nervous for a moment...
+
+あなたは一瞬きわめて神経質になった……
+%%%%
+A malignant aura surrounds %s.
+
+悪意のオーラが%sを包んだ。
+%%%%
+%s death curse
+
+%sの末期の呪い
+%%%%
+Your fungal colony was destroyed.
+
+あなたの胞子は破壊された。
+%%%%
+The fungal colony is destroyed.
+
+胞子は破壊された。
+%%%%
+You hear an explosion!
+
+あなたは爆発音を耳にした！
+%%%%
+You hear a clap of thunder!
+
+あなたは雷鳴を耳にした！
+%%%%
+You hear an otherworldly crackling!
+
+あなたは鬼火のパチパチと爆ぜる音を聞いた！
+%%%%
+By Zin's power, the giant spore's explosion is contained.
+
+ジンの御業により、巨大胞子の爆発の威力は抑えられた。
+%%%%
+By Zin's power, the ball lightning's explosion is contained.
+
+ジンの御業により、球雷の爆発の威力は抑えられた。
+%%%%
+The lurking horror fades away harmlessly.
+
+潜伏する恐怖は消え去っていった。
+%%%%
+By Zin's power, the prism's explosion is contained.
+
+ジンの御業により、晶柱の爆発の威力は抑えられた。
+%%%%
+By Zin's power, the bennu's fires are quelled.
+
+ジンの御業により、ベンヌの炎の威力は抑えられた。
+%%%%
+hexed by the player character
+
+あなたに呪われた
+%%%%
+hexed by
+
+に呪われた
+%%%%
+By Zin's power, the fiery explosion is contained.
+
+ジンの御業により、燃えさかる爆発の威力は抑えられた。
+%%%%
+exploding inner flame
+
+内なる炎の爆発
+%%%%
+ignited by themself
+
+%%%%
+ignited by their pet
+
+%%%%
+set off by themself
+
+%%%%
+set off by their pet
+
+%%%%
+%s blazes out!
+
+%sは燃え上がった！
+%%%%
+%s explodes!
+
+%sは爆発した！
+%%%%
+'s corpse
+
+の死体
+%%%%
+A glowing mist gathers momentarily, then fades.
+
+輝く霧が一瞬集まったが、すぐ消え去った。
+%%%%
+A glowing mist starts to gather...
+
+輝く霧が寄り集まった……
+%%%%
+With its final breath, %s offers up its power to the beasts of the wild!
+
+息を引き取る寸前、%sは野生の獣たちに力を与えた！
+%%%%
+%s %s healed.
+
+%sは回復した。
+%%%%
+seems to grow more fierce.
+
+はさらに荒れ狂った。
+%%%%
+%s turns into a zombie!
+
+%sはゾンビへと姿を変えた！
+%%%%
+%s appears out of thin air!
+
+%sがいきなり現れた！
+%%%%
+You feel the power of Trog in you as your rage grows.
+
+あなたは怒りの増大とともに、内なるトログの力を意識した。
+%%%%
+The necklace of Bloodlust glows a violent red.
+
+血に飢えた首飾りが真っ赤に輝いた。
+%%%%
+detonates feebly.
+
+は弱々しく爆散した。
+%%%%
+implodes!
+
+は圧壊した！
+%%%%
+dissipates!
+
+は四散した！
+%%%%
+vapourises!
+
+は霧散した！
+%%%%
+falls from the air.
+
+は地面に落下した。
+%%%%
+The tentacle is hauled back through the portal!
+
+触手はポータルの向こうに引き戻された！
+%%%%
+With a roar, the tentacle is hauled back through the portal!
+
+轟音と共に、触手はポータルの向こうに引き戻された！
+%%%%
+crumbles away.
+
+は崩れ落ちた。
+%%%%
+fades into the ether.
+
+はエーテルの中に溶け込んだ。
+%%%%
+exhausts itself and dries up.
+
+は消耗して涸れ果てた。
+%%%%
+blown up
+
+爆破された
+%%%%
+destroyed
+
+破壊された
+%%%%
+killed
+
+殺された
+%%%%
+blow up
+
+破裂させた
+%%%%
+destroy
+
+破壊した
+%%%%
+kill
+
+殺した
+%%%%
+That felt strangely unrewarding.
+
+あなたは奇妙な徒労感に襲われた。
+%%%%
+You feel a little better.
+
+あなたは少し気分が良くなった。
+%%%%
+You feel your power returning.
+
+あなたは魔力が回復したようだ。
+%%%%
+is blown up!
+
+は爆破された！
+%%%%
+is destroyed!
+
+は破壊された！
+%%%%
+dies!
+
+は死んだ！
+%%%%
+looks invigorated.
+
+は元気づけられたようだ。
+%%%%
+withers and dies!
+
+は枯れ果てて死んだ！
+%%%%
+fades into mist!
+
+は霧の中に消えていった！
+%%%%
+The dead kraken's tentacles slide back into the water.
+
+倒れたクラーケンの触手は水の中に滑り落ちていった。
+%%%%
+The starspawn's tentacles wither and die.
+
+落とし子の触手は枯れ果てて、崩れ落ちた。
+%%%%
+regenerates before your eyes!
+
+あなたの眼前で再生した！
+%%%%
+'s shape twists and changes as
+
+のように見えていたものの形状は捻れ、後には
+%%%%
+The vine%s fall%s limply to the ground.
+
+蔦はだらりと地面に垂れ下がった。
+%%%%
+The terrible wounds on %s body vanish.
+
+%s体の裂傷は消え去った。
+%%%%
+The forest abruptly stops moving.
+
+不意に森のざわめきが止んだ。
+%%%%
+%s falls into the %s!
+
+%sは%sの中に転げ落ちた！
+%%%%
+is incinerated.
+
+は燃え尽きた。
+%%%%
+drowns.
+
+は溺れた。
+%%%%
+falls apart.
+
+はバラバラになった。
+%%%%
+disappear%s in a puff of smoke
+
+煙とともに消え去った
+%%%%
+dissolve%s into shadows
+
+影の中に溶けこんでいった
+%%%%
+degenerate%s into a cloud of primal chaos
+
+原初の混沌の渦に溶け込んでいった
+%%%%
+fade%s away
+
+薄れて消えていった
+%%%%
+dissolve%s into sparkling lights
+
+閃光とともに消え去った
+%%%%
+dissolve%s into a puddle of slime
+
+溶解してねばねばした水たまりになった
+%%%%
+return%s to the deep
+
+深淵へと還った
+%%%%
+shimmer%s and vanish
+
+揺らめいて消え去った
+%%%%
+With Pikel's spell broken, the former slave thanks you for freedom.
+
+『ピケル』の呪縛が破れ、元奴隷は自由を与えてくれたあなたに感謝した。
+%%%%
+With Pikel's spell broken, the former slaves thank you for their freedom.
+
+『ピケル』の呪縛が破れ、元奴隷たちは自由を与えてくれたあなたに感謝した。
+%%%%
+No longer under Kirke's spell, the hog turns into a human!
+
+『キルケー』の魔法が解け、豚は人間の姿に戻った！
+%%%%
+No longer under Kirke's spell, the hog returns to its original form!
+
+『キルケー』の魔法が解け、豚は元の姿に戻った！
+%%%%
+No longer under Kirke's spell, the hogs revert to their human forms!
+
+『キルケー』の魔法が解け、豚の群れは人間の姿に戻った！
+%%%%
+No longer under Kirke's spell, the hogs revert to their original forms!
+
+『キルケー』の魔法が解け、豚の群れは元の姿に戻った！
+%%%%
+seems to find hidden reserves of power!
+
+の秘められた力が覚醒したようだ！
+%%%%
+likewise turns neutral.
+
+もまた中立化した。
+%%%%
