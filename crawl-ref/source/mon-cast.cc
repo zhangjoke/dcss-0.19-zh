@@ -29,6 +29,7 @@
 #include "fprop.h"
 #include "godpassive.h"
 #include "items.h"
+#include "japanese.h"
 #include "libutil.h"
 #include "losglobal.h"
 #include "mapmark.h"
@@ -278,8 +279,8 @@ static const map<spell_type, mons_spell_logic> spell_to_logic = {
                 && !caster.has_ench(ENCH_REGENERATION);
         },
         [](monster &caster, mon_spell_slot, bolt&) {
-            const string god = apostrophise(god_name(caster.god));
-            const string msg = make_stringf(" invokes %s protection!",
+            const string god = god_name_j(caster.god);
+            const string msg = make_stringf(jtransc(" invokes %s protection!"),
                                             god.c_str());
             simple_monster_message(caster, msg.c_str(), MSGCH_MONSTER_SPELL);
             // Not spell_hd(spell_cast); this is an invocation
@@ -300,7 +301,7 @@ static const map<spell_type, mons_spell_logic> spell_to_logic = {
         [](monster &caster, mon_spell_slot, bolt&) {
             if (you.can_see(caster))
             {
-                mprf("%s liquefies the ground around %s!",
+                mprf(jtransc("%s liquefies the ground around %s!"),
                      caster.name(DESC_THE).c_str(),
                      caster.pronoun_j(PRONOUN_REFLEXIVE).c_str());
                 flash_view_delay(UA_MONSTER, BROWN, 80);
@@ -733,7 +734,7 @@ static void _cast_cantrip(monster &mons, mon_spell_slot slot, bolt& pbolt)
         // "Enchant" the player.
         const string slugform = getSpeakString("gastronok_debuff");
         if (!slugform.empty()
-            && (slugform.find("legs") == string::npos
+            && ((slugform.find("legs") == string::npos || slugform.find("脚") == string::npos)
                 || _legs_msg_applicable()))
         {
             mpr(slugform);
@@ -755,9 +756,8 @@ static void _cast_cantrip(monster &mons, mon_spell_slot slot, bolt& pbolt)
 static void _cast_injury_mirror(monster &mons, mon_spell_slot slot, bolt&)
 {
     const string msg
-        = make_stringf(" offers %s to %s, and fills with unholy energy.",
-                       mons.pronoun_j(PRONOUN_REFLEXIVE).c_str(),
-                       god_name(mons.god).c_str());
+        = make_stringf(jtransc(" offers %s to %s, and fills with unholy energy."),
+                       god_name_jc(mons.god));
     simple_monster_message(mons, msg.c_str(), MSGCH_MONSTER_SPELL);
     mons.add_ench(mon_enchant(ENCH_MIRROR_DAMAGE, 0, &mons,
                               random_range(7, 9) * BASELINE_DELAY));
@@ -772,7 +772,7 @@ static void _cast_smiting(monster &caster, mon_spell_slot slot, bolt&)
     ASSERT(foe);
 
     if (foe->is_player())
-        mprf("%s smites you!", _god_name(god).c_str());
+        mprf(jtransc("%s smites you!"), _god_name(god).c_str());
     else
         simple_monster_message(*foe->as_monster(), " is smitten.");
 
@@ -2047,7 +2047,7 @@ static void _print_battlecry_announcement(const monster& chief,
 
     if (seen_affected.size() == 1)
     {
-        mprf(channel, "%s goes into a battle-frenzy!",
+        mprf(channel, jtransc("%s goes into a battle-frenzy!"),
              seen_affected[0]->name(DESC_THE).c_str());
         return;
     }
@@ -2064,9 +2064,9 @@ static void _print_battlecry_announcement(const monster& chief,
     monster_type group_type = generic ? mons_genus(chief.type) : first_type;
 
     const string ally_desc
-        = pluralise_monster(mons_type_name(group_type, DESC_PLAIN));
-    mprf(channel, "%s %s go into a battle-frenzy!",
-         chief.friendly() ? "Your" : "The", ally_desc.c_str());
+        = jpluralise(mons_type_name(group_type, DESC_PLAIN), "", "たち");
+    mprf(channel, jtransc("%s %s go into a battle-frenzy!"),
+         jtransc(chief.friendly() ? "Your" : ""), ally_desc.c_str());
 }
 
 /**
@@ -2535,16 +2535,16 @@ static bool _seal_doors_and_stairs(const monster* warden,
     if (had_effect)
     {
         ASSERT(!check_only);
-        mprf(MSGCH_MONSTER_SPELL, "%s activates a sealing rune.",
+        mprf(MSGCH_MONSTER_SPELL, jtransc("%s activates a sealing rune."),
                 (warden->visible_to(&you) ? warden->name(DESC_THE, true).c_str()
                                           : "Someone"));
         if (num_closed > 1)
-            mpr("The doors slam shut!");
+            mpr(jtrans("The doors slam shut!"));
         else if (num_closed == 1)
-            mpr("A door slams shut!");
+            mpr(jtrans("A door slams shut!"));
 
         if (player_pushed)
-            mpr("You are pushed out of the doorway!");
+            mpr(jtrans("You are pushed out of the doorway!"));
 
         return true;
     }
@@ -2633,13 +2633,13 @@ static bool _make_monster_angry(const monster* mon, monster* targ, bool actual)
         if (mon->type == MONS_QUEEN_BEE && (targ->type == MONS_KILLER_BEE ||
                                             targ->type == MONS_MELIAI))
         {
-            mprf("%s calls on %s to defend %s!",
-                mon->name(DESC_THE).c_str(),
-                targ->name(DESC_THE).c_str(),
-                mon->pronoun_j(PRONOUN_OBJECTIVE).c_str());
+            mprf(jtransc("%s calls on %s to defend %s!"),
+                 mon->name(DESC_THE).c_str(),
+                 mon->pronoun_j(PRONOUN_OBJECTIVE).c_str(),
+                 targ->name(DESC_THE).c_str());
         }
         else
-            mprf("%s goads %s on!", mon->name(DESC_THE).c_str(),
+            mprf(jtransc("%s goads %s on!"), mon->name(DESC_THE).c_str(),
                  targ->name(DESC_THE).c_str());
     }
 
@@ -2830,7 +2830,7 @@ static bool _awaken_vines(monster* mon, bool test_only = false)
 {
     if (_is_wiz_cast())
     {
-        mprf("Sorry, this spell isn't supported for dummies!"); //mons dummy
+        mprf(jtrans("Sorry, this spell isn't supported for dummies!")); //mons dummy
         return false;
     }
 
@@ -2899,7 +2899,7 @@ static bool _awaken_vines(monster* mon, bool test_only = false)
     else
     {
         if (seen)
-            mpr("Vines fly forth from the trees!");
+            mpr(jtrans("Vines fly forth from the trees!"));
         return true;
     }
 }
@@ -2949,7 +2949,8 @@ static bool _place_druids_call_beast(const monster* druid, monster* beast,
         }
 
         // Assign blame (for statistical purposes, mostly)
-        mons_add_blame(beast, "called by " + druid->name(DESC_A, true));
+        mons_add_blame(beast, make_stringf(jtransc("called by %s"),
+                                           druid->name(DESC_A, true).c_str()));
 
         return true;
     }
@@ -3096,7 +3097,7 @@ static bool _wall_of_brambles(monster* mons)
     }
 
     if (seen)
-        mpr("Thorny briars emerge from the ground!");
+        mpr(jtrans("Thorny briars emerge from the ground!"));
 
     return true;
 }
@@ -3254,9 +3255,9 @@ void aura_of_brilliance(monster* agent)
         {
             if (!mon->has_ench(ENCH_EMPOWERED_SPELLS) && you.can_see(*mon))
             {
-               mprf("%s is empowered by %s aura!",
-                    mon->name(DESC_THE).c_str(),
-                    apostrophise(agent->name(DESC_THE)).c_str());
+                mprf(jtransc("%s is empowered by %s aura!"),
+                     mon->name(DESC_THE).c_str(),
+                     agent->name(DESC_THE).c_str());
             }
             mon_enchant ench = mon->get_ench(ENCH_EMPOWERED_SPELLS);
             if (ench.ench != ENCH_NONE)
@@ -3638,8 +3639,8 @@ static bool _prepare_ghostly_sacrifice(monster &caster, bolt &beam)
 
     if (you.see_cell(victim->pos()))
     {
-        mprf("%s animating energy erupts into ghostly fire!",
-             apostrophise(victim->name(DESC_THE)).c_str());
+        mprf(jtransc("%s animating energy erupts into ghostly fire!"),
+             victim->name(DESC_THE).c_str());
     }
     monster_die(victim, &caster, true);
     return true;
@@ -4149,9 +4150,9 @@ bool handle_mon_spell(monster* mons)
         ru_interference interference = get_ru_attack_interference_level();
         if (interference == DO_BLOCK_ATTACK)
         {
-            const string message
-                = make_stringf(" begins to %s, but is stunned by your will!",
-                               _ru_spell_stop_desc(*mons).c_str());
+            const string message = jtrans(
+                  make_stringf(" begins to %s, but is stunned by your will!",
+                               _ru_spell_stop_desc(*mons).c_str()));
             simple_monster_message(*mons, message.c_str(), MSGCH_GOD);
             mons->lose_energy(EUT_SPELL);
             return true;
@@ -4185,7 +4186,7 @@ bool handle_mon_spell(monster* mons)
 
             if (ignore_good_idea)
             {
-                mprf(MSGCH_GOD, "You redirect %s's attack!",
+                mprf(MSGCH_GOD, jtransc("You redirect %s's attack!"),
                      mons->name(DESC_THE).c_str());
             }
         }
@@ -4314,7 +4315,7 @@ static int _monster_abjure_target(monster* target, int pow, bool actual)
     else if (is_sanctuary(target->pos()))
     {
         pow = 0;
-        mprf(MSGCH_GOD, "Zin's power protects your fellow warrior from evil magic!");
+        mprf(MSGCH_GOD, jtrans("Zin's power protects your fellow warrior from evil magic!"));
         shielded = true;
     }
 
@@ -4336,7 +4337,7 @@ static int _monster_abjuration(const monster* caster, bool actual)
     int maffected = 0;
 
     if (actual)
-        mpr("Send 'em back where they came from!");
+        mpr(jtrans("Send 'em back where they came from!"));
 
     const int pow = _mons_spellpower(SPELL_ABJURATION, *caster);
 
@@ -4553,7 +4554,7 @@ static void _mons_vampiric_drain(monster &mons, mon_spell_slot slot, bolt&)
                                MSGCH_MONSTER_SPELL);
     }
     else
-        mpr("Unholy energy fills the air.");
+        mpr(jtrans("Unholy energy fills the air."));
 
     if (target->is_player())
     {
@@ -4572,13 +4573,13 @@ static void _mons_vampiric_drain(monster &mons, mon_spell_slot slot, bolt&)
         if (mtarget->is_summoned())
         {
             simple_monster_message(mons,
-                                   make_stringf(" draws life force from %s!",
+                                   make_stringf(jtransc(" draws life force from %s!"),
                                                 targname.c_str()).c_str());
         }
         else if (mons.heal(hp_cost * 2 / 3))
         {
             simple_monster_message(mons,
-                make_stringf(" draws life force from %s and is healed!",
+                make_stringf(jtransc(" draws life force from %s and is healed!"),
                 targname.c_str()).c_str());
         }
         if (mtarget->alive())
@@ -4610,7 +4611,7 @@ static bool _mons_cast_freeze(monster* mons)
 
     if (you.can_see(*target))
     {
-        mprf("%s %s frozen.", target->name(DESC_THE).c_str(),
+        mprf(jtransc("%s %s frozen."), target->name(DESC_THE).c_str(),
                               target->conj_verb("are").c_str());
     }
 
@@ -4686,7 +4687,7 @@ static int _mons_mesmerise(monster* mons, bool actual)
         }
         else
         {
-            mprf("%s draws you further into %s thrall.",
+            mprf(jtransc("%s draws you further into %s thrall."),
                     mons->name(DESC_THE).c_str(),
                     mons->pronoun_j(PRONOUN_POSSESSIVE).c_str());
         }
@@ -4707,7 +4708,7 @@ static int _mons_mesmerise(monster* mons, bool actual)
             else if (you.duration[DUR_MESMERISE_IMMUNE] && !already_mesmerised)
                 canned_msg(MSG_YOU_RESIST);
             else
-                mprf("You%s", you.resist_margin_phrase(res_magic).c_str());
+                mprf(jtransc("You%s"), you.resist_margin_phrase(res_magic).c_str());
         }
 
         return 0;
@@ -4729,7 +4730,7 @@ static int _mons_cause_fear(monster* mons, bool actual)
         if (you.can_see(*mons))
             simple_monster_message(*mons, " radiates an aura of fear!");
         else if (you.see_cell(mons->pos()))
-            mpr("An aura of fear fills the air!");
+            mpr(jtrans("An aura of fear fills the air!"));
     }
 
     int retval = -1;
@@ -4754,7 +4755,7 @@ static int _mons_cause_fear(monster* mons, bool actual)
             if (you.clarity())
                 canned_msg(MSG_YOU_UNAFFECTED);
             else if (res_margin > 0)
-                mprf("You%s", you.resist_margin_phrase(res_margin).c_str());
+                mprf(jtransc("You%s"), you.resist_margin_phrase(res_margin).c_str());
             else if (you.add_fearmonger(mons))
             {
                 retval = 1;
@@ -4836,7 +4837,7 @@ static int _mons_mass_confuse(monster* mons, bool actual)
         {
             const int res_magic = you.check_res_magic(pow);
             if (res_magic > 0)
-                mprf("You%s", you.resist_margin_phrase(res_magic).c_str());
+                mprf(jtransc("You%s"), you.resist_margin_phrase(res_magic).c_str());
             else
             {
                 you.confuse(mons, 5 + random2(3));
@@ -4897,7 +4898,7 @@ static int _mons_control_undead(monster* mons, bool actual)
         {
             int res_margin = you.check_res_magic(pow);
             if (res_margin > 0)
-                mprf("You%s", you.resist_margin_phrase(res_margin).c_str());
+                mprf(jtransc("You%s"), you.resist_margin_phrase(res_margin).c_str());
             else
             {
                 enchant_actor_with_flavour(&you, mons, BEAM_ENSLAVE);
@@ -4941,9 +4942,9 @@ static int _mons_control_undead(monster* mons, bool actual)
             retval = 1;
             if (you.can_see(**mi))
             {
-                mprf("%s submits to %s will!",
+                mprf(jtransc("%s submits to %s will!"),
                      mi->name(DESC_YOUR).c_str(),
-                     apostrophise(mons->name(DESC_THE)).c_str());
+                     mons->name(DESC_THE).c_str());
             }
             if (mi->has_ench(bad))
                 mi->del_ench(bad);
@@ -5309,9 +5310,8 @@ static void _branch_summon_helper(monster* mons, spell_type spell_cast)
         if (!msg.empty())
         {
             msg  = replace_all(msg, "@The_monster@", mons->name(DESC_THE));
-            msg += " ";
-            msg += branches[summon_list[which_branch].origin].longname;
-            msg += "!";
+            msg  = replace_all(msg, "@branch@", branch_name_j(branches[summon_list[which_branch].origin].longname));
+            msg += jtrans("!");
             mprf(mons->wont_attack() ? MSGCH_FRIEND_ENCHANT
                                      : MSGCH_MONSTER_ENCHANT,
                  "%s", msg.c_str());
@@ -5382,12 +5382,12 @@ static void _cast_flay(monster &caster, mon_spell_slot, bolt&)
     {
         if (was_flayed)
         {
-            mprf("Terrible wounds spread across more of %s body!",
+            mprf(jtransc("Terrible wounds spread across more of %s body!"),
                  defender->name(DESC_ITS).c_str());
         }
         else
         {
-            mprf("Terrible wounds open up all over %s body!",
+            mprf(jtransc("Terrible wounds open up all over %s body!"),
                  defender->name(DESC_ITS).c_str());
         }
     }
@@ -5459,12 +5459,12 @@ static string _describe_nearby_constructs(const monster &caster, coord_def pos)
 
     const string name = nearby_constructs.back()->name(DESC_THE);
     if (nearby_constructs.size() == 1)
-        return make_stringf(" and %s", name.c_str());
+        return make_stringf(jtransc(" and %s"), name.c_str());
 
     for (auto act : nearby_constructs)
         if (act->name(DESC_THE) != name)
-            return " and the adjacent constructs";
-    return make_stringf(" and %s", pluralise_monster(name).c_str());
+            return jtrans(" and the adjacent constructs");
+    return make_stringf(jtransc(" and %s"), jpluralise(name, "", "たち").c_str());
 }
 
 /// Cast Resonance Strike, blasting the caster's target with smitey damage.
@@ -5485,7 +5485,7 @@ static void _cast_resonance_strike(monster &caster, mon_spell_slot, bolt&)
 
     if (you.see_cell(target->pos()))
     {
-        mprf("A blast of power from the earth%s strikes %s!",
+        mprf(jtransc("A blast of power from the earth%s strikes %s!"),
              constructs_desc.c_str(),
              target->name(DESC_THE).c_str());
     }
@@ -5555,44 +5555,40 @@ static void _sheep_message(int num_sheep, int sleep_pow, actor& foe)
         message = "The dream sheep are wreathed in dream dust.";
     else if (sleep_pow >= MIN_DREAM_SUCCESS_POWER)
     {
-        message = make_stringf("The dream sheep shake%s wool and sparkle%s.",
+        message = make_stringf(jtransc("The dream sheep shake%s wool and sparkle%s."),
                                num_sheep == 1 ? "s its" : " their",
                                num_sheep == 1 ? "s": "");
     }
     else // if sleep fails
     {
-        message = make_stringf("The dream sheep ruffle%s wool and motes of "
-                               "dream dust sparkle, to no effect.",
+        message = make_stringf(jtransc("The dream sheep ruffle%s wool and motes of "
+                                       "dream dust sparkle, to no effect."),
                                num_sheep == 1 ? "s its" : " their");
     }
 
     if (!foe.is_player()) // Messaging for non-player targets
     {
-        const char* pluralize = num_sheep == 1 ? "s": "";
         const string foe_name = foe.name(DESC_THE);
         if (you.see_cell(foe.pos()) && sleep_pow)
         {
             mprf(foe.as_monster()->friendly() ? MSGCH_FRIEND_SPELL
                                               : MSGCH_MONSTER_SPELL,
-                 "As the sheep sparkle%s and sway%s, %s falls asleep.",
-                 pluralize,
-                 pluralize,
+                 jtransc("As the sheep sparkle%s and sway%s, %s falls asleep."),
                  foe_name.c_str());
         }
         else // if dust strength failure for non-player
         {
             mprf(foe.as_monster()->friendly() ? MSGCH_FRIEND_SPELL
                                               : MSGCH_MONSTER_SPELL,
-                 "The dream sheep attempt%s to lull %s to sleep.",
-                 pluralize,
+                 jtransc("The dream sheep attempt%s to lull %s to sleep."),
                  foe_name.c_str());
-            mprf("%s is unaffected.", foe_name.c_str());
+            mprf(jtransc("%s is unaffected."), foe_name.c_str());
         }
     }
     else
     {
-        mprf(MSGCH_MONSTER_SPELL, "%s%s", message.c_str(),
-             sleep_pow ? " You feel drowsy..." : "");
+        mprf(MSGCH_MONSTER_SPELL, "%s%s", jtransc(message),
+             jtrans_notrimc(sleep_pow ? " You feel drowsy..." : ""));
     }
 }
 
@@ -5739,9 +5735,9 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
         if (you.can_see(*foe))
         {
             if (foe->airborne())
-                mprf("The water rises up and strikes %s!", foe->name(DESC_THE).c_str());
+                mprf(jtransc("The water rises up and strikes %s!"), foe->name(DESC_THE).c_str());
             else
-                mprf("The water swirls and strikes %s!", foe->name(DESC_THE).c_str());
+                mprf(jtransc("The water swirls and strikes %s!"), foe->name(DESC_THE).c_str());
         }
 
         pbolt.flavour    = BEAM_WATER;
@@ -5761,9 +5757,9 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
         if (foe->is_player())
         {
             if (you.airborne())
-                mpr("The air twists around and violently strikes you in flight!");
+                mpr(jtrans("The air twists around and violently strikes you in flight!"));
             else
-                mpr("The air twists around and strikes you!");
+                mpr(jtrans("The air twists around and strikes you!"));
         }
         else
         {
@@ -5791,16 +5787,16 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
         if (one_chance_in(3)
             && lose_stat(STAT_INT, 1 + random2(3)))
         {
-            mpr("Something feeds on your intellect!");
+            mpr(jtrans("Something feeds on your intellect!"));
             xom_is_stimulated(50);
         }
         else
-            mpr("Something tries to feed on your intellect!");
+            mpr(jtrans("Something tries to feed on your intellect!"));
         return;
 
     case SPELL_SUMMON_SPECTRAL_ORCS:
         if (foe->is_player())
-            mpr("Orcish apparitions take form around you.");
+            mpr(jtrans("Orcish apparitions take form around you."));
         else
             simple_monster_message(*foe->as_monster(), " is surrounded by Orcish apparitions.");
         _mons_cast_spectral_orcs(mons);
@@ -5808,9 +5804,9 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
 
     case SPELL_HAUNT:
         if (foe->is_player())
-            mpr("You feel haunted.");
+            mpr(jtrans("You feel haunted."));
         else
-            mpr("You sense an evil presence.");
+            mpr(jtrans("You sense an evil presence."));
         _mons_cast_haunt(mons);
         return;
 
@@ -5976,9 +5972,9 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
 
         if (you.can_see(*mons))
         {
-            mprf("%s shimmers and seems to become %s!", mons->name(DESC_THE).c_str(),
+            mprf(jtransc("%s shimmers and seems to become %s!"), mons->name(DESC_THE).c_str(), jtransc(
                                                         sumcount2 == 1 ? "two"
-                                                                       : "three");
+                                                                       : "three"));
         }
 
         return;
@@ -6012,7 +6008,7 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
         harvest_corpses(*mons);
         if (crawl_state.game_is_arena() || you.can_see(*mons))
         {
-            mprf("The bodies of the dead form a shell around %s.",
+            mprf(jtransc("The bodies of the dead form a shell around %s."),
                  mons->name(DESC_THE).c_str());
         }
         mons->add_ench(ENCH_BONE_ARMOUR);
@@ -6235,13 +6231,13 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
         if (you.can_see(*mons))
         {
             bool flying = mons->airborne();
-            mprf("A great vortex of raging winds appears %s%s%s!",
-                 flying ? "around " : "and lifts ",
-                 mons->name(DESC_THE).c_str(),
-                 flying ? "" : " up!");
+            mprf(jtransc("A great vortex of raging winds appears %s%s%s"),
+                 (flying ? make_stringf(jtransc("around %s!"), mons->name(DESC_THE).c_str())
+                         : make_stringf(jtransc("and lifts %s up!!"),
+                                        mons->name(DESC_THE).c_str())).c_str());
         }
         else if (you.see_cell(mons->pos()))
-            mpr("A great vortex of raging winds appears out of thin air!");
+            mpr(jtrans("A great vortex of raging winds appears out of thin air!"));
         mons->props["tornado_since"].get_int() = you.elapsed_time;
         mon_enchant me(ENCH_TORNADO, 0, mons, dur);
         mons->add_ench(me);
@@ -6375,7 +6371,7 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
 
         if (sumcount)
         {
-            mpr("Walls emerge from the floor!");
+            mpr(jtrans("Walls emerge from the floor!"));
 
             // XXX: Assume that the entombed monster can regenerate.
             // Also, base the regeneration rate on HD to avoid
@@ -6438,7 +6434,7 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
         {
             if (you.can_see(*mons))
             {
-                mprf("%s commands the forest to attack, but nothing happens.",
+                mprf(jtransc("%s commands the forest to attack, but nothing happens."),
                      mons->name(DESC_THE).c_str());
             }
             return;
@@ -6496,8 +6492,8 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
     {
         if (you.can_see(*mons))
         {
-            mprf("A film of ice covers %s body!",
-                 apostrophise(mons->name(DESC_THE)).c_str());
+            mprf(jtransc("A film of ice covers %s body!"),
+                 mons->name(DESC_THE).c_str());
         }
         const int power = (mons->spell_hd(spell_cast) * 15) / 10;
         mons->add_ench(mon_enchant(ENCH_OZOCUBUS_ARMOUR,
@@ -6518,7 +6514,7 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
     case SPELL_INJURY_BOND:
     {
         simple_monster_message(*mons,
-            make_stringf(" begins to accept %s allies' injuries.",
+            make_stringf(jtransc(" begins to accept %s allies' injuries."),
                          mons->pronoun_j(PRONOUN_POSSESSIVE).c_str()).c_str());
         // FIXME: allies preservers vs the player
         for (monster_near_iterator mi(mons, LOS_NO_TRANS); mi; ++mi)
@@ -6553,7 +6549,7 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
         if (you.can_see(*mons))
             simple_monster_message(*mons, " radiates an aura of cold.");
         else if (mons->see_cell_no_trans(you.pos()))
-            mpr("A wave of cold passes over you.");
+            mpr(jtrans("A wave of cold passes over you."));
         apply_area_visible([splpow, mons] (coord_def where) {
             return englaciate(where, min(splpow, 200), mons);
         }, mons->pos());
@@ -6605,22 +6601,21 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
         else
         {
             if (!you.can_see(*mons))
-                mpr("You hear crackling.");
+                mpr(jtrans("You hear crackling."));
             else if (coinflip())
             {
-                mprf("The air around %s crackles with electrical energy.",
+                mprf(jtransc("The air around %s crackles with electrical energy."),
                      mons->name(DESC_THE).c_str());
             }
             else
             {
                 const bool plural = coinflip();
-                mprf("%s blue arc%s ground%s harmlessly %s %s.",
-                     plural ? "Some" : "A",
-                     plural ? "s" : "",
-                     plural ? " themselves" : "s itself",
-                     plural ? "around" : (coinflip() ? "beside" :
-                                          coinflip() ? "behind" : "before"),
-                     mons->name(DESC_THE).c_str());
+                const char* around_or_so = plural ? "around" : (coinflip() ? "beside" :
+                                                                coinflip() ? "behind" : "before");
+                mprf(jtransc(plural ? "Some blue arcs ground themselves harmlessly %s %s."
+                                    : "A blue arc grounds itself harmlessly %s %s."),
+                     mons->name(DESC_THE).c_str(),
+                     jtransc(around_or_so));
             }
         }
         return;
@@ -6673,7 +6668,7 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
                     && (you.can_see(*victim1)
                         || you.can_see(*victim2)))
                 {
-                    mpr("Some monsters swap places.");
+                    mpr(jtrans("Some monsters swap places."));
                     did_message = true;
                 }
 
@@ -6691,9 +6686,9 @@ void mons_cast(monster* mons, bolt pbolt, spell_type spell_cast,
     case SPELL_SHROUD_OF_GOLUBRIA:
         if (you.can_see(*mons))
         {
-            mprf("Space distorts along a thin shroud covering %s %s.",
-                 apostrophise(mons->name(DESC_THE)).c_str(),
-                 mons->is_insubstantial() ? "form" : "body");
+            mprf(jtransc("Space distorts along a thin shroud covering %s %s."),
+                 make_stringf(jtransc(mons->is_insubstantial() ? "%s form" : "%s body"),
+                              mons->name(DESC_THE).c_str()).c_str());
         }
         mons->add_ench(mon_enchant(ENCH_SHROUD));
         return;
@@ -7296,8 +7291,7 @@ void mons_cast_noise(monster* mons, const bolt &pbolt,
     if (targeted)
         _speech_fill_target(targ_prep, target, mons, pbolt, gestured);
 
-    msg = replace_all(msg, "@at@",     targ_prep);
-    msg = replace_all(msg, "@target@", target);
+    msg = replace_all(msg, "@target@", jtrans(target));
 
     string beam_name;
     if (!targeted)
@@ -7307,7 +7301,7 @@ void mons_cast_noise(monster* mons, const bolt &pbolt,
     else
         beam_name = pbolt.get_short_name();
 
-    msg = replace_all(msg, "@beam@", beam_name);
+    msg = replace_all(msg, "@beam@", zap_name_j(beam_name));
 
     const msg_channel_type chan =
         (unseen              ? MSGCH_SOUND :
@@ -7465,14 +7459,14 @@ static void _throw_ally_to(const monster &thrower, monster &throwee,
     if (thrower_seen || throwee_seen)
     {
         const string destination = you.can_see(*foe) ?
-                                   make_stringf("at %s",
+                                   make_stringf(jtransc("at %s"),
                                                 foe->name(DESC_THE).c_str()) :
-                                   "out of sight";
+                                   jtrans("out of sight");
 
-        mprf("%s throws %s %s!",
-             (thrower_seen ? thrower.name(DESC_THE).c_str() : "Something"),
-             (throwee_seen ? throwee.name(DESC_THE, true).c_str() : "something"),
-             destination.c_str());
+        mprf(jtransc("%s throws %s %s!"),
+             jtransc(thrower_seen ? thrower.name(DESC_THE) : "Something"),
+             destination.c_str(),
+             jtransc(throwee_seen ? throwee.name(DESC_THE, true) : "something"));
 
         bolt beam;
         beam.range   = INFINITE_DISTANCE;
@@ -7493,7 +7487,7 @@ static void _throw_ally_to(const monster &thrower, monster &throwee,
     throwee.apply_location_effects(old_pos);
     throwee.check_redraw(old_pos);
 
-    const string killed_by = make_stringf("Hit by %s thrown by %s",
+    const string killed_by = make_stringf(jtransc("Hit by %s thrown by %s"),
                                           throwee.name(DESC_A, true).c_str(),
                                           thrower.name(DESC_PLAIN, true).c_str());
     const int dam = foe->apply_ac(random2(thrower.get_hit_dice() * 2));
@@ -7582,9 +7576,9 @@ static bool _should_siren_sing(monster* mons, bool avatar)
  */
 static void _doom_howl(monster &mon)
 {
-    mprf("%s unleashes a %s howl, and it begins to echo in your mind!",
+    mprf(jtransc("%s unleashes a %s howl, and it begins to echo in your mind!"),
          mon.name(DESC_THE).c_str(),
-         silenced(mon.pos()) ? "silent" : "terrible");
+         jtransc(silenced(mon.pos()) ? "silent" : "terrible"));
     you.duration[DUR_DOOM_HOWL] = random_range(120, 180);
     mon.props[DOOM_HOUND_HOWLED_KEY] = true;
 }
@@ -7636,9 +7630,9 @@ static void _mons_awaken_earth(monster &mon, const coord_def &target)
     if (seen)
     {
         noisy(20, target);
-        mprf("Some walls %s!",
+        mprf(jtrans(make_stringf("Some walls %s!",
              count > 0 ? "begin to move on their own"
-                       : "crumble away");
+                       : "crumble away")));
     }
     else
         noisy(20, target, "You hear rumbling.");
@@ -7668,15 +7662,15 @@ static void _siren_sing(monster* mons, bool avatar)
     {
         const char * const song_adj = already_mesmerised ? "its luring"
                                                          : "a haunting";
-        const string song_desc = make_stringf(" chants %s song.", song_adj);
+        const string song_desc = make_stringf(jtransc(" chants %s song."), jtransc(song_adj));
         simple_monster_message(*mons, song_desc.c_str(), spl);
     }
     else
     {
-        mprf(MSGCH_SOUND, "You hear %s.",
+        mprf(MSGCH_SOUND, jtransc("You hear %s."), jtransc(
                           already_mesmerised ? "a luring song" :
                           coinflip()         ? "a haunting song"
-                                             : "an eerie melody");
+                                             : "an eerie melody"));
 
         // If you're already mesmerised by an invisible siren, it
         // can still prolong the enchantment.
