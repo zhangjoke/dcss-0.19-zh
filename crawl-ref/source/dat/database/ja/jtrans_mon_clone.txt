@@ -1,7 +1,7 @@
 %%%%
-woven by
+woven by %s
 
-が作り出した
+%sが作り出した
 %%%%
 %s seems to step out of %s!
 
@@ -19,9 +19,9 @@ There is a horrible, sudden wrenching feeling in your soul!
 
 あなたの魂が張り裂けそうな痛みを感じた！
 %%%%
-You see a puff of smoke.
+# You see a puff of smoke.
 
-あなたの目の前でぼわんと煙が上がった。
+# jtrans_decks.txtと重複
 %%%%
 is duplicated!
 
