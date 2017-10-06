@@ -1,39 +1,87 @@
 %%%%
+Trying to scatter chunk to %d, %d...
+
+# for debug
+%%%%
+Cell is visible...
+
+# for debug
+%%%%
+Success
+
+# for debug
+%%%%
+Error, exp for monster with no damage: %s
+
+# 訳不要
+%%%%
 You feel a bit more experienced.
 
 あなたは少し経験を積んだ気がした。
 %%%%
-turns back into a corpse!
+%s %s intact enough to wear.
 
-は死体に戻った！
+%s%sそのまま装着できるようだ。
 %%%%
-%s appears out of nowhere!
+[verb]is
 
-%sがどこからともなく現れた！
+<[verb]are>
 %%%%
-the ghost of
+banished
 
-の幽霊
+を追放した
+%%%%
+pacified
+
+を中立化した
+%%%%
+enslaved
+
+を隷属させた
+%%%%
+slimified
+
+をスライムに変えた
+%%%%
+killed
+
+を倒した
+%%%%
+%s the ghost of %s.
+
+%sの幽霊%s。
+%%%%
+%s %s.
+
+%s%s。
+%%%%
+protects %s from harm!
+
+は%sを損傷から護った！
+%%%%
+monster hp: %d, max hp: %d
+
+# for debug
+%%%%
+new hp: %d, ely penance: %d
+
+# for debug
 %%%%
 %s heals %s%s
 
 %sは%sを癒した%s
 %%%%
+#ifdef DEBUG_DIAGNOSTICS
+Death convert attempt on %s, HD: %d, your xl: %d
+
+%%%%
 With an infernal shudder, the power ruling this place vanishes!
 
 恐ろしい振動とともに、この場を支配する力が消滅した！
 %%%%
-With infernal noise, the power ruling this place vanishes!
+With an infernal noise, the power ruling this place vanishes!
 
 恐ろしい轟音とともに、この場を支配する力が消滅した！
-%%%%
-averts the curse.
-
-は呪いを防いだ。
-%%%%
-You feel nervous for a moment...
-
-あなたは一瞬神経質になった……
 %%%%
 You feel extremely nervous for a moment...
 
@@ -47,10 +95,6 @@ A malignant aura surrounds %s.
 
 %sの末期の呪い
 %%%%
-Your fungal colony was destroyed.
-
-あなたの胞子は破壊された。
-%%%%
 The fungal colony is destroyed.
 
 胞子は破壊された。
@@ -59,15 +103,35 @@ You hear an explosion!
 
 あなたは爆発音を耳にした！
 %%%%
+[zap]explosion of spores
+
+胞子の爆発
+%%%%
+[zap]blast of lightning
+
+雷霆の一撃
+%%%%
 You hear a clap of thunder!
 
 あなたは雷鳴を耳にした！
+%%%%
+[zap]blast of energy
+
+炸裂するエネルギー
+%%%%
+[zap]pyre of ghostly fire
+
+鬼火
 %%%%
 You hear an otherworldly crackling!
 
 あなたは鬼火のパチパチと爆ぜる音を聞いた！
 %%%%
-By Zin's power, the giant spore's explosion is contained.
+[zap]fiery explosion
+
+燃えさかる爆発
+%%%%
+By Zin's power, the ballistomycete spore's explosion is contained.
 
 ジンの御業により、巨大胞子の爆発の威力は抑えられた。
 %%%%
@@ -91,9 +155,9 @@ hexed by the player character
 
 あなたに呪われた
 %%%%
-hexed by
+hexed by %s
 
-に呪われた
+%sに呪われた
 %%%%
 By Zin's power, the fiery explosion is contained.
 
@@ -103,17 +167,25 @@ exploding inner flame
 
 内なる炎の爆発
 %%%%
+Unknown spore type:
+
+# 訳不要
+%%%%
 ignited by themself
 
+あなたが爆破した
 %%%%
 ignited by their pet
 
+仲間によって爆破された
 %%%%
 set off by themself
 
+あなたが爆破した
 %%%%
 set off by their pet
 
+仲間によって爆破された
 %%%%
 %s blazes out!
 
@@ -123,25 +195,45 @@ set off by their pet
 
 %sは爆発した！
 %%%%
+%s bursts from %s!
+
+%sが%sの体内から飛び出してきた！
+%%%%
 's corpse
 
 の死体
+%%%%
+{poof_msg}!
+
+は%s！
+%%%%
+A freezing mist gathers momentarily, then fades.
+
+氷混じりの霧が一瞬集まったが、すぐ消え去った。
 %%%%
 A glowing mist gathers momentarily, then fades.
 
 輝く霧が一瞬集まったが、すぐ消え去った。
 %%%%
+A freezing mist starts to gather...
+
+氷混じりの霧が寄り集まった……
+%%%%
 A glowing mist starts to gather...
 
 輝く霧が寄り集まった……
 %%%%
+animated by %s
+
+%sに蘇らされた
+%%%%
 With its final breath, %s offers up its power to the beasts of the wild!
 
-息を引き取る寸前、%sは野生の獣たちに力を与えた！
+息を引き取る寸前、%sは野生の獣たちに自らの力を分け与えた！
 %%%%
 %s %s healed.
 
-%sは回復した。
+%s%s回復した。
 %%%%
 seems to grow more fierce.
 
@@ -155,9 +247,25 @@ seems to grow more fierce.
 
 %sがいきなり現れた！
 %%%%
-You feel the power of Trog in you as your rage grows.
+Reaping chance: %d/%d
 
-あなたは怒りの増大とともに、内なるトログの力を意識した。
+# for debug
+%%%%
+'s shape twists and changes as %s dies.
+
+が死ぬと共に、その体は捻れて本来の姿に変化した。
+%%%%
+returns to %s original shape as %s dies.
+
+が死ぬと共に、それは本来の姿へと戻った。
+%%%%
+Lua death function for monster '%s' didn't load: %s
+
+# for error
+%%%%
+You feel the power of %s in you as your rage grows.
+
+あなたは怒りの増大とともに、内なる%sの力を意識した。
 %%%%
 The necklace of Bloodlust glows a violent red.
 
@@ -166,10 +274,6 @@ The necklace of Bloodlust glows a violent red.
 detonates feebly.
 
 は弱々しく爆散した。
-%%%%
-implodes!
-
-は圧壊した！
 %%%%
 dissipates!
 
@@ -195,13 +299,13 @@ crumbles away.
 
 は崩れ落ちた。
 %%%%
-fades into the ether.
-
-はエーテルの中に溶け込んだ。
-%%%%
 exhausts itself and dries up.
 
 は消耗して涸れ果てた。
+%%%%
+%s is %s!
+
+%sは%s！
 %%%%
 blown up
 
@@ -214,6 +318,10 @@ destroyed
 killed
 
 殺された
+%%%%
+You %s %s!
+
+あなたは%sを%s！
 %%%%
 blow up
 
@@ -231,13 +339,13 @@ That felt strangely unrewarding.
 
 あなたは奇妙な徒労感に襲われた。
 %%%%
-You feel a little better.
+collects the excess magic power.
 
-あなたは少し気分が良くなった。
+# obsolete: Pakellas
 %%%%
-You feel your power returning.
+# grants you a gift!
 
-あなたは魔力が回復したようだ。
+# jtrans_godabil.txtと重複
 %%%%
 is blown up!
 
@@ -251,10 +359,6 @@ dies!
 
 は死んだ！
 %%%%
-looks invigorated.
-
-は元気づけられたようだ。
-%%%%
 withers and dies!
 
 は枯れ果てて死んだ！
@@ -262,6 +366,14 @@ withers and dies!
 fades into mist!
 
 は霧の中に消えていった！
+%%%%
+crumbles into dust!
+
+は塵となって崩れ去った！
+%%%%
+Granting xp for non-damage kill.
+
+# for debug
 %%%%
 The dead kraken's tentacles slide back into the water.
 
@@ -271,13 +383,13 @@ The starspawn's tentacles wither and die.
 
 落とし子の触手は枯れ果てて、崩れ落ちた。
 %%%%
-regenerates before your eyes!
+Powered by Death strength +%d=%d
 
-あなたの眼前で再生した！
+# for debug
 %%%%
-'s shape twists and changes as
+%s has departed this plane of existence.
 
-のように見えていたものの形状は捻れ、後には
+%sはこの次元からいなくなった。
 %%%%
 The vine%s fall%s limply to the ground.
 
@@ -291,9 +403,21 @@ The forest abruptly stops moving.
 
 不意に森のざわめきが止んだ。
 %%%%
+Mounted kill: marking the other monster as reaped as well.
+
+# for debug
+%%%%
 %s falls into the %s!
 
 %sは%sの中に転げ落ちた！
+%%%%
+# lava
+
+# jtrans_delay.txtと重複
+%%%%
+# water
+
+# jtrans_delay.txtと重複
 %%%%
 is incinerated.
 
@@ -317,15 +441,15 @@ dissolve%s into shadows
 %%%%
 degenerate%s into a cloud of primal chaos
 
-原初の混沌の渦に溶け込んでいった
-%%%%
-fade%s away
-
-薄れて消えていった
+原初の混沌の渦に溶けこんでいった
 %%%%
 dissolve%s into sparkling lights
 
 閃光とともに消え去った
+%%%%
+fade%s away
+
+薄れて消えていった
 %%%%
 dissolve%s into a puddle of slime
 
@@ -339,13 +463,21 @@ shimmer%s and vanish
 
 揺らめいて消え去った
 %%%%
-With Pikel's spell broken, the former slave thanks you for freedom.
+Pikel's spell is broken, but the former slaves can only feel hate for you!
 
-『ピケル』の呪縛が破れ、元奴隷は自由を与えてくれたあなたに感謝した。
+『ピケル』の呪縛は破れたものの、元奴隷たちはあなたに反感しか抱かなかった！
+%%%%
+Pikel's spell is broken, but the former slave can only feel hate for you!
+
+『ピケル』の呪縛は破れたものの、元奴隷はあなたに反感しか抱かなかった！
 %%%%
 With Pikel's spell broken, the former slaves thank you for their freedom.
 
 『ピケル』の呪縛が破れ、元奴隷たちは自由を与えてくれたあなたに感謝した。
+%%%%
+With Pikel's spell broken, the former slave thanks you for its freedom.
+
+『ピケル』の呪縛が破れ、元奴隷は自由を与えてくれたあなたに感謝した。
 %%%%
 No longer under Kirke's spell, the hog turns into a human!
 
