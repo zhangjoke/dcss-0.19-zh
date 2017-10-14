@@ -211,6 +211,7 @@ static TextDB AllDBs[] =
            "jtrans_mon_death.txt",
            "jtrans_mon_ench.txt",
            "jtrans_mon_grow.txt",
+           "jtrans_mon_info.txt",
            /*
            "jtrans_autofight_lua.txt",
            "jtrans_magicspell.txt",
