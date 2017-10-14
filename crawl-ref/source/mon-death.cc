@@ -2213,7 +2213,7 @@ item_def* monster_die(monster* mons, killer_type killer,
                     && (anon || !invalid_monster_index(killer_index)))
                 {
                     mprf(MSGCH_MONSTER_DAMAGE, MDAM_DEAD, jtransc("%s is %s!"),
-                         mons->name(DESC_THE).c_str(), jtransc(
+                         mons->name(DESC_THE).c_str(), tagged_jtransc("[verb passive]",
                          exploded                        ? "blown up" :
                          wounded_damaged(targ_holy)      ? "destroyed"
                                                          : "killed"));

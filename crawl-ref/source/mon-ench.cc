@@ -268,7 +268,7 @@ void monster::add_enchantment_effect(const mon_enchant &ench, bool quiet)
             if (!quiet)
             {
                 mprf(jtransc(friendly() ? "You detect the %s %s."
-                                        : "You can no longer detect the %s %s."), jtransc(
+                                        : "You can no longer detect the %s %s."), adj_jc(
                      ench.ench == ENCH_HEXED ? "hexed" :
                      ench.ench == ENCH_CHARM ? "charmed"
                                              : "bribed"),
@@ -567,7 +567,7 @@ void monster::remove_enchantment_effect(const mon_enchant &me, bool quiet)
                          name(DESC_THE, true).c_str());
                 }
                 else
-                    mprf(jtransc("%s is no longer %s."), name(DESC_THE, true).c_str(), jtransc(
+                    mprf(jtransc("%s is no longer %s."), name(DESC_THE, true).c_str(), adj_jc(
                          me.ench == ENCH_CHARM   ? "charmed"
                          : me.ench == ENCH_HEXED ? "hexed"
                                                  : "bribed"));

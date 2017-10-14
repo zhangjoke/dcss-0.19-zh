@@ -99,9 +99,9 @@ The fungal colony is destroyed.
 
 胞子は破壊された。
 %%%%
-You hear an explosion!
+# You hear an explosion!
 
-あなたは爆発音を耳にした！
+# jtrans_beam.txtと重複
 %%%%
 [zap]explosion of spores
 
@@ -111,9 +111,9 @@ You hear an explosion!
 
 雷霆の一撃
 %%%%
-You hear a clap of thunder!
+# You hear a clap of thunder!
 
-あなたは雷鳴を耳にした！
+# jtrans_cloud.txtと重複
 %%%%
 [zap]blast of energy
 
@@ -127,9 +127,9 @@ You hear an otherworldly crackling!
 
 あなたは鬼火のパチパチと爆ぜる音を聞いた！
 %%%%
-[zap]fiery explosion
+# [zap]fiery explosion
 
-燃えさかる爆発
+# jtrans_beam.txtと重複
 %%%%
 By Zin's power, the ballistomycete spore's explosion is contained.
 
@@ -307,15 +307,15 @@ exhausts itself and dries up.
 
 %sは%s！
 %%%%
-blown up
+[verb passive]blown up
 
 爆破された
 %%%%
-destroyed
+[verb passive]destroyed
 
 破壊された
 %%%%
-killed
+[verb passive]killed
 
 殺された
 %%%%
@@ -367,9 +367,9 @@ fades into mist!
 
 は霧の中に消えていった！
 %%%%
-crumbles into dust!
+# crumbles into dust!
 
-は塵となって崩れ去った！
+# jtrans_dactions.txtと重複
 %%%%
 Granting xp for non-damage kill.
 

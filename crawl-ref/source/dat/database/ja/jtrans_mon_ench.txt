@@ -23,15 +23,15 @@ You can no longer detect the %s %s.
 
 あなたは%sた%sの姿を探知できない。
 %%%%
-hexed
+[adj]hexed
 
 呪縛され
 %%%%
-charmed
+[adj]charmed
 
 魅了され
 %%%%
-bribed
+[adj]bribed
 
 買収され
 %%%%
@@ -339,9 +339,9 @@ Something prevents you from swapping places with %s.
 
 何かの力が%sと場所交換するのを邪魔している。
 %%%%
-You swap places with %s.
+# You swap places with %s.
 
-あなたは%sと場所を交換した。
+# jtrans_misc.txtと重複
 %%%%
 The shadowy forms in the deep grow still as others approach.
 
