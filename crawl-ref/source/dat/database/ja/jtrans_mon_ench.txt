@@ -1,31 +1,51 @@
 %%%%
-%s merges itself into the air.
+monster %s has ench '%s' not in cache
 
-%sは大気へと溶け込んだ。
+# for die()
 %%%%
-%s hides itself under the floor.
+monster %s has no ench '%s' but cache says it does
 
-%sは床の下に身を隠した。
+# for die()
+%%%%
+get_ench returned '%s' when asked for '%s'
+
+# for die()
 %%%%
 %s submerges.
 
-%sは水中に入った。
+# for debug
 %%%%
-You detect the %s %s.
+You %sdetect the %s %s.
 
 あなたは%s%sの姿を探知した。
 %%%%
 You can no longer detect the %s %s.
 
-あなたは%s%sの姿を探知できない。
+あなたは%sた%sの姿を探知できない。
 %%%%
-seems to gain new vigour!
+hexed
 
-は元気を取り戻したようだ！
+呪縛され
+%%%%
+charmed
+
+魅了され
+%%%%
+bribed
+
+買収され
+%%%%
+mgrd(%d,%d) points to %s monster, even though it contains submerged monster %s (see bug 2293518)
+
+# for error
+%%%%
+%s tried to unsubmerge while on same square as %s (see bug 2293518)
+
+# for error
 %%%%
 is no longer moving quickly.
 
-はもう加速していない。
+はもはや高速に動いてはいない。
 %%%%
 slows down.
 
@@ -39,9 +59,17 @@ becomes audible again.
 
 は再び音が聞こえるようになった。
 %%%%
-As %s dies, the sound returns.
+As %s %s, the sound returns.
 
-%sが倒れると、再び音が戻ってきた。
+%sが%sと、再び音が戻ってきた。
+%%%%
+is destroyed
+
+動きを止める
+%%%%
+dies
+
+死ぬ
 %%%%
 no longer looks unusually strong.
 
@@ -50,10 +78,6 @@ no longer looks unusually strong.
 is no longer moving slowly.
 
 はもう動きが遅くなくなった。
-%%%%
-%s skin looks tender.
-
-%sの皮膚は柔らかくなったようだ。
 %%%%
 %s icy armour evaporates.
 
@@ -71,6 +95,10 @@ stops retreating.
 
 は逃げるのを止めた。
 %%%%
+seems to regain %s courage.
+
+は勇気を取り戻したようだ。
+%%%%
 seems less confused.
 
 は混乱が収まったようだ。
@@ -85,7 +113,7 @@ seems less confused.
 %%%%
 %s is no longer %s.
 
-%sはもう%sいない。
+%sはもう%sていない。
 %%%%
 You can once again detect the %s.
 
@@ -127,10 +155,6 @@ looks more healthy.
 
 は体調が持ち直したようだ。
 %%%%
-is no longer rotting.
-
-の腐敗は止まった。
-%%%%
 breaks free.
 
 は自由を取り戻した。
@@ -143,21 +167,9 @@ is no longer berserk.
 
 %sはあなたと同じ場所にいる！
 %%%%
-%s forms itself from the air!
+%s bursts forth from the water.
 
-%sが虚空から現れた！
-%%%%
-%s leaps out from its hiding place under the floor!
-
-%sが床下の隠れ処から飛び出てきた！
-%%%%
-%s flickers into view.
-
-%sが突然視界に現れた。
-%%%%
-%s surfaces.
-
-%sが入場してきた。
+%sが水の中から飛び出てきた。
 %%%%
 Something invisible bursts forth from the water.
 
@@ -171,29 +183,17 @@ The forest calms down.
 
 森は静けさを取り戻した。
 %%%%
-is no longer bleeding.
-
-はもう血を流していない。
-%%%%
-emerges from its shell.
-
-は甲羅の中から出てきた。
-%%%%
 is no longer liquefying the ground.
 
-はもう地面を液状化していない。
+はもう地面を液状化させていない。
 %%%%
 is no longer dazed.
 
-の眩暈が収まった。
+の眩暈がおさまった。
 %%%%
 's inner flame fades away.
 
-の内の炎は消え去った。
-%%%%
-stops rolling.
-
-は回転するのを止めた。
+の内なる炎は消え去った。
 %%%%
 is no longer mute.
 
@@ -201,7 +201,7 @@ is no longer mute.
 %%%%
 is no longer blind.
 
-は盲目ではなくなった。
+は目が見えるようになった。
 %%%%
 is no longer stupefied.
 
@@ -211,21 +211,21 @@ is no longer mad.
 
 はもう狂乱していない。
 %%%%
-is no longer invulnerable.
-
-は無敵ではなくなった。
-%%%%
 is no longer regenerating.
 
-はもう再生しなくなった。
+はもう急速再生しなくなった。
+%%%%
+is no longer resistant to hostile enchantments.
+
+はもう敵対的な魔法への耐性はなくなった。
+%%%%
+seems to return to %s normal shape.
+
+は元通りの姿に戻ったようだ。
 %%%%
 is no longer weakened.
 
 はもう弱体化していない。
-%%%%
-The winds cease moving at %s will.
-
-%sが念じると共に風が止んだ。
 %%%%
 %s toxic aura wanes.
 
@@ -255,13 +255,9 @@ is no longer encased in ice.
 
 はもう凍結していない。
 %%%%
-looks less vigorous.
-
-は活力が失せたようだ。
-%%%%
 is no longer absorbing vital energies.
 
-は生命力の吸収を停止した。
+は生命力を吸収するのをやめた。
 %%%%
 is no longer being sapped.
 
@@ -281,19 +277,35 @@ seems less drained.
 %%%%
 is no longer repelling missiles.
 
-はもう飛来物を弾く能力がなくなった。
+はもう飛来物を逸らす能力がなくなった。
 %%%%
 is no longer deflecting missiles.
 
-はもう飛来物を逸らす能力がなくなった。
-%%%%
-%s icy shield evaporates.
-
-%sの氷の盾は蒸発した。
+はもう飛来物を弾く能力がなくなった。
 %%%%
 is no longer unusually resistant.
 
 の耐性は強くなくなった。
+%%%%
+is no longer giving off an aura.
+
+はもうオーラを放ってはいない。
+%%%%
+seems less brilliant.
+
+の叡智はなりをひそめたようだ。
+%%%%
+loses the glow of perfection.
+
+は無欠の輝きを失った。
+%%%%
+%s soul is no longer bound.
+
+%s魂はもう呪縛されてない。
+%%%%
+is no longer infested.
+
+はもう虫に寄生されていない。
 %%%%
 Tangled roots snake along the ground.
 
@@ -341,7 +353,7 @@ Shadowy forms rise from the deep at %s song!
 %%%%
 is no longer in an insane frenzy.
 
-はもう狂乱していない。
+はもう狂気に身を任せていない。
 %%%%
 looks more energetic.
 
@@ -351,17 +363,21 @@ looks more energetic.
 
 の暗黒の鏡のオーラは消滅した。
 %%%%
+%s takes poison damage: %d (degree %d)
+
+# for debug
+%%%%
 The flames covering %s go out.
 
 %sにまとわりついていた炎は消えた。
 %%%%
-%s dips into the water, and the flames go out.
-
-%sは水中に飛び込み、その身の炎を消し去った。
-%%%%
 burns!
 
 の体は燃えた！
+%%%%
+sticky flame damage: %d
+
+# for debug
 %%%%
 %s catches fire!
 
@@ -377,9 +393,9 @@ burns!
 %%%%
 A nearby %s withers and dies.
 
-%sは枯れ果てて死んだ。
+近くにいる%sは枯れ果てて死んだ。
 %%%%
-A ballistomycete spawns a giant spore.
+A ballistomycete spawns a ballistomycete spore.
 
 放出菌糸は巨大胞子を放出した。
 %%%%
@@ -407,7 +423,11 @@ is seared!
 
 は灼かれた！
 %%%%
-%s word of recall is interrupted.
+Zin's Corona damage: %d
+
+# for debug
+%%%%
+%s chant is interrupted.
 
 %sによる招集の宣言は中断された。
 %%%%
@@ -418,4 +438,12 @@ The winds around %s calm down.
 %s song is interrupted.
 
 %s歌は中断された。
+%%%%
+is no longer sharing %s pain.
+
+はもう痛みを共有してはいない。
+%%%%
+cturn: %d, raw_duration: %d
+
+# for debug
 %%%%
