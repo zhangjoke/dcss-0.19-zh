@@ -29,7 +29,7 @@ string thing_do_grammar_j(description_level_type dtype, bool add_stop,
 const char * counter_suffix(const item_def &item);
 const string jpluralise(const string &name, const string &prefix, const string &suffix);
 string apply_description_j(description_level_type desc, const string &name,
-                           int quantity, bool in_words = false);
+                           int quantity = 1, bool in_words = false);
 string get_desc_quantity_j(const int quant, const int total,
                            string whose);
 string jnumber_for_hydra_heads(int heads);
