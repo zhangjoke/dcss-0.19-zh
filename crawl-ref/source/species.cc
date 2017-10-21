@@ -3,6 +3,7 @@
 
 #include "species.h"
 
+#include "database.h"
 #include "itemprop.h"
 #include "mon-enum.h"
 #include "mutation.h"
@@ -70,6 +71,16 @@ string species_name(species_type speci, species_name_type spname_type)
     else if (spname_type == SPNAME_ADJ && def.adj_name)
         return def.adj_name;
     return def.name;
+}
+
+string species_name_j(species_type speci, species_name_type spname_type)
+{
+    return species_name_j(species_name(speci, spname_type));
+}
+
+string species_name_j(const string &spec)
+{
+    return tagged_jtrans("[spec name]", spec);
 }
 
 /** What walking-like thing does this species do?

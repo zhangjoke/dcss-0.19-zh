@@ -300,7 +300,7 @@ struct monster_info : public monster_info_base
 
     vector<string> attributes() const;
 
-    const char *pronoun(pronoun_type variant) const;
+    const string pronoun(pronoun_type variant) const;
     const string pronoun_j(pronoun_type variant) const;
 
     string wounds_description_sentence() const;

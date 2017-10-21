@@ -2151,7 +2151,7 @@ monster_type monster_info::draco_or_demonspawn_subspecies() const
     return ::draco_or_demonspawn_subspecies(type, base_type);
 }
 
-const char *monster_info::pronoun(pronoun_type variant) const
+const string monster_info::pronoun(pronoun_type variant) const
 {
     if (props.exists(MON_GENDER_KEY))
     {
