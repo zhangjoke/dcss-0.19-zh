@@ -2,6 +2,7 @@
 
 #include "mon-pathfind.h"
 
+#include "database.h"
 #include "directn.h"
 #include "env.h"
 #include "los.h"
@@ -107,7 +108,7 @@ bool monster_pathfind::init_pathfind(const monster* mon, coord_def dest,
     if (start == target)
     {
         if (msg)
-            mpr("The monster is already there!");
+            mpr(jtrans("The monster is already there!"));
 
         return true;
     }
@@ -162,7 +163,7 @@ bool monster_pathfind::start_pathfind(bool msg)
         {
             if (msg)
             {
-                mprf("Couldn't find a path from (%d,%d) to (%d,%d).",
+                mprf(jtransc("Couldn't find a path from (%d,%d) to (%d,%d)."),
                      target.x, target.y, start.x, start.y);
             }
             return false;
@@ -201,7 +202,7 @@ bool monster_pathfind::calc_path_to_neighbours()
         npos = pos + Compass[dir];
 
 #ifdef DEBUG_PATHFIND
-        mprf("Looking at neighbour (%d,%d)", npos.x, npos.y);
+        mprf(jtransc("Looking at neighbour (%d,%d)"), npos.x, npos.y);
 #endif
         if (!in_bounds(npos))
             continue;
@@ -231,7 +232,7 @@ bool monster_pathfind::calc_path_to_neighbours()
             continue;
 
 #ifdef DEBUG_PATHFIND
-        mprf("old dist: %d, new dist: %d, infinite: %d", old_dist, distance2,
+        mprf(jtransc("old dist: %d, new dist: %d, infinite: %d"), old_dist, distance2,
              INFINITE_DISTANCE);
 #endif
         // If the new distance is better than the old one (initialised with
@@ -243,7 +244,7 @@ bool monster_pathfind::calc_path_to_neighbours()
             if (old_dist == INFINITE_DISTANCE)
             {
 #ifdef DEBUG_PATHFIND
-                mprf("Adding (%d,%d) to hash (total dist = %d)",
+                mprf(jtransc("Adding (%d,%d) to hash (total dist = %d)"),
                      npos.x, npos.y, total);
 #endif
                 add_new_pos(npos, total);
@@ -253,7 +254,7 @@ bool monster_pathfind::calc_path_to_neighbours()
             else
             {
 #ifdef DEBUG_PATHFIND
-                mprf("Improving (%d,%d) to total dist %d",
+                mprf(jtransc("Improving (%d,%d) to total dist %d"),
                      npos.x, npos.y, total);
 #endif
 
@@ -275,7 +276,7 @@ bool monster_pathfind::calc_path_to_neighbours()
             if (npos == target)
             {
 #ifdef DEBUG_PATHFIND
-                mpr("Arrived at target.");
+                mpr(jtrans("Arrived at target."));
 #endif
                 return true;
             }
@@ -303,14 +304,14 @@ bool monster_pathfind::get_best_position()
             vec.pop_back();
 
 #ifdef DEBUG_PATHFIND
-            mprf("Returning (%d, %d) as best pos with total dist %d.",
+            mprf(jtransc("Returning (%d, %d) as best pos with total dist %d."),
                  pos.x, pos.y, min_length);
 #endif
 
             return true;
         }
 #ifdef DEBUG_PATHFIND
-        mprf("No positions for path length %d.", i);
+        mprf(jtransc("No positions for path length %d.", i));
 #endif
     }
 
@@ -323,7 +324,7 @@ bool monster_pathfind::get_best_position()
 vector<coord_def> monster_pathfind::backtrack()
 {
 #ifdef DEBUG_PATHFIND
-    mpr("Backtracking...");
+    mpr(jtrans("Backtracking..."));
 #endif
     vector<coord_def> path;
     pos = target;
@@ -339,7 +340,7 @@ vector<coord_def> monster_pathfind::backtrack()
         pos = pos + Compass[dir];
         ASSERT_IN_BOUNDS(pos);
 #ifdef DEBUG_PATHFIND
-        mprf("prev: (%d, %d), pos: (%d, %d)", Compass[dir].x, Compass[dir].y,
+        mprf(jtransc("prev: (%d, %d), pos: (%d, %d)"), Compass[dir].x, Compass[dir].y,
                                               pos.x, pos.y);
 #endif
         path.insert(path.begin(), pos);
@@ -372,7 +373,7 @@ vector<coord_def> monster_pathfind::calc_waypoints()
     pos = path[0];
 
 #ifdef DEBUG_PATHFIND
-    mpr("\nWaypoints:");
+    mpr(jtrans_notrim("\nWaypoints:"));
 #endif
     for (unsigned int i = 1; i < path.size(); i++)
     {
@@ -383,7 +384,7 @@ vector<coord_def> monster_pathfind::calc_waypoints()
             pos = path[i-1];
             waypoints.push_back(pos);
 #ifdef DEBUG_PATHFIND
-            mprf("waypoint: (%d, %d)", pos.x, pos.y);
+            mprf(jtransc("waypoint: (%d, %d)"), pos.x, pos.y);
 #endif
         }
     }
