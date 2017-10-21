@@ -351,13 +351,13 @@ void spawn_random_monsters()
     }
 
 #ifdef DEBUG_MON_CREATION
-    mprf(MSGCH_DIAGNOSTICS, "in spawn_random_monsters()");
+    mprf(MSGCH_DIAGNOSTICS, jtrans("in spawn_random_monsters()"));
 #endif
     int rate = env.spawn_random_rate;
     if (!rate)
     {
 #ifdef DEBUG_MON_CREATION
-        mprf(MSGCH_DIAGNOSTICS, "random monster gen turned off");
+        mprf(MSGCH_DIAGNOSTICS, jtrans("random monster gen turned off"));
 #endif
         return;
     }
@@ -826,7 +826,7 @@ static bool _in_ood_pack_protected_place()
 monster* place_monster(mgen_data mg, bool force_pos, bool dont_place)
 {
 #ifdef DEBUG_MON_CREATION
-    mprf(MSGCH_DIAGNOSTICS, "in place_monster()");
+    mprf(MSGCH_DIAGNOSTICS, jtrans("in place_monster()"));
 #endif
 
     int tries = 0;
@@ -895,7 +895,7 @@ monster* place_monster(mgen_data mg, bool force_pos, bool dont_place)
     if (create_band)
     {
 #ifdef DEBUG_MON_CREATION
-        mprf(MSGCH_DIAGNOSTICS, "Choose band members...");
+        mprf(MSGCH_DIAGNOSTICS, jtrans("Choose band members..."));
 #endif
         band = _choose_band(mg.cls, &band_size, &leader);
         band_size++;
@@ -1060,7 +1060,7 @@ monster* place_monster(mgen_data mg, bool force_pos, bool dont_place)
     {
         mon->patrol_point = mon->pos();
 #ifdef DEBUG_PATHFIND
-        mprf("Monster %s is patrolling around (%d, %d).",
+        mprf(jtransc("Monster %s is patrolling around (%d, %d)."),
              mon->name(DESC_PLAIN).c_str(), mon->pos().x, mon->pos().y);
 #endif
     }
@@ -1076,9 +1076,9 @@ monster* place_monster(mgen_data mg, bool force_pos, bool dont_place)
     // Message to player from stairwell/gate/abyss appearance.
     if (shoved)
     {
-        mprf("%s shoves you out of the %s!",
-             mon->visible_to(&you) ? mon->name(DESC_A).c_str() : "Something",
-             stair_type == DCHAR_ARCH ? "gateway" : "stairwell");
+        mprf(jtransc("%s shoves you out of the %s!"),
+             jtransc(mon->visible_to(&you) ? mon->name(DESC_A).c_str() : "Something"),
+             jtransc(stair_type == DCHAR_ARCH ? "gateway" : "stairwell"));
     }
     else if (mg.proximity == PROX_NEAR_STAIRS && you.can_see(*mon))
     {
@@ -1720,7 +1720,7 @@ static monster* _place_monster_aux(const mgen_data &mg, const monster *leader,
         ASSERT(mg.summoner->alive());
         mon->summoner = mg.summoner->mid;
         if (mg.summoner->is_player())
-            mons_add_blame(mon, blame_prefix + "the player character");
+            mons_add_blame(mon, jtrans("the player character") + jtrans(blame_prefix));
         else
         {
             const monster* sum = mg.summoner->as_monster();
@@ -1788,7 +1788,7 @@ static monster* _place_monster_aux(const mgen_data &mg, const monster *leader,
     // A rare case of a debug message NOT showing in the debug mode.
     if (mons_class_flag(mon->type, M_UNFINISHED))
     {
-        mprf(MSGCH_WARN, "Warning: monster '%s' is not yet fully coded.",
+        mprf(MSGCH_WARN, jtransc("Warning: monster '%s' is not yet fully coded."),
              mon->name(DESC_PLAIN, true).c_str());
     }
 #endif
@@ -2877,7 +2877,7 @@ static monster_type _pick_zot_exit_defender()
 monster* mons_place(mgen_data mg)
 {
 #ifdef DEBUG_MON_CREATION
-    mprf(MSGCH_DIAGNOSTICS, "in mons_place()");
+    mprf(MSGCH_DIAGNOSTICS, jtrans("in mons_place()"));
 #endif
     const int mon_count = count_if(begin(menv), end(menv),
                                    [] (const monster &mons) -> bool
@@ -2889,7 +2889,7 @@ monster* mons_place(mgen_data mg)
             return 0;
 
 #ifdef DEBUG_MON_CREATION
-        mprf(MSGCH_DIAGNOSTICS, "Set class RANDOM_MONSTER");
+        mprf(MSGCH_DIAGNOSTICS, jtrans("Set class RANDOM_MONSTER"));
 #endif
         mg.cls = RANDOM_MONSTER;
     }
@@ -2904,7 +2904,7 @@ monster* mons_place(mgen_data mg)
         && !player_in_branch(BRANCH_ABYSS) && !mg.summoned())
     {
 #ifdef DEBUG_MON_CREATION
-        mprf(MSGCH_DIAGNOSTICS, "Call _pick_zot_exit_defender()");
+        mprf(MSGCH_DIAGNOSTICS, jtrans("Call _pick_zot_exit_defender()"));
 #endif
         mg.cls    = _pick_zot_exit_defender();
         mg.flags |= MG_PERMIT_BANDS;
@@ -3183,29 +3183,29 @@ bool player_angers_monster(monster* mon)
             switch (why)
             {
             case DID_EVIL:
-                mprf("%s is enraged by your holy aura!", mname.c_str());
+                mprf(jtransc("%s is enraged by your holy aura!"), mname.c_str());
                 break;
             case DID_CORPSE_VIOLATION:
-                mprf("%s is revulsed by your support of nature!", mname.c_str());
+                mprf(jtransc("%s is revulsed by your support of nature!"), mname.c_str());
                 break;
             case DID_HOLY:
-                mprf("%s is enraged by your evilness!", mname.c_str());
+                mprf(jtransc("%s is enraged by your evilness!"), mname.c_str());
                 break;
             case DID_UNCLEAN:
             case DID_CHAOS:
-                mprf("%s is enraged by your lawfulness!", mname.c_str());
+                mprf(jtransc("%s is enraged by your lawfulness!"), mname.c_str());
                 break;
             case DID_SPELL_CASTING:
-                mprf("%s is enraged by your magic-hating god!", mname.c_str());
+                mprf(jtransc("%s is enraged by your magic-hating god!"), mname.c_str());
                 break;
             case DID_FIRE:
-                mprf("%s is enraged by your darkness!", mname.c_str());
+                mprf(jtransc("%s is enraged by your darkness!"), mname.c_str());
                 break;
             case DID_SACRIFICE_LOVE:
-                mprf("%s can only feel hate for you!", mname.c_str());
+                mprf(jtransc("%s can only feel hate for you!"), mname.c_str());
                 break;
             default:
-                mprf("%s is enraged by a buggy thing about you!", mname.c_str());
+                mprf(jtransc("%s is enraged by a buggy thing about you!"), mname.c_str());
                 break;
             }
         }
@@ -3263,7 +3263,7 @@ monster* create_monster(mgen_data mg, bool fail_msg)
             fail_msg = false;
 
         if (!summd && fail_msg && you.see_cell(mg.pos))
-            mpr("You see a puff of smoke.");
+            mpr(jtrans("You see a puff of smoke."));
     }
 
     return summd;
