@@ -2682,7 +2682,6 @@ void read(item_def* scroll)
 void read_scroll(item_def& scroll)
 {
     const scroll_type which_scroll = static_cast<scroll_type>(scroll.sub_type);
-    const int prev_quantity = scroll.quantity;
     int link = in_inventory(scroll) ? scroll.link : -1;
     const bool alreadyknown = item_type_known(scroll);
 

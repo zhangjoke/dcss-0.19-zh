@@ -116,12 +116,6 @@ const vector<GameOption*> game_options::build_options_list()
 #else
         false;
 #endif
-    const bool USING_LOCAL_TILES =
-#if defined(USE_TILE_LOCAL)
-        true;
-#else
-        false;
-#endif
 #ifdef USE_TILE
     const bool USING_WEB_TILES =
 #if defined(USE_TILE_WEB)
