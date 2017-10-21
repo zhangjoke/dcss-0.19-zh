@@ -19,9 +19,13 @@ shaped Serpent of Hell
 
 の姿は一瞬変化した。
 %%%%
+# shudders.
+
+# jtrans_mon_cast.txtと重複
+%%%%
 looks momentarily different.
 
-は一瞬違って見えた。
+の姿は一瞬違って見えた。
 %%%%
 something you cannot see
 
@@ -35,6 +39,10 @@ changes into
 
 に変化した
 %%%%
+quivers uncontrollably and liquefies into
+
+なすすべもなく震え、%sに変化した
+%%%%
 evaporates and reforms as
 
 一瞬消え、%sに変化した
@@ -42,6 +50,10 @@ evaporates and reforms as
 %s %s%s!
 
 %sは%s%s！
+%%%%
+# %s appears out of thin air!
+
+# jtrans_mon_death.txtと重複
 %%%%
 something unseen
 
