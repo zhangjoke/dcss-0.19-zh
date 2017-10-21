@@ -9,6 +9,7 @@
 
 #include "act-iter.h"
 #include "coordit.h"
+#include "database.h"
 #include "delay.h"
 #include "env.h"
 #include "fprop.h"
@@ -255,7 +256,7 @@ static void _establish_connection(monster* tentacle,
         if (!last_mon)
         {
             // Should be something there, what to do if there isn't?
-            mpr("Error! failed to place monster in tentacle connect change");
+            mpr(jtrans("Error! failed to place monster in tentacle connect change"));
             break;
         }
 
@@ -292,7 +293,7 @@ static void _establish_connection(monster* tentacle,
         else
         {
             // connector placement failed, what to do?
-            mprf("connector placement failed at %d %d", current->pos.x, current->pos.y);
+            mprf(jtransc("connector placement failed at %d %d"), current->pos.x, current->pos.y);
         }
 
         last = current;
@@ -713,7 +714,7 @@ static int _collect_connection_data(monster* start_monster,
         {
             current_mon = next;
             if (current_mon->tentacle_connect != start_monster->mid)
-                mpr("link information corruption!!! tentacle in chain doesn't match mindex");
+                mpr(jtrans("link information corruption!!! tentacle in chain doesn't match mindex"));
             if (!retract_found)
             {
                 retract_pos = current_mon->pos();
@@ -916,7 +917,7 @@ void move_solo_tentacle(monster* tentacle)
     {
         if (you.can_see(*tentacle))
         {
-            mprf("The vine drags %s backwards!",
+            mprf(jtransc("The vine drags %s backwards!"),
                     constrictee->name(DESC_THE).c_str());
         }
 
@@ -944,9 +945,9 @@ void move_solo_tentacle(monster* tentacle)
     {
         // This should really never fail for demonic tentacles (they don't
         // have the whole shifting base problem). -cao
-        mprf("tentacle connect failed! What the heck!  severed status %d",
+        mprf(jtransc("tentacle connect failed! What the heck!  severed status %d"),
              tentacle->has_ench(ENCH_SEVERED));
-        mprf("pathed to %d %d from %d %d mid %d count %d", new_pos.x, new_pos.y,
+        mprf(jtransc("pathed to %d %d from %d %d mid %d count %d"), new_pos.x, new_pos.y,
              old_pos.x, old_pos.y, tentacle->mid, visited_count);
 
         // Is it ok to purge the tentacle here?
@@ -1105,7 +1106,7 @@ void move_child_tentacles(monster* mons)
         {
             if (you.can_see(*tentacle))
             {
-                mprf("The tentacle pulls %s backwards!",
+                mprf(jtransc("The tentacle pulls %s backwards!"),
                      constrictee->name(DESC_THE).c_str());
             }
 
@@ -1277,16 +1278,16 @@ void mons_create_tentacles(monster* head)
     if (mons_base_type(*head) == MONS_KRAKEN)
     {
         if (visible_count == 1)
-            mpr("A tentacle rises from the water!");
+            mpr(jtrans("A tentacle rises from the water!"));
         else if (visible_count > 1)
-            mpr("Tentacles burst out of the water!");
+            mpr(jtrans("Tentacles burst out of the water!"));
     }
     else if (head->type == MONS_TENTACLED_STARSPAWN)
     {
         if (visible_count == 1)
-            mpr("A tentacle flies out from the starspawn's body!");
+            mpr(jtrans("A tentacle flies out from the starspawn's body!"));
         else if (visible_count > 1)
-            mpr("Tentacles burst from the starspawn's body!");
+            mpr(jtrans("Tentacles burst from the starspawn's body!"));
     }
     return;
 }
