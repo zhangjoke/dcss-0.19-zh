@@ -2360,7 +2360,23 @@ string monster::name(description_level_type desc, bool force_vis,
 string monster::name_en(description_level_type desc, bool force_vis,
                         bool force_article) const
 {
-    return name(desc, force_vis, force_article);
+    string s = _mon_special_name(*this, desc, force_vis);
+    if (!s.empty() || desc == DESC_NONE)
+        return s;
+
+    monster_info mi(this, MILEV_NAME);
+    // i.e. to produce "the Maras" instead of just "Maras"
+    if (force_article)
+        mi.mb.set(MB_NAME_UNQUALIFIED, false);
+    return mi.proper_name(desc)
+#ifdef DEBUG_MONINDEX
+    // This is incredibly spammy, too bad for regular debug builds, but
+    // I keep re-adding this over and over during debugging.
+           + (Options.quiet_debug_messages[DIAG_MONINDEX]
+              ? string()
+              : make_stringf("«%d:%d»", mindex(), mid))
+#endif
+    ;
 }
 
 string monster::base_name(description_level_type desc, bool force_vis) const
@@ -2373,7 +2389,27 @@ string monster::base_name(description_level_type desc, bool force_vis) const
     return mi.common_name(desc);
 }
 
+string monster::base_name_en(description_level_type desc, bool force_vis) const
+{
+    string s = _mon_special_name(*this, desc, force_vis);
+    if (!s.empty() || desc == DESC_NONE)
+        return s;
+
+    monster_info mi(this, MILEV_NAME);
+    return mi.common_name(desc);
+}
+
 string monster::full_name(description_level_type desc) const
+{
+    string s = _mon_special_name(*this, desc, true);
+    if (!s.empty() || desc == DESC_NONE)
+        return s;
+
+    monster_info mi(this, MILEV_NAME);
+    return mi.full_name(desc);
+}
+
+string monster::full_name_en(description_level_type desc) const
 {
     string s = _mon_special_name(*this, desc, true);
     if (!s.empty() || desc == DESC_NONE)
