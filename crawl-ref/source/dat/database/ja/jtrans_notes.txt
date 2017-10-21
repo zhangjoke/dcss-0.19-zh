@@ -1,0 +1,29 @@
+%%%%
+first
+
+1番目
+%%%%
+second
+
+2番目
+%%%%
+third
+
+3番目
+%%%%
+fourth
+
+4番目
+%%%%
+fifth
+
+5番目
+%%%%
+Xom revived you
+
+ゾムがあなたを蘇らせた
+%%%%
+Enter note:
+
+行動履歴に記入する:
+%%%%
