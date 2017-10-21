@@ -27,7 +27,7 @@ string jconj_verb(const string& verb, jconj conj);
 string thing_do_grammar_j(description_level_type dtype, bool add_stop,
                           bool force_article, string desc);
 const char * counter_suffix(const item_def &item);
-const string jpluralise(const string &name, const string &prefix, const string &suffix);
+const string jpluralise(const string &name, const string &prefix, const string &suffix = "");
 string apply_description_j(description_level_type desc, const string &name,
                            int quantity = 1, bool in_words = false);
 string get_desc_quantity_j(const int quant, const int total,
