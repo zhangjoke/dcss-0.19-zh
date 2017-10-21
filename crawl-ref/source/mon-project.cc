@@ -25,6 +25,7 @@
 #include "ouch.h"
 #include "shout.h"
 #include "stepdown.h"
+#include "stringutil.h"
 #include "terrain.h"
 #include "viewchar.h"
 
@@ -49,7 +50,7 @@ spret_type cast_iood(actor *caster, int pow, bolt *beam, float vx, float vy,
                 mtarg).set_summoned(caster, 0, SPELL_IOOD), true, true);
     if (!mon)
     {
-        mprf(MSGCH_ERROR, "Failed to spawn projectile.");
+        mprf(MSGCH_ERROR, jtrans("Failed to spawn projectile."));
         return SPRET_ABORT;
     }
 
@@ -319,7 +320,8 @@ static bool _iood_hit(monster& mon, const coord_def &pos, bool big_boom = false)
     beam.damage = dice_def(9, pow / 4);
 
     if (dist < 3)
-        beam.name = "wavering " + beam.name;
+        beam.name = make_stringf(jtransc("wavering %s"),
+                                 zap_name_jc(beam.name));
     if (dist < 2)
         beam.hit_verb = "weakly hits";
     beam.ex_size = 1;
@@ -446,8 +448,8 @@ move_again:
             && you.see_cell(pos)
             && you.see_cell(mon.pos()))
         {
-            mprf("%s hits %s", mon.name(DESC_THE, true).c_str(),
-                 feature_description_at(pos, false, DESC_A).c_str());
+            mprf(jtransc("%s hits %s"), mon.name(DESC_THE, true).c_str(),
+                 feature_description_at(pos, false, DESC_A).c_str(), false);
         }
 
         monster* mons = (victim && victim->is_monster()) ?
@@ -462,7 +464,7 @@ move_again:
                 if (mons->props[IOOD_DIST].get_int() < 2)
                 {
                     if (you.see_cell(pos))
-                        mpr("The orb fizzles.");
+                        mpr(jtrans("The orb fizzles."));
                     monster_die(mons, KILL_DISMISSED, NON_MONSTER);
                 }
 
@@ -470,7 +472,7 @@ move_again:
                 if (mon.props[IOOD_DIST].get_int() < 2)
                 {
                     if (you.see_cell(pos))
-                        mpr("The orb fizzles.");
+                        mpr(jtrans("The orb fizzles."));
                     monster_die(&mon, KILL_DISMISSED, NON_MONSTER);
                     return true;
                 }
@@ -478,9 +480,9 @@ move_again:
             else
             {
                 if (mon.observable())
-                    mpr("The orbs collide in a blinding explosion!");
+                    mpr(jtrans("The orbs collide in a blinding explosion!"));
                 else
-                    mpr("You hear a loud magical explosion!");
+                    mpr(jtrans("You hear a loud magical explosion!"));
                 noisy(40, pos);
                 monster_die(mons, KILL_DISMISSED, NON_MONSTER);
                 _iood_hit(mon, pos, true);
@@ -510,11 +512,11 @@ move_again:
             if ((!shield || !shield_reflects(*shield)) && !victim->reflection())
             {
                 if (victim->is_player())
-                    mprf("You block %s.", mon.name(DESC_THE, true).c_str());
+                    mprf(jtransc("You block %s."), mon.name(DESC_THE, true).c_str());
                 else
                 {
-                    simple_monster_message(*mons, (" blocks "
-                        + mon.name(DESC_THE, true) + ".").c_str());
+                    simple_monster_message(*mons, make_stringf(jtransc(" blocks %s."),
+                                                               mon.name(DESC_THE, true).c_str()).c_str());
                 }
                 victim->shield_block_succeeded(&mon);
                 _iood_stop(mon);
@@ -524,14 +526,14 @@ move_again:
             if (victim->is_player())
             {
                 if (shield && shield_reflects(*shield)) {
-                    mprf("Your %s reflects %s!",
+                    mprf(jtransc("Your %s reflects %s!"),
                          shield->name(DESC_PLAIN).c_str(),
                          mon.name(DESC_THE, true).c_str());
                     ident_reflector(shield);
                 }
                 else // has reflection property not from shield
                 {
-                    mprf("%s reflects off an invisible shield around you!",
+                    mprf(jtransc("%s reflects off an invisible shield around you!"),
                          mon.name(DESC_THE, true).c_str());
                 }
             }
@@ -541,16 +543,15 @@ move_again:
                 {
                     if (shield && shield_reflects(*shield))
                     {
-                        mprf("%s reflects %s with %s %s!",
+                        mprf(jtransc("%s reflects %s with %s %s!"),
                              victim->name(DESC_THE, true).c_str(),
-                             mon.name(DESC_THE, true).c_str(),
-                             mon.pronoun_j(PRONOUN_POSSESSIVE).c_str(),
-                             shield->name(DESC_PLAIN).c_str());
+                             shield->name(DESC_PLAIN).c_str(),
+                             mon.name(DESC_THE, true).c_str());
                         ident_reflector(shield);
                     }
                     else
                     {
-                        mprf("%s reflects off an invisible shield around %s!",
+                        mprf(jtransc("%s reflects off an invisible shield around %s!"),
                              mon.name(DESC_THE, true).c_str(),
                              victim->name(DESC_THE, true).c_str());
 
@@ -561,7 +562,7 @@ move_again:
                 }
                 else
                 {
-                    mprf("%s bounces off thin air!",
+                    mprf(jtransc("%s bounces off thin air!"),
                          mon.name(DESC_THE, true).c_str());
                 }
             }
