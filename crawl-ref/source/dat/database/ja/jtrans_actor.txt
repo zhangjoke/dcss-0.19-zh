@@ -1,4 +1,10 @@
 %%%%
+# actor.h
+the acid
+
+酸
+%%%%
+# actor.cc
 %s %s off the %s.
 
 %sは%sから%s。

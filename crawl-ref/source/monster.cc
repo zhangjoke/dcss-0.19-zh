@@ -4497,7 +4497,7 @@ bool monster::corrode_equipment(const char* corrosion_source, int degree)
     if (you.see_cell(pos()))
     {
         mprf(jtransc("%s corrodes %s!"),
-             corrosion_source,
+             jtransc(corrosion_source),
              name(DESC_THE).c_str());
     }
 
