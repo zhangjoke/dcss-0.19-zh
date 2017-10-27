@@ -3,6 +3,10 @@ Your icy envelope dissipates!
 
 あなたの氷の鎧は砕け散ってしまった！
 %%%%
+checking resistance: flavour=%d
+
+# for debug
+%%%%
 You shrug off the wave.
 
 あなたは波を物ともしなかった。
@@ -18,10 +22,6 @@ The steam scalds you terribly!
 The fire burns you terribly!
 
 あなたは激しく燃えあがった！
-%%%%
-You resist completely.
-
-# obsolete
 %%%%
 You feel a terrible chill!
 
@@ -43,13 +43,9 @@ The lava burns you terribly!
 
 あなたは溶岩で大やけどを負った！
 %%%%
-You are bolstered by the flame.
+expose_player_to_element, strength %i, flavor %i, slow_cold_blooded is %i
 
-あなたは鬼火を吸収し回復した。
-%%%%
-The flames sap you greatly!
-
-鬼火があなたを激しく衰弱させた！
+# for debug
 %%%%
 The flames go out!
 
@@ -63,9 +59,17 @@ You are now level %d!
 
 あなたはレベル%dに下がった！
 %%%%
+HP: %d/%d MP: %d/%d
+
+# 訳不要
+%%%%
 You feel drained.
 
 あなたは衰弱させられたのを感じた。
+%%%%
+Drained by %d points (%d total)
+
+# for debug
 %%%%
 A shower of butterflies erupts from you!
 
@@ -103,6 +107,22 @@ smoke on damage
 
 損傷時の煙
 %%%%
+Your body deteriorates!
+
+あなたの体は弱体化された！
+%%%%
+Your corrosive artefact
+
+あなたの腐食性のアーティファクト
+%%%%
+Your shape twists and changes as you die.
+
+あなたが死ぬと同時に、あなたの姿はねじれて変化した。
+%%%%
+HP shaved: %d.
+
+# for debug
+%%%%
 You feel threatened and lose the ability to read scrolls!
 
 あなたは怯えのあまり、巻物を読むことができなくなった！
@@ -122,6 +142,14 @@ Ouch! That really hurt!
 * * * LOW HITPOINT WARNING * * *
 
 * * * HP低下警告 * * *
+%%%%
+something (%d)
+
+何者か(%d)
+%%%%
+Damage: %d; Hit points: %d
+
+# for debug
 %%%%
 Die?
 
