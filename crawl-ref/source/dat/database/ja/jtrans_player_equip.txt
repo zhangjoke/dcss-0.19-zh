@@ -1,0 +1,405 @@
+%%%%
+You feel a build-up of mutagenic energy.
+
+あなたは変異性のエネルギーが強まるのを感じた。
+%%%%
+Mutagenic energies flood into your body!
+
+変異性のエネルギーがあなたに浴びせられた！
+%%%%
+You really shouldn't be using a holy item like this.
+
+あなたはこのような聖なるアイテムを用いるべきではない。
+%%%%
+You really shouldn't be using an unholy item like this.
+
+あなたはこのような忌まわしいアイテムを用いるべきではない。
+%%%%
+You really shouldn't be using a corpse-violating item like this.
+
+あなたはこのような死体を損壊するアイテムを用いるべきではない。
+%%%%
+You really shouldn't be using an evil item like this.
+
+あなたはこのような邪悪なアイテムを用いるべきではない。
+%%%%
+You really shouldn't be using an unclean item like this.
+
+あなたはこのような不浄なアイテムを用いるべきではない。
+%%%%
+You really shouldn't be using a chaotic item like this.
+
+あなたはこのような混沌なるアイテムを用いるべきではない。
+%%%%
+You really shouldn't be using a hasty item like this.
+
+あなたはこのような素早いアイテムを用いるべきではない。
+%%%%
+You really shouldn't be using a poisoned item like this.
+
+あなたはこのような毒にまみれたアイテムを用いるべきではない。
+%%%%
+You really shouldn't be using a fiery item like this.
+
+あなたはこのような光を放つアイテムを用いるべきではない。
+%%%%
+It sticks to your %s!
+
+それはあなたの%sから離れない！
+%%%%
+The area is filled with flickering shadows.
+
+辺りは揺らめく影で満たされた。
+%%%%
+You feel your magic capacity is already quite full.
+
+あなたの魔力は既に限界のようだ。
+%%%%
+You see sparks fly.
+
+あなたは火花が飛ぶのを目にした。
+%%%%
+You feel protected!
+
+あなたは護りの力を感じた！
+%%%%
+You feel nimbler!
+
+あなたは俊敏になったようだ！
+%%%%
+hands tingle
+
+あなたの手はうずうずしている！
+%%%%
+You feel a bloodthirsty glee!
+
+あなたは血に飢えた喜びを感じた！
+%%%%
+You feel a dreadful hunger.
+
+あなたはひどく腹が空いた。
+%%%%
+You feel an empty sense of dread.
+
+あなたはひどく空っぽな感覚を得た。
+%%%%
+You have a feeling of ineptitude.
+
+あなたは愚かな行為をしたような気がした。
+%%%%
+Pain shudders through your %s!
+
+苦痛があなたの%sを通じ、身震いをした！
+%%%%
+A searing pain shoots up your %s!
+
+焼けつく痛みがあなたの%sを駆け上った！
+%%%%
+Your %s briefly %s through it before you manage to get a firm grip on it.
+
+それをしっかり掴もうとする前にしばらくの間%sでしごいた。
+%%%%
+You feel magic leave you.
+
+あなたは魔力が失われたような気がした。
+%%%%
+Space warps around you for a moment!
+
+一瞬あなたの周りの空間が歪んだ！
+%%%%
+%s stops flaming.
+
+%sは燃えるのをやめた。
+%%%%
+%s stops glowing.
+
+%sは輝きをやめた。
+%%%%
+%s stops crackling.
+
+%sは爆ぜるのをやめた。
+%%%%
+%s stops dripping with poison.
+
+%sは毒を滲ませるのをやめた。
+%%%%
+You feel less protected.
+
+あなたの護りは薄くなったようだ。
+%%%%
+You feel like more of a target.
+
+あなたはいい的となったような気がした。
+%%%%
+You feel your glee subside.
+
+あなたの喜びはおさまったようだ。
+%%%%
+You feel the dreadful sensation subside.
+
+あなたの恐ろしい感覚はおさまったようだ。
+%%%%
+Lugonu absorbs the residual spatial distortion as you unwield your weapon.
+
+ルゴヌはあなたが武器を手放した際に起こった空間歪曲を吸い取った。
+%%%%
+a distortion unwield
+
+歪曲の武器を手放したこと
+%%%%
+You feel magic returning to you.
+
+あなたは魔力が戻ってきたような気がした。
+%%%%
+Your temporary branding evaporates.
+
+あなたが武器にかけた魔力は消え去った。
+%%%%
+Your spectral weapon disappears as %s.
+
+幽体の武器は%sとともに消え去った。
+%%%%
+your weapon melds
+
+あなたが武器と融合する
+%%%%
+you unwield
+
+あなたが武器を外す
+%%%%
+You feel your power drawn to a protective spirit.
+
+あなたの魔力が守護霊に吸われたような気がした。
+%%%%
+Now linked to your health, your magic stops regenerating.
+
+体力と結びついたため、あなたの魔力は再生しなくなった。
+%%%%
+You feel the presence of a powerless spirit.
+
+あなたは無力な精霊の存在を感じた。
+%%%%
+You feel spirits watching over you.
+
+守護霊があなたを見守っているような気がした。
+%%%%
+You feel resistant to fire.
+
+あなたは火への耐性を帯びた。
+%%%%
+You feel resistant to cold.
+
+あなたは冷気への耐性を帯びた。
+%%%%
+You feel resistant to poison.
+
+あなたは毒に強くなったようだ。
+%%%%
+You feel perceptive.
+
+あなたは鋭敏になったようだ。
+%%%%
+You become transparent for a moment.
+
+あなたは一瞬透明になった。
+%%%%
+You feel rather ponderous.
+
+あなたは鈍重になったようだ。
+%%%%
+You feel rather light.
+
+あなたは体が軽くなったようだ。
+%%%%
+(use the <w>%s</w>bility menu to %s flying)
+
+(飛行を%sには <w>%s</w>bility メニュー画面に移動してください)
+%%%%
+stop or start
+
+やめる、または開始する
+%%%%
+start or stop
+
+開始する、またはやめる
+%%%%
+You feel protected.
+
+あなたは守られているような気がした。
+%%%%
+You feel stealthy.
+
+あなたは動きが静かになったようだ。
+%%%%
+You feel resistant to extremes of temperature.
+
+あなたは極端な温度への耐性を帯びた。
+%%%%
+You feel more protected from negative energy.
+
+あなたは負のエネルギーへの耐性が強まった気がした。
+%%%%
+You feel strangely lacking in power.
+
+あなたは奇妙な力の不足を感じた。
+%%%%
+You feel powerful.
+
+あなたは強大な力を感じた。
+%%%%
+You feel that your aim is more steady.
+
+あなたは狙いがより確かになった気がした。
+%%%%
+Oops, that feels deathly cold.
+
+うわ！ 凄まじく冷たい！
+%%%%
+You feel rather sluggish.
+
+あなたの走りはもう速くない。
+%%%%
+You feel less resistant to fire.
+
+あなたの火への耐性が薄れたようだ。
+%%%%
+You feel less resistant to cold.
+
+あなたの冷気への耐性が薄れたようだ。
+%%%%
+You no longer feel resistant to poison.
+
+あなたの毒への耐性が薄れたようだ。
+%%%%
+You feel less perceptive.
+
+あなたは霊視能力を失った。
+%%%%
+That put a bit of spring back into your step.
+
+あなたの足取りが軽やかになった。
+%%%%
+You feel less stealthy.
+
+あなたの隠密性は低下したようだ。
+%%%%
+You feel hot and cold all over.
+
+あなたの極端な温度への耐性が薄れたようだ。
+%%%%
+You feel less protected from negative energy.
+
+あなたの負のエネルギーへの耐性が薄れたようだ。
+%%%%
+You feel strangely numb.
+
+あなたは奇妙な喪失感を覚えた。
+%%%%
+You feel strangely alone.
+
+あなたは奇妙な孤独感を覚えた。
+%%%%
+Your magic begins regenerating once more.
+
+あなたの魔力は再び回復するようになった。
+%%%%
+Your aim is not that steady anymore.
+
+あなたの狙いは先程より不確かになったようだ。
+%%%%
+seems less interested in you.
+
+はあなたへの興味が薄れたようだ。
+%%%%
+increases your offered prices.
+
+は値引きをやめた。
+%%%%
+%s leaches power out of you as you remove it.
+
+%sを取り外したため、神々のあなたへの興味が薄れた。
+%%%%
+You feel more attuned to fire.
+
+あなたはさらに火炎に同調した気がした。
+%%%%
+You feel more attuned to ice.
+
+あなたはさらに冷気に同調した気がした。
+%%%%
+You feel a slight, muted jump rush through you.
+
+あなたは無効化された跳躍力を感じた。
+%%%%
+You feel slightly %sjumpy.
+
+あなたは%s少し跳躍力を感じた。
+%%%%
+You feel a surge of self-confidence.
+
+あなたは自信が高まった気がした。
+%%%%
+says: An ascetic of your devotion has no use for such trinkets.
+
+は『そんなつまらない物は献身の足しにはならんぞ』と言った。
+%%%%
+You feel a surge of divine interest.
+
+あなたは神の歓心の高まりを感じた。
+%%%%
+You feel a strange surge of divine interest.
+
+あなたは神の歓心が奇妙に高まるのを感じた。
+%%%%
+discounts your offered prices.
+
+は値段を安くしてくれる。
+%%%%
+You feel a craving for the dungeon's cuisine.
+
+あなたはダンジョンの珍味に対する食欲が亢進した。
+%%%%
+The amulet engulfs you in a massive magical discharge!
+
+護符は放散する強大な魔力であなたを包んだ！
+%%%%
+The amulet engulfs you in a violent magical discharge!
+
+護符は放散する強い魔力であなたを包んだ！
+%%%%
+The amulet engulfs you in a magical discharge!
+
+護符は放散する魔力であなたを包んだ！
+%%%%
+You abruptly slow down.
+
+あなたは不意に減速した。
+%%%%
+Your slowness suddenly goes away.
+
+あなたは突然減速状態から抜け出した。
+%%%%
+You feel strangely stable.
+
+あなたは奇妙な安定感を覚えた。
+%%%%
+You violently calm down.
+
+あなたの暴力性は収まった。
+%%%%
+You suddenly lose your finesse.
+
+あなたは早業の攻撃を繰り出せなくなった。
+%%%%
+You feel familiarly static.
+
+あなたは停滞状態に慣れ親しんでいる。
+%%%%
+You feel strangely static.
+
+あなたは奇妙な停滞状態に陥った。
+%%%%
+Oops, that %s feels deathly cold.
+
+うわ！ この%sは凄まじく冷たい！
+%%%%
