@@ -7,6 +7,10 @@ You can't wield %s.
 
 あなたは%sを武器として扱うことはできない。
 %%%%
+You can't use rods.
+
+あなたはロッドを扱えない。
+%%%%
 You can't use weapons.
 
 あなたは武器を扱えない。
@@ -15,51 +19,71 @@ That's too large for you to wield.
 
 それは大きすぎて武器として振るうことができない。
 %%%%
-This weapon is holy and will not allow you to wield it.
+# This weapon is holy and will not allow you to wield it.
 
-この聖なる武器をあなたが振るうことは許されない。
+# jtrans_item_use.txtと重複
 %%%%
-paw
+[hand name]paw
 
-前足
+<[foot name]paw>
 %%%%
-tentacle
+# [hand name]claw
 
-触手
+# jtrans_monster.txtと重複
 %%%%
-hand
+# [hand name]tentacle
+
+# jtrans_monster.txtと重複
+%%%%
+[hand name]hand
 
 手
 %%%%
-underbelly
+# [foot name]hoof
 
-下腹部
+# jtrans_monster.txtと重複
 %%%%
-foot
+# [foot name]talon
 
-足
+# jtrans_monster.txtと重複
+%%%%
+[foot name]tentacles
+
+<tentacle>
+%%%%
+[foot name]underbelly
+
+下半身
+%%%%
+# [foot name]tail
+
+# jtrans_monster.txtと重複
+%%%%
+# foot
+
+# jtrans_monster.txtと重複
 %%%%
 arm
 
 腕
 %%%%
-scaled
+# [adj]scaled
 
-鱗に覆われた
+# jtrans_monster.txtと重複
 %%%%
-feathered
+# [adj]feathered
 
-羽毛に包まれた
+# jtrans_monster.txtと重複
 %%%%
-bandage-wrapped
+# [adj]bandage-wrapped
 
-包帯に覆われた
+# jtrans_monster.txtと重複
 %%%%
-bony
+# [adj]bony
 
-骨ばった
+# jtrans_monster.txtと重複
 %%%%
-shadowy
+[adj]shadowy
 
 影のような
 %%%%
@@ -71,33 +95,25 @@ Teeth and claws
 
 牙と爪
 %%%%
-Claws
+# Claws
 
-爪
+# jtrans_mutation_data.txtと重複
 %%%%
 Tentacles
 
-触手
+<tentacle>
 %%%%
 Your unstable footing causes you to fumble your attack.
 
 あなたは足がもつれて攻撃に失敗した。
 %%%%
-protects you from inadvertent hurry.
+# protects you from inadvertent hurry.
 
-は意図しない加速からあなたを保護した。
+# jtrans_attack.txtと重複
 %%%%
 forces you to slow down.
 
 はあなたを強制的に減速させた。
-%%%%
-%s thrums violently and saps your rage.
-
-%sは激しく鳴動し、あなたの怒りを取り払った。
-%%%%
-%s vibrates violently and saps your rage.
-
-%sは激しく振動し、あなたの怒りを取り払った。
 %%%%
 A red film seems to cover your vision as you go berserk!
 
@@ -115,15 +131,19 @@ You feel mighty!
 
 あなたは力強くなった！
 %%%%
+#if TAG_MAJOR_VERSION == 34
+You burn with rage!
+
+%%%%
 You're already berserk!
 
 あなたはすでにバーサークしている！
 %%%%
 You're too exhausted to go berserk.
 
-あなたは疲労しすぎておりバーサークすることができない。
+あなたは疲労困憊しておりバーサークすることができない。
 %%%%
-Your body is effectively dead; that's not a shape for a blood rage.
+You can't enter a blood rage from death's door.
 
 死のとば口に立っている身ではバーサークすることができない。
 %%%%
@@ -134,6 +154,10 @@ You are too mesmerised to rage.
 You are too terrified to rage.
 
 あなたは怯えすぎておりバーサークすることができない。
+%%%%
+#if TAG_MAJOR_VERSION == 34
+Only creatures of flesh and blood can berserk.
+
 %%%%
 You cannot raise a blood rage in your lifeless body.
 
@@ -147,11 +171,11 @@ You're too calm and focused to rage.
 
 あなたは激怒に身を任せるほど我を忘れていない。
 %%%%
-You're too hungry to go berserk.
-
-あなたは腹が空きすぎていてバーサークすることができない。
-%%%%
 You are pushed out of the %s.
 
 あなたは%sに押しやられた。
+%%%%
+Moved to (%d, %d).
+
+# for debug
 %%%%

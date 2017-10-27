@@ -13,6 +13,7 @@
 #include "areas.h"
 #include "art-enum.h"
 #include "coordit.h"
+#include "database.h"
 #include "dgnevent.h"
 #include "english.h"
 #include "env.h"
@@ -32,6 +33,7 @@
 #include "religion.h"
 #include "spl-damage.h"
 #include "state.h"
+#include "stringutil.h"
 #include "terrain.h"
 #include "transform.h"
 #include "traps.h"
@@ -382,7 +384,7 @@ bool player::could_wield(const item_def &item, bool ignore_brand,
         && item.is_type(OBJ_MISSILES, MI_LARGE_ROCK))
     {
         if (!quiet)
-            mpr("That's too large and heavy for you to wield.");
+            mpr(jtrans("That's too large and heavy for you to wield."));
         return false;
     }
 
@@ -392,7 +394,8 @@ bool player::could_wield(const item_def &item, bool ignore_brand,
         if (item.base_type == OBJ_ARMOUR || item.base_type == OBJ_JEWELLERY)
         {
             if (!quiet)
-                mprf("You can't wield %s.", base_type_string(item));
+                mprf(jtransc("You can't wield %s."),
+                     jtransc(base_type_string(item)));
             return false;
         }
 
@@ -402,8 +405,8 @@ bool player::could_wield(const item_def &item, bool ignore_brand,
     {
         if (!quiet)
         {
-            mprf("You can't use %s.",
-                 item.base_type == OBJ_RODS ? "rods" : "weapons");
+            mprf(jtrans(make_stringf("You can't use %s.",
+                 item.base_type == OBJ_RODS ? "rods" : "weapons")));
         }
         return false;
     }
@@ -415,7 +418,7 @@ bool player::could_wield(const item_def &item, bool ignore_brand,
     if (!is_weapon_wieldable(item, bsize))
     {
         if (!quiet)
-            mpr("That's too large for you to wield.");
+            mpr(jtrans("That's too large for you to wield."));
         return false;
     }
 
@@ -429,7 +432,7 @@ bool player::could_wield(const item_def &item, bool ignore_brand,
     if (!ignore_brand && undead_or_demonic() && is_holy_item(item))
     {
         if (!quiet)
-            mpr("This weapon is holy and will not allow you to wield it.");
+            mpr(jtrans("This weapon is holy and will not allow you to wield it."));
         return false;
     }
 
@@ -458,10 +461,10 @@ string player::name(description_level_type dt, bool, bool) const
         return "";
     case DESC_A: case DESC_THE:
     default:
-        return "you";
+        return jtrans("you");
     case DESC_YOUR:
     case DESC_ITS:
-        return "your";
+        return jtrans("your");
     }
 }
 
@@ -477,7 +480,7 @@ string player::pronoun_j(pronoun_type pro, bool /*force_visible*/) const
 
 string player::conj_verb(const string &verb) const
 {
-    return conjugate_verb(verb, true);
+    return conjugate_verb_j(verb, true);
 }
 
 /**
@@ -516,9 +519,9 @@ string player::hand_name(bool plural, bool *can_plural) const
         can_plural = &_can_plural;
     *can_plural = !player_mutation_level(MUT_MISSING_HAND);
 
-    const string singular = _hand_name_singular();
+    const string singular = tagged_jtrans("[hand name]", _hand_name_singular());
     if (plural && *can_plural)
-        return pluralise(singular);
+        return jpluralise(singular, "両");
 
     return singular;
 }
@@ -578,9 +581,9 @@ string player::foot_name(bool plural, bool *can_plural) const
         can_plural = &_can_plural;
     *can_plural = true;
 
-    const string singular = _foot_name_singular(can_plural);
+    const string singular = tagged_jtrans("[foot name]", _foot_name_singular(can_plural));
     if (plural && *can_plural)
-        return pluralise(singular);
+        return jpluralise(singular, "両");
 
     return singular;
 }
@@ -610,11 +613,16 @@ string player::arm_name(bool plural, bool *can_plural) const
     else if (form == TRAN_SHADOW)
         adj = "shadowy";
 
-    if (!adj.empty())
-        str = adj + " " + str;
-
     if (plural)
-        str = pluralise(str);
+    {
+        if (species == SP_OCTOPODE)
+            str =jpluralise(str, "両方の");
+        else
+            str =jpluralise(str, "両");
+    }
+
+    if (!adj.empty())
+        str = adj_j(adj) + str;
 
     return str;
 }
@@ -652,7 +660,7 @@ bool player::fumbles_attack()
     {
         if (x_chance_in_y(3, 8))
         {
-            mpr("Your unstable footing causes you to fumble your attack.");
+            mpr(jtrans("Your unstable footing causes you to fumble your attack."));
             did_fumble = true;
         }
         if (floundering())
@@ -738,18 +746,18 @@ bool player::go_berserk(bool intentional, bool potion)
     if (crawl_state.game_is_hints())
         Hints.hints_berserk_counter++;
 
-    mpr("A red film seems to cover your vision as you go berserk!");
+    mpr(jtrans("A red film seems to cover your vision as you go berserk!"));
 
     if (you.duration[DUR_FINESSE] > 0)
     {
         you.duration[DUR_FINESSE] = 0; // Totally incompatible.
-        mpr("Your finesse ends abruptly.");
+        mpr(jtrans("Your finesse ends abruptly."));
     }
 
     if (!_god_prevents_berserk_haste(intentional))
-        mpr("You feel yourself moving faster!");
+        mpr(jtrans("You feel yourself moving faster!"));
 
-    mpr("You feel mighty!");
+    mpr(jtrans("You feel mighty!"));
 
     int berserk_duration = (20 + random2avg(19,2)) / 2;
 
@@ -770,7 +778,7 @@ bool player::go_berserk(bool intentional, bool potion)
 #if TAG_MAJOR_VERSION == 34
     if (you.species == SP_LAVA_ORC)
     {
-        mpr("You burn with rage!");
+        mpr(jtrans("You burn with rage!"));
         // This will get sqrt'd later, so.
         you.temperature = TEMP_MAX;
     }
@@ -824,7 +832,7 @@ bool player::can_go_berserk(bool intentional, bool potion, bool quiet,
     if (!success)
     {
         if (verbose)
-            mpr(msg);
+            mpr(jtrans(msg));
         if (reason)
             *reason = msg;
     }
@@ -861,7 +869,7 @@ bool player::shove(const char* feat_name)
         {
             moveto(*di);
             if (*feat_name)
-                mprf("You are pushed out of the %s.", feat_name);
+                mprf(jtransc("You are pushed out of the %s."), feat_name);
             dprf("Moved to (%d, %d).", pos().x, pos().y);
             return true;
         }
