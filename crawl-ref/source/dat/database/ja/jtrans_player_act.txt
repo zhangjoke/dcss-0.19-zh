@@ -1,0 +1,157 @@
+%%%%
+That's too large and heavy for you to wield.
+
+それは大きく、重すぎて武器として振るうことができない。
+%%%%
+You can't wield %s.
+
+あなたは%sを武器として扱うことはできない。
+%%%%
+You can't use weapons.
+
+あなたは武器を扱えない。
+%%%%
+That's too large for you to wield.
+
+それは大きすぎて武器として振るうことができない。
+%%%%
+This weapon is holy and will not allow you to wield it.
+
+この聖なる武器をあなたが振るうことは許されない。
+%%%%
+paw
+
+前足
+%%%%
+tentacle
+
+触手
+%%%%
+hand
+
+手
+%%%%
+underbelly
+
+下腹部
+%%%%
+foot
+
+足
+%%%%
+arm
+
+腕
+%%%%
+scaled
+
+鱗に覆われた
+%%%%
+feathered
+
+羽毛に包まれた
+%%%%
+bandage-wrapped
+
+包帯に覆われた
+%%%%
+bony
+
+骨ばった
+%%%%
+shadowy
+
+影のような
+%%%%
+Nothing wielded
+
+(何も手に持っていない)
+%%%%
+Teeth and claws
+
+牙と爪
+%%%%
+Claws
+
+爪
+%%%%
+Tentacles
+
+触手
+%%%%
+Your unstable footing causes you to fumble your attack.
+
+あなたは足がもつれて攻撃に失敗した。
+%%%%
+protects you from inadvertent hurry.
+
+は意図しない加速からあなたを保護した。
+%%%%
+forces you to slow down.
+
+はあなたを強制的に減速させた。
+%%%%
+%s thrums violently and saps your rage.
+
+%sは激しく鳴動し、あなたの怒りを取り払った。
+%%%%
+%s vibrates violently and saps your rage.
+
+%sは激しく振動し、あなたの怒りを取り払った。
+%%%%
+A red film seems to cover your vision as you go berserk!
+
+あなたがバーサークするとともに視界が真っ赤に染まった！
+%%%%
+Your finesse ends abruptly.
+
+あなたの早業の技巧は不意に終わった。
+%%%%
+You feel yourself moving faster!
+
+あなたの動きが速くなった！
+%%%%
+You feel mighty!
+
+あなたは力強くなった！
+%%%%
+You're already berserk!
+
+あなたはすでにバーサークしている！
+%%%%
+You're too exhausted to go berserk.
+
+あなたは疲労しすぎておりバーサークすることができない。
+%%%%
+Your body is effectively dead; that's not a shape for a blood rage.
+
+死のとば口に立っている身ではバーサークすることができない。
+%%%%
+You are too mesmerised to rage.
+
+あなたは魅了されておりバーサークすることができない。
+%%%%
+You are too terrified to rage.
+
+あなたは怯えすぎておりバーサークすることができない。
+%%%%
+You cannot raise a blood rage in your lifeless body.
+
+命持たぬ身ではバーサークすることができない。
+%%%%
+You cannot go berserk while under stasis.
+
+停滞状態ではバーサークすることができない。
+%%%%
+You're too calm and focused to rage.
+
+あなたは激怒に身を任せるほど我を忘れていない。
+%%%%
+You're too hungry to go berserk.
+
+あなたは腹が空きすぎていてバーサークすることができない。
+%%%%
+You are pushed out of the %s.
+
+あなたは%sに押しやられた。
+%%%%
