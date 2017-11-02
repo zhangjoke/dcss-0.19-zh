@@ -1667,7 +1667,7 @@ void save_game(bool leave_game, const char *farewellmsg)
     }
 
     end(0, false, farewellmsg? "%s" : jtransc("See you soon, %s!"),
-        farewellmsg? farewellmsg : you.your_name.c_str());
+        farewellmsg? jtransc(farewellmsg) : you.your_name.c_str());
 }
 
 // Saves the game without exiting.
