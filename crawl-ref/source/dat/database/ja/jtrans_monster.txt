@@ -68,11 +68,11 @@ unwields %s.
 %%%%
 It stops flaming.
 
-その武器から火が消えた。
+その武器は燃えるのをやめた。
 %%%%
 It stops glowing.
 
-その武器から輝きが消えた。
+その武器は輝きが消えた。
 %%%%
 It stops crackling.
 
@@ -162,14 +162,6 @@ front
 
 葉
 %%%%
-[hand name]tentacle
-
-<tentacle>
-%%%%
-[hand name]body
-
-<body>
-%%%%
 [hand name]rhizome
 
 地下茎
@@ -238,10 +230,6 @@ foot
 
 足
 %%%%
-[arm name]arm
-
-腕
-%%%%
 [adj]scaled
 
 鱗の生えた
@@ -253,10 +241,6 @@ foot
 [adj]bandage-wrapped
 
 包帯を巻かれた
-%%%%
-[arm name]tentacle
-
-<tentacle>
 %%%%
 [adj]bony
 

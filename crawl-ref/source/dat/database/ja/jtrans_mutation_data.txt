@@ -182,11 +182,11 @@ Your flesh is almost immune to the effects of cold. (rC+++)
 %%%%
 You feel resistant to cold.
 
-あなたは冷気に強くなったようだ。
+あなたは冷気への耐性を得たようだ。
 %%%%
 You feel more resistant to cold.
 
-あなたはさらに冷気に強くなったようだ。
+あなたは冷気へのさらなる耐性を得たようだ。
 %%%%
 You no longer feel cold resistant.
 
@@ -1265,9 +1265,9 @@ Your beak shortens and softens into a mouth.
 あなたの嘴は短くなり、柔らかい口になった。
 %%%%
 # MUT_CLAWS
-# claws
+claws
 
-# jtrans_form_data.txtと重複
+爪
 %%%%
 You have sharp fingernails.
 
@@ -1713,9 +1713,9 @@ Your magical capacity is extremely low. (-30% MP)
 魔力容量減少の変異(-30% MP)
 %%%%
 # MUT_WILD_MAGIC
-wild magic
+# wild magic
 
-暴走する魔力
+# jtrans_hiscores.txtと重複
 %%%%
 Your spells are a little harder to cast, but a little more powerful.
 

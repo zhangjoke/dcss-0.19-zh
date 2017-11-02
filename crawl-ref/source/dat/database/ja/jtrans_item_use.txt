@@ -633,5 +633,5 @@ Drop how many?
 %%%%
 You can't wear or remove anything in your present form.
 
-現在の姿ではあなたは何も脱ぐことができない。
+現在の姿ではあなたは何も脱いだり着たりすることはできない。
 %%%%
