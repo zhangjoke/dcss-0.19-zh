@@ -229,6 +229,7 @@ static TextDB AllDBs[] =
            "jtrans_player_act.txt",
            "jtrans_player_equip.txt",
            "jtrans_player_reacts.txt",
+           "jtrans_player_stats.txt",
 
            "jtrans_prompt.txt",
            "jtrans_skills.txt",
