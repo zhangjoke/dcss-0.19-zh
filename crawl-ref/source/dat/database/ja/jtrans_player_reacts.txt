@@ -1,23 +1,27 @@
 %%%%
+midpoint delay loss %d not less than duration midpoint %d
+
+# for ASSERTM()
+%%%%
 Careful! %s
 
 [注意！] %s
 %%%%
 You turn to %s and can move again.
 
-あなたは%sに戻って動けるようになった。
+あなたは元の姿に戻って動けるようになった。
 %%%%
 Your limbs are stiffening.
 
-あなたの四肢が固くなりつつある。
+あなたの四肢が硬直しつつある。
 %%%%
 You can move again.
 
-あなたは再び動けるようになった。
+あなたはようやく動けるようになった。
 %%%%
-The heat melts your icy %s.
+The heat melts your icy armour.
 
-熱気が氷の%sを溶かした。
+熱気が氷の鎧を溶かした。
 %%%%
 Monsters! Monsters everywhere! You have to get out of here!
 
@@ -31,17 +35,17 @@ You feel a twist of horror at the sight of this foe.
 
 あなたは敵を目の当たりにして怖気を感じた。
 %%%%
+Your recitation is interrupted.
+
+あなたの朗読は中断させられた。
+%%%%
 You finish reciting %s
 
 あなたは%sの朗読を終えた。
 %%%%
-You feel short of breath.
+%s emerges from the mists of memory!
 
-あなたは少し息切れした。
-%%%%
-Your icy envelope is restored.
-
-あなたを覆う氷の鎧は修復された。
+祖霊『%s』が記憶の霧の中から浮かび上がってきた！
 %%%%
 Your icy armour evaporates.
 
@@ -49,23 +53,7 @@ Your icy armour evaporates.
 %%%%
 Your icy armour starts to melt.
 
-あなたの氷の鎧は溶け始めている。
-%%%%
-Your hearing returns.
-
-あなたの周囲に音が戻った。
-%%%%
-You feel the effects of Trog's Hand fading.
-
-あなたはトログの御手による守護が薄れていくのを感じた。
-%%%%
-Your skin stops crawling.
-
-皮膚のむずむずは完全に消えた。
-%%%%
-Your skin is crawling a little less now.
-
-皮膚があまりむずむずしなくなってきた。
+あなたの氷の鎧は溶けはじめている。
 %%%%
 Your divine shield starts to fade.
 
@@ -79,14 +67,9 @@ Your transformation is almost over.
 
 あなたの変身はもうすぐ時間切れだ。
 %%%%
-You have got your breath back.
+# You feel sluggish.
 
-あなたは自由に息ができるようになったようだ。
-# ブレスの他にも朗読の発動に使われるので文面変更
-%%%%
-You feel sluggish.
-
-あなたの走りはもう速くない。
+# jtrans_mutation_data.txtと重複
 %%%%
 You start to feel a little slower.
 
@@ -100,177 +83,18 @@ You start to feel a little faster.
 
 あなたの動きが元の速度を取り戻しつつある。
 %%%%
-Your resistance to elements expires.
+Your %s has recovered.
 
-あなたの元素に対する耐性の効果が切れた。
+あなたの%sは回復した。
 %%%%
-You start to feel less resistant.
+#if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_SACRIFICE) || defined(DEBUG_PIETY)
+Piety increases by 1 due to piety pool.
 
-あなたの元素に対する耐性が弱まりつつある。
 %%%%
-You are firmly grounded in the material plane once more.
+#if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_SACRIFICE) || defined(DEBUG_PIETY)
+Piety pool is now empty.
 
-あなたは再び物質界に戻ってきた。
-%%%%
-You feel closer to the material plane.
 
-あなたは物質界に近くなったような気がした。
-%%%%
-You feel less regenerative.
-
-あなたの再生速度が遅くなった。
-%%%%
-You feel less empathic.
-
-あなたは他者の思考を読み取りづらくなった。
-%%%%
-Your icy shield evaporates.
-
-あなたの氷の盾は蒸発した。
-%%%%
-Your icy shield starts to melt.
-
-あなたの氷の盾は溶けはじめている。
-%%%%
-Your magical shield disappears.
-
-あなたの魔法の盾は消え去った。
-%%%%
-Your skin feels tender.
-
-あなたの皮膚は柔らかくなった。
-%%%%
-You feel uncertain.
-
-あなたの存在は不確定になった。
-%%%%
-You start to feel a little uncertain.
-
-あなたの存在は少し不確定になってきたようだ。
-%%%%
-Your unholy channel expires.
-
-あなたの邪悪な霊力は尽きてしまった。
-%%%%
-Your unholy channel is weakening.
-
-あなたの邪悪な霊力が弱まっていく。
-%%%%
-You flicker for a moment.
-
-あなたの姿が一瞬だけ明滅した。
-%%%%
-You feel more conspicuous.
-
-あなたはうっすらと目に見えるようになりつつある。
-%%%%
-You flicker back into view.
-
-あなたは再び姿を現した。
-%%%%
-You feel less confused.
-
-あなたの混乱は軽くなった。
-%%%%
-You feel less vulnerable to hostile enchantments.
-
-あなたは敵対的な魔法への耐性が元に戻ったような気がした。
-%%%%
-You feel less slimy.
-
-あなたのどろどろ感が薄れたような気がした。
-%%%%
-Your slime is starting to congeal.
-
-あなたに付着したスライムは凝固し始めている。
-%%%%
-Quad Damage is wearing off.
-
-四倍ダメージの効果は終了した。
-%%%%
-Your dark mirror aura disappears.
-
-痛み分けのオーラが消え去った。
-%%%%
-You feel like a meek peon again.
-
-あなたは再び常人のようになった。
-%%%%
-The bond with your blade fades away.
-
-あなたの刃との絆が消え去った。
-%%%%
-Space becomes stable.
-
-周囲に静けさが戻った。
-%%%%
-You break out of your daze.
-
-あなたは誘惑を振り払った。
-%%%%
-Your fear fades away.
-
-あなたは恐怖心を振り払った。
-%%%%
-The ice encasing you melts away.
-
-あなたを閉じ込めている氷が溶けた。
-%%%%
-You can drink potions again.
-
-あなたは再び薬を飲むことができるようになった。
-%%%%
-You can read scrolls again.
-
-あなたは再び巻物を読めるようになった。
-%%%%
-The ground is no longer liquid beneath you.
-
-あなたの足下の地面はもうぬかるんでいない。
-%%%%
-Your fortitude fades away.
-
-あなたは不屈の精神を失った。
-%%%%
-You feel a little less mighty now.
-
-あなたの腕力が元に戻ったようだ。
-%%%%
-You feel a little less agile now.
-
-あなたの器用さが元に戻ったようだ。
-%%%%
-You feel a little less clever now.
-
-あなたの知力が元に戻ったようだ。
-%%%%
-You are no longer berserk.
-
-あなたのバーサークが解けた。
-%%%%
-Trog's vigour flows through your veins.
-
-トログの御業により、あなたの体に活力が吹き込まれた。
-%%%%
-You pass out from exhaustion.
-
-あなたは疲労のあまり気絶してしまった。
-%%%%
-You are exhausted.
-
-あなたは疲労困憊している。
-%%%%
-You are no longer glowing.
-
-あなたはもう光を放っていない。
-%%%%
-The translocation energy dissipates.
-
-転位術のエネルギーは消え去った。
-%%%%
-The winds around you calm down.
-
-あなたの周囲の風は止んだ。
 %%%%
 The winds around you start to calm down.
 
@@ -280,149 +104,29 @@ You are starting to lose your buoyancy.
 
 あなたは飛行能力を失いつつある。
 %%%%
-You feel your flesh rotting away.
+Your trail of clouds dissipates.
 
-あなたは体が腐敗していくのを感じた。
-%%%%
-Your life is in your own hands again!
-
-あなたは再び自らの生命をその手に取り戻した。
-%%%%
-Your time is quickly running out!
-
-あなたに残された時間は急速に流れ去っていく！
-%%%%
-Your astral sight fades away.
-
-あなたの霊的な視力は消え去った。
-%%%%
-Your divine protection fades away.
-
-聖なる守護の力は消え去った。
-%%%%
-The ambient light returns to normal.
-
-周囲の明るさが元に戻った。
+あなたの動く跡に湧き出す雲は消え去った。
 %%%%
 The divine light dispels your darkness!
 
-聖なる光があなたの放つ闇を振り払った！
+神気の光はあなたの生み出す闇を払った！
 %%%%
-Your shroud unravels.
+rot rate: 1/%d
 
-ゴルブリアの帷子は消え去った。
+# for debug
 %%%%
-Your shroud begins to fray at the edges.
+You feel your flesh rotting away.
 
-ゴルブリアの帷子は端からぼろぼろになっていった。
+あなたの肉体が腐り落ちていった。
 %%%%
-You are no longer magically infusing your attacks.
+You float gracefully downwards.
 
-あなたの攻撃はもう魔力で強化されていない。
+あなたは優雅に下へと舞い降りていった。
 %%%%
-Your magical infusion is running out.
+#ifdef DEBUG_STEALTH
+stealth: %d
 
-魔力の強化が時間切れになりつつある。
-%%%%
-Your song has ended.
-
-あなたは歌い終えた。
-%%%%
-Your song is almost over.
-
-あなたの歌は終わりにさしかかりつつある。
-%%%%
-The sentinel's mark upon you fades away.
-
-あなたに押された番兵の印が消え去った。
-%%%%
-Your attacks no longer feel as feeble.
-
-あなたの攻撃はもう弱められていない。
-%%%%
-You are no longer firmly anchored in space.
-
-あなたはもう空間に繋ぎ止められていない。
-%%%%
-Your magic seems less tainted.
-
-あなたの魔術の制御力は元に戻った。
-%%%%
-Your cleaving frenzy subsides.
-
-あなたは薙ぎ払う元気がなくなった。
-%%%%
-You repair your equipment.
-
-あなたは腐蝕した装備を修復した。
-%%%%
-You feel more in control of your magic.
-
-あなたは魔術をより制御できるようになった。
-%%%%
-You regain control over your magic.
-
-あなたは魔術の制御能力を取り戻した。
-%%%%
-Your toxic aura wanes.
-
-あなたの放つ毒のオーラは弱まった。
-%%%%
-You feel less vulnerable to fire.
-
-あなたは火に弱くなくなったようだ。
-%%%%
-You feel less vulnerable to poison.
-
-あなたは毒に弱くなくなったようだ。
-%%%%
-You are no longer teleporting projectiles to their destination.
-
-あなたはもう目標へ向かって投射物を送り込むことはできない。
-%%%%
-You can once more reach out to the dragon horde.
-
-あなたは再びドラゴンの巣に手が届くようになった。
-%%%%
-The roar of the dragon horde subsides.
-
-ドラゴンの巣の咆哮は遠ざかっていった。
-%%%%
-Your aura of abjuration expires.
-
-解放のオーラの効果は消えた。
-%%%%
-You feel less protected from fire.
-
-あなたの火への耐性が弱まった。
-%%%%
-Your protection from fire is fading.
-
-あなたの火への耐性が弱まりつつある。
-%%%%
-You feel less protected from cold.
-
-あなたの冷気への耐性が弱まった。
-%%%%
-Your protection from cold is fading.
-
-あなたの冷気への耐性が弱まりつつある。
-%%%%
-You feel less protected from electricity.
-
-あなたの電撃への耐性が弱まった。
-%%%%
-Your protection from electricity is fading.
-
-あなたの電撃への耐性が弱まりつつある。
-%%%%
-You feel less protected from physical attacks.
-
-あなたの物理ダメージへの耐性が弱まった。
-%%%%
-Your protection from physical attacks is fading.
-
-あなたの物理ダメージへの耐性が弱まりつつある。
 %%%%
 The silence causes your song to end.
 
