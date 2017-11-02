@@ -724,6 +724,10 @@ channels a blast of cleansing flame!
 
 は浄化の炎を炸裂させた！
 %%%%
+the entropic weave
+
+エントロピーの紋様
+%%%%
 begins emitting a brilliant aura!
 
 はまばゆいオーラを放ちはじめた！
