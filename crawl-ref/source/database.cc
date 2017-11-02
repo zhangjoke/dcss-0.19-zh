@@ -1156,8 +1156,8 @@ bool jtrans_has_key(const string &key)
  */
 string tagged_jtrans(const string &prefix, const string &key, const string &suffix)
 {
-    if (jtrans_has_key(prefix + key + suffix))
-        return jtrans(prefix + key + suffix);
+    if (jtrans_has_key(prefix + trimmed_string(key) + suffix))
+        return jtrans(prefix + trimmed_string(key) + suffix);
     else
         return jtrans(key);
 }
