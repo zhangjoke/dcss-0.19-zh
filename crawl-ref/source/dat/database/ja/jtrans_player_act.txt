@@ -175,7 +175,8 @@ You are pushed out of the %s.
 
 あなたは%sに押しやられた。
 %%%%
-Moved to (%d, %d).
+# Moved to (%d, %d).
 
 # for debug
+# jtrans_monster.txtと重複
 %%%%

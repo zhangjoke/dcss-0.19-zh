@@ -223,10 +223,6 @@ and throwing nets
 
 と投げ網
 %%%%
-and
-
-と
-%%%%
 + - Viable random choice
 
 + - 適した武器をランダムに選ぶ
