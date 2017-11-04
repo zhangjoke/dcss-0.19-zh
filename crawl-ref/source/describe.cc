@@ -3062,7 +3062,7 @@ static string _monster_attacks_description(const monster_info& mi)
         string term_text = "ことがある。\n";
         string term_text_with_pronoun = term_text + pronoun + "は";
 
-        result << make_stringf(jtrans_notrimc("%s may attack to {attack flavous}.\n"),
+        result << make_stringf(jtrans_notrimc("%s may attack to {attack flavours}.\n"),
                                pronoun.c_str(),
                                to_separated_line(attack_descs.begin(), attack_descs.end(),
                                                  term_text_with_pronoun,

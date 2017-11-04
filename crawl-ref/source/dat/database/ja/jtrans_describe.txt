@@ -1827,7 +1827,7 @@ It
 
 <[gender neuter subj]It>
 %%%%
-%s may attack to {attack flavous}.
+%s may attack to {attack flavours}.
 
 %sは%sことがある。
 %%%%
