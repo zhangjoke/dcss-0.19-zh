@@ -437,11 +437,11 @@ shaped shifter
 %%%%
 very slow
 
-かなり遅い
+とても遅い
 %%%%
 [adj]very slow
 
-かなり遅く
+とても遅く
 %%%%
 slow
 
@@ -461,11 +461,11 @@ extremely fast
 %%%%
 very fast
 
-かなり素早い
+とても素早い
 %%%%
 [adj]very fast
 
-かなり素早く
+とても素早く
 %%%%
 fast
 
