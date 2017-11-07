@@ -163,9 +163,9 @@ distant
 
 遠くで
 %%%%
-opens the %s.
+opens the %s%s.
 
-%sを開けた。
+%s%sを開けた。
 %%%%
 Something unseen {open the %s.}
 

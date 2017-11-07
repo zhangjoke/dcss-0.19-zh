@@ -2874,14 +2874,14 @@ string feature_description_at(const coord_def& where, bool covering,
         if (!door_desc_adj.empty())
             desc += jtrans(door_desc_adj);
         else
-            desc += adj;
+            desc += adj_j(adj);
 
         desc += jtrans(door_desc_prefix);
 
         if (!door_desc_noun.empty())
             desc += jtrans(door_desc_noun);
         else
-            desc += noun;
+            desc += jtrans(noun);
 
         if (!starts_with(door_desc_suffix, " to ") &&
             !starts_with(door_desc_suffix, " leading to the"))

@@ -2881,8 +2881,8 @@ static void _mons_open_door(monster& mons, const coord_def &pos)
     {
         viewwindow();
 
-        string open_str = make_stringf(jtransc("opens the %s."),
-                                       jtransc(make_stringf("%s%s", adj, noun)));
+        string open_str = make_stringf(jtransc("opens the %s%s."),
+                                       adj_jc(adj), jtransc(noun));
 
         // Should this be conditionalized on you.can_see(mons?)
         mons.seen_context = (all_door.size() <= 2) ? SC_DOOR : SC_GATE;
