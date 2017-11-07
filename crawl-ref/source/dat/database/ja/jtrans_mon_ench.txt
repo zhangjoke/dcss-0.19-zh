@@ -417,7 +417,7 @@ writhes!
 %%%%
 The winds around %s start to calm down.
 
-%sの周囲の風は勢いを弱めている。
+%sの周囲の風はおさまりつつある。
 %%%%
 is seared!
 
