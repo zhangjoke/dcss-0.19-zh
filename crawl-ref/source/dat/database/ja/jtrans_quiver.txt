@@ -1,0 +1,43 @@
+%%%%
+You can't grasp things well enough to throw them.
+
+あなたはそれを投擲できるほどしっかり掴むことができない。
+%%%%
+No suitable missiles.
+
+投擲/射撃に適した持ち物がない。
+%%%%
+Nothing suitable (fire_items_start = '%c').
+
+適した持ち物がない。(fire_items_start = '%c')
+%%%%
+Nothing suitable (ignored '=f'-inscribed item on '%c').
+
+適した持ち物がない。('%c'に割り当てられている'=f'と銘を付けられたアイテムを無視)
+%%%%
+Quivering %s for %s.
+
+%sを%s用に準備した。
+%%%%
+blowguns
+
+吹き矢筒
+%%%%
+# refer to jtrans_skill_title.txt
+# throwing
+# slings
+# bows
+# crossbows
+%%%%
+Quiver which item? (- for none, * to show all)
+
+どのアイテムを射撃/投擲準備しますか？ (- で準備解除, * で全アイテムから選択)
+%%%%
+Reset %s quiver to default.
+
+%s準備を初期設定に戻しました。
+%%%%
+You can't quiver worn items.
+
+着用中のアイテムを射撃/投擲準備することはできない。
+%%%%
