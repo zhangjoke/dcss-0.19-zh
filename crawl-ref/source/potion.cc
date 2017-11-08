@@ -11,6 +11,7 @@
 #include <cstring>
 
 #include "cloud.h"
+#include "database.h"
 #include "food.h"
 #include "godconduct.h"
 #include "godwrath.h" // reduce_xp_penance
@@ -55,7 +56,7 @@ bool PotionEffect::check_known_quaff() const
     string reason;
     if (!can_quaff(&reason))
     {
-        mpr(reason);
+        mpr(jtrans(reason));
         return false;
     }
     return true;
@@ -127,7 +128,7 @@ public:
         }
 
         if (ddoor)
-            mpr("You feel queasy.");
+            mpr(jtrans("You feel queasy."));
         else if (you.can_device_heal()
                  || !is_device
                  || you.duration[DUR_POISONING]
@@ -139,7 +140,7 @@ public:
             canned_msg(MSG_GAIN_HEALTH);
         }
         else
-            mpr("That felt strangely inert.");
+            mpr(jtrans("That felt strangely inert."));
         // need to redraw from yellow to green even if no hp was gained
         if (you.duration[DUR_POISONING])
             you.redraw_hit_points = true;
@@ -188,12 +189,12 @@ public:
     {
         if (you.duration[DUR_DEATHS_DOOR])
         {
-            mpr("You feel queasy.");
+            mpr(jtrans("You feel queasy."));
             return false;
         }
         if (!you.can_device_heal() && is_device)
         {
-            mpr("That seemed strangely inert.");
+            mpr(jtrans("That seemed strangely inert."));
             return false;
         }
 
@@ -205,7 +206,7 @@ public:
         inc_hp(amount);
         if (is_device)
             print_device_heal_message();
-        mpr("You feel much better.");
+        mpr(jtrans("You feel much better."));
         return true;
     }
 };
@@ -235,11 +236,11 @@ public:
     {
         if (you.species == SP_VAMPIRE)
         {
-            mpr("Yummy - fresh blood!");
+            mpr(jtrans("Yummy - fresh blood!"));
             lessen_hunger(pow, true);
         }
         else
-            mpr(_blood_flavour_message());
+            mpr(jtrans(_blood_flavour_message()));
             // no actual effect, just 'flavour' ha ha ha
         return true;
     }
@@ -319,8 +320,8 @@ public:
     {
         const bool were_mighty = you.duration[DUR_MIGHT] > 0;
 
-        mprf(MSGCH_DURATION, "You feel %s all of a sudden.",
-             were_mighty ? "mightier" : "very mighty");
+        mprf(MSGCH_DURATION, jtrans(make_stringf("You feel %s all of a sudden.",
+             were_mighty ? "mightier" : "very mighty")));
         you.increase_duration(DUR_MIGHT, 35 + random2(pow), 80);
         if (!were_mighty)
             notify_stat_change(STAT_STR, 5, true);
@@ -343,8 +344,8 @@ public:
     {
         const bool were_brilliant = you.duration[DUR_BRILLIANCE] > 0;
 
-        mprf(MSGCH_DURATION, "You feel %s all of a sudden.",
-             were_brilliant ? "more clever" : "clever");
+        mprf(MSGCH_DURATION, jtrans(make_stringf("You feel %s all of a sudden.",
+             were_brilliant ? "more clever" : "clever")));
         you.increase_duration(DUR_BRILLIANCE, 35 + random2(pow), 80);
         if (!were_brilliant)
             notify_stat_change(STAT_INT, 5, true);
@@ -367,8 +368,8 @@ public:
     {
         const bool were_agile = you.duration[DUR_AGILITY] > 0;
 
-        mprf(MSGCH_DURATION, "You feel %s all of a sudden.",
-             were_agile ? "more agile" : "agile");
+        mprf(MSGCH_DURATION, jtrans(make_stringf("You feel %s all of a sudden.",
+             were_agile ? "more agile" : "agile")));
 
         you.increase_duration(DUR_AGILITY, 35 + random2(pow), 80);
 
@@ -423,14 +424,14 @@ public:
 
     bool effect(bool=true, int=40, bool=true) const override
     {
-        mprf(MSGCH_WARN, "That liquid tasted very nasty...");
+        mprf(MSGCH_WARN, jtrans("That liquid tasted very nasty..."));
         return poison_player(10 + random2avg(15, 2), "", "a potion of poison");
     }
 
     bool quaff(bool was_known) const override
     {
         if (player_res_poison() >= 1)
-            mpr("You feel slightly nauseous.");
+            mpr(jtrans("You feel slightly nauseous."));
         else if (effect(was_known))
             xom_is_stimulated(100 / _xom_factor(was_known));
         return true;
@@ -452,11 +453,11 @@ public:
     bool effect(bool=true, int=40, bool=true) const override
     {
         debuff_player();
-        mpr("You feel magically purged.");
+        mpr(jtrans("You feel magically purged."));
         const int old_contam_level = get_contamination_level();
         contaminate_player(-1 * (1000 + random2(4000)));
         if (old_contam_level && old_contam_level == get_contamination_level())
-            mpr("You feel slightly less contaminated with magical energies.");
+            mpr(jtrans("You feel slightly less contaminated with magical energies."));
         return true;
     }
 };
@@ -478,13 +479,13 @@ public:
         if (confuse_player(ambrosia_turns, false, true))
         {
             print_device_heal_message();
-            mprf("You feel%s invigorated.",
-                 you.duration[DUR_AMBROSIA] ? " more" : "");
+            mprf(jtrans(make_stringf("You feel%s invigorated.",
+                 you.duration[DUR_AMBROSIA] ? " more" : "")));
             you.increase_duration(DUR_AMBROSIA, ambrosia_turns);
             return true;
         }
 
-        mpr("You feel briefly invigorated.");
+        mpr(jtrans("You feel briefly invigorated."));
         return false;
     }
 };
@@ -515,19 +516,18 @@ public:
                 afflictions.push_back("liquid flames");
             if (you.duration[DUR_QUAD_DAMAGE])
                 afflictions.push_back("!!!QUAD DAMAGE!!!");
-            mprf(MSGCH_DURATION,
+            mprf(MSGCH_DURATION, jtransc(
                  "You become %stransparent, but the glow from %s "
-                 "%s prevents you from becoming completely invisible.",
-                 you.duration[DUR_INVIS] ? "more " : "",
-                 you.haloed() && you.halo_radius() == -1 ? "the" : "your",
-                 comma_separated_line(afflictions.begin(),
-                                      afflictions.end()).c_str());
+                 "%s prevents you from becoming completely invisible."),
+                 jtransc(you.duration[DUR_INVIS] ? "more " : ""),
+                 to_separated_line(afflictions.begin(),
+                                   afflictions.end()).c_str());
         }
         else
         {
-            mprf(MSGCH_DURATION, !you.duration[DUR_INVIS]
+            mprf(MSGCH_DURATION, jtrans(!you.duration[DUR_INVIS]
                  ? "You fade into invisibility!"
-                 : "You fade further into invisibility.");
+                 : "You fade further into invisibility."));
         }
 
         // Now multiple invisiblity casts aren't as good. -- bwr
@@ -578,13 +578,13 @@ public:
 
         if (you.experience_level < you.get_max_xl())
         {
-            mpr("You feel more experienced!");
+            mpr(jtrans("You feel more experienced!"));
             // Defer calling level_change() until later in drink() to prevent
             // SIGHUP abuse.
             adjust_level(1, true);
         }
         else
-            mpr("A flood of memories washes over you.");
+            mpr(jtrans("A flood of memories washes over you."));
         // these are included in default force_more_message
         skill_menu(SKMF_EXPERIENCE, 750 * you.experience_level);
         return true;
@@ -628,7 +628,7 @@ public:
         }
 #endif
         inc_mp(POT_MAGIC_MP);
-        mpr("Magic courses through your body.");
+        mpr(jtrans("Magic courses through your body."));
         return true;
     }
 };
@@ -653,7 +653,7 @@ public:
     {
         if (you.species == SP_VAMPIRE && you.hunger_state < HS_SATIATED)
         {
-            mpr("You feel slightly irritated.");
+            mpr(jtrans("You feel slightly irritated."));
             return false;
         }
 
@@ -743,7 +743,7 @@ public:
 
     bool effect(bool=true, int=40, bool=true) const override
     {
-        mpr("It has a very clean taste.");
+        mpr(jtrans("It has a very clean taste."));
         bool mutated = false;
         for (int i = 0; i < 7; i++)
         {
@@ -777,7 +777,7 @@ public:
 
     bool effect(bool=true, int=40, bool=true) const override
     {
-        mpr("You feel extremely strange.");
+        mpr(jtrans("You feel extremely strange."));
         bool mutated = false;
         for (int i = 0; i < 3; i++)
             mutated |= mutate(RANDOM_MUTATION, "potion of mutation", false);
@@ -832,14 +832,14 @@ public:
                                     true, false, false, true);
         if (undead_mutation_rot())
         {
-            mpr("You feel dead inside.");
+            mpr(jtrans("You feel dead inside."));
             return mutated;
         }
 
         if (mutated)
-            mpr("You feel fantastic!");
+            mpr(jtrans("You feel fantastic!"));
         else
-            mpr("You feel fantastic for a moment.");
+            mpr(jtrans("You feel fantastic for a moment."));
         learned_something_new(HINT_YOU_MUTATED);
         return mutated;
     }
@@ -878,7 +878,7 @@ public:
 
     bool effect(bool=true, int pow = 40, bool=true) const override
     {
-        mprf(MSGCH_DURATION, "You feel protected.");
+        mprf(MSGCH_DURATION, jtrans("You feel protected."));
         you.increase_duration(DUR_RESISTANCE, random2(pow) + 35);
         return true;
     }
@@ -916,9 +916,9 @@ public:
             if (is_damaging_cloud(cloud, false)
                 // Tree form is immune to these two.
                 && cloud != CLOUD_MEPHITIC && cloud != CLOUD_POISON
-                && !yesno(make_stringf("Really become a tree while standing in "
-                                       "a cloud of %s?",
-                                       cloud_type_name(cloud).c_str()).c_str(),
+                && !yesno(make_stringf(jtransc("Really become a tree while standing in "
+                                               "a cloud of %s?"),
+                                       cloud_type_name_j(cloud).c_str()).c_str(),
                           false, 'n'))
             {
                 canned_msg(MSG_OK);
@@ -932,7 +932,7 @@ public:
             did_god_conduct(DID_CHAOS, 10, was_known);
         }
         else
-            mpr("You feel woody for a moment.");
+            mpr(jtrans("You feel woody for a moment."));
         return true;
     }
 };
@@ -978,11 +978,11 @@ public:
     {
         if (you.species == SP_VAMPIRE)
         {
-            mpr("This tastes delicious.");
+            mpr(jtrans("This tastes delicious."));
             lessen_hunger(pow, true);
         }
         else
-            mpr(_blood_flavour_message());
+            mpr(jtrans(_blood_flavour_message()));
             // no actual effect, just 'flavour' ha ha ha
         return true;
     }
@@ -1107,11 +1107,11 @@ public:
         if (you.species == SP_VAMPIRE
             || player_mutation_level(MUT_CARNIVOROUS) == 3)
         {
-            mpr("Blech - that potion was really gluggy!");
+            mpr(jtrans("Blech - that potion was really gluggy!"));
         }
         else
         {
-            mpr("That potion was really gluggy!");
+            mpr(jtrans("That potion was really gluggy!"));
             lessen_hunger(6000, true);
         }
         return true;
@@ -1141,7 +1141,7 @@ public:
     }
     bool effect(bool=true, int=40, bool=true) const override
     {
-        mpr("This tastes like water.");
+        mpr(jtrans("This tastes like water."));
         return true;
     }
 };
@@ -1190,14 +1190,14 @@ public:
         bool nothing_happens = true;
         if (you.duration[DUR_BREATH_WEAPON])
         {
-            mprf(MSGCH_RECOVERY, "You have got your breath back.");
+            mprf(MSGCH_RECOVERY, jtrans("You have got your breath back."));
             you.duration[DUR_BREATH_WEAPON] = 0;
             nothing_happens = false;
         }
 
         // Give a message if no message otherwise.
         if (!restore_stat(STAT_ALL, 0, false) && nothing_happens)
-            mpr("You feel refreshed.");
+            mpr(jtrans("You feel refreshed."));
         return nothing_happens;
     }
 };
@@ -1216,7 +1216,7 @@ public:
 
     bool effect(bool=true, int=40, bool=true) const override
     {
-        mpr("There was something very wrong with that liquid.");
+        mpr(jtrans("There was something very wrong with that liquid."));
         bool success = false;
         for (int i = 0; i < NUM_STATS; ++i)
             if (lose_stat(static_cast<stat_type>(i), 1 + random2(3)))
@@ -1245,7 +1245,7 @@ public:
     }
     bool effect(bool=true, int=40, bool=true) const override
     {
-        mpr("That potion was far past its expiry date.");
+        mpr(jtrans("That potion was far past its expiry date."));
         return true;
     }
 };
@@ -1320,7 +1320,7 @@ bool quaff_potion(item_def &potion)
     {
         set_ident_flags(potion, ISFLAG_IDENT_MASK);
         set_ident_type(potion, true);
-        mprf("It was a %s.", potion.name(DESC_QUALNAME).c_str());
+        mprf(jtransc("It was a %s."), potion.name(DESC_QUALNAME).c_str());
     }
 
     const potion_type ptyp = static_cast<potion_type>(potion.sub_type);
