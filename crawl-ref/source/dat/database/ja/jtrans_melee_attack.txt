@@ -213,7 +213,7 @@ power
 %%%%
 You feel invigorated.
 
-あなたは活力を得た。
+あなたは活力が湧いてきたようだ。
 %%%%
 You %s %s%s.
 
