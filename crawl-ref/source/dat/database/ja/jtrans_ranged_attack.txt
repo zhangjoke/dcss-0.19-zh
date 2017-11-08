@@ -1,0 +1,37 @@
+%%%%
+Shot with a%s %s by %s
+
+%sに%sを撃たれた
+%%%%
+Hit by a%s %s thrown by %s
+
+%sが投げた%sに当たった
+%%%%
+%s is repelled.
+
+%sは弾かれた。
+%%%%
+%s momentarily %s out as %s passes through %s%s
+
+%sは一瞬存在感を薄め、%sをやりすごした%s
+%%%%
+%s %s %s but does no damage.
+
+%sは%sに%sが、ダメージを与えられなかった。
+%%%%
+%s pierces through %s %s!
+
+%sは%sの%sをかいくぐって命中した！
+%%%%
+pierces through
+
+命中し貫通した
+%%%%
+hits
+
+命中した
+%%%%
+in a vulnerable spot
+
+の弱点
+%%%%
