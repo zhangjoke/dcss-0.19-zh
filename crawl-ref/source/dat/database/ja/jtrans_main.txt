@@ -360,7 +360,7 @@ Returning to the game...
 %%%%
 You can't grasp things well enough to throw them.
 
-あなたはそれを投げるべく手に握ることは得意ではない。
+あなたはそれを投擲できるほどしっかり掴むことができない。
 %%%%
 #ifdef DEBUG_QUIVER
 next slot: %d, item: %s
