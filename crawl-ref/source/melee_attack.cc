@@ -264,7 +264,7 @@ bool melee_attack::handle_phase_dodged()
             mprf(jtransc("%s%s misses %s%s"),
                  atk_name(DESC_THE).c_str(),
                  defender_name(true).c_str(),
-                 adj_jc(evasion_margin_adverb()),
+                 adv_jc(evasion_margin_adverb()),
                  attack_strength_punctuation(damage_done).c_str());
         }
     }
@@ -1444,7 +1444,7 @@ void melee_attack::player_announce_aux_hit()
     mprf(jtransc("You %s %s%s%s"),
          defender->name(DESC_THE).c_str(),
          _melee_attack_particle(aux_verb).c_str(),
-         jtransc(aux_verb),
+         verb_jc(aux_verb),
          attack_strength_punctuation(damage_done).c_str(),
          debug_damage_number().c_str());
 }
@@ -2414,7 +2414,7 @@ void melee_attack::announce_hit()
              defender_name(true).c_str(),
              _melee_attack_particle(verb).c_str(),
              mons_attack_desc().c_str(),
-             verb.c_str(),
+             verb_jc(verb),
              attack_strength_punctuation(damage_done).c_str(),
              debug_damage_number().c_str());
     }
@@ -2431,7 +2431,7 @@ void melee_attack::announce_hit()
              jtransc(verb_degree),
              _melee_attack_particle(attack_verb).c_str(),
              jtransc(verb_degree2),
-             jtransc(attack_verb),
+             verb_jc(attack_verb),
              attack_strength_punctuation(damage_done).c_str(),
              debug_damage_number().c_str());
     }

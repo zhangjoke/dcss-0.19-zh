@@ -262,7 +262,7 @@ bool ranged_attack::handle_phase_dodged()
         mprf(jtransc("%s%s misses %s%s"),
              zap_name_jc(projectile->name(DESC_THE)),
              defender_name(false).c_str(),
-             tagged_jtransc("[adv]", evasion_margin_adverb()),
+             adv_jc(evasion_margin_adverb()),
              attack_strength_punctuation(damage_done).c_str());
     }
 
