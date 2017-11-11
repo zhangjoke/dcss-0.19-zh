@@ -11,6 +11,7 @@
 
 #include "areas.h"
 #include "butcher.h"
+#include "database.h"
 #include "delay.h"
 #include "english.h"
 #include "env.h"
@@ -20,6 +21,7 @@
 #include "player-equip.h"
 #include "religion.h"
 #include "shopping.h"
+#include "stringutil.h"
 
 #define TIMER_KEY "timer"
 
@@ -133,8 +135,8 @@ void init_perishable_stack(item_def &stack, int age)
 
     // For a newly created stack, all potions/chunks use the same timer.
 #ifdef DEBUG_BLOOD_POTIONS
-    mprf(MSGCH_DIAGNOSTICS,
-         "newly created stack of size %d will time out at aut %d",
+    mprf(MSGCH_DIAGNOSTICS, jtransc(
+         "newly created stack of size %d will time out at aut %d"),
          stack.quantity, max_age);
 #endif
     for (int i = 0; i < stack.quantity; i++)
@@ -225,7 +227,7 @@ static void _compare_stack_quantity(item_def &stack)
     if (timer_size != stack.quantity)
     {
         mprf(MSGCH_WARN,
-             "ERROR: stack quantity (%d) doesn't match timer (%d)",
+             jtransc("ERROR: stack quantity (%d) doesn't match timer (%d)"),
              stack.quantity, timer_size);
 
         // sanity measure; sync stack/timer size
@@ -401,9 +403,9 @@ static void _print_chunk_messages(int num_chunks, int num_chunks_gone)
 {
     if (num_chunks_gone > 0)
     {
-        mprf(MSGCH_ROTTEN_MEAT,
+        mprf(MSGCH_ROTTEN_MEAT, jtrans(make_stringf(
              "%s of the chunks of flesh in your inventory have rotted away.",
-             num_chunks_gone == num_chunks ? "All" : "Some");
+             num_chunks_gone == num_chunks ? "All" : "Some")));
     }
 }
 
@@ -413,8 +415,8 @@ static void _potion_stack_changed_message(string item_name, int num_changed,
 {
     ASSERT(num_changed > 0);
 
-    mprf(MSGCH_ROTTEN_MEAT, "%s %s rot%s away.",
-         get_desc_quantity(num_changed, initial_quantity).c_str(),
+    mprf(MSGCH_ROTTEN_MEAT, jtransc("%s %s rot%s away."),
+         to_stringc(num_changed),
          item_name.c_str(),
          num_changed == 1 ? "s" : "");
 }
