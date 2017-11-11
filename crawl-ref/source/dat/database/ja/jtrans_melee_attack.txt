@@ -239,6 +239,10 @@ Your shield and {armour} prevent you from hitting
 
 あなたは自分の盾と%sが邪魔で%sを攻撃できなかった。
 %%%%
+You {evasion margin} miss {name}
+
+あなたは%sへの攻撃を%s外した。
+%%%%
 [verb]hit
 
 攻撃した
