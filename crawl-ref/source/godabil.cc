@@ -4352,7 +4352,7 @@ static string _describe_gozag_shop(int index)
     const string special_name = jtrans(_gozag_special_shop_name(type));
     const string type_name = !special_name.empty() ?
                                 special_name :
-                                shop_type_name(type);
+                                shop_type_name_jc(type);
     const string suffix =
         you.props[make_stringf(GOZAG_SHOP_SUFFIX_KEY, index)].get_string();
 
@@ -4452,7 +4452,7 @@ static void _gozag_place_shop(int index)
     mprf(MSGCH_GOD, jtransc("%s invites you to visit %s %s%s%s."),
                     shop->shop_name.c_str(),
                     decline_pronoun_j(gender, PRONOUN_POSSESSIVE).c_str(),
-                    shop_type_name(shop->type).c_str(),
+                    shop_type_name_jc(shop->type),
                     !shop->shop_suffix_name.empty() ? " " : "",
                     shop->shop_suffix_name.c_str());
 }
