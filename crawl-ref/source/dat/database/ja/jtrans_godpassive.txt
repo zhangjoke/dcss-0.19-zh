@@ -61,7 +61,7 @@ can cast destructive spells farther
 %%%%
 gain health from killing
 
-# 訳不要
+殺害によって体力を回復すること
 %%%%
 GOD protects you from miscasts
 
@@ -326,7 +326,7 @@ GOD siphons a part of your essence into your ancestor
 %%%%
 drain nearby creatures when transferring your ancestor
 
-# 訳不要
+周囲のモンスターを、祖霊と位置交換した際に衰弱させること
 %%%%
 You hear a distant slurping noise.
 

@@ -1,326 +1,43 @@
 %%%%
-# No god
-& eaten by a bored swarm of bugs.
-
-# unused
-%%%%
-& eaten by a swarm of bugs.
-
-# unused
-%%%%
-& eaten by a ravening swarm of bugs.
-
-# unused
-%%%%
-# Zin
-barely glow% and disappear%.
-
-はほんのわずか輝いて消え去った。
-%%%%
-glow% silver and disappear%.
-
-は銀色に輝いて消え去った。
-%%%%
-glow% blindingly silver and disappear%.
-
-は目も眩むほどの銀色の輝きを放って消え去った。
-%%%%
-# TSO
-glow% a dingy golden colour and disappear%.
-
-はくすんだ金色に輝いて消え去った。
-%%%%
-glow% a golden colour and disappear%.
-
-は金色に輝いて消え去った。
-%%%%
-glow% a brilliant golden colour and disappear%.
-
-は煌く金色に輝いて消え去った。
-%%%%
-# Kiku
-convulse% and rot% away.
-
-は小刻みに震え、腐敗していった。
-%%%%
-convulse% madly and rot% away.
-
-はがたがたと震え、腐敗していった。
-%%%%
-convulse% furiously and rot% away.
-
-は猛烈に震え、腐敗していった。
-%%%%
-# Yred
-slowly crumble% to dust.
-
-はゆっくりと分解され塵になった。
-%%%%
-crumble% to dust.
-
-は塵へと分解された。
-%%%%
-turn% to dust in an instant.
-
-はたちまち塵へと分解された。
-%%%%
-# Xom
-& eaten by a bored bug.
-
-はのろのろした虫に食べられた。
-%%%%
-& eaten by a bug.
-
-は虫に食べられた。
-%%%%
-& eaten by a greedy bug.
-
-は獰猛な虫に食べられた。
-%%%%
-# Vehu
-fade% into nothingness.
-
-はうっすらと消えていった。
-%%%%
-burn% into nothingness.
-
-は燃えながら消えていった。
-%%%%
-explode% into nothingness.
-
-は爆発して消え去った。
-%%%%
-# Okawaru
-slowly burn% to ash.
-
-はゆっくりと燃えて灰になった。
-%%%%
-& consumed by flame.
-
-は炎に焼き尽くされた。
-%%%%
-& consumed in a burst of flame.
-
-は炎の爆発で焼き尽された。
-%%%%
-# Makhleb
-disappear% without a sign.
-
-は唐突に消え去った。
-%%%%
-flare% red and disappear%.
-
-は赤い閃光を放って消え去った。
-%%%%
-flare% blood-red and disappear%.
-
-は血のように赤い閃光を放って消え去った。
-%%%%
-# Sif
-& gone without a[dditional] glow.
-
-は消え去った。
-%%%%
-glow% slightly [brighter ]for a moment, and & gone.
-
-は一瞬わずかに輝き[を増し]、消え去った。
-%%%%
-glow% [brighter ]for a moment, and & gone.
-
-は一瞬輝き[を増し]、消え去った。
-%%%%
-# Trog
-& slowly consumed by flames.
-
-はゆっくりと燃え尽きた。
-%%%%
-& consumed in a column of flame.
-
-は炎の柱に焼き尽された。
-%%%%
-& consumed in a roaring column of flame.
-
-は唸りを上げる炎の柱に焼き尽された。
-%%%%
-# Nemelex
-& eaten by a bored swarm of bugs.
-
-はのろのろした虫の群れに食いつくされた。
-%%%%
-& eaten by a swarm of bugs.
-
-は虫の群れに食いつくされた。
-%%%%
-& eaten by a ravening swarm of bugs
-
-は獰猛な虫の群れに食いつくされた。
-%%%%
-# Ely
-barely shimmer% and break% into pieces.
-
-はほんのわずか輝いてばらばらになった。
-%%%%
-shimmer% and break% into pieces.
-
-は輝いてばらばらになった。
-%%%%
-shimmer% wildly and break% into pieces.
-
-はぎらぎらと輝いてばらばらになった。
-%%%%
-# Lugonu
-disappear% into the void.
-
-は虚無へと消え去った。
-%%%%
-& consumed by the void.
-
-は虚無に飲み込まれた。
-%%%%
-& voraciously consumed by the void.
-
-は虚無にむさぼりつくされた。
-%%%%
-# Beogh
-slowly crumble% into the ground.
-
-はゆっくりと大地に溶け込んでいった。
-%%%%
-crumble% into the ground.
-
-は大地に溶け込んでいった。
-%%%%
-disintegrate% into the ground.
-
-は分解され大地に溶け込んでいった。
-%%%%
-# Jiyva
-slowly dissolve% into ooze.
-
-はゆっくりとどろどろに分解していった。
-%%%%
-dissolve% into ooze.
-
-はどろどろに融解していった。
-%%%%
-disappear% with a satisfied slurp.
-
-は満足げに捕食されて消え去った。
-%%%%
-# Fedhas
-& slowly absorbed by the ecosystem.
-
-はゆっくりとダンジョンの生態系に還っていった。
-%%%%
-& absorbed by the ecosystem.
-
-はダンジョンの生態系に還っていった。
-%%%%
-& instantly absorbed by the ecosystem.
-
-はたちまちダンジョンの生態系に還っていった。
-%%%%
-# Chei
-freeze% in place and instantly disappear%.
-
-はその場で動きを止め、たちまち消え去った。
-%%%%
-freeze% in place and disappear%.
-
-はその場で動きを止め、消え去った。
-%%%%
-freeze% in place and slowly fade%.
-
-はその場で動きを止め、ゆっくりと消え去った。
-%%%%
-# Ashe
-flicker% black.
-
-は黒く点滅した。
-%%%%
-pulsate% black.
-
-は黒く明滅した。
-%%%%
-strongly pulsate% black.
-
-は強烈に黒く明滅した。
-%%%%
-# Dithmenos
-slowly dissolves into the shadows.
-
-はゆっくりと影に溶け込んでいった。
-%%%%
-dissolves into the shadows.
-
-は影に溶け込んでいった。
-%%%%
-rapidly dissolves into the shadows.
-
-は急速に影に溶け込んでいった。
-%%%%
-# Gozag
-softly glitters and disappears.
-
-は穏やかに輝いて消え去った。
-%%%%
-glitters and disappears.
-
-は輝いて消え去った。
-%%%%
-brightly glitters and disappears.
-
-はまばゆく輝いて消え去った。
-%%%%
-# Qazlal
-slowly dissolves into the earth.
-
-はゆっくりと大地に還っていった。
-%%%%
-is consumed by the earth.
-
-は大地に還っていった。
-%%%%
-is consumed by a violent tear in the earth.
-
-は大地の裂け目に飲み込まれていった。
-%%%%
-# Ru
-disappears in a small burst of power.
-
-は小規模な力の奔流となって消え去った。
-%%%%
-disappears in a burst of power
-
-は力の奔流となって消え去った。
-%%%%
-disappears in an immense burst of power
-
-は大規模な力の奔流となって消え去った。
-%%%%
 recite Zin's Axioms of Law
 
 ジンの法の公理を説くこと
 %%%%
 call upon Zin for vitalisation
 
-ジンに生命の活性を請うこと
+ジンに生命の活性を願うこと
 %%%%
 call upon Zin to imprison the lawless
 
-ジンに無法者の収監を請うこと
+ジンに無法者の収監を願うこと
 %%%%
 call upon Zin to create a sanctuary
 
-ジンに聖域の作成を請うこと
+ジンに聖域の作成を願うこと
+%%%%
+donate money to Zin
+
+ジンに寄進すること
+%%%%
+Zin will cure all your mutations... once.
+
+ジンは一度だけあなたの突然変異を全て治療してくれる。
+%%%%
+Zin is no longer ready to cure all your mutations.
+
+ジンはもうあなたの突然変異を治してはくれない。
 %%%%
 You and your allies can gain power from killing the unholy and evil.
 
 あなたと仲間たちは不浄な者や邪悪な者を倒すことで力を得ることができる。
 %%%%
+You and your allies can no longer gain power from killing the unholy and evil.
+
+あなたと仲間たちはもう不浄な者や邪悪な者を倒すことで力を得ることはできない。
+%%%%
 call upon the Shining One for a divine shield
 
-輝けるものに神気の盾を請うこと
+輝けるものに神気の盾を願うこと
 %%%%
 channel blasts of cleansing flame
 
@@ -330,6 +47,14 @@ summon a divine warrior
 
 神聖な従者を召喚すること
 %%%%
+The Shining One will bless your weapon with holy wrath... once.
+
+輝けるものは一度だけあなたの武器を祝福してくれる。
+%%%%
+The Shining One is no longer ready to bless your weapon.
+
+輝けるものはもうあなたの武器を祝福してはくれない。
+%%%%
 receive cadavers from Kikubaaqudgha
 
 死体をキクバークッグァから受け取ること
@@ -338,27 +63,51 @@ Kikubaaqudgha is protecting you from necromantic miscasts and death curses.
 
 キクバークッグァはあなたを死霊術の失敗効果や死の呪いから守る。
 %%%%
+Kikubaaqudgha no longer protects you from necromantic miscasts or death curses.
+
+キクバークッグァはもうあなたを死霊術の失敗効果や死の呪いから守ってはくれない。
+%%%%
 Kikubaaqudgha is protecting you from unholy torment.
 
 キクバークッグァはあなたを不浄なる苦痛から守る。
+%%%%
+Kikubaaqudgha will no longer protect you from unholy torment.
+
+キクバークッグァはもうあなたを不浄なる苦痛から守ってはくれない。
 %%%%
 invoke torment by sacrificing a corpse
 
 死体を代償に苦痛の紋章を喚起すること
 %%%%
-animate legions of the dead
+Kikubaaqudgha will grant you a Necronomicon or bloody your weapon with pain... once.
 
-死者の軍勢を蘇らせること
+キクバークッグァは一度だけあなたにネクロノミコンか苦痛の武器のどちらかを授けてくれる。
+%%%%
+Kikubaaqudgha is no longer ready to enhance your necromancy.
+
+キクバークッグァはもうあなたの死霊術の助けをしてはくれない。
+%%%%
+Kikubaaqudgha will grant you a Necronomicon.
+
+キクバークッグァはあなたにネクロノミコンを授けてくれる。
 %%%%
 animate remains
 
 死者を蘇らせること
 %%%%
-recall your undead slaves and mirror injuries on your foes
+recall your undead slaves
 
-不死の下僕を呼び出すことと傷を敵に跳ね返すこと
+不死の下僕を呼び出すこと
 %%%%
-drain ambient lifeforce
+mirror injuries on your foes
+
+受けた傷を敵にも跳ね返すこと
+%%%%
+animate legions of the dead
+
+死者の軍勢を蘇らせること
+%%%%
+drain ambient life force
 
 周囲の生命力を掠奪すること
 %%%%
@@ -374,9 +123,17 @@ Vehumet is aiding your destructive magics.
 
 ヴェフメットはあなたの破壊的な魔法を手助けしてくれる。
 %%%%
+Vehumet will no longer aid your destructive magics.
+
+ヴェフメットはもうあなたの破壊的な魔法を手助けしてはくれない。
+%%%%
 Vehumet is extending the range of your destructive magics.
 
 ヴェフメットはあなたの破壊的な魔法の射程を伸ばしてくれる。
+%%%%
+Vehumet will no longer extend the range of your destructive magics.
+
+ヴェフメットはもうあなたの破壊的な魔法の射程を伸ばしてはくれない。
 %%%%
 gain great but temporary skills
 
@@ -386,9 +143,9 @@ speed up your combat
 
 一時的に攻撃速度を上昇させること
 %%%%
-gain health from killing
+# gain health from killing
 
-殺害によって体力を回復すること
+# jtrans_godpassive.txtと重複
 %%%%
 harness Makhleb's destructive might
 
@@ -406,29 +163,49 @@ summon a greater servant of Makhleb
 
 マクレブの大いなるしもべを召喚すること
 %%%%
-tap ambient magical fields
+request divine energy to cast spells with insufficient magic
 
-周囲の魔力を収集すること
+神気を願って魔力が足りなくても呪文を唱えること
 %%%%
-freely open your mind to new spells
+request divine energy
 
-新しい魔法のために記憶を消去すること
+神気を願うこと
 %%%%
 Sif Muna is protecting you from the effects of miscast magic.
 
 シフ・ムーナはあなたを魔法の失敗効果から守る。
 %%%%
+Sif Muna no longer protects you from the effects of miscast magic.
+
+シフ・ムーナはもうあなたを魔法の失敗効果から守ってはくれない。
+%%%%
+call upon Sif Muna for magical energy
+
+シフ・ムーナに魔力の供給を願うこと
+%%%%
+freely open your mind to new spells
+
+新しい魔法のために記憶を消去すること
+%%%%
+forget spells at will
+
+自分の意志で呪文を忘れること
+%%%%
 go berserk at will
 
-自らの意志で狂戦士化すること
+自分の意志でバーサークすること
 %%%%
-regenerate and be protected from hostile enchantments
+call upon Trog for regeneration and protection from hostile enchantments
 
-再生能力と敵対的な魔法に対する防御を得ること
+トログに願って再生能力と敵対的な魔法に対する防御を得ること
 %%%%
 call in reinforcements
 
 援軍を呼び出すこと
+%%%%
+call upon Trog to burn spellbooks in your surroundings
+
+トログに願って身の回りにある魔法書を焼却すること
 %%%%
 choose one out of three cards
 
@@ -442,11 +219,16 @@ order the top five cards of a deck, losing the rest
 
 デッキの上の5枚のカードを並び替え、残りのカードを捨てること
 %%%%
+stack decks
+
+デッキを積み替えること
+%%%%
 provide lesser healing for yourself
 
 自らに小さき癒しを使うこと
 %%%%
 heal and attempt to pacify others
+
 他者を癒やし友好化を試みること
 %%%%
 purify yourself
@@ -459,11 +241,19 @@ provide greater healing for yourself
 %%%%
 call upon Elyvilon for divine vigour
 
-エリヴィロンに神秘の活力を請うこと
+エリヴィロンに神秘の活力を願うこと
+%%%%
+call on Elyvilon to save your life
+
+エリヴィロンに自らの命を守ってくれるよう願うこと
 %%%%
 depart the Abyss
 
 アビスから離脱すること
+%%%%
+depart the Abyss at will
+
+自分の意志でアビスから離脱すること
 %%%%
 bend space around yourself
 
@@ -481,9 +271,13 @@ gate yourself to the Abyss
 
 アビスへと退避すること
 %%%%
-Beogh aids your use of armour.
+Lugonu will corrupt your weapon with distortion... once.
 
-ベオは鎧の使用を手助けしてくれる。
+ルゴヌは一度だけあなたの武器に崩壊の力を与えてくれる。
+%%%%
+Lugonu is no longer ready to corrupt your weapon.
+
+ルゴヌはもうあなたの武器に崩壊の力を与えてはくれない。
 %%%%
 smite your foes
 
@@ -497,17 +291,21 @@ recall your orcish followers
 
 オークの従者を呼び出すこと
 %%%%
-walk on water and give items to your followers
+# walk on water
 
-水の上を歩き、また従者にアイテムを与えること
+# jtrans_godpassive.txtと重複
+%%%%
+give items to your followers
+
+従者にアイテムを与えること
+%%%%
+revive fallen orcs
+
+戦死したオークを蘇らせること
 %%%%
 request a jelly
 
 ジェリーを要請すること
-%%%%
-temporarily halt your jellies' item consumption
-
-一時的にジェリーがアイテムを消化するのを止めること
 %%%%
 turn your foes to slime
 
@@ -515,7 +313,11 @@ turn your foes to slime
 %%%%
 call upon Jiyva to remove your harmful mutations
 
-ジーヴァに有害な突然変異の除去を請うこと
+ジーヴァに有害な突然変異の除去を願うこと
+%%%%
+turn corpses into toadstools
+
+死体をからかさキノコへと変えること
 %%%%
 induce evolution
 
@@ -537,9 +339,17 @@ control the weather
 
 気候を操り、雨を降らせること
 %%%%
+bend time to slow others
+
+時間を歪曲させ、他者の動きを遅くすること
+%%%%
 Cheibriados slows and strengthens your metabolism.
 
 ケイブリアドスはあなたの代謝を遅く、そして強化する。
+%%%%
+Cheibriados no longer slows and strengthens your metabolism.
+
+ケイブリアドスはもうあなたの代謝を遅くしたり強化したりはしない。
 %%%%
 warp the flow of time around you
 
@@ -553,21 +363,45 @@ step out of the time flow
 
 時間の流れから離脱すること
 %%%%
-The more cursed you are, the more Ashenzari supports your skills.
+curse your items
 
-呪縛されればされるほど、アシェンザリはさらなるスキルの支援を行う。
-%%%%
-Ashenzari reveals the unseen and keeps your mind clear.
-
-アシェンザリは見えざる者の存在を看破し、あなたの意識を明晰に保つ。
+あなたの持つアイテムを呪縛すること
 %%%%
 scry through walls
 
 壁を透視すること
 %%%%
+The more cursed you are, the more Ashenzari supports your skills.
+
+呪縛されればされるほど、アシェンザリはあなたのスキルをより助けてくれる。
+%%%%
+Ashenzari no longer supports your skills.
+
+アシェンザリはもうあなたのスキルを助けてはくれない。
+%%%%
+Ashenzari reveals the unseen.
+
+アシェンザリは目に見えぬものを看破する。
+%%%%
+Ashenzari no longer reveals the unseen.
+
+アシェンザリはもう目に見えぬものを看破してはくれない。
+%%%%
+Ashenzari keeps your mind clear.
+
+アシェンザリはあなたの思考を明瞭に保ってくれる。
+%%%%
+Ashenzari no longer keeps your mind clear.
+
+アシェンザリはもうあなたの思考を明瞭に保ってはくれない。
+%%%%
 Ashenzari helps you to reconsider your skills.
 
-アシェンザリはあなたがスキルを再考するのを助ける。
+アシェンザリはあなたがスキルを再考するのを助けてくれる。
+%%%%
+Ashenzari no longer helps you to reconsider your skills.
+
+アシェンザリはもうあなたがスキルを再考するのを助けてはくれない。
 %%%%
 step into the shadows of nearby creatures
 
@@ -577,9 +411,17 @@ You now sometimes bleed smoke when heavily injured by enemies.
 
 あなたは敵から重症を受けた際に時々黒煙を生じさせる。
 %%%%
+You no longer bleed smoke.
+
+あなたはもう煙を発することができない。
+%%%%
 Your shadow now sometimes tangibly mimics your actions.
 
-あなたの影は時々あなたの行動を真似て行動する。
+あなたの影は時々あなたの動きをまねて行動する。
+%%%%
+Your shadow no longer tangibly mimics your actions.
+
+あなたの影はもうあなたの動きをまねて行動しなくなった。
 %%%%
 transform into a swirling mass of shadows
 
@@ -597,9 +439,17 @@ bribe branches to halt enemies' attacks and recruit allies
 
 分岐を買収して敵の攻撃を止め、傭兵を雇う
 %%%%
+Qazlal grants you immunity to clouds.
+
+クァズラルはあなたを雲烟から保護する。
+%%%%
 You are surrounded by a storm.
 
 あなたは嵐に囲まれている。
+%%%%
+Your storm dissipates completely.
+
+あなたの周囲の嵐は完全に消え去った。
 %%%%
 call upon nature to destroy your foes
 
@@ -609,21 +459,41 @@ give life to nearby clouds
 
 近くの雲烟に生命を与えること
 %%%%
+The storm surrounding you is powerful enough to repel missiles.
+
+あなたの周囲の嵐は飛来物を逸らすほどに強力だ。
+%%%%
+The storm surrounding you is now too weak to repel missiles.
+
+あなたの周囲の嵐はもう飛来物を逸らすことはできなくなった。
+%%%%
 You adapt resistances upon receiving elemental damage.
 
 あなたは元素属性への耐性に熟達している。
 %%%%
+You no longer adapt resistances upon receiving elemental damage.
+
+あなたはもう元素属性への耐性に熟達してはいない。
+%%%%
 call upon nature's wrath in a wide area around you
 
-自然の怒りを周囲の広範囲に解き放つこと
+自然の怒りを呼び覚まし、周囲の広範囲に解き放つこと
 %%%%
 You exude an aura of power that intimidates your foes.
 
 あなたは敵を戸惑わせるオーラを発散する。
 %%%%
+You no longer exude an aura of power that intimidates your foes.
+
+あなたはもう敵を戸惑わせるオーラを発散しなくなった。
+%%%%
 Your aura of power can strike those that harm you.
 
-さらに、あなたが纏うオーラは自らに危害を加えるものに反撃する。
+あなたが纏うオーラは自らに危害を加えるものに反撃する。
+%%%%
+Your aura of power no longer strikes those that harm you.
+
+あなたが纏うオーラはもう自らに危害を加えるものに反撃しなくなった。
 %%%%
 heal your body and restore your magic
 
@@ -637,409 +507,93 @@ wreak a terrible wrath on your foes
 
 敵に対し激怒の力を浴びせること
 %%%%
-You and your allies can no longer gain power from killing the unholy and evil.
+spend your magic to charge your devices
 
-あなたと仲間たちはもう不浄な者や邪悪な者を倒すことで力を得ることができない。
+# obsolete: Pakellas
 %%%%
-Kikubaaqudgha no longer protects you from necromantic miscasts or death curses.
+spend magic to empower your devices
 
-キクバークッグァはもうあなたを死霊術の失敗効果や死の呪いから守ってはくれない。
+# obsolete: Pakellas
 %%%%
-Kikubaaqudgha will no longer protect you from unholy torment.
+Pakellas will now supercharge a wand or rod... once.
 
-キクバークッグァはもうあなたを不浄なる苦痛から守ってはくれない。
+# obsolete: Pakellas
 %%%%
-Vehumet will no longer aid your destructive magics.
+Pakellas is no longer ready to supercharge a wand or rod.
 
-ヴェフメットはもうあなたの破壊的な魔法の手助けをしてくれない。
+# obsolete: Pakellas
 %%%%
-Vehumet will no longer extend the range of your destructive magics.
+stomp with the beat
 
-ヴェフメットはもうあなたの破壊的な魔法の射程を伸ばしてくれない。
+足踏みしてビートを刻むこと
 %%%%
-forget spells at will
+pass through a line of other dancers
 
-自らの意志で呪文を忘れること
+他の踊り手たちの並びを横切ること
 %%%%
-Sif Muna no longer protects you from the effects of miscast magic.
+Uskayaw will force your foes to helplessly watch your dance.
 
-シフ・ムーナはもうあなたを魔法の失敗効果から守ってくれない。
+ウスカヤーは敵にあなたの舞踏を無防備に見るよう強制する。
 %%%%
-call upon Trog for regeneration and protection from hostile enchantments
+Uskayaw will no longer force your foes to helplessly watch your dance.
 
-トログに再生能力と敵対的な魔法に対する防御を請うこと
+ウスカヤーはもう敵にあなたの舞踏を無防備に見るよう強制しなくなった。
 %%%%
-stack decks
+Uskayaw will force your foes to share their pain.
 
-デッキを並び替えること
+ウスカヤーは敵が受ける外傷を敵全体で共有させる。
 %%%%
-depart the Abyss at will
+Uskayaw will no longer force your foes to share their pain.
 
-自らの意志でアビスから離脱すること
+ウスカヤーはもう敵が受ける外傷を敵全体で共有させなくなった。
 %%%%
-Beogh no longer aids your use of armour.
+merge with and destroy a victim
 
-ベオはもう鎧の使用を手助けしてくれない。
+標的と一体化したのち破壊すること
 %%%%
-walk on water or give items to your followers
+recall your ancestor
 
-水の上を歩くことや従者にアイテムを与えること
+祖霊を呼び出すこと
 %%%%
-Cheibriados no longer slows and strengthens your metabolism.
+remember your ancestor's identity
 
-ケイブリアドスはもうあなたの代謝を遅くしたり強化したりしなくなった。
+祖霊の人となりを思い出すこと
 %%%%
-Ashenzari no longer supports your skills.
+swap creatures with your ancestor
 
-アシェンザリはもうあなたのスキルを支援してくれない。
+モンスターと祖霊の位置を交換すること
 %%%%
-Ashenzari no longer reveals the unseen or keeps your mind clear.
+heal and protect your ancestor
 
-アシェンザリはもう見えざる者の存在を看破したり、あなたの意識を明晰に保ったりはしてくれない。
+祖霊の傷を癒し、強化すること
 %%%%
-Ashenzari no longer helps you to reconsider your skills.
+# drain nearby creatures when transferring your ancestor
 
-アシェンザリはもうあなたがスキルを再考するのを助けてはくれない。
+# jtrans_godpassive.txtと重複
 %%%%
-You no longer bleed smoke.
+#ifdef DEBUG_PIETY
+Decreasing penance by %d
 
-あなたはもう黒煙を発しない。
 %%%%
-Your shadow no longer tangibly mimics your actions.
+mollified {god name}.
 
-あなたの影はもうあなたの行動を真似て行動しなくなった。
+%sの赦しを得た
 %%%%
-Your storm dissipates completely.
+seems mollified.
 
-あなたを取り巻く嵐は完全に消え去った。
+は機嫌を直した。
 %%%%
-You no longer adapt resistances upon receiving elemental damage.
+seems mollified, and vanishes.
 
-あなたはもう元素属性への耐性には熟達していない。
-%%%%
-You no longer exude an aura of power that intimidates your foes.
-
-あなたはもう敵を戸惑わせるオーラを発散しなくなった。
-%%%%
-Your aura of power no longer strikes those that harm you.
-
-あなたの纏うオーラはもう自らに危害を加えるものに反撃することができなくなった。
-%%%%
-use your power to heal your body and restore your magic
-
-力を使って自らの傷を癒し魔力を回復させること
-%%%%
-wreak a terrible wrath on all visible foes
-
-視界のすべての敵に対し激怒の力を浴びせること
-%%%%
-you train your various spell casting skills
-
-様々な呪文スキルの鍛錬
-%%%%
-you promote the decay of nearby corpses by <w>p</w>raying
-
-祈って(<w>p</w>ray)周辺の死体の腐敗を促進させること
-%%%%
-you destroy spellbooks via the <w>a</w> command
-
-(<w>a</w>)bilityコマンドを用いて魔法書を焼くこと
-%%%%
-you explore the world
-
-あなたが世界を探索すること
-%%%%
-you sacrifice items by allowing slimes to consume them
-
-スライムに消化させることでアイテムを捧げること
-%%%%
-you kill fast things, relative to your speed
-
-あなたより素早いものを殺すこと
-%%%%
-you explore the world (preferably while bound by curses)
-
-あなたが世界を探索すること(呪縛されている場合は特に)
-%%%%
-you meet creatures to determine whether they need to be eradicated
-
-根絶対象か判断するためにモンスターを光で照らすこと
-%%%%
-you banish creatures to the Abyss
-
-モンスターをアビスに追放すること
-%%%%
-you collect gold
-
-金を貯めること
-%%%%
-you make personal sacrifices
-
-自らを代償に捧げること
-%%%%
-you donate money (by <w>p</w>raying at an altar)
-
-寄進(祭壇の上で<w>p</w>rayコマンドを行う)すること
-%%%%
-you bless dead orcs (by standing over their remains and <w>p</w>raying)
-
-死んだオークを弔う(遺骸の上に立って<w>p</w>rayコマンドを行う)こと
-%%%%
-you sacrifice fresh corpses (by standing over them and <w>p</w>raying)
-
-新鮮な死体を捧げる(死体の上に立って<w>p</w>rayコマンドを行う)こと
-%%%%
-you or your allies kill living beings
-
-あなたと従者が生者を殺すこと
-%%%%
-you or your god-given allies kill living beings
-
-あなたと神の与えし従者が生命ある者を殺すこと
-%%%%
-you or your undead slaves kill living beings
-
-あなたと不死の下僕が生命ある者を殺すこと
-%%%%
-you or your allied orcs kill living beings
-
-あなたとオークの従者が生命ある者を殺すこと
-%%%%
-you kill living beings
-
-あなたが生命ある者を殺すこと
-%%%%
-you or your allies kill unclean or chaotic beings
-
-あなたと従者が不浄な者や混沌なる者を殺すこと
-%%%%
-you or your allies kill living unholy or evil beings
-
-あなたと従者が不浄なる者や邪悪な存在を殺すこと
-%%%%
-you or your allies kill the undead
-
-あなたと従者が不死者を滅ぼすこと
-%%%%
-you or your allied orcs kill the undead
-
-あなたとオークの従者が不死者を滅ぼすこと
-%%%%
-you kill the undead
-
-あなたが不死者を滅ぼすこと
-%%%%
-you or your allies kill demons
-
-あなたと従者が悪魔を殺すこと
-%%%%
-you or your god-given allies kill demons
-
-あなたと神の与えし従者が悪魔を殺すこと
-%%%%
-you or your undead slaves kill demons
-
-あなたと不死の下僕が悪魔を殺すこと
-%%%%
-you or your allied orcs kill demons
-
-あなたと従者のオークが悪魔を殺すこと
-%%%%
-you kill demons
-
-あなたが悪魔を殺すこと
-%%%%
-you or your undead slaves kill artificial beings
-
-あなたと不死の下僕が人工的な怪物を滅ぼすこと
-%%%%
-you or your allies kill holy beings
-
-あなたと従者が神聖な存在を殺すこと
-%%%%
-you or your god-given allies kill holy beings
-
-あなたと神の与えし従者が神聖な存在を殺すこと
-%%%%
-your undead slaves kill holy beings
-
-あなたの不死の従者が神聖な存在を殺すこと
-%%%%
-you or your undead slaves kill holy beings
-
-あなたと不死の従者が神聖な存在を殺すこと
-%%%%
-you or your allied orcs kill holy beings
-
-あなたとオークの従者が神聖な存在を殺すこと
-%%%%
-you kill holy beings
-
-あなたが神聖な存在を殺すこと
-%%%%
-you kill the priests of other religions
-
-他宗教の司祭を殺すこと
-%%%%
-you kill wizards and other users of magic
-
-魔法使いおよび様々な魔力の使い手を殺すこと
-%%%%
-you kill beings that bring fire to the dungeon
-
-迷宮へ火をもたらすものを殺すこと
-%%%%
-you perform cannibalism
-
-同種食らいをすること
-%%%%
-you desecrate holy remains
-
-聖なる遺骸を汚すこと
-%%%%
-you drink blood
-
-血液を飲むこと
-%%%%
-you use necromancy
-
-死霊術を使うこと
-%%%%
-you use unholy magic or items
-
-不浄な魔法やアイテムを使うこと
-%%%%
-you attack non-hostile holy beings
-
-敵対的でない聖なる存在を攻撃すること
-%%%%
-you or your allies kill non-hostile holy beings
-
-あなたと従者が敵対的でない聖なる存在を殺すこと
-%%%%
-you attack neutral beings
-
-中立なるものを攻撃すること
-%%%%
-you attack allies
-
-従者を攻撃すること
-%%%%
-you attack allied orcs
-
-オークの従者を攻撃すること
-%%%%
-you attack fellow slimes
-
-仲間のスライムを攻撃すること
-%%%%
-you or your allies destroy plants
-
-あなたと従者が植物を傷つけること
-%%%%
-allied flora die
-
-従えた植物が死ぬこと
-%%%%
-you use necromancy on corpses, chunks or skeletons
-
-死霊術を死体や肉片および骸骨に用いること
-%%%%
-you destroy spellbooks
-
-魔法書を破棄すること
-%%%%
-you use fiery magic or items
-
-火を伴う魔術やアイテムを使うこと
-%%%%
-you allow allies to die
-
-従者を見殺しにすること
-%%%%
-you deliberately mutate yourself
-
-わざと変異すること
-%%%%
-you transform yourself
-
-変形すること
-%%%%
-you polymorph monsters
-
-モンスターに変化すること
-%%%%
-you use unclean or chaotic magic or items
-
-不浄な、もしくは混沌なる魔術やアイテムを使うこと
-%%%%
-you butcher sentient beings
-
-意識のある存在の死体を切り刻むこと
-%%%%
-you or your allies attack monsters in a sanctuary
-
-あなたと従者が聖域の中のモンスターを攻撃すること
-%%%%
-you poison monsters
-
-モンスターを毒に冒すこと
-%%%%
-you attack intelligent monsters in an unchivalric manner
-
-モンスターを騎士道に反する行いで攻撃すること
-%%%%
-you kill living things while asking for your life to be spared
-
-生命が保護されている間に生命ある者を殺すこと
-%%%%
-you use holy magic or items
-
-聖なる魔法やアイテムを使うこと
-%%%%
-you memorise spells
-
-魔法を習得すること
-%%%%
-you attempt to cast spells
-
-魔法を唱えようとすること
-%%%%
-you train magic skills
-
-魔術系のスキルを訓練すること
-%%%%
-you desecrate orcish remains
-
-オークの遺骸を汚すこと
-%%%%
-you destroy orcish idols
-
-オークの像を破壊すること
-%%%%
-you kill slimes
-
-スライムを殺すこと
-%%%%
-you hasten yourself or others
-
-自分や他者を加速させること
-%%%%
-use unnaturally quick items
-
-不自然に素早いアイテムを使うこと
-%%%%
-seems mollified%s.
-
-は機嫌を直し%sた。
-%%%%
-, and vanishes
-
-て消え去っ
+は機嫌を直して消え去った。
 %%%%
 Your divine halo returns!
 
 あなたは再び光輪を放つようになった！
+%%%%
+Your aura of darkness returns!
+
+あなたは闇のオーラを再び纏った！
 %%%%
 Your vision regains its divine sight.
 
@@ -1049,17 +603,29 @@ restores the support of your attributes.
 
 は再びあなたの能力値を強化した。
 %%%%
-Your aura of darkness returns!
-
-あなたは闇のオーラを再び纏った。
-%%%%
 A storm instantly forms around you!
 
-あなたは再び様々な雲を生み出すようになった。
+あなたは再び様々な雲を生み出すようになった！
+%%%%
+You begin regenerating magic.
+
+# obsolete: Pakellas
+%%%%
+Your full life essence returns.
+
+あなたは生命力が戻ってきたような気がした。
+%%%%
+partially mollified {god name}.
+
+%s赦しをいくらか得た
 %%%%
 seems mollified... mostly.
 
 はいくらか機嫌を直したようだ。
+%%%%
+Your water-walking will last only until you reach solid ground.
+
+あなたの水上歩行能力は次に固い地面に足を触れる時まで続く。
 %%%%
 Your divine halo fades away.
 
@@ -1073,21 +639,33 @@ The storm surrounding you dissipates.
 
 あなたを取り巻く嵐が消滅した。
 %%%%
-Your resistance to fire fades away.
+# Your resistance to fire fades away.
 
-あなたの火炎への耐性が薄れていった。
+# jtrans_godpassive.txtと重複
 %%%%
-Your resistance to cold fades away.
+# Your resistance to cold fades away.
 
-あなたの冷気への耐性が薄れていった。
+# jtrans_godpassive.txtと重複
 %%%%
-Your resistance to electricity fades away.
+# Your resistance to electricity fades away.
 
-あなたの電気への耐性が薄れていった。
+# jtrans_godpassive.txtと重複
 %%%%
-Your resistance to physical damage fades away.
+# Your resistance to physical damage fades away.
 
-あなたの物理ダメージへの耐性が薄れていった。
+# jtrans_godpassive.txtと重複
+%%%%
+# the anger of Yredelemnul
+
+# jtrans_godwrath.txtと重複
+%%%%
+# grants you a gift!
+
+# jtrans_godabil.txtと重複
+%%%%
+Monster '%s' was already a gift of god '%s', now god '%s'.
+
+# for debug
 %%%%
 alters your body.
 
@@ -1097,29 +675,73 @@ Jiyva's grace
 
 ジーヴァの恩寵
 %%%%
-grants you @an@ undead servant@s@!
+%s regains the memory of %s %s.
 
-はあなたに不死の従僕を授けた！
+祖霊『%s』は%sの記憶を取り戻した。
+%%%%
+unsupported object type
+
+# for die()
+%%%%
+{base name} of {ego name}
+
+%s%s
+%%%%
+%s remembers more of %s old skill.
+
+祖霊『%s』は元の力を取り戻した。
+%%%%
+%s remembers %s %s %s.
+
+祖霊『%s』の持つ%sは%s力を取り戻した。
+%%%%
+grants you @servant@!
+
+はあなたに@servant@を授けた！
 %%%%
 You feel as though nothing has changed.
 
 何も起こらなかったようだ。
 %%%%
-offers you knowledge of
+offers you knowledge of {spell list}.
 
-はあなたに
+はあなたに%sの知識を授ける提案をした。
 %%%%
 These spells will remain available as long as you worship Vehumet.
 
 これらの魔法はヴェフメットを信仰している限りいつでも習得できる。
 %%%%
-You feel%sguilty.
+#if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_GIFTS)
+Current number of gifts from this god: %d
 
-あなたは%s罪を感じた。
+%%%%
+#if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_GIFTS)
+Total number of gifts from this god: %d
+
+%%%%
+You feel a little guilty.
+
+あなたは少し罪を感じた。
+%%%%
+You feel guilty.
+
+あなたは罪を感じた。
+%%%%
+You feel very guilty.
+
+あなたはかなり罪を感じた。
+%%%%
+You feel extremely guilty.
+
+あなたは重大な罪を感じた。
 %%%%
 "You will pay for your transgression, mortal!"
 
 『汝の罪を贖え、定命の者よ！』
+%%%%
+#ifdef DEBUG_PIETY
+Piety slowdown due to gift timeout.
+
 %%%%
 You can now %s.
 
@@ -1133,69 +755,69 @@ You are shrouded in an aura of darkness!
 
 あなたは暗黒のオーラに包まれた！
 %%%%
-The storm surrounding you grows powerful enough to repel missiles.
+will now unseal the treasures of the Slime Pits.
 
-あなたを包み込む嵐が勢力を増し、飛来物を弾き飛ばすほどになった。
+はスライムの穴ぐらに収められた宝物の封印を解いた。
+%%%%
+You may now remember your ancestor's life.
+
+あなたは祖霊の生き様を思い出すことができるようになった。
+%%%%
+raises the support of your attributes.
+
+はあなたの能力値をさらに向上させた。
 %%%%
 raises the support of your attributes as your movement slows.
 
-はあなたの動きが鈍くなるにつれてあなたの能力値を増強してくれる。
+はあなたの動きが遅くなるのに合わせて能力値をさらに向上させた。
 %%%%
-will now cure all your mutations... once.
+became the Champion of {god name}.
 
-はあなたの突然変異を全て治療してくれる(一度だけ)。
+%sの敬虔な信徒となった
 %%%%
-will now bless your weapon at an altar... once.
+#ifdef DEBUG_PIETY
+Piety decreasing by %d (and %d added to hysteresis)
 
-は祭壇であなたの武器を祝福してくれる(一度だけ)。
-%%%%
-will now enhance your necromancy at an altar... once.
-
-は祭壇であなたの死霊術を強化してくれる(一度だけ)。
-%%%%
-will now corrupt your weapon at an altar... once.
-
-は祭壇であなたの武器に崩壊の力を与えてくれる(一度だけ)。
-%%%%
-will now unseal the treasures of the Slime Pits.
-
-はスライムの穴ぐらにある宝の封印を解いた。
-%%%%
-is no longer ready to cure all your mutations.
-
-は現状ではあなたの突然変異を全て治療する用意ができていない。
-%%%%
-is no longer ready to bless your weapon.
-
-は現状ではあなたの武器を祝福する用意ができていない。
-%%%%
-is no longer ready to enhance your necromancy.
-
-は現状ではあなたの死霊術を強化する用意ができていない。
-%%%%
-is no longer ready to corrupt your weapon.
-
-は現状ではあなたの武器に崩壊の力を与える用意ができていない。
 %%%%
 You can no longer %s.
 
-あなたはもう%sはできない。
+あなたはもう%sができない。
 %%%%
-The storm surrounding you is now too weak to repel missiles.
+lowers the support of your attributes.
 
-あなたを取り巻く嵐は弱まり、もう飛来物を逸らすことはできない。
+はあなたの能力値の強化を弱めた。
 %%%%
-reduces the support of your attributes as your movement quickens.
+lowers the support of your attributes as your movement quickens.
 
-はあなたの動きを少し早めると共に、あなたの能力値への手助けを減じた。
+はあなたの動きが速くなるのに合わせて能力値の強化を弱めた。
+%%%%
+for chaos
+
+
+%%%%
+for evil
+
+
 %%%%
 You have lost your religion!
 
 あなたは信仰を捨て去った！
 %%%%
-does not appreciate desertion%s!
+abandoned {god name}.
 
-は%s棄教する行為を喜ばない！
+%sへの信仰を捨てた
+%%%%
+does not appreciate desertion!
+
+は棄教する行為を喜ばない！
+%%%%
+does not appreciate desertion for chaos!
+
+は混沌に身を委ねて棄教する行為を喜ばない！
+%%%%
+does not appreciate desertion for evil!
+
+は邪悪に身を委ねて棄教する行為を喜ばない！
 %%%%
 You sense decay.
 
@@ -1205,9 +827,9 @@ reclaims all of your granted undead slaves!
 
 はあなたが従える不死の下僕の返還を要求した！
 %%%%
-'s voice booms out, "Who do you think you are?"
+# 's voice booms out, "Who do you think you are?"
 
-の声が響いた: 『おまえは何様のつもりだ？』
+# jtrans_attitude_change.txtと重複
 %%%%
 All of your followers decide to abandon you.
 
@@ -1229,113 +851,89 @@ Your storm instantly dissipates.
 
 あなたの周囲の嵐はたちまち消え去った。
 %%%%
+continues to block your magic from regenerating.
+
+# obsolete: Pakellas
+%%%%
 continues to slow your movements.
 
 はあなたの動きを遅くし続けている。
 %%%%
 The divine host forsakes you.
 
-神聖なる御使いはあなたを見捨てた。
+神聖なる御使いはあなたを見限った。
 %%%%
-%sreclaims %s.
+<lightgrey>Your body disappears without a glow.</lightgrey>
 
-は%s%sを回収した。
+<lightgrey>あなたの死体は光を放たずに消え去った。</lightgrey>
 %%%%
-gladly
+Your body glows slightly and disappears.
 
-喜びながら
+あなたの死体は一瞬ほのかに輝き、そして消え去った。
 %%%%
-disappear% without a[dditional] glow.
+<white>Your body glows with a rainbow of weird colours and disappears.</white>
 
-は消え去った。
+<white>あなたの死体は奇妙な虹色の光に輝き、そして消え去った。</white>
 %%%%
-glow% slightly [brighter ]and disappear%.
+<lightgrey>Your body disappears without additional glow.</lightgrey>
 
-は一瞬わずかに輝き[を増し]、消え去った。
+<lightgrey>あなたの死体は輝きを強めることなく消え去った。</lightgrey>
 %%%%
-glow% with a rainbow of weird colours and disappear%.
+Your body glows slightly brighter and disappears.
 
-は一瞬奇妙な虹色に輝き、消え去った。
+あなたの死体は一瞬ほのかに輝きを増し、そして消え去った。
 %%%%
-Your body
+found %d gold, fee %d
 
-あなたの死体
+# for debug
 %%%%
 Your amulet flashes!
 
-あなたの身に付けている護符が光った！
+あなたの身につけている護符が光った！
 %%%%
 %s warns you to remove %s.
 
 %sはあなたに%sを脱ぐように警告した。
 %%%%
-welcomes you%s!
+aid the meek
 
-はあなたの%s入信を歓迎した！
+弱き者を助ける
 %%%%
-begins to support your attributes as your movement slows.
+vanquish evil
 
-はあなたの速度が低下するに従って能力値を補強する。
+悪を打ち負かす
 %%%%
-You can now bend time to slow others.
+enforce order
 
-あなたは時間を歪めて他者を遅くすることができるようになった。
+秩序を執行する
 %%%%
-will now protect you from your own clouds.
+says: Farewell. Go and %s with %s.
 
-はあなた自身が発する雲によりあなたを守護する。
+は『さらばだ。%sと共に%sがいい』と言った。
 %%%%
-Your unholy and evil allies forsake you.
+Your evil deeds will not go unpunished
 
-あなたの邪悪で不浄な仲間たちはあなたを見限った。
+汝の悪行が罪を免れることはない
 %%%%
-Your unclean and chaotic allies forsake you.
+You will pay for your evil ways, mortal
 
-あなたの不浄で混沌じみた仲間たちはあなたを見限った。
+定命の者よ！ 悪の道に走った償いはしてもらうぞ
 %%%%
-Your magic-using allies forsake you.
+You will suffer for embracing such chaos
 
-あなたの魔術を操る仲間たちはあなたを見限った。
+混沌を受け入れれば苦しむことになるぞ
 %%%%
-You can now call upon Trog to burn spellbooks in your surroundings.
+You will suffer for embracing such evil
 
-あなたはトログの力を借りて周辺の魔法書を燃やすことができるようになった。
+邪悪を受け入れれば苦しむことになるぞ
 %%%%
-You can now call upon Fedhas to speed up the decay of corpses.
+You will be buggily punished for this
 
-あなたはフェダスの力を借りて死体の腐敗を促進することができるようになった。
+# 訳不要
 %%%%
-The plants of the dungeon cease their hostilities.
+says: %s!
 
-ダンジョン内の植物は攻撃性を納めた。
-%%%%
-says: Farewell. Go and aid the meek with
-
-は『さらばだ。%sと共に弱き者を助けるがいい』と言った。
-%%%%
-says: Farewell. Go and vanquish evil with
-
-は『さらばだ。%sと共に悪を打ち負かすがいい』と言った。
-%%%%
-says: Farewell. Go and enforce order with
-
-は『さらばだ。%sと共に秩序を執行するがいい』と言った。
-%%%%
-says: Your evil deeds will not go unpunished!
-
-は『汝の悪行が罪を免れることはない！』と言った。
-%%%%
-says: You will pay for your evil ways, mortal!
-
-は『定命の者よ！ 悪の道に走った償いはしてもらうぞ！』と言った。
-%%%%
-says: You will suffer for embracing such %s!
-
-は『%sを受け入れれば苦しむことになるぞ！』と言った。
-%%%%
-grants you a jelly!
-
-はジェリーをあなたに遣わした！
+は『%s！』と言った。
 %%%%
 You pay a service fee of %d gold.
 
@@ -1353,6 +951,50 @@ You have enough gold to %s.
 
 あなたは%sのに十分な額の所持金がある。
 %%%%
+forms a fragment of your life essence into the memory of your ancestor, %s!
+
+はあなたの生命力の一部を使って祖霊『%s』を呼び覚ました！
+%%%%
+grants you a jelly!
+
+はジェリーをあなたに遣わした！
+%%%%
+Your magic-using allies forsake you.
+
+あなたの魔術を操る仲間たちはあなたを見限った。
+%%%%
+Your unclean and chaotic allies forsake you.
+
+あなたの不浄で混沌なる仲間はあなたを見限った。
+%%%%
+You stop regenerating magic.
+
+# obsolete: Pakellas
+%%%%
+begins to support your attributes as your movement slows.
+
+はあなたの動きが遅くなるのに合わせて能力値を向上させるようになった。
+%%%%
+The plants of the dungeon cease their hostilities.
+
+ダンジョン内の植物は攻撃性を納めた。
+%%%%
+became a worshipper of {god name}.
+
+%sの信徒となった
+%%%%
+welcomes you back!
+
+はあなたの再入信を歓迎した！
+%%%%
+welcomes you!
+
+はあなたの入信を歓迎した！
+%%%%
+Your unholy and evil allies forsake you.
+
+あなたの邪悪で不浄な仲間たちはあなたを見限った。
+%%%%
 You bow before the missionary of Beogh.
 
 あなたはベオの宣教師の前にひざまずいた。
@@ -1360,10 +1002,6 @@ You bow before the missionary of Beogh.
 You %s the altar of %s.
 
 あなたは%sの祭壇%s%s。
-%%%%
-does not accept worship from the ignorant!
-
-は無知なる者の入信を受け入れない！
 %%%%
 does not accept service from beggars like you!
 
@@ -1379,15 +1017,19 @@ The service fee for joining is currently %d gold; you only have %d.
 %%%%
 does not accept worship from the loveless!
 
-は親愛無き者の入信を拒否した！
+は親愛無きものの入信を拒否した！
 %%%%
-does not accept worship for those who cannot deal a hand of cards!
+does not accept worship from those who cannot deal a hand of cards!
 
 はカードデッキを操れない者の入信を拒否した！
 %%%%
+does not accept worship from those who are unable to use magical devices!
+
+# obsolete: Pakellas
+%%%%
 says: How dare you come in such a loathsome form!
 
-は言った: 『よくもまあそんな胸糞悪い姿でのこのこと現れたものだ！』
+は『よくもまあそんな胸糞悪い姿でのこのこと現れたものだ！』と言った。
 %%%%
 does not accept worship from those such as you!
 
@@ -1397,17 +1039,29 @@ refuses to forgive you so easily!
 
 はあなたをそう簡単に許しはしない！
 %%%%
-Gozag will waive the service fee if you
+Gozag will waive the service fee if you act now!
 
 ゴザーグは今なら入会金を免除してくれるようだ！
 %%%%
+Gozag will waive the service fee if you join today!
+
+<Gozag will waive the service fee if you act now!>
+%%%%
 The service fee for joining is currently %d gold; you have %d.
 
-入会金は現在%dゴールドだ。あなたは%dゴールド所持している。
+入会金は現在%dゴールドで、あなたの所持金は%dゴールドだ。
 %%%%
 %sDo you wish to %sjoin this religion?
 
 %sあなたは%s入信しますか？
+%%%%
+re
+
+再
+%%%%
+Are you sure you want to abandon %s?
+
+本当に%sへの信仰を捨て去りますか？
 %%%%
 by name
 
@@ -1420,4 +1074,16 @@ default
 Which god (%s)?
 
 どの神を指定しますか？ (%s)
+%%%%
+Bad god, no bishop!
+
+
+%%%%
+INT_MAX is no good
+
+
+%%%%
+@servant@
+
+
 %%%%
