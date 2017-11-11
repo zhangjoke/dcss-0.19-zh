@@ -91,7 +91,7 @@ in shopping list
 %%%%
 <%s>I'll put %s outside for you.</%s>
 
-<%s>店主『持ちきれない分は外に置いておきますね。』</%s>
+<%s>店主『持ちきれないようだから、店の外に運んでおくよ。』</%s>
 %%%%
 invalid ordering
 
@@ -99,7 +99,7 @@ invalid ordering
 %%%%
 Help! Non-existent shop.
 
-おかしい！ 存在しない店だ。
+お助け！あり得べからざる店だ。
 %%%%
 %s appears to be closed.
 
@@ -115,47 +115,47 @@ You can access your shopping list by pressing '$'.
 %%%%
 [shop]Antique Weapon
 
-中古武器屋
+骨董武器
 %%%%
 [shop]Antique Armour
 
-中古防具屋
+骨董防具
 %%%%
 [shop]Weapon
 
-武器屋
+<weapon>
 %%%%
 [shop]Armour
 
-防具屋
+<armour>
 %%%%
 [shop]Jewellery
 
-装身具店
+宝石
 %%%%
 [shop]Gadget
 
-魔道具店
+魔道具
 %%%%
 [shop]Book
 
-魔法書店
+書物
 %%%%
 [shop]Food
 
-食料品店
+食料品
 %%%%
 [shop]Magic Scroll
 
-巻物屋
+魔法の巻物
 %%%%
 [shop]Assorted Antiques
 
-中古雑貨屋
+骨董屋
 %%%%
 [shop]Distillery
 
-薬品店
+醸造所
 %%%%
 [shop]General Store
 
@@ -164,6 +164,22 @@ You can access your shopping list by pressing '$'.
 [shop]Bug
 
 # 訳不要
+%%%%
+[shop]Shoppe
+
+専門店
+%%%%
+[shop]Boutique
+
+特選店
+%%%%
+[shop]Emporium
+
+百貨店
+%%%%
+[shop]Shop
+
+店
 %%%%
 Available shop types:
 

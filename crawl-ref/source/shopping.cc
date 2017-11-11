@@ -1554,6 +1554,86 @@ string shop_type_name(shop_type type)
     }
 }
 
+string shop_type_name_j(shop_type typ)
+{
+    return shop_type_name_j(shop_type_name(typ));
+}
+
+string shop_type_name_j(const string &name)
+{
+    return tagged_jtrans("[shop]", name);
+}
+
+static const char *_shop_type_suffix(shop_type type, const coord_def &where)
+{
+    if (type == SHOP_GENERAL
+        || type == SHOP_GENERAL_ANTIQUE
+        || type == SHOP_DISTILLERY)
+    {
+        return "";
+    }
+
+    static const char * const suffixnames[] =
+    {
+        "Shoppe", "Boutique", "Emporium", "Shop"
+    };
+    return suffixnames[(where.x + where.y) % ARRAYSZ(suffixnames)];
+}
+
+#define SHOP_NAME_SIZE 50
+const char *rand_store_names[SHOP_NAME_SIZE] = {
+    "アーヴィン",
+    "アラン",
+    "アンディ",
+    "イシュメル",
+    "エグバード",
+    "ガッド",
+    "カルル",
+    "ギュンター",
+    "ジョン",
+    "ジョニー",
+    "ドゥワイト",
+    "ディータ",
+    "デリック",
+    "ナフム",
+    "ネイサン",
+    "バリー",
+    "バルテル",
+    "ブレンダン",
+    "マイク",
+    "マラカイ",
+    "ライナス",
+    "ルーテル",
+    "レイフ",
+    "レスター",
+    "ロジャー",
+    "アラベラ",
+    "アルマ",
+    "アレシア",
+    "アデル",
+    "イルマ",
+    "エレイン",
+    "エステル",
+    "カミラ",
+    "カレン",
+    "テレジア",
+    "ドゥルシラ",
+    "ナタリア",
+    "ネリー",
+    "ハーマイアニ",
+    "パウラ",
+    "マリー",
+    "マルティナ",
+    "モニカ",
+    "リネット",
+    "ルル",
+    "レーナ",
+    "レジナ",
+    "ローレル",
+    "ロウィーナ",
+    "ロレッタ",
+};
+
 string shop_name(const shop_struct& shop)
 {
     const shop_type type = shop.type;
@@ -1569,11 +1649,9 @@ string shop_name(const shop_struct& shop)
         sh_name += jtrans(shop.shop_name) + "の";
     else
     {
-        uint32_t seed = static_cast<uint32_t>(shop.keeper_name[0])
-            | (static_cast<uint32_t>(shop.keeper_name[1]) << 8)
-            | (static_cast<uint32_t>(shop.keeper_name[1]) << 16);
+        string rand_name = rand_store_names[shop.keeper_name[0] % SHOP_NAME_SIZE];
 
-        sh_name += make_name(seed) + "の";
+        sh_name += rand_name + "の";
     }
 
     string sh_name2;
@@ -1585,6 +1663,12 @@ string shop_name(const shop_struct& shop)
 
     if (!shop.shop_suffix_name.empty())
         sh_name2 += " " + shop.shop_suffix_name;
+    else
+    {
+        string sh_suffix = shop_type_name_j(_shop_type_suffix(type, shop.pos));
+        if (!sh_suffix.empty())
+            sh_name2 += sh_suffix;
+    }
 
     return sh_name + jtrans(sh_name2);
 }
