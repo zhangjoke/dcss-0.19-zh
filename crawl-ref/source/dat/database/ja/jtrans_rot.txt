@@ -1,0 +1,9 @@
+%%%%
+%s of the chunks of flesh in your inventory have rotted away.
+
+所持している生肉%s腐ってしまった。
+%%%%
+%s %s rot%s away.
+
+%sつの%sが腐ってしまった。
+%%%%
