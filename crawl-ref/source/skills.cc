@@ -298,7 +298,7 @@ static void _change_skill_level(skill_type exsk, int n)
     {
         mprf(MSGCH_INTRINSIC_GAIN, jtransc("Your %s%s skill %s %d levels and is now "
                                            "at level %d!"),
-             specify_base ? "補正なしの" : "",
+             jtransc(specify_base ? "base " : ""),
              skill_name_jc(exsk),
              abs(n), jtransc((n > 0) ? "gained" : "lost"),
              you.skills[exsk]);
@@ -473,7 +473,6 @@ static void _check_abil_skills()
 
 string skill_names(const skill_set &skills)
 {
-    //    return comma_separated_fn(begin(skills), end(skills), skill_name);
     return to_separated_fn(begin(skills), end(skills),
                            [] (const skill_type &st) { return skill_name_j(st); },
                            "・", "・", "・");

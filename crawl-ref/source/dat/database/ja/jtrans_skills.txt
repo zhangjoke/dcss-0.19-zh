@@ -1,4 +1,6 @@
 %%%%
+# 称号/スキル名周りはjtrans_skill_title.txtで記述
+%%%%
 You have mastered %s!
 
 あなたは%sスキルをマスターした！
@@ -6,6 +8,10 @@ You have mastered %s!
 Your %s%s skill %s to level %d!
 
 あなたの%s%sスキルはレベル%dに%sした！
+%%%%
+base
+
+補正なしの
 %%%%
 increases
 
@@ -43,6 +49,32 @@ You cannot train any new skill.
 
 あなたはこれ以上新たなスキルを訓練することはできない。
 %%%%
+Exercise %s by %d.
+
+# for debug
+%%%%
+skill cost level: %d, cost: %dxp/10skp, max XP usable: %d.
+
+# for debug
+%%%%
+Trained %s by %d.
+
+# for debug
+%%%%
+Total skill points gained: %d, cost: %d XP.
+
+# for debug
+%%%%
+#ifdef DEBUG_TRAINING_COST
+target: %d.
+
+# for debug
+%%%%
+#ifdef DEBUG_TRAINING_COST
+cost level: %d, total experience: %d, next level: %d, skill points: %d, delta_skp: %d, delta_xp: %d.
+
+# for debug
+%%%%
 God
 
 神
@@ -54,4 +86,20 @@ God
 %c Level %.*f%s %s
 
 %c %-16s %s%sレベル
+%%%%
+ct_skill_points[%s]: %d
+
+# for debug
+%%%%
+skill %s lost %d points
+
+# for debug
+%%%%
+skill %s gained %d points
+
+# for debug
+%%%%
+%d skill points left to transfer
+
+# for debug
 %%%%
