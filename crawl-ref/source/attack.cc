@@ -1051,7 +1051,7 @@ void attack::stab_message()
         {
             mprf(jtransc("You %s %s from a blind spot!"),
                  defender->name(DESC_THE).c_str(),
-                 verb_jc((you.species == SP_FELID) ? "pounce on" : "strike"), "[stab verb]");
+                 verb_j((you.species == SP_FELID) ? "pounce on" : "strike", "[stab verb]").c_str());
         }
         else
         {
@@ -1068,8 +1068,8 @@ void attack::stab_message()
         else
         {
             mprf(jtransc("You %s %s from behind!"),
-                  (you.species == SP_FELID) ? "pounce on" : "strike",
-                  defender->name(DESC_THE).c_str());
+                 defender->name(DESC_THE).c_str(),
+                 verb_j((you.species == SP_FELID) ? "pounce on" : "strike", "[stab verb]").c_str());
         }
         break;
     case 2:
