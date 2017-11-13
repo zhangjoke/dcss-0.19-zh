@@ -15,9 +15,9 @@ You can't place the cloud on a creature.
 
 あなたはモンスターの上に雲を配置することはできない。
 %%%%
-The fire roars with new energy!
+# The fire roars with new energy!
 
-炎は火勢を増して燃え上がった！
+# jtrans_godabil.txtと重複
 %%%%
 The fire roars!
 
@@ -27,13 +27,23 @@ A cloud of flames roars to life!
 
 炎の雲が燃え上がった！
 %%%%
-That is beyond the maximum range.
+# That is beyond the maximum range.
 
-それは最大射程を超えている。
+# jtrans_directn.txtと重複
 %%%%
 You can't place clouds on %s.
 
 あなたは%sの上に雲を配置できない。
+%%%%
+# [zap]blast of poison
+
+# jtrans_mon_cast.txtと重複
+# from SPELL_POISONOUS_CLOUD
+%%%%
+[zap]freezing blast
+
+凍気の雲
+# from SPELL_FREEZING_CLOUD
 %%%%
 That kind of cloud doesn't exist!
 
@@ -43,15 +53,7 @@ The air around you leaps into flame!
 
 あなたの周りの大気が炎へと変わった！
 %%%%
-Your ring of flames gutters out.
-
-炎の輪は弱まって消えた。
-%%%%
-Your ring of flames is guttering out.
-
-炎の輪が弱まりつつある。
-%%%%
-Really cast Corpse Rot while standing on
+Really cast Corpse Rot while standing on %s?
 
 本当に%sの上に立って死体の腐蝕の呪文を唱えますか？
 %%%%
@@ -59,9 +61,9 @@ You smell decay.
 
 あなたは腐敗臭を嗅いだ。
 %%%%
-You sence decay.
+# You sense decay.
 
-あなたは死体が腐敗していくのを感じた。
+# jtrans_religion.txtと重複
 %%%%
 Blessed fire suddenly surrounds you!
 
@@ -71,7 +73,19 @@ is surrounded by blessed fire!
 
 は聖なる炎に包まれた！
 %%%%
+The air is too still to form clouds.
+
+大気が停滞しきっているため、雲を形成できなかった。
+%%%%
+[stop attack prompt]cloud
+
+雲に包み
+%%%%
 %s %s a blast of %s!
 
-%sは%sを放った！
+%sは%sを%s！
+%%%%
+[verb]create
+
+生み出し、放った
 %%%%

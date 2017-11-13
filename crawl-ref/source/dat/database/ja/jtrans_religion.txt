@@ -821,7 +821,7 @@ does not appreciate desertion for evil!
 %%%%
 You sense decay.
 
-あなたは腐敗臭を感じた。
+あなたは死体が腐敗していくのを感じた。
 %%%%
 reclaims all of your granted undead slaves!
 
