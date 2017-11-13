@@ -887,7 +887,7 @@ bool learn_spell(spell_type specspell, bool wizard)
         else if (severity > 0)
         {
             mprf(MSGCH_WARN, jtransc("This spell is %s to cast%s"),
-                             jtransc(fail_severity_adjs[severity]),
+                             adj_jc(fail_severity_adjs[severity]),
                              jtransc(severity > 1 ? "!" : "."));
         }
     }

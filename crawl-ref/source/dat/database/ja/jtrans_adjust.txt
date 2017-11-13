@@ -17,7 +17,7 @@ Adjust which spell?
 %%%%
 You don't know that spell.
 
-そのキーには呪文が割り当てされていません。
+あなたはその呪文を知らない。
 %%%%
 You don't currently have any abilities.
 
