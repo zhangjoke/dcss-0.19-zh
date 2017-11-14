@@ -1,23 +1,55 @@
 %%%%
-You are already charged.
-
-あなたは既に遅延式ファイアボールを準備している。
-%%%%
 You feel magically charged.
 
 あなたは遅延式ファイアボールを準備した。
+%%%%
+[zap]great blast of fire
+
+燃えさかる爆炎
+%%%%
+# That is beyond the maximum range.
+
+# jtrans_directn.txtと重複
 %%%%
 You can't place the storm on %s.
 
 あなたは%sの上に炎の嵐を放つことはできない。
 %%%%
-You call forth a pillar of hellfire!
+# [zap]damnation
 
-あなたは地獄の業火の火柱を呼び起こした！
+# jtrans_mon_cast.txtと重複
+%%%%
+You call forth a pillar of damnation!
+
+あなたは天罰の火柱を呼び起こした！
+%%%%
+[zap]lightning arc
+
+連鎖する稲妻
+%%%%
+chain lightning
+
+連鎖する稲妻
+%%%%
+[zap]arc of chaos
+
+連鎖する混沌
+%%%%
+chain of chaos
+
+連鎖する混沌
+%%%%
+buggy chain spell %d cast
+
+# for die()
 %%%%
 The %s grounds out.
 
 %sが大地を這った。
+%%%%
+# You hear a mighty clap of thunder!
+
+# jtrans_beam.txtと重複
 %%%%
 A swirling arc of seething chaos appears!
 
@@ -33,11 +65,15 @@ The %s suddenly appears!
 %%%%
 %s %s frozen.
 
-%sは凍結した。
+%s%s凍結した。
 %%%%
 The monsters around %s are frozen!
 
 %sの周囲のモンスターは凍結した！
+%%%%
+refrigeration
+
+凍結
 %%%%
 You feel very cold.
 
@@ -47,6 +83,10 @@ by Ozocubu's Refrigeration
 
 オゾクブの瞬間凍結によって
 %%%%
+damage done: %d
+
+# for debug
+%%%%
 by drain life
 
 生命の簒奪によって
@@ -54,10 +94,6 @@ by drain life
 You draw life from %s.
 
 あなたは%sから生命力を吸い取った。
-%%%%
-You feel life flooding into your body.
-
-あなたは自分の体に生命力が流れ込んでくるのを感じた。
 %%%%
 The heat is drained from your surroundings.
 
@@ -91,25 +127,21 @@ The surrounding life force dissipates!
 
 周囲の生命力が吸い取られた！
 %%%%
+# [stop attack prompt]harm
+
+# jtrans_godabil.txtと重複
+%%%%
 %s %s hurt by the noise.
 
-%sは騒音によって傷ついた。
+%s%s騒音によって傷ついた。
 %%%%
 The monsters around you reel from the noise!
 
 あなたの周りのモンスターは騒音に怯えた！
 %%%%
-Draining that being is not a good idea.
+You can't drain life from that!
 
-そのモンスターに対して生命力を吸い取ろうとするのはよい考えではない。
-%%%%
-Aaaarggghhhhh!
-
-「ギャアアァァァァ！」
-%%%%
-vampiric drain backlash
-
-ヴァンパイアの吸血の反動
+あなたはそのようなものからは生命力を奪えない！
 %%%%
 You feel life coursing into your body.
 
@@ -135,6 +167,10 @@ violently
 
 激しく
 %%%%
+preac: %d, postac: %d
+
+# for debug
+%%%%
 A door shatters!
 
 扉が粉砕された！
@@ -151,9 +187,9 @@ The dungeon rumbles!
 
 迷宮が鳴動した！
 %%%%
-Ka-crash!
+# Ka-crash!
 
-ドッカーン！
+# jtrans_godabil.txtと重複
 %%%%
 You shudder from the earth-shattering force.
 
@@ -165,7 +201,7 @@ You shudder.
 %%%%
 by Shatter
 
-粉砕によって
+粉砕の呪文によって
 %%%%
 The dungeon shakes around %s!
 
@@ -175,9 +211,17 @@ The dungeon rumbles around %s!
 
 迷宮内の%sの周囲が鳴動した！
 %%%%
+Shatter foe HD: %d
+
+# for debug
+%%%%
+[zap]shillelagh
+
+棍棒
+%%%%
 %s shudder%s.
 
-%sは激しく身震いした。
+%sは身震いした。
 %%%%
 There is a shattering impact!
 
@@ -186,6 +230,14 @@ There is a shattering impact!
 %s is blasted with magical radiation!
 
 %sは強力な魔力の放射にさらされた！
+%%%%
+irr for %d (%d pow, max %d)
+
+# for debug
+%%%%
+[zap]Irradiate
+
+放射の光
 %%%%
 You erupt in a fountain of uncontrolled magic!
 
@@ -198,6 +250,10 @@ erupts in a fountain of uncontrolled magic!
 seems to burn from within!
 
 は体の内部から焼かれているようだ！
+%%%%
+Dice: %dd%d; Damage: %d
+
+# for debug
 %%%%
 You feel like your blood is boiling!
 
@@ -215,25 +271,53 @@ by burning poison
 
 燃えさかる毒素によって
 %%%%
-You are no longer poisoned.
+# You are no longer poisoned.
 
-あなたはもう毒に冒されていない。
+# jtrans_player.txtと重複。
+%%%%
+You are standing in a cloud of %s! Ignite poison anyway?
+
+あなたは%sの中に立っている！ それでも毒の燃焼の呪文を唱えますか？
+%%%%
+You might harm nearby allies! Ignite poison anyway?
+
+周囲の仲間を傷つけてしまいそうだ！ それでも毒の燃焼の呪文を唱えますか？
 %%%%
 %s %s the poison in %s surroundings!
 
-%sは周囲の毒素を燃焼させた！
+%sは周囲の毒素を%s！
+%%%%
+[verb]ignite
+
+燃焼させた
+%%%%
+Static discharge on (%d,%d) pow: %d
+
+# for debug
 %%%%
 You are struck by lightning.
 
-あなたは稲妻に打たれた。
+あなたは稲妻に撃たれた。
+%%%%
+You: static discharge damage: %d
+
+# for debug
+%%%%
+static discharge
+
+空電放射
 %%%%
 by static electricity
 
 空電放射によって
 %%%%
+%s: static discharge damage: %d
+
+# for debug
+%%%%
 %s is struck by lightning.
 
-%sは稲妻に打たれた。
+%sは稲妻に撃たれた。
 %%%%
 The lightning arcs!
 
@@ -243,11 +327,19 @@ The lightning grounds out.
 
 稲妻が地を這った。
 %%%%
+Arcs: %d Damage: %d
+
+# for debug
+%%%%
 The air around you crackles with electrical energy.
 
 あなたの周りの帯電した空気がバチバチと爆ぜている。
 %%%%
-%s blue arc%s ground%s harmlessly %s you.
+Some blue arcs ground themselves harmlessly %s you.
+
+幾本もの青白い電弧があなたの%sで大地に接している。
+%%%%
+A blue arc grounds itself harmlessly %s you.
 
 青白い電弧があなたの%sで大地に接している。
 %%%%
@@ -255,17 +347,81 @@ by Lee's Rapid Deconstruction
 
 リーの瞬間解体術によって
 %%%%
+[zap]blast of rock fragments
+
+岩石の破片
+%%%%
+[zap]blast of petrified fragments
+
+石化した破片
+%%%%
+[zap]icy blast
+
+氷の破片
+%%%%
+[zap]blast of toenail fragments
+
+足爪の破片
+%%%%
+[zap]blast of metal fragments
+
+金属の破片
+%%%%
+[zap]blast of salt crystal fragments
+
+塩の結晶の破片
+%%%%
+[zap]blast of obsidian shards
+
+黒曜石の破片
+%%%%
+[zap]blast of orange crystal shards
+
+橙水晶の破片
+%%%%
+[zap]blast of crystal shards
+
+水晶の破片
+%%%%
+[zap]blast of sapphire shards
+
+サファイアの破片
+%%%%
+[zap]blast of bone shards
+
+骨片
+%%%%
 %s seems to be unnaturally hard.
 
-%sは異常に固いようだ。
+%sは不自然なまでに硬いようだ。
 %%%%
 stone idol
 
 石像
 %%%%
+# wall
+
+# jtrans_actor.txtと重複
+%%%%
+# statue
+
+# jtrans_monster_data.txtと重複
+%%%%
+metal wall
+
+金属製の壁
+%%%%
+iron grate
+
+鉄格子
+%%%%
 crystal wall
 
 水晶の壁
+%%%%
+# door
+
+# jtrans_actor.txtと重複
 %%%%
 stone arch
 
@@ -273,23 +429,35 @@ stone arch
 %%%%
 You can't deconstruct that!
 
-あなたはそれを粉砕できない！
-%%%%
-Really insult Beogh by defacing this idol?
-
-本当にこの像を壊してベオを侮辱しますか？
+それを解体することはできない！
 %%%%
 The %s shatters!
 
-%sは粉砕された！
+%sは粉砕された!
 %%%%
 You shatter!
 
-あなたは粉砕された！
+あなたの体は粉砕された!
 %%%%
 %s shatters!
 
-%sは粉砕された！
+%sの体は粉砕された！
+%%%%
+[stop attack prompt]zap
+
+撃ち
+%%%%
+[zap]lightning
+
+稲妻
+%%%%
+rod of lightning
+
+<lightning rod>
+%%%%
+at distance %d, arc length is %d
+
+# for debug
 %%%%
 The trees move their gnarly branches around.
 
@@ -301,7 +469,7 @@ You feel roots moving beneath the ground.
 %%%%
 Branches wave dangerously above you.
 
-あなたの頭上で枝が危なく揺れている。
+あなたの頭上で枝が危なげに揺れている。
 %%%%
 Trunks creak and shift.
 
@@ -322,18 +490,6 @@ A tree reaches out but misses @foe@.
 A root lunges up near @foe@.
 
 木の根が近くの@foe@を突いた。
-%%%%
-A branch passes through @foe@!
-
-木の枝が@foe@を刺し貫いた！
-%%%%
-A tree reaches out and and passes through @foe@!
-
-樹木が@foe@に枝を伸ばし、刺し貫いた！
-%%%%
-A root lunges and passes through @foe@ from below.
-
-木の根が@foe@を足下から刺し貫いた。
 %%%%
 @foe@ @is@ scraped by a branch!
 
@@ -363,9 +519,17 @@ by angry trees
 
 怒れる樹木によって
 %%%%
+[stop attack prompt]fire towards
+
+に向かって撃ち
+%%%%
 You can't see any targets in that direction!
 
 その方向には標的が見当たらない！
+%%%%
+[stop attack prompt]poison
+
+を毒に冒し
 %%%%
 You begin to radiate toxic energy.
 
@@ -393,9 +557,33 @@ Without enough magic to sustain it, your searing ray dissipates.
 %%%%
 You stop channeling your searing ray.
 
-あなたは焼灼の光線を止めた。
+あなたは焼灼の光線を撃つのを中断した。
+%%%%
+You finish channeling your searing ray.
+
+あなたは焼灼の光線を撃つのを終えた。
+%%%%
+[stop attack prompt]glaciate
+
+を凍てつかせ
+%%%%
+[zap]great icy blast
+
+雹の嵐
+%%%%
+# [verb]engulfs
+
+# jtrans_beam.txtと重複
 %%%%
 %s %s a mighty blast of ice!
 
-%sは猛烈な氷の嵐を解き放った！
+%sは猛烈な氷の嵐を%s！
+%%%%
+[verb]conjure
+
+生み出した
+%%%%
+[stop attack prompt]scattershot
+
+を射撃し
 %%%%
