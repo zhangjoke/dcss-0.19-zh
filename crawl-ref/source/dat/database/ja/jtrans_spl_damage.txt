@@ -63,9 +63,9 @@ The %s suddenly appears!
 
 突然%sが現れた！
 %%%%
-%s %s frozen.
+# %s %s frozen.
 
-%s%s凍結した。
+# jtrans_mon_cast.txtと重複
 %%%%
 The monsters around %s are frozen!
 
