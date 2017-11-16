@@ -1504,7 +1504,7 @@ void direction_chooser::print_target_object_description() const
 
     // FIXME: remove the duplication with print_items_description().
     mprf(MSGCH_PROMPT, "%s: %s",
-         target_prefix ? target_prefix : jtransc("Aim"),
+         jtransc(target_prefix ? target_prefix : "Aim"),
          menu_colour_item_name(*item, DESC_A).c_str());
 }
 

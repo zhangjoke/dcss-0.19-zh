@@ -1,11 +1,27 @@
 %%%%
-You can only heal others!
+You cannot pacify this monster!
 
-あなたが癒やせるのは他者だけだ！
+あなたはこのモンスターを中立化できない！
 %%%%
-You are healed.
+You cannot pacify this monster while %s is sleeping!
 
-あなたは回復した。
+あなたはこのモンスターが眠っている間は中立化できない！
+%%%%
+pacifying %s? factor: %d, Inv: %d, healed: %d, pacify hp pre-roll %d
+
+# for debug
+%%%%
+mon hp %d
+
+# for debug
+%%%%
+%s is completely unfazed by your meager offer of peace.
+
+%sはあなたの和平の申し出に全く動じなかった。
+%%%%
+pacified hp: %d, mon hp %d
+
+# for debug
 %%%%
 The light of Elyvilon fails to reach %s.
 
@@ -14,18 +30,6 @@ The light of Elyvilon fails to reach %s.
 The light of Elyvilon almost touches upon %s.
 
 エリヴィロンの光はもう少しで%sに届くところだった。
-%%%%
-%s is completely unfazed by your meager offer of peace.
-
-%sはあなたの和平の申し出に全く動じなかった。
-%%%%
-You cannot pacify this monster while %s is sleeping!
-
-あなたはこのモンスターが眠っている間は中立化できない！
-%%%%
-You cannot pacify this monster!
-
-あなたはこのモンスターを中立化できない！
 %%%%
 turns neutral.
 
@@ -39,29 +43,37 @@ is completely healed.
 
 は完全に回復した。
 %%%%
+Heal
+
+治療対象
+%%%%
 Your charged fireball dissipates.
 
 あなたが準備していた遅延式ファイアボールは消滅した。
+%%%%
+You feel strangely stable.
+
+あなたは奇妙な安定感を覚えた。
 %%%%
 You feel limber!
 
 あなたは体が柔らかくなった！
 %%%%
-%sYour magical effects are unravelling.
+Your magical effects are unravelling.
 
-%s あなたにかかっている魔法の効果が解除された。
-%%%%
-Careful!
-
-[注意！]
+あなたにかかっていた魔法の効果が解除された。
 %%%%
 's magical effects unravel!
 
-にかかっている魔法の効果は解除された！
+にかかっていた魔法の効果は解除された！
+%%%%
+dc_fuzz: Power is %d
+
+# for debug
 %%%%
 You have uncursed all your worn items.
 
-あなたは装備しているアイテムを全て解呪した。
+あなたは装備中のアイテムを全て解呪した。
 %%%%
 Uncurse which item?
 
@@ -75,17 +87,23 @@ You feel as if something is helping you.
 
 あなたは何か偉大な存在から助けを受けたような気がした。
 %%%%
+None of your equipped items are cursed.
+
+あなたが装備中のアイテムは呪われていないものばかりだった。
+%%%%
 You feel blessed for a moment.
 
 あなたは一瞬祝福されたような気がした。
 %%%%
+#if TAG_MAJOR_VERSION == 34
 Curse which item?
 
 どのアイテムを呪縛しますか？
 %%%%
+#if TAG_MAJOR_VERSION == 34
 Choose an uncursed equipped piece of %s, or Esc to abort.
 
-呪われていない%sを選択してください。(ESCキーでキャンセル)
+装備中の呪われていない%sを選択してください。(ESCキーでキャンセル)
 %%%%
 You aren't wearing any piece of uncursed %s.
 
@@ -97,7 +115,7 @@ You briefly glimpse something next to %s.
 %%%%
 You need more space to imprison %s.
 
-%sを収監するにはもっと場所が必要だ。
+%sを収監するにはもっと開けた場所が必要だ。
 %%%%
 Zin imprisons %s with walls of pure silver!
 
@@ -107,10 +125,6 @@ Walls emerge from the floor!
 
 壁が床からせり出した！
 %%%%
-The dungeon rumbles ominously, and rocks fall from the ceiling!
-
-迷宮は不気味に鳴動し、岩が天井から落ちてきた！
-%%%%
 You smite %s!
 
 あなたは%sに一撃を食らわせた！
@@ -118,6 +132,14 @@ You smite %s!
 You are blasted by holy energy!
 
 あなたは聖なるエネルギーを浴びせられた！
+%%%%
+holy word
+
+聖なる御言葉
+%%%%
+a scroll of holy word
+
+<scroll of holy word>
 %%%%
 Zin's holy word
 
@@ -127,17 +149,25 @@ the Shining One's holy word
 
 輝けるものの聖なる御言葉
 %%%%
+the Torment card
+
+拷問のカード
+%%%%
 is blasted by Zin's holy word!
 
 はジンの聖なる御言葉の威光をその身に受けた！
 %%%%
-convulses!
+# convulses!
 
-は苦痛を感じた！
+# jtrans_beam.txtと重複
 %%%%
 %s %s a Word of immense power!
 
-%sは計り知れぬ威力を持つ言葉を放った！
+%sは計り知れぬ威力を持つ言葉%s！
+%%%%
+[verb]speak
+
+を口にした
 %%%%
 shields you from torment!
 
@@ -151,21 +181,33 @@ You feel a surge of unholy energy.
 
 あなたは不浄なエネルギーの奔流を感じた。
 %%%%
+Your body is wracked with pain!
+
+あなたの体は苦痛で痙攣した！
+%%%%
 Symbol of Torment
 
-苦痛の紋章
+苦痛の紋章の呪文
+%%%%
+Agony
+
+苦悶の呪文
+%%%%
+# sceptre of Torment
+
+# jtrans_art_data.txtと重複
 %%%%
 a scroll of torment
 
-拷問の巻物
+<scroll of torment>
 %%%%
 Xom's torment
 
-ゾムよりの苦痛
+ゾムによる苦痛
 %%%%
 Kikubaaqudgha's torment
 
-キクバークッグァよりの苦痛
+キクバークッグァによる苦痛
 %%%%
 an exploding lurking horror
 
@@ -174,4 +216,16 @@ an exploding lurking horror
 by torment
 
 邪悪なる苦痛によって
+%%%%
+[zap]golden flame
+
+黄金の炎
+%%%%
+[zap]the Shining One's cleansing flame
+
+輝けるものの浄化の炎
+%%%%
+[zap]cleansing flame
+
+浄化の炎
 %%%%
