@@ -82,13 +82,13 @@ an Initiate of
 
 の入会者
 %%%%
-Was %s of %s%s
+Was %s%s%s
 
-%s%s%sであった。
+%s%sであった%s
 %%%%
 (penitent).
 
-(贖罪中)
+(贖罪中)。
 %%%%
 killed by %s
 

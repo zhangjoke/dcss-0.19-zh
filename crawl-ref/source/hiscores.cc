@@ -816,7 +816,7 @@ enum old_job_type
     NUM_OLD_JOBS = -OLD_JOB_HEALER
 };
 
-static const char* _job_name(int job)
+static const string _job_name(int job)
 {
     switch (job)
     {
@@ -838,7 +838,7 @@ static const char* _job_name(int job)
         return "Healer";
     }
 
-    return get_job_name_jc(static_cast<job_type>(job));
+    return get_job_name_j(static_cast<job_type>(job));
 }
 
 static const char* _job_abbrev(int job)
@@ -1062,7 +1062,7 @@ void scorefile_entry::set_base_xlog_fields() const
         fields->add_field("tiles", "%d", tiles);
     fields->add_field("name", "%s", name.c_str());
     fields->add_field("race", "%s", _species_name(race).c_str());
-    fields->add_field("cls",  "%s", _job_name(job));
+    fields->add_field("cls",  "%s", _job_name(job).c_str());
     fields->add_field("char", "%s", race_class_name.c_str());
     fields->add_field("xl",    "%d", lvl);
     fields->add_field("sk",    "%s", skill_name(best_skill));
@@ -1886,7 +1886,7 @@ scorefile_entry::character_description(death_desc_verbosity verbosity) const
         desc = make_stringf(jtransc("%8d %s the %s %s (level %d"),
                   points,
                   _species_name(race).c_str(),
-                  _job_name(job),
+                  _job_name(job).c_str(),
                   name.c_str(), lvl);
     }
 
@@ -1906,7 +1906,7 @@ scorefile_entry::character_description(death_desc_verbosity verbosity) const
         const string srace = jtrans(_species_name(race).c_str());
         desc += make_stringf("この%sの%sは",
                              _species_name(race).c_str(),
-                             _job_name(job));
+                             _job_name(job).c_str());
 
         ASSERT(birth_time);
         desc += _hiscore_date_string_j(birth_time);
