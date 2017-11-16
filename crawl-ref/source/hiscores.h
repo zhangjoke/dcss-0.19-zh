@@ -166,7 +166,7 @@ public:
 
     string character_description(death_desc_verbosity) const;
     // Full description of death: Killed by an xyz wielding foo
-    string death_description(death_desc_verbosity) const;
+    string death_description(death_desc_verbosity, bool add_stop=false) const;
     string death_place(death_desc_verbosity) const;
     string game_time(death_desc_verbosity) const;
 

@@ -1710,7 +1710,7 @@ string scorefile_entry::hiscore_line(death_desc_verbosity verbosity) const
 {
     string line = character_description(verbosity);
     line += death_place(verbosity);
-    line += death_description(verbosity);
+    line += death_description(verbosity, true);
     line += game_time(verbosity);
 
     return line;
@@ -1994,7 +1994,7 @@ static bool _is_you(const string &source)
  * @param verbosity     The verbosity of the description.
  * @return              A description of the cause of death.
  */
-string scorefile_entry::death_description(death_desc_verbosity verbosity) const
+string scorefile_entry::death_description(death_desc_verbosity verbosity, bool add_stop) const
 {
     const bool terse   = (verbosity == DDV_TERSE);
     const bool semiverbose = (verbosity == DDV_LOGVERBOSE);
@@ -2708,6 +2708,9 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity) const
         trim_string(desc);
         desc = strip_article_a(desc);
     }
+
+    if (add_stop && !ends_with(desc, jtrans(".")))
+        desc += jtrans(".");
 
     return sp2nbsp(desc);
 }
