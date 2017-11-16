@@ -89,7 +89,7 @@ You aren't carrying any items that you can evoke.
 %%%%
 None of your equipped items are cursed.
 
-あなたの装備しているアイテムは何も呪われていない。
+あなたが装備中のアイテムは呪われていないものばかりだった。
 %%%%
 You aren't wearing any piece of uncursed armour.
 

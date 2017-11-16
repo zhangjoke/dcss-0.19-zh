@@ -87,9 +87,9 @@ You feel as if something is helping you.
 
 あなたは何か偉大な存在から助けを受けたような気がした。
 %%%%
-None of your equipped items are cursed.
+# None of your equipped items are cursed.
 
-あなたが装備中のアイテムは呪われていないものばかりだった。
+# jtrans_invent.txtと重複
 %%%%
 You feel blessed for a moment.
 
@@ -121,9 +121,9 @@ Zin imprisons %s with walls of pure silver!
 
 ジンは%sを純銀の壁で閉じ込めた！
 %%%%
-Walls emerge from the floor!
+# Walls emerge from the floor!
 
-壁が床からせり出した！
+# jtrans_mon_cast.txtと重複
 %%%%
 You smite %s!
 
