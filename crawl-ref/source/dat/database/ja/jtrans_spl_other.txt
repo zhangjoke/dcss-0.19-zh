@@ -1,8 +1,4 @@
 %%%%
-The poison in your system diminishes.
-
-あなたの体内の毒は弱まった。
-%%%%
 You can't draw power from your own body while in Death's door.
 
 あなたは死のとば口に立っている間は自身の力を引き出すことができない。
@@ -35,21 +31,13 @@ Nothing appears to have answered your call.
 
 あなたの呼びかけに応えるものはいなかった。
 %%%%
+# is recalled.
+
+# jtrans_godcompanions.txtと重複
+%%%%
 You finish recalling your allies.
 
 あなたは仲間の招集を終えた。
-%%%%
-You are anchored firmly to the material plane!
-
-あなたは物質界にしっかりと繋ぎ止められている。
-%%%%
-You feel the strange sensation of being on two planes at once.
-
-あなたは同時に二つの次元に存在するという奇妙な感覚を覚えた。
-%%%%
-You feel the material plane grow further away.
-
-あなたは物質界がさらに遠くなったと感じた。
 %%%%
 That's not a passable wall.
 
@@ -67,10 +55,6 @@ This rock feels extremely deep.
 
 この岩は非常に厚く感じられる。
 %%%%
-You fail to penetrate the rock.
-
-あなたは岩を通り抜けるのに失敗した。
-%%%%
 You sense a large body of water on the other side of the rock.
 
 あなたは壁の向こう側に大きな水たまりがあるのを感じた。
@@ -79,57 +63,21 @@ You sense an intense heat on the other side of the rock.
 
 あなたは壁の向こう側にある高熱の物体を感じ取った。
 %%%%
-You radiate an intoxicating aura.
+[verb]passwall
 
-あなたは酩酊のオーラを放った。
+# 訳不要
 %%%%
-Your head spins!
+looks rather confused.
 
-あなたの頭の中がぐるぐるした！
+は混乱したようだ。
 %%%%
-You can't cast this spell while wearing a shield.
+You attempt to intoxicate your foes!
 
-あなたは本物の盾を装備している間はこの呪文を唱えることができない。
+あなたは敵を酔っ払わせようとした！
 %%%%
-Your ring of flames would instantly melt the ice.
+The world spins around you!
 
-炎の円環を唱えた状態ではすぐさま氷が溶けてしまう。
-%%%%
-The disc of vapour around you crackles some more.
-
-あなたの周囲にある円盤状の気体がさらにピキピキと音を立てた。
-%%%%
-A crackling disc of dense vapour forms in the air!
-
-ピキピキと音を立てる凝集した円盤状の気体が空中に形成された！
-%%%%
-This spell does not affect your current form.
-
-この呪文は現在の姿では意味がない。
-%%%%
-Turning your skin into stone would shatter your icy armour.
-
-皮膚を石へと変えると氷の鎧が砕けてしまう。
-%%%%
-Your skin feels harder.
-
-あなたの皮膚はさらに硬くなった。
-%%%%
-Your stone body feels more resilient.
-
-あなたの石像の躯はより強固になった。
-%%%%
-Your skin hardens.
-
-あなたの皮膚は石のように硬くなった。
-%%%%
-Your corpse armour falls away.
-
-あなたを覆う屍肉の鎧が剥がれ落ちた。
-%%%%
-It would have no effect in that bright light!
-
-このまぶしい光の中では効果がない！
+世界があなたを中心に回転した！
 %%%%
 It gets a bit darker.
 
