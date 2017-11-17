@@ -275,10 +275,6 @@ You feel susceptible to magic.
 
 @The_monster@は魔法に弱くなったようだ。
 %%%%
-The air around @the_monster@ crackles with energy!
-
-@the_monster@の周りの大気がエネルギーを帯びてバチバチと爆ぜた！
-%%%%
 Waves of light ripple over your body.
 
 光の波があなたの体の上を流れた。
