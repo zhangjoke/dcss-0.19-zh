@@ -1,4 +1,28 @@
 %%%%
+miscasting %s
+
+%sの呪文の失敗効果
+%%%%
+Miscast target '%s' already dead
+
+# for debug
+%%%%
+#if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_MISCAST)
+'%s' miscast power: %d
+
+%%%%
+#if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_MISCAST)
+Sptype: %s, severity: %d
+
+%%%%
+Invalid miscast spell discipline.
+
+# for die()
+%%%%
+'s body
+
+の体
+%%%%
 The dungeon shakes, a horrible noise fills the air, and a portal to some otherworldly place is opened!
 
 迷宮は揺れ、恐るべき轟音が大気を満たし、そして異世界への門が開かれた！
@@ -6,6 +30,14 @@ The dungeon shakes, a horrible noise fills the air, and a portal to some otherwo
 watches you with interest.
 
 はあなたを興味深く眺めた。
+%%%%
+#if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_MISCAST)
+Couldn't avoid lethal miscast: already printed message for this miscast.
+
+%%%%
+#if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_MISCAST)
+Avoided lethal miscast.
+
 %%%%
 bandages
 
@@ -18,6 +50,10 @@ hair
 Your body is distorted in a weirdly horrible way!
 
 あなたの肉体は奇怪でおぞましい形に歪められた！
+%%%%
+Sparks fly from the ground!
+
+大地から火花が飛んだ！
 %%%%
 Sparks fly from your @hands@!
 
@@ -34,6 +70,10 @@ The air around you crackles with energy!
 The air around @the_monster@ crackles with energy!
 
 @the_monster@の周りの大気がエネルギーを帯びてバチバチと爆ぜた！
+%%%%
+Wisps of smoke drift around you.
+
+あなたの周囲から一筋の煙が流れた。
 %%%%
 Wisps of smoke drift from your @hands@.
 
@@ -83,13 +123,17 @@ You smell something strange.
 
 何か奇妙な臭いがした。
 %%%%
-Your bandages flutter.
+# Your bandages flutter.
 
-あなたの包帯がひらひらとはためいた。
+# jtrans_item_use.txtと重複
 %%%%
 Your %s stand%s on end.
 
 あなたの%sが逆立った。
+%%%%
+Smoke billows around you!
+
+煙があなたの周囲を渦巻いた！
 %%%%
 Smoke pours from your @hands@!
 
@@ -131,13 +175,17 @@ A violent explosion happens from out of thin air!
 
 猛烈な爆発が空中で起きた！
 %%%%
+[zap]explosion
+
+爆発
+%%%%
 You are blasted with magical energy!
 
-あなたは魔法のエネルギーの放射を受けた！
+あなたは魔法のエネルギーの放射を浴びた！
 %%%%
 @The_monster@ is blasted with magical energy!
 
-@The_monster@は魔法のエネルギーの放射を受けた！
+@The_monster@は魔法のエネルギーの放射を浴びた！
 %%%%
 There is a sudden explosion of magical energy!
 
@@ -147,7 +195,15 @@ Your @hands@ glow momentarily.
 
 あなたの@hands@は一瞬輝いた。
 %%%%
+Your @hands@ glows momentarily.
+
+あなたの@hands@は一瞬輝いた。
+%%%%
 @The_monster@'s @hands@ glow momentarily.
+
+@The_monster@の@hands@は一瞬輝いた。
+%%%%
+@The_monster@'s @hands@ glows momentarily.
 
 @The_monster@の@hands@は一瞬輝いた。
 %%%%
@@ -219,6 +275,10 @@ You feel susceptible to magic.
 
 @The_monster@は魔法に弱くなったようだ。
 %%%%
+The air around @the_monster@ crackles with energy!
+
+@the_monster@の周りの大気がエネルギーを帯びてバチバチと爆ぜた！
+%%%%
 Waves of light ripple over your body.
 
 光の波があなたの体の上を流れた。
@@ -226,10 +286,6 @@ Waves of light ripple over your body.
 Waves of light ripple over @the_monster@'s body.
 
 光の波が@the_monster@の体の上を流れた。
-%%%%
-Waves of light ripple over @the_monster@.
-
-光の波が@the_monster@の上を流れた。
 %%%%
 You hear something strange.
 
@@ -242,6 +298,10 @@ Your beak vibrates slightly.
 Your skull vibrates slightly.
 
 あなたの頭蓋骨がわずかに振動した。
+%%%%
+Magic is drained from your body!
+
+魔力があなたの体から吸い取られた！
 %%%%
 Magic surges out from your body!
 
@@ -275,9 +335,9 @@ The floor and the ceiling briefly switch places.
 
 床と天井が一瞬にして入れ替わった。
 %%%%
-You spin around.
+# You spin around.
 
-あなたはその場でクルクルと回転した。
+# jtrans_misc.txtと重複
 %%%%
 @The_monster@ spins around.
 
@@ -339,9 +399,9 @@ A piece of empty space twists and writhes.
 
 局所的な空間歪曲が起こった。
 %%%%
-Space warps around you!
+# Space warps around you!
 
-あなたの周囲の空間が歪んだ！
+# jtrans_godwrath.txtと重複
 %%%%
 Space warps around @the_monster@!
 
@@ -349,11 +409,11 @@ Space warps around @the_monster@!
 %%%%
 You are crushed and pinned by an extremely strong localised spatial distortion!
 
-あなたは強烈な局所的空間歪曲に固定され、くしゃくしゃにされた！
+あなたは強烈な局所的空間歪曲に巻き込まれ、くしゃくしゃにされた！
 %%%%
 @The_monster@ is crushed and pinned by an extremely strong localised spatial distortion!
 
-@The_monster@は強烈な局所的空間歪曲に固定され、くしゃくしゃにされた！
+@The_monster@は強烈な局所的空間歪曲に巻き込まれ、くしゃくしゃにされた！
 %%%%
 A rift temporarily opens in the fabric of space!
 
@@ -387,9 +447,9 @@ Your head hurts.
 
 あなたは頭痛がした。
 %%%%
-Your brain hurts!
+# Your brain hurts!
 
-あなたは頭痛がした！
+# jtrans_item_use.txtと重複
 %%%%
 The world appears momentarily distorted.
 
@@ -405,11 +465,11 @@ A fistful of eyes flickers past your view.
 %%%%
 Distant voices call out to you!
 
-遠くであなたを呼ぶ声がした。
+遠くであなたを呼ぶ声がした！
 %%%%
 Distant voices call out to @the_monster@!
 
-遠くで@the_monster@を呼ぶ声がした。
+遠くで@the_monster@を呼ぶ声がした！
 %%%%
 You feel watched.
 
@@ -437,11 +497,11 @@ Something forms from out of thin air!
 %%%%
 A chorus of moans calls out to you!
 
-複数のうめき声があなたを呼んでいる！
+いくつものうめき声があなたを呼んでいる！
 %%%%
 A chorus of moans calls out!
 
-複数のうめき声が聞こえる！
+いくつものうめき声が聞こえる！
 %%%%
 Desperate hands claw out from thin air!
 
@@ -531,6 +591,10 @@ partially averts the curse.
 
 は呪いをいくらか防いだ。
 %%%%
+# You smell decay.
+
+# jtrans_spl_clouds.txtと重複
+%%%%
 You hear strange and distant voices.
 
 あなたは遠くからの奇妙な声を耳にした。
@@ -541,7 +605,7 @@ You feel homesick.
 %%%%
 Pain shoots through your body.
 
-苦痛があなたの体を貫いた。
+苦痛があなたの全身を貫いた。
 %%%%
 @The_monster@ twitches violently.
 
@@ -557,7 +621,7 @@ Your bones ache.
 %%%%
 @The_monster@ pauses, visibly distraught.
 
-@The_monster@は立ち止まり、目に見えて取り乱した。
+@The_monster@は立ち止まると、目に見えて取り乱した。
 %%%%
 The world around you seems to dim momentarily.
 
@@ -599,9 +663,9 @@ You feel weird for a moment.
 
 @The_monster@は一瞬奇妙な表情をした。
 %%%%
-Pain shoots through your body!
+# Pain shoots through your body!
 
-苦痛があなたの体を貫いた！
+# jtrans_beam.txtと重複
 %%%%
 @The_monster@ convulses with pain!
 
@@ -615,9 +679,13 @@ You feel horribly lethargic.
 
 @The_monster@は非常に無気力になっているように見える。
 %%%%
-You begin to rot!
+Your flesh rots away!
 
-あなたの体は腐り始めた！
+あなたの体が腐り落ちていく！
+%%%%
+@The_monster@ rots away!
+
+@The_monster@の体が腐り落ちていく！
 %%%%
 Flickering shadows surround you.
 
@@ -629,7 +697,7 @@ Flickering shadows surround @the_monster@.
 %%%%
 Shadows flicker in the thin air.
 
-影が空中で揺らめいている。
+影が何もない空中で揺らめいている。
 %%%%
 You are engulfed in negative energy!
 
@@ -703,21 +771,21 @@ Your body is twisted painfully.
 
 @The_monster@の体は不自然なほどに捻れた。
 %%%%
-Shape-changing energy floods out from your body and enlargens the floor mites!
+Shape-changing energy floods out from your body and enlargens the floor bugs!
 
-変異術の魔力があなたの体から漏れ出し、床にいたダニを巨大化させた！
+変異術の魔力があなたの体から漏れ出し、床にいた虫を巨大化させた！
 %%%%
-Shape-changing energy floods out from @the_monster@ and enlargens the floor mites!
+Shape-changing energy floods out from @the_monster@ and enlargens the floor bugs!
 
-変異術の魔力が@the_monster@の体から漏れ出し、床にいたダニを巨大化させた！
+変異術の魔力が@the_monster@の体から漏れ出し、床にいた虫を巨大化させた！
 %%%%
-Shape-changing energy pours out from thin air and enlargens the floor mites!
+Shape-changing energy pours out from thin air and enlargens the floor bugs!
 
-変異術の魔力が空中から漏れ出し、床にいたダニを巨大化させた！
+変異術の魔力が空中から漏れ出し、床にいた虫を巨大化させた！
 %%%%
 Your body is twisted very painfully!
 
-あなたの体は非常に痛々しく捻られた。
+あなたの体は非常に痛々しく捻られた！
 %%%%
 @The_monster@'s body twists and writhes.
 
@@ -769,15 +837,23 @@ You feel uncomfortably hot.
 %%%%
 Lukewarm flames ripple over your body.
 
-生ぬるい炎があなたの体の上を流れた。
+生ぬるい炎があなたの体をあぶった。
 %%%%
 Dim flames ripple over @the_monster@'s body.
 
-ほのかな炎が@the_monster@の体の上を流れた。
+ほのかな炎が@the_monster@の体をあぶった。
+%%%%
+# You hear a sizzling sound.
+
+# jtrans_mon_act.txtと重複
 %%%%
 You feel like you have heartburn.
 
-あなたは胸焼けを覚えた。
+あなたは胸焼けがした。
+%%%%
+Fire whirls out of nowhere!
+
+渦巻く炎がどこからともなく巻き起こった！
 %%%%
 Fire whirls out from your @hands@!
 
@@ -786,10 +862,6 @@ Fire whirls out from your @hands@!
 Fire whirls out @the_monster@'s @hands@!
 
 渦巻く炎が@the_monster@の@hands@から巻き起こった！
-%%%%
-Fire whirls out of nowhere!
-
-渦巻く炎がどこからともなく巻き起こった！
 %%%%
 Flames sear your flesh.
 
@@ -839,9 +911,13 @@ There is a sudden and violent explosion of flames!
 
 突然猛烈な爆発が起こった！
 %%%%
-You are covered in liquid flames!
+[zap]fireball
 
-あなたは燃えたぎる液体をかぶっている！
+ファイアボール
+%%%%
+# You are covered in liquid flames!
+
+# jtrans_player.txtと重複
 %%%%
 @The_monster@ is covered in liquid flames!
 
@@ -850,6 +926,10 @@ You are covered in liquid flames!
 A chill runs through your body.
 
 冷気があなたの体を走り抜けた。
+%%%%
+Wisps of condensation drift around you.
+
+あなたの周囲を湯気が取り巻いた。
 %%%%
 Wisps of condensation drift from your @hands@.
 
@@ -887,17 +967,21 @@ A snowflake lands on your nose.
 
 雪の結晶があなたの鼻にくっついた。
 %%%%
-A thin layer of ice forms on %s
+A thin layer of ice forms on %s.
 
 薄い氷の層が%sの上に張った。
 %%%%
-Frost spreads across %s
+Frost spreads across %s.
 
 %sの上に霜が降りた。
 %%%%
 You feel extremely cold.
 
 あなたは凍てつく冷気を感じた。
+%%%%
+@The_monster@ shivers.
+
+@The_monster@は寒さに震えた。
 %%%%
 You are covered in a thin layer of ice.
 
@@ -907,13 +991,13 @@ You are covered in a thin layer of ice.
 
 @The_monster@は氷の薄い層で覆われた。
 %%%%
-Heat is drained from your body, and your mouth freezes shut!
+Heat is drained from your body!
 
-あなたの体から熱が奪われ、口が凍って閉ざされた！
+あなたの体から熱が奪われた！
 %%%%
 Heat is drained from @the_monster@.
 
-@the_monster@は熱を奪われた。
+@the_monster@の体から熱が奪われた。
 %%%%
 You are caught in an explosion of ice and frost!
 
@@ -939,11 +1023,15 @@ An unseen figure is encased in ice!
 
 目に見えぬ物体が氷の中にいる！
 %%%%
-Freezing gasses pour from your @hands@!
+Freezing gases billow around you!
+
+凍結のガスがあなたの周囲を渦巻いた！
+%%%%
+Freezing gases pour from your @hands@!
 
 凍結のガスがあなたの@hands@から湧きだした！
 %%%%
-Freezing gasses pour from @the_monster@'s @hands@!
+Freezing gases pour from @the_monster@'s @hands@!
 
 凍結のガスが@the_monster@の@hands@から湧きだした！
 %%%%
@@ -963,6 +1051,10 @@ Tiny particles of grit hang in the air for a moment.
 
 砂の微粒子が一瞬空中にとどまった。
 %%%%
+Sand pours from out of thin air.
+
+砂が何もないところから湧きだした。
+%%%%
 Sand pours from your @hands@.
 
 砂があなたの@hands@から湧きだした。
@@ -970,10 +1062,6 @@ Sand pours from your @hands@.
 Sand pours from @the_monster@'s @hands@.
 
 砂が@the_monster@の@hands@から湧きだした。
-%%%%
-Sand pours from out of thin air.
-
-砂が何もないところから湧きだした。
 %%%%
 You feel a surge of energy from the ground.
 
@@ -1009,7 +1097,11 @@ Motes of dust swirl around @the_monster@.
 %%%%
 Motes of dust swirl around in the air.
 
-砂の微粉が何もないところでクルクル舞った。
+砂の微粉があなたの目の前でクルクル舞った。
+%%%%
+Your %s feel%s warm.
+
+あなたの%sは暖かくなった。
 %%%%
 You briefly vibrate.
 
@@ -1029,7 +1121,7 @@ You momentarily stiffen.
 %%%%
 The floor vibrates.
 
-床は振動した。
+床が振動した。
 %%%%
 The floor shifts beneath you alarmingly!
 
@@ -1091,13 +1183,21 @@ You feel momentarily weightless.
 
 @The_monster@は一瞬空中に浮かび上がった。
 %%%%
+Wisps of vapour drift around you.
+
+蒸気があなたの周囲を漂っている。
+%%%%
 Wisps of vapour drift from your @hands@.
 
 蒸気があなたの@hands@から湧きだした。
 %%%%
-Wisps of vapour drift from @the_monster@'s @hands@.
+Wisps of vapour drift from @the_monster@'s
 
 蒸気が@the_monster@の@hands@から湧きだした。
+%%%%
+Sparks of electricity dance around you.
+
+あなたの周囲で電気の火花が踊った。
 %%%%
 Sparks of electricity dance between your @hands@.
 
@@ -1145,15 +1245,15 @@ There is a short, sharp shower of sparks.
 %%%%
 The wind whips around you!
 
-あなたの周りで風がはためいた！
+あなたの周りで急に激しい風が吹いた！
 %%%%
 The wind whips around @the_monster@!
 
-@the_monster@の周りで風がはためいた！
+@the_monster@の周りで急に激しい風が吹いた！
 %%%%
 The wind whips!
 
-風がはためいた！
+急に激しい風が吹いた！
 %%%%
 The wind howls around you!
 
@@ -1167,7 +1267,7 @@ The wind howls!
 
 風がうなった！
 %%%%
-Ouch! You gave yourself an electric shock.
+Ouch! You feel a sudden electric shock.
 
 痛い！ あなたは電気ショックを食らった。
 %%%%
@@ -1187,15 +1287,19 @@ Something invisible sparkles with electricity.
 
 何か目に見えないものが電気の火花を散らしている。
 %%%%
-Noxious gasses pour from your @hands@!
+Noxious gases billow around you.
+
+有毒ガスがあなたの周囲を渦巻いた。
+%%%%
+Noxious gases pour from your @hands@!
 
 有毒ガスがあなたの@hands@から湧きだした！
 %%%%
-Noxious gasses pour from @the_monster@'s @hands@!
+Noxious gases pour from @the_monster@'s @hands@!
 
 有毒ガスが@the_monster@の@hands@から湧きだした！
 %%%%
-Noxious gasses appear from out of thin air!
+Noxious gases appear from out of thin air!
 
 何もないところから有毒ガスが湧き出した！
 %%%%
@@ -1223,21 +1327,29 @@ Electrical discharges explode from out of thin air!
 
 何もないところで放電の爆発が巻き起こった！
 %%%%
-Venomous gasses pour from your @hands@!
+Venomous gases billow around you!
+
+猛毒の気体があなたの周囲を渦巻いた！
+%%%%
+Venomous gases pour from your @hands@!
 
 猛毒の気体があなたの@hands@から湧きだした！
 %%%%
-Venomous gasses pour from @the_monster@'s @hands@!
+Venomous gases pour from @the_monster@'s @hands@!
 
 猛毒の気体が@the_monster@の@hands@から湧きだした！
 %%%%
-Venomous gasses pour forth from the thin air!
+Venomous gases pour forth from the thin air!
 
 猛毒の気体が何もないところから湧きだした！
 %%%%
 A ball of electricity appears!
 
 球雷が現れた！
+%%%%
+# The air twists around and strikes you!
+
+# jtrans_mon_cast.txtと重複
 %%%%
 @The_monster@ is struck by twisting air!
 
@@ -1267,13 +1379,17 @@ You feel slightly ill.
 
 @The_monster@は少し気分が悪そうだ。
 %%%%
+Wisps of poison gas drift around you.
+
+毒ガスがあなたの周囲を漂っている。
+%%%%
 Wisps of poison gas drift from your @hands@.
 
 毒の気体があなたの@hands@から湧きだした。
 %%%%
 Wisps of poison gas drift from @the_monster@'s @hands@.
 
-毒の気体が@the_monster@の@hands@から湧きだした。
+毒ガスが@the_monster@の@hands@から湧きだした。
 %%%%
 You feel faint for a moment.
 
@@ -1283,9 +1399,9 @@ You feel faint for a moment.
 
 @The_monster@は一瞬ふらふらした。
 %%%%
-You feel sick.
+# You feel sick.
 
-あなたは気分が悪い。
+# jtrans_player.txtと重複
 %%%%
 @The_monster@ looks sick.
 
@@ -1319,13 +1435,17 @@ The air has a green tinge for a moment.
 
 一瞬大気が緑色に染まった。
 %%%%
-Noxious gasses pour forth from the thin air!
+Noxious gases billow around you!
+
+有毒ガスがあなたの周囲を渦巻いた！
+%%%%
+Noxious gases pour forth from the thin air!
 
 何もないところから有毒ガスが湧き出した！
 %%%%
-You feel very sick.
+# You feel very sick.
 
-あなたはとても気分が悪い。
+# jtrans_player.txtと重複
 %%%%
 @The_monster@ looks very sick.
 
@@ -1371,11 +1491,11 @@ There is a sudden blast of acid!
 
 突然酸性の液体が炸裂した！
 %%%%
+[zap]acid blast
+
+酸の爆発
+%%%%
 Wisps of shadow whirl around...
 
 影の群れが周囲を取り巻いた……
-%%%%
-Magical energy is drained from your %s
-
-あなたの%sから魔力が吸い取られた。
 %%%%
