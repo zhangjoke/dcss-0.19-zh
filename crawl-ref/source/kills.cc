@@ -143,9 +143,9 @@ string KillMaster::kill_info() const
 
         add_kill_info(killtext,
                        kills,
-                       count, tagged_jtrans("[kill category]",
+                       count,
                        i == KC_YOU ? nullptr
-                                   : category_name((kill_category) i)).c_str(),
+                                   : category_name((kill_category) i),
                        needseparator);
         needseparator = true;
     }
@@ -216,7 +216,8 @@ void KillMaster::add_kill_info(string &killtext,
 
         killtext += jtrans("Vanquished Creatures");
         if (category)
-            killtext += string(" (") + category + ")";
+            killtext += make_stringf(" (%s)",
+                                     tagged_jtransc("[kill category]", category));
 
         killtext += "\n";
 
