@@ -1,16 +1,4 @@
 %%%%
-You're already dead!
-
-あなたはもう死んでいる！
-%%%%
-You are too exhausted to enter Death's door!
-
-あなたは死のとば口に立つには疲労しすぎている！
-%%%%
-Your appeal for an extension has been denied.
-
-制限時間の延長は拒否された。
-%%%%
 You stand defiantly in death's doorway!
 
 あなたは死のとば口に踏ん張っている！
@@ -22,14 +10,6 @@ You seem to hear sand running through an hourglass...
 Your icy armour melts away.
 
 あなたの氷の鎧は溶け去った。
-%%%%
-Your body armour is too heavy.
-
-あなたの鎧は重装備すぎる。
-%%%%
-The film of ice won't work on stone.
-
-氷の鎧を石の肌の上に張ることはできない。
 %%%%
 Your icy armour thickens.
 
@@ -43,13 +23,13 @@ A film of ice covers your body!
 
 あなたの体に氷の鎧がはりついた！
 %%%%
-The corpses won't embrace your stony flesh.
+Your corpse armour falls away.
 
-屍肉はあなたの石の肌には付着しない。
+あなたの纏う屍肉の鎧は剥がれ落ちた。
 %%%%
-The corpses won't embrace your icy flesh.
+Harvested: %d
 
-屍肉はあなたの氷の体には付着しない。
+# for debug
 %%%%
 The bodies of the dead rush to embrace you!
 
@@ -59,29 +39,17 @@ Your shell of carrion and bone grows thicker.
 
 あなたの纏う屍肉と骨の鎧は厚みを増した。
 %%%%
-You are already protected from missiles.
-
-あなたは既に飛び道具から守られている。
-%%%%
 You feel protected from missiles.
 
 あなたは飛び道具から守られたようだ。
-%%%%
-You are already deflecting missiles.
-
-あなたは既に飛び道具を阻止している。
 %%%%
 You feel very safe from missiles.
 
 あなたは飛び道具が飛んできても安心だ。
 %%%%
-Your skin crawls.
+# Your skin crawls.
 
-あなたの皮膚はむずむずしてきた。
-%%%%
-You lack the resilience to cast this spell.
-
-あなたはもうこの呪文を唱える余地がない。
+# jtrans_godabil.txtと重複
 %%%%
 Your body is healed in an amazingly painful way.
 
@@ -91,33 +59,21 @@ Your life is in your own hands once again.
 
 あなたは自分の命を自らの手に取り戻した。
 %%%%
-You can't move any more quickly.
+Death's Door abortion
 
-あなたはこれ以上速く行動することができない。
-%%%%
-This spell is already in effect.
-
-この呪文は重ねがけできない。
+死のとば口の呪文の中断
 %%%%
 The %s foams!
 
 %sは泡立った！
 %%%%
-You feel more buoyant.
+liquid ground
 
-あなたは更に体が軽くなった。
+液状化した地面
 %%%%
-You feel in control.
+# You feel quick.
 
-あなたは瞬間移動先を制御できるようになったようだ。
-%%%%
-You feel your control is inadequate.
-
-あなたの瞬間移動制御能力は不十分のようだ。
-%%%%
-You feel your translocation being delayed.
-
-テレポートの発動が遅延されたようだ。
+# jtrans_mutation_data.txtと重複
 %%%%
 Forget which spell ([?*] list [ESC] exit)?
 
@@ -127,9 +83,9 @@ Forget which spell?
 
 どの呪文を忘れますか？
 %%%%
-You don't know that spell.
+# You don't know that spell.
 
-そんな呪文は覚えていない。
+# jtrans_adjust.txtと重複
 %%%%
 You begin infusing your attacks with magical energy.
 
@@ -150,18 +106,6 @@ You start singing a song of slaying.
 A profound silence engulfs you.
 
 深い静寂があなたを包んだ。
-%%%%
-You can't cast this spell without touching the ground.
-
-あなたは地面に接していないためこの呪文を唱えることができない。
-%%%%
-You need to be on clear, solid ground to cast this spell.
-
-この呪文を唱えるには乾いた地面が必要だ。
-%%%%
-The ground here is already liquefied! You'll have to wait.
-
-地面は既に液状化している！ しばらく待つ必要がある。
 %%%%
 The ground around you becomes liquefied!
 
