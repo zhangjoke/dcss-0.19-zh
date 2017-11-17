@@ -1,4 +1,12 @@
 %%%%
+# is unaffected.
+
+# jtrans_beam.txtと重複
+%%%%
+# resists.
+
+# jtrans_beam.txtと重複
+%%%%
 You radiate an aura of cold.
 
 あなたは冷気のオーラを放った。
@@ -15,7 +23,7 @@ glows brighter.
 
 はさらに輝いた。
 %%%%
-seems to slow down.
+# seems to slow down.
 
-は動きが遅くなったようだ。
+# jtrans_beam.txtと重複
 %%%%
