@@ -3212,9 +3212,9 @@ static void _transfer_good_god_piety()
 
         // Some feedback that piety moved over.
         string msg = make_stringf(jtransc(" says: Farewell. Go and %s with %s."),
-                                        lookup(farewell_messages, you.religion,
-                                               "become a bug"),
-                                        god_name_jc(you.religion));
+                                  god_name_jc(you.religion),
+                                  jtransc(lookup(farewell_messages, you.religion,
+                                                 "become a bug")));
 
         if (old_god == GOD_ELYVILON)
         {
