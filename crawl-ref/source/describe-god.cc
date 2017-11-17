@@ -941,18 +941,19 @@ static void _describe_god_powers(god_type which_god)
         if (!isupper(buf[0])) // Complete sentence given?
         {
             // ゴザーグの能力表示はget_gold内でも呼ばれるのでこちらで文を合わせる
-            if (which_god == GOD_GOZAG) buf += "こと";
+            if (which_god == GOD_GOZAG)
+                buf = jtrans(buf) + "こと";
 
-            buf = make_stringf(jtransc("You can {buf}."), buf.c_str());
+            buf = make_stringf(jtransc("You can {buf}."), jtransc(buf));
         }
         const int desc_len = strwidth(buf);
         string abil_cost = "(" + make_cost_description(power.abil) + ")";
         if (abil_cost == "(None)" || abil_cost == make_stringf("(%s)", jtransc("None")))
             abil_cost = "";
 
-        cprintf("%s%s%s\n", buf.c_str(),
+        cprintf("%s%s%s\n", sp2nbspc(jtrans(buf)),
                 sp2nbspc(string(min(80, max(0, get_number_of_cols() - 1 - desc_len - strwidth(abil_cost))), ' ')),
-                abil_cost.c_str());
+                sp2nbspc(abil_cost));
         textcolour(god_colour(which_god));
     }
 
@@ -982,7 +983,7 @@ static void _god_overview_description(god_type which_god, bool give_title)
     if (you_worship(which_god))
     {
         // Print title based on piety.
-        cprintf(jtrans_notrimc("\nTitle  - "));
+        cprintf(sp2nbspc(jtrans_notrim("\nTitle  - ")));
         textcolour(god_colour(which_god));
 
         string title = god_title(which_god, you.species, you.piety);
@@ -994,7 +995,7 @@ static void _god_overview_description(god_type which_god, bool give_title)
     // something better, do it.
 
     textcolour(LIGHTGREY);
-    cprintf(jtrans_notrimc("\nFavour - "));
+    cprintf(sp2nbspc(jtrans_notrim("\nFavour - ")));
     textcolour(god_colour(which_god));
 
     if (!you_worship(which_god))
