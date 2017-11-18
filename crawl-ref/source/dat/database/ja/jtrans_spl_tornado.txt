@@ -27,8 +27,9 @@ The vortex of raging winds lifts you up.
 
 荒れ狂う竜巻があなたを吹き上げた。
 %%%%
-damage done: %d
+# damage done: %d
 
+# jtrans_spl_damage.txtと重複
 # for debug
 %%%%
 tornado

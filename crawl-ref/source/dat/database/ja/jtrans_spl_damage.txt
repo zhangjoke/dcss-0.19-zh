@@ -577,11 +577,11 @@ You finish channeling your searing ray.
 %%%%
 %s %s a mighty blast of ice!
 
-%sは猛烈な氷の嵐を%s！
+%sは猛烈な氷の嵐%s！
 %%%%
 [verb]conjure
 
-生み出した
+を生み出した
 %%%%
 [stop attack prompt]scattershot
 

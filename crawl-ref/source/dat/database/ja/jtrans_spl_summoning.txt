@@ -407,10 +407,6 @@ You can't place the prism on a creature.
 
 %sは爆発する晶柱%s！
 %%%%
-[verb]conjure
-
-を幻出させた
-%%%%
 A prism of explosive energy appears from nowhere!
 
 爆発性のエネルギーをはらんだ晶柱がどこからともなく現れた！
