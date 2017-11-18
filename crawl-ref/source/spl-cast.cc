@@ -1082,7 +1082,7 @@ static bool _spellcasting_aborted(spell_type spell,
 
     if (msg != "")
     {
-        mpr(msg);
+        mpr(jtrans(msg));
         return true;
     }
 

@@ -2653,7 +2653,7 @@ static string _player_spell_desc(spell_type spell, const item_def* item)
 
     if (!you_can_memorise(spell))
     {
-        string reason = tagged_jtrans("[reason]", desc_cannot_memorise_reason(spell));
+        string reason = jtrans(desc_cannot_memorise_reason(spell));
         reason = replace_all(reason, "あなたは", "");
         reason = replace_all(reason, "。", "ため");
 
@@ -2662,7 +2662,7 @@ static string _player_spell_desc(spell_type spell, const item_def* item)
     }
     else if (spell_is_useless(spell, true, false, rod))
     {
-        string reason = tagged_jtransc("[reason]", spell_uselessness_reason(spell, true, false, rod));
+        string reason = jtrans(spell_uselessness_reason(spell, true, false, rod));
         reason = replace_all(reason, "あなたは", "");
         reason = replace_all(reason, "。", "ため");
 

@@ -812,7 +812,7 @@ bool learn_spell()
  */
 string desc_cannot_memorise_reason(spell_type spell)
 {
-    return jtrans(spell_uselessness_reason(spell, false, true));
+    return spell_uselessness_reason(spell, false, true);
 }
 
 /**
@@ -833,7 +833,7 @@ static bool _learn_spell_checks(spell_type specspell, bool wizard = false)
 
     if (!you_can_memorise(specspell))
     {
-        mpr(desc_cannot_memorise_reason(specspell));
+        mpr(jtrans(desc_cannot_memorise_reason(specspell)));
         return false;
     }
 
