@@ -3,17 +3,21 @@ There are friendlies around, are you sure you want to hurt them?
 
 友好的なモンスターが周囲にいますが、本当に呪文に巻き込みますか？
 %%%%
-A great vortex of raging winds %s.
+A great vortex of raging winds appears around you.
 
-荒れ狂う大竜巻が%s。
+荒れ狂う大竜巻があなたの周囲に現れた。
 %%%%
-appears around you
+A great vortex of raging winds appears and lifts you up.
 
-あなたの周囲に現れた
+荒れ狂う大竜巻が現れ、あなたを吹き上げた。
 %%%%
-appears and lifts you up
+Doing tornado, dur %d, effective power %d
 
-現れ、あなたを吹き上げた
+# for debug
+%%%%
+at dist %d dur is %d%%, pow is %d
+
+# for debug
 %%%%
 A tree falls to the hurricane!
 
@@ -22,4 +26,24 @@ A tree falls to the hurricane!
 The vortex of raging winds lifts you up.
 
 荒れ狂う竜巻があなたを吹き上げた。
+%%%%
+damage done: %d
+
+# for debug
+%%%%
+tornado
+
+大竜巻
+%%%%
+Careful! You are now flying above %s.
+
+[注意！] あなたは今%sの上を飛んでいる。
+%%%%
+Aborting tornado.
+
+# for debug
+%%%%
+Tloc penalty: reducing tornado by %d turns
+
+# for debug
 %%%%
