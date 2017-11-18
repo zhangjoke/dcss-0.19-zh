@@ -596,7 +596,7 @@ string ash_describe_bondage(int flags, bool level)
                              you.bondage[ET_ARMOUR] == 0 ? "not" :
                              you.bondage[ET_ARMOUR] == 1 ? "partially"
                                                          : "fully",
-                             jtransc(you.bondage[ET_ARMOUR] == 0 ? "or" : "and")));
+                             you.bondage[ET_ARMOUR] == 0 ? "or" : "and"));
     }
     else
     {

@@ -334,11 +334,11 @@ You hear a distant slurping noise.
 %%%%
 [hands act]your hands are bound.
 
-%sは呪縛されている。
+あなたの%sは呪縛されている。
 %%%%
 [hands act]your hands are not bound.
 
-%sは呪縛されていない。
+あなたの%sは呪縛されていない。
 %%%%
 Your %s %s is bound but not your %s %s.
 
@@ -350,27 +350,27 @@ Your weapon %s is %sbound.
 %%%%
 Your shield %s is %sbound.
 
-あなたの盾は呪縛されて%s。
+あなたの盾を持つ方の%sは呪縛されて%s。
 %%%%
 You are not bound in armour or jewellery.
 
-あなたは鎧にも装身具にも呪縛されていない。
+あなたは鎧も装身具も呪縛されていない。
 %%%%
 You are partically bound in armour or jewellery.
 
-あなたは鎧もしくは装身具に部分的に呪縛されている。
+あなたは鎧もしくは装身具が部分的に呪縛されている。
 %%%%
 You are fully bound in armour or jewellery.
 
-あなたは鎧もしくは装身具に完全に呪縛されている。
+あなたは鎧もしくは装身具が完全に呪縛されている。
 %%%%
 You are partically bound in armour and jewellery.
 
-あなたは鎧および装身具に部分的に呪縛されている。
+あなたは鎧および装身具が部分的に呪縛されている。
 %%%%
 You are fully bound in armour and jewellery.
 
-あなたは鎧および装身具に完全に呪縛されている。
+あなたは鎧および装身具が完全に呪縛されている。
 %%%%
 or
 
