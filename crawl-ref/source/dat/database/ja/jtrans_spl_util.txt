@@ -1,0 +1,238 @@
+%%%%
+Spell assigned to '%c'.
+
+この呪文を'%c'キーに割り当てた。
+%%%%
+Your memory of %s unravels.
+
+あなたは%sの呪文を忘却した。
+%%%%
+Conj
+
+妖術
+%%%%
+Hex
+
+呪術
+%%%%
+Chrm
+
+加護
+%%%%
+Fire
+
+炎
+%%%%
+Ice
+
+氷
+%%%%
+Trmt
+
+変異
+%%%%
+Necr
+
+死霊
+%%%%
+Summ
+
+召喚
+%%%%
+Divn
+
+予見
+%%%%
+Tloc
+
+転位
+%%%%
+Pois
+毒
+%%%%
+Erth
+地
+%%%%
+Air
+風
+%%%%
+Rndm
+
+ランダム
+%%%%
+Conjuration
+
+妖術
+%%%%
+Hexes
+
+呪術
+%%%%
+Charms
+
+加護
+%%%%
+Fire
+
+炎
+%%%%
+Ice
+
+氷
+%%%%
+Transmutation
+
+変異術
+%%%%
+Necromancy
+
+死霊術
+%%%%
+Summoning
+
+召喚術
+%%%%
+Divination
+
+予見術
+%%%%
+Translocation
+
+転位術
+%%%%
+Poison
+
+毒
+%%%%
+Earth
+
+地
+%%%%
+Air
+
+風
+%%%%
+Random
+
+ランダム
+%%%%
+You're too confused.
+
+あなたは混乱しすぎている。
+%%%%
+You don't have enough magic.
+
+十分な魔力が残っていない。
+%%%%
+You can't see any valid targets.
+
+有効な標的が視界内にいない。
+%%%%
+You cannot use spells of this school.
+
+この種別の魔法を使うことができない。
+%%%%
+The orb interferes with controlled teleportation.
+
+ゾットのオーブが制御されたテレポートを妨げている。
+%%%%
+cannot teleport.
+
+はテレポートできない。
+%%%%
+You're already traveling as fast as you can.
+
+あなたは既に可能な限り素早くなっている。
+%%%%
+You can't move.
+
+あなたは動けない。
+%%%%
+You can already fly whenever you want.
+
+あなたは既にいつでも空を飛ぶことができる。
+%%%%
+Your current form prevents flight.
+
+あなたの現在の形状では飛ぶことができない。
+%%%%
+You can already fly indefinitely.
+
+あなたは既に継続して飛ぶことができる。
+%%%%
+Invisibility won't help you when you glow in the dark.
+
+あなたが光を放っている限り透明化は意味がない。
+%%%%
+Darkness is useless against divine light.
+
+神気の光輪に対して暗闇の呪文は無意味だ。
+%%%%
+You're already repelling missiles.
+
+あなたは既に飛来物に対して防御している。
+%%%%
+You're already functionally a statue.
+
+あなたは既に石像のようなものだ。
+%%%%
+Your undead flesh cannot be transformed.
+
+あなたの不死の躯は変異することを許さない。
+%%%%
+Your current blood level is not sufficient.
+
+あなたは血の気がまだ十分でない。
+%%%%
+You can't regenerate without divine aid.
+
+あなたは神の助けなしでは再生できない。
+%%%%
+You're too dead to regenerate.
+
+あなたの死せる体は再生の呪文を受け付けない。
+%%%%
+Your brain is too dead to use.
+
+あなたの死せる脳味噌は働かなかった。
+%%%%
+This spell is useless without hands.
+
+この呪文は器用な手がないと意味がない。
+%%%%
+You must stand on solid ground to cast this.
+
+これを唱えるには固い地面の上に立つ必要がある。
+%%%%
+You're too dead.
+
+あなたの死せる体ではこの呪文は使えない。
+%%%%
+You can't be poisoned.
+
+あなたは毒に冒されることがない。
+%%%%
+You have no blood to sublime.
+
+あなたには昇華するための血液が流れていない。
+%%%%
+Your magic capacity is already full.
+
+あなたの魔力は既にいっぱいだ。
+%%%%
+You cannot make allies.
+
+あなたは仲間を作ることができない。
+%%%%
+The dungeon can only cope with one malign gateway at a time.
+
+迷宮は一度に一つの門だけしか維持できない。
+%%%%
+You need to wait for the winds to calm down.
+
+風が落ちつくまで待つ必要がある。
+%%%%
+You can only summon one forest at a time!
+
+一度に一体のドライアドしか召喚できない。
+%%%%
