@@ -980,9 +980,9 @@ You %s forgetting about %s and learning about %s.
 
 終えた
 %%%%
-[verb]stop
+# [verb]stop
 
-中断した
+# jtrans_actor.txtと重複
 %%%%
 Curse which item? (%d remove curse scroll%s left) (Esc to abort)
 

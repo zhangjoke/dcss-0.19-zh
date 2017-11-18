@@ -121,7 +121,7 @@ something
 
 %sは乱暴に%s！
 %%%%
-[stop]stop
+[verb]stop
 
 停止した
 %%%%
