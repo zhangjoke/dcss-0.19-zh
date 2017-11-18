@@ -252,6 +252,7 @@ static TextDB AllDBs[] =
            "jtrans_spl_selfench.txt",
            "jtrans_spl_summoning.txt",
            "jtrans_spl_tornado.txt",
+           "jtrans_spl_transloc.txt",
 
            "jtrans_species.txt",
            "jtrans_travel.txt",
