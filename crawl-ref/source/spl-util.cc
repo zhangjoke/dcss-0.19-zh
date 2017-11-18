@@ -299,7 +299,7 @@ bool add_spell_to_memory(spell_type spell)
         }
 
     if (you.num_turns)
-        mprf("Spell assigned to '%c'.", index_to_letter(j));
+        mprf(jtransc("Spell assigned to '%c'."), index_to_letter(j));
 
     // Swapping with an existing spell.
     if (you.spell_letter_table[j] != -1)
@@ -338,10 +338,10 @@ static void _remove_spell_attributes(spell_type spell)
         {
             const int orig_defl = you.missile_deflection();
             you.attribute[ATTR_DEFLECT_MISSILES] = 0;
-            mprf(MSGCH_DURATION, "You feel %s from missiles.",
+            mprf(MSGCH_DURATION, jtrans(make_stringf("You feel %s from missiles.",
                                  you.missile_deflection() < orig_defl
                                  ? "less protected"
-                                 : "your spell is no longer protecting you");
+                                 : "your spell is no longer protecting you")));
         }
         break;
     case SPELL_REPEL_MISSILES:
@@ -349,17 +349,17 @@ static void _remove_spell_attributes(spell_type spell)
         {
             const int orig_defl = you.missile_deflection();
             you.attribute[ATTR_REPEL_MISSILES] = 0;
-            mprf(MSGCH_DURATION, "You feel %s from missiles.",
+            mprf(MSGCH_DURATION, jtrans(make_stringf("You feel %s from missiles.",
                                  you.missile_deflection() < orig_defl
                                  ? "less protected"
-                                 : "your spell is no longer protecting you");
+                                 : "your spell is no longer protecting you")));
         }
         break;
     case SPELL_DELAYED_FIREBALL:
         if (you.attribute[ATTR_DELAYED_FIREBALL])
         {
             you.attribute[ATTR_DELAYED_FIREBALL] = 0;
-            mprf(MSGCH_DURATION, "Your charged fireball dissipates.");
+            mprf(MSGCH_DURATION, jtrans("Your charged fireball dissipates."));
         }
         break;
     default:
@@ -377,7 +377,7 @@ bool del_spell_from_memory_by_slot(int slot)
 
     spell_skills(you.spells[slot], you.stop_train);
 
-    mprf("Your memory of %s unravels.", spell_title(you.spells[slot]));
+    mprf(jtransc("Your memory of %s unravels."), spell_title_jc(you.spells[slot]));
     _remove_spell_attributes(you.spells[slot]);
 
     you.spells[slot] = SPELL_NO_SPELL;
@@ -868,6 +868,11 @@ const char* spelltype_long_name(spschool_flag_type which_spelltype)
     }
 }
 
+const string spelltype_name_j(const char* type)
+{
+    return tagged_jtrans("[spell type]", type);
+}
+
 skill_type spell_type2skill(spschool_flag_type spelltype)
 {
     switch (spelltype)
@@ -1180,7 +1185,7 @@ string spell_uselessness_reason(spell_type spell, bool temp, bool prevent,
         // XXX: this is a little redundant with you_no_tele_reason()
         // but trying to sort out temp and so on is a mess
         if (you.species == SP_FORMICID)
-            return pluralise(species_name(you.species)) + " cannot teleport.";
+            return species_name_j(you.species) + jtrans(" cannot teleport.");
 
         if (temp && you.no_tele(false, false, true))
             return lowercase_first(you.no_tele_reason(false, true));
@@ -1356,7 +1361,7 @@ string spell_uselessness_reason(spell_type spell, bool temp, bool prevent,
 
     case SPELL_PASSWALL:
         if (temp && you.is_stationary())
-            return "you can't move";
+            return "you can't move.";
         break;
 
     case SPELL_ANIMATE_DEAD:

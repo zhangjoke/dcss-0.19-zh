@@ -829,7 +829,7 @@ You feel less protected from missiles.
 %%%%
 You feel your spell is no longer protecting you from missiles.
 
-飛来物からの保護が消え去った。
+あなたはもう飛来物から保護されていないようだ。
 %%%%
 Long-range teleportation is disallowed in Dungeon Sprint.
 
