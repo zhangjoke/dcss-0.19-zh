@@ -1483,7 +1483,8 @@ bool load_level(dungeon_feature_type stair_taken, load_mode_type load_mode,
                     && slide_feature_over(you.pos()))
                 {
                     mprf(jtransc("%s slides away from you right after you %s it!"),
-                         stair_str.c_str(), verb.c_str());
+                         stair_str.c_str(),
+                         verb_jc(verb));
                 }
 
                 if (coinflip())

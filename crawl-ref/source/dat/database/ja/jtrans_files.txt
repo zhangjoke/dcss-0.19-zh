@@ -41,7 +41,7 @@ curr_PlaceInfo:: num_visits: %d, levels_seen: %d
 %%%%
 %s slides away from you right after you %s it!
 
-あなたが%sの%sに進むとそれは滑るように移動して遠ざかった。
+あなたが%sを%sやいなや、それは滑るように移動して遠ざかった。
 %%%%
 %s settles down.
 

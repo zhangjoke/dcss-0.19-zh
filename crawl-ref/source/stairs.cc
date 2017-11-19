@@ -58,7 +58,7 @@ bool check_annotation_exclusion_warning()
         && next_level_id != level_id::current()
         && is_connected_branch(next_level_id))
     {
-        mprf(MSGCH_PROMPT, "Warning, next level annotated: <yellow>%s</yellow>",
+        mprf(MSGCH_PROMPT, jtransc("Warning, next level annotated: <yellow>%s</yellow>"),
              get_level_annotation(next_level_id).c_str());
         might_be_dangerous = true;
         crawl_state.level_annotation_shown = true;
@@ -67,7 +67,7 @@ bool check_annotation_exclusion_warning()
              && feat_is_travelable_stair(grd(you.pos()))
              && !strstr(get_exclusion_desc(you.pos()).c_str(), "cloud"))
     {
-        mprf(MSGCH_WARN, "This staircase is marked as excluded!");
+        mprf(MSGCH_WARN, jtrans("This staircase is marked as excluded!"));
         might_be_dangerous = true;
     }
 
@@ -140,8 +140,8 @@ static bool _stair_moves_pre(dungeon_feature_type stair)
 
     string verb = stair_climb_verb(stair);
 
-    mprf("%s moves away as you attempt to %s it!", stair_str.c_str(),
-         verb.c_str());
+    mprf(jtransc("%s moves away as you attempt to %s it!"), stair_str.c_str(),
+         tagged_jtransc("[attempt to verb]", verb));
 
     you.turn_is_over = true;
 
@@ -151,7 +151,7 @@ static bool _stair_moves_pre(dungeon_feature_type stair)
 static void _exit_stair_message(dungeon_feature_type stair)
 {
     if (feat_is_escape_hatch(stair))
-        mpr("The hatch slams shut behind you.");
+        mpr(jtrans("The hatch slams shut behind you."));
 }
 
 static void _climb_message(dungeon_feature_type stair, bool going_up,
@@ -161,28 +161,28 @@ static void _climb_message(dungeon_feature_type stair, bool going_up,
         return;
 
     if (feat_is_portal(stair))
-        mpr("The world spins around you as you enter the gateway.");
+        mpr(jtrans("The world spins around you as you enter the gateway."));
     else if (feat_is_escape_hatch(stair))
     {
         if (going_up)
-            mpr("A mysterious force pulls you upwards.");
+            mpr(jtrans("A mysterious force pulls you upwards."));
         else
         {
-            mprf("You %s downwards.",
-                 you.airborne() ? "fly" : "slide");
+            mprf(jtrans(make_stringf("You %s downwards.",
+                                     you.airborne() ? "fly" : "slide")));
         }
     }
     else if (feat_is_gate(stair))
     {
-        mprf("You %s %s through the gate.",
+        mprf(jtrans(make_stringf("You %s %s through the gate.",
              you.airborne() ? "fly" : "go",
-             going_up ? "up" : "down");
+             going_up ? "up" : "down")));
     }
     else
     {
-        mprf("You %s %swards.",
+        mprf(jtrans(make_stringf("You %s %swards.",
              you.airborne() ? "fly" : "climb",
-             going_up ? "up" : "down");
+             going_up ? "up" : "down")));
     }
 }
 
@@ -211,8 +211,10 @@ void leaving_level_now(dungeon_feature_type stair_used)
     {
         if (you.depth == 27)
             you.zigs_completed++;
-        mark_milestone("zig.exit", make_stringf("left a ziggurat at level %d.",
-                       you.depth));
+        mark_milestone("zig.exit",
+                       you.depth != 27 ? make_stringf(jtransc("left a ziggurat at level %d."),
+                                                      you.depth)
+                                       : jtrans("zig.exit27"));
     }
 
     dungeon_events.fire_position_event(DET_PLAYER_CLIMBS, you.pos());
@@ -294,13 +296,13 @@ static bool _check_stairs(const dungeon_feature_type ftype, bool going_up)
                                                      : CMD_GO_DOWNSTAIRS))
         {
             if (ftype == DNGN_STONE_ARCH)
-                mpr("There is nothing on the other side of the stone arch.");
+                mpr(jtrans("There is nothing on the other side of the stone arch."));
             else if (ftype == DNGN_ABANDONED_SHOP)
-                mpr("This shop appears to be closed.");
+                mpr(jtrans("This shop appears to be closed."));
             else if (going_up)
-                mpr("You can't go up here!");
+                mpr(jtrans("You can't go up here!"));
             else
-                mpr("You can't go down here!");
+                mpr(jtrans("You can't go down here!"));
             return false;
         }
     }
@@ -319,8 +321,8 @@ static bool _fall_down_stairs(const dungeon_feature_type ftype, bool going_up)
         if (!feat_is_staircase(ftype))
             fall_where = "through the gate";
 
-        mprf("In your confused state, you trip and fall %s%s.",
-             going_up ? "back " : "", fall_where);
+        mprf(jtrans(make_stringf("In your confused state, you trip and fall %s%s.",
+             going_up ? "back " : "", fall_where)));
         if (!feat_is_staircase(ftype))
             ouch(1, KILLED_BY_FALLING_THROUGH_GATE);
         else
@@ -356,29 +358,32 @@ static void _rune_effect(dungeon_feature_type ftype)
         {
             ASSERT(runes.size() >= 3);
 
-            mprf("You insert the %s rune into the lock.", rune_type_name(runes[2]));
+            mprf(jtransc("You insert the %s rune into the lock."),
+                 rune_type_name_j(runes[2], true).c_str());
 #ifdef USE_TILE_LOCAL
             tiles.add_overlay(you.pos(), tileidx_zap(rune_colour(runes[2])));
             update_screen();
 #else
             flash_view(UA_BRANCH_ENTRY, rune_colour(runes[2]));
 #endif
-            mpr("The lock glows eerily!");
+            mpr(jtrans("The lock glows eerily!"));
             // included in default force_more_message
 
-            mprf("You insert the %s rune into the lock.", rune_type_name(runes[1]));
+            mprf(jtransc("You insert the %s rune into the lock."),
+                 rune_type_name_j(runes[1], true).c_str());
             big_cloud(CLOUD_BLUE_SMOKE, &you, you.pos(), 20, 7 + random2(7));
             viewwindow();
-            mpr("Heavy smoke blows from the lock!");
+            mpr(jtrans("Heavy smoke blows from the lock!"));
             // included in default force_more_message
         }
 
-        mprf("You insert the %s rune into the lock.", rune_type_name(runes[0]));
+        mprf(jtransc("You insert the %s rune into the lock."),
+             rune_type_name_j(runes[0], true).c_str());
 
         if (silenced(you.pos()))
-            mpr("The gate opens wide!");
+            mpr(jtransc("The gate opens wide!"));
         else
-            mpr("With a loud hiss the gate opens wide!");
+            mpr(jtrans("With a loud hiss the gate opens wide!"));
         // these are included in default force_more_message
     }
 }
@@ -436,7 +441,7 @@ static level_id _travel_destination(const dungeon_feature_type how,
         if (!is_valid_shaft_level())
         {
             if (known_shaft)
-                mpr("The shaft disappears in a puff of logic!");
+                mpr(jtrans("The shaft disappears in a puff of logic!"));
             _maybe_destroy_shaft(you.pos());
             return dest;
         }
@@ -473,9 +478,9 @@ static level_id _travel_destination(const dungeon_feature_type how,
         {
             if (known_shaft)
             {
-                mpr("Strange, the shaft seems to lead back to this level.");
-                mpr("The strain on the space-time continuum destroys the "
-                    "shaft!");
+                mpr(jtrans("Strange, the shaft seems to lead back to this level."));
+                mpr(jtrans("The strain on the space-time continuum destroys the "
+                           "shaft!"));
             }
             _maybe_destroy_shaft(you.pos());
             return dest;
@@ -483,20 +488,20 @@ static level_id _travel_destination(const dungeon_feature_type how,
 
         if (!known_shaft)
         {
-            mark_milestone("shaft", "fell down a shaft to "
-                                    + shaft_dest.describe() + ".");
+            mark_milestone("shaft", make_stringf(jtransc("fell down a shaft to %s."),
+                                                 shaft_dest.describe_j().c_str()));
         }
 
         string howfar;
         if (shaft_depth > 1)
-            howfar = make_stringf(" for %d floors", shaft_depth);
+            howfar = make_stringf(jtransc(" for %d floors"), shaft_depth);
 
-        mprf("You %s a shaft%s!", you.airborne() ? "are sucked into"
-                                                 : "fall through",
-                                  howfar.c_str());
+        mprf(jtransc("You %s a shaft%s!"),
+             jtransc(you.airborne() ? "are sucked into" : "fall through"),
+             (shaft_depth > 1 ? howfar.c_str() : ""));
 
         // Shafts are one-time-use.
-        mpr("The shaft crumbles and collapses.");
+        mpr(jtrans("The shaft crumbles and collapses."));
         _maybe_destroy_shaft(you.pos());
     }
 
@@ -545,18 +550,18 @@ void floor_transition(dungeon_feature_type how,
     // reaching the Abyss.
     if (!forced && whence == DNGN_ENTER_ABYSS)
     {
-        mark_milestone("abyss.enter", "entered the Abyss!");
-        take_note(Note(NOTE_MESSAGE, 0, 0, "Voluntarily entered the Abyss."), true);
+        mark_milestone("abyss.enter", jtrans("entered the Abyss!"));
+        take_note(Note(NOTE_MESSAGE, 0, 0, jtrans("Voluntarily entered the Abyss.")), true);
     }
     else if (!forced && whence == DNGN_EXIT_THROUGH_ABYSS)
     {
-        mark_milestone("abyss.enter", "escaped (hah) into the Abyss!");
-        take_note(Note(NOTE_MESSAGE, 0, 0, "Took an exit into the Abyss."), true);
+        mark_milestone("abyss.enter", jtrans("escaped (hah) into the Abyss!"));
+        take_note(Note(NOTE_MESSAGE, 0, 0, jtrans("Took an exit into the Abyss.")), true);
     }
     else if (how == DNGN_EXIT_ABYSS
              && you.chapter != CHAPTER_POCKET_ABYSS)
     {
-        mark_milestone("abyss.exit", "escaped from the Abyss!");
+        mark_milestone("abyss.exit", jtrans("escaped from the Abyss!"));
         you.attribute[ATTR_BANISHMENT_IMMUNITY] = you.elapsed_time + 100
                                                   + random2(100);
         you.banished_by = "";
@@ -576,7 +581,7 @@ void floor_transition(dungeon_feature_type how,
     if (how == DNGN_EXIT_DUNGEON)
     {
         you.depth = 0;
-        mpr("You have escaped!");
+        mpr(jtrans("You have escaped!"));
 
         if (player_has_orb())
             ouch(INSTANT_DEATH, KILLED_BY_WINNING);
@@ -602,19 +607,19 @@ void floor_transition(dungeon_feature_type how,
     if (old_level.branch == BRANCH_VESTIBULE
         && !is_hell_subbranch(you.where_are_you))
     {
-        mpr("Thank you for visiting Hell. Please come again soon.");
+        mpr(jtrans("Thank you for visiting Hell. Please come again soon."));
     }
 
     if (how == DNGN_EXIT_ABYSS
         || how == DNGN_EXIT_PANDEMONIUM
         || how == DNGN_EXIT_THROUGH_ABYSS)
     {
-        mpr("You pass through the gate.");
-        take_note(Note(NOTE_MESSAGE, 0, 0,
+        mpr(jtrans("You pass through the gate."));
+        take_note(Note(NOTE_MESSAGE, 0, 0, jtrans(
             how == DNGN_EXIT_ABYSS ? "Escaped the Abyss" :
             how == DNGN_EXIT_PANDEMONIUM ? "Escaped Pandemonium" :
             how == DNGN_EXIT_THROUGH_ABYSS ? "Escaped into the Abyss" :
-            "Buggered into bugdom"), true);
+            "Buggered into bugdom")), true);
 
         if (!you.wizard || !crawl_state.is_replaying_keys())
             more();
@@ -632,9 +637,8 @@ void floor_transition(dungeon_feature_type how,
         && player_in_connected_branch()
         && old_level.branch != you.where_are_you)
     {
-        mprf("Welcome %sto %s!",
-             you.chapter == CHAPTER_POCKET_ABYSS ? "" : "back ",
-             branches[you.where_are_you].longname);
+        mprf(jtransc(you.chapter == CHAPTER_POCKET_ABYSS ? "Welcome to %s!" : "Welcome back to %s!"),
+             branch_name_jc(branches[you.where_are_you].longname));
     }
 
     // Falling down the stairs or portal.
@@ -656,21 +660,21 @@ void floor_transition(dungeon_feature_type how,
         // when going down.
         if (old_level.branch == BRANCH_ABYSS)
         {
-            mprf(MSGCH_BANISHMENT, "You plunge deeper into the Abyss.");
+            mprf(MSGCH_BANISHMENT, jtrans("You plunge deeper into the Abyss."));
             if (!you.runes[RUNE_ABYSSAL] && you.depth >= ABYSSAL_RUNE_MIN_LEVEL)
-                mpr("The abyssal rune of Zot can be found at this depth.");
+                mpr(jtrans("The abyssal rune of Zot can be found at this depth."));
             break;
         }
         if (!forced)
-            mpr("You enter the Abyss!");
+            mpr(jtrans("You enter the Abyss!"));
 
-        mpr("To return, you must find a gate leading back.");
-        mpr("Killing monsters will force the Abyss to allow you passage.");
+        mpr(jtrans("To return, you must find a gate leading back."));
+        mpr(jtrans("Killing monsters will force the Abyss to allow you passage."));
         if (have_passive(passive_t::slow_abyss))
         {
             mprf(MSGCH_GOD, you.religion,
-                 "You feel %s slowing down the madness of this place.",
-                 god_name(you.religion).c_str());
+                 jtransc("You feel %s slowing down the madness of this place."),
+                 god_name_jc(you.religion));
         }
 
         you.props[ABYSS_STAIR_XP_KEY] = EXIT_XP_COST;
@@ -683,7 +687,7 @@ void floor_transition(dungeon_feature_type how,
 
     case BRANCH_PANDEMONIUM:
         if (old_level.branch == BRANCH_PANDEMONIUM)
-            mpr("You pass into a different region of Pandemonium.");
+            mpr(jtrans("You pass into a different region of Pandemonium."));
         break;
 
     default:
@@ -704,7 +708,7 @@ void floor_transition(dungeon_feature_type how,
 
         if (going_up)
         {
-            mprf("Welcome back to %s!", branches[branch].longname);
+            mprf(jtransc("Welcome back to %s!"), branch_name_jc(branches[branch].longname));
 
             // Left a notable branch for the first time.
             if ((brdepth[old_level.branch] > 1
@@ -714,7 +718,8 @@ void floor_transition(dungeon_feature_type how,
                 string old_branch_string = branches[old_level.branch].longname;
                 if (starts_with(old_branch_string, "The "))
                     old_branch_string[0] = tolower(old_branch_string[0]);
-                mark_milestone("br.exit", "left " + old_branch_string + ".",
+                mark_milestone("br.exit", make_stringf(jtransc("left %s."),
+                                                       branch_name_jc(old_branch_string)),
                                old_level.describe());
                 you.branches_left.set(old_level.branch);
             }
@@ -727,7 +732,7 @@ void floor_transition(dungeon_feature_type how,
                 if (branches[branch].entry_message)
                     mpr(branches[branch].entry_message);
                 else if (branch != BRANCH_ABYSS) // too many messages...
-                    mprf("Welcome to %s!", branches[branch].longname);
+                    mprf(jtransc("Welcome to %s!"), branch_name_jc(branches[branch].longname));
 
                 const string noise_desc = branch_noise_desc(branch);
                 if (!noise_desc.empty())
@@ -746,7 +751,7 @@ void floor_transition(dungeon_feature_type how,
 
     // Warn Formicids if they cannot shaft here
     if (you.species == SP_FORMICID && !is_valid_shaft_level())
-        mpr("Beware, you cannot shaft yourself on this level.");
+        mpr(jtrans("Beware, you cannot shaft yourself on this level."));
 
     const bool newlevel = load_level(how, LOAD_ENTER_LEVEL, old_level);
 
@@ -892,8 +897,8 @@ level_id stair_destination(dungeon_feature_type feat, const string &dst,
         {
             if (for_real)
             {
-                mprf(MSGCH_ERROR, "Error: no Hell exit level, how in the "
-                                  "Vestibule did you get here? Let's go to D:1.");
+                mprf(MSGCH_ERROR, jtrans("Error: no Hell exit level, how in the "
+                                         "Vestibule did you get here? Let's go to D:1."));
             }
             return level_id(BRANCH_DUNGEON, 1);
         }
@@ -957,8 +962,8 @@ level_id stair_destination(dungeon_feature_type feat, const string &dst,
             {
                 if (for_real)
                 {
-                    mprf(MSGCH_ERROR, "Error: no return path. You did create "
-                         "the exit manually, didn't you? Let's go to D:1.");
+                    mprf(MSGCH_ERROR, jtrans("Error: no return path. You did create "
+                                             "the exit manually, didn't you? Let's go to D:1."));
                 }
                 return level_id(BRANCH_DUNGEON, 1);
             }
