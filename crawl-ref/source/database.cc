@@ -241,6 +241,7 @@ static TextDB AllDBs[] =
            "jtrans_shout.txt",
            "jtrans_skill_menu.txt",
            "jtrans_skills.txt",
+           "jtrans_species.txt",
            "jtrans_spl_book.txt",
            "jtrans_spl_cast.txt",
            "jtrans_spl_clouds.txt",
@@ -260,15 +261,10 @@ static TextDB AllDBs[] =
            "jtrans_stash.txt",
            "jtrans_state.txt",
            "jtrans_status.txt",
+           "jtrans_target.txt",
 
-           "jtrans_species.txt",
            "jtrans_travel.txt",
            "jtrans_tutorial.txt",
-
-           /*
-           "jtrans_autofight_lua.txt",
-           "jtrans_magicspell.txt",
-           */
 
            "jtrans_dat_des_sprint.txt",
            "jtrans_dat_des_tutorial.txt",
