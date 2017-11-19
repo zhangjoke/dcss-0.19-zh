@@ -15,6 +15,14 @@ Loading complete, press any key to start.
 
 読み込み完了しました。任意のキーを押して開始してください。
 %%%%
+Non-debug Crawl cannot run tests. Please use a debug build (defined FULLDEBUG, DEBUG_DIAGNOSTIC or DEBUG_TESTS)
+
+# 訳不要
+%%%%
+Dismissing %s
+
+# for debug
+%%%%
 Dungeon Crawl
 
 ダンジョンクロウル
@@ -61,7 +69,7 @@ The Arena
 %%%%
 Pit computer controlled teams versus each other!
 
-指定したモンスターを敵味方に分けて争わせるモードです。
+指定したモンスターを敵味方に分けて自動的に争わせるモードです。
 %%%%
 High Scores
 
@@ -75,6 +83,18 @@ New Game
 
 新たにゲームを開始する
 %%%%
+freeform
+
+
+%%%%
+game modes
+
+
+%%%%
+save games
+
+
+%%%%
 Enter your name:
 
 名前を入力してください:
@@ -85,20 +105,25 @@ Choices:
 %%%%
 Saved games:
 
-保存されたゲーム一覧:
+保存されているゲーム一覧:
 %%%%
 Use the up/down keys to select the type of game or load a character.
 
 ↑/↓のキーを押してゲームモードを選択するか、ゲーム再開を選択してください。
 %%%%
-You can type your name; if you leave it blank you will be asked later.\nPress Enter to start
+You can type your name; if you leave it blank you will be asked later.\nPress Enter to start.
 
 プレイヤー名を入力してください。空白のままにしておいて後で入力することもできます。
-Enterを押して開始
+Enterを押して開始してください。
 %%%%
-, Tab to repeat the last game's choice
+You can type your name; if you leave it blank you will be asked later.\nPress Enter to start, Tab to repeat the last game's choice.
 
-するか、Tabを押して前選んだものと同じにするか選択
+プレイヤー名を入力してください。空白のままにしておいて後で入力することもできます。
+Enterを押して開始するか、Tabを押して前選んだ組み合わせと同じにするか選択してください。
+%%%%
+That's a silly name
+
+適しない文字が含まれています。
 %%%%
 Enter your choice of teams:
 
@@ -112,7 +137,7 @@ Sigmund v Jessica
 
 # default
 %%%%
-99 orc v the royal jelly
+99 orc v the Royal Jelly
 
 # default
 %%%%
