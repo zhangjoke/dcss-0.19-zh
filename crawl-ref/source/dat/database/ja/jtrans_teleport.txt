@@ -1,15 +1,27 @@
 %%%%
-leap
+struggles to leap free from constriction.
 
-跳躍
+は拘束から逃れようと跳躍した。
 %%%%
-struggles to
+struggles to blink free from constriction.
 
-は拘束から逃れようと
+は拘束から逃れようと瞬間移動した。
 %%%%
-free from constriction.
+leap free!
 
-した。
+は跳躍して自由になった！
+%%%%
+leap!
+
+は跳躍した！
+%%%%
+blink free!
+
+は瞬間移動して自由になった！
+%%%%
+blink!
+
+は瞬間移動した！
 %%%%
 seems more stable.
 

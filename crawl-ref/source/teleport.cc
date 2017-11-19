@@ -11,6 +11,7 @@
 #include "cloud.h"
 #include "coord.h"
 #include "coordit.h"
+#include "database.h"
 #include "delay.h"
 #include "env.h"
 #include "fprop.h"
@@ -88,7 +89,7 @@ bool monster::blink_to(const coord_def& dest, bool quiet, bool jump)
 
     if (!quiet)
     {
-        string message = " " + conj_verb(verb)
+        string message = " " + verb
                          + (was_constricted ? " free!" : "!");
         simple_monster_message(*this, message.c_str());
     }
