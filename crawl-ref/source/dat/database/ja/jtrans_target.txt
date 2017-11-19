@@ -1,7 +1,27 @@
 %%%%
+# There is %s there.
+
+# jtrans_godabil.txtと重複
+%%%%
+# There's something in the way.
+
+# jtrans_directn.txtと重複
+%%%%
 You cannot see that place.
 
 その場所はここから見えない。
+%%%%
+# Out of range.
+
+# jtrans_directn.txtと重複
+%%%%
+# You can't transfer your ancestor with themself.
+
+# jtrans_godabil.txtと重複
+%%%%
+# You can't transfer that.
+
+# jtrans_godabil.txtと重複
 %%%%
 You cannot affect that.
 
@@ -38,4 +58,8 @@ There isn't a shadow there.
 That shadow isn't sufficiently still.
 
 その影は同じ所にとどまっていない。
+%%%%
+buggy no_landing_reason
+
+# for die()
 %%%%
