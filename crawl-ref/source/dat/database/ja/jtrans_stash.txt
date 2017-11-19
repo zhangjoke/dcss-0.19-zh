@@ -1,28 +1,34 @@
 %%%%
+(carried)
+
+(持ち運び中)
+%%%%
 (gone by now)
 
 (腐敗中)
 %%%%
 (skeletalised by now)
 
-(白骨化)
+(白骨化中)
 %%%%
-, %d item%s
+(still there?)
 
-, %d個のアイテム
-%%%%
-[ENTER: travel]
-
-[ENTER: 移動]
-%%%%
-%s%s (%u gold)
-
-%s%s (%uゴールド)
-%%%%
-I'll no longer ignore what I see on this square.
 
 %%%%
-Ok, I'll ignore what I see on this square.
+(unseen)
+
+
+%%%%
+%s%s (%d gold)
+
+%s%s (%dゴールド)
+%%%%
+(Shop contents are unknown)
+
+(品揃え不明)
+%%%%
+You have no stashes.
+
 
 %%%%
 Enter for "%s"
@@ -35,7 +41,7 @@ Enterで"%s"を検索
 %%%%
 Search for what%s?
 
-何を検索しますか？%s
+何を検索しますか？ %s
 %%%%
 Your search expression is invalid.
 
@@ -47,9 +53,41 @@ Can't find anything matching that.
 %%%%
 Too many matches; use a more specific search.
 
-一致件数が多すぎます; もう少し条件を絞ってください。
+一致件数が多すぎます。もう少し条件を絞ってください。
 %%%%
-<lightgrey>: <w>%s</w> [toggle: <w>!</w>], <w>%s</w> stacks [<w>-</w>], by <w>%s</w> [<w>/</w>], <w>%s</w> useless [<w>=</w>]</lightgrey>
+%d %s%s
 
-<lightgrey>: <w>%s</w> [切替: <w>!</w>], スタック<w>%s</w> [<w>-</w>], <w>%s</w>順 [<w>/</w>], 無益な物<w>%s</w> [<w>=</w>]</lightgrey>
+%d件%s
+%%%%
+<lightgrey>: <w>%s</w> [toggle: <w>!</w>], by <w>%s</w> [<w>/</w>], <w>%s</w> useless [<w>=</w>]</lightgrey>
+
+<lightgrey>: <w>%s</w> [切替: <w>!</w>], <w>%s</w>順 [<w>/</w>], 無益な物<w>%s</w> [<w>=</w>]</lightgrey>
+%%%%
+[stash menu]travel
+
+対象まで移動
+%%%%
+[stash menu]view
+
+解説文を見る
+%%%%
+[stash menu]dist
+
+距離
+%%%%
+[stash menu]name
+
+名前
+%%%%
+[stash menu]hide
+
+を隠す
+%%%%
+[stash menu]show
+
+も見る
+%%%%
+match
+
+一致
 %%%%
