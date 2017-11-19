@@ -2655,6 +2655,10 @@ static string _player_spell_desc(spell_type spell, const item_def* item)
     {
         string reason = jtrans(desc_cannot_memorise_reason(spell));
         reason = replace_all(reason, "あなたは", "");
+        reason = replace_all(reason, "あなたが", "");
+        reason = replace_all(reason, "あなたの魔力は", "魔力が");
+        reason = replace_all(reason, "あなたの", "");
+        reason = replace_all(reason, "だ。", "なため");
         reason = replace_all(reason, "。", "ため");
 
         description += make_stringf(jtrans_notrimc("\nYou cannot memorise this spell because {reason}\n"),
@@ -2664,6 +2668,10 @@ static string _player_spell_desc(spell_type spell, const item_def* item)
     {
         string reason = jtrans(spell_uselessness_reason(spell, true, false, rod));
         reason = replace_all(reason, "あなたは", "");
+        reason = replace_all(reason, "あなたが", "");
+        reason = replace_all(reason, "あなたの魔力は", "魔力が");
+        reason = replace_all(reason, "あなたの", "");
+        reason = replace_all(reason, "だ。", "なため");
         reason = replace_all(reason, "。", "ため");
 
         description += make_stringf(jtrans_notrimc("\nThis spell will have no effect right now because {reason}\n"),
