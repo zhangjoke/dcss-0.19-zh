@@ -1,0 +1,125 @@
+%%%%
+Firing
+
+射撃する
+%%%%
+Tossing away
+
+投げ捨てる
+%%%%
+Throwing
+
+投擲する
+%%%%
+(i - inventory)
+
+(i - 一覧から選択)
+%%%%
+(i - inventory. (,) - cycle)
+
+(i - 一覧から選択 (,) - 切り替え)
+%%%%
+There is %s there.
+
+そこには%sがある。
+%%%%
+Fire/throw which item? (* to show all)
+
+どれを射撃/投擲しますか？ (* で全アイテムから選択)
+%%%%
+That weapon is stuck to your %s!
+
+その武器はあなたの%sに貼り付いている！
+%%%%
+You are wearing that object!
+
+あなたは今そのアイテムを装備している！
+%%%%
+You cannot throw anything while held in a net.
+
+あなたは網で拘束されている間何も投擲できない。
+%%%%
+You cannot throw anything while caught in a web.
+
+あなたは蜘蛛の巣に巻きつかれている間何も投擲できない。
+%%%%
+You cannot shoot with your %s while held in a net.
+
+あなたは網で拘束されている間%sを射撃できない。
+%%%%
+You cannot shoot with your %s while caught in a web.
+
+あなたは蜘蛛の巣に巻きつかれている間%sを射撃できない。
+%%%%
+fragments
+
+の破片
+%%%%
+explosion of
+
+の爆発
+%%%%
+You hear a whirring sound.
+
+あなたはかすかに風切り音を聞いた。
+%%%%
+You hear a loud whirring sound.
+
+あなたは大きな風切り音を聞いた。
+%%%%
+You hear a twanging sound.
+
+あなたは弓鳴りの音を聞いた。
+%%%%
+You hear a loud twanging sound.
+
+あなたは大きな弓鳴りの音を聞いた。
+%%%%
+You hear a quiet thunk.
+
+あなたはかすかにクロスボウの発射音を聞いた。
+%%%%
+You hear a thunk.
+
+あなたはクロスボウの発射音を聞いた。
+%%%%
+You hear a triplet of thunks.
+
+あなたは三条のクロスボウの発射音を聞いた。
+%%%%
+You %s%s %s.
+
+あなたは%s%sを%s。
+%%%%
+magically
+
+魔法の力で
+%%%%
+toss away
+
+放り投げた
+%%%%
+shoot
+
+射撃した
+%%%%
+throw
+
+投擲した
+%%%%
+returns to your pack!
+
+はあなたの手元に戻ってきた！
+%%%%
+fails to return to your pack!
+
+はあなたの手元に戻ってきたが、うまく受け取れなかった！
+%%%%
+shoots
+
+射撃した
+%%%%
+throws
+
+投擲した
+%%%%
