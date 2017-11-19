@@ -1,0 +1,17 @@
+%%%%
+%s comes into view.
+
+%sに遭遇した。
+%%%%
+Tutorial
+
+チュートリアル
+%%%%
+Arena
+
+アリーナ
+%%%%
+Zot Defence
+
+ゾットディフェンス
+%%%%
