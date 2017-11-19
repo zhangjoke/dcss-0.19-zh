@@ -1,11 +1,35 @@
 %%%%
 (expiring)
 
-(時間切れ寸前)
+(時間切れ間近)
 %%%%
-Expiring:
+# Expiring:
 
-時間切れ寸前:
+# jtrans_player.txtと重複
+%%%%
+[dur]-Cast
+
+魔法×
+%%%%
+[dur]no casting
+
+魔法不可
+%%%%
+You are unable to cast spells.
+
+あなたは呪文を唱えることができない。
+%%%%
+[dur]+Cast
+
+魔法＋
+%%%%
+[dur]divine energy
+
+神気の供給
+%%%%
+You are calling on Sif Muna for divine energy.
+
+あなたはシフ・ムーナによって神気の供給を受けている。
 %%%%
 Corr (%d)
 
@@ -53,23 +77,15 @@ You are wreathed by an umbra.
 %%%%
 [dur]Held
 
-拘束
+拘束中
 %%%%
 You are held in a net.
 
 あなたは網で拘束されている。
 %%%%
-You are held in a net!
-
-あなたは網で拘束されている！
-%%%%
 You are caught in a web.
 
 あなたは蜘蛛の巣に巻きつかれている。
-%%%%
-You are caught in a web!
-
-あなたは蜘蛛の巣に巻きつかれている！
 %%%%
 [dur]SlowM
 
@@ -81,47 +97,43 @@ You are caught in a web!
 %%%%
 Your movement is slowed on this liquid ground.
 
-あなたの動きはぬかるみに邪魔されている。
+あなたの動きはぬかるみによって遅くなっている。
 %%%%
 [dur]Aug
 
 増強
 %%%%
-are glowing red.
+[hands act]your hands are glowing red.
 
-は赤く輝いている。
+あなたの%sは赤く輝いている。
+%%%%
+Expiring: You are surrounded by a ring of flames.
+
+継続中: あなたは炎の円環に囲まれている。
 %%%%
 You are surrounded by a ring of flames.
 
 あなたは炎の円環に囲まれている。
 %%%%
-You are immune to clouds of flame.
+Expiring: You are immune to clouds of flame.
 
-あなたは火炎の雲に対して傷つかない。
+継続中: あなたは火炎の雲に対して傷つかない。
 %%%%
-[dur]Regen+
+# You are immune to clouds of flame.
 
-回復＋
+# jtrans_mutation_data.txtと重複
 %%%%
-[dur]SBlade
+Regen (%d)
 
-命中＋
+再生(%d)
 %%%%
-[dur]bonded with blade
+studying %s.
 
-命中＋
+%sスキルを習得中
 %%%%
-You have a strong bond with your blade.
+You are studying %s.
 
-あなたは刃と強く結ばれている。
-%%%%
-You have a bond with your blade.
-
-あなたは刃と結ばれている。
-%%%%
-You have a weak bond with your blade.
-
-あなたは刃と弱く結ばれている。
+あなたは%sスキルを習得中だ。
 %%%%
 [dur]Fball
 
@@ -145,11 +157,15 @@ You are enveloped in carrion and bones.
 %%%%
 [dur]Constr
 
-拘束
+拘束中
 %%%%
 [dur]constricted
 
 拘束中
+%%%%
+# [dur]Sil
+
+# jtrans_duration_data.txtと重複
 %%%%
 [dur]silenced
 
@@ -162,10 +178,6 @@ You are silenced.
 Slay (%u)
 
 戦歌(+%u)
-%%%%
-[dur]-cTele
-
-制御転位阻害
 %%%%
 [dur]Beogh
 
@@ -185,7 +197,7 @@ You are recalling your allies.
 %%%%
 [dur]Engulf
 
-水没
+水没中
 %%%%
 [dur]engulfed
 
@@ -275,6 +287,14 @@ Your control over your magic has been sapped.
 
 買収中
 %%%%
+bribing [%s]
+
+買収中 [%s]
+%%%%
+You are bribing %s.
+
+あなたは%sを買収している。
+%%%%
 Horr(%d)
 
 恐怖(%d)
@@ -295,9 +315,9 @@ You are extremely horrified!
 
 あなたは極めて怯えている！
 %%%%
-[dur]horrified
+# [dur]horrified
 
-恐怖に怯えている
+# jtrans_duration_data.txtと重複
 %%%%
 You are horrified!
 
@@ -307,17 +327,93 @@ You are horrified!
 
 雲烟
 %%%%
+[dur]Orb
+
+オーブ
+%%%%
+[dur]-Clouds
+
+雲×
+%%%%
+[dur]Missing
+
+# 訳不要
+%%%%
+[dur]missing status
+
+# 訳不要
+%%%%
+Missing status description.
+
+# 訳不要
+%%%%
+[dur]Alive
+
+生者
+%%%%
+[dur]Engorged
+
+腹一杯
+%%%%
+[dur]Very Full
+
+とても満腹
+%%%%
+[dur]Full
+
+満腹
+%%%%
+[dur]Thirsty
+
+渇いている
+%%%%
+[dur]Hungry
+
+空腹
+%%%%
+[dur]Very Thirsty
+
+とても渇いている
+%%%%
+[dur]Very Hungry
+
+とても空腹
+%%%%
+[dur]Near Bloodless
+
+ほとんど血液がない
+%%%%
+[dur]Near Starving
+
+餓死が近い
+%%%%
+[dur]Bloodless
+
+血液がない
+%%%%
+[dur]Starving
+
+餓死しかけ
+%%%%
+[dur]Fainting
+
+餓死間近
+%%%%
 [dur]Contam
 
 魔力汚染
+%%%%
+[dur]contaminated
+
+魔力汚染されている
 %%%%
 [dur]very slightly contaminated
 
 わずかに魔力汚染されている
 %%%%
-[dur]contaminated
+[dur]slightly contaminated
 
-魔力汚染されている
+少し魔力汚染されている
 %%%%
 [dur]heavily contaminated
 
@@ -339,7 +435,7 @@ You are horrified!
 
 再生
 %%%%
-[dur]Regen MR++
+[dur]RegenMR++
 
 再生 耐魔法＋＋
 %%%%
@@ -363,18 +459,6 @@ You are regenerating.
 
 あなたは再生している。
 %%%%
-[dur]recuperating slowly
-
-ゆっくり快復中
-%%%%
-[dur]recuperating quickly
-
-急速に快復中
-%%%%
-[dur]recuperating very quickly
-
-極めて急速に快復中
-%%%%
 [dur]regenerating slowly
 
 緩やかに再生中
@@ -383,33 +467,41 @@ You are regenerating.
 
 急速に再生中
 %%%%
-[dur]regenerating very quickly
+[dur]recuperating slowly
 
-極めて急速に再生中
+緩やかに快復中
+%%%%
+[dur]recuperating quickly
+
+急速に快復中
 %%%%
 [dur]Pois
 
 毒
 %%%%
-lethally poisoned
+[dur]lethally poisoned
 
 致死毒に冒されている
 %%%%
-seriously poisoned
+[dur]seriously poisoned
 
 猛毒に冒されている
 %%%%
-quite poisoned
+[dur]quite poisoned
 
 重い毒に冒されている
 %%%%
-mildly poisoned
+[dur]mildly poisoned
 
 毒に冒されている
 %%%%
+You are %s.
+
+あなたは%s。
+%%%%
 [dur]Fast+Slow
 
-加減速
+加減速中
 %%%%
 [dur]hasted and slowed
 
@@ -421,7 +513,7 @@ You are under both slowing and hasting effects.
 %%%%
 [dur]Slow
 
-減速
+減速中
 %%%%
 [dur]slowed
 
@@ -433,7 +525,7 @@ You are slowed.
 %%%%
 [dur]Fast
 
-加速
+加速中
 %%%%
 [dur]hasted
 
@@ -445,7 +537,7 @@ Your actions are hasted.
 %%%%
 [dur]Fly
 
-飛行
+飛行中
 %%%%
 [dur]flying
 
@@ -457,15 +549,11 @@ Your actions are hasted.
 %%%%
 You are flying.
 
-あなたは飛んでいる。
+あなたは空を飛んでいる。
 %%%%
 You are flying quickly and evasively.
 
-あなたは自由自在に飛んでいる。
-%%%%
-[dur]Rot
-
-腐敗
+あなたは自由自在に空を飛んでいる。
 %%%%
 [dur]rotting
 
@@ -511,6 +599,18 @@ Your flesh is rotting at the usual pace.
 
 軽い病気に冒されている
 %%%%
+You are badly diseased.
+
+あなたは重い病気に冒されている。
+%%%%
+You are diseased.
+
+あなたは病気に冒されている。
+%%%%
+You are mildly diseased.
+
+あなたは軽い病気に冒されている。
+%%%%
 [dur]Collapse
 
 筋萎縮
@@ -521,43 +621,19 @@ Your flesh is rotting at the usual pace.
 %%%%
 [dur]Clumsy
 
-不器用
+致命的不器用
 %%%%
-[dur]lost strength
+lost %s
 
-腕力の喪失
+%sの喪失
 %%%%
-[dur]lost intelligence
+You are recovering from loss of %s.
 
-知性の喪失
+あなたは%sの喪失から回復しつつある。
 %%%%
-[dur]lost dexterity
+You have no %s!
 
-器用さの喪失
-%%%%
-You are recovering from loss of strength.
-
-あなたは腕力の喪失から回復しつつある。
-%%%%
-You are recovering from loss of intelligence.
-
-あなたは知性の喪失から回復しつつある。
-%%%%
-You are recovering from loss of dexterity.
-
-あなたは器用さの喪失から回復しつつある。
-%%%%
-You have no strength!
-
-あなたは腕力を失った！
-%%%%
-You have no intelligence!
-
-あなたは知性を失った！
-%%%%
-You have no dexterity!
-
-あなたは極めて不器用だ！
+あなたは%sを失った！
 %%%%
 [dur]Water
 
@@ -593,7 +669,7 @@ You repel missiles.
 %%%%
 [dur]Invis
 
-透明化
+透明化中
 %%%%
 [dur]invisible
 
