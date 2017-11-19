@@ -1108,7 +1108,7 @@ void discover_mimic(const coord_def& pos)
         return;
     }
 
-    const string name = feature_mimic ? "the " + string(feat_type_name(feat))
+    const string name = feature_mimic ? feature_name_j(feat_type_name(feat))
                                       : item->name(DESC_THE, false, false,
                                                              false, true);
     const bool plural = feature_mimic ? false : item->quantity > 1;
@@ -1121,7 +1121,7 @@ void discover_mimic(const coord_def& pos)
     if (you.see_cell(pos))
         mprf(jtransc("%s %s a mimic!"), name.c_str(), verb_jc(plural ? "are" : "is"));
 
-    const string shortname = feature_mimic ? feat_type_name(feat)
+    const string shortname = feature_mimic ? feature_name_j(feat_type_name(feat))
                                            : item->name(DESC_BASENAME);
     if (item)
         destroy_item(item->index(), true);

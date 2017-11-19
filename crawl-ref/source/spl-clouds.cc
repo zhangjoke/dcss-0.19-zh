@@ -49,7 +49,8 @@ spret_type conjure_flame(const actor *agent, int pow, const coord_def& where,
         if (agent->is_player())
         {
             const char *feat = feat_type_name(grd(where));
-            mprf(jtransc("You can't place the cloud on %s."), jtransc(feat));
+            mprf(jtransc("You can't place the cloud on %s."),
+                 feature_name_jc(feat));
         }
         return SPRET_ABORT;
     }
@@ -130,7 +131,8 @@ spret_type cast_big_c(int pow, spell_type spl, const actor *caster, bolt &beam,
     if (cell_is_solid(beam.target))
     {
         const char *feat = feat_type_name(grd(beam.target));
-        mprf(jtransc("You can't place clouds on %s."), jtransc(feat));
+        mprf(jtransc("You can't place clouds on %s."),
+             feature_name_jc(feat));
         return SPRET_ABORT;
     }
 

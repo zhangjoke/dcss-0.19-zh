@@ -113,7 +113,8 @@ spret_type cast_fire_storm(int pow, bolt &beam, bool fail)
     if (cell_is_solid(beam.target))
     {
         const char *feat = feat_type_name(grd(beam.target));
-        mprf(jtransc("You can't place the storm on %s."), jtransc(feat));
+        mprf(jtransc("You can't place the storm on %s."),
+             feature_name_jc(feat));
         return SPRET_ABORT;
     }
 
