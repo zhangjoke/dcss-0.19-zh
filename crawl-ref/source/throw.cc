@@ -150,28 +150,28 @@ void fire_target_behaviour::set_prompt()
 
     // Build the action.
     if (!active_item())
-        msg << "Firing ";
+        msg << jtrans_notrim("Firing ");
     else
     {
         const launch_retval projected = is_launched(&you, you.weapon(),
                                                     *active_item());
         switch (projected)
         {
-        case LRET_FUMBLED:  msg << "Tossing away "; break;
-        case LRET_LAUNCHED: msg << "Firing ";             break;
-        case LRET_THROWN:   msg << "Throwing ";           break;
-        case LRET_BUGGY:    msg << "Bugging "; break;
+        case LRET_FUMBLED:  msg << jtrans_notrim("Tossing away "); break;
+        case LRET_LAUNCHED: msg << jtrans_notrim("Firing ");       break;
+        case LRET_THROWN:   msg << jtrans_notrim("Throwing ");     break;
+        case LRET_BUGGY:    msg << jtrans_notrim("Bugging ");      break;
         }
     }
 
     // And a key hint.
-    msg << (no_other_items ? "(i - inventory)"
-                           : "(i - inventory. (,) - cycle)")
+    msg << jtrans(no_other_items ? "(i - inventory)"
+                                 : "(i - inventory. (,) - cycle)")
         << ": ";
 
     // Describe the selected item for firing.
     if (!active_item())
-        msg << "<red>" << m_noitem_reason << "</red>";
+        msg << "<red>" << jtrans(m_noitem_reason) << "</red>";
     else
     {
         const char* colour = (selected_from_inventory ? "lightgrey" : "w");
@@ -304,7 +304,8 @@ static bool _fire_choose_item_and_target(int& slot, dist& target,
     if (teleport && cell_is_solid(target.target))
     {
         const char *feat = feat_type_name(grd(target.target));
-        mprf("There is %s there.", article_a(feat).c_str());
+        mprf(jtransc("There is %s there."),
+             feature_name_jc(feat));
         return false;
     }
 
@@ -341,12 +342,13 @@ static bool _fire_validate_item(int slot, string &err)
         && is_weapon(you.inv[slot])
         && you.inv[slot].cursed())
     {
-        err = "That weapon is stuck to your " + you.hand_name(false) + "!";
+        err = make_stringf(jtransc("That weapon is stuck to your %s!"),
+                           you.hand_name(false).c_str());
         return false;
     }
     else if (item_is_worn(slot))
     {
-        err = "You are wearing that object!";
+        err = jtrans("You are wearing that object!");
         return false;
     }
     return true;
@@ -358,7 +360,7 @@ bool fire_warn_if_impossible(bool silent)
     if (you.species == SP_FELID)
     {
         if (!silent)
-            mpr("You can't grasp things well enough to throw them.");
+            mpr(jtrans("You can't grasp things well enough to throw them."));
         return true;
     }
 
@@ -376,15 +378,16 @@ bool fire_warn_if_impossible(bool silent)
         if (!weapon || !is_range_weapon(*weapon))
         {
             if (!silent)
-                mprf("You cannot throw anything while %s.", held_status());
+                mprf(jtrans(make_stringf("You cannot throw anything while %s.", held_status())));
             return true;
         }
         else if (weapon->sub_type != WPN_BLOWGUN)
         {
             if (!silent)
             {
-                mprf("You cannot shoot with your %s while %s.",
-                     weapon->name(DESC_BASENAME).c_str(), held_status());
+                mprf(jtransc("You cannot shoot with your %s while %s."),
+                     jtransc(held_status()),
+                     weapon->name(DESC_BASENAME).c_str());
             }
             return true;
         }
@@ -585,7 +588,7 @@ static bool _setup_missile_beam(const actor *agent, bolt &beam, item_def &item,
         if (beam.flavour == BEAM_MISSILE)
         {
             expl->flavour = BEAM_FRAG;
-            expl->name   += " fragments";
+            expl->name   += jtrans(" fragments");
 
             const string short_name =
                 item.name(DESC_BASENAME, true, false, false, false,
@@ -594,15 +597,11 @@ static bool _setup_missile_beam(const actor *agent, bolt &beam, item_def &item,
             expl->name = replace_all(expl->name, item.name(DESC_PLAIN),
                                      short_name);
         }
-        expl->name = "explosion of " + expl->name;
+        expl->name = make_stringf(jtransc("explosion of %s"),
+                                  expl->name.c_str());
 
         beam.special_explosion = expl;
     }
-
-    if (!is_artefact(item))
-        ammo_name = article_a(ammo_name, true);
-    else
-        ammo_name = "the " + ammo_name;
 
     return false;
 }
@@ -854,11 +853,11 @@ bool throw_it(bolt &pbolt, int throw_2, dist *target)
     you.time_taken = you.attack_delay(&item).roll();
 
     // Create message.
-    mprf("You %s%s %s.",
-          teleport ? "magically " : "",
-          (projected == LRET_FUMBLED ? "toss away" :
-           projected == LRET_LAUNCHED ? "shoot" : "throw"),
-          ammo_name.c_str());
+    mprf(jtransc("You %s%s %s."),
+         jtransc(teleport ? "magically " : ""),
+         ammo_name.c_str(),
+         verb_jc(projected == LRET_FUMBLED ? "toss away" :
+                 projected == LRET_LAUNCHED ? "shoot" : "throw"));
 
     // Ensure we're firing a 'missile'-type beam.
     pbolt.pierce    = false;
@@ -920,7 +919,7 @@ bool throw_it(bolt &pbolt, int throw_2, dist *target)
         viewwindow();
         pbolt.fire();
 
-        msg::stream << item.name(DESC_THE) << " returns to your pack!"
+        msg::stream << item.name(DESC_THE) << jtrans(" returns to your pack!")
                     << endl;
 
         // Player saw the item return.
@@ -933,7 +932,7 @@ bool throw_it(bolt &pbolt, int throw_2, dist *target)
         if (returning && item_type_known(you.inv[throw_2]))
         {
             msg::stream << item.name(DESC_THE)
-                        << " fails to return to your pack!" << endl;
+                        << jtrans(" fails to return to your pack!") << endl;
         }
         dec_inv_item_quantity(throw_2, 1);
         if (unwielded)
@@ -1033,13 +1032,12 @@ bool mons_throw(monster* mons, bolt &beam, int msl, bool teleport)
 
     // Now, if a monster is, for some reason, throwing something really
     // stupid, it will have baseHit of 0 and damage of 0. Ah well.
-    string msg = mons->name(DESC_THE);
+    string msg = mons->name(DESC_THE) + "は";
     if (teleport)
-        msg += " magically";
-    msg += ((projected == LRET_LAUNCHED) ? " shoots " : " throws ");
+        msg += jtrans(" magically");
 
     if (!beam.name.empty() && projected == LRET_LAUNCHED)
-        msg += article_a(beam.name);
+        msg += zap_name_j(beam.name);
     else
     {
         // build shoot message
@@ -1048,7 +1046,9 @@ bool mons_throw(monster* mons, bolt &beam, int msl, bool teleport)
         // build beam name
         beam.name = item.name(DESC_PLAIN, false, false, false);
     }
-    msg += ".";
+    msg += "を";
+    msg += verb_j((projected == LRET_LAUNCHED) ? " shoots " : " throws ");
+    msg += jtrans(".");
 
     if (mons->observable())
     {
@@ -1098,11 +1098,10 @@ bool mons_throw(monster* mons, bolt &beam, int msl, bool teleport)
         // Otherwise we get "The weapon returns whence it came from!" regardless.
         if (you.see_cell(beam.target) || you.can_see(*mons))
         {
-            msg::stream << "The weapon returns "
-                        << (you.can_see(*mons)?
-                              ("to " + mons->name(DESC_THE))
-                            : "from whence it came")
-                        << "!" << endl;
+            msg::stream << make_stringf(jtransc("The weapon returns %s!"),
+                                        jtransc(you.can_see(*mons) ? mons->name(DESC_THE) + "の所へ"
+                                                                   : "from whence it came"))
+                        << endl;
         }
 
         // Player saw the item return.
