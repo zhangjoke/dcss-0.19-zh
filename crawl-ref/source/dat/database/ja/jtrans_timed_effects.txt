@@ -1,0 +1,121 @@
+%%%%
+the effects of Hell
+
+地獄効果
+%%%%
+'s power protects you from the chaos of Hell!
+
+の御業によりあなたは地獄の混沌から守られた！
+%%%%
+You hear an odd grinding sound!
+
+あなたは奇妙な軋む音を聞いた！
+%%%%
+You hear the creaking of ancient gears!
+
+あなたはぼろぼろの歯車がキーキー言う音を聞いた！
+%%%%
+The floor suddenly vibrates beneath you!
+
+あなたの足下の床が突然振動した！
+%%%%
+You feel a sudden draft!
+
+あなたは突然すきま風を感じた！
+%%%%
+Your body shudders with the violent release of wild energies!
+
+あなたの体は荒々しいエネルギーの解放で震えた！
+%%%%
+mutagenic glow
+
+変異の輝き
+%%%%
+Your body momentarily shudders from a surge of wild energies until Zin's power calms it.
+
+ジンの御業により、エネルギーの奔流によるあなたの体の震えが止まった。
+%%%%
+Your disease is taking its toll.
+
+病気により能力値が下がった。
+%%%%
+disease
+
+病気
+%%%%
+deterioration mutation
+
+能力低下
+%%%%
+gurgles merrily.
+
+は陽気にぶくぶくと音を立てた。
+%%%%
+You hear %s splatter%s.
+
+あなたはバチャバチャという%s音を耳にした。
+%%%%
+says: Divide and consume!
+
+は『分裂して貪るのだ！』と言った。
+%%%%
+You feel a genetic drift.
+
+あなたは体が変異していくのを感じた。
+%%%%
+end of evolution
+
+進化終了
+%%%%
+has recharged.
+
+は再び使えるようになった。
+%%%%
+The walls disappear%s!
+
+壁は%s消え去った！
+%%%%
+prematurely
+
+本来よりも早く
+%%%%
+Zin %s %s %s.
+
+ジンは%sを%s%s%s。
+%%%%
+the silver walls,
+
+白銀の壁
+%%%%
+from %s prison
+
+牢獄から
+%%%%
+releases
+
+解き放った
+%%%%
+dismisses
+
+解除した
+%%%%
+but there is nothing inside them
+
+が、中には何もいなかった
+%%%%
+You hear a deep rumble.
+
+あなたは何かが崩れる轟音を耳にした。
+%%%%
+You feel the ground shudder.
+
+あなたは大地が震えるのを感じた。
+%%%%
+The runic seals fade away.
+
+ルーンによる扉の封印が解けた。
+%%%%
+The runic seal fades away.
+
+ルーンによる扉の封印が解けた。
+%%%%
