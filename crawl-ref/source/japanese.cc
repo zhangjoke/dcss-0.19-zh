@@ -85,10 +85,12 @@ string jconj_verb(const string& verb, jconj conj)
         v = replace_all(v, "を殺した", "が殺された");
         break;
     case JCONJ_PRES:
-        v = replace_all(v, "射撃した", "射撃する");
+        v = replace_all(v, "した", "する");
+        v = replace_all(v, "泳いだ", "泳ぐ");
+        v = replace_all(v, "唱えた", "唱える");
+        v = replace_all(v, "使った", "使う");
         v = replace_all(v, "を上げた", "を上げる");
         v = replace_all(v, "叫んだ", "叫ぶ");
-        v = replace_all(v, "絶叫した", "絶叫する");
         v = replace_all(v, "鳴いた", "鳴く");
     }
 

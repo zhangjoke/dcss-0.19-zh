@@ -139,9 +139,9 @@ fails to return to your pack!
 
 はあなたの手元に戻ってきたが、うまく受け取れなかった！
 %%%%
-[verb]shoots
+# [verb]shoots
 
-<[verb]shoot>
+# jtrans_describe.txtと重複
 %%%%
 [verb]throws
 
