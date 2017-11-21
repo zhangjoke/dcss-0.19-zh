@@ -348,7 +348,7 @@ string direction_chooser::build_targeting_hint_string() const
 void direction_chooser::print_top_prompt() const
 {
     if (!top_prompt.empty())
-        mprf(MSGCH_PROMPT, "%s", top_prompt.c_str());
+        mprf(MSGCH_PROMPT, "%s", jtransc(top_prompt));
 }
 
 void direction_chooser::print_key_hints() const
