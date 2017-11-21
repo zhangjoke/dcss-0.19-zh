@@ -3501,7 +3501,7 @@ string get_monster_equipment_desc(const monster_info& mi,
                                                 item_descriptions.begin(),
                                                 item_descriptions.end());
 
-    if (!item_description.empty() && !desc.empty());
+    if (!item_description.empty() && !desc.empty())
         desc += ", " + item_description + "を装備している";
     if (!carried_desc.empty() && !desc.empty())
         desc += ", " + carried_desc;
