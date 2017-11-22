@@ -18,6 +18,7 @@ enum jconj
     JCONJ_PERF, // 完了形
     JCONJ_PASS, // 受動態
     JCONJ_PRES, // 現在形
+    JCONJ_PAST, // 過去形
 };
 
 const string conjugate_verb_j(const string &verb, bool plural);

@@ -92,6 +92,10 @@ string jconj_verb(const string& verb, jconj conj)
         v = replace_all(v, "を上げた", "を上げる");
         v = replace_all(v, "叫んだ", "叫ぶ");
         v = replace_all(v, "鳴いた", "鳴く");
+        break;
+    case JCONJ_PAST:
+        v = replace_all(v, "いる", "いた");
+        break;
     }
 
     return v;

@@ -1,7 +1,35 @@
 %%%%
+# [verb]hit
+
+# jtrans_melee_attack.txtと重複
+%%%%
+[verb]bite
+
+嚙んだ
+%%%%
+# [verb]maul
+
+# jtrans_form_data.txtと重複
+%%%%
+No formdata entry found for form %d
+
+# for die()
+%%%%
+Unknown scaling type!
+
+# for die()
+%%%%
 You %s %s
 
-あなたは%sしている。
+あなた%s%sしている。
+%%%%
+[verb]were
+
+<[verb]are>
+%%%%
+Buggily, y
+
+# 訳不要
 %%%%
 You fly out of the water as y
 
@@ -15,6 +43,10 @@ As you dive into the water, y
 
 %sあなたは%sに変わった。
 %%%%
+You turn into a stone statue.
+
+あなたは動く石像と化した。
+%%%%
 Your transformation has ended.
 
 変身の効果時間は終わった。
@@ -26,6 +58,10 @@ hover solemnly before
 your old self.
 
 元の姿
+%%%%
+blade {hands}
+
+刃の%s
 %%%%
 You %s blades for %s.
 
@@ -71,9 +107,9 @@ Stone fist%s
 
 石の拳
 %%%%
+#if TAG_MAJOR_VERSION == 34
 Your icy form melts away into molten rock.
 
-# obsolete
 %%%%
 You warm up again.
 
@@ -97,15 +133,27 @@ You feel your undeath return to normal.
 %%%%
 You %s in %sbat-form.
 
-あなたは%sコウモリの姿をしている。
+あなた%s%sコウモリの姿をしている。
 %%%%
-a %sbat.
+vampire-
 
-%sコウモリの姿
+吸血
 %%%%
-One of your tentacles %s a temporary spike.
+a vampire bat.
 
-あなたの持つ触手のひとつから一時的に棘が生えて%s。
+吸血コウモリの姿
+%%%%
+a bat.
+
+コウモリの姿
+%%%%
+One of your tentacles had a temporary spike.
+
+あなたの持つ触手のひとつから一時的に棘が生えていた。
+%%%%
+One of your tentacles has a temporary spike.
+
+あなたの持つ触手のひとつから一時的に棘が生えている。
 %%%%
 You %s grown temporary %s.
 
@@ -123,6 +171,10 @@ Your feet morph into talons.
 
 あなたの%sは鉤爪へと変化した。
 %%%%
+Unknown beastly appendage.
+
+# for die()
+%%%%
 You feel less woody.
 
 あなたはもう樹木の姿ではなくなった。
@@ -139,13 +191,21 @@ You emerge from the shadows.
 
 あなたは影の中から姿を現した。
 %%%%
-a %d-headed hydra.
+a %s-headed hydra.
 
 %s首ヒドラの姿を
 %%%%
 Bite (x%d)
 
 噛みつき (x%d)
+%%%%
+%s fall%s away!
+
+%sは床に落ちた！
+%%%%
+%s meld%s into your body.
+
+%sは肉体と融合した。
 %%%%
 %s is pushed off your body!
 
@@ -155,17 +215,45 @@ Bite (x%d)
 
 %sはあなたの体と分離した。
 %%%%
-You can't transform into a tree while standing in a cloud of %s.
+[form]paw
 
-あなたは%sの中にいる間は樹木に変化することはできない。
+<[foot name]paw>
 %%%%
-You would %s in your new form.
+[form]paws
 
-その姿に変化すると%sしまう。
+<[form]paw>
 %%%%
-%s will reduce your %s to zero.  Continue?
+# [form]front paw
 
-%s、あなたの%sはゼロ以下になります。それでも続行しますか？
+# jtrans_form_data.txtと重複
+%%%%
+[form]front paws
+
+<[form]front paw>
+%%%%
+[form]tentacles
+
+<[form]tentacle>
+%%%%
+[form]hand
+
+<[hand name]hand>
+%%%%
+[form]hands
+
+<[form]hand>
+%%%%
+You would drown in your new form.
+
+その姿に変化すると溺れてしまう。
+%%%%
+You would burn in your new form.
+
+その姿に変化すると焼きつくされてしまう。
+%%%%
+%s will reduce your %s to zero. Continue?
+
+%s、あなたの%sはゼロになります。それでも続行しますか？
 %%%%
 Turning back
 
@@ -211,13 +299,13 @@ Your unliving flesh cannot be transformed in this way.
 
 あなたの死せる肉体はこの方法では変身することはできない。
 %%%%
-The transformation conflicts with an enchantment already in effect.
+You cannot become a lich while in Death's Door.
 
-それに変身することはすでに効果を発揮している魔法と両立できない。
+死のとば口に立っている間はリッチへと変化することはできない。
 %%%%
+#if TAG_MAJOR_VERSION == 34
 Your temperature is too high to benefit from that spell.
 
-# obsolete
 %%%%
 You have no appropriate body parts free.
 
@@ -227,21 +315,9 @@ Your mandibles meld away.
 
 あなたの大顎は一時的に消え去った。
 %%%%
-Your new body merges with your stone armour.
-
-あなたの新たな体は石の肌と溶けあった。
-%%%%
-Your new body is particularly stony.
-
-# obsolete
-%%%%
 Your new body cracks your icy armour.
 
 あなたの新たな体は氷の鎧を砕いた。
-%%%%
-Your new body merges with your icy armour.
-
-あなたの新たな体は氷の鎧と溶けあった。
 %%%%
 You disentangle yourself from the web.
 
@@ -251,13 +327,17 @@ Your roots penetrate the ground.
 
 あなたの根っこは大地に食い込んだ。
 %%%%
+# You feel strangely stable.
+
+# jtrans_spl_goditem.txtと重複
+%%%%
 You shred the web into pieces!
 
 あなたは蜘蛛の巣をばらばらに引き裂いた！
 %%%%
-The net rips apart!
+# The net rips apart!
 
-網はばらばらに引き裂かれた！
+# jtrans_misc.txtと重複
 %%%%
 You stop regenerating.
 

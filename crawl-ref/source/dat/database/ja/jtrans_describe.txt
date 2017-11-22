@@ -1929,39 +1929,39 @@ resistant to {resist list}.
 %%%%
 [verb]covers ground
 
-移動する
+移動した
 %%%%
 [verb]swims
 
-泳ぐ
+泳いだ
 %%%%
 [verb]attacks
 
-攻撃する
+攻撃した
 %%%%
 [verb]shoots
 
-射撃する
+射撃した
 %%%%
 [verb]casts spells
 
-魔法を唱える
+魔法を唱えた
 %%%%
 [verb]uses invocations
 
-祈祷する
+祈祷した
 %%%%
 [verb]uses natural abilities
 
-生得的な能力を使う
+生得的な能力を使った
 %%%%
 [verb]uses special abilities
 
-特別な能力を使う
+特別な能力を使った
 %%%%
 [verb]uses items
 
-アイテムを使う
+アイテムを使った
 %%%%
 ,
 
