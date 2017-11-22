@@ -145,7 +145,7 @@ You're too exhausted to go berserk.
 %%%%
 You can't enter a blood rage from death's door.
 
-死のとば口に立っている身ではバーサークすることができない。
+死のとば口に立っている間はバーサークすることができない。
 %%%%
 You are too mesmerised to rage.
 

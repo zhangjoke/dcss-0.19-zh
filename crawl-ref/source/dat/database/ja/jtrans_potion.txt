@@ -1,7 +1,7 @@
 %%%%
 You can't heal while in Death's door.
 
-死のとば口にいる間は回復することができない。
+死のとば口に立っている間は回復することができない。
 %%%%
 You have no ailments to cure.
 
@@ -21,7 +21,7 @@ That would not heal you.
 %%%%
 You cannot heal while in Death's door!
 
-死のとば口にいる間は回復することができない！
+死のとば口に立っている間は回復することができない！
 %%%%
 Your health is already full!
 

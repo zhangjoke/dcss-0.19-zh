@@ -538,7 +538,7 @@ HP changed: %d/%d -> %d/%d
 %%%%
 You cannot pay life while functionally dead.
 
-あなたは死のとば口に踏ん張っている間、命を手放すことができない。
+死のとば口に立っている間は命を手放すことができない。
 %%%%
 You don't have enough health at the moment.
 
