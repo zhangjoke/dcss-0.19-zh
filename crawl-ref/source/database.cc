@@ -267,6 +267,7 @@ static TextDB AllDBs[] =
            "jtrans_throw.txt",
            "jtrans_timed_effects.txt",
            "jtrans_transform.txt",
+           "jtrans_traps.txt",
 
            "jtrans_travel.txt",
            "jtrans_tutorial.txt",
