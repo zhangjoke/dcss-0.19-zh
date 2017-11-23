@@ -273,6 +273,7 @@ static TextDB AllDBs[] =
            "jtrans_view.txt",
            "jtrans_wiz_dgn.txt",
            "jtrans_wiz_fsim.txt",
+           "jtrans_wiz_item.txt",
 
            "jtrans_dat_des_sprint.txt",
            "jtrans_dat_des_tutorial.txt",
