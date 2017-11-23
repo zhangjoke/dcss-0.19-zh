@@ -2746,8 +2746,8 @@ static bool _monster_eat_item(monster* mons)
 
         if (eaten && !shown_msg && player_can_hear(mons->pos()))
         {
-            mprf(MSGCH_SOUND, jtransc("You hear a%s slurping noise."),
-                 jtransc(you.see_cell(mons->pos()) ? "" : " distant"));
+            mprf(MSGCH_SOUND, jtrans(make_stringf("You hear a%s slurping noise.",
+                                                  you.see_cell(mons->pos()) ? "" : " distant")));
             shown_msg = true;
         }
 

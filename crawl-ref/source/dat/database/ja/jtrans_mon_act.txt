@@ -155,13 +155,13 @@ You hear a squelching noise.
 
 # for debug
 %%%%
-You hear a%s slurping noise.
+You hear a slurping noise.
 
-あなたは%s物を食べる音を耳にした。
+あなたは物を食べる音を耳にした。
 %%%%
-distant
+# You hear a distant slurping noise.
 
-遠くで
+# jtrans_godpassive.txtと重複
 %%%%
 opens the %s%s.
 
