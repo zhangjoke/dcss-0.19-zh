@@ -718,6 +718,7 @@ public:
     bool is_any_travel() const;
 
     string runmode_name() const;
+    string runmode_name_j() const;
 
     // Clears run state.
     void clear();
