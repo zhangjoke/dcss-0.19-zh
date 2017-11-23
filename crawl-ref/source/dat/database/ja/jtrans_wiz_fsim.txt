@@ -19,6 +19,14 @@ Cancelling simulation.
 
 シミュレーションを中断しました。
 %%%%
+Simulation cancelled!
+
+シミュレーションは中断されました。
+%%%%
+Can't write %s: %s
+
+# for error
+%%%%
 (A)ttack or (D)efense?
 
 (A)攻撃または(D)防御を選択してください。
