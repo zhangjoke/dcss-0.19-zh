@@ -1,4 +1,12 @@
 %%%%
+Trap position out of bounds!
+
+# for die()
+%%%%
+invalid actor type
+
+# for die()
+%%%%
 held in a net
 
 網で拘束されている
@@ -27,10 +35,6 @@ The net passes right through %s!
 
 網は%sをすり抜けた！
 %%%%
-oozes right through the net!
-
-は網をすり抜けた！
-%%%%
 Something gets caught in the net!
 
 何者かが網の中に捕まっている！
@@ -39,49 +43,37 @@ is caught in the net!
 
 は網の中に捕まっている！
 %%%%
-You become entangled in the net!
+# You become entangled in the net!
 
-あなたは網に絡めとられた！
+# jtrans_misc.txtと重複
 %%%%
-The net rips apart, and %s comes free!
+# The net rips apart, and %s comes free!
 
-網がびりびりに破け、%sは自由を取り戻した！
+# jtrans_mon_act.txtと重複
 %%%%
-All of a sudden the net rips apart!
+# All of a sudden the net rips apart!
 
-突然網がびりびりに破けた！
+# jtrans_mon_act.txtと重複
 %%%%
 drifts right through the net!
 
 は網をすり抜けた！
 %%%%
-a shadow trap
+west
 
-影の怪物の罠
+西
 %%%%
-triggered by
+east
 
-の発動した
+東
 %%%%
-Shadows whirl around %s...
+south
 
-影が%sの周りを取り囲んだ……
+南
 %%%%
-...but the shadows disperse without effect.
+north
 
-……しかし、影は何も起こさぬまま消えていった。
-%%%%
-You step safely past the trap.
-
-# zotdef
-%%%%
-carefully avoids the shaft.
-
-は慎重に縦穴の横を通り過ぎた。
-%%%%
-carefully avoids a trap.
-
-は慎重に罠の横を通り過ぎた。
+北
 %%%%
 You enter the passage of Golubria.
 
@@ -111,6 +103,14 @@ You enter %s!
 
 %sは警報音を鳴り響かせた！
 %%%%
+You hear a (distant) blaring wail {dir}
+
+あなたは%s%s鳴り響く警報音を耳にした。
+%%%%
+distant
+
+遠く
+%%%%
 You avoid triggering a blade trap.
 
 あなたは刃の罠をやり過ごした。
@@ -135,13 +135,9 @@ A huge blade swings out!
 
 巨大な刃が大きく振れた！
 %%%%
-A huge blade swings out
+A huge blade swings out and slices into %s!
 
-巨大な刃が大きく振れ
-%%%%
-The blade breaks!
-
-# zotdef
+巨大な刃が大きく振れて、%sに突き刺さった！
 %%%%
 A net swings high above you.
 
@@ -149,7 +145,7 @@ A net swings high above you.
 %%%%
 A net drops to the ground!
 
-網はそこらの地面に落ちた。
+網はそこらの地面に落ちた！
 %%%%
 A large net falls onto you!
 
@@ -225,19 +221,23 @@ You hear a distant "Zot"!
 %%%%
 The power of Zot is invoked against %s!
 
-ゾットの力があなたに向けて発動した！
+ゾットの力が%sに向けて発動した！
 %%%%
 the power of Zot
 
 ゾットの罠の効果
 %%%%
-The shaft disappears in a puff of logic!
+# The shaft disappears in a puff of logic!
 
-縦穴はぽんっと煙を立てて消え去った！
+# jtrans_stairs.txtと重複
 %%%%
+%s shaft crumbles and collapses.
+
+縦穴は崩れて埋まった。
+%%%%
+#if TAG_MAJOR_VERSION == 34
 The gas trap seems to be inoperative.
 
-# obsolete
 %%%%
 You found %s!
 
@@ -245,15 +245,15 @@ You found %s!
 %%%%
 You struggle to detach yourself from the web.
 
-あなたはなんとか自分自身を蜘蛛の巣から引きはがした。
+あなたはなんとか自分自身を蜘蛛の巣から引きはがそうとしている。
 %%%%
-You slice the net and break free!
+You disentangle yourself.
 
-あなたは網を切り裂いて自由を取り戻した！
+あなたは自由の身になった。
 %%%%
-You cut the net and break free!
+net.net_durability: %d
 
-あなたは網を切って自由を取り戻した！
+# for debug
 %%%%
 You shred the net and break free!
 
@@ -263,10 +263,6 @@ You rip the net and break free!
 
 あなたは網をちぎって自由を取り戻した！
 %%%%
-You slice into the net.
-
-あなたは網を切り裂いた。
-%%%%
 You tear a large gash into the net.
 
 あなたは網をバラバラに切り裂いた。
@@ -274,22 +270,6 @@ You tear a large gash into the net.
 You struggle against the net.
 
 あなたは網を振りほどこうともがいている。
-%%%%
-You slip out of the net!
-
-あなたは網から抜け出して自由になった！
-%%%%
-You break free from the net!
-
-あなたは網を破いて自由になった！
-%%%%
-You try to slip out of the net.
-
-あなたは網から抜け出そうとしている。
-%%%%
-You struggle to escape the net.
-
-あなたは網から逃れようともがいている。
 %%%%
 The trap is out of ammunition!
 
@@ -307,6 +287,10 @@ You avoid triggering %s.
 
 %sは%sをやり過ごした。
 %%%%
+%s: hit %d EV %d, shield hit %d block %d
+
+# for debug
+%%%%
 %s shoots out and misses you.
 
 %sが射出されたが、あなたには当たらなかった。
@@ -314,6 +298,10 @@ You avoid triggering %s.
 %s misses %s!
 
 %sは%sから外れた！
+%%%%
+{name}'s
+
+%sの
 %%%%
 someone's
 
@@ -335,29 +323,9 @@ someone's
 
 が、ダメージを与えられなかった
 %%%%
-A shaft opens up in the floor!
+placeholder trap type %d used
 
-縦穴が床に口を開けた！
-%%%%
-%s fall%s through the shaft.
-
-%sは縦穴を落ちていった。
-%%%%
-pulls away from the web.
-
-は蜘蛛の巣から身を引き離した。
-%%%%
-You disentangle yourself.
-
-あなたは自らを振りほどいた。
-%%%%
-tears the web.
-
-は蜘蛛の巣を破いた。
-%%%%
-The web tears apart.
-
-蜘蛛の巣がバラバラになった。
+# for die()
 %%%%
 You are even more entangled.
 
@@ -365,5 +333,9 @@ You are even more entangled.
 %%%%
 A web harmlessly splats on %s.
 
-蜘蛛の巣は%sに絡みついている。
+蜘蛛の巣は%sの動きを阻害することなく貼りついた。
+%%%%
+You are caught in a web!
+
+あなたは蜘蛛の巣に捕まった！
 %%%%
