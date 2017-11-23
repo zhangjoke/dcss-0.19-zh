@@ -1,5 +1,229 @@
 %%%%
-Level %d of %s
+Have to go through %s. Continue?
 
-%sの%d階
+%sを経由しなければなりません。続けますか？
+%%%%
+Stop exploring?
+
+自動探索を中止しますか？
+%%%%
+Partly explored, obstructed by runed door.
+
+部分的に探索したが、残りの部分はルーンで封印された扉でふさがれている。
+%%%%
+Done exploring.
+
+探索終了。
+%%%%
+Partly explored, can't reach some %s.
+
+部分的に探索したが、%sまで到達できない。
+%%%%
+Could not pick up %s here; shall I ignore %s?
+
+これ以上アイテムを拾えません。無視しますか？
+%%%%
+Key pressed, stopping %s.
+
+キーが押されたため、%sを中止します。
+%%%%
+You're confused, stopping %s.
+
+混乱しているため、%sを中止します。
+%%%%
+You're in a travel-excluded area, stopping %s.
+
+自動移動禁止区域の中にいるため、%sを中止します。
+%%%%
+* - list branches
+
+* - 分岐から選択
+%%%%
+* - list waypoints
+
+* - 中継地点リスト
+%%%%
+? - help
+
+? - ヘルプ
+%%%%
+Where to? %s
+
+どこへ向かう？ %s
+%%%%
+Branch not generated this game.
+
+その分岐は今回のゲームでは生成されていません。
+%%%%
+Branch has no entry stairs.
+
+その分岐の入口の階段は生成されていません。
+%%%%
+Go there anyway?
+
+それでも移動を行いますか？
+%%%%
+What level of %s? (default %s, ? - help)
+
+%sの何階ですか？ (初期値: %s階, ? - ヘルプ)
+%%%%
+You're already here!
+
+既にそこにいる！
+%%%%
+Sorry, you can't auto-travel out of here.
+
+残念ながら、自動操作でここから脱出することはできない。
+%%%%
+Sorry, I don't know how to get there.
+
+残念ながら、到達経路を割り出せません。
+%%%%
+Level memory is imperfect, aborting.
+
+# for error message
+%%%%
+Things which can be sacrificed:
+
+捧げ物にできる物一覧:
+%%%%
+Do you want to sacrifice the items here?
+
+ここにあるアイテムを捧げますか？
+%%%%
+There are sacrificable items here, ignore them? [(Y)es/(p)ray/(n)o]
+
+ここには捧げることができる物がある。無視しますか？ [(Y)はい/(p)捧げる/(n)いいえ]
+%%%%
+You need to eat something NOW!
+
+あなたは<lightred>今すぐ</lightred>何かを食べる必要がある！
+%%%%
+Calm down first, please.
+
+まずは怒りを鎮めてください。
+%%%%
+No exploration algorithm can help you here.
+
+ラビリンスでは自動探索は助けにならない。
+%%%%
+Existing waypoints:
+
+現在設定済みの中継地点:
+%%%%
+Delete which waypoint? (* - delete all, Esc - exit)
+
+どの中継地点を削除しますか？ (* - 全部削除, Esc - キャンセル)
+%%%%
+All waypoints deleted. Have a nice day!
+
+すべての中継地点を削除しました。
+%%%%
+Sorry, you can't set a waypoint here.
+
+残念ながら、この地点を中継地点に登録できません。
+%%%%
+Assign waypoint to what number? (0-9%s)
+
+この地点を何番に登録しますか？ (0-9%s)
+%%%%
+, D - delete waypoint
+
+, D - 中継地点を削除
+%%%%
+Waypoint %d re-assigned to your current position.
+
+%d番の中継地点をこの地点に上書きしました。
+%%%%
+Waypoint %d re-assigned from %s to %s.
+
+%d番の中継地点を%sから%sへ上書きしました。
+%%%%
+Waypoint %d assigned to %s.
+
+%sを%d番の中継地点に登録しました。
+%%%%
+(under bush)
+
+(藪の中)
+%%%%
+(under plant)
+
+(迷宮草の根元)
+%%%%
+Found %s %s.
+
+%s%sの%sを見つけた。
+%%%%
+Found
+
+を見つけた。
+%%%%
+Found %s
+
+%sを見つけた。
+%%%%
+item
+
+アイテム
+%%%%
+items
+
+アイテム
+%%%%
+shop
+
+店
+%%%%
+shops
+
+店
+%%%%
+altar
+
+祭壇
+%%%%
+altars
+
+祭壇
+%%%%
+portal
+
+ポータル
+%%%%
+portals
+
+ポータル
+%%%%
+stair
+
+階段
+%%%%
+stairs
+
+階段
+%%%%
+runed door
+
+ルーンが刻まれたドア
+%%%%
+runed doors
+
+ルーンが刻まれたドア
+%%%%
+explore
+
+探索
+%%%%
+travel
+
+自動移動
+%%%%
+rest
+
+急速
+%%%%
+run
+
+移動
 %%%%
