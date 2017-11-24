@@ -13,7 +13,7 @@ Error: %s
 %%%%
 = - jewellery   ! - potions   : - books   | - staves   \  - rods
 
-= - 装飾品       ! - 水薬      : - 魔法書類 | - 杖       \ - ロッド
+= - 装身具       ! - 水薬      : - 魔法書類 | - 杖       \ - ロッド
 %%%%
 } - miscellany  X - corpses   %% - food    $ - gold     0  - the Orb
 
@@ -21,7 +21,7 @@ Error: %s
 %%%%
 ESC - exit
 
-Esc - キャンセル
+ESC - キャンセル
 %%%%
 What class of item?
 
@@ -39,9 +39,9 @@ No such monster.
 
 そのようなモンスターはいません。
 %%%%
-That monster doesn't leave corpses; make one anyway?
+That monster doesn't leave corpses.
 
-そのモンスターは死体を残すことはありません。それでも選択しますか？
+そのモンスターは死体を残すことはありません。
 %%%%
 You can't make a draconian corpse by its background.
 
@@ -62,6 +62,10 @@ What type of item?
 ("all" for all)
 
 ("all"で全ての魔法書を生成)
+%%%%
+No such item.
+
+そのようなアイテムはない。
 %%%%
 You can't tweak the randart properties of an equipped item.
 
@@ -95,25 +99,69 @@ Value for %s must be non-negative
 
 %sの値は0以上でないといけません。
 %%%%
-a - plus  b - plus2  c - %s  d - quantity  e - flags  ESC - exit
+%s was %s.
 
-# for wizard
+%sは%sのアイテムになった。
+%%%%
+New ego?
+
+新しくエゴ設定をしますか？
+%%%%
+No such ego as: %s
+
+そのようなエゴ銘はありません: %s
+%%%%
+Ego '%s' is invalid for %s.
+
+エゴ'%s'は%sに付けられません。
+%%%%
+Tweak which item?
+
+どのアイテムの数値を調整しますか？
+%%%%
+a - plus  b - plus2  c - art props d - quantity  e - flags  ESC - exit
+
+a - plus  b - plus2  c - art props d - quantity  e - flags  ESC - キャンセル
+%%%%
+a - plus  b - plus2  c - special d - quantity  e - flags  ESC - exit
+
+a - plus  b - plus2  c - special d - quantity  e - flags  ESC - キャンセル
+%%%%
+Which field?
+
+どの数値を調整しますか？
 %%%%
 You can't set this flag on a non-artefact.
 
 このフラグはアーティファクトでないアイテムには設定できません。
 %%%%
+unhandled keyin
+
+# for die()
+%%%%
 Make book fixed [t]heme or fixed [l]evel?
 
 魔法書の[t]傾向および[l]レベルのどちらを変更しますか？
 %%%%
-Value of which artefact?
+Value of which item?
 
-どのアーティファクトの強度を見ますか？
+どのアイテムの価値を見ますか？
 %%%%
-That item is not an artefact!
+Real value: %d (known: %d)
 
-そのアイテムはアーティファクトではありません！
+真の価値: %d (既知の価値: %d)
+%%%%
+Value: %d
+
+価値: %d
+%%%%
+Made %s (%s)
+
+%s(%s)を生成しました。
+%%%%
+Made %s
+
+%sを生成しました。
 %%%%
 Make an artefact out of which item?
 
@@ -130,6 +178,10 @@ That item cannot be turned into an artefact.
 Is already a randart; wipe and re-use?
 
 そのアイテムはすでにランダムアーティファクトです。再生成しますか？
+%%%%
+Fake item as gift from which god (ENTER to leave alone):
+
+どの神からの授かり物として扱いますか？ (ENTERで無視):
 %%%%
 No such god, leaving item origin alone.
 
@@ -165,11 +217,23 @@ You feel a rush of antiknowledge.
 %%%%
 Item stacks (by location and top item):
 
-# ???
+アイテムスタック (場所順、上から)
+%%%%
+(%2d,%2d): %s%s
+
+(%2d, %2d): %s%s
+%%%%
+mimic
+
+のミミック
 %%%%
 Floor items (stacks only show top item):
 
-# ???
+床のアイテム (位置が重複する場合は一番上のみ)
+%%%%
+%3d at (%2d,%2d): %s%s
+
+#%3d 座標(%2d, %2d): %s%s
 %%%%
 Too many items on level.
 
@@ -177,7 +241,7 @@ Too many items on level.
 %%%%
 [a] Weapons [b] Armours [c] Jewellery      [d] Books
 
-[a] 武器       [b] 鎧・服 [c] 装飾品       [d] 魔法書
+[a] 武器       [b] 鎧・服 [c] 装身具       [d] 魔法書
 %%%%
 [e] Staves  [f] Wands   [g] Miscellaneous  [h] Food
 
@@ -211,52 +275,125 @@ Acquiring %s for:
 
 %sの獲得処理統計:
 %%%%
+weapons
+
+<weapon>
+%%%%
+# armour
+
+# jtrans_itemname.txtと重複
+%%%%
+# jewellery
+
+# jtrans_describe.txtと重複
+%%%%
+books
+
+<book>
+%%%%
+staves
+
+<staff>
+%%%%
+wands
+
+<wand>
+%%%%
+misc. items
+
+<miscellaneous>
+%%%%
+# food
+
+# jtrans_itemname.txtと重複
+%%%%
+buggy items
+
+# 訳不要
+%%%%
+of {god name}
+
+(%sの信徒)
+%%%%
 %s %s, Level %d %s %s%s
 
 %s『%s』レベル%dの%sの%s%s
+%%%%
+%-16s: %s %s
+
+# 訳不要
+%%%%
+# (melded)
+
+# jtrans_itemname.txtと重複
 %%%%
 Not wearing or wielding anything.
 
 何も手に持っていないし、装備もしていない。
 %%%%
-Skills:
+# Skills:
 
-スキル:
+# jtrans_chardump.txtと重複
 %%%%
 %-13s:  %2d/%2d spells unseen
 
-# ???
+%-13s:  %2d/%2dの呪文が未発見
 %%%%
 Acquirement called %d times, total quantity = %d
 
+%d回獲得を実行し、全体の量は%dでした。
 %%%%
 %5.2f%% artefacts.
 
+%5.2f%%がアーティファクトでした。
 %%%%
 Maximum combined pluses: %d
 
+最大強化値: %d
 %%%%
 Average combined pluses: %5.2f
 
+平均強化値: %5.2f
 %%%%
 Egos (including artefacts):
 
+エゴアイテム(アーティファクトを含む):
 %%%%
 Maximum plus: %d
 
+最大強化値: %d
 %%%%
 Average plus: %5.2f
 
+平均強化値: %5.2f
 %%%%
 Egos (excluding artefacts):
 
+エゴアイテム(アーティファクトを含まない)
 %%%%
 Primary disciplines/levels of randart books:
+
+
+%%%%
+%15s %d: %5.2f
+
+
+%%%%
+# level
+
+# jtrans_skill_menu.txtと重複
+%%%%
+Avg. spells per randbook: %4.3f
+
 
 %%%%
 Manuals:
 
 虎の巻:
+%%%%
+%%%ds: %%6.2f
+
+
 %%%%
 Results written into 'items.stat'.
 
@@ -264,15 +401,59 @@ Results written into 'items.stat'.
 %%%%
 Generate randart stats on which item?
 
+どのアイテムに対してアーティファクト生成統計を取りますか？
 %%%%
 Can't make a randart out of that type of item.
 
+このタイプのアイテムに対してはアーティファクト生成できません。
+%%%%
+%4.1f%% done.
+
+%4.1f%%完了。
 %%%%
 Randarts generated: %d valid, %d invalid
 
+
+%%%%
+max # of props = %d, mean = %5.2f, median = %d
+
+
+%%%%
+max # of good props = %d, mean = %5.2f, median = %d
+
+
+%%%%
+max # of bad props = %d, mean = %5.2f, median = %d
+
+
+%%%%
+max (good - bad) props = %d, avg # = %5.2f
+
+
+%%%%
+All    Good   Bad   Max AvgGood Min AvgBad
+
+
+%%%%
+%-27s: %6.2f%% %6.2f%% %6.2f%%
+
+
+%%%%
+Overall
+
+全体
+%%%%
+%-27s: %6.2f%% %6.2f%% %6.2f%% %3d %5.2f %5d %5.2f
+
+
+%%%%
+Can't write items.stat: %s
+
+items.statに書き込みできませんでした: %s
 %%%%
 Generate stats for: [a] acquirement [b] randart properties
 
+[a]獲得 [b]ランダムアーティファクト生成 に関して統計を取ります。
 %%%%
 Which card?
 
