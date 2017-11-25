@@ -1,7 +1,7 @@
 %%%%
-Which monster by number?
+# Enter monster name (or MONS spec):
 
-目的のモンスター番号を入力してください。
+# jtrans_wiz_fsim.txtと重複
 %%%%
 Such a monster couldn't be found.
 
@@ -17,8 +17,10 @@ Unable to place monster.
 %%%%
 Couldn't find player kraken!
 
+
 %%%%
 Couldn't find player ghost, probably going to crash.
+
 
 %%%%
 Make player ghost which species? (case-sensitive)
@@ -57,6 +59,10 @@ Set monster spawn rate to what? (now %d, lower value = higher rate)
 
 モンスター生成率を何に設定しますか？ (現在%d、小さい値ほど高頻度で生成される)
 %%%%
+Setting monster spawn rate to %i.
+
+モンスター生成率を%iに設定しました。
+%%%%
 Level already filled with monsters, get rid of some of them first.
 
 この階層は既にモンスターで埋め尽くされているため、まずそれらを排除してください。
@@ -65,35 +71,83 @@ Spawn how many random monsters (max %d)?
 
 ランダムなモンスターを何体生成させますか？ (最大%d体)
 %%%%
+Spawning %i monster%s.
+
+モンスターを%i体生成しました。
+%%%%
 Which monster?
 
 どのモンスターを調べますか？
 %%%%
 cloud type: %d delay: %d
 
+
 %%%%
 item grid = %d
+
 
 %%%%
 %s (id #%d; type=%d loc=(%d,%d) align=%s)
 
+
+%%%%
+pdam=%1.1f/%d (%d%%)
+
+
+%%%%
+hab=%s beh=%s(%d) foe=%s(%d) mem=%d target=(%d,%d)
+
+
+%%%%
+firing_pos=(%d,%d) patrol_point=(%d,%d) god=%s%s
+
+
+%%%%
+summoner=%s(%d)
+
+
 %%%%
 resist: fire=%d cold=%d elec=%d pois=%d neg=%d acid=%d sticky=%s rot=%s
+
 
 %%%%
 ench: %s
 
+
 %%%%
 props: %s
+
+
+%%%%
+buggy spell
+
+
+%%%%
+spells: %s
+
+
+%%%%
+inv: %s
+
 
 %%%%
 Ghost damage: %d; brand: %d; att_type: %d; att_flav: %d
 
+
 %%%%
-What monsters to dismiss (ENTER for all, "harmful", "mobile" or a regex)?
+Detected %i monster%s.
+
+%i体のモンスターを感知しました。
+%%%%
+What monsters to dismiss (ENTER for all, "harmful", "mobile", "los" or a regex, "keepitem" to leave items)?
 
 どのモンスターを除去しますか？
-(空入力で全てを除去。"harmful" "mobile"などのパターンや正規表現が使えます)
+(ENTERで全てを除去。"harmful" "mobile" "los"などのパターンや正規表現が使えます。
+"keepitem"でアイテムを残します)
+%%%%
+Dismissed %i monster%s.
+
+%i体のモンスターを除去しました。
 %%%%
 Make the monster (S)hout or (T)alk?
 
@@ -101,14 +155,7 @@ Make the monster (S)hout or (T)alk?
 %%%%
 How many times?
 
-%%%%
-You are silenced and likely won't hear any shouts.
-
-あなたは静寂に包まれており、叫び声は全く耳に入らなかった。
-%%%%
-The monster is silenced and likely won't give any shouts.
-
-そのモンスターは静寂に包まれており、その叫び声は全く耳に入らなかった。
+何回ですか？
 %%%%
 The monster is invisible and likely won't speak.
 
@@ -154,70 +201,13 @@ Can't give equipped items to a monster.
 
 装備中のアイテムをモンスターに与えることはできません。
 %%%%
-Putting weapon into primary slot by inscription
-
-銘の指定により武器を1つめのスロットに配置しました。
-%%%%
-Putting weapon into alt slot by inscription
-
-銘の指定により武器を2つめのスロットに配置しました。
-%%%%
-Dual wielding monster, putting into empty primary slot
-
-二刀流できるモンスターに対し、武器を1つめのスロットに配置しました。
-%%%%
-Dual wielding monster, putting into empty alt slot
-
-二刀流できるモンスターに対し、武器を2つめのスロットに配置しました。
-%%%%
-Replacing primary slot with similar weapon
-
-1つめのスロットの武器を類似の武器と交換しました。
-%%%%
-Replacing alt slot with similar weapon
-
-2つめのスロットの武器を類似の武器と交換しました。
-%%%%
-Putting weapon into empty primary slot
-
-武器を1つめの空のスロットに配置しました。
-%%%%
-Putting weapon into empty alt slot
-
-武器を2つめの空のスロットに配置しました。
-%%%%
-Defaulting to primary slot
-
-1つめのスロットに配置します。
-%%%%
 You can't give that type of item to a monster.
 
 その種別のアイテムをモンスターに与えることはできません。
 %%%%
-That type of monster can only use weapons and armour.
+Error: monster failed to take item.
 
-その種別のモンスターは武器もしくは防具しか扱うことができません。
-%%%%
-Too many items on level, bailing.
-
-この階層にはアイテムが多すぎるため、中断します。
-%%%%
-Monster wouldn't take item.
-
-このモンスターはアイテムを拾うことがありません。
-%%%%
-WARNING: Monster has MF_HARD_RESET and all its items will disappear when it does.
-
-%%%%
-WARNING: Item is summoned and will disappear when the monster does.
-
-%%%%
-Fetching monster's old item.
-
-モンスターの持っていたアイテムを手にしました。
-%%%%
-WARNING: Item is summoned and shouldn't really be anywhere but in the inventory of a summoned monster.
-
+エラー: モンスターはアイテムを受け取るのに失敗しました。
 %%%%
 Move monster to where?
 
@@ -225,7 +215,7 @@ Move monster to where?
 %%%%
 Already doing a move command.
 
-既に移動コマンドを実行しています。
+既に移動コマンドを実行中です。
 %%%%
 You can't move yourself into the arena.
 
@@ -237,21 +227,31 @@ Monster is already summoned.
 %%%%
 What summon longevity (1 to 6)?
 
-召喚が維持される時間をどう設定しますか？ (1～6)
+召喚が維持される度合いをどう設定しますか？ (1～6)
 %%%%
 [a] clone [b] animated [c] chaos [d] miscast [e] zot
 
+
 %%%%
-[f] wrath [g] lantern  [h] aid   [m] misc    [s] spell
+[f] wrath [h] aid   [m] misc    [s] spell
+
 
 %%%%
 Which summon type?
 
 どの召喚タイプにしますか？
 %%%%
+Cast which spell by name?
+
+どの呪文名を指定して実行しますか？
+%%%%
 No such spell.
 
 そのような魔法は存在しません。
+%%%%
+Invalid summon type choice.
+
+# for die()
 %%%%
 Monster is now summoned.
 
@@ -271,8 +271,10 @@ Target species must be different from current species.
 %%%%
 Polymorph killed monster?
 
+# for error
 %%%%
 Trying harder
+
 
 %%%%
 Polymorph failed.
@@ -311,6 +313,10 @@ Can't make already dead target miscast.
 
 既に死んでしまったものに対し魔法失敗効果を発動させることはできません。
 %%%%
+Miscast which school or spell, by name?
+
+どの魔法種別、もしくは呪文名の失敗効果を指定しますか？
+%%%%
 No matching spell or spell school.
 
 該当する魔法や魔法種別がありません。
@@ -321,28 +327,31 @@ Ambiguous: can be spell '%s' or school '%s'.
 %%%%
 Spell '%s' has no disciplines.
 
-｢%s｣の魔法にはdisciplines情報がありません。
+｢%s｣の魔法には魔法種別情報がありません。
 %%%%
 Miscasting spell %s.
 
-%sの魔法に失敗しました。
+%sの呪文を失敗させます。
 %%%%
 Miscasting school %s.
 
-%sの魔法に失敗しました。
+%s領域の魔法を失敗させます。
 %%%%
 Enter spell_power,raw_spell_failure:
 
+spell_power,raw_spell_failureの値を入力してください:
 %%%%
 Enter miscast_level or spell_power,raw_spell_failure:
 
+miscast_levelもしくはspell_power,raw_spell_failureの値を入力してください:
 %%%%
 Can only enter fixed miscast level for schools, not spells.
 
+呪文のではなく魔法種別の失敗レベルのみ入力してください。
 %%%%
 Miscast level can be at most 3.
 
-魔法失敗レベルは3以下を指定してください。
+魔法失敗レベルは最大でも3までです。
 %%%%
 Number of repetitions?
 
