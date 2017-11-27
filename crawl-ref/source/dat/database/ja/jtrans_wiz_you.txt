@@ -3,11 +3,7 @@ That species isn't available.
 
 その種族には変化できません。
 %%%%
-wizard race change
-
-ウィザードコマンドによる種族変化
-%%%%
-%s falls away.
+%s fall%s away.
 
 %sは地面に落ちた。
 %%%%
@@ -27,18 +23,28 @@ Memorise which spell?
 
 どの魔法を習得しますか？
 %%%%
-Set hunger state to s(T)arving, (N)ear starving, (H)ungry
+Super healing.
+
+完璧に回復しました。
+%%%%
+Healing.
+
+回復しました。
+%%%%
+Set hunger state to f(A)inting, s(T)arving, (N)ear starving, (H)ungry, (S)atiated, (F)ull or (E)ngorged?
 
 どの満腹度に設定しますか？
-(T)餓死しかけ (N)餓死が近い (H)空腹
+(A)餓死間近 (T)餓死しかけ (N)餓死が近い (H)空腹 (S)普通 (F)満腹 (E)腹一杯
 %%%%
-or (S)atiated
+Set hunger state to s(T)arving, (N)ear starving, (H)ungry or (S)atiated?
 
-(S)普通
+どの満腹度に設定しますか？
+(T)餓死しかけ (N)餓死が近い (H)空腹 (S)普通
 %%%%
-, (S)atiated, (F)ull or (E)ngorged
+Set hunger state to s(T)arving, (N)ear starving, (H)ungry, (S)atiated, (F)ull or (E)ngorged?
 
-(S)普通 (F)満腹 (E)腹一杯
+どの満腹度に設定しますか？
+(T)餓死しかけ (N)餓死が近い (H)空腹 (S)普通 (F)満腹 (E)腹一杯
 %%%%
 Ghouls can never be full or above!
 
@@ -54,7 +60,7 @@ Ru piety can't be greater than %d.
 %%%%
 Enter new interest (current = %d, Enter for 0):
 
-ゾムの関心値を入力してください。 (現在値 = %d, 空入力で0)
+ゾムの関心値を入力してください。(現在値 = %d, 空入力で0)
 %%%%
 Interest must be between 0 and 255.
 
@@ -64,6 +70,38 @@ Set piety to %d, interest to %d.
 
 信仰値を%dに、関心値を%dに設定しました。
 %%%%
+You are now a BORING thing.
+
+あなたはゾムに飽きられてしまった。
+%%%%
+You are now a very special plaything of Xom.
+
+あなたはゾムにとって格好の慰みものだ。
+%%%%
+You are now a special plaything of Xom.
+
+あなたはゾムの特別な慰みものだ。
+%%%%
+You are now a plaything of Xom.
+
+あなたはゾムの慰みものだ。
+%%%%
+You are now a toy of Xom.
+
+あなたはゾムの玩具だ。
+%%%%
+You are now a favourite toy of Xom.
+
+あなたはゾムのお気に入りの玩具だ。
+%%%%
+You are now a beloved toy of Xom.
+
+あなたはゾムの大切な玩具だ。
+%%%%
+You are now Xom's teddy bear.
+
+あなたはゾムのテディベアだ。
+%%%%
 Are you sure you want to be excommunicated?
 
 本当に棄教しますか？
@@ -71,6 +109,10 @@ Are you sure you want to be excommunicated?
 Setting piety to %d.
 
 信仰値を%dに設定しました。
+%%%%
+Enter new gold value (current = %d, Enter for %d):
+
+所持金をいくつに設定しますか？ (現在地 = %d, Enterで%d)
 %%%%
 You are not religious!
 
@@ -82,11 +124,11 @@ Current progress to next sacrifice: %d  Progress needed: %d
 %%%%
 Enter new piety value (current = %d, Enter for 0):
 
-設定したい信仰値を入力してください。 (現在値 = %d, 空入力で0)
+設定したい信仰値を入力してください。(現在値 = %d, 空入力で0)
 %%%%
 Which skill (by name)?
 
-どのスキルを鍛えますか？(名前を指定)
+どのスキルを鍛えますか？ (名前を指定)
 %%%%
 That skill doesn't seem to exist.
 
@@ -104,41 +146,33 @@ To what level?
 
 %sスキルを%.1fに%sました。
 %%%%
+Increased
+
+増加させ
+%%%%
+Lowered
+
+減少させ
+%%%%
+Reset
+
+設定しなおし
+%%%%
 Set all skills to what level?
 
 全てのスキルを何レベルに設定しますか？
 %%%%
-You are immune to mutations; remove immunity?
+Ignoring mut resistance to apply mutation.
 
-あなたは変異に対する免疫を獲得しています。除去しますか？
+強制変異させるにあたって、変異への耐性を無視します。
 %%%%
-You are resistant to mutations; remove resistance?
+Which mutation (name, 'good', 'bad', 'any', 'xom', 'slime', 'qazlal')?
 
-あなたは変異に対する耐性を獲得しています。除去しますか？
-%%%%
-Force mutation to happen?
-
-強制的に変異させますか？
-%%%%
-Can't mutate when immune to mutations without forcing it.
-
-強制変異でない、かつ変異に対する免疫があるため変異できません。
-%%%%
-Treat mutation as god gift?
-
-神による変異として扱いますか？
-%%%%
-Which mutation (name, 'good', 'bad', 'any', 'xom', 'slime', 'corrupt', 'qazlal')?
-
-どの変異にしますか？(名前を指定、もしくはgood/bad/any/xom/slime/corrupt/qazlalを選択)
+どの変異にしますか？ (名前を指定、もしくはgood/bad/any/xom/slime/qazlalを選択)
 %%%%
 wizard power
 
 ウィザードコマンドによる変異
-%%%%
-Your mutation resistance has increased.
-
-あなたの変異に対する耐性は上昇した。
 %%%%
 No matching mutation names.
 
@@ -147,6 +181,10 @@ No matching mutation names.
 No exact match for mutation '%s', possible matches are:
 
 '%s'に完全一致する名称の変異はありませんでした。ありそうな候補は以下の通り:
+%%%%
+Found #%d: %s ("%s")
+
+#No.%d: %sの変異 ("%s")
 %%%%
 How many levels to increase or decrease?
 
@@ -160,9 +198,17 @@ Enter values for Str, Int, Dex (space separated):
 
 設定する腕力、知力、器用さの値をスペースで区切って入力してください。
 %%%%
+Setting attributes (Str, Int, Dex) to: %i, %i, %i
+
+腕力、知力、器用さの値を(%i, %i, %i)にしました。
+%%%%
 Edit which duration (letter or name)?
 
-どの持続効果を設定しますか？(文字指定、もしくは名前)
+どの持続効果を設定しますか？ (文字指定、もしくは名前)
+%%%%
+Edit which duration (name)?
+
+どの持続効果を設定しますか？ (名前を指定してください)
 %%%%
 No existing durations to choose from.
 
@@ -182,15 +228,15 @@ No exact match for duration '%s', possible matches are:
 %%%%
 Set '%s' to:
 
-'%s'の残り時間を以下に設定します:
+'%s'の残り時間を設定してください:
 %%%%
 Can't set duration directly to 0, setting it to 1 instead.
 
 持続効果の残り時間を直接0にすることはできないため、1に設定します。
 %%%%
-props: %s
+# props: %s
 
-プロパティ: %s
+# jtrans_wiz_mon.txtと重複
 %%%%
 Enter new experience level:
 
@@ -208,6 +254,22 @@ Nothing happens.
 
 何事も起こらなかった。
 %%%%
+X-ray vision enabled.
+
+透視モードをオンにしました。
+%%%%
+X-ray vision disabled.
+
+透視モードをオフにしました。
+%%%%
+You allow the flow of time to resume.
+
+あなたは時間の流れを正常に戻した。
+%%%%
+You bring the flow of time to a stop.
+
+あなたは時間の流れを停止させた。
+%%%%
 That god doesn't seem to exist!
 
 そのような神は存在しません！
@@ -220,6 +282,10 @@ You suffer the terrible wrath of No God.
 
 %sは今のところは機嫌がおさまっているようだ。
 %%%%
+You are not under penance.
+
+あなたは今のところ贖罪する必要はない。
+%%%%
 Which form (ESC to exit)?
 
 どの姿になりますか？ (Escでキャンセル)
@@ -228,6 +294,10 @@ Transformation failed.
 
 変化に失敗しました。
 %%%%
+Not even in wizmode may Demigods worship a god!
+
+ウィザードモードであろうと、神々の末裔が他の神を信仰することはない！
+%%%%
 You already have no god!
 
 あなたは既に神を信仰していない！
@@ -235,4 +305,20 @@ You already have no god!
 You already worship that god!
 
 あなたは既にその神を信仰している！
+%%%%
+What action should Xom take? (Blank = any)
+
+ゾムにどの行動を取らせますか？ (空入力で"any"扱い)
+%%%%
+Xom did '%s'.
+
+# for debug
+%%%%
+That action doesn't seem to exist!
+
+# for debug
+%%%%
+Okay, Xom is doing '%s'.
+
+# for debug
 %%%%

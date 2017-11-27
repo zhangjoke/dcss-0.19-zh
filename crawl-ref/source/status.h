@@ -6,6 +6,8 @@
 #ifndef STATUS_H
 #define STATUS_H
 
+#include "database.h"
+
 enum status_type
 {
     STATUS_AIRBORNE = NUM_DURATIONS + 1,
@@ -68,6 +70,16 @@ struct status_info
 bool fill_status_info(int status, status_info* info);
 
 const char *duration_name(duration_type dur);
+static inline string duration_name_j(const string &en)
+{
+    return tagged_jtrans("[dur]", en);
+}
+static inline string duration_name_j(duration_type dur)
+{
+    return duration_name_j(duration_name(dur));
+}
+#define duration_name_jc(dur) (duration_name_j(dur).c_str())
+
 bool duration_dispellable(duration_type dur);
 void init_duration_index();
 

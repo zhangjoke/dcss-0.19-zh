@@ -142,8 +142,6 @@ string to_separated_line(Z start, Z end,
 // tagged_jtrans shortcuts
 #define branch_name_j(br) (tagged_jtrans("[branch]", br))
 #define branch_name_jc(br) (branch_name_j(br).c_str())
-#define duration_name_j(en) (tagged_jtrans("[dur]", en))
-#define duration_name_jc(en) (duration_name_j(en).c_str())
 #define zap_name_j(z) (tagged_jtrans("[zap]", z))
 #define zap_name_jc(z) (zap_name_j(z).c_str())
 static inline string verb_j(const string &verb, const string &tag = "[verb]")
@@ -151,11 +149,6 @@ static inline string verb_j(const string &verb, const string &tag = "[verb]")
     return tagged_jtrans(tag, verb);
 }
 #define verb_jc(v) (verb_j(v).c_str())
-static inline string duration_j(const string &duration, const string &tag = "[dur]")
-{
-    return tagged_jtrans(tag, duration);
-}
-#define duration_jc(d) (duration_j(d).c_str())
 #define adj_j(a) (tagged_jtrans("[adj]", a))
 #define adj_jc(a) (adj_j(a).c_str())
 #define adv_j(a) (tagged_jtrans("[adv]", a))
