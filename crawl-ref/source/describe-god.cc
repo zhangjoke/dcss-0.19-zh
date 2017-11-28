@@ -96,7 +96,7 @@ static string _describe_favour(god_type which_god)
     }
 
     if (which_god == GOD_XOM)
-        return describe_xom_favour();
+        return jtrans(describe_xom_favour());
 
 
     const string godname = god_name_j(which_god);

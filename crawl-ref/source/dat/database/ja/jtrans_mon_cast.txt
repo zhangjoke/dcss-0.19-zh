@@ -694,7 +694,7 @@ A blue arc grounds itself harmlessly %s %s.
 %%%%
 Some monsters swap places.
 
-モンスターがお互いの位置を入れ替えた。
+モンスターどうしの位置が入れ替わった。
 %%%%
 Space distorts along a thin shroud covering %s %s.
 

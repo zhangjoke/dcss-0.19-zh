@@ -342,7 +342,7 @@ string Note::describe(bool when, bool where, bool what) const
                                    name.c_str());
             break;
         case NOTE_XOM_EFFECT:
-            result << jtrans_notrim("XOM: ") << name;
+            result << jtrans_notrim("XOM: ") << jtrans(name);
 #if defined(DEBUG_XOM) || defined(NOTE_DEBUG_XOM)
             // If debugging, also take note of piety and tension.
             result << " (piety: " << first;
