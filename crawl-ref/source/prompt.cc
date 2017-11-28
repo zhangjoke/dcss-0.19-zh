@@ -32,7 +32,7 @@ bool yes_or_no(const char* fmt, ...)
     char buf[200];
     va_list args;
     va_start(args, fmt);
-    vsnprintf(buf, sizeof buf, fmt, args);
+    vsnprintf(buf, sizeof buf, jtransc(fmt), args);
     va_end(args);
     buf[sizeof(buf)-1] = 0;
 
