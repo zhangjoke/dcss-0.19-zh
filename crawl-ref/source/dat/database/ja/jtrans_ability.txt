@@ -1070,7 +1070,7 @@ You will briefly lose access to your magic after casting a spell in this manner.
 %%%%
 stops granting you divine energy.
 
-はあなたに魔力を与えるのをとりやめた。
+はあなたに神気を分け与えるのをとりやめた。
 %%%%
 You renew your call for help.
 
