@@ -11,6 +11,10 @@ buggy door
 
 大きな
 %%%%
+gate
+
+門
+%%%%
 [adj]huge
 
 巨大な
