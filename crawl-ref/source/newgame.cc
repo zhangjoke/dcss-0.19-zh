@@ -735,7 +735,7 @@ static void _construct_species_menu(const newgame_def& ng,
     else
         tmp->set_id(M_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Picks a random viable species based on your current job choice."));
+    tmp->set_description_text("Picks a random viable species based on your current job choice.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -750,8 +750,8 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp->add_hotkey('#');
     tmp->set_id(M_VIABLE_CHAR);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Shuffles through random viable character combinations "
-                                     "until you accept one."));
+    tmp->set_description_text("Shuffles through random viable character combinations "
+                              "until you accept one.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -765,7 +765,7 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp->set_fg_colour(BROWN);
     tmp->add_hotkey('%');
     tmp->set_id(M_APTITUDES);
-    tmp->set_description_text(jtrans("Lists the numerical skill train aptitudes for all races."));
+    tmp->set_description_text("Lists the numerical skill train aptitudes for all races.");
     tmp->set_highlight_colour(BLUE);
     menu->attach_item(tmp);
     tmp->set_visible(true);
@@ -781,7 +781,7 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp->add_hotkey('?');
     tmp->set_id(M_HELP);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Opens the help screen."));
+    tmp->set_description_text("Opens the help screen.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -796,7 +796,7 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp->add_hotkey('*');
     tmp->set_id(M_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Picks a random species."));
+    tmp->set_description_text("Picks a random species.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -811,8 +811,8 @@ static void _construct_species_menu(const newgame_def& ng,
     tmp->add_hotkey('!');
     tmp->set_id(M_RANDOM_CHAR);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Shuffles through random character combinations "
-                                     "until you accept one."));
+    tmp->set_description_text("Shuffles through random character combinations "
+                              "until you accept one.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -821,12 +821,12 @@ static void _construct_species_menu(const newgame_def& ng,
     if (ng.job != JOB_UNKNOWN)
     {
         tmp->set_text(jtrans("Space - Change background"));
-        tmp->set_description_text(jtrans("Lets you change your background choice."));
+        tmp->set_description_text("Lets you change your background choice.");
     }
     else
     {
         tmp->set_text(jtrans("Space - Pick background first"));
-        tmp->set_description_text(jtrans("Lets you pick your background first."));
+        tmp->set_description_text("Lets you pick your background first.");
     }
     min_coord.x = X_MARGIN + get_number_of_cols() / 2 - 4;
     min_coord.y = SPECIAL_KEYS_START_Y + 2;
@@ -857,7 +857,7 @@ static void _construct_species_menu(const newgame_def& ng,
         tmp->add_hotkey('\t');
         tmp->set_id(M_DEFAULT_CHOICE);
         tmp->set_highlight_colour(BLUE);
-        tmp->set_description_text(jtrans("Play a new game with your previous choice."));
+        tmp->set_description_text("Play a new game with your previous choice.");
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -1146,7 +1146,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     else
         tmp->set_id(M_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Picks a random viable background based on your current species choice."));
+    tmp->set_description_text("Picks a random viable background based on your current species choice.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -1161,8 +1161,8 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp->add_hotkey('#');
     tmp->set_id(M_VIABLE_CHAR);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Shuffles through random viable character combinations "
-                                     "until you accept one."));
+    tmp->set_description_text("Shuffles through random viable character combinations "
+                              "until you accept one.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -1177,7 +1177,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp->add_hotkey('%');
     tmp->set_id(M_APTITUDES);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Lists the numerical skill train aptitudes for all races."));
+    tmp->set_description_text("Lists the numerical skill train aptitudes for all races.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -1192,7 +1192,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp->add_hotkey('?');
     tmp->set_id(M_HELP);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Opens the help screen."));
+    tmp->set_description_text("Opens the help screen.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -1207,7 +1207,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp->add_hotkey('*');
     tmp->set_id(M_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Picks a random background."));
+    tmp->set_description_text("Picks a random background.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -1222,8 +1222,8 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     tmp->add_hotkey('!');
     tmp->set_id(M_RANDOM_CHAR);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Shuffles through random character combinations "
-                                     "until you accept one."));
+    tmp->set_description_text("Shuffles through random character combinations "
+                              "until you accept one.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -1232,12 +1232,12 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
     if (ng.species != SP_UNKNOWN)
     {
         tmp->set_text(jtrans("Space - Change species"));
-        tmp->set_description_text(jtrans("Lets you change your species choice."));
+        tmp->set_description_text("Lets you change your species choice.");
     }
     else
     {
         tmp->set_text(jtrans("Space - Pick species first"));
-        tmp->set_description_text(jtrans("Lets you pick your species first."));
+        tmp->set_description_text("Lets you pick your species first.");
 
     }
     min_coord.x = X_MARGIN + get_number_of_cols() / 2 - 4;
@@ -1267,7 +1267,7 @@ static void _construct_backgrounds_menu(const newgame_def& ng,
         tmp->add_hotkey('\t');
         tmp->set_id(M_DEFAULT_CHOICE);
         tmp->set_highlight_colour(BLUE);
-        tmp->set_description_text(jtrans("Play a new game with your previous choice."));
+        tmp->set_description_text("Play a new game with your previous choice.");
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -1533,7 +1533,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('+');
     tmp->set_id(M_VIABLE);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Picks a random viable weapon"));
+    tmp->set_description_text("Picks a random viable weapon");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -1548,7 +1548,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('%');
     tmp->set_id(M_APTITUDES);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Lists the numerical skill train aptitudes for all races."));
+    tmp->set_description_text("Lists the numerical skill train aptitudes for all races.");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -1563,7 +1563,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('?');
     tmp->set_id(M_HELP);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Opens the help screen"));
+    tmp->set_description_text("Opens the help screen");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
@@ -1578,14 +1578,14 @@ static void _construct_weapon_menu(const newgame_def& ng,
     tmp->add_hotkey('*');
     tmp->set_id(WPN_RANDOM);
     tmp->set_highlight_colour(BLUE);
-    tmp->set_description_text(jtrans("Picks a random weapon"));
+    tmp->set_description_text("Picks a random weapon");
     menu->attach_item(tmp);
     tmp->set_visible(true);
 
     // Adjust the end marker to align the - because Bksp text is longer by 3
     tmp = new TextItem();
     tmp->set_text(jtrans("Bksp - Return to character menu"));
-    tmp->set_description_text(jtrans("Lets you return back to Character choice menu"));
+    tmp->set_description_text("Lets you return back to Character choice menu");
     min_coord.x = X_MARGIN + get_number_of_cols() / 2 - 3;
     min_coord.y = SPECIAL_KEYS_START_Y + 1;
     max_coord.x = min_coord.x + strwidth(tmp->get_text());
@@ -1624,7 +1624,7 @@ static void _construct_weapon_menu(const newgame_def& ng,
         tmp->add_hotkey('\t');
         tmp->set_id(M_DEFAULT_CHOICE);
         tmp->set_highlight_colour(BLUE);
-        tmp->set_description_text(jtrans("Select your old weapon"));
+        tmp->set_description_text("Select your old weapon");
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -1972,7 +1972,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('%');
         tmp->set_id(M_APTITUDES);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text(jtrans("Lists the numerical skill train aptitudes for all races"));
+        tmp->set_description_text("Lists the numerical skill train aptitudes for all races");
         menu->attach_item(tmp);
         tmp->set_visible(true);
 
@@ -1987,7 +1987,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('?');
         tmp->set_id(M_HELP);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text(jtrans("Opens the help screen"));
+        tmp->set_description_text("Opens the help screen");
         menu->attach_item(tmp);
         tmp->set_visible(true);
 
@@ -2002,7 +2002,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('*');
         tmp->set_id(M_RANDOM);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text(jtrans("Picks a random sprint map"));
+        tmp->set_description_text("Picks a random sprint map");
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
@@ -2045,7 +2045,7 @@ static void _construct_gamemode_map_menu(const mapref_vector& maps,
         tmp->add_hotkey('\t');
         tmp->set_id(M_DEFAULT_CHOICE);
         tmp->set_highlight_colour(LIGHTGRAY);
-        tmp->set_description_text(jtrans("Select your previous sprint map and character"));
+        tmp->set_description_text("Select your previous sprint map and character");
         menu->attach_item(tmp);
         tmp->set_visible(true);
     }
