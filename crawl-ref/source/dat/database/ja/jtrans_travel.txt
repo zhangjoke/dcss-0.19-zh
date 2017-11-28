@@ -175,7 +175,7 @@ Found %s %s.
 
 %s%sの%sを見つけた。
 %%%%
-Found %s.
+Found {something}.
 
 %sを見つけた。
 %%%%
