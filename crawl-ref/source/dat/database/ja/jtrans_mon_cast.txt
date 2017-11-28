@@ -238,7 +238,7 @@ by divine providence
 射出された逆棘
 # from SPELL_THROW_BARBS
 %%%%
-skewers
+[verb]skewers
 
 に突き刺さった
 %%%%

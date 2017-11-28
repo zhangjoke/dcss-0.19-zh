@@ -55,7 +55,7 @@ wavering %s
 
 揺らめく%s
 %%%%
-weakly hits
+[verb]weakly hits
 
 をかすめた
 %%%%
