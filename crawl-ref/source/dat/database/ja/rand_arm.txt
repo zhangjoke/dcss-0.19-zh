@@ -680,6 +680,7 @@ _wacky_armour_name_
 覇王樹
 
 # Hadjma
+ハジャム
 
 # Hairiness
 多毛
