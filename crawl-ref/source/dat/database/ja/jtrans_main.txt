@@ -512,7 +512,7 @@ You nearly hit yourself!
 %%%%
 [stop attack prompt]attack
 
-攻撃し
+を攻撃し
 %%%%
 You swing at nothing.
 

@@ -916,9 +916,9 @@ Aiming: <white>Delayed Fireball</white>
 
 照準: <white>遅延式ファイアボール</white>
 %%%%
-spit at
+[stop attack prompt]spit at
 
-吐き出し
+に向かって吐き出し
 %%%%
 You spit a glob of burning liquid.
 

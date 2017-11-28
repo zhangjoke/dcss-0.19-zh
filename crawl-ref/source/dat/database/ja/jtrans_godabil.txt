@@ -942,7 +942,7 @@ There's no one hasty visible. Invoke Slouch anyway?
 %%%%
 [stop attack prompt]harm
 
-傷つけ
+を傷つけ
 %%%%
 You can feel time thicken for a moment.
 

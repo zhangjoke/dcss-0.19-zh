@@ -5,7 +5,7 @@
 %%%%
 [stop attack prompt]attack near
 
-近くを攻撃し
+の近くを攻撃し
 %%%%
 Attack delay %d, multiplier %1.1f
 

@@ -1005,10 +1005,11 @@ bool stop_attack_prompt(targetter &hitfunc, const char* verb,
     if (victims.empty())
         return false;
 
-    string mon_name = adj + mon_name + "を";
+    string mon_name = adj + mon_name;
 
     const string prompt = make_stringf(jtransc("Really %s %s%s?%s"),
-             jtransc(suffix), jtransc(mon_name), verb,
+             jtransc(suffix), jtransc(mon_name),
+             verb_j(verb, "[stop attack prompt]").c_str(),
              jtrans_notrimc(penance ? " This attack would place you under penance!" : ""));
 
     if (prompted)

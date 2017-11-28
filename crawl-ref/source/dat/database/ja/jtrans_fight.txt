@@ -21,7 +21,7 @@ This could place you under penance!
 %%%%
 , when you might land in your sanctuary
 
-聖域内に着地する可能性がある
+あなたは聖域内に着地する可能性がありますが、
 %%%%
 your ally
 
@@ -45,7 +45,7 @@ ally
 %%%%
 Really %s%s%s?%s
 
-本当に%s%s%sますか？ %s
+%s本当に%s%sますか？ %s
 %%%%
 This attack would place you under penance!
 

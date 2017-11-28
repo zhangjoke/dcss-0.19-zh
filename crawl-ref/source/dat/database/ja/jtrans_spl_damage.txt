@@ -445,7 +445,7 @@ You shatter!
 %%%%
 [stop attack prompt]zap
 
-撃ち
+を撃ち
 %%%%
 [zap]lightning
 

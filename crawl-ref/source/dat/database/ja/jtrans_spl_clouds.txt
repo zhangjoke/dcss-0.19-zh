@@ -79,7 +79,7 @@ The air is too still to form clouds.
 %%%%
 [stop attack prompt]cloud
 
-雲に包み
+を雲に包み
 %%%%
 %s %s a blast of %s!
 
