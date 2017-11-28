@@ -242,18 +242,8 @@ bool check_moveto_terrain(const coord_def& p, const string &move_verb,
             *prompted = true;
 
         if (msg != "")
-            prompt = msg + " ";
-/*
+            prompt = jtrans(msg) + " ";
 
-        prompt += "Are you sure you want to " + move_verb;
-
-        if (you.ground_level())
-            prompt += " into ";
-        else
-            prompt += " over ";
-
-        prompt += env.grid(p) == DNGN_DEEP_WATER ? "deep water" : "lava";
-*/        
         prompt += make_stringf(jtransc("Are you sure you want to {verb} {into|over} {grid} %s"),
                                jtransc(need_expiration_warning(DUR_FLIGHT, p)
                                    ? " while you are losing your buoyancy?"
