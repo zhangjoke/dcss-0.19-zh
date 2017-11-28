@@ -2518,7 +2518,8 @@ string monster::hand_name(bool plural, bool *can_plural) const
         else
         {
             str = jtrans("front ");
-            return str + foot_name(plural, can_plural);
+            return plural ? jpluralise(str + foot_name(false), "両")
+                          : str + foot_name(false);
         }
         break;
 
