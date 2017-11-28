@@ -1,0 +1,219 @@
+%%%%
+############################## dat/des/portals/ossuary.des ##############################
+%%%%
+There is a click, and some walls slide away!
+
+カチッという音がし、壁が開いて道ができた！
+%%%%
+decayed
+
+腐敗した
+%%%%
+You feel the presence of a powerful and evil guardian...
+
+あなたは邪悪なる守護者の強大なる気配を感じた……
+%%%%
+Something ancient and evil stirs ahead...
+
+太古の邪悪なる存在が行く先で蠢いている……
+%%%%
+############################## dat/des/portals/sewer.des ##############################
+%%%%
+sickly
+
+病気にかかった
+%%%%
+malarious
+
+マラリアにかかった
+%%%%
+apprentice
+
+見習い
+%%%%
+############################## dat/des/portals/volcano.des ##############################
+%%%%
+The volcano erupts! Nearby, a roof collapses.
+
+火山が噴火し、周囲で天井が崩れ落ちた！
+%%%%
+There is a rumble as the volcano erupts. The roof shakes.
+
+火山が噴火するとともに轟音が響き渡り、天井が震えた。
+%%%%
+The ground shudders ominously.
+
+大地が奇妙に振動した。
+%%%%
+In the distance, the volcano explodes with a roar! Lava spreads onto the path.
+
+遠く離れた場所で、火山が轟音と共に爆発した！ 溶岩が行く手に広がった。
+%%%%
+The air is thick with the scent of sulphur.
+
+大気が硫黄の臭いに満たされた。
+%%%%
+There is another distant roar. More lava overflows!
+
+遠くの別の場所でさらに轟音が鳴り響いた。溶岩がさらにあふれ出した！
+%%%%
+The ground moves violently!
+
+大地が鳴動した！
+%%%%
+The volcano erupts again! A thin layer of lava overflows to fill the cavern.
+
+再び火山が爆発した！ 溶岩があふれ出し、洞窟を埋め尽くそうとしている。
+%%%%
+The ground shudders. Some of the lava has hardened enough to walk over!
+
+大地が振動した。溶岩のある箇所では上を歩けるほど冷え固まっている！
+%%%%
+firespitter
+
+火を吐く
+%%%%
+lasher
+
+鞭打つ
+%%%%
+############################## dat/des/portals/trove.des ##############################
+%%%%
+to enter a treasure trove
+
+秘密の埋蔵庫に入る
+%%%%
+############################## dat/des/portals/wizlab.des ##############################
+%%%%
+antique lich
+
+年季の入ったリッチ
+%%%%
+strange machine
+
+奇妙な機械
+%%%%
+Tukima's Studio
+
+ツキマーの工房
+%%%%
+vine covered
+
+蔓に覆われた
+%%%%
+Eringya's Formal Garden
+
+エリンギャの庭園
+%%%%
+Doroklohe's Tomb
+
+ドルオロクヒの墳墓
+%%%%
+monstrous
+
+怪物じみた
+%%%%
+deformed
+
+奇形の
+%%%%
+twisted
+
+体のねじれた
+%%%%
+grotesque
+
+グロテスクな
+%%%%
+hideous
+
+見るも恐ろしい姿の
+%%%%
+febrile
+
+熱に浮かされた
+%%%%
+flesh golem
+
+肉のゴーレム
+%%%%
+Cigotuvi's Monster
+
+シゴツヴィの怪物
+%%%%
+Cigotuvi
+
+シゴツヴィ
+%%%%
+fleshy orifice
+
+肉壁の開口部
+%%%%
+You part the %s%s
+
+あなたは%s%sを引き裂いて通り道を作った
+%%%%
+with a squelch!
+
+ガボガボと音を立てながら
+%%%%
+You squeeze the %s%s closed
+
+あなたは%s%sを両側から引っ張って閉じた
+%%%%
+You part the %s%s with a squelch!
+
+あなたはガボガボと音を立てながら%s%sを引き裂いて通り道を作った！
+%%%%
+You squeeze the %s%s closed with a squelch!
+
+あなたはガボガボと音を立てながら%s%sを両側から引っ張って閉じた！
+%%%%
+You reach down and part the %s%s.
+
+あなたは地上に舞い降り、%s%sを引き裂いて通り道を作った。
+%%%%
+You reach down and squeeze the %s%s closed.
+
+あなたは地上に舞い降り、%s%sを両側から引っ張って閉じた。
+%%%%
+You part the %s%s.
+
+あなたは%s%sを引き裂いて通り道を作った。
+%%%%
+You squeeze the %s%s shut.
+
+あなたは%s%sを両側から引っ張って閉じた。
+%%%%
+Cigotuvi's Fleshworks
+
+シゴツヴィの解体場
+%%%%
+Iskenderun
+
+イスケンデルン
+%%%%
+Iskenderun's Mystic Tower
+
+イスケンデルンの魔導の塔
+%%%%
+Zonguldrok's Shrine
+
+ゾングルドルックの神殿
+%%%%
+Statue of Wucad Mu
+
+ウカド・ムーの像
+%%%%
+Wucad Mu's Monastery
+
+ウカド・ムーの修道院
+%%%%
+Golubria
+
+ゴルブリア
+%%%%
+The Roulette of Golubria
+
+ゴルブリアのルーレット
+%%%%

@@ -277,8 +277,15 @@ static TextDB AllDBs[] =
            "jtrans_wiz_you.txt",
            "jtrans_xom.txt",
 
+           "jtrans_dat_des_altar.txt",
+           "jtrans_dat_des_branches.txt",
+           "jtrans_dat_des_builder.txt",
+           "jtrans_dat_des_portals.txt",
            "jtrans_dat_des_sprint.txt",
+           "jtrans_dat_des_traps.txt",
            "jtrans_dat_des_tutorial.txt",
+           "jtrans_dat_des_variable.txt",
+           "jtrans_dat_dlua.txt",
            
            "jtrans_skill_title.txt",
            "jtrans_divine_title.txt",

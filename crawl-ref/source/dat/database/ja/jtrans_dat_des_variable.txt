@@ -1,0 +1,115 @@
+%%%%
+############################## dat/des/variable/ancient_champions.des ##############################
+%%%%
+Couldn't find a slave!
+
+%%%%
+As the champion is destroyed, a metal wall slides away!
+
+王者を倒すと、金属の壁が開いた！
+%%%%
+As the champion is destroyed, you hear a distant grinding noise.
+
+王者を倒すと、遠くで軋むような物音が聞こえた。
+%%%%
+############################## dat/des/variable/cathedral_bats.des ##############################
+%%%%
+megabat
+
+超巨大コウモリ
+%%%%
+A bat flies out of a crevice!
+
+裂け目からコウモリが飛び出した！
+%%%%
+############################## dat/des/variable/compat.des ##############################
+%%%%
+Several panes of glass retract into the floor.
+
+いくつかのガラスの壁が床に引っ込んでいった。
+%%%%
+############################## dat/des/variable/float.des ##############################
+%%%%
+You almost think you hear a voice: "Seek not undue power, mortal."
+
+あなたは不意に『身に余る力を求めるなかれ、定命の者よ』と声が聞こえたような気がしてきた。
+%%%%
+master elementalist
+
+精霊を極めしもの
+%%%%
+############################## dat/des/variable/geyser.des ##############################
+%%%%
+A fountain of clear blue water erupts!
+
+噴水から青く澄んだ水が噴き出した！
+%%%%
+A fountain of sparkling water erupts!
+
+噴水からきらめく水が噴き出した！
+%%%%
+You hear a distant splash.
+
+あなたは遠くから聞こえる水音を耳にした。
+%%%%
+The fountain becomes smaller until it vanishes.
+
+噴水はだんだんと小さくなって消えてしまった。
+%%%%
+############################## dat/des/variable/mini_monsters.des ##############################
+%%%%
+strange structure made of doors
+
+数多の扉で構成された奇妙な構造物
+%%%%
+microbat
+
+超小型コウモリ
+%%%%
+skeletal bat
+
+骸骨のコウモリ
+%%%%
+ice bat
+
+氷のコウモリ
+%%%%
+ghost-faced bat
+
+ユウレイコウモリ
+# 実在のコウモリらしい。和名不明
+%%%%
+rotten bat
+
+腐敗したコウモリ
+%%%%
+Nature
+
+自然
+%%%%
+# ホルヘ・ルイス・ボルヘス『バベルの図書館』ネタらしい
+Dhcmrlchtdj
+%%%%
+Combed Thunderclap
+
+櫛けずられた雷鳴
+%%%%
+Plaster Cramp
+
+漆喰クランプ
+%%%%
+Axaxaxas mlö
+
+%%%%
+Forking Paths
+
+分岐する道
+%%%%
+Ts'ui Pên
+
+ツイ・ペン
+%%%%
+Sand
+
+砂
+%%%%
