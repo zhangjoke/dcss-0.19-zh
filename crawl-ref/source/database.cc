@@ -140,7 +140,6 @@ static TextDB AllDBs[] =
             "tutorial.txt", // tutorial mode
             nullptr),
     TextDB("jtrans", "database/ja/",
-           "jtrans.txt",
            "jtrans_ability.txt",
            "jtrans_abyss.txt",
            "jtrans_acquire.txt",
