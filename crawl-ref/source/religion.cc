@@ -1252,7 +1252,7 @@ static void _delayed_gift_callback(const mgen_data &mg, monster *&mon,
         gift = mon->name(DESC_A);
     else
     {
-        gift = make_stringf("%d体の%s", placed,
+        gift = make_stringf(jtransc("%d {name}"), placed,
                             mon->name(DESC_PLAIN).c_str());
     }
 
