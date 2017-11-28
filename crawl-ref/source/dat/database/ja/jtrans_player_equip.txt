@@ -93,7 +93,7 @@ You see sparks fly.
 %%%%
 [hands act]your hands tingle!
 
-あなたの手はうずうずしている！
+あなたの%sはうずうずしている！
 %%%%
 You feel a bloodthirsty glee!
 
