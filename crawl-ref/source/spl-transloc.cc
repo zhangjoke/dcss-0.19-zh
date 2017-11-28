@@ -156,7 +156,7 @@ static bool _find_cblink_target(coord_def &target, bool safe_cancel)
     direction_chooser_args args;
     args.restricts = DIR_TARGET;
     args.needs_path = false;
-    args.top_prompt = jtrans("Blink to where?");
+    args.top_prompt = "Blink to where?";
     dist beam;
     direction(beam, args);
 
@@ -236,7 +236,7 @@ void wizard_blink()
     direction_chooser_args args;
     args.restricts = DIR_TARGET;
     args.needs_path = false;
-    args.top_prompt = jtrans("Blink to where?");
+    args.top_prompt = "Blink to where?";
     dist beam;
     direction(beam, args);
 

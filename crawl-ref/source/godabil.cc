@@ -1684,7 +1684,7 @@ bool beogh_gift_item()
     args.needs_path = false;
     args.self = CONFIRM_CANCEL;
     args.show_floor_desc = true;
-    args.top_prompt = jtrans("Select a follower to give a gift to.");
+    args.top_prompt = "Select a follower to give a gift to.";
 
     direction(spd, args);
 
@@ -2650,7 +2650,7 @@ spret_type fedhas_sunlight(bool fail)
     args.mode = TARG_HOSTILE_SUBMERGED;
     args.range = LOS_RADIUS;
     args.needs_path = false;
-    args.top_prompt = jtrans("Select sunlight destination.");
+    args.top_prompt = "Select sunlight destination.";
     direction(spelld, args);
 
     if (!spelld.isValid)
@@ -3369,7 +3369,7 @@ spret_type fedhas_evolve_flora(bool fail)
     args.needs_path = false;
     args.self = CONFIRM_CANCEL;
     args.show_floor_desc = true;
-    args.top_prompt = jtrans("Select plant or fungus to evolve.");
+    args.top_prompt = "Select plant or fungus to evolve.";
     args.get_desc_func = _evolution_name;
 
     direction(spelld, args);
@@ -3927,7 +3927,7 @@ bool dithmenos_shadow_step()
     args.range = range;
     args.just_looking = false;
     args.needs_path = false;
-    args.top_prompt = jtrans("Aiming: <white>Shadow Step</white>");
+    args.top_prompt = "Aiming: <white>Shadow Step</white>";
     dist sdirect;
     direction(sdirect, args);
     if (!sdirect.isValid || tgt.landing_site.origin())
@@ -4730,7 +4730,7 @@ spret_type qazlal_upheaval(coord_def target, bool quiet, bool fail)
         args.restricts = DIR_TARGET;
         args.mode = TARG_HOSTILE;
         args.needs_path = false;
-        args.top_prompt = jtrans("Aiming: <white>Upheaval</white>");
+        args.top_prompt = "Aiming: <white>Upheaval</white>";
         args.self = CONFIRM_CANCEL;
         args.hitfunc = &tgt;
         if (!spell_direction(spd, beam, &args))
@@ -6192,7 +6192,7 @@ bool ru_power_leap()
         args.mode = TARG_ANY;
         args.range = 3;
         args.needs_path = false;
-        args.top_prompt = jtrans("Aiming: <white>Power Leap</white>");
+        args.top_prompt = "Aiming: <white>Power Leap</white>";
         args.self = CONFIRM_CANCEL;
         const int explosion_size = 1;
         targetter_smite tgt(&you, args.range, explosion_size, explosion_size);
@@ -6574,7 +6574,7 @@ bool uskayaw_line_pass()
         args.restricts = DIR_LEAP;
         args.mode = TARG_ANY;
         args.needs_path = false;
-        args.top_prompt = jtrans("Aiming: <white>Line Pass</white>");
+        args.top_prompt = "Aiming: <white>Line Pass</white>";
         args.range = 8;
 
         if (!spell_direction(beam, line_pass, &args))
@@ -6692,7 +6692,7 @@ bool uskayaw_grand_finale()
         direction_chooser_args args;
         args.mode = TARG_HOSTILE;
         args.needs_path = false;
-        args.top_prompt = jtrans("Aiming: <white>Grand Finale</white>");
+        args.top_prompt = "Aiming: <white>Grand Finale</white>";
         args.self = CONFIRM_CANCEL;
         targetter_smite tgt(&you, 7, 0, 0);
         args.hitfunc = &tgt;
@@ -6896,7 +6896,7 @@ static coord_def _get_transference_target()
     args.needs_path = false;
     args.self = CONFIRM_NONE;
     args.show_floor_desc = true;
-    args.top_prompt = jtrans("Select a target.");
+    args.top_prompt = "Select a target.";
 
     direction(spd, args);
 

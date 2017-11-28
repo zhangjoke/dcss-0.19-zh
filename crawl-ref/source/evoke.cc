@@ -99,7 +99,7 @@ static bool _reaching_weapon_attack(const item_def& wpn)
     args.restricts = DIR_TARGET;
     args.mode = TARG_HOSTILE;
     args.range = 2;
-    args.top_prompt = jtrans("Attack whom?");
+    args.top_prompt = "Attack whom?";
     args.self = CONFIRM_CANCEL;
     targetter_reach hitfunc(&you, REACH_TWO);
     args.hitfunc = &hitfunc;
@@ -1397,7 +1397,7 @@ static bool _lamp_of_fire()
     direction_chooser_args args;
     args.restricts = DIR_TARGET;
     args.mode = TARG_HOSTILE;
-    args.top_prompt = jtrans("Aim the lamp in which direction?");
+    args.top_prompt = "Aim the lamp in which direction?";
     args.self = CONFIRM_CANCEL;
     if (spell_direction(target, base_beam, &args))
     {
@@ -1694,7 +1694,7 @@ static bool _phial_of_floods()
 
     direction_chooser_args args;
     args.mode = TARG_HOSTILE;
-    args.top_prompt = jtrans("Aim the phial where?");
+    args.top_prompt = "Aim the phial where?";
     if (spell_direction(target, beam, &args)
         && player_tracer(ZAP_PRIMAL_WAVE, base_pow, beam))
     {
@@ -1779,7 +1779,7 @@ static spret_type _phantom_mirror()
     args.restricts = DIR_TARGET;
     args.needs_path = false;
     args.self = CONFIRM_CANCEL;
-    args.top_prompt = jtrans("Aiming: <white>Phantom Mirror</white>");
+    args.top_prompt = "Aiming: <white>Phantom Mirror</white>";
     args.hitfunc = &tgt;
     if (!spell_direction(spd, beam, &args))
         return SPRET_ABORT;

@@ -1826,7 +1826,7 @@ static spret_type _do_ability(const ability_def& abil, bool fail)
 
         direction_chooser_args args;
         args.mode = TARG_HOSTILE;
-        args.top_prompt = jtrans("Aiming: <white>Delayed Fireball</white>");
+        args.top_prompt = "Aiming: <white>Delayed Fireball</white>";
         args.hitfunc = &tgt;
         if (!spell_direction(spd, beam, &args))
             return SPRET_ABORT;

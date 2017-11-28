@@ -628,7 +628,7 @@ static bool _issue_order(int keyn, int &mons_targd)
             args.restricts = DIR_TARGET;
             args.mode = TARG_HOSTILE;
             args.needs_path = false;
-            args.top_prompt = jtrans("Gang up on whom?");
+            args.top_prompt = "Gang up on whom?";
             dist targ;
             direction(targ, args);
 
@@ -661,7 +661,7 @@ static bool _issue_order(int keyn, int &mons_targd)
             args.restricts = DIR_TARGET;
             args.mode = TARG_ANY;
             args.needs_path = false;
-            args.top_prompt = jtrans("Retreat in which direction?");
+            args.top_prompt = "Retreat in which direction?";
             dist targ;
             direction(targ, args);
 
