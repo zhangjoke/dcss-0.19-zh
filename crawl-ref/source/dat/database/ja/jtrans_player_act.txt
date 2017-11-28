@@ -31,9 +31,9 @@ That's too large for you to wield.
 
 # jtrans_monster.txtと重複
 %%%%
-# [hand name]tentacle
+[hand name]tentacle
 
-# jtrans_monster.txtと重複
+<tentacle>
 %%%%
 [hand name]hand
 
