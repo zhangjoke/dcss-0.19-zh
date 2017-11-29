@@ -8612,7 +8612,7 @@ void activate_sanguine_armour()
     you.duration[DUR_SANGUINE_ARMOUR] = random_range(60, 100);
     if (!was_active)
     {
-        mpr("Your blood congeals into armour.");
+        mpr(jtrans("Your blood congeals into armour."));
         you.redraw_armour_class = true;
     }
 }
@@ -8624,7 +8624,7 @@ void activate_sanguine_armour()
 void refresh_weapon_protection()
 {
     if (!you.duration[DUR_SPWPN_PROTECTION])
-        mpr("Your weapon exudes an aura of protection.");
+        mpr(jtrans("Your weapon exudes an aura of protection."));
 
     you.increase_duration(DUR_SPWPN_PROTECTION, 3 + random2(2), 5);
     you.redraw_armour_class = true;

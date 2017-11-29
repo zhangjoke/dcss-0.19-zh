@@ -1166,11 +1166,11 @@ A chunk of your corpse armour falls away.
 %%%%
 Trog's vigour flows through your veins.
 
-
+トログの御業により、あなたの体に活力が吹き込まれた。
 %%%%
 You pass out from exhaustion.
 
-
+あなたは疲労のあまり気絶してしまった。
 %%%%
 # You are exhausted.
 
@@ -1182,9 +1182,9 @@ You feel less hot-headed.
 %%%%
 Your blood congeals into armour.
 
-
+あなたの流した血は固まって鎧へと変化した。
 %%%%
 Your weapon exudes an aura of protection.
 
-
+あなたの武器は護りのオーラを放った。
 %%%%
