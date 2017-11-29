@@ -133,7 +133,7 @@ bool attribute_increase()
              innate_stat(STAT_INT),
              innate_stat(STAT_DEX));
     }
-    mprf(MSGCH_PROMPT, "Increase (S)trength, (I)ntelligence, or (D)exterity? ");
+    mprf(MSGCH_PROMPT, jtrans_notrim("Increase (S)trength, (I)ntelligence, or (D)exterity? "));
 #endif
     mouse_control mc(MOUSE_MODE_PROMPT);
 
