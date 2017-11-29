@@ -41,7 +41,7 @@ off an invisible shield around {itself}!
 %%%%
 %s %s %s but does no damage.
 
-%sは%sに%sが、ダメージを与えられなかった。
+%sは%s%sが、ダメージを与えられなかった。
 %%%%
 %s pierces through %s %s!
 
@@ -77,5 +77,5 @@ Brand rolled %d against defender HD: %d.
 %%%%
 %s %s %s%s%s
 
-%sは%sに%s%s%s
+%sは%s%s%s%s
 %%%%

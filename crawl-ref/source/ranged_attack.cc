@@ -303,7 +303,7 @@ bool ranged_attack::handle_phase_hit()
             mprf(jtransc("%s %s %s but does no damage."),
                  zap_name_jc(projectile->name(DESC_THE)),
                  defender->name(DESC_THE).c_str(),
-                 attack_verb.c_str());
+                 verb_jc(attack_verb));
         }
     }
 
@@ -818,7 +818,7 @@ void ranged_attack::announce_hit()
     mprf(jtransc("%s %s %s%s%s"),
          zap_name_jc(projectile->name(DESC_THE)),
          defender_name(false).c_str(),
-         attack_verb.c_str(),
+         verb_jc(attack_verb),
          attack_strength_punctuation(damage_done).c_str(),
          debug_damage_number().c_str());
 }
