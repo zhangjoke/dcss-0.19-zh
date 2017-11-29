@@ -69,7 +69,7 @@ You have seen %s using the following:
 %%%%
 Spells                             Type                      Level
 
-呪文名                           系統                       レベル
+呪文名                             系統                       レベル
 %%%%
 Select a spell to read its description { or ... }.
 

@@ -422,7 +422,7 @@ static string _spell_schools(spell_type spell)
 
         if (!schools.empty())
             schools += "/";
-        schools += skill_name_j(spelltype_short_name(school_flag));
+        schools += spelltype_name_j(spelltype_short_name(school_flag));
     }
 
     return schools;
@@ -519,7 +519,7 @@ static void _describe_book(const spellbook_contents &book,
             string desc = make_stringf("%c - (%d%%) %s",
                                        spell_letter,
                                        hex_chance(spell, hd),
-                                       spell_title_jc(spell));
+                                       chop_stringc(spell_title_j(spell), 29));
 
             description.cprintf(chop_string(desc, 35));
         }
@@ -527,7 +527,7 @@ static void _describe_book(const spellbook_contents &book,
         {
             string desc = make_stringf("%c - %s",
                                        spell_letter,
-                                       spell_title_jc(spell));
+                                       chop_stringc(spell_title_j(spell), 29));
 
             description.cprintf(chop_string(desc, 35));
         }
