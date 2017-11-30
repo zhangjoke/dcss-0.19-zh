@@ -249,7 +249,7 @@ You are electrocuted!
 %%%%
 There is a sudden explosion of sparks!
 
-突然、電光の爆発が巻き起こった！
+電光の爆発が突然巻き起こった！
 %%%%
 %s draws strength from your wounds!
 
