@@ -9,6 +9,10 @@ You are too injured to fight recklessly!
 
 あなたは傷つきすぎており、むやみに攻撃できない！
 %%%%
+You are too hungry to fight recklessly!
+
+あなたは腹が減りすぎており、むやみに攻撃できない！
+%%%%
 You are too confused!
 
 あなたは混乱している！
@@ -16,6 +20,10 @@ You are too confused!
 No target in view!
 
 視界内に敵はいない！
+%%%%
+No reachable target in view!
+
+視界内には攻撃の届く敵がいない！
 %%%%
 No target in range!
 
