@@ -1119,7 +1119,7 @@ void search_around()
         {
             ptrap->reveal();
             mprf(jtransc("You found %s!"),
-                 ptrap->name(DESC_PLAIN).c_str());
+                 jtransc(ptrap->name(DESC_PLAIN)));
             learned_something_new(HINT_SEEN_TRAP, *ri);
         }
     }
