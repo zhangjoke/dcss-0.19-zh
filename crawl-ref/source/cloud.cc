@@ -1500,6 +1500,11 @@ string cloud_type_name(cloud_type type, bool terse)
     return clouds[type].verbose_name;
 }
 
+static string _cloud_j(const string &s)
+{
+    return tagged_jtrans("[cloud]", s);
+}
+
 string cloud_type_name_j(cloud_type type, bool terse)
 {
     if (type <= CLOUD_NONE || type >= NUM_CLOUD_TYPES)
@@ -1512,12 +1517,12 @@ string cloud_type_name_j(cloud_type type, bool terse)
         case CLOUD_FIRE:
         case CLOUD_POISON:
         case CLOUD_STEAM:
-            return jtrans(clouds[type].terse_name) + "の雲";
+            return _cloud_j(clouds[type].terse_name) + "の雲";
 
         case CLOUD_MEPHITIC:
         case CLOUD_RAIN:
         case CLOUD_STORM:
-            return jtrans(clouds[type].terse_name) + "雲";
+            return _cloud_j(clouds[type].terse_name) + "雲";
 
         case CLOUD_COLD:
         case CLOUD_BLACK_SMOKE:
@@ -1539,7 +1544,7 @@ string cloud_type_name_j(cloud_type type, bool terse)
         case CLOUD_SPECTRAL:
         case CLOUD_ACID:
         case CLOUD_NEGATIVE_ENERGY:
-            return jtrans(clouds[type].terse_name);
+            return _cloud_j(clouds[type].terse_name);
 
         default:
             return "buggy cloud";
@@ -1549,17 +1554,17 @@ string cloud_type_name_j(cloud_type type, bool terse)
         {
         case CLOUD_FIRE:
         case CLOUD_STEAM:
-            return jtrans(clouds[type].terse_name) + "の雲";
+            return _cloud_j(clouds[type].terse_name) + "の雲";
 
         case CLOUD_RAIN:
         case CLOUD_STORM:
-            return jtrans(clouds[type].terse_name) + "雲";
+            return _cloud_j(clouds[type].terse_name) + "雲";
 
         case CLOUD_COLD:
         case CLOUD_TLOC_ENERGY:
         case CLOUD_FOREST_FIRE:
         case CLOUD_MIASMA:
-            return jtrans(clouds[type].terse_name);
+            return _cloud_j(clouds[type].terse_name);
 
         default:
             return "buggy verbose flame";
@@ -1683,7 +1688,7 @@ void cloud_struct::announce_actor_engulfed(const actor *act,
         mprf(jtransc("%s %s standing in %s."),
              act->name(DESC_THE).c_str(),
              act->conj_verb_j("are").c_str(),
-             tagged_jtransc("[cloud]", type == CLOUD_STORM ? "a thunderstorm" : "the rain"));
+             _cloud_j(type == CLOUD_STORM ? "a thunderstorm" : "the rain"));
     }
 }
 
