@@ -1197,7 +1197,7 @@ string monster_info::common_name(description_level_type desc) const
 
 string monster_info::common_name_en(description_level_type desc) const
 {
-    const string core = _core_name();
+    const string core = _core_name_en();
     const bool nocore = mons_class_is_zombified(type)
                           && mons_is_unique(base_type)
                           && base_type == mons_species(base_type)
