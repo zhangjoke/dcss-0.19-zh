@@ -27,9 +27,9 @@ An iron grate slams shut!
 
 鉄格子がガラガラと音を立てて閉まった！
 %%%%
-You hear a soft click.
+# You hear a soft click.
 
-あなたはカチッという小さな音を耳にした。
+# jtrans_traps.txtと重複
 %%%%
 ############################## dat/des/traps/grate.des ##############################
 %%%%
