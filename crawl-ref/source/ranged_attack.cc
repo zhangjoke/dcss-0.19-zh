@@ -259,7 +259,7 @@ bool ranged_attack::handle_phase_dodged()
 
     if (needs_message)
     {
-        mprf(jtransc("%s%s misses %s%s"),
+        mprf(tagged_jtransc("[ranged]", "%s%s misses %s%s"),
              zap_name_jc(projectile->name(DESC_THE)),
              defender_name(false).c_str(),
              adv_jc(evasion_margin_adverb()),

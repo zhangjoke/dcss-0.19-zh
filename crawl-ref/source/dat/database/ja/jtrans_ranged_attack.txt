@@ -35,9 +35,9 @@ off an invisible shield around {itself}!
 
 %sは狙いを逸らされた。
 %%%%
-# %s%s misses %s%s
+[ranged]%s%s misses %s%s
 
-# jtrans_melee_attack.txtと重複
+%sは%sから%s外れた%s
 %%%%
 %s %s %s but does no damage.
 
