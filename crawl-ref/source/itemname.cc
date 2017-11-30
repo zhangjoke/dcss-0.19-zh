@@ -201,8 +201,6 @@ string item_def::name(description_level_type descrip, bool terse, bool ident,
                     buff << "★";
                 else if (is_artefact(*this))
                     buff << "☆";
-                else
-                    buff << "[bug]";
             }
         case DESC_DBNAME:
         case DESC_BASENAME:
