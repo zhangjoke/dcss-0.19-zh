@@ -107,6 +107,10 @@ You hear a (distant) blaring wail {dir}
 
 あなたは%s%s鳴り響く警報音を耳にした。
 %%%%
+to the %s.
+
+%sの方向から
+%%%%
 distant
 
 遠く
