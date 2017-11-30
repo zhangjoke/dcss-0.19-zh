@@ -151,7 +151,10 @@ function ($, comm, enums, map_knowledge, messages, options) {
         if (!player.quiver_available)
         {
             var elem = $("<span>");
-            elem.text("Quiver unavailable");
+            if (is_ja())
+                elem.text("(射撃準備できない)");
+            else
+                elem.text("Quiver unavailable");
             elem.addClass("fg8");
             return elem;
         }
