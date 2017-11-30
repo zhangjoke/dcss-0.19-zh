@@ -1,4 +1,38 @@
 %%%%
+# delay.h
+You finish doing something buggy.
+
+# 訳不要
+%%%%
+You continue eating.
+
+あなたは食事を続けている。
+%%%%
+You continue putting on %s.
+
+あなたは%sを装備しようとしている。
+%%%%
+You continue taking off %s.
+
+あなたは%sを外そうとしている。
+%%%%
+You continue memorising.
+
+あなたは呪文の習得を続けている
+%%%%
+You continue meditating on the rock.
+
+あなたは壁に向かって瞑想を続けている。
+%%%%
+You continue digging a shaft.
+
+あなたは縦穴を掘り続けている。
+%%%%
+You continue reading the scroll.
+
+あなたは巻物を読み続けている。
+%%%%
+# delay.cc
 You stop %s the corpse%s.
 
 あなたは死体%s手を止めた。
