@@ -891,7 +891,7 @@ string monster_info::_core_name() const
             break;
         case MONS_UGLY_THING:
         case MONS_VERY_UGLY_THING:
-            s = jtrans(ugly_thing_colour_name(_colour) + s);
+            s = jtrans(ugly_thing_colour_name(_colour)) + s;
             break;
 
         case MONS_DANCING_WEAPON:
