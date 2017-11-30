@@ -293,7 +293,7 @@ string Note::describe(bool when, bool where, bool what) const
                                        jconj_verb(desc, JCONJ_PASS).c_str());
             else
                 result << make_stringf(jtransc("%s %s"),
-                                       desc.c_str(), name.c_str());
+                                       name.c_str(), desc.c_str());
             break;
         case NOTE_POLY_MONSTER:
             result  << make_stringf(jtransc("%s changed into %s"),
