@@ -49,7 +49,7 @@ void push_monster(lua_State *ls, monster* mons)
 
 MDEF(name)
 {
-    PLUARET(string, mons->name(DESC_PLAIN, true).c_str());
+    PLUARET(string, mons->name_en(DESC_PLAIN, true).c_str());
 }
 
 MDEF(unique)
