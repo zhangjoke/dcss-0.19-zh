@@ -217,7 +217,7 @@ string Note::describe(bool when, bool where, bool what) const
                                    first);
             break;
         case NOTE_XP_LEVEL_CHANGE:
-            result << make_stringf(jtransc("Reached XP level %d. %s"),
+            result << make_stringf(jtransc("Reached XP level %s. %s"),
                                    to_stringc(first), name.c_str());
             break;
         case NOTE_DUNGEON_LEVEL_CHANGE:
