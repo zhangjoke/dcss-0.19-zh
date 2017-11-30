@@ -767,11 +767,7 @@ You feel more catlike.
 stealth player
 
 プレイヤーの隠匿
-%%%%
-teleportation journey
-
-
-%%%%
+%%%
 %d-stop teleportation journey%s
 
 %d連続のテレポート%s
