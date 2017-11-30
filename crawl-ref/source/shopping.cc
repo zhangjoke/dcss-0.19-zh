@@ -1160,7 +1160,7 @@ void ShopMenu::update_help()
     }
     top_line += "</yellow>\n";
 
-    set_more(formatted_string::parse_string(top_line + make_stringf(jtrans_notrimc(
+    set_more(formatted_string::parse_string(top_line + make_stringf(jtrans_notrim(
         //You have 0 gold pieces.
         //[Esc/R-Click] exit  [!] buy|examine items  [a-i] select item for purchase
         //[/] sort (default)  [Enter] make purchase  [A-I] put item on shopping list
@@ -1171,7 +1171,7 @@ void ShopMenu::update_help()
         "[<w>Esc</w>] exit          "
 #endif
         "%s  [%s] %s\n"
-        "[<w>/</w>] sort (%s)%s  %s  [%s] put item on shopping list"), jtransc(
+        "[<w>/</w>] sort (%s)%s  %s  [%s] put item on shopping list").c_str(), jtransc(
         !can_purchase ? " " " "  "  " "       "  "          " :
         looking       ? "[<w>!</w>] buy|<w>examine</w> items" :
                         "[<w>!</w>] <w>buy</w>|examine items"),

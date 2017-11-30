@@ -1582,7 +1582,7 @@ static void _config_layers_menu()
     while (!exit)
     {
         viewwindow();
-        mprf(MSGCH_PROMPT, jtransc(
+        mprf(MSGCH_PROMPT, jtrans(
                            "Select layers to display:\n"
                            "<%s>(m)onsters</%s>|"
                            "<%s>(p)layer</%s>|"
@@ -1593,7 +1593,7 @@ static void _config_layers_menu()
                            "<%s>monster (w)eapons</%s>|"
                            "<%s>monster (h)ealth</%s>"
 #endif
-                                   ),
+                                  ).c_str(),
            _layers & LAYER_MONSTERS        ? "lightgrey" : "darkgrey",
            _layers & LAYER_MONSTERS        ? "lightgrey" : "darkgrey",
            _layers & LAYER_PLAYER          ? "lightgrey" : "darkgrey",

@@ -3563,11 +3563,11 @@ static void _xom_good_teleport(int /*sever*/)
 
     // Take a note.
     const string note = make_stringf(jtransc(count > 1 ? "%d-stop teleportation journey%s"
-                                                       :  "1-stop teleportation journey%s"), count, jtransc(
+                                                       :  "1-stop teleportation journey%s"), count, jtrans(
 #ifdef NOTE_DEBUG_XOM
              player_in_a_dangerous_place() ? " (dangerous)" :
 #endif
-             ""));
+             "").c_str());
     take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
 }
 
@@ -3595,11 +3595,11 @@ static void _xom_bad_teleport(int sever)
 
     // Take a note.
     const string note = make_stringf(jtransc(count > 1 ? "%d-stop teleportation journey%s"
-                                                       :  "1-stop teleportation journey%s"), count, jtransc(
+                                                       :  "1-stop teleportation journey%s"), count, jtrans(
 #ifdef NOTE_DEBUG_XOM
              badness == 3 ? " (dangerous)" : "");
 #else
-    ""));
+    "").c_str());
 #endif
     take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
 }
@@ -3821,9 +3821,9 @@ void debug_xom_effects()
     fprintf(ostat, " --> Tension: %d\n", tension);
 
     if (player_under_penance(GOD_XOM))
-        fprintf(ostat, jtrans_notrimc("You are under Xom's penance!\n"));
+        fprintf(ostat, "%s", jtrans_notrimc("You are under Xom's penance!\n"));
     else if (_xom_is_bored())
-        fprintf(ostat, jtrans_notrimc("Xom is BORED.\n"));
+        fprintf(ostat, "%s", jtrans_notrimc("Xom is BORED.\n"));
     fprintf(ostat, jtrans_notrimc("\nRunning %d times through entire mood cycle.\n"), N);
     fprintf(ostat, "---- OUTPUT EFFECT PERCENTAGES ----\n");
 
@@ -3886,7 +3886,7 @@ void debug_xom_effects()
         const int total = mood_effects.size();
 
         if (i == 0)
-            fprintf(ostat, jtrans_notrimc("\nTotal effects (all piety ranges)\n"));
+            fprintf(ostat, "%s", jtrans_notrimc("\nTotal effects (all piety ranges)\n"));
         else
             fprintf(ostat, jtrans_notrimc("\nMood: You are %s\n"), moods[i].c_str());
 
@@ -3927,7 +3927,7 @@ void debug_xom_effects()
                     xec.effect.c_str());
         }
     }
-    fprintf(ostat, jtrans_notrimc("---- FINISHED XOM DEBUG TESTING ----\n"));
+    fprintf(ostat, "%s", jtrans_notrimc("---- FINISHED XOM DEBUG TESTING ----\n"));
     fclose(ostat);
     mpr(jtrans("Results written into 'xom_debug.stat'."));
 

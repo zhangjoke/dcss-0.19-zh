@@ -591,7 +591,7 @@ void Stash::write(FILE *f, coord_def refpos, string place, bool identify) const
     }
 
     if (items.size() <= 1 && !verified)
-        fprintf(f, jtrans_notrimc("  (unseen)\n"));
+        fprintf(f, "%s", jtrans_notrimc("  (unseen)\n"));
 }
 
 void Stash::save(writer& outf) const
@@ -746,7 +746,7 @@ void ShopInfo::write(FILE *f, bool identify) const
         }
     }
     else
-        fprintf(f, jtrans_notrimc("  (Shop contents are unknown)\n"));
+        fprintf(f, "%s", jtrans_notrimc("  (Shop contents are unknown)\n"));
 }
 
 LevelStashes::LevelStashes()
@@ -1111,7 +1111,7 @@ void StashTracker::write(FILE *f, bool identify) const
 {
     fprintf(f, "%s\n\n", OUTS(you.your_name));
     if (!levels.size())
-        fprintf(f, jtrans_notrimc("  You have no stashes.\n"));
+        fprintf(f, "%s", jtrans_notrimc("  You have no stashes.\n"));
     else
     {
         for (const auto &entry : levels)

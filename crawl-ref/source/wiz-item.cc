@@ -406,7 +406,7 @@ void wizard_tweak_object()
         {
             mprf_nocap("%s", you.inv[item].name(DESC_INVENTORY_EQUIP).c_str());
 
-            mprf_nocap(MSGCH_PROMPT, jtransc(make_stringf("a - plus  b - plus2  c - %s  "
+            mprf_nocap(MSGCH_PROMPT, "%s", jtransc(make_stringf("a - plus  b - plus2  c - %s  "
                                      "d - quantity  e - flags  ESC - exit",
                                      is_art ? "art props" : "special")));
 
@@ -1003,7 +1003,7 @@ static void _debug_acquirement_stats(FILE *ostat)
         }
     }
     if (naked)
-        fprintf(ostat, jtrans_notrimc("Not wearing or wielding anything.\n"));
+        fprintf(ostat, "%s", jtrans_notrimc("Not wearing or wielding anything.\n"));
 
     // Also print the skills, in case they matter.
     string skills = jtrans_notrim("\nSkills:\n");
@@ -1073,7 +1073,7 @@ static void _debug_acquirement_stats(FILE *ostat)
         fprintf(ostat, jtrans_notrimc("Average combined pluses: %5.2f\n\n"),
                 (float) total_plus / (float) acq_calls);
 
-        fprintf(ostat, jtrans_notrimc("Egos (including artefacts):\n"));
+        fprintf(ostat, "%s", jtrans_notrimc("Egos (including artefacts):\n"));
 
         const char* names[] =
         {
@@ -1184,7 +1184,7 @@ static void _debug_acquirement_stats(FILE *ostat)
         if (subtype_quants[BOOK_RANDART_THEME]
             + subtype_quants[BOOK_RANDART_LEVEL] > 0)
         {
-            fprintf(ostat, jtrans_notrimc("Primary disciplines/levels of randart books:\n"));
+            fprintf(ostat, "%s", jtrans_notrimc("Primary disciplines/levels of randart books:\n"));
 
             const char* names[] =
             {
@@ -1231,7 +1231,7 @@ static void _debug_acquirement_stats(FILE *ostat)
         if (subtype_quants[BOOK_MANUAL] > 0)
         {
             const int mannum = subtype_quants[BOOK_MANUAL];
-            fprintf(ostat, jtrans_notrimc("\nManuals:\n"));
+            fprintf(ostat, "%s", jtrans_notrimc("\nManuals:\n"));
             for (skill_type sk = SK_FIRST_SKILL; sk <= SK_LAST_SKILL; ++sk)
             {
                 const int k = 200 + sk;
@@ -1514,8 +1514,8 @@ static void _debug_rap_stats(FILE *ostat)
     };
     COMPILE_CHECK(ARRAYSZ(rap_names) == ARTP_NUM_PROPERTIES);
 
-    fprintf(ostat, jtrans_notrimc("                                 All    Good   Bad   Max AvgGood Min AvgBad\n"));
-    fprintf(ostat, jtrans_notrimc("                           ------------------------------------------------\n"));
+    fprintf(ostat, "%s", jtrans_notrimc("                                 All    Good   Bad   Max AvgGood Min AvgBad\n"));
+    fprintf(ostat, "%s", jtrans_notrimc("                           ------------------------------------------------\n"));
     fprintf(ostat, jtrans_notrimc("%-27s: %6.2f%% %6.2f%% %6.2f%%\n"), jtransc("Overall"), 100.0,
             (float) total_good_props * 100.0 / (float) total_props,
             (float) total_bad_props * 100.0 / (float) total_props);

@@ -465,7 +465,7 @@ void game_state::mon_gone(monster* mon)
 
 void game_state::dump()
 {
-    fprintf(stderr, jtrans_notrimc("\nGame state:\n\n"));
+    fprintf(stderr, "%s", jtrans_notrimc("\nGame state:\n\n"));
 
     fprintf(stderr, jtrans_notrimc("mouse_enabled: %d, waiting_for_command: %d, "
                   "terminal_resized: %d\n"),
@@ -522,7 +522,7 @@ void game_state::dump()
 
     if (!god_act_stack.empty())
     {
-        fprintf(stderr, jtrans_notrimc("Other gods acting:\n"));
+        fprintf(stderr, "%s", jtrans_notrimc("Other gods acting:\n"));
         for (const god_act_state &godact : god_act_stack)
         {
             fprintf(stderr, jtrans_notrimc("God %s with depth %d\n"),
@@ -540,7 +540,7 @@ void game_state::dump()
 
     if (!mon_act_stack.empty())
     {
-        fprintf(stderr, jtrans_notrimc("Others monsters acting:\n"));
+        fprintf(stderr, "%s", jtrans_notrimc("Others monsters acting:\n"));
         for (const monster *mon : mon_act_stack)
             fprintf(stderr, "    %s\n", debug_mon_str(mon).c_str());
     }

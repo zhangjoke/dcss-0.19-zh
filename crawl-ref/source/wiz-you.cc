@@ -722,7 +722,7 @@ bool wizard_add_mutation()
 void wizard_set_abyss()
 {
     char buf[80];
-    mprf(MSGCH_PROMPT, jtrans_notrimc("Enter values for X, Y, Z (space separated) or return: "));
+    mprf(MSGCH_PROMPT, "%s", jtrans_notrimc("Enter values for X, Y, Z (space separated) or return: "));
     if (!cancellable_get_line_autohist(buf, sizeof buf))
         abyss_teleport();
 
@@ -734,7 +734,7 @@ void wizard_set_abyss()
 void wizard_set_stats()
 {
     char buf[80];
-    mprf(MSGCH_PROMPT, jtrans_notrimc("Enter values for Str, Int, Dex (space separated): "));
+    mprf(MSGCH_PROMPT, "%s", jtrans_notrimc("Enter values for Str, Int, Dex (space separated): "));
     if (cancellable_get_line_autohist(buf, sizeof buf) || buf[0] == '\0')
     {
         canned_msg(MSG_OK);

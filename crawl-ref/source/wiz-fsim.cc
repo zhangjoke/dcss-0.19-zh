@@ -562,7 +562,7 @@ static void _fsim_simple_scale(FILE * o, monster* mon, bool defense)
         if (kbhit() && getchk() == 27)
         {
             mpr(jtrans_notrim("Cancelling simulation.\n"));
-            fprintf(o, jtrans_notrimc("Simulation cancelled!\n\n"));
+            fprintf(o, "%s", jtrans_notrimc("Simulation cancelled!\n\n"));
             break;
         }
     }
@@ -608,7 +608,7 @@ static void _fsim_double_scale(FILE * o, monster* mon, bool defense)
             if (kbhit() && getchk() == 27)
             {
                 mpr(jtrans_notrim("Cancelling simulation.\n"));
-                fprintf(o, jtrans_notrimc("\nSimulation cancelled!\n\n"));
+                fprintf(o, "%s", jtrans_notrimc("\nSimulation cancelled!\n\n"));
                 return;
             }
         }
