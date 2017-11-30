@@ -299,7 +299,7 @@ That %s is likely to hit you. Continue anyway?
 
 この%sはあなたに命中しそうだ。それでも続けますか？
 %%%%
-[tracer_affect_player()]beam
+[zap]beam
 
 魔法
 %%%%

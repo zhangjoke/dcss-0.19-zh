@@ -3291,7 +3291,7 @@ void bolt::tracer_affect_player()
         if (!dont_stop_player && !harmless_to_player())
         {
             string prompt = make_stringf(jtransc("That %s is likely to hit you. Continue anyway?"),
-                                         tagged_jtransc("[tracer_affect_player()]", item ? name.c_str() : "beam"));
+                                         zap_name_jc(item ? name.c_str() : "beam"));
 
             if (yesno(prompt.c_str(), false, 'n'))
             {
@@ -3340,7 +3340,8 @@ bool bolt::misses_player()
         if (hit_verb.empty())
             hit_verb = engulfs ? "engulfs" : "hits";
         if (flavour != BEAM_VISUAL && !is_enchantment())
-            mprf(jtransc("The %s %s you!"), name.c_str(),
+            mprf(jtransc("The %s %s you!"),
+                 zap_name_jc(name),
                  verb_jc(hit_verb));
         return false;
     }
@@ -3388,7 +3389,7 @@ bool bolt::misses_player()
             bool penet = false;
 
             const string refl_name = name.empty() && origin_spell ?
-                                     spell_title(origin_spell) :
+                                     spell_title_j(origin_spell) + "の呪文" :
                                      name;
 
             const item_def *shield = you.shield();
@@ -3453,7 +3454,8 @@ bool bolt::misses_player()
             hit_verb = engulfs ? "engulfs" : "hits";
 
         if (_test_beam_hit(real_tohit, dodge_more, pierce, defl, r))
-            mprf(jtransc("The %s %s you!"), name.c_str(),
+            mprf(jtransc("The %s %s you!"),
+                 zap_name_jc(name),
                  verb_jc(hit_verb));
         else
             mprf(jtransc("Helpless, you fail to dodge the %s."),
@@ -3921,7 +3923,8 @@ void bolt::affect_player()
         {
             if (hit_verb.empty())
                 hit_verb = engulfs ? "engulfs" : "hits";
-            mprf(jtransc("The %s %s you!"), name.c_str(),
+            mprf(jtransc("The %s %s you!"),
+                 zap_name_jc(name),
                  verb_jc(hit_verb));
         }
 
@@ -4694,7 +4697,7 @@ void bolt::knockback_actor(actor *act, int dam)
             mprf(jtransc("%s %s knocked back by the %s."),
                  act->name(DESC_THE).c_str(),
                  act->conj_verb_j("are").c_str(),
-                 name.c_str());
+                 zap_name_jc(name));
         }
     }
 
@@ -4737,15 +4740,14 @@ bool bolt::attempt_block(monster* mon)
             {
                 mprf(jtransc("%s reflects the %s off %s %s!"),
                      mon->name(DESC_THE).c_str(),
-                     name.c_str(),
-//                   mon->pronoun(PRONOUN_POSSESSIVE).c_str(),
+                     zap_name_jc(name),
                      shield->name(DESC_PLAIN).c_str());
                 ident_reflector(shield);
             }
             else
             {
                 mprf(jtransc("The %s bounces off an invisible shield around %s!"),
-                     name.c_str(),
+                     zap_name_jc(name),
                      mon->name(DESC_THE).c_str());
 
                 item_def *amulet = mon->mslot_item(MSLOT_JEWELLERY);
@@ -4754,14 +4756,14 @@ bool bolt::attempt_block(monster* mon)
             }
         }
         else if (you.see_cell(pos()))
-            mprf(jtransc("The %s bounces off of thin air!"), name.c_str());
+            mprf(jtransc("The %s bounces off of thin air!"), zap_name_jc(name));
 
         reflect();
     }
     else if (you.see_cell(pos()))
     {
         mprf(jtransc("%s blocks the %s."),
-             mon->name(DESC_THE).c_str(), name.c_str());
+             mon->name(DESC_THE).c_str(), zap_name_jc(name));
         finish_beam();
     }
 
@@ -4814,7 +4816,8 @@ void bolt::affect_monster(monster* mon)
     if (flavour == BEAM_WATER && mon->type == MONS_WATER_ELEMENTAL && !is_tracer)
     {
         if (you.see_cell(mon->pos()))
-            mprf(jtransc("The %s passes through %s."), name.c_str(), mon->name(DESC_THE).c_str());
+            mprf(jtransc("The %s passes through %s."),
+                 zap_name_jc(name), mon->name(DESC_THE).c_str());
     }
 
     if (ignores_monster(mon))
@@ -4859,7 +4862,7 @@ void bolt::affect_monster(monster* mon)
                 hit_verb = engulfs ? "engulfs" : "hits";
             if (you.see_cell(mon->pos()))
             {
-                mprf(jtransc("The %s %s %s."), name.c_str(),
+                mprf(jtransc("The %s %s %s."), zap_name_jc(name),
                      mon->name(DESC_THE).c_str(),
                      verb_jc(hit_verb));
             }
@@ -4966,13 +4969,13 @@ void bolt::affect_monster(monster* mon)
                 string deflects = (defl == 2) ? "deflects" : "repels";
                 msg::stream << make_stringf(jtransc("{name} {deflects} the {bolt name}!"),
                                             mon->name(DESC_THE).c_str(),
-                                            name.c_str(),
+                                            zap_name_jc(name),
                                             verb_jc(deflects)) << endl;
             }
             else
             {
                 msg::stream << make_stringf(jtransc("The {bolt name} misses {name}."),
-                                            name.c_str(),
+                                            zap_name_jc(name),
                                             mon->name(DESC_THE).c_str()) << endl;
             }
         }
@@ -5018,7 +5021,7 @@ void bolt::affect_monster(monster* mon)
             hit_verb = engulfs ? "engulfs" : "hits";
 
         mprf(jtransc("The %s %s %s."),
-             name.c_str(),
+             zap_name_jc(name),
              mon->name(DESC_THE).c_str(),
              verb_jc(hit_verb));
 
@@ -5030,7 +5033,8 @@ void bolt::affect_monster(monster* mon)
     else if (!silenced(you.pos()) && flavour == BEAM_MISSILE
              && YOU_KILL(thrower))
     {
-        mprf(MSGCH_SOUND, jtransc("The %s hits something."), name.c_str());
+        mprf(MSGCH_SOUND, jtransc("The %s hits something."),
+             zap_name_jc(name));
     }
 
     if (final > 0)
@@ -6043,7 +6047,7 @@ bool bolt::explode(bool show_more, bool hole_in_the_middle)
         if (!is_tracer && you.see_cell(pos()) && !name.empty())
         {
             mprf(MSGCH_GOD, jtransc("By Zin's power, the %s is contained."),
-                 name.c_str());
+                 zap_name_jc(name));
             return true;
         }
         return false;
