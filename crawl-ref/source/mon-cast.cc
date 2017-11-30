@@ -772,7 +772,7 @@ static void _cast_smiting(monster &caster, mon_spell_slot slot, bolt&)
     ASSERT(foe);
 
     if (foe->is_player())
-        mprf(jtransc("%s smites you!"), _god_name(god).c_str());
+        mprf(jtransc("%s smites you!"), jtransc(_god_name(god)));
     else
         simple_monster_message(*foe->as_monster(), " is smitten.");
 
