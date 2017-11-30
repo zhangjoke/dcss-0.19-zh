@@ -1837,7 +1837,8 @@ static string _ego_prefix(const item_def &weap, description_level_type desc,
             {
                 return tagged_jtrans("[ego prefix]", "enchanted ");
             }
-            // fallthrough to default
+            return "";
+
         case SPWPN_VORPAL:
             if (is_range_weapon(weap))
                 return item_adj_j("of velocity");
