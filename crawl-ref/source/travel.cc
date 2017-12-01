@@ -1871,7 +1871,7 @@ static string _get_trans_travel_dest_j(const level_pos &target,
                                        bool skip_coord = false)
 {
     const int branch_id = target.id.branch;
-    const char *branch = branches[branch_id].abbrevname;
+    const char *branch = branches[branch_id].longname;
 
     if (!branch)
         return "";
@@ -2023,7 +2023,7 @@ static int _prompt_travel_branch(int prompt_flags)
                 }
                 line += make_stringf("(%c) %-16s ",
                                      branches[br].travel_shortcut,
-                                     chop_stringc(branch_name_j(branches[br].shortname), 16));
+                                     chop_stringc(branch_name_j(branches[br].longname), 16));
                 ++linec;
             }
             if (!line.empty())
