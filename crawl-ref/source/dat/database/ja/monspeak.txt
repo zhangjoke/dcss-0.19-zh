@@ -7157,13 +7157,17 @@ stern
 %%%%
 _axioms_of_law_
 
-Zin's Axioms of Law.
+# Zin's Axioms of Law.
+ジンの法理
 
-the Axioms of Law.
+# the Axioms of Law.
+法理
 
-the books of the Law.
+# the books of the Law.
+法理を説いた書物
 
-the sacred Law of Zin.
+# the sacred Law of Zin.
+ジンの神聖なる法理
 %%%%
 # used for "explaining the importance of ..."
 _important_subject_
@@ -7172,33 +7176,45 @@ _important_subject_
 w:50
 @_axioms_of_law_@
 
-the eternal Law.
+# the eternal Law.
+永劫なる規律
 
-obedience to the Law.
+# obedience to the Law.
+規律への服従
 
-the one true way.
+# the one true way.
+唯一にして真なる道理
 
 # purity
-purity of body and mind.
+# purity of body and mind.
+精神と肉体の清浄
 
-preserving your bodily integrity.
+# preserving your bodily integrity.
+肉体の高潔さを保つこと
 
-keeping your body clean and pure.
+# keeping your body clean and pure.
+あなたの肉体を清浄に保つこと
 
-proper care of body and soul.
+# proper care of body and soul.
+肉体と魂への正しい気配り
 
 # mutations
-avoiding mutations.
+# avoiding mutations.
+突然変異を避けること
 
-just saying no to mutations.
+# just saying no to mutations.
+突然変異を否定すること
 
 # respecting intelligent beings
-proper burial practice.
+# proper burial practice.
+正しい埋葬儀礼
 
 # demons
-not dealing with demons.
+# not dealing with demons.
+悪魔と取り引きしないこと
 
-rejecting the service of demons.
+# rejecting the service of demons.
+悪魔の囁きを拒絶すること
 %%%%
 # the subject of your recital/lecture/whatever
 # needs the full dot or exclamation mark
