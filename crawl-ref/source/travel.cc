@@ -3565,7 +3565,7 @@ void TravelCache::list_waypoints() const
         if (waypoints[i].id.depth == -1)
             continue;
 
-        dest = _get_trans_travel_dest(waypoints[i], false, true);
+        dest = _get_trans_travel_dest_j(waypoints[i], false, true);
 
         snprintf(choice, sizeof choice, "(%d) %-16s", i,
                  chop_stringc(dest, 16));
