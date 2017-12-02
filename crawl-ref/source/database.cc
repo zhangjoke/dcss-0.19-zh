@@ -234,6 +234,7 @@ static TextDB AllDBs[] =
            "jtrans_potion.txt",
            "jtrans_prompt.txt",
            "jtrans_quiver.txt",
+           "jtrans_randbook.txt",
            "jtrans_ranged_attack.txt",
            "jtrans_religion.txt",
            "jtrans_rot.txt",
