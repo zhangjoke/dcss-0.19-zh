@@ -2213,7 +2213,7 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
                 buff << jtrans(" of " + armour_ego_name(*this, terse));
                 buff << jtrans(item_base_name(*this));
 
-                if (!terse)
+                if (terse)
                 {
                     // Don't list QDA as +0.
                     if (know_pluses && sub_type != ARM_QUICKSILVER_DRAGON_ARMOUR)
