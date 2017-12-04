@@ -1834,7 +1834,8 @@ string get_item_description(const item_def &item, bool verbose,
         break;
 
     case OBJ_ARMOUR:
-        desc += _describe_armour(item, verbose);
+        desc += make_stringf(_describe_armour(item, verbose).c_str(),
+                             jtransc(base_type_string(item)));
         break;
 
     case OBJ_JEWELLERY:
