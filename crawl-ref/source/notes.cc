@@ -306,22 +306,22 @@ string Note::describe(bool when, bool where, bool what) const
             break;
         case NOTE_GET_MUTATION:
             result << make_stringf(jtransc("Gained mutation: %s"),
-                                   mutation_desc(static_cast<mutation_type>(first),
-                                                 second == 0 ? 1 : second).c_str());
+                                   jtransc(mutation_desc(static_cast<mutation_type>(first),
+                                                         second == 0 ? 1 : second)));
             if (!name.empty())
                 result << " [" << name << "]";
             break;
         case NOTE_LOSE_MUTATION:
             result << make_stringf(jtransc("Lost mutation: %s"),
-                                   mutation_desc(static_cast<mutation_type>(first),
-                                                 second == 3 ? 3 : second+1).c_str());
+                                   jtransc(mutation_desc(static_cast<mutation_type>(first),
+                                                         second == 3 ? 3 : second+1)));
             if (!name.empty())
                 result << " [" << name << "]";
             break;
         case NOTE_PERM_MUTATION:
             result << make_stringf(jtransc("Mutation became permanent: %s"),
-                                   mutation_desc(static_cast<mutation_type>(first),
-                                                 second == 0 ? 1 : second).c_str());
+                                   jtransc(mutation_desc(static_cast<mutation_type>(first),
+                                                         second == 0 ? 1 : second)));
             if (!name.empty())
                 result << " [" << name << "]";
             break;
