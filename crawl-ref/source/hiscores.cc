@@ -442,7 +442,7 @@ void show_hiscore_table()
     NoSelectTextItem* tmp = new NoSelectTextItem();
     string text = "[  Up/Down or PgUp/PgDn to scroll.         Esc or R-click "
         "exits.  ]";
-    tmp->set_text(text);
+    tmp->set_text(jtrans(text));
     tmp->set_bounds(coord_def(1, max_line - 1), coord_def(max_col - 1, max_line));
     tmp->set_fg_colour(CYAN);
     freeform->attach_item(tmp);

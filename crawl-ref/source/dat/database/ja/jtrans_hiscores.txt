@@ -1,6 +1,7 @@
 %%%%
 [  Up/Down or PgUp/PgDn to scroll.         Esc or R-click exits.  ]
 
+[↑/↓もしくはPgUp/PgDnでスクロール    Escもしくは右クリックで終了]
 %%%%
 their own shadow
 
