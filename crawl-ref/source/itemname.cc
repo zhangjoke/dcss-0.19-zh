@@ -2210,7 +2210,7 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
 
             if (sparm != SPARM_NORMAL)
             {
-                buff << jtrans(" of " + armour_ego_name(*this, terse));
+                buff << jtrans(" of " + armour_ego_name(*this, false));
                 buff << jtrans(item_base_name(*this));
 
                 if (terse)
