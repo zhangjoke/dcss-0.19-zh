@@ -65,7 +65,7 @@ Go there anyway?
 %%%%
 What level of %s? (default %s, ? - help)
 
-%sの何階ですか？ (初期値: %s階, ? - ヘルプ)
+%sの何階ですか？ (初期値: %s, ? - ヘルプ)
 %%%%
 # You're already here!
 
