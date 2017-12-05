@@ -1395,7 +1395,7 @@ string direction_chooser::target_interesting_terrain_description() const
 string direction_chooser::target_cloud_description() const
 {
     if (cloud_struct* cloud = cloud_at(target()))
-        return cloud->cloud_name(true);
+        return cloud->cloud_name_j(true);
     else
         return "";
 }
