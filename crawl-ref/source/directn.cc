@@ -3402,7 +3402,7 @@ string get_monster_equipment_desc(const monster_info& mi,
              // dancing weapons' names already include this information
              || level == DESC_WEAPON && mi.type != MONS_DANCING_WEAPON)
     {
-        return " " + mi.full_name(DESC_A);
+        return mi.full_name(DESC_A);
     }
 
     // Print the rest of the equipment only for full descriptions.
