@@ -277,7 +277,8 @@ sound_name
 太古の言語で囁く声
 
 # whistling wind
-ヒュウヒュウと鳴く風の音
+# ヒュウヒュウと鳴く風の音
+# desolation入り口メッセージと被るのでコメントアウトする
 %%%%
 # Used by Summon Horrible Things.
 SHT_int_loss
