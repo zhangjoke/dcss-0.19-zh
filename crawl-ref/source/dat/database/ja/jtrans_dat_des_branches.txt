@@ -1,5 +1,5 @@
 %%%%
-############################## dat/des/branches/abyss.des ##############################
+#### dat/des/branches/abyss.des ###############################
 %%%%
 demonic
 
@@ -9,7 +9,21 @@ mad acolyte of Lugonu
 
 『ルゴヌ』の狂信者
 %%%%
-############################## dat/des/branches/crypt.des ##############################
+#### dat/des/branches/coc.des #################################
+%%%%
+[feature]ice-covered rock wall
+
+氷で覆われた岩壁
+%%%%
+[feature]ice-covered stone wall
+
+氷で覆われた石壁
+%%%%
+[feature]Frost-covered floor
+
+霜に覆われた床
+%%%%
+#### dat/des/branches/crypt.des ###############################
 %%%%
 There is a click. Suddenly, the grates are dropped!
 
@@ -31,23 +45,49 @@ You hear grinding stone!
 
 あなたは石がギシギシとこすれる音を耳にした！
 %%%%
-skeletal archer
+[feature]sarcophagus
 
-骸骨の弓兵
+古代の石棺
 %%%%
-############################## dat/des/branches/dis.des ##############################
+[feature]gravestone
+
+<[feature]a gravestone>
+%%%%
+#### dat/des/branches/depths_encompass.des ####################
+%%%%
+iron statue
+
+鉄の像
+%%%%
+#### dat/des/branches/dis.des #################################
 %%%%
 You hear the creaking of ancient metal!
 
 あなたは太古の金属が軋む音を立てるのを耳にした！
 %%%%
-############################## dat/des/branches/lair.des ##############################
+#### dat/des/branches/elf.des #################################
 %%%%
-young
+Elven Fire
 
-若い
+エルフの炎の店
 %%%%
-############################## dat/des/branches/pan.des ##############################
+#### dat/des/branches/geh.des #################################
+%%%%
+Ashen ground
+
+灰の積もった地面
+%%%%
+tempered metal wall
+
+強化金属壁
+%%%%
+#### dat/des/branches/lair.des ################################
+%%%%
+elephant-shaped statue
+
+象の像
+%%%%
+#### dat/des/branches/pan.des #################################
 %%%%
 The air here is shimmering with an eerie glow.
 
@@ -73,13 +113,17 @@ resides here.
 
 が居を構えている。
 %%%%
+Entered the realm of
+
+の守る階層に到達した
+%%%%
 ominous statue.
 
 不吉な像
 %%%%
-Entered the realm of
+[feature]weirdly glowing ball
 
-の守る階層に到達した
+奇妙に輝く球体
 %%%%
 The grate goes up!
 
@@ -89,13 +133,13 @@ You hear a sound of rusty metal sliding.
 
 あなたは錆びついた金属が滑るような音を耳にした。
 %%%%
-############################## dat/des/branches/shoals.des ##############################
+#### dat/des/branches/shoals.des ##############################
 %%%%
 The surface of the water froths suddenly, and then rushes away.
 
 水面が突然泡立ち、こちらに押し寄せてきた。
 %%%%
-############################## dat/des/branches/slime.des ##############################
+#### dat/des/branches/slime.des ###############################
 %%%%
 An unexplained breeze blows through the dungeon.
 
@@ -117,7 +161,11 @@ You feel a great sense of loss, and a brush of the Abyss.
 
 あなたは大いなる喪失の感覚とアビスへの接触を感じ取った。
 %%%%
-############################## dat/des/branches/spider.des ##############################
+[feature]rune carved stone wall
+
+ルーンの彫られた石壁
+%%%%
+#### dat/des/branches/spider.des ##############################
 %%%%
 A basket of spiders falls from above!
 
@@ -139,7 +187,7 @@ The chamber up ahead is thickly strewn with cobwebs.
 
 その小部屋はびっしりと蜘蛛の巣に覆われている。
 %%%%
-############################## dat/des/branches/swamp.des ##############################
+#### dat/des/branches/swamp.des ###############################
 %%%%
 A figure emerges from the depths of the water!
 
@@ -149,7 +197,7 @@ The water ripples visibly.
 
 何かの波紋が生じた。
 %%%%
-############################## dat/des/branches/tar.des ##############################
+#### dat/des/branches/tar.des #################################
 %%%%
 You hear an unearthly scream, and the grinding of stone!
 
@@ -159,7 +207,7 @@ The path is suddenly blocked!
 
 行く手が突然遮られた！
 %%%%
-############################## dat/des/branches/vaults.des ##############################
+#### dat/des/branches/vaults.des ##############################
 %%%%
 Your surroundings suddenly seem different!
 
@@ -169,7 +217,15 @@ There is a strange hissing noise.
 
 奇妙なシューッという音がした。
 %%%%
-############################## dat/des/branches/zot.des ##############################
+[feature]heavily etched metal wall
+
+鮮明に壁画の描かれた金属壁
+%%%%
+[feature]heavily etched crystal wall
+
+鮮明に壁画の描かれた水晶の壁
+%%%%
+#### dat/des/branches/zot.des #################################
 %%%%
 You have a sense of imminent foreboding.
 
