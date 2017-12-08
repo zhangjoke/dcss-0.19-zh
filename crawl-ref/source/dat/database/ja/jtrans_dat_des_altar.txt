@@ -1,10 +1,10 @@
-############################## dat/des/altar/ashenzari_visionary.des ##############################
+#### dat/des/altar/ashenzari_visionary.des ####################
 %%%%
 Ashenzari says, "See what I see, mortal..."
 
 アシェンザリは『私の見ている物を見よ、定命の者よ……』と言った。
 %%%%
-############################## dat/des/altar/kiku_cage.des ##############################
+#### dat/des/altar/kiku_cage.des ##############################
 %%%%
 Miasma emanates from the human's flesh.
 
@@ -14,13 +14,13 @@ The human rises from the dead!
 
 人間はゾンビとなって蘇った！
 %%%%
-############################## dat/des/altar/lugonu_bribe.des ##############################
+#### dat/des/altar/lugonu_bribe.des ###########################
 %%%%
 An item emerges from the Abyss! Perhaps it is an incitement to worship... or even an insult?
 
 アイテムがアビスから招来された！ これは信仰を鼓舞するものか……はたまた侮辱するものか？
 %%%%
-############################## dat/des/altar/nemelex_the_gamble.des ##############################
+#### dat/des/altar/nemelex_the_gamble.des #####################
 %%%%
 "Care to risk it all for some fabulous prizes, mortal?"
 
@@ -58,7 +58,7 @@ Nemelex Xobeh says, "You lose!"
 
 <white>転送装置は奇妙な虹色の光に輝き、そして消え去った。</white>
 %%%%
-############################## dat/des/altar/okawaru_arena.des ##############################
+#### dat/des/altar/okawaru_arena.des ##########################
 %%%%
 The portcullises are lifted away, releasing the combatants.
 
@@ -82,7 +82,7 @@ It reads,\n"Warrior's weapon\n gracefully paints petals red.\n Honourable art."\
 "戦士の武器は見事に花弁を朱に染める"
 この先に進みますか？
 %%%%
-############################## dat/des/altar/overflow.des ##############################
+#### dat/des/altar/overflow.des ###############################
 %%%%
 As you approach the altar, the fountains begin to flow with blood!
 
@@ -92,9 +92,42 @@ Fedhas urges you to decompose the vile beasts imprisoned behind the altar.
 
 フェダスは祭壇の奥に閉じ込められた忌まわしき怪物どもを滅ぼすようにあなたを促した。
 %%%%
-withered
+Let the past return from memory!
 
-枯れ果てた
+『記憶から過去を呼び覚まそう！』
+%%%%
+"WORSHIP ME, MORTAL," Xom booms, "AND I SHALL GRANT YOU THE GREATEST GIFT OF ALL."
+
+<w>『我を崇めよ』</w>とゾムの声が響き渡った。
+<w>『そうすればお前に素晴らしい贈り物を授けてやる』</w>
+%%%%
+A goblin pops into existence! It looks at you with admiration.
+
+ゴブリンが突然現れた！ それはあなたに敬愛の視線を送った。
+%%%%
+"Friendship. The greatest gift is friendship!"
+
+『友情。友情って素晴らしいだろ！』
+%%%%
+[feature]golden statue
+
+黄金の像
+%%%%
+Platinum Reserve
+
+プラチナ取引所
+%%%%
+[feature]a gravestone
+
+墓石
+%%%%
+[feature]dead tree
+
+朽ち木
+%%%%
+[feature]wall of white crystal
+
+白水晶の壁
 %%%%
 charred
 
@@ -104,7 +137,65 @@ frost-covered
 
 霜に覆われた
 %%%%
-############################## dat/des/altar/trog_burn_book.des ##############################
+Purification Station
+
+浄化局
+%%%%
+[feature]silver wall
+
+白銀の壁
+%%%%
+#### dat/des/altar/pakellas_experiments.des ###################
+%%%%
+"Let the experiment begin!"
+
+『実験を始めよう！』
+%%%%
+"This experiment should produce some interesting results."
+
+『この実験で興味深い結果が得られるだろう』
+%%%%
+"Let's find out what happens when I do this."
+
+『こうしてみたら一体何が起こるか考えてみようではないか』
+%%%%
+"Perhaps this approach will lead to a solution."
+
+『おそらくこの方法で解決するはずだ』
+%%%%
+"The experiment must go on!"
+
+『実験は継続されなければならない！』
+%%%%
+"Back to the drawing board!"
+
+『最初からやり直しだ！』
+%%%%
+"Hmm...time to find another test subject."
+
+『ふむ……新たな試験項目を探さねば』
+%%%%
+"Just as I predicted!"
+
+『私の予測したとおりだ！』
+%%%%
+"Ah, a very interesting result!"
+
+『おお、非常に興味深い結果だ！』
+%%%%
+"Hmm...that's not supposed to happen."
+
+『うむむ……こんな事が起こるとは思わなかった』
+%%%%
+"It's alive! It's alive!"
+
+『生きてる！ 生きてる！』
+%%%%
+The corpse mutates horribly and begins to move!
+
+死体はおぞましく変異して動きだした！
+%%%%
+#### dat/des/altar/trog_burn_book.des #########################
 %%%%
 The spellbook bursts into flames!
 
@@ -118,7 +209,7 @@ Retrieval
 
 挽回
 %%%%
-############################## dat/des/altar/trog_wizard.des ##############################
+#### dat/des/altar/trog_wizard.des ############################
 %%%%
 Flames erupt from the bowels of the wizard!
 
@@ -140,7 +231,7 @@ Trog roars with frustration!
 
 トログは不満の声を上げた！
 %%%%
-############################## dat/des/altar/vehumet_trees.des ##############################
+#### dat/des/altar/vehumet_trees.des ##########################
 %%%%
 Vehumet offers to free you in exchange for your devotion to destruction.
 
@@ -150,7 +241,7 @@ Suddenly, the trees start to burn!
 
 突然木が燃え出した！
 %%%%
-############################## dat/des/altar/xom_monty_hall.des ##############################
+#### dat/des/altar/xom_monty_hall.des #########################
 %%%%
 You feel as though Xom is toying with you.
 
@@ -160,21 +251,21 @@ Suddenly, the walls become transparent!
 
 突然壁が透明になった！
 %%%%
-############################## dat/des/altar/xom_sheep.des ##############################
+#### dat/des/altar/xom_sheep.des ##############################
 %%%%
-Walls come down!
+The walls suddenly crumble!
 
-壁が消滅した！
+壁は突然崩れた！
 %%%%
-A sheep catches fire!
+A dream sheep catches fire
 
-羊の体に火がついた！
+眠りの羊の体に火がついた！
 %%%%
 You hear mad divine giggling.
 
 あなたは神の狂気の笑い声を耳にした。
 %%%%
-############################## dat/des/altar/yredelemnul_ordeal.des ##############################
+#### dat/des/altar/yredelemnul_ordeal.des #####################
 %%%%
 You sense Yredelemnul urging you to kill the trapped human.
 

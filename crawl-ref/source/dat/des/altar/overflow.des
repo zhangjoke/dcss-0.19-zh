@@ -30,7 +30,6 @@
 # in them, are chosen at new-game time.
 #
 ###############################################################################
-
 {{
 function interest_check(e)
   if not you.in_branch("D") or you.absdepth() > 9 then
