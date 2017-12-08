@@ -280,6 +280,7 @@ static TextDB AllDBs[] =
            "jtrans_xom.txt",
 
            "jtrans_dat_des_altar.txt",
+           "jtrans_dat_des_arrival.txt",
            "jtrans_dat_des_branches.txt",
            "jtrans_dat_des_builder.txt",
            "jtrans_dat_des_portals.txt",
