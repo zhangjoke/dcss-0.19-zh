@@ -3499,7 +3499,8 @@ string get_monster_equipment_desc(const monster_info& mi,
 
     const string item_description = to_separated_line(
                                                 item_descriptions.begin(),
-                                                item_descriptions.end());
+                                                item_descriptions.end(),
+                                                "と", "、", "、および");
 
     if (!item_description.empty() && !desc.empty())
         desc += ", " + item_description + "を装備している";
