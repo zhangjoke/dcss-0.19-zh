@@ -776,7 +776,7 @@ static string _gen_randbook_name(string subject, string owner,
                                  spschool_flag_type disc2)
 {
     const string apostrophised_owner = owner.empty() ?
-        "" : (owner + "の");
+        "" : (jtrans(owner) + "の");
 
     const string real_subject = subject.empty() ?
         _maybe_gen_book_subject(owner) :
