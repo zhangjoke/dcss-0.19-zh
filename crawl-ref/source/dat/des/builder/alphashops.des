@@ -15,8 +15,37 @@
    function ownername(s)
      -- The string.lower and .gsub calls are to crunch names with spaces down
      -- into a single word. Otherwise it messes up the "KFEAT" shop line.
-     local name = s .. string.sub(string.lower(crawl.make_name()), 2)
-     return string.gsub(name, " ", "")
+     local name
+
+     if     s == "A" then name = "アルマンド"
+     elseif s == "B" then name = "ボー"
+     elseif s == "C" then name = "キャメロン"
+     elseif s == "D" then name = "ディージェイ"
+     elseif s == "E" then name = "エルウィン"
+     elseif s == "F" then name = "フレミング"
+     elseif s == "G" then name = "ゴードン"
+     elseif s == "H" then name = "ハンナ"
+     elseif s == "I" then name = "アイリーン"
+     elseif s == "J" then name = "ジェイムス"
+     elseif s == "K" then name = "ケント"
+     elseif s == "L" then name = "ロッティ"
+     elseif s == "M" then name = "ミロン"
+     elseif s == "N" then name = "ニコル"
+     elseif s == "O" then name = "オム"
+     elseif s == "P" then name = "ポーラ"
+     elseif s == "Q" then name = "クィンシー"
+     elseif s == "R" then name = "ローリー"
+     elseif s == "S" then name = "シャビル"
+     elseif s == "T" then name = "トレヴァー"
+     elseif s == "U" then name = "ウルスラ"
+     elseif s == "V" then name = "ヴィヴィアン"
+     elseif s == "W" then name = "ワンダ"
+     elseif s == "X" then name = "ゾビー"
+     elseif s == "Y" then name = "ヨランダ"
+     elseif s == "Z" then name = "ゾーイ"
+     end
+
+     return name
    end
 
    function shopname(s)
