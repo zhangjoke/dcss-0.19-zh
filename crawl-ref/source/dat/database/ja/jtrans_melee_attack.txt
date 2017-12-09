@@ -21,7 +21,7 @@ You attempt to attack %s, but flinch away in fear!
 %%%%
 %s%s misses %s%s
 
-%sは%sへの攻撃を%s外した%s
+%sの%sへの攻撃は%s外れた%s
 %%%%
 Infusion: dmg = %d hurt = %d
 
