@@ -2966,8 +2966,8 @@ void melee_attack::mons_apply_attack_flavour()
         {
             mprf(jtransc("{attacker} {verb} {defender}."),
                  atk_name(DESC_THE).c_str(),
-                 attacker->conj_verb_j("grab").c_str(),
-                 defender_name(true).c_str());
+                 defender_name(true).c_str(),
+                 attacker->conj_verb_j("grab").c_str());
         }
         attacker->start_constricting(*defender);
         // if you got grabbed, interrupt stair climb and passwall
