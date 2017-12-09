@@ -968,7 +968,7 @@ static void _sdump_hiscore(dump_params &par)
     if (!par.se)
         return;
 
-    string hiscore = "    " + hiscores_format_single_long(*(par.se), true);
+    string hiscore = "    " + hiscores_format_single_long(*(par.se), true, true);
 
     par.text += _trim_section(hiscore);
 }

@@ -19,7 +19,8 @@ void show_hiscore_table();
 
 string hiscores_format_single(const scorefile_entry &se);
 string hiscores_format_single_long(const scorefile_entry &se,
-                                   bool verbose = false);
+                                   bool verbose = false,
+                                   bool add_stop = false);
 
 void mark_milestone(const string &type, const string &milestone,
                     const string &origin_level = "", time_t t = 0);
@@ -162,7 +163,7 @@ public:
     string raw_string() const;
     bool parse(const string &line);
 
-    string hiscore_line(death_desc_verbosity verbosity) const;
+    string hiscore_line(death_desc_verbosity verbosity, bool add_stop=false) const;
 
     string character_description(death_desc_verbosity) const;
     // Full description of death: Killed by an xyz wielding foo

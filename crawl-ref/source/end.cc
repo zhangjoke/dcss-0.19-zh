@@ -353,7 +353,7 @@ NORETURN void end_game(scorefile_entry &se, int hiscore_index)
     cprintf(jtransc("Goodbye, %s."), you.your_name.c_str());
     cprintf("\n\n    "); // Space padding where # would go in list format
 
-    string hiscore = hiscores_format_single_long(se, true);
+    string hiscore = hiscores_format_single_long(se, true, true);
 
     const int lines = count_occurrences(hiscore, "\n") + 1;
 

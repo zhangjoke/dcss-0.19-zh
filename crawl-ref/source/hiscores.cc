@@ -526,10 +526,11 @@ static string _hiscore_newline_string()
     return "\n" + string(HISCORE_INDENT, ' ');
 }
 
-string hiscores_format_single_long(const scorefile_entry &se, bool verbose)
+string hiscores_format_single_long(const scorefile_entry &se, bool verbose, bool add_stop)
 {
     return se.hiscore_line(verbose ? scorefile_entry::DDV_VERBOSE
-                                   : scorefile_entry::DDV_NORMAL);
+                                   : scorefile_entry::DDV_NORMAL,
+                           add_stop);
 }
 
 // --------------------------------------------------------------------------
@@ -1706,11 +1707,11 @@ void scorefile_entry::init(time_t dt)
     explore_mode = (you.explore ? 1 : 0);
 }
 
-string scorefile_entry::hiscore_line(death_desc_verbosity verbosity) const
+string scorefile_entry::hiscore_line(death_desc_verbosity verbosity, bool add_stop) const
 {
     string line = character_description(verbosity);
     line += death_place(verbosity);
-    line += death_description(verbosity, true);
+    line += death_description(verbosity, add_stop);
     line += game_time(verbosity);
 
     return line;
@@ -2709,7 +2710,7 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
         desc = strip_article_a(desc);
     }
 
-    if (add_stop && !ends_with(desc, jtrans(".")))
+    if (add_stop && !ends_with(desc, jtrans(".")) && !ends_with(desc, jtrans("!")))
         desc += jtrans(".");
 
     return sp2nbsp(desc);
