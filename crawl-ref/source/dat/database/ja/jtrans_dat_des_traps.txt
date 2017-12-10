@@ -1,47 +1,19 @@
 %%%%
-############################## dat/des/traps/beogh_trap.des ##############################
-%%%%
-Your presence is welcomed at the altar of Beogh.
-
-あなたのベオの祭壇への参拝は歓迎された。
-%%%%
-The orc god booms: Stay away, heretic!
-
-オークの神の声が響き渡った: 立ち去れ、異教者よ！
-%%%%
-The orc god booms: Stay away, mortal!
-
-オークの神の声が響き渡った: 立ち去れ、定命の者よ！
-%%%%
-Beogh's servants are called upon to defend the altar!
-
-ベオの下僕が祭壇を守るべく召喚された！
-%%%%
-############################## dat/des/traps/boulders.des ##############################
-%%%%
-A part of the floor depresses, but nothing seems to happen.
-
-床の一部分が沈みこんだが、特に何も起こらなかったようだ。
-%%%%
-An iron grate slams shut!
-
-鉄格子がガラガラと音を立てて閉まった！
-%%%%
-# You hear a soft click.
-
-# jtrans_traps.txtと重複
-%%%%
-############################## dat/des/traps/grate.des ##############################
+#### dat/des/traps/grate.des ##################################
 %%%%
 You hear a faint grinding sound.
 
 あなたは何かが軋むかすかな音を耳にした。
 %%%%
+An iron grate slams shut!
+
+鉄格子がガラガラと音を立てて閉まった！
+%%%%
 You hear an iron grate slam shut!
 
 あなたは鉄格子がガラガラと閉まる音を耳にした！
 %%%%
-############################## dat/des/traps/rats_trap.des ##############################
+#### dat/des/traps/rats_trap.des ##############################
 %%%%
 You hear a faint click.
 
@@ -58,4 +30,10 @@ You step on to a pressure plate.
 Suddenly a wall slides open!
 
 突然壁が開いた！
+%%%%
+#### dat/des/traps/spider_basket.des ##########################
+%%%%
+# A basket of spiders falls from above!
+
+# jtrans_dat_des_branches.txtと重複
 %%%%
