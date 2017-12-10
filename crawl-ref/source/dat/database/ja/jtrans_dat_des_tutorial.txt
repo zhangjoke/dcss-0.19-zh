@@ -1,25 +1,37 @@
 %%%%
-# lesson1.des
+#### dat/des/tutorial/lesson1.des #############################
 "Lesson 1: Movement and Exploration"
 
 "レッスン1: 移動とダンジョンの探索"
 %%%%
-# lesson2.des
+exit from the tutorial
+
+チュートリアルの出口
+%%%%
+#### dat/des/tutorial/lesson2.des #############################
 "Lesson 2: Monsters and Combat"
 
 "レッスン2: モンスターとの遭遇と戦闘"
 %%%%
-# lesson3.des
+#### dat/des/tutorial/lesson3.des #############################
 "Lesson 3: Items and Inventory"
 
 "レッスン3: アイテムとその一覧"
 %%%%
-# lesson4.des
+#### dat/des/tutorial/lesson4.des #############################
 "Lesson 4: Magic and Spellcasting"
 
 "レッスン4: 魔法と呪文詠唱"
 %%%%
-# lesson5.des
+Introduction to Spellcasting
+
+呪文詠唱入門
+%%%%
+Necromancy for Newbies
+
+初心者のための死霊術
+%%%%
+#### dat/des/tutorial/lesson5.des #############################
 "Lesson 5: Gods and Divine Abilities"
 
 "レッスン5: 神と信仰による恩恵"
