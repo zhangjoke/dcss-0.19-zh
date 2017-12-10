@@ -38,18 +38,18 @@ function TimedMessaging:init(tmarker, cm, verbose)
 
   if not self.ranges and not self.visible and not self.messages then
     self.ranges = {
-      { 5000, 'stately ' }, { 4000, '' },
-      { 2500, 'brisk ' },   { 1500, 'urgent ' },
-      { 0, 'frantic ' }
+      { 5000, '荘厳な' }, { 4000, '' },
+      { 2500, '爽快な' },   { 1500, '切迫した' },
+      { 0, '半狂乱の' }
     }
   end
 
   if not self.range_adjectives then
     self.range_adjectives = {
-      { 30, 'very distant' },
-      { 15, 'distant' },
-      { 7, '$F nearby' },
-      { 0, '$F' }
+      { 30, 'かなり遠くで' },
+      { 15, '遠くで' },
+      { 7, '近くで' },
+      { 0, '' }
     }
   end
 
@@ -99,7 +99,7 @@ function TimedMessaging:emit_message(cm, msg)
       return
     end
 
-    crawl.mpr(util.expand_entity(self.entity, msg), self:channel())
+    crawl.mpr(crawl.jtrans(msg), self:channel())
   end
 end
 
@@ -135,8 +135,7 @@ function TimedMessaging:range_adjective(cm, thing)
   if string.find(adj, '$F') then
     return util.expand_entity(self.noisemaker, adj)
   else
-    return crawl.article_a(#adj == 0 and self.noisemaker
-                           or adj .. ' ' .. self.noisemaker)
+    return (#adj == 0 and self.noisemaker or adj .. self.noisemaker)
   end
 end
 
@@ -147,13 +146,17 @@ function TimedMessaging:say_message(cm, dur)
   end
 
   local noisemaker =
-    self.noisemaker and self:range_adjective(cm, self.noisemaker)
+    self.noisemaker and
+    self:range_adjective(cm, crawl.tagged_jtrans("[noisemaker]", self.noisemaker))
 
   self:proc_ranges(self.ranges, dur,
                    function (chk)
                      self:emit_message(nil,
-                                       "You hear the " .. chk[2] .. self.verb
-                                       .. " of " .. noisemaker .. ".")
+                                       "あなたは"
+                                       .. crawl.tagged_jtrans("[noisemaker]", noisemaker)
+                                       .. "が"
+                                       .. crawl.tagged_jtrans("[verb]", self.verb)
+                                       .. chk[2] .. "音を聞いた。")
                    end)
 
   self:proc_ranges(self.messages, dur,

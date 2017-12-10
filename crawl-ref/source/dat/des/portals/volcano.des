@@ -55,9 +55,9 @@ function volcano_portal (e)
         verb = 'rumble',
         noisemaker = 'avalanche of rocks',
         ranges = {
-          { 5000, 'slow ' },  { 4000, '' },
-          { 2500, 'brisk ' }, { 1500, 'quick ' },
-          { 0, 'rapid ' }
+          { 5000, 'かすかな' },  { 4000, '小さな' },
+          { 2500, '' }, { 1500, '大きな' },
+          { 0, '騒々しい' }
         }
       }
 

@@ -1,17 +1,19 @@
 %%%%
-############################## dat/dlua/lm_timed.lua ##############################
+#### dat/dlua/lm_timed.lua ####################################
+%%%%
+vanishes just as you enter it!
+
+はあなたが入ったとたん消滅した！
+%%%%
+# disappears!
+
+# jtrans_teleport.txtと重複したため直接記述
 %%%%
 The walls and floor vibrate strangely for a moment.
 
 壁と床が一瞬奇妙に振動した。
 %%%%
-############################## dat/dlua/lm_tmsg.lua ##############################
-%%%%
-The walls and floor vibrate strangely for a moment.
-
-壁と床が一瞬奇妙に振動した。
-%%%%
-############################## dat/dlua/lm_trove.lua ##############################
+#### dat/dlua/lm_trove.lua ####################################
 %%%%
 The portal is engraved with runes symbolizing the primacy of the material over the divine. Those who enter it may find riches, but when they return, they will find that whatever gods they held dear have forgotten them in their absence.
 
@@ -46,9 +48,17 @@ The portal draws power from the presence of the item and buzzes to life!
 
 ポータルはルーンから力を吸収し、うなりを上げて作動を開始した！
 %%%%
+The portal draws power from the presence of the items and buzzes to life!
+
+<The portal draws power from the presence of the item and buzzes to life!>
+%%%%
 You don't have the item to give! Perhaps you haven't completely identified the item yet?
 
 あなたはそのアイテムを持っていない！ ひょっとしたらまだ鑑定していないだけかも？
+%%%%
+You don't have the items to give! Perhaps you haven't completely identified the item yet?
+
+<You don't have the item to give! Perhaps you haven't completely identified the item yet?>
 %%%%
 You must unequip the item first!
 
