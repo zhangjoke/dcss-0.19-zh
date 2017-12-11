@@ -64,6 +64,26 @@ white
 
 白い
 %%%%
+# monstrous
+
+# jtrans_dat_des_portals.txtと重複
+%%%%
+gelid
+
+凍てつく
+%%%%
+infernal
+
+業火の
+%%%%
+putrid
+
+# obsolete
+%%%%
+torturous
+
+苦痛の
+%%%%
 invalid monster_type %d
 
 # 訳不要
