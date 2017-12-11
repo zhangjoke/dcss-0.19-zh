@@ -2641,6 +2641,9 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
         break;
     }
 
+    if (add_stop && !ends_with(desc, jtrans(".")) && !ends_with(desc, jtrans("!")))
+        desc += jtrans(".");
+
     if (oneline && desc.length() > 2)
         desc[1] = tolower(desc[1]);
 
@@ -2670,7 +2673,7 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
 
         if (!semiverbose && needs_damage && damage > 0)
         {
-            desc += " " + damage_string();
+            desc += damage_string();
             needs_damage = false;
             done_damage = true;
         }
@@ -2681,7 +2684,7 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
             if (!semiverbose)
             {
                 if (needs_damage && !done_damage && damage > 0)
-                    desc += " " + damage_string();
+                    desc += damage_string();
 
                 if (needs_damage && !done_damage)
                     desc += _hiscore_newline_string();
@@ -2709,9 +2712,6 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
         trim_string(desc);
         desc = strip_article_a(desc);
     }
-
-    if (add_stop && !ends_with(desc, jtrans(".")) && !ends_with(desc, jtrans("!")))
-        desc += jtrans(".");
 
     return sp2nbsp(desc);
 }
