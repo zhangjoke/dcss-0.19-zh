@@ -2183,12 +2183,15 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
             else if (!terse);
             {
                 if (death_source_name == "you")
-                    desc += jtrans("Killed from afar by themself")
-                          + beam_cause_line(verbosity);
+                {
+                    string cause = replace_all(beam_cause_line(verbosity), "を", "で");
+                    desc += make_stringf(jtransc("Killed from afar by themself"),
+                                         cause.c_str());
+                }
                 else
                     desc += make_stringf(jtransc("Killed from afar by %s"),
-                                         jtransc(death_source_desc()))
-                          + beam_cause_line(verbosity);
+                                         jtransc(death_source_desc()),
+                                         beam_cause_line(verbosity).c_str());
             }
 
             if (!auxkilldata.empty())
