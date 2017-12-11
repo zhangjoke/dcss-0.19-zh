@@ -1976,12 +1976,12 @@ string scorefile_entry::death_place(death_desc_verbosity verbosity) const
     }
 
     // where did we die?
-    place += prep_branch_level_name(level_id(branch, dlvl)) + "で";
+    place += prep_branch_level_name(level_id(branch, dlvl));
 
     if (!mapdesc.empty())
-        place += make_stringf(" (%s)", mapdesc.c_str());
+        place += make_stringf("(%s)", jtransc(mapdesc));
 
-    return place;
+    return place + "で";
 }
 
 static bool _is_you(const string &source)
