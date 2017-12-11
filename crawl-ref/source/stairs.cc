@@ -730,7 +730,7 @@ void floor_transition(dungeon_feature_type how,
             if (how == branches[branch].entry_stairs)
             {
                 if (branches[branch].entry_message)
-                    mpr(branches[branch].entry_message);
+                    mpr(jtrans(branches[branch].entry_message));
                 else if (branch != BRANCH_ABYSS) // too many messages...
                     mprf(jtransc("Welcome to %s!"), branch_name_jc(branches[branch].longname));
 
