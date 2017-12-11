@@ -1231,7 +1231,7 @@ int hunger_bars(const int hunger)
 string hunger_cost_string(const int hunger)
 {
     if (you_foodless(true))
-        return "N/A";
+        return jtrans("N/A");
 
 #ifdef WIZARD
     if (you.wizard)
@@ -1246,5 +1246,5 @@ string hunger_cost_string(const int hunger)
                + string(ARRAYSZ(hunger_breakpoints) - numbars, '.');
     }
     else
-        return "None";
+        return jtrans("None");
 }
