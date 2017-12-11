@@ -172,7 +172,7 @@ bool ranged_attack::handle_phase_blocked()
 {
     ASSERT(!ignores_shield(false));
     string punctuation = jtrans(".");
-    string verb = verb_j("block");
+    string verb = "block";
     string by_item;
 
     const bool reflected_by_shield = defender_shield
@@ -181,7 +181,7 @@ bool ranged_attack::handle_phase_blocked()
     if (reflected_by_shield || defender->reflection())
     {
         reflected = true;
-        verb = verb_j("reflect");
+        verb = "reflect";
         if (defender->observable())
         {
             if (reflected_by_shield)
@@ -213,8 +213,8 @@ bool ranged_attack::handle_phase_blocked()
         mprf(jtransc("{defender} {block|reflect} {off item} {projectile}{punct}"),
              defender_name(false).c_str(),
              by_item.c_str(),
-             defender->conj_verb_j(verb).c_str(),
              zap_name_jc(projectile->name(DESC_THE)),
+             defender->conj_verb_j(verb).c_str(),
              punctuation.c_str());
     }
 
