@@ -293,7 +293,7 @@ You can only put on jewellery.
 %%%%
 Put on which piece of jewellery?
 
-どの装身具を外しますか？
+どの装飾品を身につけますか？
 %%%%
 You aren't wearing any unmelded rings or amulets.
 
