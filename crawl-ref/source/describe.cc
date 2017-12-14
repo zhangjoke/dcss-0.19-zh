@@ -3398,7 +3398,7 @@ static string _monster_stat_description(const monster_info& mi)
     if (speed != 10 && speed != 0)
     {
         did_speed = true;
-        result << make_stringf(jtransc("{pronoun} is {speed desc}"),
+        result << make_stringf(jtrans_notrimc("{pronoun} is {speed desc}"),
                                pronoun.c_str(),
                                jtransc(mi.speed_description()));
     }
@@ -3431,6 +3431,9 @@ static string _monster_stat_description(const monster_info& mi)
 
         if (speed >= 10)
         {
+            if (did_speed)
+                result << jtrans_notrim(".\n");
+
             if (did_speed && fast.size() == 1)
                 result << pronoun_is << fast[0];
             else if (!fast.empty())
