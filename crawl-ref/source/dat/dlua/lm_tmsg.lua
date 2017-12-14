@@ -135,7 +135,7 @@ function TimedMessaging:range_adjective(cm, thing)
   if string.find(adj, '$F') then
     return util.expand_entity(self.noisemaker, adj)
   else
-    return (#adj == 0 and self.noisemaker or adj .. self.noisemaker)
+    return (#adj == 0 and self.noisemaker or adj .. crawl.tagged_jtrans("[noisemaker]", self.noisemaker))
   end
 end
 
@@ -147,7 +147,7 @@ function TimedMessaging:say_message(cm, dur)
 
   local noisemaker =
     self.noisemaker and
-    self:range_adjective(cm, crawl.tagged_jtrans("[noisemaker]", self.noisemaker))
+    self:range_adjective(cm, self.noisemaker)
 
   self:proc_ranges(self.ranges, dur,
                    function (chk)
