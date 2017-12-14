@@ -4192,12 +4192,12 @@ string do_mon_str_replacements(const string &in_msg, const monster& mons,
     {
         foe_genus = species_name_j(you.species, SPNAME_GENUS);
 
-        msg = _replace_speech_tag(msg, " @to_foe@に向かって", "");
-        msg = _replace_speech_tag(msg, " @at_foe@に向かって", "");
-        msg = _replace_speech_tag(msg, " @to_foe@に", "");
-        msg = _replace_speech_tag(msg, " @at_foe@に", "");
-        msg = _replace_speech_tag(msg, " @to_foe@を", "");
-        msg = _replace_speech_tag(msg, " @at_foe@を", "");
+        msg = _replace_speech_tag(msg, "@to_foe@に向かって", "");
+        msg = _replace_speech_tag(msg, "@at_foe@に向かって", "");
+        msg = _replace_speech_tag(msg, "@to_foe@に", "");
+        msg = _replace_speech_tag(msg, "@at_foe@に", "");
+        msg = _replace_speech_tag(msg, "@to_foe@を", "");
+        msg = _replace_speech_tag(msg, "@at_foe@を", "");
 
         msg = replace_all(msg, "@player_only@", "");
         msg = replace_all(msg, " @foe,@", ",");
@@ -4420,8 +4420,8 @@ string do_mon_str_replacements(const string &in_msg, const monster& mons,
         msg = replace_all(msg, "@possessive_God@", possessive);
         msg = replace_all(msg, "@Possessive_God@", possessive);
 
-        msg = replace_all(msg, "@my_God@", "my God");
-        msg = replace_all(msg, "@My_God@", "My God");
+        msg = replace_all(msg, "@my_God@", jtrans("my God"));
+        msg = replace_all(msg, "@My_God@", jtrans("My God"));
     }
     else
     {
