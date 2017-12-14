@@ -2088,7 +2088,7 @@ You regenerate magic rapidly.
 %%%%
 You feel your magic shroud grow more resilient.
 
-あなたの魔力はたちまち回復したようだ。
+あなたの魔力はたちまち回復するようだ。
 %%%%
 # MUT_MANA_LINK
 magic link
