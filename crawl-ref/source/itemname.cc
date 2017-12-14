@@ -2110,7 +2110,7 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
         {
             if (props.exists(DAMNATION_BOLT_KEY)) // hack alert
                 buff << item_adj_j("damnation ");
-            else if (_missile_brand_is_prefix(msl_brand))
+            else
                 buff << missile_brand_name_j(*this, MBN_NAME);
 
             buff << ammo_name_j(static_cast<missile_type>(item_typ));
