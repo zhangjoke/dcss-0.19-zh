@@ -3517,7 +3517,7 @@ void display_char_status()
         || innate_stat(STAT_INT) != you.intel()
         || innate_stat(STAT_DEX) != you.dex())
     {
-        mprf(jtransc("Your base attributes are Str %d, Int %d, Dex %d."),
+        mprf(replace_all(jtrans("Your base attributes are Str %d, Int %d, Dex %d."), "です", "だ").c_str(),
              innate_stat(STAT_STR),
              innate_stat(STAT_INT),
              innate_stat(STAT_DEX));
