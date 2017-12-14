@@ -1,18 +1,5 @@
 %%%%
-############################## dat/des/variable/ancient_champions.des ##############################
-%%%%
-Couldn't find a slave!
-
-%%%%
-As the champion is destroyed, a metal wall slides away!
-
-王者を倒すと、金属の壁が開いた！
-%%%%
-As the champion is destroyed, you hear a distant grinding noise.
-
-王者を倒すと、遠くで軋むような物音が聞こえた。
-%%%%
-############################## dat/des/variable/cathedral_bats.des ##############################
+#### dat/des/variable/cathedral_bats.des ######################
 %%%%
 megabat
 
@@ -22,13 +9,53 @@ A bat flies out of a crevice!
 
 裂け目からコウモリが飛び出した！
 %%%%
-############################## dat/des/variable/compat.des ##############################
+#### dat/des/variable/compat.des ##############################
 %%%%
 Several panes of glass retract into the floor.
 
 いくつかのガラスの壁が床に引っ込んでいった。
 %%%%
-############################## dat/des/variable/float.des ##############################
+# Your surroundings suddenly seem different.
+
+# jtrans_spl_transloc.txtと重複
+%%%%
+# There is a strange hissing noise.
+
+# jtrans_dat_des_branches.txtと重複
+%%%%
+# Your surroundings suddenly seem different!
+
+# jtrans_dat_des_branches.txtと重複
+%%%%
+Couldn't find a slave!
+
+# 訳不要
+%%%%
+As the champion is destroyed, a metal wall slides away!
+
+王者を倒すと、金属の壁が開いた！
+%%%%
+As the champion is destroyed, you hear a distant grinding noise.
+
+王者を倒すと、遠くで軋むような物音が聞こえた。
+%%%%
+Your presence is welcomed at the altar of Beogh.
+
+あなたのベオの祭壇への参拝は歓迎された。
+%%%%
+The orc god booms: Stay away, heretic!
+
+オークの神の声が響き渡った: 立ち去れ、異教者よ！
+%%%%
+The orc god booms: Stay away, mortal!
+
+オークの神の声が響き渡った: 立ち去れ、定命の者よ！
+%%%%
+Beogh's servants are called upon to defend the altar!
+
+ベオの下僕が祭壇を守るべく召喚された！
+%%%%
+#### dat/des/variable/float.des ###############################
 %%%%
 You almost think you hear a voice: "Seek not undue power, mortal."
 
@@ -38,7 +65,11 @@ master elementalist
 
 精霊を極めしもの
 %%%%
-############################## dat/des/variable/geyser.des ##############################
+[feature]sealed sarcophagus
+
+封印された古代の石棺
+%%%%
+#### dat/des/variable/geyser.des ##############################
 %%%%
 A fountain of clear blue water erupts!
 
@@ -56,7 +87,7 @@ The fountain becomes smaller until it vanishes.
 
 噴水はだんだんと小さくなって消えてしまった。
 %%%%
-############################## dat/des/variable/mini_monsters.des ##############################
+#### dat/des/variable/mini_monsters.des #######################
 %%%%
 strange structure made of doors
 
@@ -65,6 +96,10 @@ strange structure made of doors
 microbat
 
 超小型コウモリ
+%%%%
+giga
+
+超弩級
 %%%%
 skeletal bat
 
@@ -83,12 +118,18 @@ rotten bat
 
 腐敗したコウモリ
 %%%%
+phase
+
+多相
+%%%%
 Nature
 
 自然
 %%%%
 # ホルヘ・ルイス・ボルヘス『バベルの図書館』ネタらしい
 Dhcmrlchtdj
+
+# 訳不要
 %%%%
 Combed Thunderclap
 
@@ -100,6 +141,7 @@ Plaster Cramp
 %%%%
 Axaxaxas mlö
 
+# 訳不要
 %%%%
 Forking Paths
 
