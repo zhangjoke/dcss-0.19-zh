@@ -159,6 +159,10 @@ slash
 
 切り払い
 %%%%
+tentacle-slap
+
+触手で打ちすえた
+%%%%
 [aux verb]tentacle-slap
 
 触手の一撃
