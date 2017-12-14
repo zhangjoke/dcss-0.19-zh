@@ -143,7 +143,7 @@ static string _spell_extra_description(spell_type spell, bool viewing)
     desc << chop_string(spell_power_string(spell), 13)
          << chop_string(rangestring, 11 + tagged_string_tag_length(rangestring))
          << chop_string(spell_hunger_string(spell), 7)
-         << chop_string(spell_noise_string(spell, 10), 15);
+         << spell_noise_string(spell, 10);
 
     desc << "</" << colour_to_str(highlight) <<">";
 
