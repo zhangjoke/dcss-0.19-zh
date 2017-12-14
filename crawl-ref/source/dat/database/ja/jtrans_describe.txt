@@ -1981,11 +1981,11 @@ resistant to {resist list}.
 %%%%
 %s cannot regenerate.
 
-は再生しない。
+%sは再生しない。
 %%%%
 %s regenerates quickly.
 
-は急速に再生する。
+%sは急速に再生する。
 %%%%
 [size]tiny
 
