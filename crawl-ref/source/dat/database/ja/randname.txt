@@ -1132,9 +1132,9 @@ _amulet material_
 %%%%
 ring appearance
 
-@_jewellery appearance_@ @_ring material_@
+@_jewellery appearance_@@_ring material_@
 %%%%
 amulet appearance
 
-@_jewellery appearance_@ @_amulet material_@
+@_jewellery appearance_@@_amulet material_@
 %%%%
