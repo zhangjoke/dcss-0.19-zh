@@ -599,7 +599,7 @@ no special abilities
 %%%%
 , %d %sMP
 
-, %sMP %dポイント
+, %sMP%d
 %%%%
 Permanent
 
@@ -611,7 +611,7 @@ Permanent
 %%%%
 , %d %sHP
 
-, %sHP %dポイント
+, %sHP%d
 %%%%
 , Hunger
 
