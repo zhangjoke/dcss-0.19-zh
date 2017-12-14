@@ -13,15 +13,15 @@
 %%%%
 , which are affected by silence
 
-が、静寂効果の影響を受けている
+が、静寂効果によって影響を受ける
 %%%%
 , which are affected by silence and antimagic
 
-が、静寂および反魔法効果の影響を受けている
+が、静寂および反魔法効果によって影響を受ける
 %%%%
 , which are affected by antimagic
 
-が、反魔法効果の影響を受けている
+が、反魔法効果によって影響を受ける
 %%%%
 (judging by the %s you have seen %s %s)
 
