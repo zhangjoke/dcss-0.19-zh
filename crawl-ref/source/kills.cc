@@ -474,7 +474,7 @@ string kill_def::base_name(const kill_monster_desc &md) const
     if (md.monnum == MONS_PANDEMONIUM_LORD)
         name = jtrans("pandemonium lord");
     else
-        name = mons_type_name(md.monnum, DESC_PLAIN);
+        name = jtrans(mons_type_name(md.monnum, DESC_PLAIN));
 
     switch (md.modifier)
     {
