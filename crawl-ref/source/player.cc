@@ -3502,7 +3502,7 @@ void display_char_status()
     for (unsigned i = 0; i <= STATUS_LAST_STATUS; ++i)
     {
         if (fill_status_info(i, &inf) && !inf.long_text.empty())
-            mpr(inf.long_text);
+            mpr(jtrans(inf.long_text));
     }
     string cinfo = _constriction_description();
     if (!cinfo.empty())
