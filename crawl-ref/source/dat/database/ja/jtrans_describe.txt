@@ -1026,10 +1026,10 @@ It deals substantially increased damage to chaotic and magically transformed bei
 この%sは混沌なる存在や魔術により変異した存在に対し普通より大きなダメージを与える。
 突然変異した存在に対しては、変異の度合いに応じた追加のダメージをもたらす。
 %%%%
-Base damage: %d  Base attack delay: %.1f\nThis projectile's minimum attack delay (%.1f) is reached at skill level %d.
+Base damage: %d  Base attack delay: %.1f\nThis projectile's minimum attack delay (%.1f) is reached at skill level %d.%s
 
 基本ダメージ: %d 基本攻撃消費ターン: %.1f
-この武器はスキルを%dレベルまで上げることで攻撃速度が最速になる。(%.1fターン/回)
+この武器はスキルを%dレベルまで上げることで攻撃速度が最速になる。(%.1fターン/回)%s
 %%%%
 It will always be destroyed on impact.
 
