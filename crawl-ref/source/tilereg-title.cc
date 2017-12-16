@@ -4,6 +4,7 @@
 
 #include "tilereg-title.h"
 
+#include "database.h"
 #include "files.h"
 #include "libutil.h"
 #include "macro.h"
@@ -92,6 +93,7 @@ void TitleRegion::run()
 void TitleRegion::update_message(string message)
 {
     m_font_buf.clear();
+    //    m_font_buf.add(jtrans(message), VColour::white, 0, 0);
     m_font_buf.add(message, VColour::white, 0, 0);
 }
 
