@@ -681,8 +681,8 @@ bool wizard_add_mutation()
 
             // Use mpr_comma_separated_list() because the list
             // might be *LONG*.
-            mpr_comma_separated_list(prefix, matches, ", ", ", ",
-                                     MSGCH_DIAGNOSTICS, 0, "");
+            mpr_comma_separated_list(prefix, matches, " and ", ", ",
+                                     MSGCH_DIAGNOSTICS);
         }
 
         return false;
@@ -853,8 +853,8 @@ void wizard_edit_durations()
             string prefix = make_stringf(jtrans_notrimc("No exact match for duration '%s', possible matches are:\n"),
                                          buf);
 
-            mpr_comma_separated_list(prefix, match_names, ", ", ", ",
-                                     MSGCH_DIAGNOSTICS, 0, "");
+            mpr_comma_separated_list(prefix, match_names, " and ", ", ",
+                                     MSGCH_DIAGNOSTICS);
             return;
         }
     }

@@ -225,8 +225,8 @@ bool wizard_create_feature(const coord_def& pos)
 
                 // Use mpr_comma_separated_list() because the list
                 // might be *LONG*.
-                mpr_comma_separated_list(prefix, matches, ", ", ", ",
-                                         MSGCH_DIAGNOSTICS, 0, ".");
+                mpr_comma_separated_list(prefix, matches, " and ", ", ",
+                                         MSGCH_DIAGNOSTICS);
                 return wizard_create_feature(pos);
             }
         }
