@@ -51,6 +51,10 @@ The gate to the bazaar disappears!
 
 バザールへと続く門は消滅した！
 %%%%
+[feature]flickering gateway to a bazaar
+
+バザールへ続くきらきら光る門
+%%%%
 [feature]wall of crystal
 
 水晶の壁
