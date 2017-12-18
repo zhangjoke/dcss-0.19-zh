@@ -195,6 +195,10 @@ Xom the Random Number God
 
 乱数の神『ゾム』
 %%%%
+Xom the Elder Chaos God
+
+太古の混沌神『ゾム』
+%%%%
 Xom the Tricky
 
 トリックの『ゾム』
