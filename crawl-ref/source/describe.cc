@@ -1283,6 +1283,8 @@ static string _describe_ammo(const item_def &item)
     const int dam = property(item, PWPN_DAMAGE);
     if (dam)
     {
+        if (!ends_with(description, "\n\n")) description += "\n";
+
         const int throw_delay = (10 + dam / 2);
         const string your_skill = crawl_state.need_save ?
                 make_stringf(jtrans_notrimc("\n (Your skill: %.1f)"),
@@ -1293,7 +1295,7 @@ static string _describe_ammo(const item_def &item)
             "\nBase damage: %d  Base attack delay: %.1f"
             "\nThis projectile's minimum attack delay (%.1f) "
                 "is reached at skill level %d."
-            "%s"),
+            "%s\n"),
             dam,
             (float) throw_delay / 10,
             (throw_delay - FASTEST_PLAYER_THROWING_SPEED) * 2,
@@ -1303,11 +1305,17 @@ static string _describe_ammo(const item_def &item)
     }
 
     if (ammo_always_destroyed(item))
+    {
+        if (description.empty()) description += "\n";
         description += make_stringf(jtrans_notrimc("\nIt will always be destroyed on impact."),
                                     basename.c_str());
+    }
     else if (!ammo_never_destroyed(item))
+    {
+        if (description.empty()) description += "\n";
         description += make_stringf(jtrans_notrimc("\nIt may be destroyed on impact."),
                                     basename.c_str());
+    }
 
     return description;
 }
