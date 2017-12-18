@@ -946,13 +946,13 @@ static void _describe_god_powers(god_type which_god)
 
             buf = make_stringf(jtransc("You can {buf}."), jtransc(buf));
         }
-        const int desc_len = strwidth(buf);
+        const int desc_len = strwidth(jtrans(buf));
         string abil_cost = "(" + make_cost_description(power.abil) + ")";
         if (abil_cost == "(None)" || abil_cost == make_stringf("(%s)", jtransc("None")))
             abil_cost = "";
 
         cprintf("%s%s%s\n", sp2nbspc(jtrans(buf)),
-                sp2nbspc(string(min(80, max(0, get_number_of_cols() - 1 - desc_len - strwidth(abil_cost))), ' ')),
+                sp2nbspc(string(max(0, get_number_of_cols() - 1 - desc_len - strwidth(abil_cost)), ' ')),
                 sp2nbspc(abil_cost));
         textcolour(god_colour(which_god));
     }
