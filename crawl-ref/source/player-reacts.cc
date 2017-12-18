@@ -511,7 +511,7 @@ static void _handle_recitation(int step)
     {
         string speech = make_stringf(jtransc("You finish reciting %s"),
                                      zin_recite_text(you.attribute[ATTR_RECITE_SEED],
-                                                     you.attribute[ATTR_RECITE_TYPE], -1));
+                                                     you.attribute[ATTR_RECITE_TYPE], -1).c_str());
         if (one_chance_in(9))
         {
             string closure = getSpeakString("recite_closure");
