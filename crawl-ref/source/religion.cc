@@ -3413,8 +3413,8 @@ static void _join_hepliaklqana()
     // Complimentary ancestor upon joining.
     const mgen_data mg = hepliaklqana_ancestor_gen_data();
     delayed_monster(mg);
-    simple_god_message(make_stringf(" forms a fragment of your life essence"
-                                    " into the memory of your ancestor, %s!",
+    simple_god_message(make_stringf(jtransc(" forms a fragment of your life essence"
+                                            " into the memory of your ancestor, %s!"),
                                     mg.mname.c_str()).c_str());
 }
 
