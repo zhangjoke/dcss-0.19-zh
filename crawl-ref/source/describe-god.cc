@@ -496,7 +496,7 @@ static void _print_string_wrapped(string str, int width)
     if (!str.empty())
     {
         linebreak_string(str, width);
-        display_tagged_block(str);
+        display_tagged_block(sp2nbsp(str));
         cprintf("\n");
         cprintf("\n");
     }
@@ -558,7 +558,7 @@ static string _describe_god_wrath_causes(god_type which_god)
  */
 static void _print_top_line(god_type which_god, int width)
 {
-    const string godname = god_name_j(which_god, true);
+    const string godname = sp2nbsp(god_name_j(which_god, true));
     textcolour(god_colour(which_god));
     const int full_width = min(80, get_number_of_cols()) - 1;
     const int len = (full_width - strwidth(godname)) / 2;

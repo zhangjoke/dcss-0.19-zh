@@ -531,7 +531,7 @@ string get_god_dislikes(god_type which_god)
                                                really_dislikes.end()).c_str());
     }
 
-    return text;
+    return sp2nbsp(text);
 }
 
 /// A definition of the way in which a god likes a conduct being taken.
@@ -1184,7 +1184,7 @@ string get_god_likes(god_type which_god)
         }
     }
 
-    return text;
+    return sp2nbsp(text);
 }
 
 bool god_hates_cannibalism(god_type god)
