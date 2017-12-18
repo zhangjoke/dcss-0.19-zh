@@ -446,7 +446,7 @@ static string _describe_branch_bribability()
         ret += line + "\n";
     }
 
-    return ret;
+    return sp2nbsp(ret);
 }
 
 /**
