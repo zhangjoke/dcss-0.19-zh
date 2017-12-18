@@ -261,7 +261,9 @@ static void _monster_spellbooks(const monster_info &mi,
                 "\n" +
                 pronoun +
                 _booktype_header(type, valid_books.size(), has_silencable,
-                                 filtered_books, mi.pronoun_j(PRONOUN_OBJECTIVE));
+                                 filtered_books, mi.pronoun_j(PRONOUN_OBJECTIVE)) +
+                make_stringf(jtrans_notrimc("\n\n%s %d:"),
+                             set_name.c_str(), (int) i + 1);
         }
         else
         {
