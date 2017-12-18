@@ -117,6 +117,10 @@ You need more space to imprison %s.
 
 %sを収監するにはもっと開けた場所が必要だ。
 %%%%
+[feature]a gleaming silver wall
+
+薄く光る白銀の壁
+%%%%
 Zin imprisons %s with walls of pure silver!
 
 ジンは%sを純銀の壁で閉じ込めた！
