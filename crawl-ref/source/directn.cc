@@ -3680,11 +3680,11 @@ static void _describe_cell(const coord_def& where, bool in_range)
     if (crawl_state.game_is_hints() && hints_pos_interesting(where.x, where.y))
     {
 #ifdef USE_TILE_LOCAL
-        feature_desc += " (<w>Right-click</w> for more information.)";
+        feature_desc += jtrans_notrim(" (<w>Right-click</w> for more information.)");
 #else
-        feature_desc += " (Press <w>v</w> for more information.)";
+        feature_desc += jtrans_notrim(" (Press <w>v</w> for more information.)");
 #endif
-        mpr(jtrans_notrim(feature_desc));
+        mpr(feature_desc);
     }
     else
     {
@@ -3693,9 +3693,9 @@ static void _describe_cell(const coord_def& where, bool in_range)
         if (_interesting_feature(feat))
         {
 #ifdef USE_TILE_LOCAL
-            feature_desc += " (Right-click for more information.)";
+            feature_desc += jtrans_notrim(" (Right-click for more information.)");
 #else
-            feature_desc += " (Press 'v' for more information.)";
+            feature_desc += jtrans_notrim(" (Press 'v' for more information.)");
 #endif
         }
 
@@ -3711,7 +3711,7 @@ static void _describe_cell(const coord_def& where, bool in_range)
         if (feat == DNGN_FLOOR || feat_is_water(feat))
             channel = MSGCH_EXAMINE_FILTER;
 
-        mprf(channel, "%s", jtrans_notrimc(feature_desc));
+        mprf(channel, "%s", feature_desc.c_str());
     }
 #endif
 }
