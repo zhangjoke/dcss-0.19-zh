@@ -358,7 +358,11 @@ void god_power::display(bool gaining, const char* fmt) const
     if (isupper(str[0]))
         god_speaks(you.religion, jtransc(str));
     else
-        god_speaks(you.religion, make_stringf(jtransc(fmt), jtransc(str)).c_str());
+    {
+        string msg = make_stringf(jtransc(fmt), jtransc(str));
+        msg = replace_all(msg, "\n", "");
+        god_speaks(you.religion, msg.c_str());
+    }
 }
 
 static void _place_delayed_monsters();

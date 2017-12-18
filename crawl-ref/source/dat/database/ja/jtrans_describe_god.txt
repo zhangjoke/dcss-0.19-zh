@@ -408,15 +408,18 @@ You can memorise some of Vehumet's spells.
 %%%%
 You radiate a large aura of darkness, enhancing your stealth and reducing the accuracy of your foes.
 
-あなたは広大な範囲を覆う影のオーラを放ち、自らの隠密性を高めるとともに敵の攻撃を当たりにくくする。
+あなたは広大な範囲を覆う影のオーラを放ち、自らの隠密性を高めるとともに
+敵の攻撃を当たりにくくする。
 %%%%
 You radiate an aura of darkness, enhancing your stealth and reducing the accuracy of your foes.
 
-あなたは影のオーラを放ち、自らの隠密性を高めるとともに敵の攻撃を当たりにくくする。
+あなたは影のオーラを放ち、自らの隠密性を高めるとともに敵の攻撃を
+当たりにくくする。
 %%%%
 You radiate a small aura of darkness, enhancing your stealth and reducing the accuracy of your foes.
 
-あなたは狭い範囲を覆う影のオーラを放ち、自らの隠密性を高めるとともに敵の攻撃を当たりにくくする。
+あなたは狭い範囲を覆う影のオーラを放ち、自らの隠密性を高めるとともに
+敵の攻撃を当たりにくくする。
 %%%%
 You passively detect gold.
 

@@ -81,7 +81,8 @@ invoke torment by sacrificing a corpse
 %%%%
 Kikubaaqudgha will grant you a Necronomicon or bloody your weapon with pain... once.
 
-キクバークッグァは一度だけあなたにネクロノミコンか苦痛の武器のどちらかを授けてくれる。
+キクバークッグァは一度だけあなたにネクロノミコンか苦痛の武器のどちらかを
+授けてくれる。
 %%%%
 Kikubaaqudgha is no longer ready to enhance your necromancy.
 
@@ -197,7 +198,8 @@ go berserk at will
 %%%%
 call upon Trog for regeneration and protection from hostile enchantments
 
-トログに願って再生能力と敵対的な魔法に対する防御を得ること
+トログに願って再生能力と敵対的な魔法に対する防御を
+得ること
 %%%%
 call in reinforcements
 
@@ -477,7 +479,7 @@ You no longer adapt resistances upon receiving elemental damage.
 %%%%
 call upon nature's wrath in a wide area around you
 
-自然の怒りを呼び覚まし、周囲の広範囲に解き放つこと
+周囲の広範囲に自然の怒りを解き放つこと
 %%%%
 You exude an aura of power that intimidates your foes.
 

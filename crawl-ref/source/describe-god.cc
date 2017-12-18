@@ -946,7 +946,15 @@ static void _describe_god_powers(god_type which_god)
 
             buf = make_stringf(jtransc("You can {buf}."), jtransc(buf));
         }
-        const int desc_len = strwidth(jtrans(buf));
+
+        string desc_after_newline = jtrans(buf);
+        string::size_type pos;
+        if ((pos = desc_after_newline.rfind("\n")) != string::npos)
+        {
+            desc_after_newline = desc_after_newline.substr(pos);
+        }
+        const int desc_len = strwidth(desc_after_newline);
+
         string abil_cost = "(" + make_cost_description(power.abil) + ")";
         if (abil_cost == "(None)" || abil_cost == make_stringf("(%s)", jtransc("None")))
             abil_cost = "";
