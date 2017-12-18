@@ -1379,7 +1379,7 @@ string monster_info::full_name_en(description_level_type desc) const
 
     if (has_proper_name())
     {
-        string s = mname + " the " + common_name();
+        string s = mname + " the " + common_name_en();
         if (desc == DESC_ITS)
             s = apostrophise(s);
         return s;
