@@ -262,7 +262,7 @@ by a malign offering
 
 悪意の供物によって
 %%%%
-{name} {verb} healed.
+{name} {is} healed.
 
 %s%s回復した。
 %%%%
