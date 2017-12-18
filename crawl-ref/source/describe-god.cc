@@ -624,7 +624,7 @@ static string _get_god_misc_info(god_type which_god)
                           "Evocations skill instead of Invocations.");
 
         case GOD_HEPLIAKLQANA:
-            return _describe_ancestor_upgrades();
+            return sp2nbsp(_describe_ancestor_upgrades());
 
         default:
             return "";
