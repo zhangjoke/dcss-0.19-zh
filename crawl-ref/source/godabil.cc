@@ -283,16 +283,20 @@ bool zin_donate_gold()
     }
     else
     {
-        string how_piety =
+        string how_piety = jtrans(
             (estimated_piety >= piety_breakpoint(5)) ? "exalted by your worship" :
             (estimated_piety >= piety_breakpoint(4)) ? "extremely pleased with you" :
             (estimated_piety >= piety_breakpoint(3)) ? "greatly pleased with you" :
             (estimated_piety >= piety_breakpoint(2)) ? "most pleased with you" :
             (estimated_piety >= piety_breakpoint(1)) ? "pleased with you" :
             (estimated_piety >= piety_breakpoint(0)) ? "aware of your devotion"
-                                                     : "noncommittal";
+                                                     : "noncommittal");
+
+        how_piety = replace_all(how_piety, "ている", "てくれる");
+
         string result = make_stringf(jtransc("You feel that %s will soon be %s%s"),
                                      god_name_jc(GOD_ZIN),
+                                     how_piety.c_str(),
                                      jtransc(donation >= 30 && you.piety < piety_breakpoint(5) ? "!" : "."));
 
         mpr(result);

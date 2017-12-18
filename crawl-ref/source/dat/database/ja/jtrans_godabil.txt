@@ -101,7 +101,7 @@ noncommittal
 %%%%
 You feel that %s will soon be %s%s
 
-%sは%sようだ%s
+%sは遠からず%sようだ%s
 %%%%
 It was the word of Zin that there would not be @sin_noun@...
 
