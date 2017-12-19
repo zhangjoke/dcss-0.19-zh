@@ -53,7 +53,7 @@ killed
 %%%%
 %s %s.
 
-%s%s。
+%s%s
 %%%%
 protects %s from harm!
 
