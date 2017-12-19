@@ -16,6 +16,7 @@
 #include "artefact.h"
 #include "colour.h"
 #include "coordit.h"
+#include "database.h"
 #include "english.h"
 #include "env.h"
 #include "fight.h"
@@ -23,6 +24,7 @@
 #include "ghost.h"
 #include "itemname.h"
 #include "itemprop.h"
+#include "japanese.h"
 #include "libutil.h"
 #include "los.h"
 #include "message.h"
@@ -733,26 +735,25 @@ monster_info::monster_info(const monster* m, int milev)
         const actor * const constrictor = actor_by_mid(m->constricted_by);
         if (constrictor)
         {
-            constrictor_name = (m->held == HELD_MONSTER ? "held by "
-                                                        : "constricted by ")
-                               + constrictor->name(_article_for(constrictor),
-                                                   true);
+            constrictor_name = make_stringf(jtransc((m->held == HELD_MONSTER ? "held by %s"
+                                                                             : "constricted by %s")),
+                                            constrictor->name(_article_for(constrictor), true).c_str());
         }
     }
 
     // names of what this monster is constricting, if any
     if (m->constricting)
     {
-        const char *gerund = m->constriction_damage() ? "constricting "
-                                                      : "holding ";
+        const char *gerund = m->constriction_damage() ? "constricting %s"
+                                                      : "holding %s";
         for (const auto &entry : *m->constricting)
         {
             if (const actor* const constrictee = actor_by_mid(entry.first))
             {
-                constricting_name.push_back(gerund
-                                            + constrictee->name(
+                constricting_name.push_back(make_stringf(jtransc(gerund),
+                                                         constrictee->name(
                                                   _article_for(constrictee),
-                                                  true));
+                                                  true).c_str()));
             }
         }
     }
@@ -791,7 +792,10 @@ string monster_info::get_max_hp_desc() const
         mhp = base_avg_hp * xl / base_xl; // rounds down - close enough
     }
 
-    return make_stringf("about %d", mhp);
+    if (type == MONS_SLIME_CREATURE)
+        mhp *= slime_size;
+
+    return make_stringf(jtransc("about %d"), mhp);
 }
 
 
@@ -839,6 +843,125 @@ string monster_info::db_name() const
 }
 
 string monster_info::_core_name() const
+{
+    monster_type nametype = type;
+
+    if (mons_class_is_zombified(type))
+    {
+        if (mons_is_unique(base_type))
+            nametype = mons_species(base_type);
+        else
+            nametype = base_type;
+    }
+    else if (type == MONS_PILLAR_OF_SALT
+             || type == MONS_BLOCK_OF_ICE
+             || type == MONS_SENSED)
+    {
+        nametype = base_type;
+    }
+
+    string s;
+
+    if (is(MB_NAME_REPLACE))
+        s = jtrans(mname);
+    else if (nametype == MONS_LERNAEAN_HYDRA)
+        s = jtrans("Lernaean hydra"); // TODO: put this into mon-data.h
+    else if (nametype == MONS_ROYAL_JELLY)
+        s = jtrans("the Royal Jelly");
+    else if (mons_species(nametype) == MONS_SERPENT_OF_HELL)
+        s = jtrans("Serpent of Hell");
+    else if (invalid_monster_type(nametype) && nametype != MONS_PROGRAM_BUG)
+        s = "INVALID MONSTER";
+    else
+    {
+        const char* slime_sizes[] = {"buggy ", "", "large ", "very large ",
+                                               "enormous ", "titanic "};
+        s = jtrans(get_monster_data(nametype)->name);
+
+        if (mons_is_draconian_job(type) && base_type != MONS_NO_MONSTER)
+            s = jtrans(draconian_colour_name(base_type) + " " + s);
+        else if (mons_is_demonspawn_job(type) && base_type != MONS_NO_MONSTER)
+            s = jtrans(demonspawn_base_name(base_type)) + s;
+
+        switch (type)
+        {
+        case MONS_SLIME_CREATURE:
+            ASSERT((size_t) slime_size <= ARRAYSZ(slime_sizes));
+            s = jtrans(slime_sizes[slime_size] + s);
+            break;
+        case MONS_UGLY_THING:
+        case MONS_VERY_UGLY_THING:
+            s = jtrans(ugly_thing_colour_name(_colour)) + s;
+            break;
+
+        case MONS_DANCING_WEAPON:
+        case MONS_SPECTRAL_WEAPON:
+            if (inv[MSLOT_WEAPON].get())
+            {
+                iflags_t ignore_flags = ISFLAG_KNOW_CURSE | ISFLAG_KNOW_PLUSES;
+                bool     use_inscrip  = true;
+                const item_def& item = *inv[MSLOT_WEAPON];
+                s = type==MONS_SPECTRAL_WEAPON ? jtrans("spectral ") : "";
+                s += (item.name(DESC_PLAIN, false, false, use_inscrip, false,
+                                ignore_flags));
+            }
+            break;
+
+        case MONS_PLAYER_GHOST:
+            s = make_stringf(jtransc("{mname}'s ghost"),
+                             mname.c_str());
+            break;
+        case MONS_PLAYER_ILLUSION:
+            s = make_stringf(jtransc("{mname}'s illusion"),
+                             mname.c_str());
+            break;
+        case MONS_PANDEMONIUM_LORD:
+            s = make_stringf(jtransc("panlord '{mname}'"),
+                             mname.c_str());
+            break;
+        default:
+            break;
+        }
+    }
+
+    //XXX: Hack to get poly'd TLH's name on death to look right.
+    if (is(MB_NAME_SUFFIX) && type != MONS_LERNAEAN_HYDRA)
+    {
+        if (mname == "necromancer" || // big kobold necromancer
+            mname == "captain" || // vault guard captain
+            mname == "wizard" || // oklob plant|sapling xxx
+            mname == "conjurer" ||
+            mname == "summoner" ||
+            mname == "shifter" ||
+            mname == "meteorologist" ||
+            mname == "demonologist" ||
+            mname == "annihilator" ||
+            mname == "priest")
+            s += "の" + jtrans(mname);
+        else
+            s += jtrans(mname);
+    }
+    else if (is(MB_NAME_ADJECTIVE))
+    {
+        if (mname == "apprentice") // apprentice kobold demonologist
+            s = replace_all(s, "の", "の" + jtrans(mname));
+        else if(mname == "conjurer" || // conjurer statue
+                mname == "fire elementalist" || // sprint_mu
+                mname == "water elementalist" ||
+                mname == "air elementalist" ||
+                mname == "earth elementalist" ||
+                mname == "zot")
+            s = jtrans(mname) + "の" + s;
+        else if(mname == "giant") // giant anaconda
+            s = "巨大" + s;
+        else
+            s = jtrans(mname) + s;
+    }
+
+    return s;
+}
+
+string monster_info::_core_name_en() const
 {
     monster_type nametype = type;
 
@@ -941,9 +1064,140 @@ string monster_info::_apply_adjusted_description(description_level_type desc,
     return apply_description(desc, s);
 }
 
+string monster_info::_apply_adjusted_description_j(description_level_type desc,
+                                                   const string& s) const
+{
+    if (desc == DESC_ITS)
+        desc = DESC_THE;
+
+    if (is(MB_NAME_THE) && desc == DESC_A)
+        desc = DESC_THE;
+
+    if (attitude == ATT_FRIENDLY && desc == DESC_THE)
+        desc = DESC_YOUR;
+
+    return apply_description_j(desc, s);
+}
+
 string monster_info::common_name(description_level_type desc) const
 {
     const string core = _core_name();
+    const bool nocore = mons_class_is_zombified(type)
+                          && mons_is_unique(base_type)
+                          && base_type == mons_species(base_type)
+                        || type == MONS_MUTANT_BEAST && !is(MB_NAME_REPLACE);
+
+    ostringstream ss;
+
+    if (props.exists("helpless"))
+        ss << jtrans("helpless ");
+
+    if (is(MB_SUBMERGED))
+        ss << jtrans("submerged ");
+
+    if (type == MONS_SPECTRAL_THING && !is(MB_NAME_ZOMBIE) && !nocore)
+        ss << jtrans("spectral ");
+
+    if (is(MB_SPECTRALISED))
+        ss << jtrans("ghostly ");
+
+    if (type == MONS_SENSED && !mons_is_sensed(base_type))
+        ss << jtrans("sensed ");
+
+    if (type == MONS_BALLISTOMYCETE)
+        ss << jtrans(is_active ? "active " : "");
+
+    if (_is_hydra(*this)
+        && type != MONS_SENSED
+        && type != MONS_BLOCK_OF_ICE
+        && type != MONS_PILLAR_OF_SALT)
+    {
+        ASSERT(num_heads > 0);
+
+        if (type == MONS_LERNAEAN_HYDRA || ends_with(mname, "Lernaean hydra"))
+            ss << jnumber_for_hydra_heads(num_heads) << jtrans("{-headed for lernaean}");
+        else
+            ss << jnumber_for_hydra_heads(num_heads) << jtrans("-headed ");
+    }
+
+    if (type == MONS_MUTANT_BEAST && !is(MB_NAME_REPLACE))
+    {
+        const int xl = props[MUTANT_BEAST_TIER].get_short();
+        const int tier = mutant_beast_tier(xl);
+        ss << _mutant_beast_tier_name(tier);
+        for (auto facet : props[MUTANT_BEAST_FACETS].get_vector())
+            ss << _mutant_beast_facet(facet.get_int()); // no space between
+        ss << jtrans(" beast");
+    }
+
+    if (!nocore)
+        ss << core;
+
+    // Add suffixes.
+    switch (type)
+    {
+    case MONS_ZOMBIE:
+#if TAG_MAJOR_VERSION == 34
+    case MONS_ZOMBIE_SMALL:
+    case MONS_ZOMBIE_LARGE:
+#endif
+        if (!is(MB_NAME_ZOMBIE))
+            ss << (nocore ? "" : "の") << jtrans("zombie");
+        break;
+    case MONS_SKELETON:
+#if TAG_MAJOR_VERSION == 34
+    case MONS_SKELETON_SMALL:
+    case MONS_SKELETON_LARGE:
+#endif
+        if (!is(MB_NAME_ZOMBIE))
+            ss << (nocore ? "" : "の") << jtrans("skeleton");
+        break;
+    case MONS_SIMULACRUM:
+#if TAG_MAJOR_VERSION == 34
+    case MONS_SIMULACRUM_SMALL:
+    case MONS_SIMULACRUM_LARGE:
+#endif
+        if (!is(MB_NAME_ZOMBIE))
+            ss << (nocore ? "" : "の") << jtrans("simulacrum");
+        break;
+    case MONS_SPECTRAL_THING:
+        if (nocore)
+            ss << jtrans("spectre");
+        break;
+    case MONS_PILLAR_OF_SALT:
+        ss << (nocore ? "" : "の形の") << jtrans("shaped pillar of salt");
+        break;
+    case MONS_BLOCK_OF_ICE:
+        ss << (nocore ? "" : "の形の") << jtrans("shaped block of ice");
+        break;
+    default:
+        break;
+    }
+
+    if (is(MB_SHAPESHIFTER))
+    {
+        // If momentarily in original form, don't display "shaped
+        // shifter".
+        if (mons_genus(type) != MONS_SHAPESHIFTER)
+            ss << jtrans(" shaped shifter");
+    }
+
+    string s;
+    // only respect unqualified if nothing was added ("Sigmund" or "The spectral Sigmund")
+    if (!is(MB_NAME_UNQUALIFIED) || has_proper_name() || ss.str() != core)
+        s = _apply_adjusted_description_j(desc, ss.str());
+    else
+        s = ss.str();
+
+    if (desc == DESC_ITS)
+        s += "の";
+
+    return s;
+}
+
+string monster_info::common_name_en(description_level_type desc) const
+{
+    const string core = _core_name_en();
     const bool nocore = mons_class_is_zombified(type)
                           && mons_is_unique(base_type)
                           && base_type == mons_species(base_type)
@@ -1069,12 +1323,25 @@ string monster_info::proper_name(description_level_type desc) const
     if (has_proper_name())
     {
         if (desc == DESC_ITS)
-            return apostrophise(mname);
+            return mname + "の";
         else
             return mname;
     }
     else
         return common_name(desc);
+}
+
+string monster_info::proper_name_en(description_level_type desc) const
+{
+    if (has_proper_name())
+    {
+        if (desc == DESC_ITS)
+            return apostrophise(mname);
+        else
+            return mname;
+    }
+    else
+        return common_name_en(desc);
 }
 
 string monster_info::full_name(description_level_type desc) const
@@ -1084,13 +1351,41 @@ string monster_info::full_name(description_level_type desc) const
 
     if (has_proper_name())
     {
-        string s = mname + " the " + common_name();
+        string bra = "『", ket = "』";
+        string stripped_mname = replace_all(mname, ket, "");
+        string::size_type found;
+
+        if ((found = mname.find(bra, 0)) != string::npos)
+        {
+            stripped_mname.replace(0, found + bra.length(), "");
+            bra = "の" + bra;
+        }
+
+        // (例)オークの戦士『Alork』
+        string s = common_name() + bra + stripped_mname + ket;
+
+        if (desc == DESC_ITS)
+            s += "の";
+        return s;
+    }
+    else
+        return common_name(desc);
+}
+
+string monster_info::full_name_en(description_level_type desc) const
+{
+    if (desc == DESC_NONE)
+        return "";
+
+    if (has_proper_name())
+    {
+        string s = mname + " the " + common_name_en();
         if (desc == DESC_ITS)
             s = apostrophise(s);
         return s;
     }
     else
-        return common_name(desc);
+        return common_name_en(desc);
 }
 
 // Needed because gcc 4.3 sort does not like comparison functions that take
@@ -1252,9 +1547,14 @@ static string _verbose_info0(const monster_info& mi)
     return "";
 }
 
+static string info_j(const string &word)
+{
+    return tagged_jtrans("[info]", word);
+}
+
 static string _verbose_info(const monster_info& mi)
 {
-    string inf = _verbose_info0(mi);
+    string inf = info_j(_verbose_info0(mi));
     if (!inf.empty())
         inf = " (" + inf + ")";
     return inf;
@@ -1326,7 +1626,7 @@ void monster_info::to_string(int count, string& desc, int& desc_colour,
     ostringstream out;
     _monster_list_colour_type colour_type = _NUM_MLC;
 
-    string full = count == 1 ? full_name() : pluralised_name(fullname);
+    string full = jtrans(full_name());
 
     if (adj && starts_with(full, "the "))
         full.erase(0, 4);
@@ -1334,9 +1634,9 @@ void monster_info::to_string(int count, string& desc, int& desc_colour,
     // TODO: this should be done in a much cleaner way, with code to
     // merge multiple monster_infos into a single common structure
     if (count != 1)
-        out << count << " ";
+        out << count << "体の";
     if (adj)
-        out << adj << " ";
+        out << adj_j(adj);
     out << full;
 
 #ifdef DEBUG_DIAGNOSTICS
@@ -1362,7 +1662,7 @@ void monster_info::to_string(int count, string& desc, int& desc_colour,
         colour_type = _MLC_NEUTRAL;
         break;
     case ATT_STRICT_NEUTRAL:
-        out << " (fellow slime)";
+        out << jtrans_notrim(" (fellow slime)");
         colour_type = _MLC_STRICT_NEUTRAL;
         break;
     case ATT_HOSTILE:
@@ -1395,162 +1695,162 @@ vector<string> monster_info::attributes() const
     vector<string> v;
 
     if (is(MB_BERSERK))
-        v.emplace_back("berserk");
+        v.emplace_back(info_j("berserk"));
     if (is(MB_HASTED) || is(MB_BERSERK))
     {
         if (!is(MB_SLOWED))
-            v.emplace_back("fast");
+            v.emplace_back(info_j("fast"));
         else
-            v.emplace_back("fast+slow");
+            v.emplace_back(info_j("fast+slow"));
     }
     else if (is(MB_SLOWED))
-        v.emplace_back("slow");
+        v.emplace_back(info_j("slow"));
     if (is(MB_STRONG) || is(MB_BERSERK))
-        v.emplace_back("unusually strong");
+        v.emplace_back(info_j("unusually strong"));
 
     if (is(MB_POISONED))
-        v.emplace_back("poisoned");
+        v.emplace_back(info_j("poisoned"));
     if (is(MB_SICK))
-        v.emplace_back("sick");
+        v.emplace_back(info_j("sick"));
     if (is(MB_GLOWING))
-        v.emplace_back("softly glowing");
+        v.emplace_back(info_j("softly glowing"));
     if (is(MB_INSANE))
-        v.emplace_back("frenzied and insane");
+        v.emplace_back(info_j("frenzied and insane"));
     if (is(MB_CONFUSED))
-        v.emplace_back("confused");
+        v.emplace_back(info_j("confused"));
     if (is(MB_INVISIBLE))
-        v.emplace_back("slightly transparent");
+        v.emplace_back(info_j("slightly transparent"));
     if (is(MB_CHARMED))
-        v.emplace_back("in your thrall");
+        v.emplace_back(info_j("in your thrall"));
     if (is(MB_BURNING))
-        v.emplace_back("covered in liquid flames");
+        v.emplace_back(info_j("covered in liquid flames"));
     if (is(MB_CAUGHT))
-        v.emplace_back("entangled in a net");
+        v.emplace_back(info_j("entangled in a net"));
     if (is(MB_WEBBED))
-        v.emplace_back("entangled in a web");
+        v.emplace_back(info_j("entangled in a web"));
     if (is(MB_PETRIFIED))
-        v.emplace_back("petrified");
+        v.emplace_back(info_j("petrified"));
     if (is(MB_PETRIFYING))
-        v.emplace_back("slowly petrifying");
+        v.emplace_back(info_j("slowly petrifying"));
     if (is(MB_VULN_MAGIC))
-        v.emplace_back("susceptible to hostile enchantments");
+        v.emplace_back(info_j("susceptible to hostile enchantments"));
     if (is(MB_SWIFT))
-        v.emplace_back("covering ground quickly");
+        v.emplace_back(info_j("covering ground quickly"));
     if (is(MB_SILENCING))
-        v.emplace_back("radiating silence");
+        v.emplace_back(info_j("radiating silence"));
     if (is(MB_PARALYSED))
-        v.emplace_back("paralysed");
+        v.emplace_back(info_j("paralysed"));
     if (is(MB_REPEL_MSL))
-        v.emplace_back("repelling missiles");
+        v.emplace_back(info_j("repelling missiles"));
     if (is(MB_DEFLECT_MSL))
-        v.emplace_back("deflecting missiles");
+        v.emplace_back(info_j("deflecting missiles"));
     if (is(MB_FEAR_INSPIRING))
-        v.emplace_back("inspiring fear");
+        v.emplace_back(info_j("inspiring fear"));
     if (is(MB_BREATH_WEAPON))
     {
-        v.push_back(string("catching ")
-                    + pronoun(PRONOUN_POSSESSIVE) + " breath");
+        v.push_back(make_stringf(info_j("catching %s breath").c_str(),
+                                 pronoun_j(PRONOUN_POSSESSIVE).c_str()));
     }
     if (is(MB_DAZED))
-        v.emplace_back("dazed");
+        v.emplace_back(info_j("dazed"));
     if (is(MB_MUTE))
-        v.emplace_back("mute");
+        v.emplace_back(info_j("mute"));
     if (is(MB_BLIND))
-        v.emplace_back("blind");
+        v.emplace_back(info_j("blind"));
     if (is(MB_DUMB))
-        v.emplace_back("stupefied");
+        v.emplace_back(info_j("stupefied"));
     if (is(MB_MAD))
-        v.emplace_back("lost in madness");
+        v.emplace_back(info_j("lost in madness"));
     if (is(MB_REGENERATION))
-        v.emplace_back("regenerating");
+        v.emplace_back(info_j("regenerating"));
     if (is(MB_RAISED_MR))
-        v.emplace_back("resistant to hostile enchantments");
+        v.emplace_back(info_j("resistant to hostile enchantments"));
     if (is(MB_OZOCUBUS_ARMOUR))
-        v.emplace_back("covered in an icy film");
+        v.emplace_back(info_j("covered in an icy film"));
     if (is(MB_WRETCHED))
-        v.emplace_back("misshapen and mutated");
+        v.emplace_back(info_j("misshapen and mutated"));
     if (is(MB_WORD_OF_RECALL))
-        v.emplace_back("chanting recall");
+        v.emplace_back(info_j("chanting recall"));
     if (is(MB_INJURY_BOND))
-        v.emplace_back("sheltered from injuries");
+        v.emplace_back(info_j("sheltered from injuries"));
     if (is(MB_WATER_HOLD))
-        v.emplace_back("engulfed in water");
+        v.emplace_back(info_j("engulfed in water"));
     if (is(MB_WATER_HOLD_DROWN))
     {
-        v.emplace_back("engulfed in water");
-        v.emplace_back("unable to breathe");
+        v.emplace_back(info_j("engulfed in water"));
+        v.emplace_back(info_j("unable to breathe"));
     }
     if (is(MB_FLAYED))
-        v.emplace_back("covered in terrible wounds");
+        v.emplace_back(info_j("covered in terrible wounds"));
     if (is(MB_WEAK))
-        v.emplace_back("weak");
+        v.emplace_back(info_j("weak"));
     if (is(MB_DIMENSION_ANCHOR))
-        v.emplace_back("unable to translocate");
+        v.emplace_back(info_j("unable to translocate"));
     if (is(MB_TOXIC_RADIANCE))
-        v.emplace_back("radiating toxic energy");
+        v.emplace_back(info_j("radiating toxic energy"));
     if (is(MB_GRASPING_ROOTS))
-        v.emplace_back("movement impaired by roots");
+        v.emplace_back(info_j("movement impaired by roots"));
     if (is(MB_FIRE_VULN))
-        v.emplace_back("more vulnerable to fire");
+        v.emplace_back(info_j("more vulnerable to fire"));
     if (is(MB_TORNADO))
-        v.emplace_back("surrounded by raging winds");
+        v.emplace_back(info_j("surrounded by raging winds"));
     if (is(MB_TORNADO_COOLDOWN))
-        v.emplace_back("surrounded by restless winds");
+        v.emplace_back(info_j("surrounded by restless winds"));
     if (is(MB_BARBS))
-        v.emplace_back("skewered by barbs");
+        v.emplace_back(info_j("skewered by barbs"));
     if (is(MB_POISON_VULN))
-        v.emplace_back("more vulnerable to poison");
+        v.emplace_back(info_j("more vulnerable to poison"));
     if (is(MB_ICEMAIL))
-        v.emplace_back("surrounded by an icy envelope");
+        v.emplace_back(info_j("surrounded by an icy envelope"));
     if (is(MB_AGILE))
-        v.emplace_back("unusually agile");
+        v.emplace_back(info_j("unusually agile"));
     if (is(MB_FROZEN))
-        v.emplace_back("encased in ice");
+        v.emplace_back(info_j("encased in ice"));
     if (is(MB_BLACK_MARK))
-        v.emplace_back("absorbing vital energies");
+        v.emplace_back(info_j("absorbing vital energies"));
     if (is(MB_SAP_MAGIC))
-        v.emplace_back("magic-sapped");
+        v.emplace_back(info_j("magic-sapped"));
     if (is(MB_SHROUD))
-        v.emplace_back("shrouded");
+        v.emplace_back(info_j("shrouded"));
     if (is(MB_CORROSION))
-        v.emplace_back("covered in acid");
+        v.emplace_back(info_j("covered in acid"));
     if (is(MB_SLOW_MOVEMENT))
-        v.emplace_back("covering ground slowly");
+        v.emplace_back(info_j("covering ground slowly"));
     if (is(MB_LIGHTLY_DRAINED))
-        v.emplace_back("lightly drained");
+        v.emplace_back(info_j("lightly drained"));
     if (is(MB_HEAVILY_DRAINED))
-        v.emplace_back("heavily drained");
+        v.emplace_back(info_j("heavily drained"));
     if (is(MB_RESISTANCE))
-        v.emplace_back("unusually resistant");
+        v.emplace_back(info_j("unusually resistant"));
     if (is(MB_HEXED))
-        v.emplace_back("control wrested from you");
+        v.emplace_back(info_j("control wrested from you"));
     if (is(MB_BONE_ARMOUR))
-        v.emplace_back("corpse armoured");
+        v.emplace_back(info_j("corpse armoured"));
     if (is(MB_BRILLIANCE_AURA))
-        v.emplace_back("aura of brilliance");
+        v.emplace_back(info_j("aura of brilliance"));
     if (is(MB_EMPOWERED_SPELLS))
-        v.emplace_back("spells empowered");
+        v.emplace_back(info_j("spells empowered"));
     if (is(MB_READY_TO_HOWL))
-        v.emplace_back("ready to howl");
+        v.emplace_back(info_j("ready to howl"));
     if (is(MB_PARTIALLY_CHARGED))
-        v.emplace_back("partially charged");
+        v.emplace_back(info_j("partially charged"));
     if (is(MB_FULLY_CHARGED))
-        v.emplace_back("fully charged");
+        v.emplace_back(info_j("fully charged"));
     if (is(MB_GOZAG_INCITED))
-        v.emplace_back("incited by Gozag");
+        v.emplace_back(info_j("incited by Gozag"));
     if (is(MB_PAIN_BOND))
     {
-        v.push_back(string("sharing ")
-                    + pronoun(PRONOUN_POSSESSIVE) + " pain");
+        v.push_back(make_stringf(info_j("sharing %s pain").c_str(),
+                                 pronoun_j(PRONOUN_POSSESSIVE).c_str()));
     }
     if (is(MB_IDEALISED))
-        v.emplace_back("idealised");
+        v.emplace_back(info_j("idealised"));
     if (is(MB_BOUND_SOUL))
-        v.emplace_back("bound soul");
+        v.emplace_back(info_j("bound soul"));
     if (is(MB_INFESTATION))
-        v.emplace_back("infested");
+        v.emplace_back(info_j("infested"));
     if (is(MB_STILL_WINDS))
-        v.emplace_back("stilling the winds");
+        v.emplace_back(info_j("stilling the winds"));
     return v;
 }
 
@@ -1560,7 +1860,8 @@ string monster_info::wounds_description_sentence() const
     if (wounds.empty())
         return "";
     else
-        return string(pronoun(PRONOUN_SUBJECTIVE)) + " is " + wounds + ".";
+        return make_stringf(jtransc("%s is {wounds}."),
+                            pronoun_j(PRONOUN_SUBJECTIVE).c_str(), wounds.c_str());
 }
 
 string monster_info::wounds_description(bool use_colour) const
@@ -1574,6 +1875,11 @@ string monster_info::wounds_description(bool use_colour) const
         const int col = channel_to_colour(MSGCH_MONSTER_DAMAGE, dam);
         desc = colour_string(desc, col);
     }
+
+    desc = replace_all(desc, "傷ついた", "傷ついている");
+    desc = replace_all(desc, "傷つかなかった", "無傷");
+    desc = replace_all(desc, "死にかけている", "死にかけ");
+
     return desc;
 }
 
@@ -1589,7 +1895,7 @@ string monster_info::constriction_description() const
     }
 
     string constricting = comma_separated_line(constricting_name.begin(),
-                                               constricting_name.end());
+                                               constricting_name.end(), ", ");
 
     if (constricting != "")
     {
@@ -1845,7 +2151,7 @@ monster_type monster_info::draco_or_demonspawn_subspecies() const
     return ::draco_or_demonspawn_subspecies(type, base_type);
 }
 
-const char *monster_info::pronoun(pronoun_type variant) const
+const string monster_info::pronoun(pronoun_type variant) const
 {
     if (props.exists(MON_GENDER_KEY))
     {
@@ -1853,4 +2159,14 @@ const char *monster_info::pronoun(pronoun_type variant) const
                                variant);
     }
     return mons_pronoun(type, variant, true);
+}
+
+const string monster_info::pronoun_j(pronoun_type variant) const
+{
+    if (props.exists(MON_GENDER_KEY))
+    {
+        return decline_pronoun_j((gender_type)props[MON_GENDER_KEY].get_int(),
+                               variant);
+    }
+    return mons_pronoun_j(type, variant, true);
 }

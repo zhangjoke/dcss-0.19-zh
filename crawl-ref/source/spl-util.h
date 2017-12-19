@@ -91,8 +91,14 @@ int count_bits(enum_bitfield<E, Exp> bits)
 }
 
 const char *spell_title(spell_type which_spell);
+const string spell_title_j(spell_type which_spell);
+const string spell_title_j(const string &name_en);
+#define spell_title_jc(sp) (spell_title_j(sp).c_str())
 const char* spelltype_short_name(spschool_flag_type which_spelltype);
 const char* spelltype_long_name(spschool_flag_type which_spelltype);
+
+const string spelltype_name_j(const char* type);
+#define spelltype_name_jc(x) (spelltype_name_j(x).c_str())
 
 typedef function<int (coord_def where)> cell_func;
 typedef int cloud_func(coord_def where, int pow, int spreadrate,

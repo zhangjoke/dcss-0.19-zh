@@ -6,178 +6,300 @@ msc := message_colour
 
 # Really important messages
 #
-msc += $danger:drains you
-msc += $danger:feel drained
-msc += $danger:strangely .*stable
-msc += $danger:curare-tipped.*hits you
-msc += $danger:Space warps.* around you
-msc += $danger:Space bends around you
-msc += $danger:sense of stasis
-msc += $danger:clumsily bash
-msc += $danger:goes berserk!
-msc += $danger:Forgetting.* will destroy the book
-msc += $danger:The blast of calcifying dust hits you!
-msc += $danger:you are engulfed in calcifying dust
-msc += $danger:is moving more slowly
+# msc += $danger:drains you
+msc += $danger:あなた.*は.*い取られた
+msc += $danger:はあなたの.*を吸い取った
+# msc += $danger:feel drained
+msc += $danger:(衰弱させられたのを感じた|魔力を吸われたような気がした)
+# msc += $danger:strangely .*stable
+msc += $danger:奇妙な(落ち着かない感じがした|安定感を覚えた)
+# msc += $danger:curare-tipped.*hits you
+msc += $danger:クラーレ毒.*あなたに命中した
+# msc += $danger:Space warps.* around you
+# msc += $danger:Space bends around you
+msc += $danger:あなたの周.*の空間が.*歪
+# msc += $danger:sense of stasis
+msc += $danger:奇妙な停滞感を覚えた
+# msc += $danger:clumsily bash
+msc += $danger:不器用に殴打した
+# msc += $danger:goes berserk!
+msc += $danger:はバーサークした！
+# msc += $danger:The blast of calcifying dust hits you!
+msc += $danger:石化する雲はあなたに命中した！
+# msc += $danger:you are engulfed in calcifying dust
+msc += $danger:あなたは石化する雲の中に包まれている
+# msc += $danger:is moving more slowly
+msc += $danger:はさらに動きが鈍くなった
+
 # Don't recolour acquirement messages along with messages about invisible monsters.
-msc += lightgrey:Something appears (at your feet|before you)
-msc += $danger:^Something .* you
-msc += $danger:you block its attack
-msc += $danger:constricts you
-msc += $danger:you convulse
-msc += $danger:You feel a build-up of mutagenic energy
-msc += $danger:place you under penance
-msc += $danger:acid corrodes
-msc += $danger:rotting away
+# msc += lightgrey:Something appears (at your feet|before you)
+
+# msc += $danger:^Something .* you
+msc += $danger:^何かが.*あなた
+# msc += $danger:you block its attack
+msc += $danger:あなたは.*を防いだ
+# msc += $danger:constricts you
+msc += $danger:はあなたを締めつけた
+# msc += $danger:you convulse
+msc += $danger:あなたは身もだえした
+# msc += $danger:You feel a build-up of mutagenic energy
+msc += $danger:あなたは変異性のエネルギーが強まるのを感じた
+# msc += $danger:place you under penance
+msc += $danger:神に懺悔をする羽目
+# msc += $danger:acid corrodes
+msc += $danger:酸.*腐蝕した
+# msc += $danger:rotting away
+msc += $danger:(急速に腐敗|腐り落ちて)
 
 # Less urgent, but still significant messages
 #
-msc += $warning:ticking.*clock
-msc += $warning:dying ticks
-msc += $warning:distant snort
-msc += $warning:odd grinding sound
-msc += $warning:creaking of ancient gears
-msc += $warning:floor suddenly vibrates
-msc += $warning:a sudden draft
-msc += $warning:coins.*counted
-msc += $warning:tolling.*bell
-msc += $warning:roar of battle
-msc += $warning:creaking.*portcullis
-msc += $warning:portcullis is probably
-msc += $warning:wave of frost
-msc += $warning:crackling.*melting
-msc += $warning:hiss.*sand
-msc += $warning:sound.*rushing water
-msc += $warning:rusting.*drain
-msc += $warning:drain falling apart
-msc += $warning:heat about you
-msc += $warning:falling.*rocks
-msc += $warning:rumble.*avalanche of rocks
-msc += $warning:crackle.*arcane power
-msc += $warning:crackle.*magical portal
-msc += $warning:distant wind
-msc += $warning:whistling.*wind
-msc += $warning:rapidly growing quiet
+# msc += $warning:ticking.*clock
+msc += $warning:時計.*カチカチ言う
+# msc += $warning:dying ticks
+# msc += $warning:distant snort
+msc += $warning:遠くから牛の鼻息
+# msc += $warning:odd grinding sound
+msc += $warning:奇妙な軋る音
+# msc += $warning:creaking of ancient gears
+msc += $warning:歯車がキーキー言う音
+# msc += $warning:floor suddenly vibrates
+msc += $warning:床が突然振動
+# msc += $warning:a sudden draft
+msc += $warning:すきま風
+# msc += $warning:coins.*counted
+msc += $warning:コインを数える音
+# msc += $warning:tolling.*bell
+msc += $warning:鐘.*ガラガラ鳴る
+# msc += $warning:roar of battle
+msc += $warning:戦いの鬨の声
+# msc += $warning:creaking.*portcullis
+# msc += $warning:portcullis is probably
+msc += $warning:吊るし門.*キーキー言う
+# msc += $warning:wave of frost
+msc += $warning:あなたは冷気の波を感じた
+# msc += $warning:crackling.*melting
+msc += $warning:溶ける.*ピキピキ言う
+# msc += $warning:hiss.*sand
+msc += $warning:砂.*さらさら言う.*聞
+# msc += $warning:sound.*rushing water
+msc += $warning:どぼどぼと流れる音
+# msc += $warning:rusting.*drain
+# msc += $warning:drain falling apart
+msc += $warning:排水口.*音を聞いた
+# msc += $warning:heat about you
+msc += $warning:うだるような熱気
+# msc += $warning:falling.*rocks
+msc += $warning:岩が落ちる音が突然
+# msc += $warning:rumble.*avalanche of rocks
+msc += $warning:なだれ落ちる岩石.*ゴロゴロ
+# msc += $warning:crackle.*arcane power
+msc += $warning:秘術の力.*パチパチ
+# msc += $warning:crackle.*magical portal
+msc += $warning:魔法のポータル.*パチパチ
+# msc += $warning:distant wind
+msc += $warning:遠くから風の音
+# msc += $warning:whistling.*wind
+msc += $warning:ヒュウヒュウと鳴く風の音
+# msc += $warning:rapidly growing quiet
+msc += $warning:風の音は急に止んだ
 
-msc += lightcyan:LOW MAGIC WARNING
-msc += $warning:fails to return
-msc += $warning:no longer ripe
-msc += $warning:This .* contains the .* runes? of Zot.
-msc += $warning:They guard the .* runes? of Zot.
-msc += $warning:Beware, you cannot shaft yourself on this level.
+# msc += lightcyan:LOW MAGIC WARNING
+msc += lightcyan:MP低下警告
+# msc += $warning:fails to return
+msc += $warning:うまく受け取れなかった！
+
+# msc += $warning:no longer ripe
+msc += $warning:はもはや囚われていない
+# msc += $warning:This .* contains the .* runes? of Zot.
+msg += $warning:この分岐の奥底には.*が隠されている
+# msc += $warning:They guard the .* runes? of Zot.
+# msc += $warning:Beware, you cannot shaft yourself on this level.
+msc += $warning:気をつけろ、この階層では縦穴を掘ることはできない
 
 # Unimportant messages and combat clutter
 #
-msc += $boring:You start (resting|waiting)
-msc += $boring:Unknown command
-msc += $boring:disappears? in a puff of smoke
-msc += $boring:dissolves? into (sparkling lights|shadows)
-msc += $boring:(crumbles|melts) away\.
-msc += $boring:returns to the deep
-msc += $boring:shimmers and vanishes
+# msc += $boring:You start (resting|waiting)
+msc += $boring:あなたは(待機|休憩)を始めた
+# msc += $boring:Unknown command
+msc += $boring:そのコマンドは存在しません
+# msc += $boring:disappears? in a puff of smoke
+msc += $boring:煙.*消え去った
+# msc += $boring:dissolves? into (sparkling lights|shadows)
+msc += $boring:は影に溶け込んでいった
+msc += $boring:は閃光とともに消え去った
+# msc += $boring:(crumbles|melts) away\.
+msc += $boring:は崩れ落ちた
+# msc += $boring:returns to the deep
+msc += $boring:深淵へと還った
+# msc += $boring:shimmers and vanishes
+msc += $boring:揺らめいて消え去った
 #
-msc += $boring:plain:miss(es)? (the|you|it)
-msc += $boring:but (do no|doesn't do any) damage
-msc += $boring:(prevent|prevents) you from hitting
-msc += $boring:nimbly evade
-msc += $boring:waved at by a branch
-msc += $boring:lunges up near
+# msc += $boring:plain:miss(es)? (the|you|it)
+msc += $boring:plain:攻撃を.*外した
+msc += $boring:plain:あなたから外れた
+# msc += $boring:but (do no|doesn't do any) damage
+msc += $boring:ダメージを与えられなかった
+# msc += $boring:(prevent|prevents) you from hitting
+msc += $boring:あなたは.*が邪魔で.*攻撃できなかった
+# msc += $boring:nimbly evade
+msc += $boring:身軽にかわした
+# msc += $boring:waved at by a branch
+msc += $boring:は枝に振り回された
+# msc += $boring:lunges up near
+msc += $boring:木の根が近くの.*を突いた
 
 # Ignore Uskayaw *** and **** power loss messages by default; they're spammy.
-msc += mute:Uskayaw will no longer force your foes to helplessly watch your dance\.
-msc += mute:Uskayaw will no longer force your foes to share their pain\.
+# msc += mute:Uskayaw will no longer force your foes to helplessly watch your dance\.
+msc += mute:ウスカヤーはもう敵にあなたの舞踏を無防備に見るよう強制しなくなった
+# msc += mute:Uskayaw will no longer force your foes to share their pain\.
+msc += mute:ウスカヤーはもう敵が受ける外傷を敵全体で共有させなくなった
 
 ## Messages so important to require a --more--
 
-force_more_message += You have reached level
-force_more_message += Your scales start
-force_more_message += You fall through a shaft
-force_more_message += You fall into the water!
-force_more_message += You fall into the lava!
-force_more_message += You focus on prolonging your flight
-force_more_message += Marking area around .* as unsafe
-force_more_message += breaks free of your control
-force_more_message += doesn't seem very happy
-force_more_message += You rejoin the land of the living
-force_more_message += You cannot cast spells when silenced
-force_more_message += You don't have the energy to cast that spell
-force_more_message += This is a scroll of acquirement
+# force_more_message += You have reached level
+force_more_message += あなたは.*レベル.*になった！
+# force_more_message += Your scales start
+force_more_message += あなたの鱗は成熟して.*になった
+# force_more_message += You fall through a shaft
+force_more_message += あなたは縦穴に転がり落ちた
+# force_more_message += You fall into the water!
+# force_more_message += You fall into the lava!
+force_more_message += あなたは(溶岩|水たまり)の中に転がり落ちた！
+# force_more_message += You focus on prolonging your flight
+force_more_message += あなたはより長く飛ぶことに集中している
+# force_more_message += Marking area around .* as unsafe
+force_more_message += この.*の周囲を自動移動の禁止範囲に指定した
+# force_more_message += breaks free of your control
+force_more_message += はあなたの束縛から逃れた
+# force_more_message += doesn't seem very happy
+force_more_message += それはあまり喜んでいるようには見えない
+# force_more_message += You rejoin the land of the living
+force_more_message += あなたは現世にとどまった
+# force_more_message += You cannot cast spells when silenced
+force_more_message += あなたは静寂に包まれている間は呪文を唱えられない
+# force_more_message += You don't have the energy to cast that spell
+force_more_message += あなたには呪文を唱えるための活力が足りない
+# force_more_message += This is a scroll of acquirement
+force_more_message += これは獲得の巻物だ
 
 ## Reduce chance of draining because flight or form runs out:
-force_more_message += Careful!
+# force_more_message += Careful!
+force_more_message += 注意！
 
 # Announcements of timed portal vaults:
-force_more_message += interdimensional caravan
-force_more_message += distant snort
-force_more_message += roar of battle
-force_more_message += wave of frost
-force_more_message += hiss of flowing sand
-force_more_message += sound of rushing water
-force_more_message += oppressive heat about you
-force_more_message += crackle of arcane power
-force_more_message += distant wind
+# force_more_message += interdimensional caravan
+force_more_message += 次元を彷徨う隊商
+# force_more_message += distant snort
+force_more_message += 遠くから牛の鼻息
+# force_more_message += roar of battle
+force_more_message += 戦いの鬨の声
+# force_more_message += wave of frost
+force_more_message += 冷気の波
+# force_more_message += hiss of flowing sand
+force_more_message += 砂がさらさら言う音
+# force_more_message += sound of rushing water
+force_more_message += 水がどぼどぼと流れる音
+# force_more_message += oppressive heat about you
+force_more_message += うだるような熱気
+# force_more_message += crackle of arcane power
+force_more_message += 秘術の力がパチパチ音を立てる
+# force_more_message += distant wind
+force_more_message += 遠くから風の音
 
 # Religion
-force_more_message += press .* to convert to Beogh
-force_more_message += welcomes you( back)?!
-force_more_message += You have lost your religion
+# force_more_message += press .* to convert to Beogh
+force_more_message += ベオに改宗するには.*を押してください
+# force_more_message += welcomes you( back)?!
+force_more_message += はあなたの(再)?入信を歓迎した！
+# force_more_message += You have lost your religion
+force_more_message += あなたは信仰を捨て去った
 
 # Dangerous weapons
-force_more_message += is wielding.*distortion
+# force_more_message += is wielding.*distortion
+force_more_message += は歪曲の.*を装備している
 # dancing weapons require special handling...
-force_more_message += there is a.*distortion
-force_more_message += of distortion comes into view.
+# force_more_message += there is a.*distortion
+force_more_message += そこには歪曲の.*がいる
+# force_more_message += of distortion comes into view.
+force_more_message += 歪曲の.*に遭遇した。
 
 # Banishment
-force_more_message += You are cast into the Abyss
-force_more_message += You are cast deeper into the Abyss
-force_more_message += The Abyss bends around you
+# force_more_message += You are cast into the Abyss
+force_more_message += あなたはアビスに追放された
+# force_more_message += You are cast deeper into the Abyss
+force_more_message += あなたはアビスのさらなる奥深くへと追放された
+# force_more_message += The Abyss bends around you
+force_more_message += あなたの周囲の空間が歪曲した
 
 # Petrification
-force_more_message += You are slowing down
+# force_more_message += You are slowing down
+force_more_message += あなたの動きは鈍くなっている
 
 # Abyss exits and rune
-force_more_message += Found a gateway leading out of the Abyss
-force_more_message += a gateway leading .* appears
-force_more_message += Found .* abyssal rune of Zot
+# force_more_message += Found a gateway leading out of the Abyss
+force_more_message += アビスからの出口の門を見つけた
+# force_more_message += a gateway leading .* appears
+force_more_message += へと続く門が出現した
+# force_more_message += Found .* abyssal rune of Zot
+force_more_message += 深淵のルーン.*を見つけた
 
 # Water nymph stair temp-drowning - people seem to miss these...
-force_more_message += watery aura .* (staircase|hatch)
+# force_more_message += watery aura .* (staircase|hatch)
+force_more_message += 水のオーラが.*を覆った
 
 # Generally exciting things that are somewhat automated
-force_more_message += You pick up the .* rune and feel its power
+# force_more_message += You pick up the .* rune and feel its power
+force_more_message += あなたは.*のルーンを手にし、その力を感じた
 
 # Rune unlock
-force_more_message += The lock glows eerily
-force_more_message += Heavy smoke blows from the lock
-force_more_message += The gate opens wide
-force_more_message += With a loud hiss the gate opens wide
+# force_more_message += The lock glows eerily
+force_more_message += 錠前が奇妙な輝きを放った
+# force_more_message += Heavy smoke blows from the lock
+force_more_message += もうもうたる煙が錠前から上がった
+# force_more_message += The gate opens wide
+# force_more_message += With a loud hiss the gate opens wide
+force_more_message += (轟音と共に)?門が大きく開いた
 
 # God gifts
-force_more_message += grants you a gift
-force_more_message += offers you knowledge of
-force_more_message += believes you are ready to make a new sacrifice
-force_more_message += may now remember your ancestor
+# force_more_message += grants you a gift
+force_more_message += あなたに贈り物を授けた
+# force_more_message += offers you knowledge of
+force_more_message += はあなたに.*の知識を授ける提案をした
+# force_more_message += believes you are ready to make a new sacrifice
+force_more_message += はあなたが新たな代償を捧げる準備ができたと確信した
+# force_more_message += may now remember your ancestor
+force_more_message += あなたは祖霊の生き様を思い出すことができるようになった
 
 # Show passwall message while still in the starting position
-force_more_message += You finish merging with the rock
+# force_more_message += You finish merging with the rock
+force_more_message += あなたは壁へと溶け込んだ
 
 # Pause before showing a menu that hides the message
-force_more_message += You bow before the missionary of Beogh
-force_more_message += You .* the altar of
-force_more_message += will bless one of your weapons
-force_more_message += will bloody your weapon with pain
-force_more_message += will brand one of your weapons
-force_more_message += will supercharge a wand or rod
-force_more_message += It is a scroll of amnesia
-force_more_message += It is a scroll of brand weapon
-force_more_message += It is a scroll of enchant armour
-force_more_message += It is a scroll of enchant weapon
-force_more_message += It is a scroll of identify
-force_more_message += It is a scroll of recharging
-force_more_message += You feel more experienced
-force_more_message += A flood of memories washes over you
-force_more_message += There's only one card left
-force_more_message += The deck only has .* cards
-force_more_message += The deck has exactly five cards
-force_more_message += You draw the first five cards
+# force_more_message += You bow before the missionary of Beogh
+force_more_message += あなたはベオの宣教師の前にひざまずいた
+# force_more_message += You .* the altar of
+force_more_message += あなたは.*の祭壇
+# force_more_message += will bless one of your weapons
+# force_more_message += will bloody your weapon with pain
+# force_more_message += will brand one of your weapons
+force_more_message += はあなたの武器をどれか一つ.*してくれる
+# force_more_message += will supercharge a wand or rod
+# force_more_message += It is a scroll of amnesia
+# force_more_message += It is a scroll of brand weapon
+# force_more_message += It is a scroll of enchant armour
+# force_more_message += It is a scroll of enchant weapon
+# force_more_message += It is a scroll of identify
+# force_more_message += It is a scroll of recharging
+force_more_message += これは(忘却|魔力の武器|武器強化|防具強化|鑑定|魔力充填)の巻物だ
+# force_more_message += You feel more experienced
+force_more_message += あなたはより経験を積んだように感じる
+# force_more_message += A flood of memories washes over you
+force_more_message += 記憶の洪水があなたを洗い流した
+# force_more_message += There's only one card left
+force_more_message += このデッキにはカードがもう一枚しかない
+# force_more_message += The deck only has .* cards
+force_more_message += このデッキにはカードが.*枚しか残っていない
+# force_more_message += The deck has exactly five cards
+force_more_message += このデッキにはちょうど5枚カードが残っている
+# force_more_message += You draw the first five cards
+force_more_message += あなたは.*枚のカードのデッキのうち上から5枚を並べ替え

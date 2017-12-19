@@ -104,6 +104,7 @@ public:
     void add(skill_menu_state state);
     string get_help();
     string get_name(skill_menu_state state);
+    string get_name_j(skill_menu_state state);
     skill_menu_state get_state();
     void set_state(skill_menu_state state);
     int size() const;

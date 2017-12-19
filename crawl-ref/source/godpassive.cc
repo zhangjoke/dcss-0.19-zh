@@ -10,6 +10,7 @@
 #include "branch.h"
 #include "cloud.h"
 #include "coordit.h"
+#include "database.h"
 #include "directn.h"
 #include "env.h"
 #include "fight.h"
@@ -387,7 +388,7 @@ void jiyva_eat_offlevel_items()
 
                 // Needs a message now to explain possible hp or mp
                 // gain from jiyva_slurp_bonus()
-                mpr("You hear a distant slurping noise.");
+                mpr(jtrans("You hear a distant slurping noise."));
                 jiyva_slurp_item_stack(*si);
                 item_was_destroyed(*si);
                 destroy_item(si.index());
@@ -567,64 +568,67 @@ string ash_describe_bondage(int flags, bool level)
         else
         {
             // FIXME: what if you sacrificed a hand?
-            desc = make_stringf("Your %s %s is bound but not your %s %s.\n",
-                                you.bondage[ET_WEAPON] ? "weapon" : "shield",
+            desc = make_stringf(jtrans_notrimc("Your %s %s is bound but not your %s %s.\n"),
+                                jtransc(you.bondage[ET_WEAPON] ? "weapon" : "shield"),
                                 you.hand_name(false).c_str(),
-                                you.bondage[ET_WEAPON] ? "shield" : "weapon",
+                                jtransc(you.bondage[ET_WEAPON] ? "shield" : "weapon"),
                                 you.hand_name(false).c_str());
         }
     }
     else if (flags & ETF_WEAPON && you.bondage[ET_WEAPON] != -1)
     {
-        desc = make_stringf("Your weapon %s is %sbound.\n",
-                            you.hand_name(false).c_str(),
-                            you.bondage[ET_WEAPON] ? "" : "not ");
+        desc = make_stringf(jtrans_notrimc("Your weapon %s is %sbound.\n"),
+                            you.bondage[ET_WEAPON] ? "いる" : "いない");
     }
     else if (flags & ETF_SHIELD && you.bondage[ET_SHIELD] != -1)
     {
-        desc = make_stringf("Your shield %s is %sbound.\n",
+        desc = make_stringf(jtrans_notrimc("Your shield %s is %sbound.\n"),
                             you.hand_name(false).c_str(),
-                            you.bondage[ET_SHIELD] ? "" : "not ");
+                            you.bondage[ET_SHIELD] ? "いる" : "いない");
     }
 
     if (flags & ETF_ARMOUR && flags & ETF_JEWELS
         && you.bondage[ET_ARMOUR] == you.bondage[ET_JEWELS]
         && you.bondage[ET_ARMOUR] != -1)
     {
-        desc += make_stringf("You are %s bound in armour %s jewellery.\n",
+        desc += jtrans_notrim(
+                make_stringf("You are %s bound in armour %s jewellery.\n",
                              you.bondage[ET_ARMOUR] == 0 ? "not" :
                              you.bondage[ET_ARMOUR] == 1 ? "partially"
                                                          : "fully",
-                             you.bondage[ET_ARMOUR] == 0 ? "or" : "and");
+                             you.bondage[ET_ARMOUR] == 0 ? "or" : "and"));
     }
     else
     {
         if (flags & ETF_ARMOUR && you.bondage[ET_ARMOUR] != -1)
         {
-            desc += make_stringf("You are %s bound in armour.\n",
+            desc += jtrans_notrim(
+                    make_stringf("You are %s bound in armour.\n",
                                  you.bondage[ET_ARMOUR] == 0 ? "not" :
                                  you.bondage[ET_ARMOUR] == 1 ? "partially"
-                                                             : "fully");
+                                                             : "fully"));
         }
 
         if (flags & ETF_JEWELS && you.bondage[ET_JEWELS] != -1)
         {
-            desc += make_stringf("You are %s bound in jewellery.\n",
+            desc += jtrans_notrim(
+                    make_stringf("You are %s bound in jewellery.\n",
                                  you.bondage[ET_JEWELS] == 0 ? "not" :
                                  you.bondage[ET_JEWELS] == 1 ? "partially"
-                                                             : "fully");
+                                                             : "fully"));
         }
     }
 
     if (level)
     {
-        desc += make_stringf("You are %s bound.",
+        desc += jtrans_notrim(
+                make_stringf("You are %s bound.",
                              you.bondage_level == 0 ? "not" :
                              you.bondage_level == 1 ? "slightly" :
                              you.bondage_level == 2 ? "moderately" :
                              you.bondage_level == 3 ? "seriously" :
                              you.bondage_level == 4 ? "fully"
-                                                    : "buggily");
+                                                    : "buggily"));
     }
 
     return trim_string(desc);
@@ -1069,31 +1073,31 @@ void qazlal_element_adapt(beam_type flavour, int strength)
 
     if (what != BEAM_FIRE && you.duration[DUR_QAZLAL_FIRE_RES])
     {
-        mprf(MSGCH_DURATION, "Your resistance to fire fades away.");
+        mprf(MSGCH_DURATION, jtrans("Your resistance to fire fades away."));
         you.duration[DUR_QAZLAL_FIRE_RES] = 0;
     }
 
     if (what != BEAM_COLD && you.duration[DUR_QAZLAL_COLD_RES])
     {
-        mprf(MSGCH_DURATION, "Your resistance to cold fades away.");
+        mprf(MSGCH_DURATION, jtrans("Your resistance to cold fades away."));
         you.duration[DUR_QAZLAL_COLD_RES] = 0;
     }
 
     if (what != BEAM_ELECTRICITY && you.duration[DUR_QAZLAL_ELEC_RES])
     {
-        mprf(MSGCH_DURATION, "Your resistance to electricity fades away.");
+        mprf(MSGCH_DURATION, jtrans("Your resistance to electricity fades away."));
         you.duration[DUR_QAZLAL_ELEC_RES] = 0;
     }
 
     if (what != BEAM_MISSILE && you.duration[DUR_QAZLAL_AC])
     {
-        mprf(MSGCH_DURATION, "Your resistance to physical damage fades away.");
+        mprf(MSGCH_DURATION, jtrans("Your resistance to physical damage fades away."));
         you.duration[DUR_QAZLAL_AC] = 0;
         you.redraw_armour_class = true;
     }
 
-    mprf(MSGCH_GOD, "You feel %sprotected from %s.",
-         you.duration[dur] > 0 ? "more " : "", descript.c_str());
+    mprf(MSGCH_GOD, make_stringf(jtransc(make_stringf("You feel %%sprotected from %s.", descript.c_str())),
+                                 jtransc(you.duration[dur] > 0 ? "more " : "")));
 
     // was scaled by 10 * strength. But the strength parameter is used so inconsistently that
     // it seems like a constant would be better, based on the typical value of 2.
@@ -1241,6 +1245,8 @@ monster* shadow_monster(bool equip)
 
     mgrd(you.pos()) = mon->mindex();
 
+    mon->mname = jtrans("your shadow");
+
     return mon;
 }
 
@@ -1268,8 +1274,8 @@ void shadow_monster_reset(monster *mon)
  */
 static bool _in_melee_range(actor* target)
 {
-    const int dist = (you.pos() - target->pos()).abs();
-    return dist < 2 || (dist <= 2 && you.reach_range() != REACH_NONE);
+    const int dist = (you.pos() - target->pos()).rdist();
+    return dist <= you.reach_range();
 }
 
 void dithmenos_shadow_melee(actor* target)
@@ -1367,7 +1373,7 @@ void dithmenos_shadow_spell(bolt* orig_beam, spell_type spell)
     beem.target = target;
     beem.aimed_at_spot = orig_beam->aimed_at_spot;
 
-    mprf(MSGCH_FRIEND_SPELL, "%s mimicks your spell!",
+    mprf(MSGCH_FRIEND_SPELL, jtransc("%s mimicks your spell!"),
          mon->name(DESC_THE).c_str());
     mons_cast(mon, beem, shadow_spell, MON_SPELL_WIZARD, false);
 

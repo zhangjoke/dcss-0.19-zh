@@ -27,6 +27,7 @@
 #include "chardump.h"
 #include "cloud.h"
 #include "coordit.h"
+#include "database.h"
 #include "directn.h"
 #include "dbg-maps.h"
 #include "dbg-scan.h"
@@ -45,6 +46,7 @@
 #include "itemname.h"
 #include "itemprop.h"
 #include "items.h"
+#include "japanese.h"
 #include "lev-pand.h"
 #include "libutil.h"
 #include "mapmark.h"
@@ -70,6 +72,7 @@
 #include "tileview.h"
 #include "timed_effects.h"
 #include "traps.h"
+#include "unicode.h"
 
 #ifdef DEBUG_DIAGNOSTICS
 #define DEBUG_TEMPLES
@@ -316,7 +319,7 @@ bool builder(bool enable_random_maps, dungeon_feature_type dest_stairs_type)
         }
         catch (map_load_exception &mload)
         {
-            mprf(MSGCH_ERROR, "Failed to load map, reloading all maps (%s).",
+            mprf(MSGCH_ERROR, jtransc("Failed to load map, reloading all maps (%s)."),
                  mload.what());
             reread_maps();
         }
@@ -331,7 +334,7 @@ bool builder(bool enable_random_maps, dungeon_feature_type dest_stairs_type)
         if (crawl_state.need_save)
         {
             save_game(true,
-                  make_stringf("Unable to generate level for '%s'!",
+                  make_stringf(jtransc("Unable to generate level for '%s'!"),
                                level_id::current().describe().c_str()).c_str());
         }
         else
@@ -412,7 +415,7 @@ static bool _build_level_vetoable(bool enable_random_maps,
     if (!branch_epilogues[you.where_are_you].empty())
         if (!dlua.callfn(branch_epilogues[you.where_are_you].c_str(), 0, 0))
         {
-            mprf(MSGCH_ERROR, "branch epilogue for %s failed: %s",
+            mprf(MSGCH_ERROR, jtransc("branch epilogue for %s failed: %s"),
                               level_id::current().describe().c_str(),
                               dlua.error.c_str());
             return false;
@@ -1333,7 +1336,7 @@ void fixup_misplaced_items()
             if (feat == DNGN_DEEP_WATER && player_in_branch(BRANCH_ABYSS))
                 continue;
 
-            mprf(MSGCH_ERROR, "Item %s buggily placed in feature %s at (%d, %d).",
+            mprf(MSGCH_ERROR, jtransc("Item %s buggily placed in feature %s at (%d, %d)."),
                  item.name(DESC_PLAIN).c_str(),
                  feature_description_at(item.pos, false, DESC_PLAIN,
                                         false).c_str(),
@@ -1341,7 +1344,7 @@ void fixup_misplaced_items()
         }
         else
         {
-            mprf(MSGCH_ERROR, "Item buggily placed out of bounds at (%d, %d).",
+            mprf(MSGCH_ERROR, jtransc("Item buggily placed out of bounds at (%d, %d)."),
                  item.pos.x, item.pos.y);
         }
 
@@ -1408,7 +1411,7 @@ static void _fixup_branch_stairs()
 #ifdef DEBUG_DIAGNOSTICS
                 if (count++ && !root)
                 {
-                    mprf(MSGCH_ERROR, "Multiple branch exits on %s",
+                    mprf(MSGCH_ERROR, jtransc("Multiple branch exits on %s"),
                          level_id::current().describe().c_str());
                 }
 #endif
@@ -1980,7 +1983,7 @@ static void _build_overflow_temples()
             if (vault == nullptr)
             {
                 mprf(MSGCH_ERROR,
-                     "Couldn't find overflow temple map '%s'!",
+                     jtransc("Couldn't find overflow temple map '%s'!"),
                      name.c_str());
             }
         }
@@ -2012,8 +2015,8 @@ static void _build_overflow_temples()
                     // We've already placed a specialized temple for this
                     // god, so do nothing.
 #ifdef DEBUG_TEMPLES
-                    mprf(MSGCH_DIAGNOSTICS, "Already placed specialized "
-                         "single-altar temple for %s", name.c_str());
+                    mprf(MSGCH_DIAGNOSTICS, jtransc("Already placed specialized "
+                         "single-altar temple for %s"), name.c_str());
 #endif
                     continue;
                 }
@@ -2037,7 +2040,7 @@ static void _build_overflow_temples()
                 if (vault == nullptr)
                 {
                     mprf(MSGCH_ERROR,
-                         "Couldn't find overflow temple tag '%s'!",
+                         jtransc("Couldn't find overflow temple tag '%s'!"),
                          vault_tag.c_str());
                 }
             }
@@ -2055,8 +2058,8 @@ static void _build_overflow_temples()
                     false))
             {
 #ifdef DEBUG_TEMPLES
-                mprf(MSGCH_DIAGNOSTICS, "Couldn't place overflow temple '%s', "
-                     "vetoing level.", vault->name.c_str());
+                mprf(MSGCH_DIAGNOSTICS, jtransc("Couldn't place overflow temple '%s', "
+                     "vetoing level."), vault->name.c_str());
 #endif
                 return;
             }
@@ -2617,7 +2620,7 @@ static const map_def *_dgn_random_map_for_place(bool minivault)
             if (vault)
                 return vault;
 
-            mprf(MSGCH_ERROR, "Unable to find Temple vault '%s'",
+            mprf(MSGCH_ERROR, jtransc("Unable to find Temple vault '%s'"),
                  name.c_str());
 
             // Fall through and use a different Temple map instead.
@@ -2979,7 +2982,7 @@ static void _slime_connectivity_fixup()
                             // squares should have adjacency of DISCONNECT_DIST
                             // but oh well
                             if (env.level_map_mask(*adj_it) & MMT_VAULT)
-                                mpr("Whoops, nicked a vault in slime connectivity fixup");
+                                mpr(jtrans("Whoops, nicked a vault in slime connectivity fixup"));
                             env.grid(*adj_it) = DNGN_FLOOR;
                         }
                     }
@@ -3800,7 +3803,7 @@ static void _pick_float_exits(vault_placement &place, vector<coord_def> &targets
             if (feat_is_stair(grd(*ri)))
                 return;
 
-        mprf(MSGCH_ERROR, "Unable to find exit from %s",
+        mprf(MSGCH_ERROR, jtransc("Unable to find exit from %s"),
              place.map.name.c_str());
         return;
     }
@@ -3862,7 +3865,7 @@ const vault_placement *dgn_place_map(const map_def *mdef,
         if (check_collision)
         {
             mprf(MSGCH_DIAGNOSTICS,
-                 "Cannot generate encompass map '%s' with check_collision=true",
+                 jtransc("Cannot generate encompass map '%s' with check_collision=true"),
                  mdef->name.c_str());
 
             return nullptr;
@@ -3934,9 +3937,9 @@ const vault_placement *dgn_safe_place_map(const map_def *mdef,
         {
             if (retries-- > 0)
             {
-                mprf(MSGCH_ERROR,
+                mprf(MSGCH_ERROR, jtransc(
                      "Failed to load map %s in dgn_safe_place_map, "
-                     "reloading all maps",
+                     "reloading all maps"),
                      mload.what());
                 reread_maps();
 
@@ -4122,7 +4125,7 @@ static const vault_placement *_build_vault_impl(const map_def *vault,
         if (place.connect(spotty) == 0 && place.exits.size() > 0
             && !player_in_branch(BRANCH_ABYSS))
         {
-            throw dgn_veto_exception("Failed to connect exits for: "
+            throw dgn_veto_exception(jtrans_notrim("Failed to connect exits for: ")
                                      + place.map.name);
         }
     }
@@ -4132,7 +4135,7 @@ static const vault_placement *_build_vault_impl(const map_def *vault,
     // be run only after _build_postvault_level.
     if (!place.map.run_postplace_hook())
     {
-        throw dgn_veto_exception("Post-place hook failed for: "
+        throw dgn_veto_exception(jtrans_notrim("Post-place hook failed for: ")
                                  + place.map.name);
     }
 
@@ -5014,8 +5017,8 @@ static void _vault_grid_glyph_mons(vault_placement &place,
                 && mons_is_unique(mt)
                 && you.unique_creatures[mt])
             {
-                mprf(MSGCH_ERROR, "ERROR: %s already generated somewhere "
-                     "else; please file a bug report.",
+                mprf(MSGCH_ERROR, jtransc("ERROR: %s already generated somewhere "
+                     "else; please file a bug report."),
                      mons_type_name(mt, DESC_THE).c_str());
                 // Force it to be generated anyway.
                 you.unique_creatures.set(mt, false);
@@ -5226,7 +5229,7 @@ static dungeon_feature_type _pick_temple_altar(vault_placement &place)
             if (crawl_state.map_stat_gen || crawl_state.obj_stat_gen)
                 return DNGN_ALTAR_XOM;
 
-            mprf(MSGCH_ERROR, "Ran out of altars for temple!");
+            mprf(MSGCH_ERROR, jtrans("Ran out of altars for temple!"));
             return DNGN_FLOOR;
         }
         // Randomized altar list for mini-temples.
@@ -5790,7 +5793,7 @@ static void _place_specific_trap(const coord_def& where, trap_spec* spec,
 
     if (spec_type == TRAP_SHAFT && !is_valid_shaft_level(known))
     {
-        mprf(MSGCH_ERROR, "Vault %s tried to place a shaft at a branch end",
+        mprf(MSGCH_ERROR, jtransc("Vault %s tried to place a shaft at a branch end"),
                 env.placing_vault.c_str());
     }
 
@@ -6831,14 +6834,14 @@ string dump_vault_maps()
         if (!you.vault_list.count(lid))
             continue;
 
-        out += lid.describe() + ": " + string(max(8 - int(lid.describe().length()), 0), ' ');
+        out += lid.describe_j() + ": " + string(max(10 - strwidth(lid.describe_j()), 0), ' ');
 
         vector<string> &maps(you.vault_list[lid]);
 
         string vaults = comma_separated_line(maps.begin(), maps.end(), ", ");
         out += wordwrap_line(vaults, 70) + "\n";
         while (!vaults.empty())
-            out += "          " + wordwrap_line(vaults, 70, false) + "\n";
+            out += "            " + wordwrap_line(vaults, 70, false) + "\n";
     }
     return out;
 }

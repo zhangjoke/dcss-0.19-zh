@@ -15,6 +15,7 @@
 
 #include "artefact.h"
 #include "art-enum.h"
+#include "database.h"
 #include "decks.h"
 #include "describe.h"
 #include "godpassive.h"
@@ -554,10 +555,10 @@ static const weapon_def Weapon_prop[] =
         SK_POLEARMS,     SIZE_MEDIUM, NUM_SIZE_LEVELS, MI_NONE,
         DAMV_SLICING, 2, 0, 30, POLEARM_BRANDS },
     { WPN_DEMON_TRIDENT,     "demon trident",      12,  1, 13,
-        SK_POLEARMS,     SIZE_LITTLE, SIZE_LITTLE, MI_NONE,
+        SK_POLEARMS,     SIZE_LITTLE, SIZE_MEDIUM, MI_NONE,
         DAMV_PIERCING, 0, 2, 150, DEMON_BRANDS },
     { WPN_TRISHULA,          "trishula",           13,  0, 13,
-        SK_POLEARMS,     SIZE_LITTLE, SIZE_LITTLE, MI_NONE,
+        SK_POLEARMS,     SIZE_LITTLE, SIZE_MEDIUM, MI_NONE,
         DAMV_PIERCING, 0, 0, 200, HOLY_BRANDS },
     { WPN_GLAIVE,            "glaive",             15, -3, 17,
         SK_POLEARMS,     SIZE_MEDIUM, NUM_SIZE_LEVELS, MI_NONE,
@@ -820,8 +821,8 @@ bool curse_an_item(bool ignore_holy_wrath)
     // allowing these would enable mummy scumming
     if (have_passive(passive_t::want_curses))
     {
-        mprf(MSGCH_GOD, "The curse is absorbed by %s.",
-             god_name(you.religion).c_str());
+        mprf(MSGCH_GOD, jtransc("The curse is absorbed by %s."),
+             god_name_jc(you.religion));
         return false;
     }
 
@@ -879,7 +880,7 @@ void do_curse_item(item_def &item, bool quiet)
             const bool was_known = is_artefact(item)
                                  ? artefact_known_property(item, ARTP_BRAND)
                                  : item_ident(item, ISFLAG_KNOW_TYPE);
-            mprf("Your %s glows black briefly, but repels the curse.",
+            mprf(jtransc("Your %s glows black briefly, but repels the curse."),
                  item.name(DESC_PLAIN).c_str());
             if (is_artefact(item))
                 artefact_learn_prop(item, ARTP_BRAND);
@@ -894,7 +895,7 @@ void do_curse_item(item_def &item, bool quiet)
 
     if (!quiet)
     {
-        mprf("Your %s glows black for a moment.",
+        mprf(jtransc("Your %s glows black for a moment."),
              item.name(DESC_PLAIN).c_str());
 
         // If we get the message, we know the item is cursed now.

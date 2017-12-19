@@ -1,0 +1,685 @@
+######################################################
+# Miscellaneous
+# -------------
+# miscname.txt: lookup miscellaneous names
+#
+# This file contains a list of names for miscellaneous things.
+######################################################
+%%%%
+# Any word other than "glowing" itself will work here.
+_glowing_adj_
+
+# bright
+まぶしい
+
+# brilliant
+目もあやな
+
+# dark
+不明瞭な
+
+# dull
+さえない
+
+# faint
+幽かな
+
+# mottled
+まだら模様の
+
+# pale
+淡い
+
+# pulsating
+わくわくする
+
+# shimmering
+仄かな
+
+# shining
+きらめく
+%%%%
+_colour_name_
+
+# aubergine
+紺色
+
+# azure
+空色
+
+# beige
+ベージュ色
+
+# black
+黒色
+
+# blue
+青色
+
+# bronze
+青銅色
+
+# brown
+茶色
+
+# charcoal
+墨色
+
+# chartreuse
+明るい黄緑色
+
+# cobalt blue
+コバルトブルー
+
+# copper
+銅色
+
+# cyan
+シアン
+
+# dun
+焦げ茶色
+
+# gold
+金色
+
+# green
+緑色
+
+# grey
+灰色
+
+# gridelin
+灰青紫色
+
+# indigo
+藍色
+
+# lavender
+ラベンダー
+
+# leaf green
+黄緑
+
+# lime green
+ライム色
+
+# magenta
+深紅
+
+# marigold
+マリーゴールド色
+
+# mauve
+藤色
+
+# ochre
+黄土色
+
+# orange
+オレンジ色
+
+# pink
+ピンク
+
+# purple
+紫色
+
+# red
+赤色
+
+# rubric
+朱色
+
+# scarlet
+緋色
+
+# silver
+銀色
+
+# umber
+琥珀色
+
+# viridian
+青緑色
+
+# white
+白色
+
+# yellow
+黄色
+%%%%
+# "dust glows XXX", "eyes glow XXX", "hands glow XXX", "<actor> glows XXX".
+# If a language needs these keys split, please say so.
+glowing_colour_name
+
+@_glowing_adj_@@_colour_name_@
+%%%%
+# random uselessness: "You smell XXX."
+smell_name
+
+# baking bread
+焼いたパン
+
+# burning hair
+髪を燃やしたような
+
+# coffee
+コーヒー
+
+# dragon dung
+ドラゴンの糞
+
+# fire and brimstone
+火と硫黄
+
+# mustard
+マスタード
+
+# pepper
+胡椒
+
+# salt
+塩
+
+# something weird
+何か奇妙なもの
+
+# sulphur
+硫黄
+
+# tea
+茶
+
+# the scent of fear
+恐怖
+
+# wet wool
+濡れたウール
+%%%%
+# This doesn't necessarily have to make sense. For example, a name of a
+# fruit or an insect will work here.
+_roaring_animal_name_
+
+# albino dragon
+アルビノドラゴン
+
+# dragon
+ドラゴン
+
+# eggplant
+ナスビ
+
+# frog
+カエル
+
+# human
+人間
+
+# millipede
+ヤスデ
+
+# pill bug
+ダンゴムシ
+
+# slug
+ナメクジ
+
+# wumpus
+ワンパス
+
+# yak
+ヤク
+%%%%
+# random uselessness: "You hear XXX."
+sound_name
+
+# a burbling brook
+小川のせせらぎの音
+
+# a crunching sound
+サクサクという音
+
+# a lullaby played backwards
+後ろから聞こえる子守歌
+
+# a very strange noise
+非常に奇妙な騒音
+
+# a very strange noise indeed
+本当に非常に奇妙な騒音
+
+# a voice calling someone else's name
+誰かの名前を呼ぶ声
+
+# roaring flames
+炎の轟音
+
+# snatches of song
+断片的な音楽
+
+# the distant roaring of an enraged @_roaring_animal_name_@
+遠くから聞こえる@_roaring_animal_name_@の怒れる咆哮
+
+# the chiming of a distant gong
+遠くからの聞こえる銅鑼の鳴る音
+
+# the sound of one hand clapping
+隻手音声
+
+# the tinkle of a tiny bell
+小さな鈴がチリンチリンと鳴る音
+
+# the ringing of an enormous bell
+巨大な鐘がカランカランと鳴る音
+
+# whispers in an ancient language
+太古の言語で囁く声
+
+# whistling wind
+ヒュウヒュウと鳴く風の音
+%%%%
+# Used by Summon Horrible Things.
+SHT_int_loss
+
+Your mind reels, touched by the horrors through the portal.
+
+You quiver within your mortal coil, caressed by the liquid insanity through the scintillating gateway.
+
+# Bal-Sagoth
+The summoning rite seems to take a not insignificant toll on your sanity.
+
+You have a brief vision of a great black cyclopean cityscape with towering stygian walls.
+
+Your vision is obscured by outlandish glyphs which seem to writhe squamously and alter their shape.
+
+You feel inexorably dogged by some nameless and implacable gloom.
+#-----------
+
+You reel in agony as your mind is raked by horrors beyond mortal ken.
+
+Your mind is seduced by sublime insanity as you glimpse through the portal into the nether beyond.
+
+You cackle madly at the sight of the eldritch monstrosity.
+
+You are seized by madness!
+
+Attempting to comprehend the unknowable depths of infinity takes a toll on your sanity.
+
+Your thoughts are inescapably tormented by a ceaseless, buzzing drone.
+
+Your mind collapses in madness at the sight of this blasphemy against creation!
+
+Your mind briefly shatters, though you barely manage to hold yourself together.
+
+You feel your tenuous grasp on sanity beginning to erode.
+
+Penetrating whispers of deepest heresy ceaselessly assail your thoughts.
+
+Your mind aches with revulsion at the sight of the undulating horrors you have wrought.
+
+For but a moment your mind is laid bare before the towering infinitude of the unimaginable.
+
+Your skull pulses and throbs as words spoken in an unspeakable tongue drift across your psyche.
+
+A thin, monotonous whinny from outside of time grows ever louder in your ears.
+
+Shapeless horrors persist on the edge of your vision, drawing ever closer.
+
+You are overcome with an inexorable feeling of implacable gloom.
+
+Coherent, reasonable thoughts seem alien to you.
+
+Tendrils of madness seep and wend into the darkest crevices of your mind.
+
+You struggle to grasp the nature of the incomprehensible forces at work.
+
+Nightmarish fiends assault your waking thoughts!
+
+Seething terrors besiege your sanity!
+
+Lucidity slithers from your feeble grasp.
+%%%%
+welcome_spam
+
+# Will you prevail where others failed? Will you find the Orb of Zot?
+あなたは他の者の失敗を乗り越えられるだろうか？ ゾットのオーブを見つけることはできるだろうか？
+
+# The bosom of this dungeon contains the fabled artefact, the Orb of Zot.
+このダンジョンの奥底には伝説のアーティファクト、ゾットのオーブが収められている。
+
+# Will you be the one to retrieve the fabulous Orb of Zot from the depths?
+あなたは最深層から素晴らしきゾットのオーブを取り戻す者だろうか？
+
+# It is said that the Orb of Zot exists deep within this dungeon.
+ゾットのオーブがこの迷宮の奥深くに存在していると言われているが、それを目にしたものはいない。
+%%%%
+welcome_spam Halloween
+
+# @welcome_spam@ Be careful! Halloween tonight.
+@welcome_spam@
+気をつけろ！ 今夜はハロウィンだ。
+
+# The monsters here aren't big trick-or-treat fans. If they won't give you the Orb of Zot, you'll have to take it.
+このモンスターはハロウィンの仮装ではない。やつらがゾットのオーブを渡さない以上、あなたはそれを奪い取る必要がある。
+
+# A terrible geas has sent you after the Orb of Zot. What a horrible night to have a curse!
+強大な呪いがあなたをゾットのオーブへと駆り立てる。なんと恐ろしい夜だろう！
+
+# As you descend in search of the Orb, ghosts and spectres flock about you. This place is haunted!
+オーブを探してダンジョンを下ると、幽霊の群れに遭遇した。ここは幽霊の住処だ！
+
+# You hear a witch cackle, and suddenly arrive in the dungeon. If you don't find the Orb of Zot, you'll turn into a toad!
+あなたは魔女の笑い声を耳にし、突然ダンジョンに送り込まれた。あなたはゾットのオーブを見つけないとカエルにされてしまう！
+%%%%
+hell_effect_quiet
+
+{{
+if you.can_smell() then
+--    return "You smell brimstone."
+    return "あなたは硫黄の匂いを嗅いだ。"
+else
+--     return "Brimstone rains from above."
+    return "上から硫黄の雨が降り注いだ。"
+end
+}}
+
+# You feel lost and a long, long way from home...
+あなたは迷子になって、家から遠い遠い場所に離れてしまったような気がした。
+
+# You shiver with fear.
+あなたは恐怖に打ち震えた。
+
+# You feel a terrible foreboding...
+あなたは恐ろしい死の予感を感じた……
+
+# Something frightening happens.
+何か恐ろしい出来事が起きた。
+
+# You sense an ancient evil watching you...
+あなたは古代の悪霊に監視されていることを意識した……
+
+# You suddenly feel all small and vulnerable.
+あなたは突然、何もかもが矮小で脆弱なもののように感じた。
+
+# You sense a hostile presence.
+あなたは敵意を振りまく存在に気付いた。
+
+# "You will not leave this place."
+『貴様はここから生きては出られぬ』
+
+# "Die, mortal!"
+『死ね、定命の者よ！』
+
+# "We do not forgive those who trespass against us!"
+『我らに背いた者は決して許さぬ！』
+
+# "Trespassers are not welcome here!"
+『侵入者はここでは歓迎されぬ！』
+
+# "You do not belong in this place!"
+『お前はここにいていい者ではない！』
+
+# "Leave now, before it is too late!"
+『とっとと失せろ。ぐずぐずするな！』
+
+# "We have you now!"
+『お前はもう我らの物だ！』
+%%%%
+hell_effect_noisy
+
+# A gut-wrenching scream fills the air!
+内臓に響くような絶叫が大気を満たした！
+
+# You hear words spoken in a strange and terrible language...
+あなたは奇怪で恐ろしい言葉を耳にした……
+
+# You hear diabolical laughter!
+あなたは悪魔のような笑い声を耳にした！
+%%%%
+eating_pizza
+
+# @_carni_mmm_@ Ham and pineapple.
+@_carni_mmm_@ハム＆パイナップルピザだ。
+
+# @_carni_mmm_@ Super Supreme.
+@_carni_mmm_@超最高にうまいピザだ！
+
+# Apparently, in some locales "pepperoni" is a word for sausage rather than
+# a type of bell peppers like in Europe.
+# @_carni_mmm_@ Pepperoni.
+@_carni_mmm_@ペパローニピザだ。
+
+{{
+if you.race() == "Ghoul" then
+--    return "Anchovies... pretty bad, even for you."
+    return "アンチョビ……ちょっと物足りない"
+elseif you.race() == "Felid" then
+--    return "Anchovies! Purrfect..."
+    return "アンチョビだ！ 最高ニャ……"
+else
+--    return "Yeuchh! Anchovies."
+    return "うへ！ アンチョビピザだ！"
+end
+}}
+
+# @_carni_mmm_@ Chicken.
+@_carni_mmm_@チキンピザだ。
+
+# Mmm... That's the fabled Pandemonium Pizza!
+むむむ……これは伝説のパンデモニウムピザだ！
+
+# Mmm... @_cheese_kind_@ pizza.
+むむむ……@_cheese_kind_@たっぷりのピザだ。
+
+# @_herbi_mmm_@ Vegetable.
+@_herbi_mmm_@ベジタブルピザだ。
+
+# @_herbi_mmm_@ Peppers.
+@_herbi_mmm_@胡椒たっぷりのピザだ。
+
+# @_herbi_mmm_@ Mushroom.
+@_herbi_mmm_@マッシュルームピザだ。
+%%%%
+_carni_mmm_
+
+{{
+if you.mutation("herbivore") > 0 then
+--    return "Yeuchh!"
+    return "うへ！ "
+else
+--    return "Mmm..."
+    return "むむむ……"
+end
+}}
+%%%%
+_herbi_mmm_
+
+{{
+if you.mutation("carnivore") > 0 then
+--    return "Yeuchh!"
+    return "うへ！ "
+else
+--    return "Mmm..."
+    return "むむむ……"
+end
+}}
+%%%%
+_cheese_kind_
+
+# Cheddar
+チェダーチーズ
+
+# Edam
+エダムチーズ
+
+# Wensleydale
+レーデールチーズ
+
+# Camembert
+カマンベールチーズ
+
+# Goat cheese
+山羊のチーズ
+
+# Fruit cheese
+フルーツチーズ
+
+# Mozzarella
+モッツァレラ
+
+# Sheep cheese
+羊のチーズ
+
+# Yak cheese
+ヤクのチーズ
+%%%%
+eating_fruit
+
+# Mmmm... Yummy @_fruit_type_@.
+むむむ……おいしい@_fruit_type_@だ。
+
+# That @_fruit_type_@ was delicious!
+この@_fruit_type_@はうまい！
+
+# Mmm - a full handful of @_small_fruits_@!
+むむむ……手にいっぱいの@_small_fruits_@だ！
+
+# w:1
+# That @_peel_fruit_@ was delicious! Even the peel tasted good!
+w:1
+この@_peel_fruit_@は皮までもおいしい！
+
+# w:1
+# That @_sour_fruit_@ was rather sour... but delicious nonetheless!
+w:1
+この@_sour_fruit_@は酸っぱい……だがとてもおいしい！
+
+# That choko was very bland.
+このハヤトウリはまるで味がしない。
+
+# w:1
+# That durian smelled terrible... but tasted delicious!
+w:1
+このドリアンはひどい臭いだ……しかし味がよい！
+
+# w:1
+# That snozzcumber tasted truly putrid!
+クサキウリはまさしく腐った味がする！
+%%%%
+_fruit_type_
+
+# orange
+オレンジ
+
+# banana
+バナナ
+
+# pear
+洋ナシ
+
+# apple
+リンゴ
+
+# apricot
+アンズ
+
+# tomato
+トマト
+
+# peach
+桃
+
+# plum
+すもも
+
+# rambutan
+ランブータン
+
+# lychee
+ライチ
+
+# mango
+マンゴー
+
+# watermelon
+スイカ
+
+# coconut
+ココナツ
+
+# breadfruit
+パンノキの実
+
+# eggfruit
+エッグフルーツの実
+
+# dragonfruit
+ドラゴンフルーツの実
+
+# guava
+グァバ
+
+# mangosteen
+マンゴスチン
+
+# tangerine
+ポンカン
+%%%%
+_small_fruits_
+
+# strawberries
+イチゴ
+
+# blueberries
+ブルーベリー
+
+# blackberries
+ブラックベリー
+
+# bilberries
+ビルベリー
+
+# raspberries
+ラズベリー
+
+# huckleberries
+ハックルベリー
+
+# gooseberries
+グズベリー
+
+# cherries
+さくらんぼ
+
+# grapes
+ブドウ
+
+# sultanas
+種なし干しブドウ
+
+# figs
+イチジク
+
+# dates
+ナツメヤシ
+
+# almonds
+アーモンド
+%%%%
+_peel_fruit_
+
+# orange
+オレンジ
+
+# banana
+バナナ
+%%%%
+_sour_fruit_
+
+# lemon
+レモン
+
+# lime
+ライム
+%%%%

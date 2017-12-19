@@ -6,6 +6,7 @@
 #ifndef RELIGION_H
 #define RELIGION_H
 
+#include "database.h"
 #include "enum.h"
 #include "mgen_data.h"
 #include "player.h"
@@ -34,6 +35,11 @@ god_type random_god();
 
 int piety_breakpoint(int i);
 string god_name(god_type which_god, bool long_name = false);
+static inline string god_name_j(god_type which_god, bool long_name = false)
+{
+    return jtrans(god_name(which_god, long_name));
+}
+#define god_name_jc(god) (god_name_j(god).c_str())
 string god_name_jiyva(bool second_name = false);
 god_type str_to_god(const string &name, bool exact = true);
 

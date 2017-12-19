@@ -6,6 +6,7 @@
 #ifndef DELAY_H
 #define DELAY_H
 
+#include "database.h"
 #include "enum.h"
 #include "itemprop-enum.h"
 
@@ -99,7 +100,7 @@ class Delay
      */
     virtual void finish()
     {
-        mpr("You finish doing something buggy.");
+        mpr(jtrans("You finish doing something buggy."));
     }
 protected:
     bool started = false;
@@ -215,7 +216,7 @@ class EatDelay : public Delay
 
     void tick() override
     {
-        mprf(MSGCH_MULTITURN_ACTION, "You continue eating.");
+        mprf(MSGCH_MULTITURN_ACTION, jtrans("You continue eating."));
     }
 
     bool try_interrupt() override;
@@ -278,8 +279,8 @@ class ArmourOnDelay : public Delay
 
     void tick() override
     {
-        mprf(MSGCH_MULTITURN_ACTION, "You continue putting on %s.",
-             armour.name(DESC_YOUR).c_str());
+        mprf(MSGCH_MULTITURN_ACTION, jtransc("You continue putting on %s."),
+             armour.name(DESC_PLAIN).c_str());
     }
 
     void finish() override;
@@ -305,8 +306,8 @@ class ArmourOffDelay : public Delay
 
     void tick() override
     {
-        mprf(MSGCH_MULTITURN_ACTION, "You continue taking off %s.",
-             armour.name(DESC_YOUR).c_str());
+        mprf(MSGCH_MULTITURN_ACTION, jtransc("You continue taking off %s."),
+             armour.name(DESC_PLAIN).c_str());
     }
 
     void finish() override;
@@ -347,7 +348,7 @@ class MemoriseDelay : public Delay
 
     void tick() override
     {
-        mprf(MSGCH_MULTITURN_ACTION, "You continue memorising.");
+        mprf(MSGCH_MULTITURN_ACTION, jtrans("You continue memorising."));
     }
 
     void finish() override;
@@ -433,7 +434,7 @@ class PasswallDelay : public Delay
 
     void tick() override
     {
-        mprf(MSGCH_MULTITURN_ACTION, "You continue meditating on the rock.");
+        mprf(MSGCH_MULTITURN_ACTION, jtrans("You continue meditating on the rock."));
     }
 
     void finish() override;
@@ -700,7 +701,7 @@ class ShaftSelfDelay : public Delay
 
     void tick() override
     {
-        mprf(MSGCH_MULTITURN_ACTION, "You continue digging a shaft.");
+        mprf(MSGCH_MULTITURN_ACTION, jtrans("You continue digging a shaft."));
     }
 
     void finish() override;
@@ -731,7 +732,7 @@ class BlurryScrollDelay : public Delay
 
     void tick() override
     {
-        mprf(MSGCH_MULTITURN_ACTION, "You continue reading the scroll.");
+        mprf(MSGCH_MULTITURN_ACTION, jtrans("You continue reading the scroll."));
     }
 
     void finish() override;

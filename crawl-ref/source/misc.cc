@@ -26,6 +26,7 @@
 #include "monster.h"
 #include "prompt.h"
 #include "state.h"
+#include "stringutil.h"
 #include "terrain.h"
 #include "tileview.h"
 #include "traps.h"
@@ -50,7 +51,7 @@ void swap_with_monster(monster* mon_to_swap)
     // Be nice: no swapping into uninhabitable environments.
     if (!you.is_habitable(newpos) || !mon.is_habitable(you.pos()))
     {
-        mpr("You spin around.");
+        mpr(jtrans("You spin around."));
         return;
     }
 
@@ -60,7 +61,7 @@ void swap_with_monster(monster* mon_to_swap)
     // If it was submerged, it surfaces first.
     mon.del_ench(ENCH_SUBMERGED);
 
-    mprf("You swap places with %s.", mon.name(DESC_THE).c_str());
+    mprf(jtransc("You swap places with %s."), mon.name(DESC_THE).c_str());
 
     mon.move_to_pos(you.pos(), true, true);
 
@@ -85,7 +86,7 @@ void swap_with_monster(monster* mon_to_swap)
             int net = get_trapping_net(you.pos());
             if (net != NON_ITEM)
                 destroy_item(net);
-            mprf("The %s rips apart!", (net == NON_ITEM) ? "web" : "net");
+            mprf(jtrans(make_stringf("The %s rips apart!", (net == NON_ITEM) ? "web" : "net")));
             you.attribute[ATTR_HELD] = 0;
             you.redraw_quiver = true;
             you.redraw_evasion = true;
@@ -94,9 +95,9 @@ void swap_with_monster(monster* mon_to_swap)
         {
             you.attribute[ATTR_HELD] = 1;
             if (get_trapping_net(you.pos()) != NON_ITEM)
-                mpr("You become entangled in the net!");
+                mpr(jtrans("You become entangled in the net!"));
             else
-                mpr("You get stuck in the web!");
+                mpr(jtrans("You get stuck in the web!"));
             you.redraw_quiver = true; // Account for being in a net.
             // Xom thinks this is hilarious if you trap yourself this way.
             if (you_caught)
@@ -164,13 +165,18 @@ string counted_monster_list::describe(description_level_type desc,
         if (i != list.begin())
         {
             ++i;
-            out += (i == list.end() ? " and " : ", ");
+            if (prev(i, 2) == list.begin() && i == list.end())
+                out += "と";
+            else if (i != list.end())
+                out += "、";
+            else
+                out += "、そして";
         }
         else
             ++i;
 
         out += cm.second > 1
-               ? pluralise_monster(cm.first->name(desc, false, true))
+               ? cm.first->name(desc) + "達"
                : cm.first->name(desc);
     }
     return out;

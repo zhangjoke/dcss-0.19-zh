@@ -9,6 +9,7 @@
 
 #include "bloodspatter.h"
 #include "command.h"
+#include "database.h"
 #include "delay.h"
 #include "env.h"
 #include "food.h"
@@ -47,8 +48,8 @@ static bool _start_butchering(item_def& corpse)
 
     if (is_forbidden_food(corpse))
     {
-        mprf("It would be a sin to %sbutcher this!",
-             bottle_blood ? "bottle or " : "");
+        mprf(jtrans(make_stringf("It would be a sin to %sbutcher this!",
+                                 bottle_blood ? "bottle or " : "")));
         return false;
     }
 
@@ -72,7 +73,7 @@ void finish_butchering(item_def& corpse, bool bottling)
 
     if (bottling)
     {
-        mpr("You bottle the corpse's blood.");
+        mpr(jtrans("You bottle the corpse's blood."));
 
         if (mons_skeleton(corpse.mon_type) && one_chance_in(3))
             turn_corpse_into_skeleton_and_blood_potions(corpse);
@@ -81,7 +82,7 @@ void finish_butchering(item_def& corpse, bool bottling)
     }
     else
     {
-        mprf("You butcher %s.",
+        mprf(jtransc("You butcher %s."),
              corpse.name(DESC_THE).c_str());
 
         butcher_corpse(corpse);
@@ -134,7 +135,7 @@ void butchery(item_def* specific_corpse)
 {
     if (you.visible_igrd(you.pos()) == NON_ITEM)
     {
-        mpr("There isn't anything here!");
+        mpr(jtrans("There isn't anything here!"));
         return;
     }
 
@@ -157,8 +158,8 @@ void butchery(item_def* specific_corpse)
 
     if (corpses.empty())
     {
-        mprf("There isn't anything to %sbutcher here.",
-             bottle_blood ? "bottle or " : "");
+        mprf(jtrans(make_stringf("There isn't anything to %sbutcher here.",
+                                 bottle_blood ? "bottle or " : "")));
         return;
     }
 
@@ -227,9 +228,9 @@ void butchery(item_def* specific_corpse)
                 const bool can_bottle =
                     can_bottle_blood_from_corpse(it->mon_type);
                 mprf(MSGCH_PROMPT,
-                     "%s %s? [(y)es/(c)hoosy/(n)o/(a)ll/(e)dible/(q)uit/?]",
-                     can_bottle ? "Bottle" : "Butcher",
-                     corpse_name.c_str());
+                     jtransc("%s %s? [(y)es/(c)hoosy/(n)o/(a)ll/(e)dible/(q)uit/?]"),
+                     corpse_name.c_str(),
+                     tagged_jtransc("[butchery()]", can_bottle ? "Bottle" : "Butcher"));
                 repeat_prompt = false;
 
                 switch (toalower(getchm(KMC_CONFIRM)))
@@ -286,9 +287,9 @@ void butchery(item_def* specific_corpse)
     // No point in displaying this if the player pressed 'a' above.
     if (!to_eat && !butcher_all)
     {
-        mprf("There isn't anything %s to %sbutcher here.",
-             butcher_edible ? "edible" : "else",
-             bottle_blood ? "bottle or " : "");
+        mprf(jtrans(make_stringf("There isn't anything %s to %sbutcher here.",
+                                 butcher_edible ? "edible" : "else",
+                                 bottle_blood ? "bottle or " : "")));
     }
 #endif
 

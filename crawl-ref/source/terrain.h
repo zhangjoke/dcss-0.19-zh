@@ -9,6 +9,7 @@
 #include <memory>
 
 #include "enum.h"
+#include "database.h"
 
 class  actor;
 struct coord_def;
@@ -94,6 +95,8 @@ void slime_wall_damage(actor* act, int delay);
 
 void get_door_description(int door_size, const char** adjective,
                           const char** noun);
+void get_door_description_en(int door_size, const char** adjective,
+                             const char** noun);
 void feat_splash_noise(dungeon_feature_type feat);
 bool feat_destroys_items(dungeon_feature_type feat);
 bool feat_eliminates_items(dungeon_feature_type feat);
@@ -125,6 +128,15 @@ void fall_into_a_pool(dungeon_feature_type terrain);
 void                 init_feat_desc_cache();
 dungeon_feature_type feat_by_desc(string desc);
 const char* feat_type_name(dungeon_feature_type feat);
+static inline string feature_name_j(const string &feat, const string &tag = "[feature]")
+{
+    return tagged_jtrans(tag, feat);
+}
+static inline string feature_name_j(dungeon_feature_type feat)
+{
+    return feature_name_j(feat_type_name(feat));
+}
+#define feature_name_jc(f) (feature_name_j(f).c_str())
 
 dungeon_feature_type dungeon_feature_by_name(const string &name);
 vector<string> dungeon_feature_matches(const string &name);

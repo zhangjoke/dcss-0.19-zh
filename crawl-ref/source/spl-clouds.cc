@@ -13,6 +13,7 @@
 #include "cloud.h"
 #include "coord.h"
 #include "coordit.h"
+#include "database.h"
 #include "english.h"
 #include "env.h"
 #include "fprop.h"
@@ -26,6 +27,7 @@
 #include "random-pick.h"
 #include "shout.h"
 #include "spl-util.h"
+#include "stringutil.h"
 #include "target.h"
 #include "terrain.h"
 #include "viewchar.h"
@@ -38,7 +40,7 @@ spret_type conjure_flame(const actor *agent, int pow, const coord_def& where,
         || !in_bounds(where))
     {
         if (agent->is_player())
-            mpr("That's too far away.");
+            mpr(jtrans("That's too far away."));
         return SPRET_ABORT;
     }
 
@@ -47,7 +49,8 @@ spret_type conjure_flame(const actor *agent, int pow, const coord_def& where,
         if (agent->is_player())
         {
             const char *feat = feat_type_name(grd(where));
-            mprf("You can't place the cloud on %s.", article_a(feat).c_str());
+            mprf(jtransc("You can't place the cloud on %s."),
+                 feature_name_jc(feat));
         }
         return SPRET_ABORT;
     }
@@ -57,7 +60,7 @@ spret_type conjure_flame(const actor *agent, int pow, const coord_def& where,
     if (cloud && cloud->type != CLOUD_FIRE)
     {
         if (agent->is_player())
-            mpr("There's already a cloud there!");
+            mpr(jtrans("There's already a cloud there!"));
         return SPRET_ABORT;
     }
 
@@ -67,7 +70,7 @@ spret_type conjure_flame(const actor *agent, int pow, const coord_def& where,
         if (agent->can_see(*victim))
         {
             if (agent->is_player())
-                mpr("You can't place the cloud on a creature.");
+                mpr(jtrans("You can't place the cloud on a creature."));
             return SPRET_ABORT;
         }
 
@@ -89,7 +92,7 @@ spret_type conjure_flame(const actor *agent, int pow, const coord_def& where,
         // Reinforce the cloud - but not too much.
         // It must be a fire cloud from a previous test.
         if (you.see_cell(where))
-            mpr("The fire roars with new energy!");
+            mpr(jtrans("The fire roars with new energy!"));
         const int extra_dur = 2 + min(random2(pow) / 2, 20);
         cloud->decay += extra_dur * 5;
         cloud->source = agent->mid;
@@ -105,9 +108,9 @@ spret_type conjure_flame(const actor *agent, int pow, const coord_def& where,
         if (you.see_cell(where))
         {
             if (agent->is_player())
-                mpr("The fire roars!");
+                mpr(jtrans("The fire roars!"));
             else
-                mpr("A cloud of flames roars to life!");
+                mpr(jtrans("A cloud of flames roars to life!"));
         }
     }
     noisy(spell_effect_noise(SPELL_CONJURE_FLAME), where);
@@ -121,14 +124,15 @@ spret_type cast_big_c(int pow, spell_type spl, const actor *caster, bolt &beam,
     if (grid_distance(beam.target, you.pos()) > beam.range
         || !in_bounds(beam.target))
     {
-        mpr("That is beyond the maximum range.");
+        mpr(jtrans("That is beyond the maximum range."));
         return SPRET_ABORT;
     }
 
     if (cell_is_solid(beam.target))
     {
         const char *feat = feat_type_name(grd(beam.target));
-        mprf("You can't place clouds on %s.", article_a(feat).c_str());
+        mprf(jtransc("You can't place clouds on %s."),
+             feature_name_jc(feat));
         return SPRET_ABORT;
     }
 
@@ -152,7 +156,7 @@ spret_type cast_big_c(int pow, spell_type spl, const actor *caster, bolt &beam,
             cty = CLOUD_COLD;
             break;
         default:
-            mpr("That kind of cloud doesn't exist!");
+            mpr(jtrans("That kind of cloud doesn't exist!"));
             return SPRET_ABORT;
     }
 
@@ -228,7 +232,8 @@ spret_type cast_corpse_rot(bool fail)
         {
             if (si->is_type(OBJ_CORPSES, CORPSE_BODY))
             {
-                if (!yesno(("Really cast Corpse Rot while standing on " + si->name(DESC_A) + "?").c_str(), false, 'n'))
+                if (!yesno(make_stringf(jtransc("Really cast Corpse Rot while standing on %s?"),
+                                        si->name(DESC_A).c_str()).c_str(), false, 'n'))
                 {
                     canned_msg(MSG_OK);
                     return SPRET_ABORT;
@@ -274,7 +279,7 @@ void corpse_rot(actor* caster)
     }
 
     if (saw_rot)
-        mprf("You %s decay.", you.can_smell() ? "smell" : "sense");
+        mprf(jtrans(make_stringf("You %s decay.", you.can_smell() ? "smell" : "sense")));
     else
         canned_msg(MSG_NOTHING_HAPPENS);
 }
@@ -304,7 +309,7 @@ void holy_flames(monster* caster, actor* defender)
     if (cloud_count)
     {
         if (defender->is_player())
-            mpr("Blessed fire suddenly surrounds you!");
+            mpr(jtrans("Blessed fire suddenly surrounds you!"));
         else
             simple_monster_message(*defender->as_monster(),
                                    " is surrounded by blessed fire!");
@@ -331,7 +336,7 @@ spret_type cast_cloud_cone(const actor *caster, int pow, const coord_def &pos,
     if (env.level_state & LSTATE_STILL_WINDS)
     {
         if (caster->is_player())
-            mpr("The air is too still to form clouds.");
+            mpr(jtrans("The air is too still to form clouds."));
         return SPRET_ABORT;
     }
 
@@ -363,10 +368,10 @@ spret_type cast_cloud_cone(const actor *caster, int pow, const coord_def &pos,
                     5 + random2avg(12 + div_rand_round(pow * 3, 4), 3),
                     caster);
     }
-    mprf("%s %s a blast of %s!",
+    mprf(jtransc("%s %s a blast of %s!"),
          caster->name(DESC_THE).c_str(),
-         caster->conj_verb("create").c_str(),
-         cloud_type_name(cloud).c_str());
+         cloud_type_name_j(cloud).c_str(),
+         caster->conj_verb_j("create").c_str());
 
     if (cloud == CLOUD_FIRE && caster->is_player())
         did_god_conduct(DID_FIRE, min(5 + pow/2, 23));

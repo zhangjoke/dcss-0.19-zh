@@ -16,6 +16,7 @@
 #include "art-enum.h"
 #include "cloud.h"
 #include "coordit.h"
+#include "database.h"
 #include "delay.h"
 #include "english.h"
 #include "env.h"
@@ -287,7 +288,7 @@ bool fight_melee(actor *attacker, actor *defender, bool *did_hit, bool simu)
                 {
                     if (could_see || you.can_see(*mons))
                     {
-                        mprf("%s hops backward while attacking.",
+                        mprf(jtransc("%s hops backward while attacking."),
                              mons->name(DESC_THE, true).c_str());
                     }
                     mons->speed_increment -= 2; // Add a small extra delay
@@ -604,11 +605,12 @@ bool wielded_weapon_check(item_def *weapon)
 
     string prompt;
     if (weapon)
-        prompt = "Really attack while wielding " + weapon->name(DESC_YOUR) + "?";
+        prompt = make_stringf(jtransc("Really attack while wielding %s?"),
+                              weapon->name(DESC_PLAIN).c_str());
     else
-        prompt = "Really attack barehanded?";
+        prompt = jtrans("Really attack barehanded?");
     if (penance)
-        prompt += " This could place you under penance!";
+        prompt += jtrans_notrim(" This could place you under penance!");
 
     const bool result = yesno(prompt.c_str(), true, 'n');
 
@@ -870,22 +872,20 @@ bool bad_attack(const monster *mon, string& adj, string& suffix,
     {
         if (god_hates_attacking_friend(you.religion, *mon))
         {
-            adj = "your ally ";
+            adj = jtrans("your ally ");
 
             monster_info mi(mon, MILEV_NAME);
-            if (!mi.is(MB_NAME_UNQUALIFIED))
-                adj += "the ";
 
             would_cause_penance = true;
 
         }
         else
         {
-            adj = "your ";
+            adj = jtrans("your ");
 
             monster_info mi(mon, MILEV_NAME);
             if (mi.is(MB_NAME_UNQUALIFIED))
-                adj += "ally ";
+                adj += jtrans("ally ");
         }
 
         return true;
@@ -895,19 +895,19 @@ bool bad_attack(const monster *mon, string& adj, string& suffix,
         && you_worship(GOD_SHINING_ONE)
         && !tso_unchivalric_attack_safe_monster(*mon))
     {
-        adj += "helpless ";
+        adj += adj_j("helpless ");
         would_cause_penance = true;
     }
 
     if (mon->neutral() && is_good_god(you.religion))
     {
-        adj += "neutral ";
+        adj += adj_j("neutral ");
         if (you_worship(GOD_SHINING_ONE) || you_worship(GOD_ELYVILON))
             would_cause_penance = true;
     }
     else if (mon->wont_attack())
     {
-        adj += "non-hostile ";
+        adj += adj_j("non-hostile ");
         if (you_worship(GOD_SHINING_ONE) || you_worship(GOD_ELYVILON))
             would_cause_penance = true;
     }
@@ -935,31 +935,24 @@ bool stop_attack_prompt(const monster* mon, bool beam_attack,
     if (!bad_attack(mon, adj, suffix, penance, attack_pos, check_landing_only))
         return false;
 
-    // Listed in the form: "your rat", "Blork the orc".
-    string mon_name = mon->name(DESC_PLAIN);
-    if (starts_with(mon_name, "the ")) // no "your the Royal Jelly" nor "the the RJ"
-        mon_name = mon_name.substr(4); // strlen("the ")
-    if (!starts_with(adj, "your"))
-        adj = "the " + adj;
-    mon_name = adj + mon_name;
+    string mon_name = adj + mon->name(DESC_PLAIN);
     string verb;
     if (beam_attack)
     {
-        verb = "fire ";
+        verb = "撃ち";
         if (beam_target == mon->pos())
-            verb += "at ";
+            mon_name  += "を";
         else
         {
-            verb += "in " + apostrophise(mon_name) + " direction";
-            mon_name = "";
+            verb = "の方向に" + verb;
         }
     }
     else
-        verb = "attack ";
+        verb = "を攻撃し";
 
-    const string prompt = make_stringf("Really %s%s%s?%s",
-             verb.c_str(), mon_name.c_str(), suffix.c_str(),
-             penance ? " This attack would place you under penance!" : "");
+    const string prompt = make_stringf(jtransc("Really %s%s%s?%s"),
+             jtransc(suffix), jtransc(mon_name), verb.c_str(),
+             jtrans_notrimc(penance ? " This attack would place you under penance!" : ""));
 
     if (prompted)
         *prompted = true;
@@ -1012,17 +1005,12 @@ bool stop_attack_prompt(targetter &hitfunc, const char* verb,
     if (victims.empty())
         return false;
 
-    // Listed in the form: "your rat", "Blork the orc".
-    string mon_name = victims.describe(DESC_PLAIN);
-    if (starts_with(mon_name, "the ")) // no "your the Royal Jelly" nor "the the RJ"
-        mon_name = mon_name.substr(4); // strlen("the ")
-    if (!starts_with(adj, "your"))
-        adj = "the " + adj;
-    mon_name = adj + mon_name;
+    string mon_name = adj + mon_name;
 
-    const string prompt = make_stringf("Really %s %s%s?%s",
-             verb, mon_name.c_str(), suffix.c_str(),
-             penance ? " This attack would place you under penance!" : "");
+    const string prompt = make_stringf(jtransc("Really %s %s%s?%s"),
+             jtransc(suffix), jtransc(mon_name),
+             verb_j(verb, "[stop attack prompt]").c_str(),
+             jtrans_notrimc(penance ? " This attack would place you under penance!" : ""));
 
     if (prompted)
         *prompted = true;

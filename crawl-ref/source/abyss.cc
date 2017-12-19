@@ -20,6 +20,7 @@
 #include "colour.h"
 #include "coordit.h"
 #include "dbg-scan.h"
+#include "database.h"
 #include "delay.h"
 #include "dgn-overview.h"
 #include "dgn-proclayouts.h"
@@ -368,7 +369,7 @@ static int _abyss_create_items(const map_bitmask &abyss_genlevel_mask,
 
 static string _who_banished(const string &who)
 {
-    return who.empty() ? who : " (" + who + ")";
+    return who.empty() ? who : make_stringf(jtransc(" ({banisher})"), jtransc(who));
 }
 
 static int _banished_depth(const int power)
@@ -402,15 +403,15 @@ void banished(const string &who, const int power)
         else
         {
             // On Abyss:5 we can't go deeper; cause a shift to a new area
-            mprf(MSGCH_BANISHMENT, "You are banished to a different region of the Abyss.");
+            mprf(MSGCH_BANISHMENT, jtrans("You are banished to a different region of the Abyss."));
             abyss_teleport();
         }
         return;
     }
 
     const int depth = _banished_depth(power);
-    const string what = make_stringf("Cast into level %d of the Abyss", depth)
-                      + _who_banished(who);
+    const string what = _who_banished(who)
+                      + make_stringf(jtransc("Cast into level %d of the Abyss"), depth);
     take_note(Note(NOTE_MESSAGE, 0, 0, what), true);
 
     stop_delay(true);
@@ -420,7 +421,7 @@ void banished(const string &who, const int power)
                      level_id(BRANCH_ABYSS, depth), true);
     // This is an honest abyss entry, mark milestone
     mark_milestone("abyss.enter",
-        "was cast into the Abyss!" + _who_banished(who), "parent");
+        _who_banished(who) + jtrans("was cast into the Abyss!"), "parent");
 
     // Xom just might decide to interfere.
     if (you_worship(GOD_XOM) && who != "Xom" && who != "wizard command"
@@ -573,7 +574,7 @@ public:
         const bool rune_is_near = abyss_rune_nearness();
 
         if (exit_was_near && !exit_is_near || rune_was_near && !rune_is_near)
-            xom_is_stimulated(200, "Xom snickers loudly.", true);
+            xom_is_stimulated(200, jtrans("Xom snickers loudly."), true);
 
         if (!rune_was_near && rune_is_near || !exit_was_near && exit_is_near)
             xom_is_stimulated(200);
@@ -1626,7 +1627,7 @@ void abyss_teleport()
 {
     xom_abyss_feature_amusement_check xomcheck;
     dprf(DIAG_ABYSS, "New area Abyss teleport.");
-    mprf(MSGCH_BANISHMENT, "You are suddenly pulled into a different region of the Abyss!");
+    mprf(MSGCH_BANISHMENT, jtrans("You are suddenly pulled into a different region of the Abyss!"));
     _abyss_generate_new_area();
     _write_abyssal_features();
     grd(you.pos()) = _veto_dangerous_terrain(grd(you.pos()));
@@ -1941,7 +1942,7 @@ bool is_level_incorruptible(bool quiet)
     if (_is_level_corrupted())
     {
         if (!quiet)
-            mpr("This place is already infused with evil and corruption.");
+            mpr(jtrans("This place is already infused with evil and corruption."));
         return true;
     }
 
@@ -1973,8 +1974,8 @@ bool lugonu_corrupt_level(int power)
         return false;
 
     simple_god_message("'s Hand of Corruption reaches out!");
-    take_note(Note(NOTE_MESSAGE, 0, 0, make_stringf("Corrupted %s",
-              level_id::current().describe().c_str()).c_str()));
+    take_note(Note(NOTE_MESSAGE, 0, 0, make_stringf(jtransc("Corrupted %s"),
+              level_id::current().describe_j(true).c_str())));
     mark_corrupted_level(level_id::current());
 
     flash_view(UA_PLAYER, MAGENTA);
@@ -2013,9 +2014,9 @@ void abyss_maybe_spawn_xp_exit()
     grd(you.pos()) = stairs ? DNGN_ABYSSAL_STAIR : DNGN_EXIT_ABYSS;
     big_cloud(CLOUD_TLOC_ENERGY, &you, you.pos(), 3 + random2(3), 3, 3);
     redraw_screen(); // before the force-more
-    mprf(MSGCH_BANISHMENT,
+    mprf(MSGCH_BANISHMENT, jtrans(make_stringf(
          "The substance of the Abyss twists violently,"
-         " and a gateway leading %s appears!", stairs ? "down" : "out");
+         " and a gateway leading %s appears!", stairs ? "down" : "out")));
 
     you.props[ABYSS_STAIR_XP_KEY] = EXIT_XP_COST;
     you.props[ABYSS_SPAWNED_XP_EXIT_KEY] = true;

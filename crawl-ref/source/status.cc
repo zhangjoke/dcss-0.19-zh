@@ -5,6 +5,7 @@
 #include "areas.h"
 #include "branch.h"
 #include "cloud.h"
+#include "database.h"
 #include "env.h"
 #include "evoke.h"
 #include "food.h"
@@ -109,9 +110,9 @@ static void _mark_expiring(status_info* inf, bool expiring)
     if (expiring)
     {
         if (!inf->short_text.empty())
-            inf->short_text += " (expiring)";
+            inf->short_text = duration_name_j(inf->short_text) + jtrans_notrim(" (expiring)");
         if (!inf->long_text.empty())
-            inf->long_text = "Expiring: " + inf->long_text;
+            inf->long_text = jtrans_notrim("Expiring: ") + inf->long_text;
     }
 }
 
@@ -197,7 +198,7 @@ bool fill_status_info(int status, status_info* inf)
         break;
 
     case DUR_CORROSION:
-        inf->light_text = make_stringf("Corr (%d)",
+        inf->light_text = make_stringf(jtransc("Corr (%d)"),
                           (-4 * you.props["corrosion_amount"].get_int()));
         break;
 
@@ -258,7 +259,7 @@ bool fill_status_info(int status, status_info* inf)
             inf->light_colour = RED;
             inf->light_text   = "Held";
             inf->short_text   = "held";
-            inf->long_text    = make_stringf("You are %s.", held_status());
+            inf->long_text    = jtrans(make_stringf("You are %s.", held_status()));
         }
         break;
 
@@ -320,12 +321,11 @@ bool fill_status_info(int status, status_info* inf)
     {
         // Might be better to handle this with an extra virtual status.
         const bool exp = dur_expiring(DUR_FIRE_SHIELD);
+        string expiring;
         if (exp)
-            inf->long_text += "Expiring: ";
-        inf->long_text += "You are surrounded by a ring of flames.\n";
-        if (exp)
-            inf->long_text += "Expiring: ";
-        inf->long_text += "You are immune to clouds of flame.";
+            expiring = "Expiring: ";
+        inf->long_text += jtrans_notrim(expiring + "You are surrounded by a ring of flames.\n");
+        inf->long_text += jtrans_notrim(expiring + "You are immune to clouds of flame.");
         break;
     }
 
@@ -339,7 +339,7 @@ bool fill_status_info(int status, status_info* inf)
         if (pbd_str > 0)
         {
             inf->light_colour = LIGHTMAGENTA;
-            inf->light_text   = make_stringf("Regen (%d)", pbd_str);
+            inf->light_text   = make_stringf(jtransc("Regen (%d)"), pbd_str);
         }
         break;
     }
@@ -357,8 +357,10 @@ bool fill_status_info(int status, status_info* inf)
         string skills = manual_skill_names();
         if (!skills.empty())
         {
-            inf->short_text = "studying " + manual_skill_names(true);
-            inf->long_text = "You are studying " + skills + ".";
+            inf->short_text = make_stringf(jtransc("studying %s."),
+                                           manual_skill_names(true).c_str());
+            inf->long_text = make_stringf(jtransc("You are studying %s."),
+                                          skills.c_str());
         }
         break;
     }
@@ -421,7 +423,7 @@ bool fill_status_info(int status, status_info* inf)
 
     case DUR_SONG_OF_SLAYING:
         inf->light_text
-            = make_stringf("Slay (%u)",
+            = make_stringf(jtransc("Slay (%u)"),
                            you.props[SONG_OF_SLAYING_KEY].get_int());
         break;
 
@@ -545,7 +547,7 @@ bool fill_status_info(int status, status_info* inf)
     case STATUS_BRIBE:
     {
         int bribe = 0;
-        vector<const char *> places;
+        vector<string> places;
         for (int i = 0; i < NUM_BRANCHES; i++)
         {
             branch_type br = gozag_fixup_branch(static_cast<branch_type>(i));
@@ -555,8 +557,8 @@ bool fill_status_info(int status, status_info* inf)
                 if (player_in_branch(static_cast<branch_type>(i)))
                     bribe = branch_bribe[br];
 
-                places.push_back(branches[static_cast<branch_type>(i)]
-                                 .longname);
+                places.push_back(branch_name_j(branches[static_cast<branch_type>(i)]
+                                               .longname));
             }
         }
 
@@ -567,15 +569,14 @@ bool fill_status_info(int status, status_info* inf)
                                                 : BLUE;
 
             inf->light_text = "Bribe";
-            inf->short_text = make_stringf("bribing [%s]",
+            inf->short_text = make_stringf(jtransc("bribing [%s]"),
                                            comma_separated_line(places.begin(),
                                                                 places.end(),
                                                                 ", ", ", ")
                                                                 .c_str());
-            inf->long_text = "You are bribing "
-                             + comma_separated_line(places.begin(),
-                                                    places.end())
-                             + ".";
+            inf->long_text = make_stringf(jtransc("You are bribing %s."),
+                                          to_separated_line(places.begin(),
+                                                            places.end()).c_str());
         }
         break;
     }
@@ -583,7 +584,7 @@ bool fill_status_info(int status, status_info* inf)
     case DUR_HORROR:
     {
         const int horror = you.props[HORROR_PENALTY_KEY].get_int();
-        inf->light_text = make_stringf("Horr(%d)", -1 * horror);
+        inf->light_text = make_stringf(jtransc("Horr(%d)"), -1 * horror);
         if (horror >= HORROR_LVL_OVERWHELMING)
         {
             inf->light_colour = RED;
@@ -749,7 +750,7 @@ static void _describe_glow(status_info* inf)
     {
         "",
         "very slightly ",
-        "slightly",
+        "slightly ",
         "",
         "heavily ",
         "very heavily ",
@@ -759,7 +760,7 @@ static void _describe_glow(status_info* inf)
     ASSERT(signed_cont >= 0);
 
     const int adj_i = min((size_t) cont, ARRAYSZ(contam_adjectives) - 1);
-    inf->short_text = contam_adjectives[adj_i] + "contaminated";
+    inf->short_text = duration_name_j(contam_adjectives[adj_i] + "contaminated");
     inf->long_text = describe_contamination(cont);
 }
 
@@ -827,7 +828,7 @@ static void _describe_poison(status_info* inf)
          (pois_perc > 65)   ? "seriously" :
          (pois_perc > 35)   ? "quite"
                             : "mildly";
-    inf->short_text   = adj + " poisoned"
+    inf->short_text   = jtrans(adj + " poisoned")
         + make_stringf(" (%d -> %d)", you.hp, poison_survival());
     inf->long_text    = "You are " + inf->short_text + ".";
 }
@@ -931,8 +932,8 @@ static void _describe_transform(status_info* inf)
         return;
 
     const Form * const form = get_form();
-    inf->light_text = form->short_name;
-    inf->short_text = form->get_long_name();
+    inf->light_text = form_j(form->short_name);
+    inf->short_text = jtrans(form->get_long_name());
     inf->long_text = form->get_description();
 
     const bool vampbat = (you.species == SP_VAMPIRE && you.form == TRAN_BAT);
@@ -950,10 +951,10 @@ static void _describe_stat_zero(status_info* inf, stat_type st)
     {
         inf->light_colour = you.stat(st) ? LIGHTRED : RED;
         inf->light_text   = s0_names[st];
-        inf->short_text   = make_stringf("lost %s", stat_desc(st, SD_NAME));
-        inf->long_text    = make_stringf(you.stat(st) ?
-                "You are recovering from loss of %s." : "You have no %s!",
-                stat_desc(st, SD_NAME));
+        inf->short_text   = make_stringf(jtransc("lost %s"), jtransc(stat_desc(st, SD_NAME)));
+        inf->long_text    = make_stringf(jtransc(you.stat(st) ?
+                "You are recovering from loss of %s." : "You have no %s!"),
+                jtransc(stat_desc(st, SD_NAME)));
     }
 }
 

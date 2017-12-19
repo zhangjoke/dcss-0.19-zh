@@ -9,6 +9,7 @@
 #include "spl-other.h"
 
 #include "act-iter.h"
+#include "database.h"
 #include "delay.h"
 #include "env.h"
 #include "food.h"
@@ -30,16 +31,16 @@ spret_type cast_sublimation_of_blood(int pow, bool fail)
     bool success = false;
 
     if (you.duration[DUR_DEATHS_DOOR])
-        mpr("You can't draw power from your own body while in Death's door.");
+        mpr(jtrans("You can't draw power from your own body while in Death's door."));
     else if (!you.can_bleed())
     {
         if (you.species == SP_VAMPIRE)
-            mpr("You don't have enough blood to draw power from your own body.");
+            mpr(jtrans("You don't have enough blood to draw power from your own body."));
         else
-            mpr("Your body is bloodless.");
+            mpr(jtrans("Your body is bloodless."));
     }
     else if (!enough_hp(2, true))
-        mpr("Your attempt to draw power from your own body fails.");
+        mpr(jtrans("Your attempt to draw power from your own body fails."));
     else
     {
         // Take at most 90% of currhp.
@@ -61,9 +62,9 @@ spret_type cast_sublimation_of_blood(int pow, bool fail)
                 break;
         }
         if (success)
-            mpr("You draw magical energy from your own body!");
+            mpr(jtrans("You draw magical energy from your own body!"));
         else
-            mpr("Your attempt to draw power from your own body fails.");
+            mpr(jtrans("Your attempt to draw power from your own body fails."));
     }
 
     return success ? SPRET_SUCCESS : SPRET_ABORT;
@@ -78,7 +79,7 @@ spret_type cast_death_channel(int pow, god_type god, bool fail)
     }
 
     fail_check();
-    mpr("Malign forces permeate your being, awaiting release.");
+    mpr(jtrans("Malign forces permeate your being, awaiting release."));
 
     you.increase_duration(DUR_DEATH_CHANNEL, 30 + random2(1 + 2*pow/3), 200);
 
@@ -138,10 +139,10 @@ void start_recall(recall_t type)
 
         you.attribute[ATTR_NEXT_RECALL_INDEX] = 1;
         you.attribute[ATTR_NEXT_RECALL_TIME] = 0;
-        mpr("You begin recalling your allies.");
+        mpr(jtrans("You begin recalling your allies."));
     }
     else
-        mpr("Nothing appears to have answered your call.");
+        mpr(jtrans("Nothing appears to have answered your call."));
 }
 
 // Remind a recalled ally (or one skipped due to proximity) not to run
@@ -218,7 +219,7 @@ void do_recall(int time)
              you.recall_list.size())
         {
             end_recall();
-            mpr("You finish recalling your allies.");
+            mpr(jtrans("You finish recalling your allies."));
             return;
         }
     }
@@ -260,7 +261,7 @@ spret_type cast_passwall(const coord_def& delta, int pow, bool fail)
     int walls = (dest - you.pos()).rdist() - 1;
     if (walls == 0)
     {
-        mpr("That's not a passable wall.");
+        mpr(jtrans("That's not a passable wall."));
         return SPRET_ABORT;
     }
 
@@ -270,11 +271,11 @@ spret_type cast_passwall(const coord_def& delta, int pow, bool fail)
     // player, so we don't make the spell abort (return SPRET_SUCCESS).
     const monster *mon = monster_at(dest);
     if (!in_bounds(dest))
-        mpr("You sense an overwhelming volume of rock.");
+        mpr(jtrans("You sense an overwhelming volume of rock."));
     else if (cell_is_solid(dest) || (mon && mon->is_stationary()))
-        mpr("Something is blocking your path through the rock.");
+        mpr(jtrans("Something is blocking your path through the rock."));
     else if (walls > spell_range(SPELL_PASSWALL, pow))
-        mpr("This rock feels extremely deep.");
+        mpr(jtrans("This rock feels extremely deep."));
     else
     {
         string msg;
@@ -316,7 +317,7 @@ static int _intoxicate_monsters(coord_def where, int pow)
 spret_type cast_intoxicate(int pow, bool fail)
 {
     fail_check();
-    mpr("You attempt to intoxicate your foes!");
+    mpr(jtrans("You attempt to intoxicate your foes!"));
     int count = apply_area_visible([pow] (coord_def where) {
         return _intoxicate_monsters(where, pow);
     }, you.pos());
@@ -324,7 +325,7 @@ spret_type cast_intoxicate(int pow, bool fail)
     {
         if (x_chance_in_y(60 - pow/3, 100))
         {
-            mprf(MSGCH_WARN, "The world spins around you!");
+            mprf(MSGCH_WARN, jtrans("The world spins around you!"));
             you.increase_duration(DUR_VERTIGO, 4 + random2(20 + (100 - pow) / 10));
             you.redraw_evasion = true;
         }
@@ -337,9 +338,9 @@ spret_type cast_darkness(int pow, bool fail)
 {
     fail_check();
     if (you.duration[DUR_DARKNESS])
-        mprf(MSGCH_DURATION, "It gets a bit darker.");
+        mprf(MSGCH_DURATION, jtrans("It gets a bit darker."));
     else
-        mprf(MSGCH_DURATION, "It gets dark.");
+        mprf(MSGCH_DURATION, jtrans("It gets dark."));
     you.increase_duration(DUR_DARKNESS, 15 + random2(1 + pow/3), 100);
     update_vision_range();
 

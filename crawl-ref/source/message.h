@@ -10,6 +10,7 @@
 #include <streambuf>
 #include <string>
 
+#include "database.h"
 #include "enum.h"
 #include "player.h"
 
@@ -27,11 +28,11 @@ void more(bool user_forced = false);
 
 void canned_msg(canned_message_type which_message);
 
-bool simple_monster_message(const monster& mons, const char *event,
+bool simple_monster_message(const monster& mons, const string &event,
                             msg_channel_type channel = MSGCH_PLAIN,
                             int param = 0,
                             description_level_type descrip = DESC_THE);
-void simple_god_message(const char *event, god_type which_deity = you.religion);
+void simple_god_message(const string &event, god_type which_deity = you.religion);
 
 class formatted_string;
 
@@ -44,7 +45,8 @@ void mpr_comma_separated_list(const string &prefix,
                               const string &andc = ", and ",
                               const string &comma = ", ",
                               const msg_channel_type channel = MSGCH_PLAIN,
-                              const int param = 0);
+                              const int param = 0,
+                              const string &outs = ".");
 
 #include "cio.h"
 

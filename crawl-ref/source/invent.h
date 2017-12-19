@@ -193,7 +193,7 @@ string no_selectables_message(int item_selector);
 
 string slot_description();
 
-int prompt_invent_item(const char *prompt,
+int prompt_invent_item(const string &prompt,
                        menu_type type,
                        int type_expect,
                        bool must_exist = true,
@@ -213,7 +213,7 @@ vector<SelItem> select_items(
                         invtitle_annotator titlefn = nullptr);
 
 vector<SelItem> prompt_invent_items(
-                        const char *prompt,
+                        const string &prompt,
                         menu_type type,
                         int type_expect,
                         invtitle_annotator titlefn = nullptr,
@@ -230,6 +230,9 @@ bool in_inventory(const item_def &i);
 void identify_inventory();
 
 const char *item_class_name(int type, bool terse = false);
+const string item_class_name_j(int type, bool terse = false);
+const string item_class_name_j(const string &name);
+#define item_class_name_jc(arg) (item_class_name_j(arg).c_str())
 const char *item_slot_name(equipment_type type);
 
 bool check_old_item_warning(const item_def& item, operation_types oper);

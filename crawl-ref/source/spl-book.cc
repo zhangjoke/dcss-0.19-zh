@@ -508,9 +508,9 @@ static void _get_mem_list(spell_list &mem_spells,
         if (!just_check)
         {
             if (book_errors)
-                mprf(MSGCH_PROMPT, "None of the spellbooks you are carrying contain any spells.");
+                mprf(MSGCH_PROMPT, jtrans("None of the spellbooks you are carrying contain any spells."));
             else
-                mprf(MSGCH_PROMPT, "You aren't carrying or standing over any spellbooks.");
+                mprf(MSGCH_PROMPT, jtrans("You aren't carrying or standing over any spellbooks."));
         }
         return;
     }
@@ -519,7 +519,7 @@ static void _get_mem_list(spell_list &mem_spells,
                                                              mem_spells,
                                                              num_misc);
     if (!just_check && !unavail_reason.empty())
-        mprf(MSGCH_PROMPT, "%s", unavail_reason.c_str());
+        mprf(MSGCH_PROMPT, jtrans(unavail_reason));
 }
 
 /// Give the player a memorization prompt for the spells from the given book.
@@ -538,7 +538,7 @@ void learn_spell_from(const item_def &book)
                                                              mem_spells,
                                                              num_misc);
     if (!unavail_reason.empty())
-        mprf(MSGCH_PROMPT, "%s", unavail_reason.c_str());
+        mprf(MSGCH_PROMPT,  jtrans(unavail_reason));
     if (mem_spells.empty())
         return;
 
@@ -623,30 +623,33 @@ static spell_type _choose_mem_spell(spell_list &spells,
 #ifdef USE_TILE_LOCAL
     // [enne] Hack. Use a separate title, so the column headers are aligned.
     spell_menu.set_title(
-        new MenuEntry(" Your Spells - Memorisation  (toggle to descriptions with '!')",
+        new MenuEntry(jtrans_notrim(" Your Spells - Memorisation  (toggle to descriptions with '!')"),
             MEL_TITLE));
 
     spell_menu.set_title(
-        new MenuEntry(" Your Spells - Descriptions  (toggle to memorisation with '!')",
+        new MenuEntry(jtrans_notrim(" Your Spells - Descriptions  (toggle to memorisation with '!')"),
             MEL_TITLE), false);
 
     {
         MenuEntry* me =
-            new MenuEntry("     Spells                        Type          "
-                          "                Failure  Level",
+            new MenuEntry(jtrans_notrim(
+                          "     Spells                        Type          "
+                          "                Failure  Level"),
                 MEL_ITEM);
         me->colour = BLUE;
         spell_menu.add_entry(me);
     }
 #else
     spell_menu.set_title(
-        new MenuEntry("     Spells (Memorisation)         Type          "
-                      "                Failure  Level",
+        new MenuEntry(jtrans_notrim(
+                      "     Spells (Memorisation)         Type          "
+                      "                Failure  Level"),
             MEL_TITLE));
 
     spell_menu.set_title(
-        new MenuEntry("     Spells (Description)          Type          "
-                      "                Failure  Level",
+        new MenuEntry(jtrans_notrim(
+                      "     Spells (Description)          Type          "
+                      "                Failure  Level"),
             MEL_TITLE), false);
 #endif
 
@@ -656,23 +659,23 @@ static spell_type _choose_mem_spell(spell_list &spells,
     spell_menu.action_cycle = Menu::CYCLE_TOGGLE;
     spell_menu.menu_action  = Menu::ACT_EXECUTE;
 
-    string more_str = make_stringf("<lightgreen>%d spell level%s left"
-                                   "<lightgreen>",
+    string more_str = make_stringf(jtransc("<lightgreen>%d spell level%s left"
+                                   "<lightgreen>"),
                                    player_spell_levels(),
                                    (player_spell_levels() > 1
                                     || player_spell_levels() == 0) ? "s" : "");
 
     if (num_misc > 0)
     {
-        more_str += make_stringf(", <lightred>%u spell%s unmemorisable"
-                                 "</lightred>",
+        more_str += make_stringf(jtransc(", <lightred>%u spell%s unmemorisable"
+                                 "</lightred>"),
                                  num_misc,
                                  num_misc > 1 ? "s" : "");
     }
 
 #ifndef USE_TILE_LOCAL
     // Tiles menus get this information in the title.
-    more_str += "   Toggle display with '<w>!</w>'";
+    more_str += jtrans_notrim("   Toggle display with '<w>!</w>'");
 #endif
 
     spell_menu.set_more(formatted_string::parse_string(more_str));
@@ -703,7 +706,7 @@ static spell_type _choose_mem_spell(spell_list &spells,
         desc << "<" << colour_to_str(colour) << ">";
 
         desc << left;
-        desc << chop_string(spell_title(spell), 30);
+        desc << chop_string(spell_title_j(spell), 30);
         desc << spell_schools_string(spell);
 
         int so_far = strwidth(desc.str()) - (colour_to_str(colour).length()+2);
@@ -756,7 +759,7 @@ bool can_learn_spell(bool silent)
     if (you.duration[DUR_BRAINLESS])
     {
         if (!silent)
-            mpr("Your brain is not functional enough to learn spells.");
+            mpr(jtrans("Your brain is not functional enough to learn spells."));
         return false;
     }
 
@@ -830,31 +833,31 @@ static bool _learn_spell_checks(spell_type specspell, bool wizard = false)
 
     if (!you_can_memorise(specspell))
     {
-        mpr(desc_cannot_memorise_reason(specspell));
+        mpr(jtrans(desc_cannot_memorise_reason(specspell)));
         return false;
     }
 
     if (you.has_spell(specspell))
     {
-        mpr("You already know that spell!");
+        mpr(jtrans("You already know that spell!"));
         return false;
     }
 
     if (you.spell_no >= MAX_KNOWN_SPELLS)
     {
-        mpr("Your head is already too full of spells!");
+        mpr(jtrans("Your head is already too full of spells!"));
         return false;
     }
 
     if (you.experience_level < spell_difficulty(specspell) && !wizard)
     {
-        mpr("You're too inexperienced to learn that spell!");
+        mpr(jtrans("You're too inexperienced to learn that spell!"));
         return false;
     }
 
     if (player_spell_levels() < spell_levels_required(specspell) && !wizard)
     {
-        mpr("You can't memorise that many levels of magic yet!");
+        mpr(jtrans("You can't memorise that many levels of magic yet!"));
         return false;
     }
 
@@ -880,19 +883,19 @@ bool learn_spell(spell_type specspell, bool wizard)
         int severity = fail_severity(specspell);
 
         if (raw_spell_fail(specspell) >= 100 && !vehumet_is_offering(specspell))
-            mprf(MSGCH_WARN, "This spell is impossible to cast!");
+            mprf(MSGCH_WARN, jtrans("This spell is impossible to cast!"));
         else if (severity > 0)
         {
-            mprf(MSGCH_WARN, "This spell is %s to cast%s",
-                             fail_severity_adjs[severity],
-                             severity > 1 ? "!" : ".");
+            mprf(MSGCH_WARN, jtransc("This spell is %s to cast%s"),
+                             adj_jc(fail_severity_adjs[severity]),
+                             jtransc(severity > 1 ? "!" : "."));
         }
     }
 
-    const string prompt = make_stringf(
-             "Memorise %s, consuming %d spell level%s and leaving %d?",
-             spell_title(specspell), spell_levels_required(specspell),
-             spell_levels_required(specspell) != 1 ? "s" : "",
+    const string prompt = make_stringf(jtransc(
+             "Memorise %s, consuming %d spell level%s and leaving %d?"),
+             spell_levels_required(specspell),
+             spell_title_jc(specspell),
              player_spell_levels() - spell_levels_required(specspell));
 
     // Deactivate choice from tile inventory.

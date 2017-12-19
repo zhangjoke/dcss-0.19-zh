@@ -16,14 +16,19 @@ menu += darkgrey:.*useless_item.*
 menu += $forbidden:.*forbidden.*
 
 # Handle cursed and equipped items early to override other colour settings.
-menu += lightred:.*equipped.* cursed
-menu += red: (a|the) cursed
+# menu += lightred:.*equipped.* cursed
+# menu += red: (a|the) cursed
+# menu += inventory:lightgreen:.*equipped.*
+menu += lightred:呪われた.*装備中
+menu += red:呪われた
 menu += inventory:lightgreen:.*equipped.*
 
 # Important game items
 #
-menu += lightmagenta:.*misc.*rune of Zot
-menu += lightmagenta:.*orb.*Zot
+# menu += lightmagenta:.*misc.*rune of Zot
+# menu += lightmagenta:.*orb.*Zot
+menu += lightmagenta:identified rune
+menu += lightmagenta:identified orb
 
 # Artefacts
 #
@@ -41,8 +46,10 @@ menu += lightblue:(^identified weapon.* vampiric .*)
 menu += lightblue:(^identified weapon.* antimagic .*)
 
 # Possible egos
-menu += lightblue:^unidentified .*weapon.*(runed|glowing)
-menu += lightblue:^unidentified .*armour.*(runed|glowing|embroidered|shiny|dyed)
+# menu += lightblue:^unidentified .*weapon.*(runed|glowing)
+# menu += lightblue:^unidentified .*armour.*(runed|glowing|embroidered|shiny|dyed)
+menu += lightblue:^unidentified .*weapon.*(ルーンが刻まれた|輝く)
+menu += lightblue:^unidentified .*armour.*(ルーンが刻まれた|輝く|刺繍された|光る|色で染められた)
 
 # Emergency items
 menu += yellow:.*emergency_item.*
@@ -71,4 +78,5 @@ menu_colour += inventory:white:\w \#\s
 
 
 # Not really menu.
-menu_colour += notes:white:Reached XP level
+# menu_colour += notes:white:Reached XP level
+menu_colour += notes:white:レベル.*に到達した \(HP

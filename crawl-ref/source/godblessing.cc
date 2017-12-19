@@ -635,7 +635,7 @@ static string _bless_with_healing(monster* follower)
     {
         balms = _blessing_balms(follower);
         if (balms)
-            blessing = "divine balms";
+            blessing = tagged_jtrans("[blessing]", "divine balms");
         else
             dprf("Couldn't apply balms.");
     }
@@ -650,8 +650,8 @@ static string _bless_with_healing(monster* follower)
     if (healing)
     {
         if (balms)
-            blessing += " and ";
-        blessing += "healing";
+            blessing = replace_all(blessing, "注いだ", "注ぎ、そして");
+        blessing += tagged_jtrans("[blessing]", "healing");
     }
     else
         dprf("Couldn't heal monster.");
@@ -675,10 +675,11 @@ static void _display_god_blessing(monster* follower, god_type god,
     ASSERT(follower); // XXX: change to monster &follower
 
     string whom = you.can_see(*follower) ? follower->name(DESC_THE)
-    : "a follower";
+    : jtrans("a follower");
 
-    simple_god_message(make_stringf(" blesses %s with %s.",
-                                    whom.c_str(), blessing.c_str()).c_str(),
+    simple_god_message(make_stringf(jtransc(" blesses %s with %s."),
+                                    whom.c_str(),
+                                    tagged_jtransc("[blessing]", blessing)).c_str(),
                        god);
 
 #ifndef USE_TILE_LOCAL
@@ -777,13 +778,13 @@ static string _tso_bless_duration(monster* follower)
     string blessing = "";
     if (friendliness)
     {
-        blessing += "friendliness";
+        blessing += tagged_jtrans("[blessing]", "friendliness");
         if (more_time)
-            blessing += " and ";
+            blessing = replace_all(blessing, "深めた", "深め、");
     }
 
     if (more_time)
-        blessing += "more time in this world";
+        blessing += tagged_jtrans("[blessing]", "more time in this world");
 
     return blessing;
 }
@@ -816,6 +817,11 @@ static bool _tso_bless_follower(monster* follower, bool force)
     return true;
 }
 
+static bool _is_friendly_follower(const monster& mon)
+{
+    return mon.friendly() && is_follower(mon);
+}
+
 // Bless the follower indicated in follower, if any. If there isn't
 // one, bless a random follower within sight of the player, if any, or
 // any follower on the level.
@@ -835,14 +841,14 @@ bool bless_follower(monster* follower,
     {
         // Choose a random follower in LOS, preferably a named or
         // priestly one.
-        follower = choose_random_nearby_monster(0, is_follower,
+        follower = choose_random_nearby_monster(0, _is_friendly_follower,
                                                 god == GOD_BEOGH);
     }
 
     // Try *again*, on the entire level
     if (!follower)
     {
-        follower = choose_random_monster_on_level(0, is_follower,
+        follower = choose_random_monster_on_level(0, _is_friendly_follower,
                                                   god == GOD_BEOGH);
     }
 

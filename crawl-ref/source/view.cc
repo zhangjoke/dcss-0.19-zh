@@ -175,32 +175,22 @@ void seen_monsters_react(int stealth)
 
 static string _desc_mons_type_map(map<monster_type, int> types)
 {
-    string message;
-    unsigned int count = 1;
+    vector<string> names;
     for (const auto &entry : types)
     {
         string name;
-        description_level_type desc;
-        if (entry.second == 1)
-            desc = DESC_A;
-        else
-            desc = DESC_PLAIN;
 
-        name = mons_type_name(entry.first, desc);
+        name = jtrans(mons_type_name(entry.first, DESC_PLAIN));
         if (entry.second > 1)
         {
-            name = make_stringf("%d %s", entry.second,
-                                pluralise_monster(name).c_str());
+            name = make_stringf(jtransc("%d {name}"), entry.second,
+                                name.c_str());
         }
 
-        message += name;
-        if (count == types.size() - 1)
-            message += " and ";
-        else if (count < types.size())
-            message += ", ";
-        ++count;
+        names.push_back(name);
     }
-    return make_stringf("%s come into view.", message.c_str());
+    return make_stringf(jtransc("%s come into view."),
+                        to_separated_line(names.begin(), names.end()).c_str());
 }
 
 static monster_type _mons_genus_keep_uniques(monster_type mc)
@@ -290,44 +280,52 @@ static string _monster_headsup(const vector<monster*> &monsters,
 
         monster_info mi(mon);
 
-        if (warning_msg.size())
-            warning_msg += " ";
-
         string monname;
         if (monsters.size() == 1)
-            monname = mon->pronoun(PRONOUN_SUBJECTIVE);
+            monname = mon->pronoun_j(PRONOUN_SUBJECTIVE);
         else if (mon->type == MONS_DANCING_WEAPON)
-            monname = "There";
+        {
+            if (you_worship(GOD_ZIN))
+            {
+                warning_msg += make_stringf(jtransc("There %s a foul %s."),
+                                            verb_jc(" is"),
+                                            jtransc(mon->has_ench(ENCH_GLOWING_SHAPESHIFTER) ? "glowing shapeshifter"
+                                                                                             : "shapeshifter"));
+            }
+            else
+                warning_msg += make_stringf(jtransc("There is %s."),
+                                            get_monster_equipment_desc(mi, DESC_IDENTIFIED,
+                                                                       DESC_NONE).c_str());
+
+            continue;
+        }
         else if (types[mon->type] == 1)
             monname = mon->full_name(DESC_THE);
         else
             monname = mon->full_name(DESC_A);
         warning_msg += uppercase_first(monname);
 
-        warning_msg += " is";
+        warning_msg += verb_j(" is");
         if (!divine)
         {
             warning_msg += get_monster_equipment_desc(mi, DESC_WEAPON_WARNING,
-                                                      DESC_NONE) + ".";
+                                                      DESC_NONE) + jtrans(".");
             continue;
         }
 
         if (you_worship(GOD_ZIN))
         {
-            warning_msg += " a foul ";
-            if (mon->has_ench(ENCH_GLOWING_SHAPESHIFTER))
-                warning_msg += "glowing ";
-            warning_msg += "shapeshifter";
+            warning_msg += jtrans(" a foul ");
+            warning_msg += jtrans(mon->has_ench(ENCH_GLOWING_SHAPESHIFTER) ? "glowing shapeshifter"
+                                                                           : "shapeshifter");
+            warning_msg += "だ";
         }
         else
         {
-            // TODO: deduplicate
-            if (mon->type != MONS_DANCING_WEAPON)
-                warning_msg += " ";
             warning_msg += get_monster_equipment_desc(mi, DESC_IDENTIFIED,
                                                       DESC_NONE);
         }
-        warning_msg += ".";
+        warning_msg += jtrans(".");
     }
 
     return warning_msg;
@@ -341,7 +339,8 @@ static void _divine_headsup(const vector<monster*> &monsters,
     if (!warnings.size())
         return;
 
-    const string warning_msg = " warns you: " + warnings;
+    const string warning_msg = make_stringf(jtransc(" warns you: %s"),
+                                            warnings.c_str());
     simple_god_message(warning_msg.c_str());
 #ifndef USE_TILE_LOCAL
     // XXX: should this really be here...?
@@ -404,7 +403,9 @@ static void _maybe_trigger_shoutitis(const vector<monster*> monsters)
 
     for (const monster* mon : monsters)
     {
-        if (x_chance_in_y(3 + player_mutation_level(MUT_SCREAM) * 3, 100))
+        if (!mons_is_tentacle_or_tentacle_segment(mon->type)
+            && !mons_is_conjured(mon->type)
+            && x_chance_in_y(3 + player_mutation_level(MUT_SCREAM) * 3, 100))
         {
             yell(mon);
             return;
@@ -443,13 +444,13 @@ static void _maybe_gozag_incite(vector<monster*> monsters)
     if (incited.empty())
         return;
 
-    string msg = make_stringf("%s incites %s against you.",
-                              god_name(GOD_GOZAG).c_str(),
+    string msg = make_stringf(jtransc("%s incites %s against you."),
+                              god_name_j(GOD_GOZAG).c_str(),
                               mon_count.describe().c_str());
     if (strwidth(msg) >= get_number_of_cols() - 2)
     {
-        msg = make_stringf("%s incites your enemies against you.",
-                           god_name(GOD_GOZAG).c_str());
+        msg = make_stringf(jtransc("%s incites your enemies against you."),
+                           god_name_j(GOD_GOZAG).c_str());
     }
     mprf(MSGCH_GOD, GOD_GOZAG, "%s", msg.c_str());
 
@@ -718,7 +719,7 @@ bool magic_mapping(int map_radius, int proportion, bool suppress_msg,
     if (!suppress_msg)
     {
         if (did_map)
-            mpr("You feel aware of your surroundings.");
+            mpr(jtrans("You feel aware of your surroundings."));
         else
             canned_msg(MSG_DISORIENTED);
 
@@ -726,19 +727,20 @@ bool magic_mapping(int map_radius, int proportion, bool suppress_msg,
 
         if (num_altars > 0)
         {
-            sensed.push_back(make_stringf("%d altar%s", num_altars,
+            sensed.push_back(make_stringf(jtransc("%d altar%s"), num_altars,
                                           num_altars > 1 ? "s" : ""));
         }
 
         if (num_shops_portals > 0)
         {
             const char* plur = num_shops_portals > 1 ? "s" : "";
-            sensed.push_back(make_stringf("%d shop%s/portal%s",
+            sensed.push_back(make_stringf(jtransc("%d shop%s/portal%s"),
                                           num_shops_portals, plur, plur));
         }
 
         if (!sensed.empty())
-            mpr_comma_separated_list("You sensed ", sensed);
+            mpr(make_stringf(jtransc("You sensed %s."),
+                             to_separated_line(sensed.begin(), sensed.end()).c_str()));
     }
 
     return did_map;
@@ -1580,7 +1582,8 @@ static void _config_layers_menu()
     while (!exit)
     {
         viewwindow();
-        mprf(MSGCH_PROMPT, "Select layers to display:\n"
+        mprf(MSGCH_PROMPT, jtrans(
+                           "Select layers to display:\n"
                            "<%s>(m)onsters</%s>|"
                            "<%s>(p)layer</%s>|"
                            "<%s>(i)tems</%s>|"
@@ -1590,7 +1593,7 @@ static void _config_layers_menu()
                            "<%s>monster (w)eapons</%s>|"
                            "<%s>monster (h)ealth</%s>"
 #endif
-                           ,
+                                  ).c_str(),
            _layers & LAYER_MONSTERS        ? "lightgrey" : "darkgrey",
            _layers & LAYER_MONSTERS        ? "lightgrey" : "darkgrey",
            _layers & LAYER_PLAYER          ? "lightgrey" : "darkgrey",
@@ -1607,8 +1610,8 @@ static void _config_layers_menu()
            _layers & LAYER_MONSTER_HEALTH  ? "lightgrey" : "darkgrey"
 #endif
         );
-        mprf(MSGCH_PROMPT, "Press <w>%s</w> to return to normal view. "
-                           "Press any other key to exit.",
+        mprf(MSGCH_PROMPT, jtransc("Press <w>%s</w> to return to normal view. "
+                                   "Press any other key to exit."),
                            command_to_string(CMD_SHOW_TERRAIN).c_str());
 
         switch (get_ch())
@@ -1648,8 +1651,8 @@ static void _config_layers_menu()
     canned_msg(MSG_OK);
     if (_layers != LAYERS_ALL)
     {
-        mprf(MSGCH_PLAIN, "Press <w>%s</w> or perform an action "
-                          "to restore all view layers.",
+        mprf(MSGCH_PLAIN, jtransc("Press <w>%s</w> or perform an action "
+                                  "to restore all view layers."),
                           command_to_string(CMD_SHOW_TERRAIN).c_str());
     }
 }
@@ -1665,7 +1668,7 @@ void toggle_show_terrain()
 void reset_show_terrain()
 {
     if (_layers != LAYERS_ALL)
-        mprf(MSGCH_PROMPT, "Restoring view layers.");
+        mprf(MSGCH_PROMPT, jtrans("Restoring view layers."));
 
     _layers = LAYERS_ALL;
     crawl_state.viewport_weapons    = !!(_layers & LAYER_MONSTER_WEAPONS);

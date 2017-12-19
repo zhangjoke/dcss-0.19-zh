@@ -645,6 +645,9 @@ bool chardump_parser::parse()
 
 void wizard_load_dump_file()
 {
+    mpr("DCSS日本語版でのダンプファイル読み込み機能は未実装です。");
+    return;
+
     char filename[80];
     msgwin_get_line_autohist("Which dump file? ", filename, sizeof(filename));
 

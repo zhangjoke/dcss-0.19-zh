@@ -68,6 +68,9 @@ int get_skill_progress(skill_type sk, int level, int points, int scale);
 int get_skill_progress(skill_type sk, int scale);
 int get_skill_percentage(const skill_type x);
 const char *skill_name(skill_type which_skill);
+const string skill_name_j(skill_type which_skill);
+const string skill_name_j(const string &name_en);
+#define skill_name_jc(sk) (skill_name_j(sk).c_str())
 skill_type str_to_skill(const string &skill);
 
 string skill_title_by_rank(
@@ -79,7 +82,7 @@ string skill_title_by_rank(
     int piety = you.piety);
 unsigned get_skill_rank(unsigned skill_lev);
 
-string player_title(bool the = true);
+string player_title(bool the = false);
 
 skill_type best_skill(skill_type min_skill, skill_type max_skill,
                       skill_type excl_skill = SK_NONE);

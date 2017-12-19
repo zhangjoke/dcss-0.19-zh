@@ -16,6 +16,7 @@
 #include "cloud.h"
 #include "clua.h"
 #include "coordit.h"
+#include "database.h"
 #include "delay.h"
 #include "directn.h"
 #include "env.h"
@@ -230,8 +231,8 @@ bool i_feel_safe(bool announce, bool want_move, bool just_monsters,
             {
                 if (announce)
                 {
-                    mprf(MSGCH_WARN, "You're standing in a cloud of %s!",
-                         cloud_type_name(type).c_str());
+                    mprf(MSGCH_WARN, jtransc("You're standing in a cloud of %s!"),
+                         cloud_type_name_j(type).c_str());
                 }
                 return false;
             }
@@ -245,7 +246,7 @@ bool i_feel_safe(bool announce, bool want_move, bool just_monsters,
         if (poison_is_lethal())
         {
             if (announce)
-                mprf(MSGCH_WARN, "There is a lethal amount of poison in your body!");
+                mprf(MSGCH_WARN, jtrans("There is a lethal amount of poison in your body!"));
 
             return false;
         }
@@ -261,7 +262,7 @@ bool i_feel_safe(bool announce, bool want_move, bool just_monsters,
     if (visible.size() == 1)
     {
         const monster& m = *visible[0];
-        msg = make_stringf("%s is nearby!", m.name(DESC_A).c_str());
+        msg = make_stringf(jtransc("%s is nearby!"), m.name(DESC_A).c_str());
     }
     else if (visible.size() > 1)
         msg = "There are monsters nearby!";
@@ -272,7 +273,7 @@ bool i_feel_safe(bool announce, bool want_move, bool just_monsters,
 
     if (announce)
     {
-        mprf(MSGCH_WARN, "%s", msg.c_str());
+        mprf(MSGCH_WARN, jtrans(msg));
 
         if (Options.use_animations & UA_MONSTER_IN_SIGHT)
         {
@@ -442,11 +443,11 @@ void revive()
     if (you.hp_max <= 0)
     {
         you.lives = 0;
-        mpr("You are too frail to live.");
+        mpr(jtrans("You are too frail to live."));
         // possible only with an extreme abuse of Borgnjor's
         ouch(INSTANT_DEATH, KILLED_BY_DRAINING);
     }
 
-    mpr("You rejoin the land of the living...");
+    mpr(jtrans("You rejoin the land of the living..."));
     // included in default force_more_message
 }

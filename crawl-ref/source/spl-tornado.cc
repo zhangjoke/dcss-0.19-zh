@@ -23,6 +23,7 @@
 #include "ouch.h"
 #include "prompt.h"
 #include "shout.h"
+#include "stringutil.h"
 #include "terrain.h"
 #include "transform.h"
 
@@ -141,9 +142,9 @@ spret_type cast_tornado(int powc, bool fail)
 
     fail_check();
 
-    mprf("A great vortex of raging winds %s.",
+    mprf(jtrans(make_stringf("A great vortex of raging winds %s.",
          (you.airborne() || get_form()->forbids_flight()) ?
-         "appears around you" : "appears and lifts you up");
+         "appears around you" : "appears and lifts you up")));
 
     if (you.fishtail)
         merfolk_stop_swimming();
@@ -314,7 +315,7 @@ void tornado_damage(actor *caster, int dur)
                 grd(*dam_i) = DNGN_FLOOR;
                 set_terrain_changed(*dam_i);
                 if (you.see_cell(*dam_i))
-                    mpr("A tree falls to the hurricane!");
+                    mpr(jtrans("A tree falls to the hurricane!"));
                 if (caster->is_player())
                     did_god_conduct(DID_KILL_PLANT, 1);
             }
@@ -363,7 +364,7 @@ void tornado_damage(actor *caster, int dur)
                     {
                         bool standing = !you.airborne();
                         if (standing)
-                            mpr("The vortex of raging winds lifts you up.");
+                            mpr(jtrans("The vortex of raging winds lifts you up."));
                         you.attribute[ATTR_FLIGHT_UNCANCELLABLE] = 1;
                         you.duration[DUR_FLIGHT]
                             = max(you.duration[DUR_FLIGHT], 20);
@@ -463,8 +464,8 @@ void tornado_damage(actor *caster, int dur)
             && !need_expiration_warning(old_player_pos)
             && need_expiration_warning(new_player_pos))
         {
-            mprf(MSGCH_DANGER, "Careful! You are now flying above %s",
-                 feature_description_at(new_player_pos, false, DESC_PLAIN)
+            mprf(MSGCH_DANGER, jtransc("Careful! You are now flying above %s."),
+                 feature_description_at(new_player_pos, false, DESC_PLAIN, false)
                      .c_str());
         }
     }

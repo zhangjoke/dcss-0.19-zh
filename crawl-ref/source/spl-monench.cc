@@ -8,6 +8,7 @@
 
 #include "spl-monench.h"
 
+#include "database.h"
 #include "env.h"
 #include "message.h"
 #include "spl-util.h"
@@ -63,7 +64,7 @@ int englaciate(coord_def where, int pow, actor *agent)
 spret_type cast_englaciation(int pow, bool fail)
 {
     fail_check();
-    mpr("You radiate an aura of cold.");
+    mpr(jtrans("You radiate an aura of cold."));
     apply_area_visible([pow] (coord_def where) {
         return englaciate(where, pow, &you);
     }, you.pos());

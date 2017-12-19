@@ -144,7 +144,10 @@ public:
                         bool force_article = false) const = 0;
     virtual string pronoun(pronoun_type which_pronoun,
                            bool force_visible = false) const = 0;
+    virtual string pronoun_j(pronoun_type which_pronoun,
+                             bool force_visible = false) const = 0;
     virtual string conj_verb(const string &verb) const = 0;
+    string conj_verb_j(const string& verb, const string &tag = "[verb]") const;
     virtual string hand_name(bool plural, bool *can_plural = nullptr) const = 0;
     virtual string foot_name(bool plural, bool *can_plural = nullptr) const = 0;
     virtual string arm_name(bool plural, bool *can_plural = nullptr) const = 0;

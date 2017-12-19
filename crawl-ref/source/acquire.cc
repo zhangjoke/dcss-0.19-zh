@@ -17,6 +17,7 @@
 
 #include "artefact.h"
 #include "art-enum.h"
+#include "database.h"
 #include "dungeon.h"
 #include "food.h"
 #include "goditem.h"
@@ -38,6 +39,7 @@
 #include "state.h"
 #include "stringutil.h"
 #include "terrain.h"
+#include "unicode.h"
 
 static equipment_type _acquirement_armour_slot(bool);
 static armour_type _acquirement_armour_for_slot(equipment_type, bool);
@@ -1063,7 +1065,7 @@ static bool _do_book_acquirement(item_def &book, int agent)
 static int _failed_acquirement(bool quiet)
 {
     if (!quiet)
-        mpr("The demon of the infinite void smiles upon you.");
+        mpr(jtrans("The demon of the infinite void smiles upon you."));
     return NON_ITEM;
 }
 
@@ -1564,16 +1566,20 @@ bool acquirement(object_class_type class_wanted, int agent,
         ASSERT(!quiet);
         clear_messages();
 
-        string line;
+        string line, tag = "[acq menu]";
+
         for (unsigned int i = 0; i < ARRAYSZ(acq_classes); i++)
         {
-            int len = max(strlen(acq_classes[i].name),
-                          strlen(acq_classes[(i + ARRAYSZ(acq_classes) / 2)
-                                             % ARRAYSZ(acq_classes)].name));
+            int pair = (i + ARRAYSZ(acq_classes) / 2) % (ARRAYSZ(acq_classes) - 1);
+            int len = max(strwidth(tagged_jtrans(tag, acq_classes[i].name)),
+                          strwidth(tagged_jtrans(tag, acq_classes[pair].name)));
+
+            const string name = chop_string(tagged_jtrans(tag, acq_classes[i].name), len);
+
             if (bad_class[acq_classes[i].type])
-                line += make_stringf("     %-*s", len, "");
+                line += make_stringf("     %s", string(len, ' ').c_str());
             else
-                line += make_stringf(" [%c] %-*s", i + 'a', len, acq_classes[i].name);
+                line += make_stringf(" [%c] %s", i + 'a', name.c_str());
 
             if (i == ARRAYSZ(acq_classes) / 2 - 1 || i == ARRAYSZ(acq_classes) - 1)
             {
@@ -1582,7 +1588,7 @@ bool acquirement(object_class_type class_wanted, int agent,
                 line.clear();
             }
         }
-        mprf(MSGCH_PROMPT, "What kind of item would you like to acquire? (\\ to view known items)");
+        mprf(MSGCH_PROMPT, jtrans("What kind of item would you like to acquire? (\\ to view known items)"));
 
         const int keyin = toalower(get_ch());
         if (keyin >= 'a' && keyin < 'a' + (int)ARRAYSZ(acq_classes))

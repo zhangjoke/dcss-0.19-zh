@@ -9,6 +9,7 @@
 #include "act-iter.h"
 #include "colour.h"
 #include "coordit.h"
+#include "database.h"
 #include "dgn-height.h"
 #include "dungeon.h"
 #include "english.h"
@@ -650,7 +651,7 @@ void dgn_build_shoals_level()
 {
         // TODO: Attach this information to the vault name string
         //       instead of the build method string.
-    env.level_build_method += make_stringf(" [depth %d]", you.depth);
+    env.level_build_method += make_stringf(jtrans_notrimc(" [depth %d]"), you.depth);
 
     const int shoals_depth = you.depth - 1;
     dgn_replace_area(0, 0, GXM-1, GYM-1, DNGN_ROCK_WALL, DNGN_OPEN_SEA,
@@ -1070,8 +1071,8 @@ void shoals_release_tide(monster* mons)
     {
         if (player_can_hear(mons->pos()))
         {
-            mprf(MSGCH_SOUND, "The tide is released from %s call.",
-                 apostrophise(mons->name(DESC_YOUR, true)).c_str());
+            mprf(MSGCH_SOUND, jtransc("The tide is released from %s call."),
+                 mons->name(DESC_YOUR, true).c_str());
             if (you.see_cell(mons->pos()))
                 flash_view_delay(UA_MONSTER, ETC_WATER, 150);
         }
@@ -1106,16 +1107,16 @@ void wizard_mod_tide()
 {
     if (!player_in_branch(BRANCH_SHOALS) || !env.heightmap.get())
     {
-        mprf(MSGCH_WARN, "Not in Shoals or no heightmap; tide not available.");
+        mprf(MSGCH_WARN, jtrans("Not in Shoals or no heightmap; tide not available."));
         return;
     }
 
     char buf[80];
     while (true)
     {
-        mprf(MSGCH_PROMPT,
+        mprf(MSGCH_PROMPT, jtrans_notrimc(
              "Tide inertia: %d. New value "
-             "(smaller = faster tide) or use +/- to change tide: ",
+             "(smaller = faster tide) or use +/- to change tide: "),
              TIDE_MULTIPLIER);
         mpr("");
         const int res =

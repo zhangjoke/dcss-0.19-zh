@@ -292,12 +292,16 @@ struct monster_info : public monster_info_base
     bool has_proper_name() const;
     string pluralised_name(bool fullname = true) const;
     string common_name(description_level_type desc = DESC_PLAIN) const;
+    string common_name_en(description_level_type desc = DESC_PLAIN) const;
     string proper_name(description_level_type desc = DESC_PLAIN) const;
+    string proper_name_en(description_level_type desc = DESC_PLAIN) const;
     string full_name(description_level_type desc = DESC_PLAIN) const;
+    string full_name_en(description_level_type desc = DESC_PLAIN) const;
 
     vector<string> attributes() const;
 
-    const char *pronoun(pronoun_type variant) const;
+    const string pronoun(pronoun_type variant) const;
+    const string pronoun_j(pronoun_type variant) const;
 
     string wounds_description_sentence() const;
     string wounds_description(bool colour = false) const;
@@ -369,8 +373,10 @@ struct monster_info : public monster_info_base
 
 protected:
     string _core_name() const;
+    string _core_name_en() const;
     string _base_name() const;
     string _apply_adjusted_description(description_level_type desc, const string& s) const;
+    string _apply_adjusted_description_j(description_level_type desc, const string& s) const;
 };
 
 // Colour should be between -1 and 15 inclusive!

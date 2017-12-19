@@ -11,6 +11,7 @@
 #include <unistd.h>
 #endif
 
+#include "database.h"
 #include "dbg-util.h"
 #include "delay.h"
 #include "directn.h"
@@ -73,11 +74,11 @@ void game_state::show_startup_errors()
     error_menu.set_flags(MF_NOSELECT | MF_ALWAYS_SHOW_MORE | MF_NOWRAP
                          | MF_EASY_EXIT);
     error_menu.set_more(
-        formatted_string::parse_string(
+        formatted_string::parse_string(jtrans(
                            "<cyan>[ + : Page down.   - : Page up."
-                           "                    Esc or Enter to continue.]"));
+                           "                    Esc or Enter to continue.]")));
     error_menu.set_title(
-        new MenuEntry("Warning: Crawl encountered errors during startup:",
+        new MenuEntry(jtrans("Warning: Crawl encountered errors during startup:"),
                       MEL_TITLE));
     for (const string &err : startup_errors)
         error_menu.add_entry(new MenuEntry(err));
@@ -129,7 +130,7 @@ void game_state::cancel_cmd_repeat(string reason)
     reset_cmd_repeat();
 
     if (!reason.empty())
-        mpr(reason);
+        mpr(jtrans(reason));
 }
 
 void game_state::cancel_cmd_again(string reason)
@@ -232,7 +233,7 @@ bool interrupt_cmd_repeat(activity_interrupt_type ai,
             monster_info mi(mon);
             set_auto_exclude(mon);
 
-            mprf(MSGCH_WARN, "%s comes into view.",
+            mprf(MSGCH_WARN, jtransc("%s comes into view."),
                  get_monster_equipment_desc(mi, DESC_WEAPON).c_str());
         }
 
@@ -464,16 +465,16 @@ void game_state::mon_gone(monster* mon)
 
 void game_state::dump()
 {
-    fprintf(stderr, "\nGame state:\n\n");
+    fprintf(stderr, "%s", jtrans_notrimc("\nGame state:\n\n"));
 
-    fprintf(stderr, "mouse_enabled: %d, waiting_for_command: %d, "
-                  "terminal_resized: %d\n",
+    fprintf(stderr, jtrans_notrimc("mouse_enabled: %d, waiting_for_command: %d, "
+                  "terminal_resized: %d\n"),
             mouse_enabled, waiting_for_command, terminal_resized);
-    fprintf(stderr, "io_inited: %d, need_save: %d, saving_game: %d, "
-                  "updating_scores: %d:\n",
+    fprintf(stderr, jtrans_notrimc("io_inited: %d, need_save: %d, saving_game: %d, "
+                  "updating_scores: %d:\n"),
             io_inited, need_save, saving_game, updating_scores);
-    fprintf(stderr, "seen_hups: %d, map_stat_gen: %d, type: %d, "
-                  "arena_suspended: %d\n",
+    fprintf(stderr, jtrans_notrimc("seen_hups: %d, map_stat_gen: %d, type: %d, "
+                  "arena_suspended: %d\n"),
             seen_hups, map_stat_gen, type, arena_suspended);
     if (last_winch)
     {
@@ -515,16 +516,16 @@ void game_state::dump()
 
     if (god_act.which_god != GOD_NO_GOD || god_act.depth != 0)
     {
-        fprintf(stderr, "God %s currently acting with depth %d\n\n",
-                god_name(god_act.which_god).c_str(), god_act.depth);
+        fprintf(stderr, jtrans_notrimc("God %s currently acting with depth %d\n\n"),
+                god_name_jc(god_act.which_god), god_act.depth);
     }
 
     if (!god_act_stack.empty())
     {
-        fprintf(stderr, "Other gods acting:\n");
+        fprintf(stderr, "%s", jtrans_notrimc("Other gods acting:\n"));
         for (const god_act_state &godact : god_act_stack)
         {
-            fprintf(stderr, "God %s with depth %d\n",
+            fprintf(stderr, jtrans_notrimc("God %s with depth %d\n"),
                     god_name(godact.which_god).c_str(), godact.depth);
         }
         fprintf(stderr, "\n\n");
@@ -532,14 +533,14 @@ void game_state::dump()
 
     if (mon_act != nullptr)
     {
-        fprintf(stderr, "%s currently acting:\n\n",
+        fprintf(stderr, jtrans_notrimc("%s currently acting:\n\n"),
                 debug_mon_str(mon_act).c_str());
         debug_dump_mon(mon_act, true);
     }
 
     if (!mon_act_stack.empty())
     {
-        fprintf(stderr, "Others monsters acting:\n");
+        fprintf(stderr, "%s", jtrans_notrimc("Others monsters acting:\n"));
         for (const monster *mon : mon_act_stack)
             fprintf(stderr, "    %s\n", debug_mon_str(mon).c_str());
     }

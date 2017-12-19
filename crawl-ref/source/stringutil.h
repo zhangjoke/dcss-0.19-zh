@@ -239,6 +239,22 @@ vector<string> split_string(const string &sep, string s, bool trim = true,
 string make_time_string(time_t abs_time, bool terse = false);
 string make_file_time(time_t when);
 
+static inline string sp2nbsp(const string &s)
+{
+    // replace spaces to no-break spaces (U+00A0)
+    return replace_all(s, " ", u8"\u00A0");
+}
+#define sp2nbspc(s) (sp2nbsp(s).c_str())
+static inline string nbsp2sp(const string &s)
+{
+    // replace no-break spaces (U+00A0) to spaces
+    return replace_all(s, u8"\u00A0", " ");
+}
+#define nbsp2spc(s) (nbsp2sp(s).c_str())
+
+// zero-width space
+#define ZWSP u8"\u200B"
+
 // Work around missing std::to_string. This will break when newlib adds
 // support for long double, which will enable std::to_string in libstdc++.
 //
@@ -284,5 +300,6 @@ namespace std
     }
 }
 #endif
+# define to_stringc(s) (to_string(s).c_str())
 
 #endif

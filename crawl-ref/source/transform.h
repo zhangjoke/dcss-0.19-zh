@@ -303,4 +303,7 @@ void merfolk_check_swimming(bool stepped = false);
 void merfolk_start_swimming(bool step = false);
 void merfolk_stop_swimming();
 
+#define form_j(x) (tagged_jtrans("[form]", x))
+#define form_jc(x) (form_j(x).c_str())
+
 #endif

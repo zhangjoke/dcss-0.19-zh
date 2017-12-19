@@ -14,6 +14,7 @@
 #include "ability.h"
 #include "branch.h"
 #include "colour.h"
+#include "database.h"
 #include "describe.h"
 #ifndef USE_TILE_LOCAL
 #include "directn.h"
@@ -263,7 +264,7 @@ static void _nowrap_eol_cprintf_touchui(const char *format, ...)
         case TOUCH_V_TITL2:
             cprintf("%s%s %.4s", get_species_abbrev(you.species),
                                  get_job_abbrev(you.char_class),
-                                 god_name(you.religion).c_str());
+                                 god_name_jc(you.religion));
             TOUCH_UI_STATE = TOUCH_S_NULL; // suppress whatever else it was going to print
             break;
         default:
@@ -515,12 +516,12 @@ void update_message_status()
     if (!SysEnv.have_messages)
         return;
 
-    static const char * const msg = "(Hit _)";
+    static const string msg = jtrans("(Hit _)");
 
     textcolour(LIGHTBLUE);
 
     CGOTOXY(crawl_view.hudsz.x - strwidth(msg) + 1, 1, GOTO_STAT);
-    CPRINTF(msg);
+    CPRINTF(msg.c_str());
 
     textcolour(LIGHTGREY);
 }
@@ -544,7 +545,7 @@ void update_turn_count()
                     + (you.species == SP_LAVA_ORC)
 #endif
                     ;
-    CGOTOXY(19+6, 9 + yhack, GOTO_STAT);
+    CGOTOXY(19+10, 9 + yhack, GOTO_STAT);
 
     // Show the turn count starting from 1. You can still quit on turn 0.
     textcolour(HUD_VALUE_COLOUR);
@@ -609,7 +610,7 @@ static void _print_stats_mp(int x, int y)
 
     CGOTOXY(x, y, GOTO_STAT);
     textcolour(HUD_CAPTION_COLOUR);
-    CPRINTF(player_rotted() ? "MP: " : "Magic:  ");
+    CPRINTF("MP: ");
     textcolour(mp_colour);
     CPRINTF("%d", you.magic_points);
     if (!boosted)
@@ -713,7 +714,7 @@ static void _print_stats_hp(int x, int y)
         CPRINTF(player_rotted() ? "EP: " : "Essence: ");
     else
 #endif
-    CPRINTF(player_rotted() ? "HP: " : "Health: ");
+    CPRINTF("HP: ");
     textcolour(hp_colour);
     CPRINTF("%d", you.hp);
     if (!boosted)
@@ -782,7 +783,7 @@ static void _print_stat(stat_type stat, int x, int y)
     CGOTOXY(x+5, y, GOTO_STAT);
 
     textcolour(_get_stat_colour(stat));
-    CPRINTF("%d", you.stat(stat, false));
+    CPRINTF("  %2d", you.stat(stat, false));
 
     if (you.stat_loss[stat] > 0)
         CPRINTF(" (%d)  ", you.max_stat(stat));
@@ -869,10 +870,10 @@ static void _print_stats_wp(int y)
         if (you.duration[DUR_CORROSION] && wpn.base_type == OBJ_WEAPONS)
             wpn.plus -= 4 * you.props["corrosion_amount"].get_int();
 
-        text = wpn.name(DESC_PLAIN, true, false, true);
+        text = wpn.name(DESC_INVENTORY, true, false, true);
     }
     else
-        text = you.unarmed_attack_name();
+        text = jtrans(you.unarmed_attack_name());
 
     CGOTOXY(1, y, GOTO_STAT);
     textcolour(HUD_CAPTION_COLOUR);
@@ -912,12 +913,12 @@ static void _print_stats_qv(int y)
         if (fire_warn_if_impossible(true))
         {
             col  = DARKGREY;
-            text = "Quiver unavailable";
+            text = jtrans("Quiver unavailable");
         }
         else
         {
             col  = LIGHTGREY;
-            text = "Nothing quivered";
+            text = jtrans("Nothing quivered");
         }
     }
     CGOTOXY(1, y, GOTO_STAT);
@@ -1054,7 +1055,7 @@ static void _print_status_lights(int y)
         if (end_x <= crawl_view.hudsz.x)
         {
             textcolour(lights[i_light].colour);
-            CPRINTF("%s", lights[i_light].text.c_str());
+            CPRINTF("%s", duration_name_jc(lights[i_light].text));
             if (end_x < crawl_view.hudsz.x)
                 CPRINTF(" ");
             ++i_light;
@@ -1077,7 +1078,7 @@ static void _print_status_lights(int y)
         if (lights.size() == 1)
         {
             textcolour(lights[0].colour);
-            CPRINTF("%s", lights[0].text.c_str());
+            CPRINTF("%s", duration_name_jc(lights[0].text));
         }
         else
         {
@@ -1087,12 +1088,12 @@ static void _print_status_lights(int y)
                 if (i_light == lights.size() - 1
                     && strwidth(lights[i_light].text) < crawl_view.hudsz.x - wherex())
                 {
-                    CPRINTF("%s",lights[i_light].text.c_str());
+                    CPRINTF("%s", duration_name_jc(lights[i_light].text));
                 }
                 else if ((int)lights.size() > crawl_view.hudsz.x / 2)
-                    CPRINTF("%.1s",lights[i_light].text.c_str());
+                    CPRINTF("%.1s", duration_name_jc(lights[i_light].text));
                 else
-                    CPRINTF("%.1s ",lights[i_light].text.c_str());
+                    CPRINTF("%.1s ", duration_name_jc(lights[i_light].text));
                 ++i_light;
             }
         }
@@ -1129,7 +1130,10 @@ static void _draw_wizmode_flag(const char *word)
 static void _redraw_title()
 {
     const unsigned int WIDTH = crawl_view.hudsz.x;
-    string title = you.your_name + " " + filtered_lang(player_title());
+    string title = make_stringf("%s『%s』(%s)",
+                                player_title().c_str(),
+                                you.your_name.c_str(),
+                                jtransc(species_name(you.species)));
     const bool small_layout =
 #ifdef USE_TILE_LOCAL
                               tiles.is_using_small_layout();
@@ -1175,13 +1179,11 @@ static void _redraw_title()
     // Minotaur [of God] [Piety]
     textcolour(YELLOW);
     CGOTOXY(1, 2, GOTO_STAT);
-    string species = species_name(you.species);
+    string species;
     NOWRAP_EOL_CPRINTF("%s", species.c_str());
     if (!you_worship(GOD_NO_GOD))
     {
-        string god = " of ";
-        god += you_worship(GOD_JIYVA) ? god_name_jiyva(true)
-                                      : god_name(you.religion);
+        string god = god_name_j(you.religion) + "の信徒";
         NOWRAP_EOL_CPRINTF("%s", god.c_str());
 
         string piety = _god_asterisks();
@@ -1281,12 +1283,12 @@ void print_stats()
     if (you.redraw_armour_class)
     {
         you.redraw_armour_class = false;
-        _print_stats_ac(1, ac_pos);
+        _print_stats_ac(3, ac_pos);
     }
     if (you.redraw_evasion)
     {
         you.redraw_evasion = false;
-        _print_stats_ev(1, ev_pos);
+        _print_stats_ev(3, ev_pos);
     }
 
     for (int i = 0; i < NUM_STATS; ++i)
@@ -1308,7 +1310,7 @@ void print_stats()
         CGOTOXY(1, 8, GOTO_STAT);
 #endif
         textcolour(Options.status_caption_colour);
-        CPRINTF("XL: ");
+        CPRINTF(jtrans_notrimc("XL: "));
         textcolour(HUD_VALUE_COLOUR);
         CPRINTF("%2d ", you.experience_level);
         if (you.experience_level >= you.get_max_xl())
@@ -1316,7 +1318,7 @@ void print_stats()
         else
         {
             textcolour(Options.status_caption_colour);
-            CPRINTF("Next: ");
+            CPRINTF(jtrans_notrimc("Next: "));
             textcolour(HUD_VALUE_COLOUR);
             CPRINTF("%2d%% ", get_exp_progress());
         }
@@ -1336,7 +1338,7 @@ void print_stats()
     {
         // Increase y-value for all following lines.
         yhack++;
-        CGOTOXY(1+6, 8 + yhack, GOTO_STAT);
+        CGOTOXY(1+8, 8 + yhack, GOTO_STAT);
         if (you.duration[DUR_GOZAG_GOLD_AURA])
             textcolour(LIGHTBLUE);
         else
@@ -1389,18 +1391,11 @@ void print_stats()
 static string _level_description_string_hud()
 {
     const PlaceInfo& place = you.get_place_info();
-    string short_name = branches[place.branch].shortname;
+    string abbrev_name = branch_name_j(branches[place.branch].abbrevname);
 
     if (brdepth[place.branch] > 1)
-        short_name += make_stringf(":%d", you.depth);
-    // Indefinite articles
-    else if (place.branch != BRANCH_PANDEMONIUM
-             && place.branch != BRANCH_DESOLATION
-             && !is_connected_branch(place.branch))
-    {
-        short_name = article_a(short_name);
-    }
-    return short_name;
+        abbrev_name += make_stringf(":%d", you.depth);
+    return abbrev_name;
 }
 
 void print_stats_level()
@@ -1412,7 +1407,7 @@ void print_stats_level()
 #endif
     cgotoxy(19, ypos, GOTO_STAT);
     textcolour(HUD_CAPTION_COLOUR);
-    CPRINTF("Place: ");
+    CPRINTF(jtrans_notrimc("Place: "));
 
     textcolour(HUD_VALUE_COLOUR);
 #ifdef DEBUG_DIAGNOSTICS
@@ -1455,21 +1450,21 @@ void draw_border()
     else
 #endif
     CGOTOXY(1, ac_pos, GOTO_STAT); CPRINTF("AC:");
-    CGOTOXY(1, ev_pos, GOTO_STAT); CPRINTF("EV:");
-    CGOTOXY(1, sh_pos, GOTO_STAT); CPRINTF("SH:");
+    CGOTOXY(1, ev_pos, GOTO_STAT); CPRINTF(jtransc("EV:"));
+    CGOTOXY(1, sh_pos, GOTO_STAT); CPRINTF(jtransc("SH:"));
 
-    CGOTOXY(19, str_pos, GOTO_STAT); CPRINTF("Str:");
-    CGOTOXY(19, int_pos, GOTO_STAT); CPRINTF("Int:");
-    CGOTOXY(19, dex_pos, GOTO_STAT); CPRINTF("Dex:");
+    CGOTOXY(19, str_pos, GOTO_STAT); CPRINTF(jtransc("Str:"));
+    CGOTOXY(19, int_pos, GOTO_STAT); CPRINTF(jtransc("Int:"));
+    CGOTOXY(19, dex_pos, GOTO_STAT); CPRINTF(jtransc("Dex:"));
 
 #if TAG_MAJOR_VERSION == 34
     int yhack = temp;
 #else
     int yhack = 0;
 #endif
-    CGOTOXY(1, 9 + yhack, GOTO_STAT); CPRINTF("Gold:");
+    CGOTOXY(1, 9 + yhack, GOTO_STAT); CPRINTF(jtransc("Gold:"));
     CGOTOXY(19, 9 + yhack, GOTO_STAT);
-    CPRINTF(Options.show_game_time ? "Time:" : "Turn:");
+    CPRINTF(jtransc(Options.show_game_time ? "Time:" : "Turn:"));
     // Line 8 is exp pool, Level
 }
 
@@ -1544,14 +1539,6 @@ static string _get_monster_name(const monster_info& mi, int count, bool fullname
     int col;
     mi.to_string(count, monpane_desc, col, fullname, adj);
 
-    if (count == 1)
-    {
-        if (!mi.is(MB_NAME_THE))
-            desc = (is_vowel(monpane_desc[0]) ? "an " : "a ") + desc;
-        else if (adj || !mi.is(MB_NAME_UNQUALIFIED))
-            desc = "the " + desc;
-    }
-
     desc += monpane_desc;
     return desc;
 }
@@ -1571,7 +1558,7 @@ string mpr_monster_list(bool past)
         msg += (past ? "were" : "are");
         msg += " no monsters in sight!";
 
-        return msg;
+        return jtrans(msg);
     }
 
     vector<string> describe;
@@ -1594,10 +1581,10 @@ string mpr_monster_list(bool past)
     msg += " see ";
 
     if (describe.size() == 1)
-        msg += describe[0];
+        msg = make_stringf(jtransc(msg), describe[0].c_str());
     else
-        msg += comma_separated_line(describe.begin(), describe.end());
-    msg += ".";
+        msg = make_stringf(jtransc(msg),
+                           to_separated_line(describe.begin(), describe.end(), "および").c_str());
 
     return msg;
 }
@@ -1879,7 +1866,7 @@ static string _stealth_bar(int sw)
     string bar;
     //no colouring
     bar += _determine_colour_string(0, 5);
-    bar += "Stlth  ";
+    bar += chop_string(jtrans("Stlth  "), 9);
     const int stealth_num = _stealth_breakpoint(player_stealth());
     for (int i = 0; i < stealth_num; i++)
         bar += "+";
@@ -1925,9 +1912,9 @@ static void _print_overview_screen_equip(column_composer& cols,
         if (eqslot == EQ_RING_AMULET && !you_can_wear(eqslot))
             continue;
 
-        const string slot_name_lwr = lowercase_string(equip_slot_to_name(eqslot));
+        const string slot_name = tagged_jtrans("[eq slot]", equip_slot_to_name(eqslot));
 
-        string str;
+        string str, tmpl;
 
         if (you.slot_item(eqslot))
         {
@@ -1948,7 +1935,7 @@ static void _print_overview_screen_equip(column_composer& cols,
                      "<w>%c</w> - <%s>%s%s</%s>",
                      equip_char,
                      colname.c_str(),
-                     melded ? "melded " : "",
+                     jtransc(melded ? "melded " : ""),
                      chop_string(item.name(DESC_PLAIN, true),
                                  melded ? sw - 43 : sw - 36, false).c_str(),
                      colname.c_str());
@@ -1957,44 +1944,54 @@ static void _print_overview_screen_equip(column_composer& cols,
         else if (eqslot == EQ_WEAPON
                  && you.skill(SK_UNARMED_COMBAT))
         {
-            str = "  - Unarmed";
+            str = jtrans_notrim("  - Unarmed");
         }
         else if (eqslot == EQ_WEAPON
                  && you.form == TRAN_BLADE_HANDS)
         {
             const bool plural = !player_mutation_level(MUT_MISSING_HAND);
-            str = string("  - Blade Hand") + (plural ? "s" : "");
+            str = jtrans_notrim(string("  - Blade Hand") + (plural ? "s" : ""));
         }
         else if (eqslot == EQ_BOOTS
                  && (you.species == SP_NAGA || you.species == SP_CENTAUR))
         {
-            str = "<darkgrey>(no " + slot_name_lwr + ")</darkgrey>";
+            tmpl = jtrans("<darkgrey>(no {barding})</darkgrey>");
+            str = make_stringf(tmpl.c_str(), slot_name.c_str());
         }
         else if (!you_can_wear(eqslot))
-            str = "<darkgrey>(" + slot_name_lwr + " unavailable)</darkgrey>";
+        {
+            tmpl = jtrans("<darkgrey>(%s unavailable)</darkgrey>");
+            str = make_stringf(tmpl.c_str(), slot_name.c_str());
+        }
         else if (!you_can_wear(eqslot, true))
         {
-            str = "<darkgrey>(" + slot_name_lwr +
-                               " currently unavailable)</darkgrey>";
+            tmpl = jtrans("<darkgrey>(%s currently unavailable)</darkgrey>");
+            str = make_stringf(tmpl.c_str(), slot_name.c_str());
         }
         else if (you_can_wear(eqslot) == MB_MAYBE)
-            str = "<darkgrey>(" + slot_name_lwr + " restricted)</darkgrey>";
+        {
+            tmpl = jtrans("<darkgrey>(%s restricted)</darkgrey>");
+            str = make_stringf(tmpl.c_str(), slot_name.c_str());
+        }
         else
-            str = "<darkgrey>(no " + slot_name_lwr + ")</darkgrey>";
+        {
+            tmpl = jtrans("<darkgrey>(no %s)</darkgrey>");
+            str = make_stringf(tmpl.c_str(), slot_name.c_str());
+        }
         cols.add_formatted(2, str.c_str(), false);
     }
 }
 
 static string _overview_screen_title(int sw)
 {
-    string title = make_stringf(" %s ", player_title().c_str());
+    string title = player_title(false);
 
-    string species_job = make_stringf("(%s %s)",
-                                      species_name(you.species).c_str(),
-                                      get_job_name(you.char_class));
+    string species_job = make_stringf(jtransc("({species} {job})"),
+                                      species_name_jc(you.species),
+                                      get_job_name_jc(you.char_class));
 
     handle_real_time();
-    string time_turns = make_stringf(" Turns: %d, Time: ", you.num_turns)
+    string time_turns = make_stringf(jtrans_notrimc(" Turns: %d, Time: "), you.num_turns)
                       + make_time_string(you.real_time(), true);
 
     const int char_width = strwidth(species_job);
@@ -2019,8 +2016,8 @@ static string _overview_screen_title(int sw)
 
     string text;
     text = "<yellow>";
-    text += you.your_name;
     text += title;
+    text += "『" + you.your_name + "』";
     text += species_job;
 
     const int num_spaces = sw - linelength - 1;
@@ -2037,7 +2034,7 @@ static string _overview_screen_title(int sw)
 static string _wiz_god_powers()
 {
     string godpowers = god_name(you.religion);
-    return make_stringf("%s %d (%d)", god_name(you.religion).c_str(),
+    return make_stringf("%s %d (%d)", god_name_jc(you.religion),
                                       you.piety,
                                       you.duration[DUR_PIETY_POOL]);
 }
@@ -2048,7 +2045,7 @@ static string _god_powers()
     if (you_worship(GOD_NO_GOD))
         return "";
 
-    const string name = god_name(you.religion);
+    const string name = god_name_j(you.religion);
     if (you_worship(GOD_GOZAG))
         return colour_string(name, _god_status_colour(god_colour(you.religion)));
 
@@ -2128,10 +2125,7 @@ static vector<formatted_string> _get_overview_stats()
     column_composer cols(4, col1, col1 + col2, col1 + col2 + col3);
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    if (player_rotted())
-        entry.cprintf("HP:   ");
-    else
-        entry.cprintf("Health: ");
+    entry.cprintf("HP:   ");
 
     if (_boosted_hp())
         entry.textcolour(LIGHTBLUE);
@@ -2146,10 +2140,7 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    if (player_rotted())
-        entry.cprintf("MP:   ");
-    else
-        entry.cprintf("Magic:  ");
+    entry.cprintf("MP:   ");
 
     if (_boosted_mp())
         entry.textcolour(LIGHTBLUE);
@@ -2162,10 +2153,7 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    if (player_rotted())
-        entry.cprintf("Gold: ");
-    else
-        entry.cprintf("Gold:   ");
+    entry.cprintf(jtrans_notrim("Gold: "));
 
     entry.textcolour(HUD_VALUE_COLOUR);
 
@@ -2175,7 +2163,7 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    entry.cprintf("AC: ");
+    entry.cprintf(chop_string("AC: ", 6));
 
     if (_boosted_ac())
         entry.textcolour(LIGHTBLUE);
@@ -2188,7 +2176,7 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    entry.cprintf("EV: ");
+    entry.cprintf(chop_string(jtrans("EV: "), 6));
 
     if (_boosted_ev())
         entry.textcolour(LIGHTBLUE);
@@ -2201,7 +2189,7 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    entry.cprintf("SH: ");
+    entry.cprintf(chop_string(jtrans("SH: "), 6));
 
     if (_boosted_sh())
         entry.textcolour(LIGHTBLUE);
@@ -2214,7 +2202,7 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    entry.cprintf("Str: ");
+    entry.cprintf(jtrans_notrim("Str: "));
 
     entry.textcolour(_get_stat_colour(STAT_STR));
 
@@ -2226,7 +2214,7 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    entry.cprintf("Int: ");
+    entry.cprintf(jtrans_notrim("Int: "));
 
     entry.textcolour(_get_stat_colour(STAT_INT));
 
@@ -2238,7 +2226,7 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    entry.cprintf("Dex: ");
+    entry.cprintf(jtrans_notrim("Dex: "));
 
     entry.textcolour(_get_stat_colour(STAT_DEX));
 
@@ -2250,7 +2238,7 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    entry.cprintf("XL:     ");
+    entry.cprintf(chop_string(jtrans("XL:     "), 4));
 
     entry.textcolour(HUD_VALUE_COLOUR);
     entry.cprintf("%d", you.experience_level);
@@ -2258,7 +2246,7 @@ static vector<formatted_string> _get_overview_stats()
     if (you.experience_level < you.get_max_xl())
     {
         entry.textcolour(HUD_CAPTION_COLOUR);
-        entry.cprintf("   Next: ");
+        entry.cprintf(jtrans_notrim("   Next: "));
 
         entry.textcolour(HUD_VALUE_COLOUR);
         entry.cprintf("%d%%", get_exp_progress());
@@ -2268,7 +2256,7 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    entry.cprintf("God:    ");
+    entry.cprintf(chop_string(jtrans("God:    "), 6));
 
     entry.textcolour(HUD_VALUE_COLOUR);
 
@@ -2283,10 +2271,10 @@ static vector<formatted_string> _get_overview_stats()
     entry.clear();
 
     entry.textcolour(HUD_CAPTION_COLOUR);
-    entry.cprintf("Spells: ");
+    entry.cprintf(jtrans_notrim("Spells: "));
 
     entry.textcolour(HUD_VALUE_COLOUR);
-    entry.cprintf("%d memorised, %d level%s left",
+    entry.cprintf(jtransc("%d memorised, %d level%s left"),
                   you.spell_no, player_spell_levels(),
                   (player_spell_levels() == 1) ? "" : "s");
 
@@ -2296,13 +2284,13 @@ static vector<formatted_string> _get_overview_stats()
     if (you.species == SP_FELID)
     {
         entry.textcolour(HUD_CAPTION_COLOUR);
-        entry.cprintf("Lives:  ");
+        entry.cprintf(jtrans_notrim("Lives:  "));
 
         entry.textcolour(HUD_VALUE_COLOUR);
         entry.cprintf("%d", you.lives);
 
         entry.textcolour(HUD_CAPTION_COLOUR);
-        entry.cprintf("   Deaths: ");
+        entry.cprintf(jtrans_notrim("   Deaths: "));
 
         entry.textcolour(HUD_VALUE_COLOUR);
         entry.cprintf("%d", you.deaths);
@@ -2328,7 +2316,7 @@ static string _resist_composer(
 {
     string out;
     out += _determine_colour_string(pos_resist ? value : -value, max);
-    out += chop_string(name, spacing);
+    out += chop_string(jtrans(name), spacing);
     out += _itosym(value, max);
 
     return out;
@@ -2340,7 +2328,7 @@ static vector<formatted_string> _get_overview_resistances(
     // 3 columns, splits at columns 19, 33
     column_composer cols(3, 19, 33);
     // First column, resist name is 7 chars
-    int cwidth = 7;
+    int cwidth = 9;
     string out;
 
     const int rfire = player_res_fire(calc_unid);
@@ -2543,7 +2531,7 @@ static string _status_mut_abilities(int sw)
     for (unsigned i = 0; i <= STATUS_LAST_STATUS; ++i)
     {
         if (fill_status_info(i, &inf) && !inf.short_text.empty())
-            status.emplace_back(inf.short_text);
+            status.emplace_back(duration_name_j(inf.short_text));
     }
 
     int move_cost = (player_speed() * player_movement_speed()) / 10;
@@ -2553,11 +2541,11 @@ static string _status_mut_abilities(int sw)
                            (move_cost <  10) ? "quick" :
                            (move_cost <  13) ? "slow"
                                              : "very slow";
-        status.emplace_back(help);
+        status.emplace_back(tagged_jtrans("[status]", help));
     }
 
     if (status.empty())
-        text += "no status effects";
+        text += jtrans("no status effects");
     else
         text += comma_separated_line(status.begin(), status.end(), ", ", ", ");
     text += "\n";
@@ -2594,21 +2582,21 @@ static string _status_mut_abilities(int sw)
 
     if (you.species == SP_OCTOPODE)
     {
-        mutations.push_back(_annotate_form_based("amphibious",
+        mutations.push_back(_annotate_form_based(jtrans("amphibious"),
                                                  !form_likes_water()));
         mutations.push_back(_annotate_form_based(
-            make_stringf("%d rings", you.has_tentacles(false)),
+            make_stringf(jtransc("%d rings"), you.has_tentacles(false)),
             !get_form()->slot_available(EQ_RING_EIGHT)));
         mutations.push_back(_annotate_form_based(
-            make_stringf("constrict %d", you.has_tentacles(false)),
+            make_stringf(jtransc("constrict %d"), you.has_tentacles(false)),
             !form_keeps_mutations()));
     }
 
     if (you.can_water_walk())
-        mutations.emplace_back("walk on water");
+        mutations.emplace_back(jtrans("walk on water"));
 
     if (have_passive(passive_t::frail) || player_under_penance(GOD_HEPLIAKLQANA))
-        mutations.emplace_back("reduced essence");
+        mutations.emplace_back(jtrans("reduced essence"));
 
     string current;
     for (unsigned i = 0; i < NUM_MUTATIONS; ++i)
@@ -2620,12 +2608,12 @@ static string _status_mut_abilities(int sw)
         const int level = player_mutation_level(mut);
         const bool lowered = level < you.mutation[mut];
 
-        current = mutation_name(mut);
+        current = jtrans(mutation_name(mut));
 
         if (mutation_max_levels(mut) > 1)
         {
             ostringstream ostr;
-            ostr << ' ' << level;
+            ostr << " Lv" << level;
 
             current += ostr.str();
         }
@@ -2644,11 +2632,12 @@ static string _status_mut_abilities(int sw)
         mutations.push_back("AC +" + to_string(you.racial_ac(false) / 100));
 
     if (mutations.empty())
-        text += "no striking features";
+        text += jtrans("no striking features");
     else
     {
-        text += comma_separated_line(mutations.begin(), mutations.end(),
-                                     ", ", ", ");
+        text += comma_separated_fn(mutations.begin(), mutations.end(),
+                                   [] (const string &s) { return jtrans(s); },
+                                   ", ", ", ");
     }
 
     // print ability information
@@ -2657,19 +2646,23 @@ static string _status_mut_abilities(int sw)
 
     // print the Orb
     if (player_has_orb())
-        text += "\n<w>0:</w> Orb of Zot";
+        text += jtrans_notrim("\n<w>0:</w> Orb of Zot");
 
     // print runes
     vector<string> runes;
     for (int i = 0; i < NUM_RUNE_TYPES; i++)
+    {
         if (you.runes[i])
-            runes.emplace_back(rune_type_name(i));
+        {
+            string rune_name = tagged_jtrans(rune_type_name(i), " rune of Zot");
+            runes.emplace_back(replace_all(rune_name, "のルーン", ""));
+        }
+    }
     if (!runes.empty())
     {
-        text += make_stringf("\n<w>%s:</w> %d/%d rune%s: %s",
+        text += make_stringf(jtrans_notrimc("\n<w>%s:</w> %d/%d rune%s: %s"),
                     stringize_glyph(get_item_symbol(SHOW_ITEM_MISCELLANY)).c_str(),
                     (int)runes.size(), you.obtainable_runes,
-                    you.obtainable_runes == 1 ? "" : "s",
                     comma_separated_line(runes.begin(), runes.end(),
                                          ", ", ", ").c_str());
     }

@@ -421,7 +421,7 @@ function hit_magic()
   if you.spell_table()[AUTOMAGIC_SPELL_SLOT] then
     mag_attack(true)
   else
-    crawl.mpr("No spell in slot " .. AUTOMAGIC_SPELL_SLOT .. "!")
+    crawl.mpr("スロット" .. AUTOMAGIC_SPELL_SLOT .. "に呪文が設定されていない！")
   end
 end
 
@@ -429,7 +429,7 @@ function hit_magic_nomove()
   if you.spell_table()[AUTOMAGIC_SPELL_SLOT] then
     mag_attack(false)
   else
-    crawl.mpr("No spell in slot " .. AUTOMAGIC_SPELL_SLOT .. "!")
+    crawl.mpr("スロット" .. AUTOMAGIC_SPELL_SLOT .. "に呪文が設定されていない！")
   end
 end
 

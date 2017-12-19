@@ -714,6 +714,24 @@ void get_door_description(int door_size, const char** adjective, const char** no
     *noun = descriptions[idx+1];
 }
 
+void get_door_description_en(int door_size, const char** adjective, const char** noun)
+{
+    const char* descriptions[] =
+    {
+        "miniscule " , "buggy door",
+        ""           , "door",
+        "large "     , "door",
+        ""           , "gate",
+        "huge "      , "gate",
+    };
+
+    int max_idx = static_cast<int>(ARRAYSZ(descriptions) - 2);
+    const unsigned int idx = min(door_size*2, max_idx);
+
+    *adjective = descriptions[idx];
+    *noun = descriptions[idx+1];
+}
+
 coord_def get_random_stair()
 {
     vector<coord_def> st;
@@ -817,7 +835,7 @@ void slime_wall_damage(actor* act, int delay)
                                              roll_dice(2, strength));
         if (dam > 0 && you.can_see(*mon))
         {
-            mprf((walls > 1) ? "The walls burn %s!" : "The wall burns %s!",
+            mprf(jtransc((walls > 1) ? "The walls burn %s!" : "The wall burns %s!"),
                   mon->name(DESC_THE).c_str());
         }
         mon->hurt(nullptr, dam, BEAM_ACID);
@@ -830,11 +848,11 @@ void feat_splash_noise(dungeon_feature_type feat)
     {
     case DNGN_SHALLOW_WATER:
     case DNGN_DEEP_WATER:
-        mprf(MSGCH_SOUND, "You hear a splash.");
+        mprf(MSGCH_SOUND, jtrans("You hear a splash."));
         return;
 
     case DNGN_LAVA:
-        mprf(MSGCH_SOUND, "You hear a sizzling splash.");
+        mprf(MSGCH_SOUND, jtrans("You hear a sizzling splash."));
         return;
 
     default:
@@ -1226,28 +1244,31 @@ static void _announce_swap_real(coord_def orig_pos, coord_def dest_pos)
     }
 
     ostringstream str;
-    str << orig_name << " ";
+    str << orig_name << "は";
     if (you.see_cell(orig_pos) && !you.see_cell(dest_pos))
     {
-        str << "suddenly disappears";
+        str << jtrans("suddenly disappears");
         if (!orig_actor.empty())
-            str << " from " << prep << " " << orig_actor;
+            str << jtrans(orig_actor) << "の" << prep << "から";
+
+        str << "消え去った";
     }
     else if (!you.see_cell(orig_pos) && you.see_cell(dest_pos))
     {
-        str << "suddenly appears";
+        str << jtrans("suddenly appears");
         if (!dest_actor.empty())
-            str << " " << prep << " " << dest_actor;
+            str << jtrans(dest_actor) << "の" << prep << "に";
     }
     else
     {
-        str << "moves";
         if (!orig_actor.empty())
-            str << " from " << prep << " " << orig_actor;
+            str << jtrans(orig_actor) << "の" << prep << "から";
         if (!dest_actor.empty())
-            str << " to " << prep << " " << dest_actor;
+            str << jtrans(dest_actor) << "の" << prep << "に";
+
+        str << "動いた";
     }
-    str << "!";
+    str << jtrans("!");
     mpr(str.str());
 }
 
@@ -1343,7 +1364,7 @@ bool swap_features(const coord_def &pos1, const coord_def &pos2,
 
     if (!in_bounds(temp))
     {
-        mprf(MSGCH_ERROR, "swap_features(): No boring squares on level?");
+        mprf(MSGCH_ERROR, jtrans("swap_features(): No boring squares on level?"));
         return false;
     }
 
@@ -1562,29 +1583,29 @@ void fall_into_a_pool(dungeon_feature_type terrain)
         }
     }
 
-    mprf("You fall into the %s!",
+    mprf(jtrans(make_stringf("You fall into the %s!",
          (terrain == DNGN_LAVA)       ? "lava" :
          (terrain == DNGN_DEEP_WATER) ? "water"
-                                      : "programming rift");
+                                      : "programming rift")));
     // included in default force_more_message
 
     clear_messages();
     if (terrain == DNGN_LAVA)
     {
         if (you.species == SP_MUMMY)
-            mpr("You burn to ash...");
+            mpr(jtrans("You burn to ash..."));
         else
-            mpr("The lava burns you to a cinder!");
+            mpr(jtrans("The lava burns you to a cinder!"));
         ouch(INSTANT_DEATH, KILLED_BY_LAVA);
     }
     else if (terrain == DNGN_DEEP_WATER)
     {
-        mpr("You sink like a stone!");
+        mpr(jtrans("You sink like a stone!"));
 
         if (you.is_nonliving() || you.undead_state())
-            mpr("You fall apart...");
+            mpr(jtrans("You fall apart..."));
         else
-            mpr("You drown...");
+            mpr(jtrans("You drown..."));
 
         ouch(INSTANT_DEATH, KILLED_BY_WATER);
     }

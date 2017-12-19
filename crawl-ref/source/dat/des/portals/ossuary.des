@@ -26,9 +26,9 @@ function ossuary_portal(e)
       -- This is always preceded by an article, so...
       noisemaker = 'avalanche of sand',
       ranges = {
-        { 5000, 'slow ' },  { 4000, '' },
-        { 2500, 'brisk ' }, { 1500, 'quick ' },
-        { 0, 'rapid ' }
+        { 5000, 'かすかな' },  { 4000, '小さな' },
+        { 2500, '' }, { 1500, '大きな' },
+        { 0, '騒々しい' }
       }
     }
 

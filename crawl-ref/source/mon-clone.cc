@@ -11,6 +11,7 @@
 #include "arena.h"
 #include "artefact.h"
 #include "coordit.h"
+#include "database.h"
 #include "directn.h"
 #include "env.h"
 #include "items.h"
@@ -110,7 +111,8 @@ static void _mons_summon_monster_illusion(monster* caster,
         clone->props[CLONE_SLAVE_KEY] = clone_id;
         foe->props[CLONE_MASTER_KEY] = clone_id;
         mons_add_blame(clone,
-                       "woven by " + caster->name(DESC_THE));
+                       make_stringf(jtransc("woven by %s"),
+                                    caster->name(DESC_THE).c_str()));
         if (!clone->has_ench(ENCH_ABJ))
             clone->mark_summoned(6, true, MON_SUMM_CLONE);
         clone->summoner = caster->mid;
@@ -128,15 +130,15 @@ static void _mons_summon_monster_illusion(monster* caster,
         {
             if (!you.can_see(*caster))
             {
-                mprf("%s seems to step out of %s!",
+                mprf(jtransc("%s seems to step out of %s!"),
                      foe->name(DESC_THE).c_str(),
-                     foe->pronoun(PRONOUN_REFLEXIVE).c_str());
+                     foe->pronoun_j(PRONOUN_REFLEXIVE).c_str());
             }
             else
-                mprf("%s seems to draw %s out of %s!",
+                mprf(jtransc("%s seems to draw %s out of %s!"),
                      caster->name(DESC_THE).c_str(),
                      foe->name(DESC_THE).c_str(),
-                     foe->pronoun(PRONOUN_REFLEXIVE).c_str());
+                     foe->pronoun_j(PRONOUN_REFLEXIVE).c_str());
         }
     }
 }
@@ -211,16 +213,16 @@ void mons_summon_illusion_from(monster* mons, actor *foe,
                  .set_summoned(mons, abj, spell_cast)))
         {
             if (card_power >= 0)
-                mpr("Suddenly you stand beside yourself.");
+                mpr(jtrans("Suddenly you stand beside yourself."));
             else
-                mprf(MSGCH_WARN, "There is a horrible, sudden wrenching feeling in your soul!");
+                mprf(MSGCH_WARN, jtrans("There is a horrible, sudden wrenching feeling in your soul!"));
 
             _init_player_illusion_properties(
                 get_monster_data(MONS_PLAYER_ILLUSION));
             _mons_load_player_enchantments(mons, clone);
         }
         else if (card_power >= 0)
-            mpr("You see a puff of smoke.");
+            mpr(jtrans("You see a puff of smoke."));
     }
     else
     {

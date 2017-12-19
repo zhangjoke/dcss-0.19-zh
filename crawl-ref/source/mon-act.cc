@@ -16,6 +16,7 @@
 #include "cloud.h"
 #include "colour.h"
 #include "coordit.h"
+#include "database.h"
 #include "dbg-scan.h"
 #include "delay.h"
 #include "directn.h" // feature_description_at
@@ -240,7 +241,7 @@ static bool _swap_monsters(monster& mover, monster& moved)
 
     if (you.can_see(mover) && you.can_see(moved))
     {
-        mprf("%s and %s swap places.", mover.name(DESC_THE).c_str(),
+        mprf(jtransc("%s and %s swap places."), mover.name(DESC_THE).c_str(),
              moved.name(DESC_THE).c_str());
     }
 
@@ -881,7 +882,7 @@ static bool _handle_swoop(monster& mons)
 
         if (you.can_see(mons))
         {
-            mprf("%s swoops through the air toward %s!",
+            mprf(jtransc("%s swoops through the air toward %s!"),
                  mons.name(DESC_THE).c_str(),
                  defender->name(DESC_THE).c_str());
         }
@@ -1011,7 +1012,7 @@ static bool _handle_scroll(monster& mons)
         if (mons.can_see(you))
         {
             simple_monster_message(mons, " reads a scroll.");
-            mprf("Wisps of shadow swirl around %s.", mons.name(DESC_THE).c_str());
+            mprf(jtransc("Wisps of shadow swirl around %s."), mons.name(DESC_THE).c_str());
             read = true;
             int count = roll_dice(2, 2);
             for (int i = 0; i < count; ++i)
@@ -1090,7 +1091,7 @@ static void _mons_fire_wand(monster& mons, item_def &wand, bolt &beem,
     if (!simple_monster_message(mons, " zaps a wand."))
     {
         if (!silenced(you.pos()))
-            mprf(MSGCH_SOUND, "You hear a zap.");
+            mprf(MSGCH_SOUND, jtrans("You hear a zap."));
     }
 
     // charge expenditure {dlb}
@@ -1105,7 +1106,7 @@ static void _mons_fire_wand(monster& mons, item_def &wand, bolt &beem,
         set_ident_type(OBJ_WANDS, wand_type, true);
         if (!mons.props["wand_known"].get_bool())
         {
-            mprf("It is %s.", wand.name(DESC_A).c_str());
+            mprf(jtransc("It is %s."), wand.name(DESC_A).c_str());
             mons.props["wand_known"] = true;
         }
 
@@ -1124,7 +1125,7 @@ static void _rod_fired_pre(monster& mons)
     if (!simple_monster_message(mons, " zaps a rod.")
         && !silenced(you.pos()))
     {
-        mprf(MSGCH_SOUND, "You hear a zap.");
+        mprf(MSGCH_SOUND, jtrans("You hear a zap."));
     }
 }
 
@@ -1326,7 +1327,7 @@ static bool _handle_wand(monster& mons)
             if (simple_monster_message(mons, " zaps a wand."))
                 canned_msg(MSG_NOTHING_HAPPENS);
             else if (!silenced(you.pos()))
-                mprf(MSGCH_SOUND, "You hear a zap.");
+                mprf(MSGCH_SOUND, jtrans("You hear a zap."));
             wand->used_count = ZAPCOUNT_EMPTY;
             mons.lose_energy(EUT_ITEM);
             return true;
@@ -1523,7 +1524,7 @@ bool handle_throw(monster* mons, bolt & beem, bool teleport, bool check_only)
         }
         else if (interference == DO_REDIRECT_ATTACK)
         {
-            mprf(MSGCH_GOD, "You redirect %s's attack!",
+            mprf(MSGCH_GOD, jtransc("You redirect %s's attack!"),
                     mons->name(DESC_THE).c_str());
             int pfound = 0;
             for (radius_iterator ri(you.pos(),
@@ -1801,19 +1802,19 @@ void handle_monster_move(monster* mons)
     if (!monster_was_floating
         && mgrd(mons->pos()) != mons->mindex())
     {
-        mprf(MSGCH_ERROR, "Monster %s became detached from mgrd "
-                          "in handle_monster_move() loop",
+        mprf(MSGCH_ERROR, jtransc("Monster %s became detached from mgrd "
+                          "in handle_monster_move() loop"),
              mons->name(DESC_PLAIN, true).c_str());
-        mprf(MSGCH_WARN, "[[[[[[[[[[[[[[[[[[");
+        mprf(MSGCH_WARN, jtrans("[[[[[[[[[[[[[[[[[["));
         debug_mons_scan();
-        mprf(MSGCH_WARN, "]]]]]]]]]]]]]]]]]]");
+        mprf(MSGCH_WARN, jtrans("]]]]]]]]]]]]]]]]]]"));
         monster_was_floating = true;
     }
     else if (monster_was_floating
              && mgrd(mons->pos()) == mons->mindex())
     {
-        mprf(MSGCH_DIAGNOSTICS, "Monster %s re-attached itself to mgrd "
-                                "in handle_monster_move() loop",
+        mprf(MSGCH_DIAGNOSTICS, jtransc("Monster %s re-attached itself to mgrd "
+                                "in handle_monster_move() loop"),
              mons->name(DESC_PLAIN, true).c_str());
         monster_was_floating = false;
     }
@@ -1848,7 +1849,7 @@ void handle_monster_move(monster* mons)
                                            MSGCH_WARN);
                 }
                 else
-                    mprf(MSGCH_SOUND, "You hear a loud crackle.");
+                    mprf(MSGCH_SOUND, jtrans("You hear a loud crackle."));
             }
             // Done this way to keep the detonation timer predictable
             mons->speed_increment -= BASELINE_DELAY;
@@ -2180,7 +2181,7 @@ void handle_monster_move(monster* mons)
                     // attack that target
                     mons->target = new_target->pos();
                     mons->foe = new_target->mindex();
-                    mprf(MSGCH_GOD, "You redirect %s's attack!",
+                    mprf(MSGCH_GOD, jtransc("You redirect %s's attack!"),
                          mons->name(DESC_THE).c_str());
                     fight_melee(mons, new_target);
                 }
@@ -2319,7 +2320,7 @@ void monster::struggle_against_net()
                 if (you.see_cell(pos()))
                 {
                     if (!visible_to(&you))
-                        mpr("Something you can't see is thrashing in a web.");
+                        mpr(jtrans("Something you can't see is thrashing in a web."));
                     else
                         simple_monster_message(*this,
                                            " struggles to get unstuck from the web.");
@@ -2336,7 +2337,7 @@ void monster::struggle_against_net()
     if (you.see_cell(pos()))
     {
         if (!visible_to(&you))
-            mpr("Something wriggles in the net.");
+            mpr(jtrans("Something wriggles in the net."));
         else
             simple_monster_message(*this, " struggles against the net.");
     }
@@ -2356,11 +2357,11 @@ void monster::struggle_against_net()
         {
             if (visible_to(&you))
             {
-                mprf("The net rips apart, and %s comes free!",
+                mprf(jtransc("The net rips apart, and %s comes free!"),
                      name(DESC_THE).c_str());
             }
             else
-                mpr("All of a sudden the net rips apart!");
+                mpr(jtrans("All of a sudden the net rips apart!"));
         }
         destroy_item(net);
 
@@ -2382,7 +2383,7 @@ static void _ancient_zyme_sicken(monster* mons)
         {
             if (!you.duration[DUR_SICKENING])
             {
-                mprf(MSGCH_WARN, "You feel yourself growing ill in the presence of %s.",
+                mprf(MSGCH_WARN, jtransc("You feel yourself growing ill in the presence of %s."),
                     mons->name(DESC_THE).c_str());
             }
 
@@ -2434,7 +2435,7 @@ static void _torpor_snail_slow(monster* mons)
     {
         if (!you.duration[DUR_SLOW])
         {
-            mprf("Being near %s leaves you feeling lethargic.",
+            mprf(jtransc("Being near %s leaves you feeling lethargic."),
                  mons->name(DESC_THE).c_str());
         }
 
@@ -2493,9 +2494,9 @@ static void _post_monster_move(monster* mons)
                 if (grd(*ai) != DNGN_SHALLOW_WATER && grd(*ai) != DNGN_FLOOR
                     && you.see_cell(*ai))
                 {
-                    mprf("%s watery aura covers %s",
-                         apostrophise(mons->name(DESC_THE)).c_str(),
-                         feature_description_at(*ai, false, DESC_THE).c_str());
+                    mprf(jtransc("%s watery aura covers %s"),
+                         mons->name(DESC_THE).c_str(),
+                         feature_description_at(*ai, false, DESC_THE, false).c_str());
                 }
                 temp_change_terrain(*ai, DNGN_SHALLOW_WATER, random_range(50, 80),
                                     TERRAIN_CHANGE_FLOOD, mons);
@@ -2690,7 +2691,7 @@ static bool _jelly_divide(monster& parent)
     if (!simple_monster_message(parent, " splits in two!")
         && (player_can_hear(parent.pos()) || player_can_hear(child->pos())))
     {
-        mprf(MSGCH_SOUND, "You hear a squelching noise.");
+        mprf(MSGCH_SOUND, jtrans("You hear a squelching noise."));
     }
 
     if (crawl_state.game_is_arena())
@@ -2745,8 +2746,8 @@ static bool _monster_eat_item(monster* mons)
 
         if (eaten && !shown_msg && player_can_hear(mons->pos()))
         {
-            mprf(MSGCH_SOUND, "You hear a%s slurping noise.",
-                 you.see_cell(mons->pos()) ? "" : " distant");
+            mprf(MSGCH_SOUND, jtrans(make_stringf("You hear a%s slurping noise.",
+                                                  you.see_cell(mons->pos()) ? "" : " distant")));
             shown_msg = true;
         }
 
@@ -2880,22 +2881,20 @@ static void _mons_open_door(monster& mons, const coord_def &pos)
     {
         viewwindow();
 
-        string open_str = "opens the ";
-        open_str += adj;
-        open_str += noun;
-        open_str += ".";
+        string open_str = make_stringf(jtransc("opens the %s%s."),
+                                       adj_jc(adj), jtransc(noun));
 
         // Should this be conditionalized on you.can_see(mons?)
         mons.seen_context = (all_door.size() <= 2) ? SC_DOOR : SC_GATE;
 
         if (!you.can_see(mons))
         {
-            mprf("Something unseen %s", open_str.c_str());
+            mprf(jtransc("Something unseen {open the %s.}"), open_str.c_str());
             interrupt_activity(AI_FORCE_INTERRUPT);
         }
         else if (!you_are_delayed())
         {
-            mprf("%s %s", mons.name(DESC_A).c_str(),
+            mprf(jtransc("{monster} {open the %s.}"), mons.name(DESC_A).c_str(),
                  open_str.c_str());
         }
     }
@@ -3337,8 +3336,8 @@ static void _jelly_grows(monster& mons)
 {
     if (player_can_hear(mons.pos()))
     {
-        mprf(MSGCH_SOUND, "You hear a%s slurping noise.",
-             you.see_cell(mons.pos()) ? "" : " distant");
+        mprf(MSGCH_SOUND, jtransc("You hear a%s slurping noise."),
+             jtransc(you.see_cell(mons.pos()) ? "" : " distant"));
     }
 
     const int avg_hp = mons_avg_hp(mons.type);
@@ -3399,7 +3398,7 @@ static void _ballisto_on_move(monster& mons, const coord_def& position)
 
     if (you.can_see(*plant))
     {
-        mprf("%s grows in the wake of %s.",
+        mprf(jtransc("%s grows in the wake of %s."),
              plant->name(DESC_A).c_str(), mons.name(DESC_THE).c_str());
     }
 
@@ -3508,7 +3507,7 @@ static bool _do_move_monster(monster& mons, const coord_def& delta)
 
                 if (!you.can_see(mons))
                 {
-                    mpr("The door bursts into shrapnel!");
+                    mpr(jtrans("The door bursts into shrapnel!"));
                     interrupt_activity(AI_FORCE_INTERRUPT);
                 }
                 else
@@ -3533,7 +3532,7 @@ static bool _do_move_monster(monster& mons, const coord_def& delta)
 
                 if (!you.can_see(mons))
                 {
-                    mpr("The door mysteriously vanishes.");
+                    mpr(jtrans("The door mysteriously vanishes."));
                     interrupt_activity(AI_FORCE_INTERRUPT);
                 }
                 else
@@ -3606,7 +3605,7 @@ static bool _monster_move(monster* mons)
             {
                 if (one_chance_in(10))
                 {
-                    mprf(MSGCH_TALK_VISUAL, "%s rages.",
+                    mprf(MSGCH_TALK_VISUAL, jtransc("%s rages."),
                          mons->name(DESC_THE).c_str());
                 }
                 noisy(noise_level, mons->pos(), mons->mid);
@@ -3810,7 +3809,7 @@ static bool _monster_move(monster* mons)
                 if (you.see_cell(target))
                 {
                     const bool actor_visible = you.can_see(*mons);
-                    mprf("%s knocks down a tree!",
+                    mprf(jtransc("%s knocks down a tree!"),
                          actor_visible?
                          mons->name(DESC_THE).c_str() : "Something");
                     noisy(25, target);
@@ -3826,10 +3825,10 @@ static bool _monster_move(monster* mons)
 
                 // Message depends on whether caused by acid (Dissolution)
                 // or direct digging (formicids).
-                mprf(MSGCH_SOUND, (mons->type == MONS_DISSOLUTION) ?
+                mprf(MSGCH_SOUND, jtrans(mons->type == MONS_DISSOLUTION ?
                      "You hear a sizzling sound." :
                      "You hear a grinding noise."
-                     );
+                     ));
             }
         }
     }
@@ -3976,7 +3975,7 @@ static void _heated_area(monster& mons)
     {
         if (mons.observable())
         {
-            mprf("%s is %s by your radiant heat.",
+            mprf(jtransc("%s is %s by your radiant heat."),
                  mons.name(DESC_THE).c_str(),
                  (final_damage) > 10 ? "blasted" : "burned");
         }
@@ -3986,7 +3985,7 @@ static void _heated_area(monster& mons)
 #ifdef DEBUG_DIAGNOSTICS
         mprf(MSGCH_DIAGNOSTICS, "%s %s %d damage from heat.",
              mons.name(DESC_THE).c_str(),
-             mons.conj_verb("take").c_str(),
+             mons.conj_verb_j("take").c_str(),
              final_damage);
 #endif
 

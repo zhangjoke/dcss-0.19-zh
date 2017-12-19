@@ -21,6 +21,7 @@
 #include "colour.h"
 #include "command.h"
 #include "coordit.h"
+#include "database.h"
 #include "describe.h"
 #include "dungeon.h"
 #include "english.h"
@@ -30,6 +31,7 @@
 #include "invent.h"
 #include "itemprop.h"
 #include "items.h"
+#include "japanese.h"
 #include "libutil.h"
 #include "losglobal.h"
 #include "macro.h"
@@ -331,13 +333,13 @@ string direction_chooser::build_targeting_hint_string() const
     const monster* p_target = _get_current_target();
 
     if (f_target && f_target == p_target)
-        hint_string = ", f/p - " + f_target->name(DESC_PLAIN);
+        hint_string = ", f/p - " + jtrans(f_target->name(DESC_PLAIN));
     else
     {
         if (f_target)
-            hint_string += ", f - " + f_target->name(DESC_PLAIN);
+            hint_string += ", f - " + jtrans(f_target->name(DESC_PLAIN));
         if (p_target)
-            hint_string += ", p - " + p_target->name(DESC_PLAIN);
+            hint_string += ", p - " + jtrans(p_target->name(DESC_PLAIN));
     }
 
     return hint_string;
@@ -346,20 +348,20 @@ string direction_chooser::build_targeting_hint_string() const
 void direction_chooser::print_top_prompt() const
 {
     if (!top_prompt.empty())
-        mprf(MSGCH_PROMPT, "%s", top_prompt.c_str());
+        mprf(MSGCH_PROMPT, "%s", jtransc(top_prompt));
 }
 
 void direction_chooser::print_key_hints() const
 {
-    string prompt = "Press: ? - help";
+    string prompt = jtrans("Press: ? - help");
 
     if (just_looking)
     {
         if (you.see_cell(target()))
-            prompt += ", v - describe";
-        prompt += ", . - travel";
+            prompt += jtrans(", v - describe");
+        prompt += jtrans(", . - travel");
         if (in_bounds(target()) && env.map_knowledge(target()).item())
-            prompt += ", g - get item";
+            prompt += jtrans(", g - get item");
     }
     else
     {
@@ -367,13 +369,13 @@ void direction_chooser::print_key_hints() const
         switch (restricts)
         {
         case DIR_NONE:
-            prompt += ", Shift-Dir - straight line";
+            prompt += jtrans(", Shift-Dir - straight line");
             prompt += hint_string;
             break;
         case DIR_TARGET:
         case DIR_SHADOW_STEP:
         case DIR_LEAP:
-            prompt += ", Dir - move target cursor";
+            prompt += jtrans(", Dir - move target cursor");
             prompt += hint_string;
             break;
         case DIR_DIR:
@@ -573,7 +575,7 @@ void full_describe_view()
 #ifdef DEBUG_DIAGNOSTICS
         if (items.empty())
         {
-            mprf(MSGCH_ERROR, "No items found in stash, but top item is %s",
+            mprf(MSGCH_ERROR, jtransc("No items found in stash, but top item is %s"),
                  mitm[oid].name(DESC_PLAIN).c_str());
             more();
         }
@@ -586,7 +588,7 @@ void full_describe_view()
 
     if (list_mons.empty() && list_items.empty() && list_features.empty())
     {
-        mpr("No monsters, items or features are visible.");
+        mpr(jtrans("No monsters, items or features are visible."));
         return;
     }
 
@@ -595,23 +597,24 @@ void full_describe_view()
 
     string title = "";
     if (!list_mons.empty())
-        title  = "Monsters";
+        title = jtrans("Monsters");
     if (!list_items.empty())
     {
         if (!title.empty())
             title += "/";
-        title += "Items";
+        title += jtrans("Items");
     }
     if (!list_features.empty())
     {
         if (!title.empty())
             title += "/";
-        title += "Features";
+        title += jtrans("Features");
     }
 
-    title = "Visible " + title;
-    string title1 = title + " (select to target/travel, '!' to examine):";
-    title += " (select to examine, '!' to target/travel):";
+    title = make_stringf(jtransc("Visible %s"),
+                         title.c_str());
+    string title1 = title + jtrans_notrim("\n(select to target/travel, '!' to examine):");
+    title += jtrans_notrim("\n(select to examine, '!' to target/travel):");
 
     desc_menu.set_title(new MenuEntry(title, MEL_TITLE), false);
     desc_menu.set_title(new MenuEntry(title1, MEL_TITLE));
@@ -650,10 +653,16 @@ void full_describe_view()
 
             string str = get_monster_equipment_desc(mi, DESC_FULL, DESC_A, true);
             if (mi.is(MB_MESMERIZING))
-                str += ", keeping you mesmerised";
+                str += jtrans(", keeping you mesmerised");
 
-            if (mi.dam != MDAM_OKAY)
-                str += ", " + mi.damage_desc();
+            string dmg_string = mi.damage_desc();
+            if (mi.dam != MDAM_OKAY) {
+                dmg_string = replace_all(dmg_string, "傷ついた", "傷ついている");
+                dmg_string = replace_all(dmg_string, "傷つかなかった", "無傷");
+                dmg_string = replace_all(dmg_string, "死にかけている", "死にかけ");
+
+                str += ", " + dmg_string;
+            }
 
             string consinfo = mi.constriction_description();
             if (!consinfo.empty())
@@ -692,7 +701,7 @@ void full_describe_view()
         const menu_sort_condition *cond = desc_menu.find_menu_sort_condition();
         desc_menu.sort_menu(all_items, cond);
 
-        desc_menu.add_entry(new MenuEntry("Items", MEL_SUBTITLE));
+        desc_menu.add_entry(new MenuEntry(jtrans("Items"), MEL_SUBTITLE));
         for (InvEntry *me : all_items)
         {
 #ifndef USE_TILE_LOCAL
@@ -710,7 +719,7 @@ void full_describe_view()
 
     if (!list_features.empty())
     {
-        desc_menu.add_entry(new MenuEntry("Features", MEL_SUBTITLE));
+        desc_menu.add_entry(new MenuEntry(jtrans("Features"), MEL_SUBTITLE));
         for (const coord_def c : list_features)
         {
             string desc = "";
@@ -726,7 +735,7 @@ void full_describe_view()
 #endif
             desc += feature_description_at(c, false, DESC_A, false);
             if (is_unknown_stair(c))
-                desc += " (not visited)";
+                desc += jtrans_notrim(" (not visited)");
             FeatureMenuEntry *me = new FeatureMenuEntry(desc, c, hotkey);
             me->tag        = "description";
             // Hack to make features selectable.
@@ -887,9 +896,9 @@ bool direction_chooser::move_is_ok() const
         if (!cell_see_cell(you.pos(), target(), LOS_NO_TRANS))
         {
             if (you.see_cell(target()))
-                mprf(MSGCH_EXAMINE_FILTER, "There's something in the way.");
+                mprf(MSGCH_EXAMINE_FILTER, jtrans("There's something in the way."));
             else
-                mprf(MSGCH_EXAMINE_FILTER, "You can't see that place.");
+                mprf(MSGCH_EXAMINE_FILTER, jtrans("You can't see that place."));
             return false;
         }
 
@@ -901,7 +910,7 @@ bool direction_chooser::move_is_ok() const
                     || self == CONFIRM_PROMPT
                        && Options.allow_self_target == CONFIRM_CANCEL)
                 {
-                    mprf(MSGCH_EXAMINE_FILTER, "That would be overly suicidal.");
+                    mprf(MSGCH_EXAMINE_FILTER, jtrans("That would be overly suicidal."));
                     return false;
                 }
                 else if (self != CONFIRM_NONE
@@ -913,7 +922,7 @@ bool direction_chooser::move_is_ok() const
 
             if (self == CONFIRM_CANCEL)
             {
-                mprf(MSGCH_EXAMINE_FILTER, "Sorry, you can't target yourself.");
+                mprf(MSGCH_EXAMINE_FILTER, jtrans("Sorry, you can't target yourself."));
                 return false;
             }
         }
@@ -1034,14 +1043,14 @@ bool direction_chooser::find_default_monster_target(coord_def& result) const
     {
         // Special colouring in tutorial or hints mode.
         const bool need_hint = Hints.hints_events[HINT_TARGET_NO_FOE];
-        mprf(need_hint ? MSGCH_TUTORIAL : MSGCH_PROMPT,
+        mprf(need_hint ? MSGCH_TUTORIAL : MSGCH_PROMPT, jtrans(
             "All monsters which could be auto-targeted are covered by "
             "a wall or statue which interrupts your line of fire, even "
-            "though it doesn't interrupt your line of sight.");
+            "though it doesn't interrupt your line of sight."));
 
         if (need_hint)
         {
-            mprf(MSGCH_TUTORIAL, "To return to the main mode, press <w>Escape</w>.");
+            mprf(MSGCH_TUTORIAL, jtrans("To return to the main mode, press <w>Escape</w>."));
             Hints.hints_events[HINT_TARGET_NO_FOE] = false;
         }
     }
@@ -1274,7 +1283,7 @@ bool direction_chooser::select(bool allow_out_of_range, bool endpoint)
         && !in_range(target()))
     {
         mprf(MSGCH_EXAMINE_FILTER, "%s",
-             hitfunc? hitfunc->why_not.c_str() : "That is beyond the maximum range.");
+             jtransc(hitfunc? hitfunc->why_not.c_str() : "That is beyond the maximum range."));
         return false;
     }
     moves.isEndpoint = endpoint || (mons && _mon_exposed(mons));
@@ -1291,7 +1300,7 @@ bool direction_chooser::pickup_item()
         ii = env.map_knowledge(target()).item();
     if (!ii || !ii->is_valid(true))
     {
-        mprf(MSGCH_EXAMINE_FILTER, "You can't see any item there.");
+        mprf(MSGCH_EXAMINE_FILTER, jtrans("You can't see any item there."));
         return false;
     }
     ii->flags |= ISFLAG_THROWN; // make autoexplore greedy
@@ -1320,7 +1329,7 @@ bool direction_chooser::pickup_item()
 
     if (!just_looking) // firing/casting prompt
     {
-        mprf(MSGCH_EXAMINE_FILTER, "Marked for pickup.");
+        mprf(MSGCH_EXAMINE_FILTER, jtrans("Marked for pickup."));
         return false;
     }
 
@@ -1339,7 +1348,7 @@ bool direction_chooser::handle_signals()
         moves.isValid  = false;
         moves.isCancel = true;
 
-        mprf(MSGCH_ERROR, "Targeting interrupted by HUP signal.");
+        mprf(MSGCH_ERROR, jtrans("Targeting interrupted by HUP signal."));
         return true;
     }
     return false;
@@ -1364,7 +1373,7 @@ void direction_chooser::print_target_description(bool &did_cloud) const
     if (!in_range(target()))
     {
         mprf(MSGCH_EXAMINE_FILTER, "%s",
-             hitfunc ? hitfunc->why_not.c_str() : "Out of range.");
+             jtransc(hitfunc ? hitfunc->why_not.c_str() : "Out of range."));
     }
 }
 
@@ -1386,7 +1395,7 @@ string direction_chooser::target_interesting_terrain_description() const
 string direction_chooser::target_cloud_description() const
 {
     if (cloud_struct* cloud = cloud_at(target()))
-        return cloud->cloud_name(true);
+        return cloud->cloud_name_j(true);
     else
         return "";
 }
@@ -1411,7 +1420,7 @@ string direction_chooser::target_silence_description() const
 static void _push_back_if_nonempty(const string& str, vector<string>* vec)
 {
     if (!str.empty())
-        vec->push_back(str);
+        vec->push_back(tagged_jtrans("[desc]", str));
 }
 
 void direction_chooser::print_target_monster_description(bool &did_cloud) const
@@ -1430,16 +1439,16 @@ void direction_chooser::print_target_monster_description(bool &did_cloud) const
     vector<string> suffixes;
     string text;
     // Cell features go first.
-    _append_container(suffixes, target_cell_description_suffixes());
+    append_container_jtrans(suffixes, target_cell_description_suffixes());
     if (visible)
     {
         monster_info mi(mon);
         // Only describe the monster if you can actually see it.
-        _append_container(suffixes, monster_description_suffixes(mi));
+        append_container_jtrans(suffixes, monster_description_suffixes(mi));
         text = get_monster_equipment_desc(mi);
     }
     else
-        text = "Disturbance";
+        text = jtrans("Disturbance");
 
     // Build the final description string.
     if (!suffixes.empty())
@@ -1450,7 +1459,7 @@ void direction_chooser::print_target_monster_description(bool &did_cloud) const
     }
 
     mprf(MSGCH_PROMPT, "%s: <lightgrey>%s</lightgrey>",
-         target_prefix ? target_prefix : "Aim",
+         jtransc(target_prefix ? target_prefix : "Aim"),
          text.c_str());
 
     // If there's a cloud here, it's been described.
@@ -1495,7 +1504,7 @@ void direction_chooser::print_target_object_description() const
 
     // FIXME: remove the duplication with print_items_description().
     mprf(MSGCH_PROMPT, "%s: %s",
-         target_prefix ? target_prefix : "Aim",
+         jtransc(target_prefix ? target_prefix : "Aim"),
          menu_colour_item_name(*item, DESC_A).c_str());
 }
 
@@ -1509,11 +1518,11 @@ void direction_chooser::print_items_description() const
         return;
 
     // Print the first item.
-    mprf(MSGCH_FLOOR_ITEMS, "%s.",
+    mprf(MSGCH_FLOOR_ITEMS, "%s",
          menu_colour_item_name(*item, DESC_A).c_str());
 
     if (multiple_items_at(target()))
-        mprf(MSGCH_FLOOR_ITEMS, "There is something else lying underneath.");
+        mprf(MSGCH_FLOOR_ITEMS, jtrans("There is something else lying underneath."));
 }
 
 void direction_chooser::print_floor_description(bool boring_too) const
@@ -1569,7 +1578,7 @@ void direction_chooser::toggle_beam()
 {
     if (!needs_path)
     {
-        mprf(MSGCH_EXAMINE_FILTER, "This spell doesn't need a beam path.");
+        mprf(MSGCH_EXAMINE_FILTER, jtrans("This spell doesn't need a beam path."));
         return;
     }
 
@@ -1598,7 +1607,7 @@ bool direction_chooser::select_previous_target()
     }
     else
     {
-        mprf(MSGCH_EXAMINE_FILTER, "Your target is gone.");
+        mprf(MSGCH_EXAMINE_FILTER, jtrans("Your target is gone."));
         flush_prev_message();
         return false;
     }
@@ -1658,14 +1667,14 @@ void direction_chooser::handle_wizard_command(command_type key_command,
         return;
 
     case CMD_TARGET_WIZARD_DEBUG_PORTAL:
-        mprf(MSGCH_DIAGNOSTICS, "Trying to run portal debug at %d/%d...",
+        mprf(MSGCH_DIAGNOSTICS, jtransc("Trying to run portal debug at %d/%d..."),
             target().x, target().y);
 
         marker_result =
             env.markers.property_at(target(), MAT_ANY, "portal_debug");
 
-        mprf(MSGCH_DIAGNOSTICS, "Got result: %s!",
-            marker_result.empty() ? "nothing" : marker_result.c_str());
+        mprf(MSGCH_DIAGNOSTICS, jtransc("Got result: %s!"),
+             jtransc(marker_result.empty() ? "nothing" : marker_result));
 
         return;
 
@@ -1726,7 +1735,7 @@ void direction_chooser::handle_wizard_command(command_type key_command,
 
     case CMD_TARGET_WIZARD_HURT_MONSTER:
         m->hit_points = 1;
-        mpr("Brought monster down to 1 HP.");
+        mpr(jtrans("Brought monster down to 1 HP."));
         flush_prev_message();
         break;
 
@@ -1853,7 +1862,7 @@ bool direction_chooser::do_main_loop()
             break;
 
         if (!is_map_persistent())
-            mpr("You cannot set exclusions on this level.");
+            mpr(jtrans("You cannot set exclusions on this level."));
         else
         {
             const bool was_excluded = is_exclude_root(target());
@@ -1862,11 +1871,11 @@ bool direction_chooser::do_main_loop()
             need_beam_redraw   = true;
             const bool is_excluded = is_exclude_root(target());
             if (!was_excluded && is_excluded)
-                mpr("Placed new exclusion.");
+                mpr(jtrans("Placed new exclusion."));
             else if (was_excluded && !is_excluded)
-                mpr("Removed exclusion.");
+                mpr(jtrans("Removed exclusion."));
             else
-                mpr("Reduced exclusion size to a single square.");
+                mpr(jtrans("Reduced exclusion size to a single square."));
         }
 
         need_cursor_redraw = true;
@@ -2029,7 +2038,7 @@ bool direction_chooser::choose_direction()
 string get_terse_square_desc(const coord_def &gc)
 {
     string desc = "";
-    const char *unseen_desc = "[unseen terrain]";
+    const string unseen_desc = jtrans("[unseen terrain]");
 
     if (gc == you.pos())
         desc = you.your_name;
@@ -2075,14 +2084,15 @@ void get_square_desc(const coord_def &c, describe_info &inf)
     if (const monster_info *mi = env.map_knowledge(c).monsterinfo())
     {
         // First priority: monsters.
-        string desc = uppercase_first(get_monster_equipment_desc(*mi))
-                    + ".\n";
+        string desc = get_monster_equipment_desc(*mi) + jtrans_notrim(".\n");
         const string wounds = mi->wounds_description_sentence();
         if (!wounds.empty())
             desc += uppercase_first(wounds) + "\n";
         const string constrictions = mi->constriction_description();
         if (!constrictions.empty())
-            desc += "It is " + constrictions + ".\n";
+            desc += make_stringf(jtrans_notrimc("{It} is %s.\n"),
+                                 mi->pronoun_j(PRONOUN_SUBJECTIVE).c_str(),
+                                 constrictions.c_str());
         desc += _get_monster_desc(*mi);
 
         inf.title = desc;
@@ -2105,8 +2115,8 @@ void get_square_desc(const coord_def &c, describe_info &inf)
     const cloud_type cloud = env.map_knowledge(c).cloud();
     if (cloud != CLOUD_NONE)
     {
-        inf.prefix = "There is a cloud of " + cloud_type_name(cloud)
-                     + " here.\n\n";
+        inf.prefix = make_stringf(jtrans_notrimc("There is a cloud of %s here.\n\n"),
+                                  cloud_type_name_j(cloud).c_str());
     }
 }
 
@@ -2168,7 +2178,7 @@ static void _extend_move_to_edge(dist &moves)
 // cache and noted in the Dungeon (O)verview, names the stair.
 static void _describe_oos_square(const coord_def& where)
 {
-    mprf(MSGCH_EXAMINE_FILTER, "You can't see that place.");
+    mprf(MSGCH_EXAMINE_FILTER, jtrans("You can't see that place."));
 
     if (!in_bounds(where) || !env.map_knowledge(where).seen())
     {
@@ -2664,7 +2674,7 @@ static void _describe_oos_feature(const coord_def& where)
     string desc = feature_description(env.map_knowledge(where).feat());
 
     if (!desc.empty())
-        mprf(MSGCH_EXAMINE_FILTER, "[%s]", desc.c_str());
+        mprf(MSGCH_EXAMINE_FILTER, "[%s]", jtransc(desc));
 }
 
 // Returns a vector of features matching the given pattern.
@@ -2692,7 +2702,7 @@ void describe_floor()
 {
     dungeon_feature_type grid = env.map_knowledge(you.pos()).feat();
 
-    const char* prefix = "There is ";
+    string msg = "There is %s here.";
     string feat;
 
     switch (grid)
@@ -2701,7 +2711,7 @@ void describe_floor()
         return;
 
     case DNGN_ENTER_SHOP:
-        prefix = "There is an entrance to ";
+        msg = "There is an entrance to %s here.";
         break;
 
     default:
@@ -2719,9 +2729,9 @@ void describe_floor()
     if (feat_is_water(grid) || feat_is_lava(grid))
         return;
 
-    mprf(channel, "%s%s here.", prefix, feat.c_str());
+    mprf(channel, jtransc(msg), feat.c_str());
     if (grid == DNGN_ENTER_LABYRINTH)
-        mprf(MSGCH_EXAMINE, "Beware, the minotaur awaits!");
+        mprf(MSGCH_EXAMINE, jtrans("Beware, the minotaur awaits!"));
 }
 
 static string _base_feature_desc(dungeon_feature_type grid, trap_type trap)
@@ -2741,6 +2751,18 @@ static string _base_feature_desc(dungeon_feature_type grid, trap_type trap)
 string feature_description(dungeon_feature_type grid, trap_type trap,
                            const string & cover_desc,
                            description_level_type dtype, bool add_stop)
+{
+    string desc = cover_desc + feature_name_j(_base_feature_desc(grid, trap));
+
+    if (grid == DNGN_FLOOR && dtype == DESC_A)
+        dtype = DESC_THE;
+
+    return thing_do_grammar_j(dtype, add_stop, feat_is_trap(grid), desc);
+}
+
+string feature_description_en(dungeon_feature_type grid, trap_type trap,
+                              const string & cover_desc,
+                              description_level_type dtype, bool add_stop)
 {
     string desc = _base_feature_desc(grid, trap);
     desc += cover_desc;
@@ -2777,6 +2799,145 @@ static bool _interesting_feature(dungeon_feature_type feat)
 #endif
 
 string feature_description_at(const coord_def& where, bool covering,
+                              description_level_type dtype, bool add_stop)
+{
+    dungeon_feature_type grid = env.map_knowledge(where).feat();
+    trap_type trap = env.map_knowledge(where).trap();
+
+    string marker_desc = env.markers.property_at(where, MAT_ANY,
+                                                 "feature_description");
+
+    string covering_description = "";
+
+    if (covering && you.see_cell(where))
+    {
+        if (is_bloodcovered(where))
+            covering_description = jtrans(", spattered with blood");
+        else if (glowing_mold(where))
+            covering_description = jtrans(", covered with glowing mould");
+        else if (is_moldy(where))
+            covering_description = jtrans(", covered with mould");
+    }
+
+    // FIXME: remove desc markers completely; only Zin walls are left.
+    // They suffer, among other problems, from an information leak.
+    if (!marker_desc.empty())
+    {
+        marker_desc = covering_description + feature_name_j(marker_desc);
+
+        return thing_do_grammar_j(dtype, add_stop, false, marker_desc);
+    }
+
+    if (grid == DNGN_OPEN_DOOR || feat_is_closed_door(grid))
+    {
+        const string door_desc_prefix =
+            env.markers.property_at(where, MAT_ANY,
+                                    "door_description_prefix");
+        const string door_desc_suffix =
+            env.markers.property_at(where, MAT_ANY,
+                                    "door_description_suffix");
+        const string door_desc_noun =
+            env.markers.property_at(where, MAT_ANY,
+                                    "door_description_noun");
+        const string door_desc_adj  =
+            env.markers.property_at(where, MAT_ANY,
+                                    "door_description_adjective");
+        const string door_desc_veto =
+            env.markers.property_at(where, MAT_ANY,
+                                    "door_description_veto");
+
+        set<coord_def> all_door;
+        find_connected_identical(where, all_door);
+        const char *adj, *noun;
+        get_door_description(all_door.size(), &adj, &noun);
+
+        string desc;
+
+        if (starts_with(door_desc_suffix, " to ") || // for linesprint
+            starts_with(door_desc_suffix, " leading to ")) // for pitsprint
+            desc += jtrans(door_desc_suffix);
+
+        desc += covering_description;
+
+        if (door_desc_veto.empty() || door_desc_veto != "veto")
+        {
+            if (grid == DNGN_OPEN_DOOR)
+                desc += adj_j("open ");
+            else if (grid == DNGN_RUNED_DOOR)
+                desc += adj_j("runed ");
+            else if (grid == DNGN_SEALED_DOOR)
+                desc += adj_j("sealed ");
+            else
+                desc += adj_j("closed ");
+        }
+
+        if (!door_desc_adj.empty())
+            desc += jtrans(door_desc_adj);
+        else
+            desc += adj_j(adj);
+
+        desc += jtrans(door_desc_prefix);
+
+        if (!door_desc_noun.empty())
+            desc += jtrans(door_desc_noun);
+        else
+            desc += jtrans(noun);
+
+        if (!starts_with(door_desc_suffix, " to ") &&
+            !starts_with(door_desc_suffix, " leading to the"))
+            desc += jtrans(door_desc_suffix);
+
+        return thing_do_grammar_j(dtype, add_stop, false, desc);
+    }
+
+    switch (grid)
+    {
+    case DNGN_TRAP_MECHANICAL:
+        return feature_description(grid, trap, covering_description, dtype,
+                                   add_stop);
+    case DNGN_ABANDONED_SHOP:
+        return thing_do_grammar_j(dtype, add_stop, false, jtrans("an abandoned shop"));
+
+    case DNGN_ENTER_SHOP:
+        if (add_stop)
+            return make_stringf(jtransc("{shop name}."),
+                                shop_name(*shop_at(where)).c_str());
+        else
+            return shop_name(*shop_at(where));
+
+#if TAG_MAJOR_VERSION == 34
+    case DNGN_ENTER_PORTAL_VAULT:
+        // Should have been handled at the top of the function.
+        return thing_do_grammar_j(
+                   dtype, add_stop, false,
+                   "UNAMED PORTAL VAULT ENTRY");
+#endif
+
+    case DNGN_TREE:
+    {
+        string desc = "";
+        if (env.forest_awoken_until)
+            desc += jtrans("awoken ");
+        desc += feature_name_j(grid == grd(where) ? raw_feature_description(where)
+                                                  : _base_feature_desc(grid, trap));
+        desc += covering_description;
+        return thing_do_grammar_j(dtype, add_stop, false, desc);
+    }
+
+    case DNGN_FLOOR:
+        if (dtype == DESC_A)
+            dtype = DESC_THE;
+        // fallthrough
+    default:
+        const string featdesc = feature_name_j(grid == grd(where)
+                                               ? raw_feature_description(where)
+                                               : _base_feature_desc(grid, trap));
+        return thing_do_grammar_j(dtype, add_stop, feat_is_trap(grid),
+                                  covering_description + featdesc);
+    }
+}
+
+string feature_description_at_en(const coord_def& where, bool covering,
                               description_level_type dtype, bool add_stop)
 {
     dungeon_feature_type grid = env.map_knowledge(where).feat();
@@ -2827,7 +2988,7 @@ string feature_description_at(const coord_def& where, bool covering,
         set<coord_def> all_door;
         find_connected_identical(where, all_door);
         const char *adj, *noun;
-        get_door_description(all_door.size(), &adj, &noun);
+        get_door_description_en(all_door.size(), &adj, &noun);
 
         string desc;
         if (!door_desc_adj.empty())
@@ -2864,7 +3025,7 @@ string feature_description_at(const coord_def& where, bool covering,
     switch (grid)
     {
     case DNGN_TRAP_MECHANICAL:
-        return feature_description(grid, trap, covering_description, dtype,
+        return feature_description_en(grid, trap, covering_description, dtype,
                                    add_stop);
     case DNGN_ABANDONED_SHOP:
         return thing_do_grammar(dtype, add_stop, false, "an abandoned shop");
@@ -2904,7 +3065,7 @@ string feature_description_at(const coord_def& where, bool covering,
     }
 }
 
-static string _describe_monster_weapon(const monster_info& mi, bool ident)
+static string _describe_monster_weapon(const monster_info& mi, bool ident, bool weapon_only = false)
 {
     string desc = "";
     string name1, name2;
@@ -2940,16 +3101,19 @@ static string _describe_monster_weapon(const monster_info& mi, bool ident)
     if (name1.empty())
         return desc;
 
-    desc += " wielding ";
     desc += name1;
 
     if (!name2.empty())
     {
-        desc += " and ";
+        desc += jtrans(" and ");
         desc += name2;
     }
 
-    return desc;
+    if (weapon_only)
+        return desc;
+    else
+        return make_stringf(jtransc(" wielding %s"),
+                            desc.c_str());
 }
 
 #ifdef DEBUG_DIAGNOSTICS
@@ -2973,11 +3137,10 @@ static string _mon_enchantments_string(const monster_info& mi)
 
     if (!enchant_descriptors.empty())
     {
-        return uppercase_first(mi.pronoun(PRONOUN_SUBJECTIVE))
-            + " is "
-            + comma_separated_line(enchant_descriptors.begin(),
-                                   enchant_descriptors.end())
-            + ".";
+        return make_stringf(jtransc("{pronoun} is {ench desc list}."),
+                            mi.pronoun_j(PRONOUN_SUBJECTIVE).c_str(),
+                            comma_separated_line(enchant_descriptors.begin(),
+                                                 enchant_descriptors.end()).c_str());
     }
     else
         return "";
@@ -3048,9 +3211,9 @@ static vector<string> _get_monster_desc_vector(const monster_info& mi)
 
     if (mi.fire_blocker)
     {
-        descs.push_back("fire blocked by " // FIXME, renamed features
-                        + feature_description(mi.fire_blocker, NUM_TRAPS, "",
-                                              DESC_A, false));
+        descs.push_back(make_stringf(jtransc("fire blocked by %s"), // FIXME, renamed features
+                                     feature_description(mi.fire_blocker, NUM_TRAPS, "",
+                                                         DESC_A, false).c_str()));
     }
 
     return descs;
@@ -3061,81 +3224,79 @@ static vector<string> _get_monster_desc_vector(const monster_info& mi)
 static string _get_monster_desc(const monster_info& mi)
 {
     string text    = "";
-    string pronoun = uppercase_first(mi.pronoun(PRONOUN_SUBJECTIVE));
+    string pronoun = mi.pronoun_j(PRONOUN_SUBJECTIVE);
 
     if (mi.is(MB_CLINGING))
-        text += pronoun + " is clinging to the wall.\n";
+        text += pronoun + jtransln(" is clinging to the wall.\n");
 
     if (mi.is(MB_MESMERIZING))
-        text += "You are mesmerised by her song.\n";
+        text += jtrans_notrim("You are mesmerised by her song.\n");
 
     if (mi.is(MB_SLEEPING) || mi.is(MB_DORMANT))
     {
-        text += pronoun + " appears to be "
-                + (mi.is(MB_CONFUSED) ? "sleepwalking"
-                        : "resting")
-                          + ".\n";
+        text += make_stringf(jtrans_notrimc("%s appears to be %s.\n"),
+                             pronoun.c_str(),
+                             jtransc((mi.is(MB_CONFUSED) ? "sleepwalking"
+                                                         : "resting")));
     }
     // Applies to both friendlies and hostiles
     else if (mi.is(MB_FLEEING))
-        text += pronoun + " is fleeing.\n";
+        text += pronoun + jtransln(" is fleeing.\n");
     // hostile with target != you
     else if (mi.attitude == ATT_HOSTILE && (mi.is(MB_UNAWARE) || mi.is(MB_WANDERING)))
-        text += pronoun + " doesn't appear to have noticed you.\n";
+        text += pronoun + jtransln(" doesn't appear to have noticed you.\n");
 
     if (mi.attitude == ATT_FRIENDLY)
-        text += pronoun + " is friendly.\n";
+        text += pronoun + jtransln(" is friendly.\n");
     else if (mi.attitude == ATT_GOOD_NEUTRAL)
-        text += pronoun + " seems to be peaceful towards you.\n";
+        text += pronoun + jtransln(" seems to be peaceful towards you.\n");
     else if (mi.attitude != ATT_HOSTILE && !mi.is(MB_INSANE))
     {
         // don't differentiate between permanent or not
-        text += pronoun + " is indifferent to you.\n";
+        text += pronoun + jtransln(" is indifferent to you.\n");
     }
 
     if (mi.is(MB_SUMMONED) || mi.is(MB_PERM_SUMMON))
     {
-        text += pronoun + " has been summoned";
-        if (mi.is(MB_SUMMONED_CAPPED))
-            text += ", and is expiring";
-        else if (mi.is(MB_PERM_SUMMON))
-            text += " but will not time out";
-        text += ".\n";
+        text += make_stringf(jtrans_notrimc("%s has been summoned%s.\n"),
+                             pronoun.c_str(),
+                             (mi.is(MB_SUMMONED_CAPPED) ? jtransc(", and is expiring")
+                               : (mi.is(MB_PERM_SUMMON) ? jtransc(" but will not time out")
+                                                        : "いる")));
     }
 
     if (mi.is(MB_HALOED))
-        text += pronoun + " is illuminated by a divine halo.\n";
+        text += pronoun + jtransln(" is illuminated by a divine halo.\n");
 
     if (mi.is(MB_UMBRAED))
-        text += pronoun + " is wreathed by an umbra.\n";
+        text += pronoun + jtransln(" is wreathed by an umbra.\n");
 
     if (mi.intel() <= I_BRAINLESS)
-        text += pronoun + " is mindless.\n";
+        text += pronoun + jtransln(" is mindless.\n");
 
     if (mi.is(MB_CHAOTIC))
-        text += pronoun + " is chaotic.\n";
+        text += pronoun + jtransln(" is chaotic.\n");
 
     if (mi.is(MB_POSSESSABLE))
     {
-        text += string(mi.pronoun(PRONOUN_POSSESSIVE))
-                + " soul is ripe for the taking.\n";
+        text += string(mi.pronoun_j(PRONOUN_POSSESSIVE))
+                + jtransln(" soul is ripe for the taking.\n");
     }
     else if (mi.is(MB_ENSLAVED))
-        text += pronoun + " is a disembodied soul.\n";
+        text += pronoun + jtransln(" is a disembodied soul.\n");
 
     if (mi.is(MB_MIRROR_DAMAGE))
-        text += pronoun + " is reflecting injuries back at attackers.\n";
+        text += pronoun + jtransln(" is reflecting injuries back at attackers.\n");
 
     if (mi.is(MB_INNER_FLAME))
-        text += pronoun + " is filled with an inner flame.\n";
+        text += pronoun + jtransln(" is filled with an inner flame.\n");
 
     if (mi.fire_blocker)
     {
-        text += string("Your line of fire to ") + mi.pronoun(PRONOUN_OBJECTIVE)
-              + " is blocked by " // FIXME: renamed features
-              + feature_description(mi.fire_blocker, NUM_TRAPS, "",
-                                    DESC_A)
-              + "\n";
+        text += make_stringf(jtrans_notrimc("Your line of fire to %s is blocked by %s\n"),
+                             mi.pronoun_j(PRONOUN_OBJECTIVE).c_str(),
+                             feature_description(mi.fire_blocker, NUM_TRAPS, "",
+                                    DESC_A).c_str());
     }
 
     text += _mon_enchantments_string(mi);
@@ -3147,13 +3308,15 @@ static string _get_monster_desc(const monster_info& mi)
 static void _describe_monster(const monster_info& mi)
 {
     // First print type and equipment.
-    string text = uppercase_first(get_monster_equipment_desc(mi)) + ".";
+    string text = uppercase_first(get_monster_equipment_desc(mi)) + jtrans(".");
     const string wounds_desc = mi.wounds_description_sentence();
     if (!wounds_desc.empty())
         text += " " + uppercase_first(wounds_desc);
     const string constriction_desc = mi.constriction_description();
     if (!constriction_desc.empty())
-        text += " It is" + constriction_desc + ".";
+        text += make_stringf(jtrans_notrimc(" {It} is %s."),
+                             mi.pronoun_j(PRONOUN_SUBJECTIVE).c_str(),
+                             constriction_desc.c_str());
     mprf(MSGCH_EXAMINE, "%s", text.c_str());
 
     // Print the rest of the description.
@@ -3182,24 +3345,24 @@ string get_monster_equipment_desc(const monster_info& mi,
         {
             vector<string> attributes;
             if (mi.is(MB_CHARMED))
-                attributes.emplace_back("charmed");
+                attributes.emplace_back(jtrans("charmed"));
             else if (mi.attitude == ATT_FRIENDLY)
-                attributes.emplace_back("friendly");
+                attributes.emplace_back(jtrans("friendly"));
             else if (mi.attitude == ATT_GOOD_NEUTRAL)
-                attributes.emplace_back("peaceful");
+                attributes.emplace_back(jtrans("peaceful"));
             else if (mi.is(MB_INSANE))
-                attributes.emplace_back("insane");
+                attributes.emplace_back(jtrans("insane"));
             else if (mi.attitude != ATT_HOSTILE)
-                attributes.emplace_back("neutral");
+                attributes.emplace_back(jtrans("neutral"));
 
             if (mi.is(MB_SUMMONED))
-                attributes.emplace_back("summoned");
+                attributes.emplace_back(jtrans("summoned"));
 
             if (mi.is(MB_PERM_SUMMON))
-                attributes.emplace_back("durably summoned");
+                attributes.emplace_back(jtrans("durably summoned"));
 
             if (mi.is(MB_SUMMONED_CAPPED))
-                attributes.emplace_back("expiring");
+                attributes.emplace_back(jtrans("expiring"));
 
             string str = comma_separated_line(attributes.begin(),
                                               attributes.end());
@@ -3209,14 +3372,22 @@ string get_monster_equipment_desc(const monster_info& mi,
                 || mi.type == MONS_PLAYER_GHOST)
             {
                 if (!str.empty())
-                    str += " ";
+                {
+                    if (ends_with(str, "仲間") || ends_with(str, "狂気")
+                                               || ends_with(str, "召喚中"))
+                        str += "の";
+                    else if (ends_with(str, "的"))
+                        str += "な";
+                    else if (!ends_with(str, "近い"))
+                        str += ", ";
+                }
 
                 if (mi.type == MONS_DANCING_WEAPON)
-                    str += "dancing weapon";
+                    str += jtrans("dancing weapon");
                 else if (mi.type == MONS_PANDEMONIUM_LORD)
-                    str += "pandemonium lord";
+                    str += jtrans("pandemonium lord");
                 else if (mi.type == MONS_PLAYER_GHOST)
-                    str += "ghost";
+                    str += jtrans("ghost");
             }
             if (!str.empty())
                 desc += " (" + str + ")";
@@ -3231,7 +3402,7 @@ string get_monster_equipment_desc(const monster_info& mi,
              // dancing weapons' names already include this information
              || level == DESC_WEAPON && mi.type != MONS_DANCING_WEAPON)
     {
-        return " " + mi.full_name(DESC_A);
+        return mi.full_name(DESC_A);
     }
 
     // Print the rest of the equipment only for full descriptions.
@@ -3275,45 +3446,44 @@ string get_monster_equipment_desc(const monster_info& mi,
     vector<string> item_descriptions;
 
     if (!weap.empty())
-        item_descriptions.push_back(weap.substr(1)); // strip leading space
+    {
+        weap = _describe_monster_weapon(mi, level == DESC_IDENTIFIED, true);
+        item_descriptions.push_back(weap);
+    }
 
     if (mon_arm)
     {
-        const string armour_desc = make_stringf("wearing %s",
-                                                mon_arm->name(DESC_A).c_str());
+        const string armour_desc = mon_arm->name(DESC_A);
         item_descriptions.push_back(armour_desc);
     }
 
     if (mon_shd)
     {
-        const string shield_desc = make_stringf("wearing %s",
-                                                mon_shd->name(DESC_A).c_str());
+        const string shield_desc = mon_shd->name(DESC_A);
         item_descriptions.push_back(shield_desc);
     }
 
     if (mon_rng)
     {
-        const string rng_desc = make_stringf("wearing %s",
-                                             mon_rng->name(DESC_A).c_str());
+        const string rng_desc = mon_rng->name(DESC_A);
         item_descriptions.push_back(rng_desc);
     }
 
     if (mon_qvr)
     {
-        const string qvr_desc = make_stringf("quivering %s",
-                                             mon_qvr->name(DESC_A).c_str());
+        const string qvr_desc = mon_qvr->name(DESC_A);
         item_descriptions.push_back(qvr_desc);
     }
 
+    string carried_desc = "";
+
     if (mon_carry)
     {
-        string carried_desc = "carrying ";
-
         if (mon_alt)
         {
             carried_desc += mon_alt->name(DESC_A);
             if (mon_has_wand)
-                carried_desc += " and ";
+                carried_desc += jtrans(" and ");
         }
 
         if (mon_has_wand)
@@ -3321,19 +3491,23 @@ string get_monster_equipment_desc(const monster_info& mi,
             if (mi.props["wand_known"])
                 carried_desc += mon_wnd->name(DESC_A);
             else
-                carried_desc += "a wand";
+                carried_desc += jtrans("a wand");
         }
 
-        item_descriptions.push_back(carried_desc);
+        carried_desc += "を所持している";
     }
 
-    const string item_description = comma_separated_line(
+    const string item_description = to_separated_line(
                                                 item_descriptions.begin(),
-                                                item_descriptions.end());
+                                                item_descriptions.end(),
+                                                "と", "、", "、および");
 
     if (!item_description.empty() && !desc.empty())
-        desc += ", ";
-    return desc + item_description;
+        desc += ", " + item_description + "を装備している";
+    if (!carried_desc.empty() && !desc.empty())
+        desc += ", " + carried_desc;
+
+    return desc;
 }
 
 static bool _print_cloud_desc(const coord_def where)
@@ -3355,14 +3529,15 @@ static bool _print_cloud_desc(const coord_def where)
         areas.emplace_back("is bathed in translocational energy");
     if (!areas.empty())
     {
-        mprf("This square %s.",
-             comma_separated_line(areas.begin(), areas.end()).c_str());
+        mprf(jtransc("This square %s."),
+             (to_separated_line(areas.begin(), areas.end(),
+                                "おり、", "おり、", "おり、") + "いる").c_str());
     }
 
     if (cloud_struct* cloud = cloud_at(where))
     {
-        mprf(MSGCH_EXAMINE, "There is a cloud of %s here.",
-             cloud->cloud_name(true).c_str());
+        mprf(MSGCH_EXAMINE, jtransc("There is a cloud of %s here."),
+             cloud->cloud_name_j(true).c_str());
         return true;
     }
 
@@ -3377,10 +3552,10 @@ static bool _print_item_desc(const coord_def where)
         return false;
 
     string name = menu_colour_item_name(mitm[targ_item], DESC_A);
-    mprf(MSGCH_FLOOR_ITEMS, "You see %s here.", name.c_str());
+    mprf(MSGCH_FLOOR_ITEMS, jtransc("You see %s here."), name.c_str());
 
     if (mitm[ targ_item ].link != NON_ITEM)
-        mprf(MSGCH_FLOOR_ITEMS, "There is something else lying underneath.");
+        mprf(MSGCH_FLOOR_ITEMS, jtrans("There is something else lying underneath."));
 
     return true;
 }
@@ -3439,24 +3614,24 @@ static void _describe_cell(const coord_def& where, bool in_range)
 #endif
 
     if (where == you.pos() && !crawl_state.arena_suspended)
-        mprf(MSGCH_EXAMINE_FILTER, "You.");
+        mprf(MSGCH_EXAMINE_FILTER, jtrans("You."));
 
     if (const monster* mon = monster_at(where))
     {
 #ifdef DEBUG_DIAGNOSTICS
         if (!mon->visible_to(&you))
         {
-            mprf(MSGCH_DIAGNOSTICS, "There is a non-visible %smonster here.",
+            mprf(MSGCH_DIAGNOSTICS, jtransc("There is a non-visible %smonster here."), jtransc(
                  _mon_exposed_in_water(mon) ? "exposed by water " :
-                 _mon_exposed_in_cloud(mon) ? "exposed by cloud " : "");
+                 _mon_exposed_in_cloud(mon) ? "exposed by cloud " : ""));
         }
 #else
         if (!mon->visible_to(&you))
         {
             if (_mon_exposed_in_water(mon))
-                mprf(MSGCH_EXAMINE_FILTER, "There is a strange disturbance in the water here.");
+                mprf(MSGCH_EXAMINE_FILTER, jtrans("There is a strange disturbance in the water here."));
             else if (_mon_exposed_in_cloud(mon))
-                mprf(MSGCH_EXAMINE_FILTER, "There is a strange disturbance in the cloud here.");
+                mprf(MSGCH_EXAMINE_FILTER, jtrans("There is a strange disturbance in the cloud here."));
 
             goto look_clouds;
         }
@@ -3467,8 +3642,8 @@ static void _describe_cell(const coord_def& where, bool in_range)
 
         if (!in_range)
         {
-            mprf(MSGCH_EXAMINE_FILTER, "%s is out of range.",
-                 mon->pronoun(PRONOUN_SUBJECTIVE).c_str());
+            mprf(MSGCH_EXAMINE_FILTER, jtransc("%s is out of range."),
+                 mon->pronoun_j(PRONOUN_SUBJECTIVE).c_str());
         }
 #ifndef DEBUG_DIAGNOSTICS
         monster_described = true;
@@ -3485,7 +3660,7 @@ static void _describe_cell(const coord_def& where, bool in_range)
 #else
             msg = "(Press <w>v</w> for more information.)";
 #endif
-            mpr(msg);
+            mpr(jtrans(msg));
         }
     }
 
@@ -3505,9 +3680,9 @@ static void _describe_cell(const coord_def& where, bool in_range)
     if (crawl_state.game_is_hints() && hints_pos_interesting(where.x, where.y))
     {
 #ifdef USE_TILE_LOCAL
-        feature_desc += " (<w>Right-click</w> for more information.)";
+        feature_desc += jtrans_notrim(" (<w>Right-click</w> for more information.)");
 #else
-        feature_desc += " (Press <w>v</w> for more information.)";
+        feature_desc += jtrans_notrim(" (Press <w>v</w> for more information.)");
 #endif
         mpr(feature_desc);
     }
@@ -3518,9 +3693,9 @@ static void _describe_cell(const coord_def& where, bool in_range)
         if (_interesting_feature(feat))
         {
 #ifdef USE_TILE_LOCAL
-            feature_desc += " (Right-click for more information.)";
+            feature_desc += jtrans_notrim(" (Right-click for more information.)");
 #else
-            feature_desc += " (Press 'v' for more information.)";
+            feature_desc += jtrans_notrim(" (Press 'v' for more information.)");
 #endif
         }
 

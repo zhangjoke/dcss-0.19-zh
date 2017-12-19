@@ -10,6 +10,7 @@
 #include "areas.h"
 #include "chardump.h"
 #include "coord.h"
+#include "database.h"
 #include "english.h"
 #include "env.h"
 #include "fprop.h"
@@ -47,15 +48,13 @@ ranged_attack::ranged_attack(actor *attk, actor *defn, item_def *proj,
     }
     else if (launch_type == LRET_LAUNCHED)
     {
-        aux_source = make_stringf("Shot with a%s %s by %s",
-                 (is_vowel(proj_name[0]) ? "n" : ""), proj_name.c_str(),
-                 attacker->name(DESC_A).c_str());
+        aux_source = make_stringf(jtransc("Shot with a%s %s by %s"),
+                                  attacker->name(DESC_A).c_str(), zap_name_jc(proj_name));
     }
     else
     {
-        aux_source = make_stringf("Hit by a%s %s thrown by %s",
-                 (is_vowel(proj_name[0]) ? "n" : ""), proj_name.c_str(),
-                 attacker->name(DESC_A).c_str());
+        aux_source = make_stringf(jtransc("Hit by a%s %s thrown by %s"),
+                                  attacker->name(DESC_A).c_str(), zap_name_jc(proj_name));
     }
 
     needs_message = defender_visible;
@@ -172,8 +171,9 @@ bool ranged_attack::handle_phase_attempted()
 bool ranged_attack::handle_phase_blocked()
 {
     ASSERT(!ignores_shield(false));
-    string punctuation = ".";
+    string punctuation = jtrans(".");
     string verb = "block";
+    string by_item;
 
     const bool reflected_by_shield = defender_shield
                                      && is_shield(*defender_shield)
@@ -186,33 +186,35 @@ bool ranged_attack::handle_phase_blocked()
         {
             if (reflected_by_shield)
             {
-                punctuation = " off " + defender->pronoun(PRONOUN_POSSESSIVE)
-                              + " " + defender_shield->name(DESC_PLAIN).c_str()
-                              + "!";
+                by_item = make_stringf(jtransc("off {its} {shield}"),
+                                       defender->pronoun_j(PRONOUN_POSSESSIVE).c_str(),
+                                       defender_shield->name(DESC_PLAIN).c_str());
+                punctuation = jtrans("!");
                 ident_reflector(defender_shield);
             }
             else
             {
-                punctuation = " off an invisible shield around "
-                            + defender->pronoun(PRONOUN_OBJECTIVE) + "!";
-
+                by_item = make_stringf(jtransc(" off an invisible shield around {itself}!"),
+                                       defender->pronoun_j(PRONOUN_OBJECTIVE).c_str());
+                punctuation = jtrans("!");                
                 item_def *amulet = defender->slot_item(EQ_AMULET, false);
                 if (amulet)
                    ident_reflector(amulet);
             }
         }
         else
-            punctuation = "!";
+            punctuation = jtrans("!");
     }
     else
         range_used = BEAM_STOP;
 
     if (needs_message)
     {
-        mprf("%s %s %s%s",
+        mprf(jtransc("{defender} {block|reflect} {off item} {projectile}{punct}"),
              defender_name(false).c_str(),
-             defender->conj_verb(verb).c_str(),
-             projectile->name(DESC_THE).c_str(),
+             by_item.c_str(),
+             zap_name_jc(projectile->name(DESC_THE)),
+             defender->conj_verb_j(verb).c_str(),
              punctuation.c_str());
     }
 
@@ -234,13 +236,14 @@ bool ranged_attack::handle_phase_dodged()
         {
             if (defender->missile_deflection() >= 2)
             {
-                mprf("%s %s %s!",
+                mprf(jtransc("{defender} {deflects} {projectile}!"),
                      defender->name(DESC_THE).c_str(),
-                     defender->conj_verb("deflect").c_str(),
-                     projectile->name(DESC_THE).c_str());
+                     zap_name_jc(projectile->name(DESC_THE)),
+                     defender->conj_verb("deflect").c_str());
             }
             else
-                mprf("%s is repelled.", projectile->name(DESC_THE).c_str());
+                mprf(jtransc("%s is repelled."),
+                     zap_name_jc(projectile->name(DESC_THE)));
 
             defender->ablate_deflection();
         }
@@ -256,10 +259,10 @@ bool ranged_attack::handle_phase_dodged()
 
     if (needs_message)
     {
-        mprf("%s%s misses %s%s",
-             projectile->name(DESC_THE).c_str(),
-             evasion_margin_adverb().c_str(),
+        mprf(tagged_jtransc("[ranged]", "%s%s misses %s%s"),
+             zap_name_jc(projectile->name(DESC_THE)),
              defender_name(false).c_str(),
+             adv_jc(evasion_margin_adverb()),
              attack_strength_punctuation(damage_done).c_str());
     }
 
@@ -297,10 +300,10 @@ bool ranged_attack::handle_phase_hit()
         }
         else if (needs_message)
         {
-            mprf("%s %s %s but does no damage.",
-                 projectile->name(DESC_THE).c_str(),
-                 attack_verb.c_str(),
-                 defender->name(DESC_THE).c_str());
+            mprf(jtransc("%s %s %s but does no damage."),
+                 zap_name_jc(projectile->name(DESC_THE)),
+                 defender->name(DESC_THE).c_str(),
+                 verb_jc(attack_verb));
         }
     }
 
@@ -395,11 +398,11 @@ bool ranged_attack::ignores_shield(bool verbose)
     {
         if (verbose)
         {
-            mprf("%s pierces through %s %s!",
-                 projectile->name(DESC_THE).c_str(),
-                 apostrophise(defender_name(false)).c_str(),
-                 defender_shield ? defender_shield->name(DESC_PLAIN).c_str()
-                                 : "shielding");
+            mprf(jtransc("%s pierces through %s %s!"),
+                 zap_name_jc(projectile->name(DESC_THE)),
+                 defender_name(false).c_str(),
+                 jtransc(defender_shield ? defender_shield->name(DESC_PLAIN).c_str()
+                                         : "shielding"));
         }
         return true;
     }
@@ -812,10 +815,10 @@ void ranged_attack::announce_hit()
     if (!needs_message)
         return;
 
-    mprf("%s %s %s%s%s",
-         projectile->name(DESC_THE).c_str(),
-         attack_verb.c_str(),
+    mprf(jtransc("%s %s %s%s%s"),
+         zap_name_jc(projectile->name(DESC_THE)),
          defender_name(false).c_str(),
-         debug_damage_number().c_str(),
-         attack_strength_punctuation(damage_done).c_str());
+         verb_jc(attack_verb),
+         attack_strength_punctuation(damage_done).c_str(),
+         debug_damage_number().c_str());
 }

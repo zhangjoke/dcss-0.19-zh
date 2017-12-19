@@ -28,6 +28,9 @@ void destroy_shop_at(coord_def p);
 
 string shop_name(const shop_struct& shop);
 string shop_type_name(shop_type type);
+string shop_type_name_j(shop_type typ);
+string shop_type_name_j(const string &name);
+#define shop_type_name_jc(t) (shop_type_name_j(t).c_str())
 
 bool shoptype_identifies_stock(shop_type type);
 

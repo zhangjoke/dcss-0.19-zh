@@ -261,11 +261,11 @@ bool beogh_followers_abandon_you()
         if (num_reconvert > 0)
         {
             if (num_reconvert == 1 && num_followers > 1)
-                chan << "One of your followers decides to abandon you.";
+                chan << jtrans("One of your followers decides to abandon you.");
             else if (num_reconvert == num_followers)
-                chan << "Your followers decide to abandon you.";
+                chan << jtrans("Your followers decide to abandon you.");
             else
-                chan << "Some of your followers decide to abandon you.";
+                chan << jtrans("Some of your followers decide to abandon you.");
         }
 
         chan << endl;
@@ -374,14 +374,14 @@ static void _jiyva_convert_slime(monster* slime)
     {
         if (mons_genus(slime->type) == MONS_FLOATING_EYE)
         {
-            mprf(MSGCH_GOD, "%s stares at you suspiciously for a moment, "
-                            "then relaxes.",
+            mprf(MSGCH_GOD, jtransc("%s stares at you suspiciously for a moment, "
+                                    "then relaxes."),
 
             slime->name(DESC_THE).c_str());
         }
         else
         {
-            mprf(MSGCH_GOD, "%s trembles before you.",
+            mprf(MSGCH_GOD, jtransc("%s trembles before you."),
                  slime->name(DESC_THE).c_str());
         }
     }

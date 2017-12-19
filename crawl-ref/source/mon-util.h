@@ -350,8 +350,10 @@ bool mons_can_attack(const monster& mon);
 bool mons_has_incapacitating_spell(const monster& mon, const actor& foe);
 bool mons_has_incapacitating_ranged_attack(const monster& mon, const actor& foe);
 
-const char *mons_pronoun(monster_type mon_type, pronoun_type variant,
+const string mons_pronoun(monster_type mon_type, pronoun_type variant,
                          bool visible = true);
+const string mons_pronoun_j(monster_type mon_type, pronoun_type variant,
+                            bool visible = true);
 
 bool mons_aligned(const actor *m1, const actor *m2);
 bool mons_atts_aligned(mon_attitude_type fr1, mon_attitude_type fr2);

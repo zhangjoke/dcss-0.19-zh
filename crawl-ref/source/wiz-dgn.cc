@@ -54,7 +54,7 @@ static dungeon_feature_type _find_appropriate_stairs(bool down)
     // Can't go down from bottom level of a branch.
     if (depth > brdepth[you.where_are_you])
     {
-        mpr("Can't go down from the bottom of a branch.");
+        mpr(jtrans("Can't go down from the bottom of a branch."));
         return DNGN_UNSEEN;
     }
     // Going up from top level of branch
@@ -70,7 +70,7 @@ static dungeon_feature_type _find_appropriate_stairs(bool down)
     }
     else
     {
-        mpr("Bug in determining level exit.");
+        mpr(jtrans("Bug in determining level exit."));
         return DNGN_UNSEEN;
     }
 }
@@ -82,7 +82,7 @@ void wizard_place_stairs(bool down)
     if (stairs == DNGN_UNSEEN)
         return;
 
-    mprf("Creating %sstairs.", down ? "down" : "up");
+    mprf(jtrans(make_stringf("Creating %sstairs.", down ? "down" : "up")));
     dungeon_terrain_changed(you.pos(), stairs);
 }
 
@@ -173,9 +173,9 @@ bool wizard_create_feature(const coord_def& pos)
     char specs[256];
     dungeon_feature_type feat;
     if (mimic)
-        mprf(MSGCH_PROMPT, "Create what kind of feature mimic? ");
+        mprf(MSGCH_PROMPT, jtrans_notrim("Create what kind of feature mimic? "));
     else
-        mprf(MSGCH_PROMPT, "Create which feature? ");
+        mprf(MSGCH_PROMPT, jtrans_notrim("Create which feature? "));
 
     if (cancellable_get_line_autohist(specs, sizeof(specs)) || specs[0] == 0)
     {
@@ -200,12 +200,12 @@ bool wizard_create_feature(const coord_def& pos)
                 if (fprop != FPROP_NONE)
                 {
                     env.pgrid(you.pos()) |= fprop;
-                    mprf("Set fprops \"%s\" at (%d,%d)",
+                    mprf(jtransc("Set fprops \"%s\" at (%d,%d)"),
                          name.c_str(), you.pos().x, you.pos().y);
                 }
                 else
                 {
-                    mprf(MSGCH_DIAGNOSTICS, "No features matching '%s'",
+                    mprf(MSGCH_DIAGNOSTICS, jtransc("No features matching '%s'"),
                          name.c_str());
                 }
                 return false;
@@ -220,8 +220,8 @@ bool wizard_create_feature(const coord_def& pos)
             // Multiple matches, list them to wizard
             else
             {
-                string prefix = "No exact match for feature '" +
-                                name +  "', possible matches are: ";
+                string prefix = make_stringf(jtrans_notrimc("No exact match for feature '%s', possible matches are: "),
+                                             name.c_str());
 
                 // Use mpr_comma_separated_list() because the list
                 // might be *LONG*.
@@ -281,13 +281,13 @@ void wizard_list_branches()
             continue;
         else if (brentry[it->id].is_valid())
         {
-            mprf(MSGCH_DIAGNOSTICS, "Branch %d (%s) is on %s",
-                 it->id, it->longname, brentry[it->id].describe().c_str());
+            mprf(MSGCH_DIAGNOSTICS, jtransc("Branch %d (%s) is on %s"),
+                 it->id, branch_name_jc(it->longname), brentry[it->id].describe_j().c_str());
         }
         else if (is_random_subbranch(it->id))
         {
-            mprf(MSGCH_DIAGNOSTICS, "Branch %d (%s) was not generated "
-                 "this game", it->id, it->longname);
+            mprf(MSGCH_DIAGNOSTICS, jtransc("Branch %d (%s) was not generated "
+                 "this game"), it->id, branch_name_jc(it->longname));
         }
     }
 
@@ -295,7 +295,7 @@ void wizard_list_branches()
         return;
 
     mprf(MSGCH_DIAGNOSTICS, "----");
-    mprf(MSGCH_DIAGNOSTICS, "Overflow temples: ");
+    mprf(MSGCH_DIAGNOSTICS, jtrans_notrim("Overflow temples: "));
 
     CrawlVector &levels = you.props[OVERFLOW_TEMPLES_KEY].get_vector();
 
@@ -326,16 +326,17 @@ void wizard_list_branches()
             {
                 god_type god = (god_type) gods[k].get_byte();
 
-                god_names.push_back(god_name(god));
+                god_names.push_back(god_name_j(god));
             }
             temple_strings.push_back(
-                comma_separated_line(god_names.begin(), god_names.end()));
+                comma_separated_line(god_names.begin(), god_names.end(), "/", "/"));
         }
 
-        mprf(MSGCH_DIAGNOSTICS, "%u on D:%u (%s)", temples.size(),
+        mprf(MSGCH_DIAGNOSTICS, jtransc("%u on D:%u (%s)"),
              i + 1,
+             temples.size(),
              comma_separated_line(temple_strings.begin(),
-                                  temple_strings.end(), "; ", "; ").c_str()
+                                  temple_strings.end(), "、", "、").c_str()
           );
     }
 }
@@ -343,7 +344,10 @@ void wizard_list_branches()
 void wizard_reveal_traps()
 {
     int traps_revealed = reveal_traps(1000);
-    mprf("Revealed %d traps.", traps_revealed);
+    if (traps_revealed)
+        mprf(jtransc("Revealed %d traps."), traps_revealed);
+    else
+        mprf(jtrans("No traps revealed."));
 }
 
 void wizard_map_level()
@@ -358,7 +362,7 @@ void wizard_map_level()
         env.properties[FORCE_MAPPABLE_KEY] = true;
     }
 
-    mpr("Mapping level.");
+    mpr(jtrans("Mapping level."));
     magic_mapping(1000, 100, true, true);
 
     for (rectangle_iterator ri(BOUNDARY_BORDER - 1); ri; ++ri)
@@ -379,7 +383,7 @@ bool debug_make_trap(const coord_def& pos)
 
     if (gridch != DNGN_FLOOR)
     {
-        mpr("You need to be on a floor square to make a trap.");
+        mpr(jtrans("You need to be on a floor square to make a trap."));
         return false;
     }
 
@@ -424,7 +428,7 @@ bool debug_make_trap(const coord_def& pos)
     {
         if (matches.empty())
         {
-            mprf("I know no traps named \"%s\".", spec.c_str());
+            mprf(jtransc("I know no traps named \"%s\"."), spec.c_str());
             return false;
         }
         // Only one match, use that
@@ -432,22 +436,21 @@ bool debug_make_trap(const coord_def& pos)
             trap = matches[0];
         else
         {
-            string prefix = "No exact match for trap '";
-            prefix += spec;
-            prefix += "', possible matches are: ";
+            string prefix = make_stringf(jtransc("No exact match for trap '%s', possible matches are:"),
+                                         spec.c_str());
             mpr_comma_separated_list(prefix, match_names);
             return false;
         }
     }
 
     place_specific_trap(you.pos(), trap);
-    mprf("Created %s, marked it undiscovered.",
+    mprf(jtransc("Created %s, marked it undiscovered."), jtransc(
          (trap == TRAP_RANDOM)
             ? "a random trap"
-            : trap_at(you.pos())->name(DESC_A).c_str());
+            : trap_at(you.pos())->name(DESC_PLAIN).c_str()));
 
     if (trap == TRAP_SHAFT && !is_valid_shaft_level())
-        mpr("NOTE: Shaft traps aren't valid on this level.");
+        mpr(jtrans("NOTE: Shaft traps aren't valid on this level."));
 
     return true;
 }
@@ -456,7 +459,7 @@ bool debug_make_shop(const coord_def& pos)
 {
     if (grd(pos) != DNGN_FLOOR)
     {
-        mpr("Insufficient floor-space for new Wal-Mart.");
+        mpr(jtrans("Insufficient floor-space for new Wal-Mart."));
         return false;
     }
 
@@ -473,13 +476,13 @@ bool debug_make_shop(const coord_def& pos)
 
     if (new_shop_type == SHOP_UNASSIGNED)
     {
-        mprf("Bad shop type: \"%s\"", requested_shop);
+        mprf(jtransc("Bad shop type: \"%s\""), requested_shop);
         list_shop_types();
         return false;
     }
 
     place_spec_shop(pos, new_shop_type);
-    mpr("Done.");
+    mpr(jtrans("Done."));
     return true;
 }
 
@@ -509,14 +512,13 @@ static void debug_load_map_by_name(string name, bool primary)
 
         if (matches.empty())
         {
-            mprf("Can't find map named '%s'.", name.c_str());
+            mprf(jtransc("Can't find map named '%s'."), name.c_str());
             return;
         }
         else if (matches.size() == 1)
         {
-            string prompt = "Only match is '";
-            prompt += matches[0];
-            prompt += "', use that?";
+            string prompt = make_stringf(jtransc("Only match is '%s', use that?)"),
+                                         matches[0].c_str());
             if (!yesno(prompt.c_str(), true, 'y'))
             {
                 canned_msg(MSG_OK);
@@ -527,9 +529,8 @@ static void debug_load_map_by_name(string name, bool primary)
         }
         else
         {
-            string prompt = "No exact matches for '";
-            prompt += name;
-            prompt += "', possible matches are: ";
+            string prompt = make_stringf(jtrans_notrimc("No exact matches for '%s', possible matches are: "),
+                                         name.c_str());
             mpr_comma_separated_list(prompt, matches);
             return;
         }
@@ -548,8 +549,8 @@ static void debug_load_map_by_name(string name, bool primary)
             {
                 if (!in_bounds(*ri))
                 {
-                    mprf("Placing %s on top of you would put part of the "
-                         "map outside of the level, cancelling.",
+                    mprf(jtransc("Placing %s on top of you would put part of the "
+                                 "map outside of the level, cancelling."),
                          toplace->name.c_str());
                     return;
                 }
@@ -559,7 +560,7 @@ static void debug_load_map_by_name(string name, bool primary)
         }
         else
         {
-            mprf("%s decides where it goes, can't place where you are.",
+            mprf(jtransc("%s decides where it goes, can't place where you are."),
                  toplace->name.c_str());
         }
     }
@@ -587,13 +588,13 @@ static void debug_load_map_by_name(string name, bool primary)
         unwind_var<string_set> lumt(env.level_uniq_map_tags, string_set());
         if (dgn_place_map(toplace, false, false, where))
         {
-            mprf("Successfully placed %s.", toplace->name.c_str());
+            mprf(jtransc("Successfully placed %s."), toplace->name.c_str());
             // Fix up doors from vaults and any changes to the default walls
             // and floors from the vault.
             tile_init_flavour();
         }
         else
-            mprf("Failed to place %s.", toplace->name.c_str());
+            mprf(jtransc("Failed to place %s."), toplace->name.c_str());
     }
 }
 
@@ -603,8 +604,8 @@ void debug_place_map(bool primary)
 {
     char what_to_make[100];
     clear_messages();
-    mprf(MSGCH_PROMPT, primary ? "Enter map name: " :
-         "Enter map name (prefix it with * for local placement): ");
+    mprf(MSGCH_PROMPT, jtrans_notrim(primary ? "Enter map name: " :
+         "Enter map name (prefix it with * for local placement): "));
     if (cancellable_get_line(what_to_make, sizeof what_to_make,
                             primary ? &primary_hist : &mini_hist))
     {
@@ -694,14 +695,14 @@ void debug_test_explore()
     // Return to starting point.
     you.moveto(where);
 
-    mprf("Explore took %d turns.", explore_turns);
+    mprf(jtransc("Explore took %d turns."), explore_turns);
 }
 
 void wizard_list_levels()
 {
     if (!you.level_stack.empty())
     {
-        mpr("Level stack:");
+        mpr(jtrans("Level stack:"));
         for (unsigned int i = 0; i < you.level_stack.size(); i++)
         {
             mprf(MSGCH_DIAGNOSTICS, i+1, // inhibit merging
@@ -714,7 +715,7 @@ void wizard_list_levels()
 
     vector<level_id> levs = travel_cache.known_levels();
 
-    mpr("Known levels:");
+    mpr(jtrans("Known levels:"));
     for (unsigned int i = 0; i < levs.size(); i++)
     {
         const LevelInfo* lv = travel_cache.find_level_info(levs[i]);
@@ -738,12 +739,12 @@ void wizard_list_levels()
         sprintf(num, "%d/", query_daction_counter((daction_type)j));
         cnts += num;
     }
-    mprf("%-10s : %s", "`- total", cnts.c_str());
+    mprf("%-10s : %s", jtransc("`- total"), cnts.c_str());
 }
 
 void wizard_recreate_level()
 {
-    mpr("Regenerating level.");
+    mpr(jtrans("Regenerating level."));
 
     // Need to allow reuse of vaults, otherwise we'd run out of them fast.
     _free_all_vaults();
@@ -784,21 +785,21 @@ void wizard_clear_used_vaults()
     you.uniq_map_names.clear();
     env.level_uniq_maps.clear();
     env.level_uniq_map_tags.clear();
-    mpr("All vaults are now eligible for [re]use.");
+    mpr(jtrans("All vaults are now eligible for [re]use."));
 }
 
 void wizard_abyss_speed()
 {
     char specs[256];
-    mprf(MSGCH_PROMPT, "Set Abyss speed to what? (now %d, higher value = "
-                       "higher speed) ", you.abyss_speed);
+    mprf(MSGCH_PROMPT, jtrans_notrimc("Set Abyss speed to what? (now %d, higher value = "
+                                      "higher speed) "), you.abyss_speed);
 
     if (!cancellable_get_line(specs, sizeof(specs)))
     {
         const int speed = atoi(specs);
         if (speed || specs[0] == '0')
         {
-            mprf("Setting Abyss speed to %i.", speed);
+            mprf(jtransc("Setting Abyss speed to %i."), speed);
             you.abyss_speed = speed;
             return;
         }

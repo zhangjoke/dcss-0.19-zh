@@ -12,6 +12,7 @@
 #include "act-iter.h"
 #include "colour.h"
 #include "command.h"
+#include "database.h"
 #include "dungeon.h"
 #include "end.h"
 #include "food.h"
@@ -461,7 +462,7 @@ namespace arena
             cgotoxy(1, line++, GOTO_STAT);
             textcolour(BROWN);
             center_print(crawl_view.hudsz.x,
-                         make_stringf("Round %d of %d",
+                         make_stringf(jtransc("Round %d of %d"),
                                       after_fight ? trials_done
                                                   : trials_done + 1,
                                       total_trials));
@@ -684,7 +685,7 @@ namespace arena
         if (key_is_escape(ch) || toalower(ch) == 'q')
         {
             contest_cancelled = true;
-            mpr("Canceled contest at user request");
+            mpr(jtrans("Canceled contest at user request"));
             return;
         }
 
@@ -886,6 +887,7 @@ namespace arena
             msg = "Tie";
         else
             msg = "Winner: %s!";
+        msg = jtrans(msg);  
 
         if (Options.arena_dump_msgs || Options.arena_list_eq)
             msg = "---------- " + msg + " ----------";
@@ -1202,7 +1204,7 @@ void arena_monster_died(monster* mons, killer_type killer,
              && arena::faction_b.active_members <= 0)
     {
         if (mons->flags & MF_HARD_RESET && !MON_KILL(killer))
-            mpr("Last arena monster was dismissed.");
+            mpr(jtrans("Last arena monster was dismissed."));
         // If all monsters are dead, and the last one to die is a giant
         // spore or ball lightning, then that monster's faction is the
         // winner, since self-destruction is their purpose. But if a

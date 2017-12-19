@@ -34,6 +34,7 @@
 #include "cloud.h"
 #include "coordit.h"
 #include "dactions.h"
+#include "database.h"
 #include "dgn-overview.h"
 #include "directn.h"
 #include "dungeon.h"
@@ -928,7 +929,7 @@ static void _grab_followers()
             && fol->hit_points < fol->max_hit_points / 2)
         {
             if (fol->visible_to(&you))
-                mpr("The ghost fades into the shadows.");
+                mpr(jtrans("The ghost fades into the shadows."));
             monster_teleport(fol, true);
         }
     }
@@ -959,14 +960,14 @@ static void _grab_followers()
         // Summons won't follow and will time out.
         if (non_stair_using_summons > 0)
         {
-            mprf("Your summoned %s left behind.",
-                 non_stair_using_allies > 1 ? "allies are" : "ally is");
+            mprf(jtrans(make_stringf("Your summoned %s left behind.",
+                 non_stair_using_allies > 1 ? "allies are" : "ally is")));
         }
         else
         {
             // Permanent undead are left behind but stay.
-            mprf("Your mindless thrall%s behind.",
-                 non_stair_using_allies > 1 ? "s stay" : " stays");
+            mprf(jtrans(make_stringf("Your mindless thrall%s behind.",
+                 non_stair_using_allies > 1 ? "s stay" : " stays")));
         }
     }
 
@@ -1258,7 +1259,7 @@ bool load_level(dungeon_feature_type stair_taken, load_mode_type load_mode,
     unwind_bool ylev(you.entering_level, load_mode != LOAD_VISITOR, false);
 
 #ifdef DEBUG_LEVEL_LOAD
-    mprf(MSGCH_DIAGNOSTICS, "Loading... branch: %d, level: %d",
+    mprf(MSGCH_DIAGNOSTICS, jtransc("Loading... branch: %d, level: %d"),
                             you.where_are_you, you.depth);
 #endif
 
@@ -1416,7 +1417,7 @@ bool load_level(dungeon_feature_type stair_taken, load_mode_type load_mode,
         && !get_level_annotation().empty()
         && !crawl_state.level_annotation_shown)
     {
-        mprf(MSGCH_PLAIN, YELLOW, "Level annotation: %s",
+        mprf(MSGCH_PLAIN, YELLOW, jtransc("Level annotation: %s"),
              get_level_annotation().c_str());
     }
 
@@ -1443,7 +1444,7 @@ bool load_level(dungeon_feature_type stair_taken, load_mode_type load_mode,
         you.global_info += delta;
 #ifdef DEBUG_LEVEL_LOAD
         mprf(MSGCH_DIAGNOSTICS,
-             "global_info:: num_visits: %d, levels_seen: %d",
+             jtransc("global_info:: num_visits: %d, levels_seen: %d"),
              you.global_info.num_visits, you.global_info.levels_seen);
 #endif
         you.global_info.assert_validity();
@@ -1451,7 +1452,7 @@ bool load_level(dungeon_feature_type stair_taken, load_mode_type load_mode,
         curr_PlaceInfo += delta;
 #ifdef DEBUG_LEVEL_LOAD
         mprf(MSGCH_DIAGNOSTICS,
-             "curr_PlaceInfo:: num_visits: %d, levels_seen: %d",
+             jtransc("curr_PlaceInfo:: num_visits: %d, levels_seen: %d"),
              curr_PlaceInfo.num_visits, curr_PlaceInfo.levels_seen);
 #endif
         curr_PlaceInfo.assert_validity();
@@ -1481,14 +1482,15 @@ bool load_level(dungeon_feature_type stair_taken, load_mode_type load_mode,
                 if (coinflip()
                     && slide_feature_over(you.pos()))
                 {
-                    mprf("%s slides away from you right after you %s it!",
-                         stair_str.c_str(), verb.c_str());
+                    mprf(jtransc("%s slides away from you right after you %s it!"),
+                         stair_str.c_str(),
+                         verb_jc(verb));
                 }
 
                 if (coinflip())
                 {
                     // Stairs stop fleeing from you now you actually caught one.
-                    mprf("%s settles down.", stair_str.c_str());
+                    mprf(jtransc("%s settles down."), stair_str.c_str());
                     you.duration[DUR_REPEL_STAIRS_MOVE]  = 0;
                     you.duration[DUR_REPEL_STAIRS_CLIMB] = 0;
                 }
@@ -1633,7 +1635,7 @@ void save_game(bool leave_game, const char *farewellmsg)
     {
         if (!dump_char(you.your_name, true))
         {
-            mpr("Char dump unsuccessful! Sorry about that.");
+            mpr(jtrans("Char dump unsuccessful! Sorry about that."));
             if (!crawl_state.seen_hups)
                 more();
         }
@@ -1665,8 +1667,8 @@ void save_game(bool leave_game, const char *farewellmsg)
         throw game_ended_condition(true);
     }
 
-    end(0, false, farewellmsg? "%s" : "See you soon, %s!",
-        farewellmsg? farewellmsg : you.your_name.c_str());
+    end(0, false, farewellmsg? "%s" : jtransc("See you soon, %s!"),
+        farewellmsg? jtransc(farewellmsg) : you.your_name.c_str());
 }
 
 // Saves the game without exiting.
@@ -1763,7 +1765,7 @@ bool load_ghost(bool creating_level)
     if (ghost_filename.empty())
     {
         if (wiz_cmd && !creating_level)
-            mprf(MSGCH_PROMPT, "No ghost files for this level.");
+            mprf(MSGCH_PROMPT, jtrans("No ghost files for this level."));
         return false; // no such ghost.
     }
 
@@ -1771,7 +1773,7 @@ bool load_ghost(bool creating_level)
     if (!inf.valid())
     {
         if (wiz_cmd && !creating_level)
-            mprf(MSGCH_PROMPT, "Ghost file invalidated before read.");
+            mprf(MSGCH_PROMPT, jtrans("Ghost file invalidated before read."));
         return false;
     }
 
@@ -1786,7 +1788,7 @@ bool load_ghost(bool creating_level)
         }
         catch (short_read_exception &short_read)
         {
-            mprf(MSGCH_ERROR, "Broken bones file: %s",
+            mprf(MSGCH_ERROR, jtransc("Broken bones file: %s"),
                  ghost_filename.c_str());
         }
     }
@@ -1798,7 +1800,7 @@ bool load_ghost(bool creating_level)
     if (!debug_check_ghosts())
     {
         mprf(MSGCH_DIAGNOSTICS,
-             "Refusing to load buggy ghost from file \"%s\"!",
+             jtransc("Refusing to load buggy ghost from file \"%s\"!"),
              ghost_filename.c_str());
 
         return false;
@@ -1807,7 +1809,7 @@ bool load_ghost(bool creating_level)
 #ifdef BONES_DIAGNOSTICS
     if (do_diagnostics)
     {
-        mprf(MSGCH_DIAGNOSTICS, "Loaded ghost file with %u ghost(s)",
+        mprf(MSGCH_DIAGNOSTICS, jtransc("Loaded ghost file with %u ghost(s)"),
              (unsigned int)ghosts.size());
     }
 #endif
@@ -1839,13 +1841,13 @@ bool load_ghost(bool creating_level)
             unplaced_ghosts--;
             if (!mons->alive())
             {
-                mprf(MSGCH_DIAGNOSTICS, "Placed ghost is not alive.");
+                mprf(MSGCH_DIAGNOSTICS, jtrans("Placed ghost is not alive."));
                 ghost_errors = true;
             }
             else if (mons->type != MONS_PLAYER_GHOST)
             {
                 mprf(MSGCH_DIAGNOSTICS,
-                     "Placed ghost is not MONS_PLAYER_GHOST, but %s",
+                     jtransc("Placed ghost is not MONS_PLAYER_GHOST, but %s"),
                      mons->name(DESC_PLAIN, true).c_str());
                 ghost_errors = true;
             }
@@ -1856,7 +1858,7 @@ bool load_ghost(bool creating_level)
 #ifdef BONES_DIAGNOSTICS
     if (do_diagnostics && unplaced_ghosts > 0)
     {
-        mprf(MSGCH_DIAGNOSTICS, "Unable to place %u ghost(s)",
+        mprf(MSGCH_DIAGNOSTICS, jtransc("Unable to place %u ghost(s)"),
              (unsigned int)ghosts.size());
         ghost_errors = true;
     }
@@ -1879,10 +1881,10 @@ static bool _restore_game(const string& filename)
     {
         // Note: if we are here, the save info was properly read, it would
         // raise an exception otherwise.
-        if (yesno(("This game comes from an incompatible version of Crawl ("
-                   + you.prev_save_version + ").\n"
-                   "Unless you reinstall that version, you can't load it.\n"
-                   "Do you want to DELETE that game and start a new one?"
+        if (yesno((make_stringf(jtrans_notrimc("This game comes from an incompatible version of Crawl (%s).\n"),
+                               you.prev_save_version.c_str()) +
+                  jtrans_notrim("Unless you reinstall that version, you can't load it.\n") +
+                  jtrans("Do you want to DELETE that game and start a new one?")
                   ).c_str(),
                   true, 'n'))
         {
@@ -1973,9 +1975,9 @@ bool restore_game(const string& filename)
     }
     catch (corrupted_save &err)
     {
-        if (yesno(make_stringf(
+        if (yesno(make_stringf(jtransc(
                    "There exists a save by that name but it appears to be invalid.\n"
-                   "(Error: %s). Do you want to delete it?", err.what()).c_str(),
+                   "(Error: %s). Do you want to delete it?"), err.what()).c_str(),
                   true, 'n'))
         {
             if (you.save)
@@ -2138,7 +2140,7 @@ static bool _tagged_chunk_version_compatible(reader &inf, string* reason)
 
     if (!get_save_version(inf, major, minor))
     {
-        *reason = "File is corrupt.";
+        *reason = jtrans("File is corrupt.");
         return false;
     }
 
@@ -2150,14 +2152,14 @@ static bool _tagged_chunk_version_compatible(reader &inf, string* reason)
     {
         if (Version::ReleaseType)
         {
-            *reason = (CRAWL " " + string(Version::Short) + " is not compatible with "
+            *reason = (CRAWL " " + string(Version::Short) + jtrans(" is not compatible with "
                        "save files from older versions. You can continue your "
                        "game with the appropriate older version, or you can "
-                       "delete it and start a new game.");
+                       "delete it and start a new game."));
         }
         else
         {
-            *reason = make_stringf("Major version mismatch: %d (want %d).",
+            *reason = make_stringf(jtransc("Major version mismatch: %d (want %d)."),
                                    major, TAG_MAJOR_VERSION);
         }
         return false;
@@ -2165,7 +2167,7 @@ static bool _tagged_chunk_version_compatible(reader &inf, string* reason)
 
     if (minor < 0)
     {
-        *reason = make_stringf("Minor version %d is negative!",
+        *reason = make_stringf(jtransc("Minor version %d is negative!"),
                                minor);
         return false;
     }
@@ -2240,7 +2242,7 @@ static bool _ghost_version_compatible(reader &inf)
     catch (short_read_exception &E)
     {
         mprf(MSGCH_ERROR,
-             "Ghost file \"%s\" seems to be invalid (short read); deleting it.",
+             jtransc("Ghost file \"%s\" seems to be invalid (short read); deleting it."),
              inf.filename().c_str());
         return false;
     }
@@ -2309,7 +2311,7 @@ void save_ghost(bool force)
     {
 #ifdef BONES_DIAGNOSTICS
         if (do_diagnostics)
-            mprf(MSGCH_DIAGNOSTICS, "Could not find any ghosts for this level.");
+            mprf(MSGCH_DIAGNOSTICS, jtrans("Could not find any ghosts for this level."));
 #endif
         return;
     }
@@ -2326,7 +2328,7 @@ void save_ghost(bool force)
     {
 #ifdef BONES_DIAGNOSTICS
         if (do_diagnostics)
-            mprf(MSGCH_DIAGNOSTICS, "Too many ghosts for this level already!");
+            mprf(MSGCH_DIAGNOSTICS, jtrans("Too many ghosts for this level already!"));
 #endif
         return;
     }
@@ -2338,7 +2340,7 @@ void save_ghost(bool force)
     {
 #ifdef BONES_DIAGNOSTICS
         if (do_diagnostics)
-            mprf(MSGCH_DIAGNOSTICS, "Could not open file to save ghosts.");
+            mprf(MSGCH_DIAGNOSTICS, jtrans("Could not open file to save ghosts."));
 #endif
         return;
     }
@@ -2352,7 +2354,7 @@ void save_ghost(bool force)
 
 #ifdef BONES_DIAGNOSTICS
     if (do_diagnostics)
-        mprf(MSGCH_DIAGNOSTICS, "Saved ghosts (%s).", g_file_name.c_str());
+        mprf(MSGCH_DIAGNOSTICS, jtransc("Saved ghosts (%s)."), g_file_name.c_str());
 #endif
 }
 
@@ -2387,7 +2389,7 @@ FILE *lk_open(const char *mode, const string &file)
     const bool write_lock = mode[0] != 'r' || strchr(mode, '+');
     if (!lock_file_handle(handle, write_lock))
     {
-        mprf(MSGCH_ERROR, "ERROR: Could not lock file %s", file.c_str());
+        mprf(MSGCH_ERROR, jtransc("ERROR: Could not lock file %s"), file.c_str());
         fclose(handle);
         handle = nullptr;
     }
@@ -2411,7 +2413,7 @@ FILE *lk_open_exclusive(const string &file)
 
     if (!lock_file(fd, true))
     {
-        mprf(MSGCH_ERROR, "ERROR: Could not lock file %s", file.c_str());
+        mprf(MSGCH_ERROR, jtransc("ERROR: Could not lock file %s"), file.c_str());
         close(fd);
         return nullptr;
     }

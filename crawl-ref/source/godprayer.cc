@@ -37,21 +37,24 @@
 
 string god_prayer_reaction()
 {
-    string result = uppercase_first(god_name(you.religion));
+    string result = god_name_j(you.religion) + "は";
     const int rank = god_favour_rank(you.religion);
-    if (crawl_state.player_is_dead())
-        result += " was ";
-    else
-        result += " is ";
-    result +=
+
+    result += jtrans(
         (rank == 7) ? "exalted by your worship" :
         (rank == 6) ? "extremely pleased with you" :
         (rank == 5) ? "greatly pleased with you" :
         (rank == 4) ? "most pleased with you" :
         (rank == 3) ? "pleased with you" :
         (rank == 2) ? "aware of your devotion"
-                    : "noncommittal";
-    result += ".";
+                    : "noncommittal");
+    result += jtrans(".");
+
+    if (crawl_state.player_is_dead())
+    {
+        result = replace_all(result, "ている", "ていた");
+        result = replace_all(result, "ていない", "ていなかった");
+    }
 
     return result;
 }
@@ -86,8 +89,9 @@ static bool _pray_ecumenical_altar()
             unwind_var<int> fakepoor(you.attribute[ATTR_GOLD_GENERATED], 0);
 
             god_type altar_god = _altar_identify_ecumenical_altar();
-            mprf(MSGCH_GOD, "%s accepts your prayer!",
-                            god_name(altar_god).c_str());
+            mprf(MSGCH_GOD, jtransc("%s accepts your prayer!"),
+                            god_name_jc(altar_god));
+            you.turn_is_over = true;
             if (!you_worship(altar_god))
                 join_religion(altar_god);
             else
@@ -120,7 +124,7 @@ void try_god_conversion(god_type god)
 
     if (you.species == SP_DEMIGOD)
     {
-        mpr("A being of your status worships no god.");
+        mpr(jtrans("A being of your status worships no god."));
         return;
     }
 
@@ -161,7 +165,7 @@ int zin_tithe(const item_def& item, int quant, bool quiet, bool converting)
         }
         taken = tithe;
         you.attribute[ATTR_DONATIONS] += tithe;
-        mprf("You pay a tithe of %d gold.", tithe);
+        mprf(jtransc("You pay a tithe of %d gold."), tithe);
 
         if (item.plus == 1) // seen before worshipping Zin
         {
@@ -293,7 +297,7 @@ void jiyva_slurp_item_stack(const item_def& item, int quantity)
     if (gain.piety_gain > PIETY_NONE)
         simple_god_message(" appreciates your sacrifice.");
     if (gain.jiyva_bonus & JS_FOOD)
-        mpr("You feel a little less hungry.");
+        mpr(jtrans("You feel a little less hungry."));
     if (gain.jiyva_bonus & JS_MP)
         canned_msg(MSG_GAIN_MAGIC);
     if (gain.jiyva_bonus & JS_HP)

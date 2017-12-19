@@ -9,6 +9,7 @@
 
 #include "artefact.h"
 #include "attitude-change.h"
+#include "database.h"
 #include "delay.h"
 #include "describe.h"
 #include "dgn-overview.h"
@@ -158,7 +159,8 @@ static bool _valid_morph(monster* mons, monster_type new_mclass)
         // The spell on Prince Ribbit can't be broken so easily.
         || (new_mclass == MONS_HUMAN
             && (mons->type == MONS_PRINCE_RIBBIT
-                || mons->mname == "Prince Ribbit")))
+                || mons->mname == "Prince Ribbit"
+                || mons->mname == jtrans("Prince Ribbit"))))
     {
         return false;
     }
@@ -247,19 +249,19 @@ void change_monster_type(monster* mons, monster_type targetc)
     if (mons->type == MONS_ROYAL_JELLY
         || mons->mname == "shaped Royal Jelly")
     {
-        name   = "shaped Royal Jelly";
+        name   = jtrans("shaped Royal Jelly");
         flags |= MF_NAME_SUFFIX;
     }
     else if (mons->type == MONS_LERNAEAN_HYDRA
              || mons->mname == "shaped Lernaean hydra")
     {
-        name   = "shaped Lernaean hydra";
+        name   = jtrans("shaped Lernaean hydra");
         flags |= MF_NAME_SUFFIX;
     }
     else if (mons->mons_species() == MONS_SERPENT_OF_HELL
              || mons->mname == "shaped Serpent of Hell")
     {
-        name   = "shaped Serpent of Hell";
+        name   = jtrans("shaped Serpent of Hell");
         flags |= MF_NAME_SUFFIX;
     }
     else if (!mons->mname.empty())
@@ -533,15 +535,29 @@ bool monster_polymorph(monster* mons, monster_type targetc,
         else if (mons->is_shapeshifter())
             verb = "changes into ";
         else if (_jiyva_slime_target(targetc))
-            verb = "quivers uncontrollably and liquefies into ";
+        {
+            verb = make_stringf(jtransc("quivers uncontrollably and liquefies into "),
+                                jtransc(obj));
+            obj = "";
+        }
         else
-            verb = "evaporates and reforms as ";
+        {
+            verb = make_stringf(jtransc("evaporates and reforms as %s"),
+                                jtransc(obj));
+            obj = "";
+        }
 
-        mprf("%s %s%s!", old_name_the.c_str(), verb.c_str(), obj.c_str());
+        // 変化先と変化元の種族が同じだった場合のメッセージを自然にする
+        if (old_name_the == obj)
+            obj = make_stringf("別の%sの姿", obj.c_str());
+
+        mprf(jtransc("%s %s%s!"),
+             jtransc(old_name_the),
+             jtransc(obj), jtransc(verb));
     }
     else if (can_see)
     {
-        mprf("%s appears out of thin air!", mons->name(DESC_A).c_str());
+        mprf(jtransc("%s appears out of thin air!"), mons->name(DESC_A).c_str());
         autotoggle_autopickup(false);
     }
     else
@@ -552,7 +568,7 @@ bool monster_polymorph(monster* mons, monster_type targetc,
         string new_name = can_see ? mons->full_name(DESC_A)
                                   : "something unseen";
 
-        take_note(Note(NOTE_POLY_MONSTER, 0, 0, old_name_a, new_name));
+        take_note(Note(NOTE_POLY_MONSTER, 0, 0, old_name_a, jtrans(new_name)));
 
         if (can_see)
             mons->flags |= MF_SEEN;
@@ -660,7 +676,7 @@ void seen_monster(monster* mons)
 
     if (mons_is_notable(*mons))
     {
-        string name = mons->name(DESC_A, true);
+        string name = mons->full_name(DESC_A);
         if (mons->type == MONS_PLAYER_GHOST)
         {
             name += make_stringf(" (%s)",

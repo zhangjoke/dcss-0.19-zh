@@ -19,7 +19,8 @@ void show_hiscore_table();
 
 string hiscores_format_single(const scorefile_entry &se);
 string hiscores_format_single_long(const scorefile_entry &se,
-                                   bool verbose = false);
+                                   bool verbose = false,
+                                   bool add_stop = false);
 
 void mark_milestone(const string &type, const string &milestone,
                     const string &origin_level = "", time_t t = 0);
@@ -131,6 +132,10 @@ private:
 
     mutable unique_ptr<xlog_fields> fields;
 
+    mutable bool needs_damage;
+    mutable bool needs_beam_cause_line;
+    mutable bool needs_called_by_monster_line;
+
 public:
     scorefile_entry();
     scorefile_entry(int damage, mid_t death_source, int death_type,
@@ -158,11 +163,11 @@ public:
     string raw_string() const;
     bool parse(const string &line);
 
-    string hiscore_line(death_desc_verbosity verbosity) const;
+    string hiscore_line(death_desc_verbosity verbosity, bool add_stop=false) const;
 
     string character_description(death_desc_verbosity) const;
     // Full description of death: Killed by an xyz wielding foo
-    string death_description(death_desc_verbosity) const;
+    string death_description(death_desc_verbosity, bool add_stop=false) const;
     string death_place(death_desc_verbosity) const;
     string game_time(death_desc_verbosity) const;
 
@@ -198,6 +203,11 @@ private:
     string make_oneline(const string &s) const;
 
     void init_from(const scorefile_entry &other);
+
+private:
+    string death_description_prefix(death_desc_verbosity verbosity) const;
+    string beam_cause_line(death_desc_verbosity verbosity) const;
+    string called_by_monster_line(death_desc_verbosity verbosity) const;
 };
 
 #endif  // HISCORES_H

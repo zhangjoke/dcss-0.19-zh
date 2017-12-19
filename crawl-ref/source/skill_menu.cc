@@ -11,6 +11,7 @@
 #include "cio.h"
 #include "clua.h"
 #include "command.h"
+#include "database.h"
 #include "describe.h"
 #include "english.h" // apostrophise
 #include "evoke.h"
@@ -48,9 +49,9 @@ bool SkillTextTileItem::handle_mouse(const MouseEvent& me)
 }
 #endif
 
-#define NAME_SIZE 20
-#define LEVEL_SIZE 5
-#define PROGRESS_SIZE 6
+#define NAME_SIZE 16
+#define LEVEL_SIZE 6
+#define PROGRESS_SIZE 9
 #define APTITUDE_SIZE 5
 SkillMenuEntry::SkillMenuEntry(coord_def coord)
 {
@@ -225,8 +226,8 @@ void SkillMenuEntry::set_name(bool keep_hotkey)
         m_name->allow_highlight(false);
     }
 
-    m_name->set_text(make_stringf("%s %-15s", get_prefix().c_str(),
-                                skill_name(m_sk)));
+    m_name->set_text(make_stringf("%s %-10s", get_prefix().c_str(),
+                                skill_name_jc(m_sk)));
     m_name->set_fg_colour(get_colour());
 #ifdef USE_TILE_LOCAL
     if (is_set(SKMF_SKILL_ICONS))
@@ -459,33 +460,33 @@ void SkillMenuEntry::set_reskill_progress()
 void SkillMenuEntry::set_title()
 {
     m_name->allow_highlight(false);
-    m_name->set_text("     Skill");
-    m_level->set_text("Level");
+    m_name->set_text(jtrans_notrim("     Skill"));
+    m_level->set_text(jtrans("Level"));
 
     m_name->set_fg_colour(BLUE);
     m_level->set_fg_colour(BLUE);
     m_progress->set_fg_colour(BLUE);
 
     if (is_set(SKMF_APTITUDE))
-        m_aptitude->set_text("<blue>Apt </blue>");
+        m_aptitude->set_text(jtrans("<blue>Apt </blue>"));
 
     if (is_set(SKMF_RESKILLING))
     {
         if (is_set(SKMF_RESKILL_FROM))
-            m_progress->set_text("Source");
+            m_progress->set_text(jtrans("Source"));
         else
-            m_progress->set_text("Target");
+            m_progress->set_text(jtrans("Target"));
         return;
     }
 
     switch (skm.get_state(SKM_VIEW))
     {
-    case SKM_VIEW_TRAINING:  m_progress->set_text("Train"); break;
-    case SKM_VIEW_PROGRESS:  m_progress->set_text("Progr"); break;
-    case SKM_VIEW_TRANSFER:  m_progress->set_text("Trnsf"); break;
-    case SKM_VIEW_POINTS:    m_progress->set_text("Points");break;
-    case SKM_VIEW_COST:      m_progress->set_text("Cost");  break;
-    case SKM_VIEW_NEW_LEVEL: m_progress->set_text("> New"); break;
+    case SKM_VIEW_TRAINING:  m_progress->set_text(jtrans("Train")); break;
+    case SKM_VIEW_PROGRESS:  m_progress->set_text(jtrans("Progr")); break;
+    case SKM_VIEW_TRANSFER:  m_progress->set_text(jtrans("Trnsf")); break;
+    case SKM_VIEW_POINTS:    m_progress->set_text(jtrans("Points"));break;
+    case SKM_VIEW_COST:      m_progress->set_text(jtrans("Cost"));  break;
+    case SKM_VIEW_NEW_LEVEL: m_progress->set_text(jtrans("> New")); break;
     default: die("Invalid view state.");
     }
 }
@@ -582,14 +583,14 @@ string SkillMenuSwitch::get_help()
             if (!you.skill_boost.empty()
                 && have_passive(passive_t::bondage_skill_boost))
             {
-                causes.push_back(apostrophise(god_name(you.religion))
-                                 + " power");
+                causes.push_back(make_stringf(jtransc("{god name}'s power"),
+                                              god_name_jc(you.religion)));
             }
             if (_any_crosstrained())
                 causes.push_back("cross-training");
-            result = "Skills enhanced by "
-                     + comma_separated_line(causes.begin(), causes.end())
-                     + " are in <blue>blue</blue>.";
+            result = make_stringf(jtransc("Skills enhanced by {causes} are in <blue>blue</blue>."),
+                                  to_separated_line(causes.begin(), causes.end(),
+                                                    "、", "、", "、").c_str());
         }
 
         if (skm.is_set(SKMF_REDUCED))
@@ -602,9 +603,9 @@ string SkillMenuSwitch::get_help()
 
             if (!result.empty())
                 result += "\n";
-            result += "Skills reduced by "
-                      + comma_separated_line(causes.begin(), causes.end())
-                      + " are in <magenta>magenta</magenta>.";
+            result += make_stringf(jtransc("Skills reduced by {causes} are in <magenta>magenta</magenta>."),
+                                   to_separated_line(causes.begin(), causes.end(),
+                                                     "、", "、", "、").c_str());
         }
 
         if (!result.empty())
@@ -666,6 +667,11 @@ string SkillMenuSwitch::get_name(skill_menu_state state)
     }
 }
 
+string SkillMenuSwitch::get_name_j(skill_menu_state state)
+{
+    return tagged_jtrans("[skill menu state]", get_name(state));
+}
+
 void SkillMenuSwitch::set_state(skill_menu_state state)
 {
     // We only set it if it's a valid state.
@@ -720,11 +726,11 @@ void SkillMenuSwitch::update()
             text += '|';
 
         const string col = (*it == m_state) ? "white" : "darkgrey";
-        text += make_stringf("<%s>%s</%s>", col.c_str(), get_name(*it).c_str(),
+        text += make_stringf("<%s>%s</%s>", col.c_str(), get_name_j(*it).c_str(),
                              col.c_str());
     }
     if (m_name != "")
-        text += make_stringf(" %s  ", m_name.c_str());
+        text += make_stringf("%s  ", tagged_jtransc("[skill menu suffix]", m_name));
     else
         text += "  ";
     set_text(text);
@@ -911,7 +917,7 @@ bool SkillMenu::exit()
 
     if (!enabled_skill && !all_skills_maxed())
     {
-        set_help("<lightred>You need to enable at least one skill.</lightred>");
+        set_help(jtrans("<lightred>You need to enable at least one skill.</lightred>"));
         return false;
     }
 
@@ -1054,7 +1060,7 @@ void SkillMenu::toggle(skill_menu_switch sw)
     case SKM_LEVEL:
         refresh_display();
     }
-    set_help(m_switches[sw]->get_help());
+    set_help(jtrans_notrim(m_switches[sw]->get_help()));
 }
 
 // Private methods
@@ -1251,7 +1257,7 @@ void SkillMenu::refresh_help_button()
                  "[<yellow>a</yellow>-<yellow>z</yellow>] skill descriptions";
     }
 
-    m_help_button->set_text(helpstring + legend + "\n");
+    m_help_button->set_text(helpstring + jtrans_notrim(legend) + "\n");
 }
 
 void SkillMenu::refresh_names()
@@ -1304,22 +1310,22 @@ void SkillMenu::set_default_help()
     else
     {
         if (!is_set(SKMF_MANUAL))
-            text = m_switches[SKM_VIEW]->get_help();
+            text = jtrans_notrim(m_switches[SKM_VIEW]->get_help());
 
         if (get_state(SKM_LEVEL) == SKM_LEVEL_ENHANCED)
-            text += m_switches[SKM_LEVEL]->get_help() + " ";
+            text += jtrans_notrim(m_switches[SKM_LEVEL]->get_help()) + " ";
         else
-            text += "The species aptitude is in <white>white</white>. ";
+            text += jtrans_notrim("The species aptitude is in <white>white</white>. ");
 
         if (is_set(SKMF_MANUAL))
-            text += "Bonus from skill manuals is in <lightgreen>green</lightgreen>. ";
+            text += jtrans_notrim("Bonus from skill manuals is in <lightgreen>green</lightgreen>. ");
     }
 
     // This one takes priority.
     if (get_state(SKM_VIEW) == SKM_VIEW_TRANSFER)
         text = m_switches[SKM_VIEW]->get_help();
 
-    m_help->set_text(text);
+    m_help->set_text(jtrans_notrim(text));
 }
 
 void SkillMenu::set_help(string msg)
@@ -1327,7 +1333,7 @@ void SkillMenu::set_help(string msg)
     if (msg == "")
         set_default_help();
     else
-        m_help->set_text(msg);
+        m_help->set_text(jtrans_notrim(msg));
 }
 
 void SkillMenu::set_skills()
@@ -1426,7 +1432,7 @@ void SkillMenu::set_title()
     else if (is_set(SKMF_EXPERIENCE))
         t = make_stringf(format, "quaffed a potion of experience");
 
-    m_title->set_text(t);
+    m_title->set_text(jtrans(t));
 }
 
 void SkillMenu::shift_bottom_down()
@@ -1514,7 +1520,7 @@ void skill_menu(int flag, int exp)
     // experience potion; you may elect to sin against Trog
     if (flag & SKMF_EXPERIENCE && all_skills_maxed(true))
     {
-        mpr("You feel omnipotent.");
+        mpr(jtrans("You feel omnipotent."));
         return;
     }
 

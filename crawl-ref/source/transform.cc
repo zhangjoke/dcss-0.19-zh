@@ -24,6 +24,7 @@
 #include "itemname.h"
 #include "itemprop.h"
 #include "items.h"
+#include "japanese.h"
 #include "message.h"
 #include "mon-death.h"
 #include "mutation.h"
@@ -202,9 +203,17 @@ int Form::get_duration(int pow) const
  */
 string Form::get_description(bool past_tense) const
 {
-    return make_stringf("You %s %s",
-                        past_tense ? "were" : "are",
-                        description.c_str());
+    string text =  make_stringf(jtransc("You %s %s"),
+                                verb_jc(past_tense ? "were" : "are"),
+                                jtransc(description));
+
+    if (past_tense)
+        text = jconj_verb(text, JCONJ_PAST);
+
+    if (ends_with(description, "!"))
+        text = replace_all(text, "。", "！");
+
+    return text;
 }
 
 /**
@@ -224,10 +233,23 @@ string Form::transform_message(transformation_type previous_trans) const
              && feat_is_water(grd(you.pos())))
         start = "As you dive into the water, y";
     else
-        start = "Y";
+        start = "";
 
-    return make_stringf("%sou turn into %s", start.c_str(),
-                        get_transform_description().c_str());
+    string msg = make_stringf(jtransc("%sou turn into %s"),
+                              jtransc(start),
+                              jtransc(get_transform_description()));
+
+    if (you.form != TRAN_STATUE)
+    {
+        if (msg.find("姿", 0) != string::npos)
+            msg = replace_all(msg, "姿を", "姿");
+        else
+            msg = replace_all(msg, "あなたは", "あなたの姿は");
+    }
+    else
+        msg = jtrans("You turn into a stone statue.");
+
+    return msg;
 }
 
 /**
@@ -237,7 +259,7 @@ string Form::transform_message(transformation_type previous_trans) const
  */
 string Form::get_untransform_message() const
 {
-    return "Your transformation has ended.";
+    return jtrans("Your transformation has ended.");
 }
 
 /**
@@ -264,7 +286,9 @@ static string _brand_suffix(int brand)
 {
     if (brand == SPWPN_NORMAL)
         return "";
-    return make_stringf(" (%s)", brand_type_name(brand, true));
+
+    return make_stringf(" (%s)",
+                        tagged_jtransc("[item adj terse]", brand_type_name(brand, true)));
 }
 
 /**
@@ -280,8 +304,8 @@ string Form::get_uc_attack_name(string default_name) const
 {
     const string brand_suffix = _brand_suffix(get_uc_brand());
     if (uc_attack == "")
-        return default_name + brand_suffix;
-    return uc_attack + brand_suffix;
+        return jtrans(default_name) + brand_suffix;
+    return jtrans(uc_attack) + brand_suffix;
 }
 
 /**
@@ -501,7 +525,8 @@ public:
      */
     string get_long_name() const override
     {
-        return "blade " + blade_parts(true);
+        return make_stringf(jtransc("blade {hands}"),
+                            form_jc(blade_parts(true)));
     }
 
     /**
@@ -509,9 +534,10 @@ public:
      */
     string get_description(bool past_tense) const override
     {
-        return make_stringf("You %s blades for %s.",
-                            past_tense ? "had" : "have",
-                            blade_parts().c_str());
+        string desc = make_stringf(jtransc("You %s blades for %s."),
+                                   form_jc(blade_parts()));
+
+        return past_tense ? jconj_verb(desc, JCONJ_PAST) : desc;
     }
 
     /**
@@ -522,8 +548,8 @@ public:
         const bool singular = player_mutation_level(MUT_MISSING_HAND);
 
         // XXX: a little ugly
-        return make_stringf("Your %s turn%s into%s razor-sharp scythe blade%s.",
-                            blade_parts().c_str(), singular ? "s" : "",
+        return make_stringf(jtransc("Your %s turn%s into%s razor-sharp scythe blade%s."),
+                            form_jc(blade_parts()), singular ? "s" : "",
                             singular ? " a" : "", singular ? "" : "s");
     }
 
@@ -535,8 +561,8 @@ public:
         const bool singular = player_mutation_level(MUT_MISSING_HAND);
 
         // XXX: a little ugly
-        return make_stringf("Your %s revert%s to %s normal proportions.",
-                            blade_parts().c_str(), singular ? "s" : "",
+        return make_stringf(jtransc("Your %s revert%s to %s normal proportions."),
+                            form_jc(blade_parts()), singular ? "s" : "",
                             singular ? "its" : "their");
     }
 
@@ -547,7 +573,8 @@ public:
      */
     string get_uc_attack_name(string default_name) const override
     {
-        return "Blade " + blade_parts(true);
+        return make_stringf(jtransc("Blade %s"),
+                            form_jc(blade_parts(true)));
     }
 };
 
@@ -572,7 +599,7 @@ public:
      */
     string transform_message(transformation_type previous_trans) const override
     {
-        if (you.species == SP_DEEP_DWARF && one_chance_in(10))
+        if (you.species == SP_DEEP_DWARF)// && one_chance_in(10))
             return "You inwardly fear your resemblance to a lawn ornament.";
         else if (you.species == SP_GARGOYLE)
             return "Your body stiffens and grows slower.";
@@ -624,7 +651,7 @@ public:
             return "Stone tentacles";
 
         const bool singular = player_mutation_level(MUT_MISSING_HAND);
-        return make_stringf("Stone fist%s", singular ? "" : "s");
+        return make_stringf(jtransc("Stone fist%s"), singular ? "" : "s");
     }
 };
 
@@ -655,7 +682,7 @@ public:
     string get_uc_attack_name(string default_name) const override
     {
         const bool singular = player_mutation_level(MUT_MISSING_HAND);
-        return make_stringf("Ice fist%s", singular ? "" : "s");
+        return make_stringf(jtransc("Ice fist%s"), singular ? "" : "s");
     }
 };
 
@@ -792,9 +819,9 @@ public:
 
     string get_description(bool past_tense) const override
     {
-        return make_stringf("You %s in %sbat-form.",
-                            past_tense ? "were" : "are",
-                            you.species == SP_VAMPIRE ?  "vampire-" : "");
+        return make_stringf(jtransc("You %s in %sbat-form."),
+                            verb_jc(past_tense ? "were" : "are"),
+                            jtransc(you.species == SP_VAMPIRE ?  "vampire-" : ""));
     }
 
     /**
@@ -803,8 +830,8 @@ public:
      */
     string get_transform_description() const override
     {
-        return make_stringf("a %sbat.",
-                            you.species == SP_VAMPIRE ? "vampire " : "");
+        return jtrans(make_stringf("a %sbat.",
+                                   you.species == SP_VAMPIRE ? "vampire " : ""));
     }
 };
 
@@ -833,14 +860,15 @@ public:
     {
         if (you.attribute[ATTR_APPENDAGE] == MUT_TENTACLE_SPIKE)
         {
-            return make_stringf("One of your tentacles %s a temporary spike.",
-                                 past_tense ? "had" : "has");
+            return jtrans(make_stringf("One of your tentacles %s a temporary spike.",
+                                       past_tense ? "had" : "has"));
         }
 
-        return make_stringf("You %s grown temporary %s.",
-                            past_tense ? "had" : "have",
-                            mutation_name((mutation_type)
-                                          you.attribute[ATTR_APPENDAGE]));
+        string desc = make_stringf(jtransc("You %s grown temporary %s."),
+                                   jtransc(mutation_name((mutation_type)
+                                                         you.attribute[ATTR_APPENDAGE])));
+
+        return past_tense ? jconj_verb(desc, JCONJ_PAST) : desc;
     }
 
     /**
@@ -856,7 +884,8 @@ public:
             case MUT_TENTACLE_SPIKE:
                 return "One of your tentacles grows a vicious spike.";
             case MUT_TALONS:
-                return "Your feet morph into talons.";
+                return make_stringf(jtransc("Your feet morph into talons."),
+                                    you.foot_name(true).c_str());
             default:
                  die("Unknown beastly appendage.");
         }
@@ -989,10 +1018,8 @@ public:
     string get_transform_description() const override
     {
         const auto heads = you.heads();
-        const string headstr = (heads < 11 ? number_in_words(heads)
-                                           : to_string(heads))
-                             + "-headed hydra.";
-        return article_a(headstr);
+        return make_stringf(jtransc("a %s-headed hydra."),
+                            jnumber_for_hydra_heads(heads).c_str());
     }
 
     /**
@@ -1000,9 +1027,9 @@ public:
      */
     string get_description(bool past_tense) const override
     {
-        return make_stringf("You %s %s",
-                            past_tense ? "were" : "are",
-                            get_transform_description().c_str());
+        return  make_stringf(jtransc("You %s %s"),
+                             verb_jc(past_tense ? "were" : "are"),
+                             jtransc(get_transform_description()));
     }
 
     /**
@@ -1010,7 +1037,7 @@ public:
      */
     string get_uc_attack_name(string default_name) const override
     {
-        return make_stringf("Bite (x%d)", you.heads());
+        return make_stringf(jtransc("Bite (x%d)"), you.heads());
     }
 
     /**
@@ -1244,10 +1271,9 @@ static void _remove_equipment(const set<equipment_type>& removed,
                 unequip = true;
         }
 
-        mprf("%s %s%s %s", equip->name(DESC_YOUR).c_str(),
-             unequip ? "fall" : "meld",
-             equip->quantity > 1 ? "" : "s",
-             unequip ? "away!" : "into your body.");
+        mprf(jtransc(unequip ? "%s fall%s away!" : "%s meld%s into your body."),
+             equip->name(DESC_YOUR).c_str(),
+             equip->quantity > 1 ? "" : "s");
 
         if (unequip)
         {
@@ -1309,12 +1335,12 @@ static void _unmeld_equipment_type(equipment_type e)
 
     if (force_remove)
     {
-        mprf("%s is pushed off your body!", item.name(DESC_YOUR).c_str());
+        mprf(jtransc("%s is pushed off your body!"), item.name(DESC_PLAIN).c_str());
         unequip_item(e);
     }
     else
     {
-        mprf("%s unmelds from your body.", item.name(DESC_YOUR).c_str());
+        mprf(jtransc("%s unmelds from your body."), item.name(DESC_PLAIN).c_str());
         unmeld_slot(e);
     }
 }
@@ -1518,8 +1544,8 @@ static bool _transformation_is_safe(transformation_type which_trans,
 
     if (fail_reason)
     {
-        *fail_reason = make_stringf("You would %s in your new form.",
-                                    feat == DNGN_DEEP_WATER ? "drown" : "burn");
+        *fail_reason = jtrans(make_stringf("You would %s in your new form.",
+                                           feat == DNGN_DEEP_WATER ? "drown" : "burn"));
     }
 
     return false;
@@ -1544,10 +1570,10 @@ bool check_form_stat_safety(transformation_type new_form)
     if (!bad_str && !bad_dex)
         return true;
 
-    string prompt = make_stringf("%s will reduce your %s to zero. Continue?",
-                                 new_form == TRAN_NONE ? "Turning back"
-                                                       : "Transforming",
-                                 bad_str ? "strength" : "dexterity");
+    string prompt = make_stringf(jtransc("%s will reduce your %s to zero. Continue?"),
+                                 jtransc(new_form == TRAN_NONE ? "Turning back"
+                                                               : "Transforming"),
+                                 jtransc(bad_str ? "strength" : "dexterity"));
     if (yesno(prompt.c_str(), false, 'n'))
         return true;
 
@@ -1583,16 +1609,18 @@ static void _print_head_change_message(int old_heads, int new_heads)
     if (old_heads > new_heads)
     {
         if (plural)
-            mprf("%d of your heads shrink away.", delta);
+            mprf(jtransc("%d of your heads shrink away."),
+                 jnumber_for_hydra_heads(delta).c_str());
         else
-            mpr("One of your heads shrinks away.");
+            mpr(jtrans("One of your heads shrinks away."));
         return;
     }
 
     if (plural)
-        mprf("%d new heads grow.", delta);
+        mprf(jtransc("%d new heads grow."),
+             jnumber_for_hydra_heads(delta).c_str());
     else
-        mpr("A new head grows.");
+        mpr(jtrans("A new head grows."));
 }
 
 /**
@@ -1689,7 +1717,7 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
         if (fail_reason)
             *fail_reason = msg;
         else if (!involuntary)
-            mpr(msg);
+            mpr(jtrans(msg));
         return false;
     }
 
@@ -1718,12 +1746,12 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
         int dur = _transform_duration(which_trans, pow);
         if (you.duration[DUR_TRANSFORMATION] < dur * BASELINE_DELAY)
         {
-            mpr("You extend your transformation's duration.");
+            mpr(jtrans("You extend your transformation's duration."));
             you.duration[DUR_TRANSFORMATION] = dur * BASELINE_DELAY;
 
         }
         else if (!involuntary && which_trans != TRAN_NONE)
-            mpr("You fail to extend your transformation any further.");
+            mpr(jtrans("You fail to extend your transformation any further."));
 
         return true;
     }
@@ -1787,7 +1815,7 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
         if (fail_reason)
             *fail_reason = msg;
         else if (!involuntary)
-            mpr(msg);
+            mpr(jtrans(msg));
         return false;
     }
 
@@ -1807,7 +1835,7 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
         set_hydra_form_heads(div_rand_round(pow, 10));
 
     // Give the transformation message.
-    mpr(get_form(which_trans)->transform_message(previous_trans));
+    mpr(jtrans(get_form(which_trans)->transform_message(previous_trans)));
 
     // Update your status.
     you.form = which_trans;
@@ -1831,7 +1859,7 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
 
     if (you.digging && !form_keeps_mutations(which_trans))
     {
-        mpr("Your mandibles meld away.");
+        mpr(("Your mandibles meld away."));
         you.digging = false;
     }
 
@@ -1841,7 +1869,7 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
     case TRAN_STATUE:
         if (you.duration[DUR_ICY_ARMOUR])
         {
-            mprf(MSGCH_DURATION, "Your new body cracks your icy armour.");
+            mprf(MSGCH_DURATION, jtrans("Your new body cracks your icy armour."));
             you.duration[DUR_ICY_ARMOUR] = 0;
         }
         break;
@@ -1852,18 +1880,18 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
             trap_def *trap = trap_at(you.pos());
             if (trap && trap->type == TRAP_WEB)
             {
-                mpr("You disentangle yourself from the web.");
+                mpr(jtrans("You disentangle yourself from the web."));
                 you.attribute[ATTR_HELD] = 0;
             }
         }
         break;
 
     case TRAN_TREE:
-        mpr("Your roots penetrate the ground.");
+        mpr(jtrans("Your roots penetrate the ground."));
         if (you.duration[DUR_TELEPORT])
         {
             you.duration[DUR_TELEPORT] = 0;
-            mpr("You feel strangely stable.");
+            mpr(jtrans("You feel strangely stable."));
         }
         you.duration[DUR_FLIGHT] = 0;
         // break out of webs/nets as well
@@ -1874,13 +1902,13 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
             trap_def *trap = trap_at(you.pos());
             if (trap && trap->type == TRAP_WEB)
             {
-                mpr("You shred the web into pieces!");
+                mpr(jtrans("You shred the web into pieces!"));
                 destroy_trap(you.pos());
             }
             int net = get_trapping_net(you.pos());
             if (net != NON_ITEM)
             {
-                mpr("The net rips apart!");
+                mpr(jtrans("The net rips apart!"));
                 destroy_item(net);
             }
 
@@ -1892,7 +1920,7 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
         // undead cannot regenerate -- bwr
         if (you.duration[DUR_REGENERATION])
         {
-            mprf(MSGCH_DURATION, "You stop regenerating.");
+            mprf(MSGCH_DURATION, jtrans("You stop regenerating."));
             you.duration[DUR_REGENERATION] = 0;
         }
 
@@ -1912,9 +1940,9 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
     case TRAN_SHADOW:
         drain_player(25, true, true);
         if (you.invisible())
-            mpr("You fade into the shadows.");
+            mpr(jtrans("You fade into the shadows."));
         else
-            mpr("You feel less conspicuous.");
+            mpr(jtrans("You feel less conspicuous."));
         break;
 
     default:
@@ -1972,8 +2000,8 @@ bool transform(int pow, transformation_type which_trans, bool involuntary,
     if (you.hp <= 0)
     {
         ouch(0, KILLED_BY_FRAILTY, MID_NOBODY,
-             make_stringf("gaining the %s transformation",
-                          transform_name(which_trans)).c_str());
+             make_stringf(jtransc("gaining the %s transformation"),
+                          jtransc(transform_name(which_trans))).c_str());
     }
 
     return true;
@@ -2028,15 +2056,16 @@ void untransform(bool skip_move)
         {
             const char * const verb = you.mutation[app] ? "shrink"
                                                         : "disappear";
-            mprf(MSGCH_DURATION, "Your %s %s%s.",
-                 mutation_name(static_cast<mutation_type>(app)), verb,
+            mprf(MSGCH_DURATION, jtransc("Your %s %s%s."),
+                 jtransc(mutation_name(static_cast<mutation_type>(app))),
+                 verb_jc(verb),
                  app == MUT_TENTACLE_SPIKE ? "s" : "");
         }
     }
 
     const string message = get_form(old_form)->get_untransform_message();
     if (message != "")
-        mprf(MSGCH_DURATION, "%s", message.c_str());
+        mprf(MSGCH_DURATION, jtrans(message));
 
     const int str_mod = get_form(old_form)->str_mod;
     const int dex_mod = get_form(old_form)->dex_mod;
@@ -2089,7 +2118,7 @@ void untransform(bool skip_move)
         you.duration[DUR_ICY_ARMOUR] = 0;
 
         const item_def *armour = you.slot_item(EQ_BODY_ARMOUR, false);
-        mprf(MSGCH_DURATION, "%s cracks your icy armour.",
+        mprf(MSGCH_DURATION, jtransc("%s cracks your icy armour."),
              armour->name(DESC_YOUR).c_str());
     }
 
@@ -2107,8 +2136,8 @@ void untransform(bool skip_move)
     if (you.hp <= 0)
     {
         ouch(0, KILLED_BY_FRAILTY, MID_NOBODY,
-             make_stringf("losing the %s form",
-                          transform_name(old_form)).c_str());
+             make_stringf(jtransc("losing the %s form"),
+                          jtransc(transform_name(old_form))).c_str());
     }
 
     // Stop being constricted if we are now too large.
@@ -2136,7 +2165,7 @@ static void _extra_hp(int amount_extra) // must also set in calc_hp
 
 void emergency_untransform()
 {
-    mpr("You quickly transform back into your natural form.");
+    mpr(jtrans("You quickly transform back into your natural form."));
     untransform(true); // We're already entering the water.
 
     if (you.species == SP_MERFOLK)
@@ -2170,12 +2199,14 @@ void merfolk_start_swimming(bool stepped)
         return;
 
     if (stepped)
-        mpr("Your legs become a tail as you enter the water.");
+        mpr(make_stringf(jtransc("Your legs become a tail as you enter the water."),
+                         you.foot_name(false).c_str()));
     else
-        mpr("Your legs become a tail as you dive into the water.");
+        mpr(make_stringf(jtransc("Your legs become a tail as you dive into the water."),
+                         you.foot_name(false).c_str()));
 
     if (you.invisible())
-        mpr("...but don't expect to remain undetected.");
+        mpr(jtrans("...but don't expect to remain undetected."));
 
     you.fishtail = true;
     remove_one_equip(EQ_BOOTS);

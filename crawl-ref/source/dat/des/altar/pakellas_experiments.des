@@ -71,7 +71,7 @@ function pakellas_experiment_message(data)
   else
     message = messages[crawl.random_range(1, #messages)]
   end
-  crawl.god_speaks("Pakellas", "Pakellas says, " .. message)
+  crawl.god_speaks("Pakellas", "パケラスは" .. message .. "と言った。")
 end
 
 -- pakellas_enable_clouds() and pakellas_disable_clouds)_ are also

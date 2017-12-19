@@ -4,6 +4,7 @@
 
 #include "artefact.h"
 #include "clua.h"
+#include "database.h"
 #include "delay.h"
 #include "files.h"
 #include "godpassive.h"
@@ -107,32 +108,32 @@ bool attribute_increase()
     crawl_state.stat_gain_prompt = true;
 #ifdef TOUCH_UI
     learned_something_new(HINT_CHOOSE_STAT);
-    Popup *pop = new Popup("Increase Attributes");
+    Popup *pop = new Popup(jtrans("Increase Attributes"));
     MenuEntry *status = new MenuEntry("", MEL_SUBTITLE);
-    pop->push_entry(new MenuEntry(stat_gain_message + " Increase:", MEL_TITLE));
+    pop->push_entry(new MenuEntry(jtrans(stat_gain_message) + jtrans_notrim(" Increase:"), MEL_TITLE));
     pop->push_entry(status);
-    MenuEntry *me = new MenuEntry("Strength", MEL_ITEM, 0, 'S', false);
+    MenuEntry *me = new MenuEntry(jtrans("Strength"), MEL_ITEM, 0, 'S', false);
     me->add_tile(tile_def(TILEG_FIGHTING_ON, TEX_GUI));
     pop->push_entry(me);
-    me = new MenuEntry("Intelligence", MEL_ITEM, 0, 'I', false);
+    me = new MenuEntry(jtrans("Intelligence"), MEL_ITEM, 0, 'I', false);
     me->add_tile(tile_def(TILEG_SPELLCASTING_ON, TEX_GUI));
     pop->push_entry(me);
-    me = new MenuEntry("Dexterity", MEL_ITEM, 0, 'D', false);
+    me = new MenuEntry(jtrans("Dexterity"), MEL_ITEM, 0, 'D', false);
     me->add_tile(tile_def(TILEG_DODGING_ON, TEX_GUI));
     pop->push_entry(me);
 #else
-    mprf(MSGCH_INTRINSIC_GAIN, "%s", stat_gain_message.c_str());
+    mprf(MSGCH_INTRINSIC_GAIN, jtrans(stat_gain_message));
     learned_something_new(HINT_CHOOSE_STAT);
     if (innate_stat(STAT_STR) != you.strength()
         || innate_stat(STAT_INT) != you.intel()
         || innate_stat(STAT_DEX) != you.dex())
     {
-        mprf(MSGCH_PROMPT, "Your base attributes are Str %d, Int %d, Dex %d.",
+        mprf(MSGCH_PROMPT, jtransc("Your base attributes are Str %d, Int %d, Dex %d."),
              innate_stat(STAT_STR),
              innate_stat(STAT_INT),
              innate_stat(STAT_DEX));
     }
-    mprf(MSGCH_PROMPT, "Increase (S)trength, (I)ntelligence, or (D)exterity? ");
+    mprf(MSGCH_PROMPT, jtrans_notrim("Increase (S)trength, (I)ntelligence, or (D)exterity? "));
 #endif
     mouse_control mc(MOUSE_MODE_PROMPT);
 
@@ -190,7 +191,7 @@ bool attribute_increase()
             return true;
 #ifdef TOUCH_UI
         default:
-            status->text = "Please choose an option below"; // too naggy?
+            status->text = jtrans("Please choose an option below"); // too naggy?
 #endif
         }
     }
@@ -318,8 +319,8 @@ void modify_stat(stat_type which_stat, int amount, bool suppress_msg)
     if (!suppress_msg)
     {
         mprf((amount > 0) ? MSGCH_INTRINSIC_GAIN : MSGCH_WARN,
-             "You feel %s.",
-             stat_desc(which_stat, (amount > 0) ? SD_INCREASE : SD_DECREASE));
+             jtrans(make_stringf("You feel %s.",
+                                 stat_desc(which_stat, (amount > 0) ? SD_INCREASE : SD_DECREASE))));
     }
 
     you.base_stats[which_stat] += amount;
@@ -345,8 +346,8 @@ void notify_stat_change(stat_type which_stat, int amount, bool suppress_msg)
     if (!suppress_msg)
     {
         mprf((amount > 0) ? MSGCH_INTRINSIC_GAIN : MSGCH_WARN,
-             "You feel %s.",
-             stat_desc(which_stat, (amount > 0) ? SD_INCREASE : SD_DECREASE));
+             jtrans(make_stringf("You feel %s.",
+                                 stat_desc(which_stat, (amount > 0) ? SD_INCREASE : SD_DECREASE))));
     }
 
     _handle_stat_change(which_stat);
@@ -480,7 +481,7 @@ static int _stat_modifier(stat_type stat, bool innate_only)
     case STAT_INT: return _int_modifier(innate_only);
     case STAT_DEX: return _dex_modifier(innate_only);
     default:
-        mprf(MSGCH_ERROR, "Bad stat: %d", stat);
+        mprf(MSGCH_ERROR, jtransc("Bad stat: %d"), stat);
         return 0;
     }
 }
@@ -520,13 +521,13 @@ bool lose_stat(stat_type which_stat, int stat_loss, bool force)
     {
         if (you.duration[DUR_DIVINE_STAMINA] > 0)
         {
-            mprf("Your divine stamina protects you from %s loss.",
-                 _stat_name(which_stat).c_str());
+            mprf(jtransc("Your divine stamina protects you from %s loss."),
+                 jtransc(_stat_name(which_stat)));
             return false;
         }
     }
 
-    mprf(MSGCH_WARN, "You feel %s.", stat_desc(which_stat, SD_LOSS));
+    mprf(MSGCH_WARN, jtrans(make_stringf("You feel %s.", stat_desc(which_stat, SD_LOSS))));
 
     you.stat_loss[which_stat] = min<int>(100,
                                          you.stat_loss[which_stat] + stat_loss);
@@ -578,8 +579,8 @@ bool restore_stat(stat_type which_stat, int stat_gain,
     if (!suppress_msg)
     {
         mprf(recovery ? MSGCH_RECOVERY : MSGCH_PLAIN,
-             "You feel your %s returning.",
-             _stat_name(which_stat).c_str());
+             jtransc("You feel your %s returning."),
+             jtransc(_stat_name(which_stat)));
     }
 
     if (stat_gain == 0 || stat_gain > you.stat_loss[which_stat])
@@ -610,9 +611,9 @@ static void _handle_stat_change(stat_type stat)
         // Time required for recovery once the stat is restored, randomised slightly.
         you.duration[stat_zero_duration(stat)] =
             (20 + random2(20)) * BASELINE_DELAY;
-        mprf(MSGCH_WARN, "You have lost your %s.", stat_desc(stat, SD_NAME));
-        take_note(Note(NOTE_MESSAGE, 0, 0, make_stringf("Lost %s.",
-            stat_desc(stat, SD_NAME)).c_str()), true);
+        mprf(MSGCH_WARN, jtransc("You have lost your %s."), jtransc(stat_desc(stat, SD_NAME)));
+        take_note(Note(NOTE_MESSAGE, 0, 0, make_stringf(jtransc("Lost %s."),
+            jtransc(stat_desc(stat, SD_NAME)))), true);
         // 2 to 5 turns of paralysis (XXX: decremented right away?)
         you.increase_duration(DUR_PARALYSIS, 2 + random2(3));
     }

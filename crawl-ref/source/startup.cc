@@ -386,7 +386,7 @@ static void _construct_game_modes_menu(MenuScroller* menu)
     tmp = new TextItem();
 #endif
     text = "Dungeon Crawl";
-    tmp->set_text(text);
+    tmp->set_text(jtrans(text));
     tmp->set_fg_colour(WHITE);
     tmp->set_highlight_colour(WHITE);
     tmp->set_id(GAME_TYPE_NORMAL);
@@ -405,7 +405,7 @@ static void _construct_game_modes_menu(MenuScroller* menu)
     tmp = new TextItem();
 #endif
     text = "Tutorial for Dungeon Crawl";
-    tmp->set_text(text);
+    tmp->set_text(jtrans(text));
     tmp->set_fg_colour(WHITE);
     tmp->set_highlight_colour(WHITE);
     tmp->set_id(GAME_TYPE_TUTORIAL);
@@ -443,7 +443,7 @@ static void _construct_game_modes_menu(MenuScroller* menu)
     tmp = new TextItem();
 #endif
     text = "Dungeon Sprint";
-    tmp->set_text(text);
+    tmp->set_text(jtrans(text));
     tmp->set_fg_colour(WHITE);
     tmp->set_highlight_colour(WHITE);
     tmp->set_id(GAME_TYPE_SPRINT);
@@ -461,7 +461,7 @@ static void _construct_game_modes_menu(MenuScroller* menu)
     tmp = new TextItem();
 #endif
     text = "Instructions";
-    tmp->set_text(text);
+    tmp->set_text(jtrans(text));
     tmp->set_fg_colour(WHITE);
     tmp->set_highlight_colour(WHITE);
     tmp->set_id(GAME_TYPE_INSTRUCTIONS);
@@ -479,7 +479,7 @@ static void _construct_game_modes_menu(MenuScroller* menu)
     tmp = new TextItem();
 #endif
     text = "The Arena";
-    tmp->set_text(text);
+    tmp->set_text(jtrans(text));
     tmp->set_fg_colour(WHITE);
     tmp->set_highlight_colour(WHITE);
     tmp->set_id(GAME_TYPE_ARENA);
@@ -497,7 +497,7 @@ static void _construct_game_modes_menu(MenuScroller* menu)
     tmp = new TextItem();
 #endif
     text = "High Scores";
-    tmp->set_text(text);
+    tmp->set_text(jtrans(text));
     tmp->set_fg_colour(WHITE);
     tmp->set_highlight_colour(WHITE);
     tmp->set_id(GAME_TYPE_HIGH_SCORES);
@@ -517,7 +517,7 @@ static void _add_newgame_button(MenuScroller* menu, int num_chars)
 #else
     TextItem* tmp = new TextItem();
 #endif
-    tmp->set_text("New Game");
+    tmp->set_text(jtrans("New Game"));
     tmp->set_bounds(coord_def(1, 1), coord_def(1, 2));
     tmp->set_fg_colour(WHITE);
     tmp->set_highlight_colour(WHITE);
@@ -571,8 +571,8 @@ static bool _game_defined(const newgame_def& ng)
 }
 
 static const int SCROLLER_MARGIN_X  = 18;
-static const int NAME_START_Y       = 5;
-static const int GAME_MODES_START_Y = 7;
+static const int NAME_START_Y       = 6;
+static const int GAME_MODES_START_Y = 8;
 static const int GAME_MODES_WIDTH   = 60;
 static const int NUM_HELP_LINES     = 3;
 static const int NUM_MISC_LINES     = 5;
@@ -630,14 +630,14 @@ again:
     _construct_save_games_menu(save_games, chars);
 
     NoSelectTextItem* tmp = new NoSelectTextItem();
-    tmp->set_text("Enter your name:");
+    tmp->set_text(jtrans("Enter your name:"));
     tmp->set_bounds(coord_def(1, NAME_START_Y),
                     coord_def(SCROLLER_MARGIN_X, NAME_START_Y + 1));
     freeform->attach_item(tmp);
     tmp->set_visible(true);
 
     tmp = new NoSelectTextItem();
-    tmp->set_text("Choices:");
+    tmp->set_text(jtrans("Choices:"));
     tmp->set_bounds(coord_def(1, GAME_MODES_START_Y),
                     coord_def(SCROLLER_MARGIN_X, GAME_MODES_START_Y + 1));
     freeform->attach_item(tmp);
@@ -646,7 +646,7 @@ again:
     if (num_saves)
     {
         tmp = new NoSelectTextItem();
-        tmp->set_text("Saved games:");
+        tmp->set_text(jtrans("Saved games:"));
         tmp->set_bounds(coord_def(1, save_games_start_y),
                         coord_def(SCROLLER_MARGIN_X, save_games_start_y + 1));
         freeform->attach_item(tmp);
@@ -670,7 +670,7 @@ again:
     if (_game_defined(defaults))
         text += ", Tab to repeat the last game's choice";
     text += ".\n";
-    tmp->set_text(text);
+    tmp->set_text(jtrans_notrim(text));
     tmp->set_bounds(coord_def(1, help_start), coord_def(max_col - 1, help_end));
     freeform->attach_item(tmp);
     tmp->set_visible(true);
@@ -893,7 +893,7 @@ again:
                 cgotoxy(SCROLLER_MARGIN_X ,GAME_MODES_START_Y - 1);
                 clear_to_end_of_line();
                 textcolour(RED);
-                cprintf("That's a silly name");
+                cprintf(jtransc("That's a silly name"));
                 // Don't make the next key re-enter the game.
                 menu.clear_selections();
             }
@@ -943,16 +943,16 @@ static void _choose_arena_teams(newgame_def& choice,
     clear_message_store();
     clrscr();
 
-    cprintf("Enter your choice of teams:\n");
+    cprintf(jtrans_notrimc("Enter your choice of teams:\n"));
 
     cgotoxy(1, 4);
     if (!defaults.arena_teams.empty())
         cprintf("Enter - %s\n", defaults.arena_teams.c_str());
     cprintf("\n");
-    cprintf("Examples:\n");
-    cprintf("  Sigmund v Jessica\n");
-    cprintf("  99 orc v the Royal Jelly\n");
-    cprintf("  20-headed hydra v 10 kobold ; scimitar ego:flaming\n");
+    cprintf(jtrans_notrimc("Examples:\n"));
+    cprintf(jtrans_notrimc("  Sigmund v Jessica\n"));
+    cprintf(jtrans_notrimc("  99 orc v the Royal Jelly\n"));
+    cprintf(jtrans_notrimc("  20-headed hydra v 10 kobold ; scimitar ego:flaming\n"));
     cgotoxy(1, 2);
 
     char buf[80];

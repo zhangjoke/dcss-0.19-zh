@@ -46,6 +46,7 @@
 #include "tilepick.h"
 #include "tileview.h"
 #endif
+#include "unicode.h"
 #include "view.h"
 #include "viewchar.h"
 
@@ -238,14 +239,14 @@ public:
 
     void set_prompt()
     {
-        string prompt = "Describe which? ";
+        string prompt = jtrans_notrim("Describe which? ");
 
         if (toggleable_sort)
         {
             if (sort_alpha)
-                prompt += "(CTRL-S to sort by monster toughness)";
+                prompt += jtrans("(CTRL-S to sort by monster toughness)");
             else
-                prompt += "(CTRL-S to sort by name)";
+                prompt += jtrans("(CTRL-S to sort by name)");
         }
         set_title(new MenuEntry(prompt, MEL_TITLE));
     }
@@ -586,29 +587,25 @@ static string _spell_sources(const spell_type spell)
     }
 
     if (books.empty() && rods.empty())
-        return "\n\nThis spell is not found in any books or rods.";
+        return jtrans_notrim("\n\nThis spell is not found in any books or rods.");
 
     string desc;
 
     if (!books.empty())
     {
-        desc += "\n\nThis spell can be found in the following book";
-        if (books.size() > 1)
-            desc += "s";
+        desc += jtrans_notrim("\n\nThis spell can be found in the following book");
         desc += ":\n ";
         desc += comma_separated_line(books.begin(), books.end(), "\n ", "\n ");
     }
 
     if (!rods.empty())
     {
-        desc += "\n\nThis spell can be found in the following rod";
-        if (rods.size() > 1)
-            desc += "s";
+        desc += jtrans_notrim("\n\nThis spell can be found in the following rod");
         desc += ":\n ";
         desc += comma_separated_line(rods.begin(), rods.end(), "\n ", "\n ");
     }
 
-    return desc;
+    return sp2nbsp(desc);
 }
 
 /**
@@ -665,7 +662,7 @@ static MenuEntry* _monster_menu_gen(char letter, const string &str,
     prefix += colour_to_str(colour);
     prefix += ">) ";
 
-    const string title = prefix + name;
+    const string title = prefix + name + "/" + jtrans(name);
 #else
     const string &title = name;
 #endif
@@ -706,11 +703,24 @@ static MenuEntry* _god_menu_gen(char letter, const string &str, string &key)
 }
 
 /**
+ * Generate a ?/B menu entry. (ref. _simple_menu_gen()).
+ */
+static MenuEntry* _branch_menu_gen(char letter, const string &str, string &key)
+{
+    string longname = branches[branch_by_shortname(str)].longname;
+
+    MenuEntry* me = new MenuEntry(branch_name_j(longname), MEL_ITEM, 1, letter);
+    me->data = &key;
+    return me;
+}
+
+/**
  * Generate a ?/A menu entry. (ref. _simple_menu_gen()).
  */
 static MenuEntry* _ability_menu_gen(char letter, const string &str, string &key)
 {
-    MenuEntry* me = _simple_menu_gen(letter, str, key);
+    MenuEntry* me = new MenuEntry(str + "/" + ability_name_j(str), MEL_ITEM, 1, letter);
+    me->data = &key;
 
 #ifdef USE_TILE
     const ability_type ability = ability_by_name(str);
@@ -722,11 +732,33 @@ static MenuEntry* _ability_menu_gen(char letter, const string &str, string &key)
 }
 
 /**
+ * Generate a ?/C menu entry. (ref. _simple_menu_gen()).
+ */
+static MenuEntry* _card_menu_gen(char letter, const string &str, string &key)
+{
+    MenuEntry* me = new MenuEntry(str + "/" + card_name_j(str, true),
+                                  MEL_ITEM, 1, letter);
+    me->data = &key;
+    return me;
+}
+
+/**
+ * Generate a ?/I menu entry. (ref. _simple_menu_gen()).
+ */
+static MenuEntry* _item_menu_gen(char letter, const string &str, string &key)
+{
+    MenuEntry* me = new MenuEntry(str + "/" + jtrans(str), MEL_ITEM, 1, letter);
+    me->data = &key;
+    return me;
+}
+
+/**
  * Generate a ?/S menu entry. (ref. _simple_menu_gen()).
  */
 static MenuEntry* _spell_menu_gen(char letter, const string &str, string &key)
 {
-    MenuEntry* me = _simple_menu_gen(letter, str, key);
+    MenuEntry* me = new MenuEntry(str + "/" + spell_title_j(str), MEL_ITEM, 1, letter);
+    me->data = &key;
 
     const spell_type spell = spell_by_name(str);
 #ifdef USE_TILE
@@ -745,7 +777,8 @@ static MenuEntry* _spell_menu_gen(char letter, const string &str, string &key)
  */
 static MenuEntry* _skill_menu_gen(char letter, const string &str, string &key)
 {
-    MenuEntry* me = _simple_menu_gen(letter, str, key);
+    MenuEntry* me = new MenuEntry(skill_name_j(str) + "スキル", MEL_ITEM, 1, letter);
+    me->data = &key;
 
 #ifdef USE_TILE
     const skill_type skill = str_to_skill(str);
@@ -797,7 +830,7 @@ string LookupType::prompt_string() const
     ASSERT(symbol_pos != string::npos);
 
     prompt_str.replace(symbol_pos, 1, make_stringf("(%c)", toupper(symbol)));
-    return prompt_str;
+    return jtrans(prompt_str);
 }
 
 /**
@@ -944,8 +977,9 @@ string LookupType::key_to_menu_str(const string &key) const
 int LookupType::describe(const string &key, bool exact_match) const
 {
     const string footer
-        = exact_match ? "This entry is an exact match for '" + key
-        + "'. To see non-exact matches, press space."
+        = exact_match ? make_stringf(jtransc("This entry is an exact match for '%s"
+                                             "'. To see non-exact matches, press space."),
+                                     key.c_str())
         : "";
     return describer(key, suffix(), footer);
 }
@@ -959,8 +993,14 @@ int LookupType::describe(const string &key, bool exact_match) const
  * @param extra_info    Extra info to append to the database description.
  * @return              The keypress the user made to exit.
  */
+static string _spacer(const int length)
+{
+    return length < 0 ? "" : string(length, ' ');
+}
+
 static int _describe_key(const string &key, const string &suffix,
-                         string footer, const string &extra_info)
+                         string footer, const string &extra_info,
+                         const string &tag = "", const string &title = "")
 {
     describe_info inf;
     inf.quote = getQuoteString(key);
@@ -970,13 +1010,16 @@ static int _describe_key(const string &key, const string &suffix,
 
     inf.body << desc << extra_info;
 
-    string title = key;
-    strip_suffix(title, suffix);
-    title = uppercase_first(title);
+    string title_en = title.empty() ? key : title;
+    strip_suffix(title_en, suffix);
+    title_en = uppercase_first(title_en);
+    string title_ja = tagged_jtrans(tag, title_en);
+    string spacer = _spacer(get_number_of_cols() - strwidth(title_ja)
+                                                 - strwidth(title_en) - 1);
     linebreak_string(footer, width - 1);
 
     inf.footer = footer;
-    inf.title  = title;
+    inf.title  = title_ja + spacer + title_en;
 
 #ifdef USE_TILE_WEB
     tiles_crt_control show_as_menu(CRT_MENU, "description");
@@ -1045,9 +1088,84 @@ static int _describe_spell(const string &key, const string &suffix,
 
     const string spell_info = player_spell_desc(spell);
     const string source_info = _spell_sources(spell);
-    return _describe_key(key, suffix, footer, spell_info + source_info);
+    return _describe_key(key, suffix, footer, spell_info + source_info, "[spell]");
 }
 
+/**
+ * Describe the skill with the given name.
+ *
+ * @param key       The name of the skill in question.
+ * @param suffix    A suffix to trim from the key when making the title.
+ * @param footer    A footer to append to the end of descriptions.
+ * @return          The keypress the user made to exit.
+ */
+static int _describe_skill(const string &key, const string &suffix,
+                           string footer)
+{
+    describe_info inf;
+    inf.quote = getQuoteString(key);
+
+    const string desc = getLongDescription(key);
+    const int width = min(80, get_number_of_cols());
+
+    inf.body << desc;
+
+    string title_en = key;
+    strip_suffix(title_en, suffix);
+    title_en = uppercase_first(title_en);
+    string title_ja = skill_name_j(title_en) + "スキル";
+    string spacer = _spacer(get_number_of_cols() - strwidth(title_ja)
+                                                 - strwidth(title_en) - 1);
+    linebreak_string(footer, width - 1);
+
+    inf.footer = footer;
+    inf.title  = title_ja + spacer + title_en;
+
+#ifdef USE_TILE_WEB
+    tiles_crt_control show_as_menu(CRT_MENU, "description");
+#endif
+
+    print_description(inf);
+    return getchm();
+}
+
+/**
+ * Describe the ability with the given name.
+ *
+ * @param key       The name of the ability in question.
+ * @param suffix    A suffix to trim from the key when making the title.
+ * @param footer    A footer to append to the end of descriptions.
+ * @return          The keypress the user made to exit.
+ */
+static int _describe_ability(const string &key, const string &suffix,
+                             string footer)
+{
+    describe_info inf;
+    inf.quote = getQuoteString(key);
+
+    const string desc = getLongDescription(key);
+    const int width = min(80, get_number_of_cols());
+
+    inf.body << desc;
+
+    string title_en = key;
+    strip_suffix(title_en, suffix);
+    title_en = uppercase_first(title_en);
+    string title_ja = ability_name_j(title_en);
+    string spacer = _spacer(get_number_of_cols() - strwidth(title_ja)
+                                                 - strwidth(title_en) - 1);
+    linebreak_string(footer, width - 1);
+
+    inf.footer = footer;
+    inf.title  = title_ja + spacer + title_en;
+
+#ifdef USE_TILE_WEB
+    tiles_crt_control show_as_menu(CRT_MENU, "description");
+#endif
+
+    print_description(inf);
+    return getchm();
+}
 
 /**
  * Describe the card with the given name.
@@ -1063,7 +1181,32 @@ static int _describe_card(const string &key, const string &suffix,
     const string card_name = key.substr(0, key.size() - suffix.size());
     const card_type card = name_to_card(card_name);
     ASSERT(card != NUM_CARDS);
-    return _describe_key(key, suffix, footer, which_decks(card) + "\n");
+
+    describe_info inf;
+    inf.quote = getQuoteString(key);
+
+    const string desc = getLongDescription(key);
+    const int width = min(80, get_number_of_cols());
+
+    inf.body << desc << ("\n" + which_decks(card) + "\n");
+
+    string title_en = key;
+    strip_suffix(title_en, suffix);
+    title_en = uppercase_first(title_en);
+    string title_ja = card_name_j(card, true);
+    string spacer = _spacer(get_number_of_cols() - strwidth(title_ja)
+                                                 - strwidth(title_en) - 1);
+    linebreak_string(footer, width - 1);
+
+    inf.footer = footer;
+    inf.title  = title_ja + spacer + title_en;
+
+#ifdef USE_TILE_WEB
+    tiles_crt_control show_as_menu(CRT_MENU, "description");
+#endif
+
+    print_description(inf);
+    return getchm();
 }
 
 /**
@@ -1162,9 +1305,9 @@ static string _branch_entry_runes(branch_type br)
 
     if (num_runes > 0)
     {
-        desc = make_stringf("\n\nThis %s can only be entered while carrying "
-                            "at least %d rune%s of Zot.",
-                            br == BRANCH_ZIGGURAT ? "portal" : "branch",
+        desc = make_stringf(jtrans_notrimc("\n\nThis %s can only be entered while carrying "
+                                           "at least %d rune%s of Zot."),
+                            jtransc(br == BRANCH_ZIGGURAT ? "portal" : "branch"),
                             num_runes, num_runes > 1 ? "s" : "");
     }
 
@@ -1179,9 +1322,9 @@ static string _branch_depth(branch_type br)
     // Abyss depth is explained in the description.
     if (depth > 1 && br != BRANCH_ABYSS)
     {
-        desc = make_stringf("\n\nThis %s is %d levels deep.",
+        desc = make_stringf(jtrans_notrimc("\n\nThis %s is %d levels deep."), jtransc(
                             br == BRANCH_ZIGGURAT ? "portal"
-                                                  : "branch",
+                                                  : "branch"),
                             depth);
     }
 
@@ -1202,14 +1345,15 @@ static string _branch_location(branch_type br)
         if (min == max)
         {
             if (branches[parent].numlevels == 1)
-                desc += "in ";
+                desc = make_stringf(jtrans_notrimc(desc + "in %s."),
+                                    branch_name_jc(branches[parent].longname));
             else
-                desc += make_stringf("on level %d of ", min);
+                desc = make_stringf(jtrans_notrimc(desc + "on level %d of %s."),
+                                    branch_name_jc(branches[parent].longname), min);
         }
         else
-            desc += make_stringf("between levels %d and %d of ", min, max);
-        desc += branches[parent].longname;
-        desc += ".";
+            desc = make_stringf(jtrans_notrimc(desc + "between levels %d and %d of %s."),
+                                branch_name_jc(branches[parent].longname), min, max);
     }
 
     return desc;
@@ -1222,15 +1366,14 @@ static string _branch_subbranches(branch_type br)
 
     for (branch_iterator it; it; ++it)
         if (it->parent_branch == br && !branch_is_unfinished(it->id))
-            subbranch_names.push_back(it->longname);
+            subbranch_names.push_back(branch_name_j(it->longname));
 
     // Lair's random branches are explained in the description.
     if (!subbranch_names.empty() && br != BRANCH_LAIR)
     {
-        desc += make_stringf("\n\nThis branch contains the entrance%s to %s.",
-                             subbranch_names.size() > 1 ? "s" : "",
-                             comma_separated_line(begin(subbranch_names),
-                                                  end(subbranch_names)).c_str());
+        desc += make_stringf(jtrans_notrimc("\n\nThis branch contains the entrance%s to %s."),
+                             to_separated_line(begin(subbranch_names),
+                                               end(subbranch_names)).c_str());
     }
 
     return desc;
@@ -1263,7 +1406,7 @@ static int _describe_branch(const string &key, const string &suffix,
             + "\n\n"
             + branch_rune_desc(branch, false);
 
-    return _describe_key(key, suffix, footer, info);
+    return _describe_key(key, suffix, footer, info, "[branch]", branches[branch].longname);
 }
 
 /// All types of ?/ queries the player can enter.
@@ -1278,18 +1421,18 @@ static const vector<LookupType> lookup_types = {
                lookup_type::DB_SUFFIX | lookup_type::SUPPORT_TILES),
     LookupType('K', "skill", nullptr, nullptr,
                nullptr, _get_skill_keys, _skill_menu_gen,
-               _describe_generic,
+               _describe_skill,
                lookup_type::SUPPORT_TILES),
     LookupType('A', "ability", _recap_ability_keys, _ability_filter,
                nullptr, nullptr, _ability_menu_gen,
-               _describe_generic,
+               _describe_ability,
                lookup_type::DB_SUFFIX | lookup_type::SUPPORT_TILES),
     LookupType('C', "card", _recap_card_keys, _card_filter,
-               nullptr, nullptr, _simple_menu_gen,
+               nullptr, nullptr, _card_menu_gen,
                _describe_card,
                lookup_type::DB_SUFFIX),
     LookupType('I', "item", nullptr, _item_filter,
-               item_name_list_for_glyph, nullptr, _simple_menu_gen,
+               item_name_list_for_glyph, nullptr, _item_menu_gen,
                _describe_item,
                lookup_type::NONE),
     LookupType('F', "feature", _recap_feat_keys, _feature_filter,
@@ -1301,7 +1444,7 @@ static const vector<LookupType> lookup_types = {
                _describe_god,
                lookup_type::SUPPORT_TILES),
     LookupType('B', "branch", nullptr, nullptr,
-               nullptr, _get_branch_keys, _simple_menu_gen,
+               nullptr, _get_branch_keys, _branch_menu_gen,
                _describe_branch,
                lookup_type::DISABLE_SORT),
     LookupType('L', "cloud", nullptr, nullptr,
@@ -1339,18 +1482,19 @@ static string _prompt_for_regex(const LookupType &lookup_type, string &err)
 {
     const string type = lowercase_string(lookup_type.type);
     const string extra = lookup_type.supports_glyph_lookup() ?
-        make_stringf(" Enter a single letter to list %s displayed by that"
-                     " symbol.", pluralise(type).c_str()) :
+        make_stringf(jtrans_notrimc(" Enter a single letter to list %s displayed by that"
+                                    " symbol."),
+                     tagged_jtransc("[help type]", type)) :
         "";
     mprf(MSGCH_PROMPT,
-         "Describe a %s; partial names and regexps are fine.%s",
-         type.c_str(), extra.c_str());
+         jtransc("Describe a %s; partial names and regexps are fine.%s"),
+         tagged_jtransc("[help type]", type), extra.c_str());
 
-    mprf(MSGCH_PROMPT, "Describe what? ");
+    mprf(MSGCH_PROMPT, jtrans_notrim("Describe what? "));
     char buf[80];
     if (cancellable_get_line(buf, sizeof(buf)) || buf[0] == '\0')
     {
-        err = "Okay, then.";
+        err = jtrans("Okay, then.");
         return "";
     }
 
@@ -1389,25 +1533,25 @@ static string _keylist_invalid_reason(const vector<string> &key_list,
                                       const string &regex,
                                       bool by_symbol)
 {
-    const string plur_type = pluralise(type);
-
     if (key_list.empty())
     {
         if (by_symbol)
-            return "No " + plur_type + " with symbol '" + regex + "'.";
-        return "No matching " + plur_type + ".";
+            return make_stringf(jtransc("No %s with symbol '%s'."),
+                                regex.c_str(), tagged_jtransc("[help type]", type));
+        return make_stringf(jtransc("No matching %s."),
+                            tagged_jtransc("[help type]", type));
     }
 
     if (key_list.size() > 52)
     {
         if (by_symbol)
         {
-            return "Too many " + plur_type + " with symbol '" + regex +
-                    "' to display.";
+            return make_stringf(jtransc("Too many %s with symbol '%s' to display."),
+                                regex.c_str(), tagged_jtransc("[help type]", type));
         }
 
-        return make_stringf("Too many matching %s (%d) to display.",
-                            plur_type.c_str(), (int) key_list.size());
+        return make_stringf(jtransc("Too many matching %s (%d) to display."),
+                            tagged_jtransc("[help type]", type), (int) key_list.size());
     }
 
     // we're good!
@@ -1425,9 +1569,9 @@ static bool _find_description(string &response)
 {
 
     const string lookup_type_prompts =
-        comma_separated_fn(lookup_types.begin(), lookup_types.end(),
-                           mem_fn(&LookupType::prompt_string), " or ");
-    mprf(MSGCH_PROMPT, "Describe a %s? ", lookup_type_prompts.c_str());
+        to_separated_fn(lookup_types.begin(), lookup_types.end(),
+                        mem_fn(&LookupType::prompt_string), "、", "、", "、");
+    mprf(MSGCH_PROMPT, jtrans_notrimc("Describe a %s? "), lookup_type_prompts.c_str());
 
     int ch;
     {
@@ -1454,7 +1598,7 @@ static bool _find_description(string &response)
     // not actually sure how to trigger this branch...
     if (want_regex && regex.empty())
     {
-        response = "Description must contain at least one non-space.";
+        response = jtrans("Description must contain at least one non-space.");
         return true;
     }
 
@@ -1509,5 +1653,5 @@ void keyhelp_query_descriptions()
     }
 
     viewwindow();
-    mpr("Okay, then.");
+    mpr(jtrans("Okay, then."));
 }

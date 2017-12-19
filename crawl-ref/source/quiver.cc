@@ -20,6 +20,7 @@
 #include "options.h"
 #include "player.h"
 #include "prompt.h"
+#include "skills.h"
 #include "stringutil.h"
 #include "tags.h"
 #include "throw.h"
@@ -117,13 +118,13 @@ int player_quiver::get_fire_item(string* no_item_reason) const
             if (skipped_item < Options.fire_items_start)
             {
                 *no_item_reason = make_stringf(
-                    "Nothing suitable (fire_items_start = '%c').",
+                    jtransc("Nothing suitable (fire_items_start = '%c')."),
                     index_to_letter(Options.fire_items_start));
             }
             else
             {
                 *no_item_reason = make_stringf(
-                    "Nothing suitable (ignored '=f'-inscribed item on '%c').",
+                    jtransc("Nothing suitable (ignored '=f'-inscribed item on '%c')."),
                     index_to_letter(skipped_item));
             }
         }
@@ -159,19 +160,20 @@ void quiver_item(int slot)
         t = _get_weapon_ammo_type(weapon);
 
     you.m_quiver.set_quiver(you.inv[slot], t);
-    mprf("Quivering %s for %s.", you.inv[slot].name(DESC_INVENTORY).c_str(),
+    mprf(jtransc("Quivering %s for %s."), you.inv[slot].name(DESC_INVENTORY).c_str(),
+         skill_name_jc(
          t == AMMO_THROW    ? "throwing" :
          t == AMMO_BLOWGUN  ? "blowguns" :
          t == AMMO_SLING    ? "slings" :
          t == AMMO_BOW      ? "bows" :
-                              "crossbows");
+                              "crossbows"));
 }
 
 void choose_item_for_quiver()
 {
     if (you.species == SP_FELID)
     {
-        mpr("You can't grasp things well enough to throw them.");
+        mpr(jtrans("You can't grasp things well enough to throw them."));
         return;
     }
 
@@ -188,12 +190,12 @@ void choose_item_for_quiver()
         ammo_t t = _get_weapon_ammo_type(you.weapon());
         you.m_quiver.empty_quiver(t);
 
-        mprf("Reset %s quiver to default.",
+        mprf(jtransc("Reset %s quiver to default."), skill_name_jc(
              t == AMMO_THROW    ? "throwing" :
              t == AMMO_BLOWGUN  ? "blowgun" :
              t == AMMO_SLING    ? "sling" :
              t == AMMO_BOW      ? "bow" :
-                                  "crossbow");
+                                  "crossbow"));
         return;
     }
     else
@@ -202,7 +204,7 @@ void choose_item_for_quiver()
         {
             if (you.equip[i] == slot)
             {
-                mpr("You can't quiver worn items.");
+                mpr(jtrans("You can't quiver worn items."));
                 return;
             }
         }
@@ -242,7 +244,7 @@ void player_quiver::on_item_fired(const item_def& item, bool explicitly_chosen)
             return;
 
 #ifdef DEBUG_QUIVER
-        mprf(MSGCH_DIAGNOSTICS, "item %s is for throwing",
+        mprf(MSGCH_DIAGNOSTICS, jtransc("item %s is for throwing"),
              item.name(DESC_PLAIN).c_str());
 #endif
         m_last_used_of_type[AMMO_THROW] = item;
@@ -315,7 +317,7 @@ void player_quiver::_maybe_fill_empty_slot()
     const ammo_t slot = _get_weapon_ammo_type(weapon);
 
 #ifdef DEBUG_QUIVER
-    mprf(MSGCH_DIAGNOSTICS, "last quiver item: %s; link %d, wpn: %d",
+    mprf(MSGCH_DIAGNOSTICS, jtransc("last quiver item: %s; link %d, wpn: %d"),
          m_last_used_of_type[slot].name(DESC_PLAIN).c_str(),
          m_last_used_of_type[slot].link, you.equip[EQ_WEAPON]);
 #endif
@@ -336,7 +338,7 @@ void player_quiver::_maybe_fill_empty_slot()
     }
 
 #ifdef DEBUG_QUIVER
-    mprf(MSGCH_DIAGNOSTICS, "Recalculating fire order...");
+    mprf(MSGCH_DIAGNOSTICS, jtrans("Recalculating fire order..."));
 #endif
 
     const launch_retval desired_ret =

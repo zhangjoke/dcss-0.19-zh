@@ -12,6 +12,7 @@
 #include "bloodspatter.h"
 #include "coordit.h"
 #include "dactions.h"
+#include "database.h"
 #include "directn.h"
 #include "english.h"
 #include "env.h"
@@ -27,6 +28,7 @@
 #include "ouch.h"
 #include "religion.h"
 #include "state.h"
+#include "stringutil.h"
 #include "terrain.h"
 #include "transform.h"
 #include "view.h"
@@ -188,11 +190,11 @@ void mirror_damage_fineff::fire()
                                    defender()->as_monster() : nullptr;
         if (reflector)
         {
-            mprf("%s reflects your damage back at you!",
+            mprf(jtransc("%s reflects your damage back at you!"),
                  reflector->name(DESC_THE).c_str());
         }
         else
-            mpr("Your damage is reflected back at you!");
+            mpr(jtrans("Your damage is reflected back at you!"));
         ouch(damage, KILLED_BY_MIRROR_DAMAGE);
     }
     else if (def == MID_PLAYER)
@@ -305,26 +307,26 @@ void trj_spawn_fineff::fire()
     if (trj)
     {
         const string monnam = trj->name(DESC_THE);
-        mprf("%s shudders%s.", monnam.c_str(),
+        mprf(jtransc("%s shudders%s."), monnam.c_str(), adj_jc(
              spawned >= 5 ? " alarmingly" :
              spawned >= 3 ? " violently" :
-             spawned > 1 ? " vigorously" : "");
+             spawned > 1 ? " vigorously" : ""));
 
         if (spawned == 1)
-            mprf("%s spits out another jelly.", monnam.c_str());
+            mprf(jtransc("%s spits out another jelly."), monnam.c_str());
         else
         {
-            mprf("%s spits out %s more jellies.",
+            mprf(jtransc("%s spits out %s more jellies."),
                  monnam.c_str(),
-                 number_in_words(spawned).c_str());
+                 to_stringc(spawned));
         }
     }
     else if (spawned == 1)
-        mpr("One of the Royal Jelly's fragments survives.");
+        mpr(jtrans("One of the Royal Jelly's fragments survives."));
     else
     {
-        mprf("The dying Royal Jelly spits out %s more jellies.",
-             number_in_words(spawned).c_str());
+        mprf(jtransc("The dying Royal Jelly spits out %s more jellies."),
+             to_stringc(spawned));
     }
 }
 
@@ -455,14 +457,14 @@ void shock_serpent_discharge_fineff::fire()
     const monster* serpent = defender() ? defender()->as_monster() : nullptr;
     if (serpent && you.can_see(*serpent))
     {
-        mprf("%s electric aura discharges%s, shocking %s!",
+        mprf(jtransc("%s electric aura discharges%s, shocking %s!"),
              serpent->name(DESC_ITS).c_str(),
-             power < 4 ? "" : " violently",
+             adj_jc(power < 4 ? "" : " violently"),
              oppressor.name(DESC_THE).c_str());
     }
     else if (you.can_see(oppressor))
     {
-        mprf("The air sparks with electricity, shocking %s!",
+        mprf(jtransc("The air sparks with electricity, shocking %s!"),
              oppressor.name(DESC_THE).c_str());
     }
 
@@ -478,7 +480,7 @@ void shock_serpent_discharge_fineff::fire()
 void delayed_action_fineff::fire()
 {
     if (final_msg != "")
-        mpr(final_msg);
+        mpr(jtrans(final_msg));
     add_daction(action);
 }
 
@@ -508,7 +510,7 @@ void rakshasa_clone_fineff::fire()
     if (you.can_see(*rakshasa))
     {
         mprf(MSGCH_MONSTER_SPELL,
-             "The injured %s weaves a defensive illusion!",
+             jtransc("The injured %s weaves a defensive illusion!"),
              rakshasa->name(DESC_PLAIN).c_str());
     }
 }

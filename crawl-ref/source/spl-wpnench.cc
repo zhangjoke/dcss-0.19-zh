@@ -16,6 +16,7 @@
 #include "religion.h"
 #include "shout.h"
 #include "spl-miscast.h"
+#include "stringutil.h"
 
 /** End your weapon branding spell.
  *
@@ -33,7 +34,7 @@ void end_weapon_brand(item_def &weapon, bool verbose)
 
     if (verbose)
     {
-        mprf(MSGCH_DURATION, "%s seems less pained.",
+        mprf(MSGCH_DURATION, jtransc("%s seems less pained."),
              weapon.name(DESC_YOUR).c_str());
     }
 
@@ -59,14 +60,14 @@ spret_type cast_excruciating_wounds(int power, bool fail)
     // Can only brand melee weapons.
     if (is_range_weapon(weapon))
     {
-        mpr("You cannot brand ranged weapons with this spell.");
+        mpr(jtrans("You cannot brand ranged weapons with this spell."));
         return SPRET_ABORT;
     }
 
     bool has_temp_brand = you.duration[DUR_EXCRUCIATING_WOUNDS];
     if (!has_temp_brand && get_weapon_brand(weapon) == which_brand)
     {
-        mpr("This weapon is already branded with pain.");
+        mpr(jtrans("This weapon is already branded with pain."));
         return SPRET_ABORT;
     }
 
@@ -74,8 +75,8 @@ spret_type cast_excruciating_wounds(int power, bool fail)
                                  && !have_passive(passive_t::safe_distortion);
     if (dangerous_disto)
     {
-        const string prompt =
-              "Really brand " + weapon.name(DESC_INVENTORY) + "?";
+        const string prompt = make_stringf(jtransc("Really brand %s?"),
+                                           weapon.name(DESC_INVENTORY).c_str());
         if (!yesno(prompt.c_str(), false, 'n'))
         {
             canned_msg(MSG_OK);
@@ -93,8 +94,8 @@ spret_type cast_excruciating_wounds(int power, bool fail)
     }
 
     noisy(spell_effect_noise(SPELL_EXCRUCIATING_WOUNDS), you.pos());
-    mprf("%s %s in agony.", weapon.name(DESC_YOUR).c_str(),
-                            silenced(you.pos()) ? "writhes" : "shrieks");
+    mprf(jtransc("%s %s in agony."), weapon.name(DESC_YOUR).c_str(),
+         verb_jc(silenced(you.pos()) ? "writhes" : "shrieks"));
 
     if (!has_temp_brand)
     {
@@ -118,9 +119,9 @@ spret_type cast_excruciating_wounds(int power, bool fail)
 spret_type cast_confusing_touch(int power, bool fail)
 {
     fail_check();
-    msg::stream << you.hands_act("begin", "to glow ")
-                << (you.duration[DUR_CONFUSING_TOUCH] ? "brighter" : "red")
-                << "." << endl;
+    msg::stream << you.hands_act("begin",
+                                 (you.duration[DUR_CONFUSING_TOUCH] ? "to glow brighter." : "to glow red."))
+                << endl;
 
     you.set_duration(DUR_CONFUSING_TOUCH,
                      max(10 + random2(power) / 5,

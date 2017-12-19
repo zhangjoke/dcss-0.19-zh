@@ -3,7 +3,8 @@ ae := autopickup_exceptions
 #### inclusions ###
 
 # Autopickup runes by default.
-ae = <rune of Zot
+#ae = <rune of Zot
+ae = <のルーン$
 
 ### exclusions ###
 
@@ -81,8 +82,11 @@ ae += [^n]identified.*spellbook
 # Excluding amulets as you only need one of each. (If you know the subtype
 # that means you already have one of it.). Some items may already be excluded
 # as bad_item, e.g. inaccuracy.
-ae += amulet of (nothing|inaccuracy|the gourmand|regeneration|harm)
-ae += amulet of (rage|guardian spirit|faith|magic regeneration)
+# ae += amulet of (nothing|inaccuracy|the gourmand|regeneration|harm)
+ae += (普通|不正確|悪食|再生|痛撃)の護符
+# ae += amulet of (rage|guardian spirit|faith|magic regeneration)
+ae += (怒り|守護霊|信仰|魔力再生)の護符
 
 # Likewise for some rings.
-ae += ring of (see invisible|flight|poison resistance|resist corrosion)
+# ae += ring of (see invisible|flight|poison resistance|resist corrosion)
+ae += (霊視|飛行|耐毒|腐蝕阻止)の指輪

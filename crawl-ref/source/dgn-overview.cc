@@ -13,6 +13,7 @@
 #include <cstring>
 
 #include "branch.h"
+#include "database.h"
 #include "describe.h"
 #include "env.h"
 #include "feature.h"
@@ -126,7 +127,8 @@ static string coloured_branch(branch_type br)
     if (br < 0 || br >= NUM_BRANCHES)
         return "<lightred>Buggy buglands</lightred>";
 
-    return make_stringf("<yellow>%s</yellow>", branches[br].shortname);
+    return make_stringf("<yellow>%s</yellow>",
+                        branch_name_jc(branches[br].shortname));
 }
 
 static string shoptype_to_string(shop_type s)
@@ -193,7 +195,7 @@ static string _portals_description_string()
                 else
                 {
                     disp += ' ';
-                    disp += entry.first.id.describe(false, true);
+                    disp += entry.first.id.describe_j(false, true);
                 }
                 last_id = entry.first.id;
 
@@ -212,9 +214,12 @@ static string _portals_description_string()
 // display: format for in-game display; !display: format for dump
 string overview_description_string(bool display)
 {
-    string disp;
+    string disp, header = "                    <white>Dungeon Overview and Level Annotations</white>\n";
+    if (display)
+        disp += jtrans_notrim(header);
+    else
+        disp += jtransln(header);
 
-    disp += "                    <white>Dungeon Overview and Level Annotations</white>\n" ;
     disp += _get_branches(display);
     disp += _get_altars(display);
     disp += _get_shops(display);
@@ -234,11 +239,11 @@ static string _get_seen_branches(bool display)
     char buffer[100];
     string disp;
 
-    disp += "\n<green>Branches:</green>";
+    disp += jtrans_notrim("\n<green>Branches:</green>");
     if (display)
     {
-        disp += " (use <white>G</white> to reach them and "
-                "<white>?/B</white> for more information)";
+        disp += jtrans("(use <white>G</white> to reach them and "
+                       "<white>?/B</white> for more information)");
     }
     disp += "\n";
 
@@ -256,8 +261,18 @@ static string _get_seen_branches(bool display)
             lid = find_deepest_explored(lid);
 
             string entry_desc;
+            branch_type br = NUM_BRANCHES;
             for (auto lvl : stair_level[branch])
-                entry_desc += " " + lvl.describe(false, true);
+            {
+                if (entry_desc.empty())
+                    entry_desc += lvl.describe_abbrev_j(false, true);
+                else if (br == lvl.branch)
+                    entry_desc += make_stringf(",%d", lvl.depth);
+                else
+                    entry_desc += " " + lvl.describe_abbrev_j(false, true);
+
+                br = lvl.branch;
+            }
 
             // "D" is a little too short here.
             const char *brname = (branch == BRANCH_DUNGEON
@@ -265,9 +280,12 @@ static string _get_seen_branches(bool display)
                                   : it->abbrevname);
 
             snprintf(buffer, sizeof buffer,
-                "<yellow>%*s</yellow> <darkgrey>(%d/%d)</darkgrey>%s",
+                jtransc("<yellow>%*s</yellow> <darkgrey>(%d/%d)</darkgrey>%s"),
                 branch == root_branch ? -7 : 7,
-                brname, lid.depth, brdepth[branch], entry_desc.c_str());
+                chop_stringc(branch_name_j(brname), 12),
+                chop_stringc(make_stringf("(%d/%d)", lid.depth, brdepth[branch]), 7),
+                branch != BRANCH_DUNGEON ? chop_stringc(entry_desc, 6)
+                                         : "      ");
 
             disp += buffer;
             num_printed_branches++;
@@ -317,28 +335,28 @@ static string _get_unseen_branches()
                 if (it->mindepth != it->maxdepth)
                 {
                     snprintf(buffer, sizeof buffer,
-                        "<darkgrey>%6s: %s:%d-%d</darkgrey>",
-                            it->abbrevname,
-                            branches[parent].abbrevname,
+                        "<darkgrey>%12s: %s:%d-%d</darkgrey>",
+                            chop_stringc(tagged_jtrans("[branch]", it->abbrevname), 12),
+                            tagged_jtransc("[branch abbrj]", branches[parent].abbrevname),
                             it->mindepth,
                             it->maxdepth);
                 }
                 else
                 {
                     snprintf(buffer, sizeof buffer,
-                        "<darkgrey>%6s: %s:%d</darkgrey>",
-                            it->abbrevname,
-                            branches[parent].abbrevname,
+                        "<darkgrey>%12s: %s:%d</darkgrey>",
+                            chop_stringc(tagged_jtrans("[branch]", it->abbrevname), 12),
+                            tagged_jtransc("[branch abbrj]", branches[parent].abbrevname),
                             it->mindepth);
                 }
 
                 disp += buffer;
                 num_printed_branches++;
 
-                disp += (num_printed_branches % 4) == 0
+                disp += (num_printed_branches % 3) == 0
                         ? "\n"
-                        // Each branch entry takes up 20 spaces
-                        : string(20 + 21 - strlen(buffer), ' ');
+                        // Each branch entry takes up 27 spaces
+                        : string(27 + 19 - strwidth(buffer), ' ');
             }
         }
     }
@@ -362,11 +380,11 @@ static string _get_altars(bool display)
 
     string disp;
 
-    disp += "\n<green>Altars:</green>";
+    disp += jtrans_notrim("\n<green>Altars:</green>");
     if (display)
     {
-        disp += " (use <white>Ctrl-F \"altar\"</white> to reach them and "
-                "<white>?/G</white> for information about gods)";
+        disp += jtrans("(use <white>Ctrl-F \"altar\"</white> to reach them and "
+                       "<white>?/G</white> for information about gods)");
     }
     disp += "\n";
     disp += _print_altars_for_gods(temple_god_list(), true, display);
@@ -402,7 +420,7 @@ static string _print_altars_for_gods(const vector<god_type>& gods,
         if (!display)
         {
             if (has_altar_been_seen)
-                disp += uppercase_first(god_name(god, false)) + "\n";
+                disp += (god_name_j(god, false) + "\n");
             continue;
         }
 
@@ -431,7 +449,7 @@ static string _print_altars_for_gods(const vector<god_type>& gods,
         if (is_unavailable_god(god))
             colour = "darkgrey";
 
-        string disp_name = uppercase_first(god_name(god, false));
+        string disp_name = god_name_j(god, false);
         if (god == GOD_GOZAG && !you_worship(GOD_GOZAG))
             disp_name += make_stringf(" ($%d)", gozag_service_fee());
 
@@ -468,9 +486,9 @@ static string _get_shops(bool display)
 
     if (!shops_present.empty())
     {
-        disp +="\n<green>Shops:</green>";
+        disp += jtrans_notrim("\n<green>Shops:</green>");
         if (display)
-            disp += " (use <white>Ctrl-F \"shop\"</white> to reach them - yellow denotes antique shop)";
+            disp += jtrans("(use <white>Ctrl-F \"shop\"</white> to reach them - yellow denotes antique shop)");
         disp += "\n";
     }
     last_id.depth = 10000;
@@ -500,7 +518,7 @@ static string _get_shops(bool display)
             }
             disp += existing ? "<lightgrey>" : "<darkgrey>";
 
-            const string loc = entry.first.id.describe(false, true);
+            const string loc = entry.first.id.describe_j(false, true);
             disp += loc;
             column_count += strwidth(loc);
 
@@ -526,7 +544,7 @@ static string _get_portals()
     string disp;
 
     if (!portals_present.empty())
-        disp += "\n<green>Portals:</green>\n";
+        disp += ZWSP + jtrans_notrim("\n<green>Portals:</green>\n");
     disp += _portals_description_string();
 
     return disp;
@@ -547,7 +565,7 @@ static string _get_notes()
 
     if (disp.empty())
         return disp;
-    return "\n<green>Annotations:</green>\n" + disp;
+    return ZWSP + jtrans_notrim("\n<green>Annotations:</green>\n") + disp;
 }
 
 template <typename Z, typename Key>
@@ -671,9 +689,9 @@ static void _update_runed_door_count(int old_num)
 {
     const level_id li = level_id::current();
     const int new_num = env.properties[SEEN_RUNED_DOOR_KEY];
-    const string new_string = make_stringf("%d runed door%s", new_num,
+    const string new_string = make_stringf(jtransc("%d runed door%s"), new_num,
                                            new_num == 1 ? "" : "s");
-    const string old_string = make_stringf("%d runed door%s", old_num,
+    const string old_string = make_stringf(jtransc("%d runed door%s"), old_num,
                                            old_num == 1 ? "" : "s");
 
     //TODO: regexes
@@ -732,7 +750,7 @@ void mark_corrupted_level(level_id li)
 {
     if (!level_annotations[li].empty())
         level_annotations[li] += ", ";
-    level_annotations[li] += "corrupted";
+    level_annotations[li] += jtrans("corrupted");
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -765,7 +783,7 @@ static string unique_name(monster* mons)
 {
     string name = mons->name(DESC_PLAIN, true);
     if (mons->type == MONS_PLAYER_GHOST)
-        name += ", " + short_ghost_description(mons, true);
+        name += "(" + short_ghost_description(mons, true) + ")";
     else
     {
         if (strstr(name.c_str(), "Royal Jelly"))
@@ -777,7 +795,7 @@ static string unique_name(monster* mons)
         if (strstr(name.c_str(), "Blork"))
             name = "Blork the orc";
     }
-    return name;
+    return jtrans(name);
 }
 
 void set_unique_annotation(monster* mons, const level_id level)
@@ -867,7 +885,7 @@ string get_level_annotation(level_id li, bool skip_excl, bool skip_uniq,
 
 static const string _get_coloured_level_annotation(level_id li)
 {
-    string place = "<yellow>" + li.describe() + "</yellow>";
+    string place = "<yellow>" + li.describe_j() + "</yellow>";
     int col = level_annotation_has("!", li) ? LIGHTRED : WHITE;
     return place + " " + get_level_annotation(li, false, false, true, col);
 }
@@ -906,12 +924,12 @@ void do_annotate(level_id& li)
     string old = get_level_annotation(li, true, true);
     if (!old.empty())
     {
-        mprf(MSGCH_PROMPT, "Current level annotation: <lightgrey>%s</lightgrey>",
+        mprf(MSGCH_PROMPT, jtransc("Current level annotation: <lightgrey>%s</lightgrey>"),
              old.c_str());
     }
 
-    const string prompt = "New annotation for " + li.describe()
-                          + " (include '!' for warning): ";
+    const string prompt = make_stringf(jtransc("New annotation for %s (include '!' for warning): "),
+                                       li.describe_j(true).c_str());
 
     char buf[77];
     if (msgwin_get_line_autohist(prompt, buf, sizeof(buf), old))
@@ -922,7 +940,7 @@ void do_annotate(level_id& li)
         level_annotations[li] = buf;
     else
     {
-        mpr("Cleared annotation.");
+        mpr(jtrans("Cleared annotation."));
         level_annotations.erase(li);
     }
 }

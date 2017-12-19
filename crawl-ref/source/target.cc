@@ -8,6 +8,7 @@
 #include "cloud.h"
 #include "coord.h"
 #include "coordit.h"
+#include "database.h"
 #include "english.h"
 #include "env.h"
 #include "fight.h"
@@ -17,15 +18,17 @@
 #include "mon-tentacle.h"
 #include "spl-damage.h"
 #include "spl-goditem.h" // player_is_debuffable
+#include "stringutil.h"
 #include "terrain.h"
 
-#define notify_fail(x) (why_not = (x), false)
+#define notify_fail(x) (why_not = (jtrans(x)), false)
 
 static string _wallmsg(coord_def c)
 {
     ASSERT(map_bounds(c)); // there'd be an information leak
     const char *wall = feat_type_name(grd(c));
-    return "There is " + article_a(wall) + " there.";
+    return make_stringf(jtransc("There is %s there."),
+                        feature_name_jc(wall));
 }
 
 bool targetter::set_aim(coord_def a)

@@ -139,6 +139,199 @@ static TextDB AllDBs[] =
             "hints.txt",    // hints mode
             "tutorial.txt", // tutorial mode
             nullptr),
+    TextDB("jtrans", "database/ja/",
+           "jtrans_ability.txt",
+           "jtrans_abyss.txt",
+           "jtrans_acquire.txt",
+           "jtrans_actor.txt",
+           "jtrans_adjust.txt",
+           "jtrans_areas.txt",
+           "jtrans_arena.txt",
+           "jtrans_artefact.txt",
+           "jtrans_art_func.txt",
+           "jtrans_attack.txt",
+           "jtrans_attitude_change.txt",
+           "jtrans_beam.txt",
+           "jtrans_behold.txt",
+           "jtrans_branch.txt",
+           "jtrans_butcher.txt",
+           "jtrans_chardump.txt",
+           "jtrans_cloud.txt",
+           "jtrans_command.txt",
+           "jtrans_dactions.txt",
+           "jtrans_dbg_util.txt",
+           "jtrans_decks.txt",
+           "jtrans_delay.txt",
+           "jtrans_describe_god.txt",
+           "jtrans_describe_spells.txt",
+           "jtrans_describe.txt",
+           "jtrans_dgn_overview.txt",
+           "jtrans_dgn_shoals.txt",
+           "jtrans_directn.txt",
+           "jtrans_dungeon.txt",
+           "jtrans_end.txt",
+           "jtrans_evoke.txt",
+           "jtrans_exclude.txt",
+           "jtrans_fearmonger.txt",
+           "jtrans_fight.txt",
+           "jtrans_files.txt",
+           "jtrans_fineff.txt",
+           "jtrans_food.txt",
+           "jtrans_godabil.txt",
+           "jtrans_godblessing.txt",
+           "jtrans_godcompanions.txt",
+           "jtrans_godconduct.txt",
+           "jtrans_godpassive.txt",
+           "jtrans_godprayer.txt",
+           "jtrans_godwrath.txt",
+           "jtrans_hints.txt",
+           "jtrans_hiscores.txt",
+           "jtrans_initfile.txt",
+           "jtrans_invent.txt",
+           "jtrans_item_use.txt",
+           "jtrans_itemname.txt",
+           "jtrans_itemprop.txt",
+           "jtrans_items.txt",
+           "jtrans_japanese.txt",
+           "jtrans_kills.txt",
+           "jtrans_lookup_help.txt",
+           "jtrans_macro.txt",
+           "jtrans_main.txt",
+           "jtrans_makeitem.txt",
+           "jtrans_melee_attack.txt",
+           "jtrans_menu.txt",
+           "jtrans_message.txt",
+           "jtrans_misc.txt",
+           "jtrans_mon_abil.txt",
+           "jtrans_mon_act.txt",
+           "jtrans_mon_behv.txt",
+           "jtrans_mon_cast.txt",
+           "jtrans_mon_clone.txt",
+           "jtrans_mon_death.txt",
+           "jtrans_mon_ench.txt",
+           "jtrans_mon_grow.txt",
+           "jtrans_mon_info.txt",
+           "jtrans_mon_pathfind.txt",
+           "jtrans_mon_place.txt",
+           "jtrans_mon_poly.txt",
+           "jtrans_mon_project.txt",
+           "jtrans_mon_tentacle.txt",
+           "jtrans_mon_util.txt",
+           "jtrans_monster.txt",
+           "jtrans_mutation.txt",
+           "jtrans_near_danger.txt",
+           "jtrans_newgame.txt",
+           "jtrans_notes.txt",
+           "jtrans_orb.txt",
+           "jtrans_ouch.txt",
+           "jtrans_output.txt",
+           "jtrans_place.txt",
+           "jtrans_player_act.txt",
+           "jtrans_player_equip.txt",
+           "jtrans_player_reacts.txt",
+           "jtrans_player_stats.txt",
+           "jtrans_player.txt",
+           "jtrans_potion.txt",
+           "jtrans_prompt.txt",
+           "jtrans_quiver.txt",
+           "jtrans_randbook.txt",
+           "jtrans_ranged_attack.txt",
+           "jtrans_religion.txt",
+           "jtrans_rot.txt",
+           "jtrans_shopping.txt",
+           "jtrans_shout.txt",
+           "jtrans_skill_menu.txt",
+           "jtrans_skills.txt",
+           "jtrans_species.txt",
+           "jtrans_spl_book.txt",
+           "jtrans_spl_cast.txt",
+           "jtrans_spl_clouds.txt",
+           "jtrans_spl_damage.txt",
+           "jtrans_spl_goditem.txt",
+           "jtrans_spl_miscast.txt",
+           "jtrans_spl_monench.txt",
+           "jtrans_spl_other.txt",
+           "jtrans_spl_selfench.txt",
+           "jtrans_spl_summoning.txt",
+           "jtrans_spl_tornado.txt",
+           "jtrans_spl_transloc.txt",
+           "jtrans_spl_util.txt",
+           "jtrans_spl_wpnench.txt",
+           "jtrans_stairs.txt",
+           "jtrans_startup.txt",
+           "jtrans_stash.txt",
+           "jtrans_state.txt",
+           "jtrans_status.txt",
+           "jtrans_target.txt",
+           "jtrans_teleport.txt",
+           "jtrans_terrain.txt",
+           "jtrans_throw.txt",
+           "jtrans_timed_effects.txt",
+           "jtrans_transform.txt",
+           "jtrans_traps.txt",
+           "jtrans_travel.txt",
+           "jtrans_tutorial.txt",
+           "jtrans_view.txt",
+           "jtrans_wiz_dgn.txt",
+           "jtrans_wiz_fsim.txt",
+           "jtrans_wiz_item.txt",
+           "jtrans_wiz_mon.txt",
+           "jtrans_wiz_you.txt",
+           "jtrans_xom.txt",
+
+           "jtrans_dat_des_altar.txt",
+           "jtrans_dat_des_arrival.txt",
+           "jtrans_dat_des_branches.txt",
+           "jtrans_dat_des_builder.txt",
+           "jtrans_dat_des_portals.txt",
+           "jtrans_dat_des_serial.txt",
+           "jtrans_dat_des_sprint.txt",
+           "jtrans_dat_des_traps.txt",
+           "jtrans_dat_des_tutorial.txt",
+           "jtrans_dat_des_variable.txt",
+           "jtrans_dat_clua.txt",
+           "jtrans_dat_dlua.txt",
+           
+           "jtrans_skill_title.txt",
+           "jtrans_divine_title.txt",
+           "jtrans_weapon_name.txt",
+           "jtrans_armour_name.txt",
+           "jtrans_missile_name.txt",
+           "jtrans_food_name.txt",
+           "jtrans_wand_name.txt",
+           "jtrans_potion_name.txt",
+           "jtrans_scroll_name.txt",
+           "jtrans_jewellery_name.txt",
+           "jtrans_rune_name.txt",
+           "jtrans_misc_name.txt",
+           "jtrans_book_name.txt",
+           "jtrans_staff_name.txt",
+           "jtrans_rod_name.txt",
+           "jtrans_god_name.txt",
+           "jtrans_trap_name.txt",
+
+           "jtrans_art_data.txt",
+           "jtrans_branch_data.txt",
+           "jtrans_duration_data.txt",
+           "jtrans_feature_data.txt",
+           "jtrans_form_data.txt",
+           "jtrans_job_data.txt",
+           "jtrans_monster_data.txt",
+           "jtrans_mutation_data.txt",
+           "jtrans_sacrifice_data.txt",
+           "jtrans_species_data.txt",
+           "jtrans_spell_data.txt",
+           "jtrans_zap_data.txt",
+
+           "montitle.txt",
+           nullptr),
+
+    TextDB("randart_vanilla", "database/ja/crawlj/",
+           "randname.txt",
+           "rand_wpn.txt",
+           "rand_arm.txt",
+           "rand_all.txt",
+           nullptr),
 };
 
 static TextDB& DescriptionDB = AllDBs[0];
@@ -151,6 +344,8 @@ static TextDB& QuotesDB      = AllDBs[6];
 static TextDB& HelpDB        = AllDBs[7];
 static TextDB& FAQDB         = AllDBs[8];
 static TextDB& HintsDB       = AllDBs[9];
+static TextDB& JtransDB      = AllDBs[10];
+static TextDB& RandartVanillaDB = AllDBs[11];
 
 static string _db_cache_path(string db, const char *lang)
 {
@@ -856,6 +1051,16 @@ string getRandNameString(const string &itemtype, const string &suffix)
     return _getRandomisedStr(RandartDB, itemtype, suffix, num_replacements);
 }
 
+string getArteNameString(const string &itemtype, const string &suffix)
+{
+    int num_replacements = 0;
+
+    if (Options.vanilla_randart_name)
+        return _getRandomisedStr(RandartVanillaDB, itemtype, suffix, num_replacements);
+    else
+        return getRandNameString(itemtype, suffix);
+}
+
 /////////////////////////////////////////////////////////////////////////////
 // Help DB specific functions.
 
@@ -919,4 +1124,111 @@ string getMiscString(const string &misc, const string &suffix)
 string getHintString(const string &key)
 {
     return unwrap_desc(_query_database(HintsDB, key, true, true));
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// Jtrans DB specific functions.
+
+/**
+ * jtrans(nullptr)しても例外が飛ばないようにするためのワンクッション
+ *
+ * @param key JtransDBに問い合わせたいキー文字列
+ * @param linefeed trueなら語末に改行を付与する(デフォルトfalse)
+ * @returns JtransDBのキー文字列keyに対応する文字列を返す
+ */
+string jtrans(const char* key, const bool linefeed)
+{
+    // for string(nullptr) error
+    string str = (key == nullptr ? string() : string(key));
+
+    return jtrans(str, linefeed);
+}
+
+/**
+ * JtransDBオブジェクトからキー文字列keyに対応する文字列を引いて返す。
+ * 文頭文末の改行・半角空白・タブは無視され、大文字小文字も区別されない。
+ * key中の改行は"\n"に変換された上で辞書を引く。
+ * 空文字のkeyには空文字を返す。
+ * keyに対応する文字列が見つからなかった場合、keyを返す。
+ * 対応する文字列が"__NONE"なら、空文字を返す。
+ *
+ * @param key JtransDBに問い合わせたいキー文字列
+ * @param linefeed trueなら語末に改行を付与する(デフォルトfalse)
+ * @returns JtransDBのキー文字列keyに対応する文字列を返す
+ */
+string jtrans(const string &key, const bool linefeed)
+{
+    if (key == "") return "";
+
+    string tmp_key(key);
+
+    tmp_key = trim_string(tmp_key);
+    tmp_key = replace_all(tmp_key, "\n", "\\n");
+
+    string text = _query_database(JtransDB, tmp_key, true, true);
+
+    if (text == "") return key;
+    if (trimmed_string(text) == "__NONE") return "";
+
+    if (!linefeed)
+    {
+        string chomped_text(text.begin(), text.end()-1);
+        return chomped_text;
+    }
+
+    return text;
+}
+
+/**
+ * ある文字列keyがJtransDB内にキー文字列として存在するか否かを返す。
+ * 空文字列が渡された場合はfalseとして扱う。
+ *
+ * @param key JtransDBに問い合わせたいキー文字列
+ * @returns JtransDBのキー文字列keyに対応する文字列を返す
+ */
+bool jtrans_has_key(const string &key)
+{
+    if (key == "") return false;
+
+    return (jtrans(key) != key);
+}
+
+/**
+ * prefix + key + suffix(デフォルトで空文字列)がJtransDBにキーとして存在した
+ * 場合、jtrans(prefix + key + suffix)を返す。
+ * 存在しなかった場合、jtrans(key)を返す。(0.16-jaとの動作の差違に注意)
+ *
+ * @param prefix keyの前に付加される文字列 (例: "[title]", "wand of ")
+ * @param key JtransDBに問い合わせたいキー文字列
+ * @param suffix keyの後に付加される文字列 (例: " rune of Zot")
+ * @returns JtransDBのキー文字列prefix + key + suffixに対応する文字列を返す
+ */
+string tagged_jtrans(const string &prefix, const string &key, const string &suffix)
+{
+    if (jtrans_has_key(prefix + trimmed_string(key) + suffix))
+        return jtrans(prefix + trimmed_string(key) + suffix);
+    else
+        return jtrans(key);
+}
+
+/**
+ * JtransDBオブジェクトからキー文字列keyに対応する文字列を引いて返す。
+ * 文頭文末の改行・半角空白・タブは維持される。
+ * 例:
+ * jtrans("\nTest - ") -> "テスト -"
+ * jtrans_notrim("\nTest - ") -> "\nテスト - "
+ *
+ * @param key JtransDBに問い合わせたいキー文字列
+ * @returns JtransDBのキー文字列keyに対応する文字列を返す
+ */
+string jtrans_notrim(const string &key)
+{
+    string lhs = key.substr(0, key.find_first_not_of(" \t\n\r"));
+    string rhs = key.substr(key.find_last_not_of(" \t\n\r") + 1);
+    string val = jtrans(key);
+
+    if(!val.empty())
+        return lhs + jtrans(key) + rhs;
+    else
+        return "";
 }

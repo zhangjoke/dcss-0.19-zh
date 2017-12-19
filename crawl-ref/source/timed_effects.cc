@@ -442,21 +442,21 @@ void change_labyrinth(bool msg)
     if (targets.empty())
     {
         if (msg)
-            mpr("No unexplored wall grids found!");
+            mpr(jtrans("No unexplored wall grids found!"));
         return;
     }
 
     if (msg)
     {
-        mprf(MSGCH_DIAGNOSTICS, "Changing labyrinth from (%d, %d) to (%d, %d)",
+        mprf(MSGCH_DIAGNOSTICS, jtransc("Changing labyrinth from (%d, %d) to (%d, %d)"),
              c1.x, c1.y, c2.x, c2.y);
 
         string path_str = "";
-        mprf(MSGCH_DIAGNOSTICS, "Here's the list of targets: ");
+        mprf(MSGCH_DIAGNOSTICS, jtrans_notrim("Here's the list of targets: "));
         for (coord_def target : targets)
             path_str += make_stringf("(%d, %d)  ", target.x, target.y);
         mprf(MSGCH_DIAGNOSTICS, "%s", path_str.c_str());
-        mprf(MSGCH_DIAGNOSTICS, "-> #targets = %u", (unsigned int)targets.size());
+        mprf(MSGCH_DIAGNOSTICS, jtransc("-> #targets = %u"), (unsigned int)targets.size());
     }
 
 #ifdef WIZARD
@@ -498,7 +498,7 @@ void change_labyrinth(bool msg)
         if (!success)
         {
             if (msg)
-                mprf(MSGCH_DIAGNOSTICS, "Something went badly wrong - no path found!");
+                mprf(MSGCH_DIAGNOSTICS, jtrans("Something went badly wrong - no path found!"));
             continue;
         }
 
@@ -557,7 +557,7 @@ void change_labyrinth(bool msg)
         const coord_def p(points[pick]);
         if (msg)
         {
-            mprf(MSGCH_DIAGNOSTICS, "Switch %d (%d, %d) with %d (%d, %d).",
+            mprf(MSGCH_DIAGNOSTICS, jtransc("Switch %d (%d, %d) with %d (%d, %d)."),
                  (int) old_grid, c.x, c.y, (int) grd(p), p.x, p.y);
         }
 #ifdef WIZARD
@@ -601,7 +601,7 @@ void change_labyrinth(bool msg)
                 if (msg)
                 {
                     mprf(MSGCH_DIAGNOSTICS,
-                         "No adjacent walls at pos (%d, %d)?", p.x, p.y);
+                         jtransc("No adjacent walls at pos (%d, %d)?"), p.x, p.y);
                 }
                 old_grid = DNGN_STONE_WALL;
             }
@@ -664,7 +664,7 @@ void change_labyrinth(bool msg)
         if (msg)
         {
             mprf(MSGCH_DIAGNOSTICS,
-                 "Need to move around some items at pos (%d, %d)...",
+                 jtransc("Need to move around some items at pos (%d, %d)..."),
                  ri->x, ri->y);
         }
         // Search the eight possible directions in random order.
@@ -683,7 +683,7 @@ void change_labyrinth(bool msg)
 
                 if (msg)
                 {
-                    mprf(MSGCH_DIAGNOSTICS, "Moved items over to (%d, %d)",
+                    mprf(MSGCH_DIAGNOSTICS, jtransc("Moved items over to (%d, %d)"),
                          p.x, p.y);
                 }
                 break;
@@ -699,10 +699,10 @@ void change_labyrinth(bool msg)
                                            : random2(4));
     switch (which)
     {
-    case 0: mpr("You hear an odd grinding sound!"); break;
-    case 1: mpr("You hear the creaking of ancient gears!"); break;
-    case 2: mpr("The floor suddenly vibrates beneath you!"); break;
-    case 3: mpr("You feel a sudden draft!"); break;
+    case 0: mpr(jtrans("You hear an odd grinding sound!")); break;
+    case 1: mpr(jtrans("You hear the creaking of ancient gears!")); break;
+    case 2: mpr(jtrans("The floor suddenly vibrates beneath you!")); break;
+    case 3: mpr(jtrans("You feel a sudden draft!")); break;
     }
 }
 
@@ -744,8 +744,8 @@ static void _handle_magic_contamination()
 // Bad effects from magic contamination.
 static void _magic_contamination_effects()
 {
-    mprf(MSGCH_WARN, "Your body shudders with the violent release "
-                     "of wild energies!");
+    mprf(MSGCH_WARN, jtrans("Your body shudders with the violent release "
+                            "of wild energies!"));
 
     const int contam = you.magic_contamination;
 
@@ -804,8 +804,8 @@ static void _handle_magic_contamination(int /*time_delta*/)
     {
         if (is_sanctuary(you.pos()))
         {
-            mprf(MSGCH_GOD, "Your body momentarily shudders from a surge of wild "
-                            "energies until Zin's power calms it.");
+            mprf(MSGCH_GOD, jtrans("Your body momentarily shudders from a surge of wild "
+                                   "energies until Zin's power calms it."));
         }
         else
             _magic_contamination_effects();
@@ -875,8 +875,8 @@ static void _jiyva_effects(int /*time_delta*/)
                     simple_god_message(" gurgles merrily.");
                     break;
                 case 1:
-                    mprf(MSGCH_SOUND, "You hear %s splatter%s.",
-                         total_jellies > 1 ? "a series of" : "a",
+                    mprf(MSGCH_SOUND, jtransc("You hear %s splatter%s."),
+                         jtransc(total_jellies > 1 ? "a series of" : ""),
                          total_jellies > 1 ? "s" : "");
                     break;
                 case 2:
@@ -905,7 +905,7 @@ static void _evolve(int time_delta)
                > (int)exp_needed(you.experience_level + 1))
         {
             you.attribute[ATTR_EVOL_XP] = 0;
-            mpr("You feel a genetic drift.");
+            mpr(jtrans("You feel a genetic drift."));
             bool evol = one_chance_in(5) ?
                 delete_mutation(RANDOM_BAD_MUTATION, "evolution", false) :
                 mutate(coinflip() ? RANDOM_GOOD_MUTATION : RANDOM_MUTATION,
@@ -1487,7 +1487,8 @@ static void _recharge_rod(item_def &rod, int aut, bool in_inv)
 
     if (in_inv && rod.charges == rod.charge_cap)
     {
-        msg::stream << "Your " << rod.name(DESC_QUALNAME) << " has recharged."
+        msg::stream << make_stringf(jtransc("Your %s has recharged."),
+                                    rod.name(DESC_QUALNAME).c_str())
                     << endl;
         if (is_resting())
             stop_running();
@@ -1551,24 +1552,20 @@ static void _drop_tomb(const coord_def& pos, bool premature, bool zin)
     if (count)
     {
         if (seen_change && !zin)
-            mprf("The walls disappear%s!", premature ? " prematurely" : "");
+            mprf(jtransc("The walls disappear%s!"), jtransc(premature ? " prematurely" : ""));
         else if (seen_change && zin)
         {
-            mprf("Zin %s %s %s.",
-                 (mon) ? "releases"
-                       : "dismisses",
-                 (mon) ? mon->name(DESC_THE).c_str()
-                       : "the silver walls,",
-                 (mon) ? make_stringf("from %s prison",
-                             mon->pronoun(PRONOUN_POSSESSIVE).c_str()).c_str()
-                       : "but there is nothing inside them");
+            mprf(jtransc((mon) ? "Zin releases %s from %s prison."
+                               : "Zin dismisses the silver walls, but there is nothing inside them."),
+                 mon->name(DESC_THE).c_str(),
+                 mon->pronoun_j(PRONOUN_POSSESSIVE).c_str());
         }
         else
         {
             if (!silenced(you.pos()))
-                mprf(MSGCH_SOUND, "You hear a deep rumble.");
+                mprf(MSGCH_SOUND, jtrans("You hear a deep rumble."));
             else
-                mpr("You feel the ground shudder.");
+                mpr(jtrans("You feel the ground shudder."));
         }
     }
 }
@@ -1721,9 +1718,9 @@ void timeout_terrain_changes(int duration, bool force)
     }
 
     if (num_seen[TERRAIN_CHANGE_DOOR_SEAL] > 1)
-        mpr("The runic seals fade away.");
+        mpr(jtrans("The runic seals fade away."));
     else if (num_seen[TERRAIN_CHANGE_DOOR_SEAL] > 0)
-        mpr("The runic seal fades away.");
+        mpr(jtrans("The runic seal fades away."));
 }
 
 ////////////////////////////////////////////////////////////////////////////

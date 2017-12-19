@@ -36,6 +36,8 @@ public:
     bool      is_riposte;         // long blade retaliation attack
     coord_def attack_position;
 
+    string verb_degree2;
+
 public:
     melee_attack(actor *attacker, actor *defender,
                  int attack_num = -1, int effective_attack_num = -1,

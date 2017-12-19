@@ -8,6 +8,7 @@
 #include "dbg-util.h"
 
 #include "artefact.h"
+#include "database.h"
 #include "directn.h"
 #include "dungeon.h"
 #include "libutil.h"
@@ -25,7 +26,7 @@ monster_type debug_prompt_for_monster()
 {
     char specs[1024];
 
-    mprf(MSGCH_PROMPT, "Which monster by name? ");
+    mprf(MSGCH_PROMPT, jtrans_notrim("Which monster by name? "));
     if (!cancellable_get_line_autohist(specs, sizeof specs))
     {
         if (specs[0] == '\0')
@@ -48,16 +49,16 @@ void debug_dump_levgen()
 
     if (crawl_state.generating_level)
     {
-        mpr("Currently generating level.");
+        mpr(jtrans("Currently generating level."));
         method = env.level_build_method;
         type   = comma_separated_line(env.level_layout_types.begin(),
                                       env.level_layout_types.end(), ", ");
 
         if (!env.placing_vault.empty())
-            mprf("Vault being placed: %s", env.placing_vault.c_str());
+            mprf(jtransc("Vault being placed: %s"), env.placing_vault.c_str());
         if (!env.new_subvault_names.empty())
         {
-            mprf("Subvaults: %s", comma_separated_line(
+            mprf(jtransc("Subvaults: %s"), comma_separated_line(
                  env.new_subvault_names.begin(), env.new_subvault_names.end(),
                  ", ").c_str());
         }
@@ -75,12 +76,12 @@ void debug_dump_levgen()
             type = props[LAYOUT_TYPE_KEY].get_string();
     }
 
-    mprf("Level build method = %s, level layout type  = %s, absdepth0 = %d",
+    mprf(jtransc("Level build method = %s, level layout type  = %s, absdepth0 = %d"),
          method.c_str(), type.c_str(), env.absdepth0);
 
     if (!env.level_vaults.empty())
     {
-        mpr("Level vaults:");
+        mpr(jtrans("Level vaults:"));
         for (auto &vault : env.level_vaults)
         {
             string vault_name = vault->map.name;
@@ -349,7 +350,7 @@ void debug_dump_mon(const monster* mon, bool recurse)
 skill_type debug_prompt_for_skill(const char *prompt)
 {
     char specs[80];
-    msgwin_get_line_autohist(prompt, specs, sizeof(specs));
+    msgwin_get_line_autohist(jtrans_notrim(prompt), specs, sizeof(specs));
     if (specs[0] == '\0')
         return SK_NONE;
 
@@ -415,7 +416,7 @@ void debuglog(const char *format, ...)
 #ifndef DEBUG_DIAGNOSTICS
 void wizard_toggle_dprf()
 {
-    mpr("Diagnostic messages are available only in debug builds.");
+    mpr(jtrans("Diagnostic messages are available only in debug builds."));
 }
 #else
 // Be sure to change enum diag_type in mpr.h to match.
@@ -457,7 +458,7 @@ void wizard_toggle_dprf()
                 line.clear();
             }
         }
-        mprf(MSGCH_PROMPT, "Toggle which debug class (ESC to exit)? ");
+        mprf(MSGCH_PROMPT, jtrans_notrim("Toggle which debug class (ESC to exit)? "));
 
         int keyin = toalower(get_ch());
 
@@ -473,7 +474,7 @@ void wizard_toggle_dprf()
 
         int diag = keyin - '0';
         Options.quiet_debug_messages.set(diag, !Options.quiet_debug_messages[diag]);
-        mprf("%s messages will be %s.", diag_names[diag],
+        mprf(jtransc("%s messages will be %s."), diag_names[diag],
              Options.quiet_debug_messages[diag] ? "suppressed" : "printed");
         return;
     }

@@ -22,6 +22,7 @@
 #include "ghost.h"
 #include "godabil.h"
 #include "hints.h"
+#include "japanese.h"
 #include "jobs.h"
 #include "libutil.h"
 #include "macro.h"
@@ -34,6 +35,8 @@
 #include "state.h"
 #include "stringutil.h"
 #include "terrain.h"
+#include "transform.h"
+#include "unicode.h"
 #include "view.h"
 
 static noise_grid _noise_grid;
@@ -339,10 +342,22 @@ void item_noise(const item_def &item, string msg, int loudness)
 {
     if (is_unrandom_artefact(item))
     {
-        // "Your Singing Sword" sounds disrespectful
-        // (as if there could be more than one!)
-        msg = replace_all(msg, "@Your_weapon@", "@The_weapon@");
-        msg = replace_all(msg, "@your_weapon@", "@the_weapon@");
+        if (is_unrandom_artefact(item, UNRAND_SINGING_SWORD))
+        {
+            string name = jtrans(get_artefact_name(item, true));
+
+            msg = replace_all(msg, "@Your_weapon@", name);
+            msg = replace_all(msg, "@your_weapon@", name);
+            msg = replace_all(msg, "@The_weapon@", name);
+            msg = replace_all(msg, "@the_weapon@", name);
+        }
+        else
+        {
+            // "Your Singing Sword" sounds disrespectful
+            // (as if there could be more than one!)
+            msg = replace_all(msg, "@Your_weapon@", "@The_weapon@");
+            msg = replace_all(msg, "@your_weapon@", "@the_weapon@");
+        }
     }
 
     // Set appropriate channel (will usually be TALK).
@@ -396,13 +411,13 @@ void item_noise(const item_def &item, string msg, int loudness)
     // replace references to player name and god
     msg = replace_all(msg, "@player_name@", you.your_name);
     msg = replace_all(msg, "@player_god@",
-                      you_worship(GOD_NO_GOD) ? "atheism"
-                      : god_name(you.religion, coinflip()));
-    msg = replace_all(msg, "@player_genus@", species_name(you.species, SPNAME_GENUS));
+                      you_worship(GOD_NO_GOD) ? jtrans("atheism")
+                      : god_name_j(you.religion, coinflip()));
+    msg = replace_all(msg, "@player_genus@", species_name_j(you.species, SPNAME_GENUS));
     msg = replace_all(msg, "@a_player_genus@",
-                          article_a(species_name(you.species, SPNAME_GENUS)));
+                          species_name_j(you.species, SPNAME_GENUS));
     msg = replace_all(msg, "@player_genus_plural@",
-                      pluralise(species_name(you.species, SPNAME_GENUS)));
+                      jpluralise(species_name_j(you.species, SPNAME_GENUS), "", "たち"));
 
     msg = maybe_pick_random_substring(msg);
     msg = maybe_capitalise_substring(msg);
@@ -515,12 +530,11 @@ static bool _can_target_prev()
 /// Prompt the player to issue orders. Returns the key pressed.
 static int _issue_orders_prompt()
 {
-    mprf(MSGCH_PROMPT, "What are your orders?");
+    mprf(MSGCH_PROMPT, jtrans("What are your orders?"));
     if (!you.cannot_speak())
     {
-        string cap_shout = you.shout_verb(false);
-        cap_shout[0] = toupper(cap_shout[0]);
-        mprf(" t - %s!", cap_shout.c_str());
+        string cap_shout = jconj_verb(jtrans(you.shout_verb(false)), JCONJ_PRES);
+        mprf(jtrans_notrimc(" t - %s!"), cap_shout.c_str());
     }
 
     if (!you.berserk())
@@ -530,14 +544,17 @@ static int _issue_orders_prompt()
         {
             const monster* target = &menv[you.prev_targ];
             if (target->alive() && you.can_see(*target))
-                previous = "   p - Attack previous target.";
+                previous = jtrans("   p - Attack previous target.");
         }
 
-        mprf("Orders for allies: a - Attack new target.%s", previous.c_str());
-        mpr("                   r - Retreat!             s - Stop attacking.");
-        mpr("                   g - Guard the area.      f - Follow me.");
+        mprf(jtrans_notrimc("%s%s%s"),
+             chop_stringc(jtrans("Orders for allies:"), 19),
+             chop_stringc(jtrans("a - Attack new target."), 25),
+             previous.c_str());
+        mpr(jtrans_notrimc("                   r - Retreat!             s - Stop attacking."));
+        mpr(jtrans_notrimc("                   g - Guard the area.      f - Follow me."));
     }
-    mpr(" Anything else - Cancel.");
+    mpr(jtrans_notrimc(" Anything else - Cancel."));
 
     if (you.berserk())
         flush_prev_message(); // buffer doesn't get flushed otherwise
@@ -573,15 +590,15 @@ static bool _issue_order(int keyn, int &mons_targd)
             {
                 // Don't reset patrol points for 'Stop fighting!'
                 _set_allies_patrol_point(true);
-                mpr("Follow me!");
+                mpr(jtrans("Follow me!"));
             }
             else
-                mpr("Stop fighting!");
+                mpr(jtrans("Stop fighting!"));
             break;
 
         case 'w':
         case 'g':
-            mpr("Guard this area!");
+            mpr(jtrans("Guard this area!"));
             mons_targd = MHITNOT;
             _set_allies_patrol_point();
             break;
@@ -656,7 +673,7 @@ static bool _issue_order(int keyn, int &mons_targd)
 
             if (targ.isValid)
             {
-                mpr("Fall back!");
+                mpr(jtrans("Fall back!"));
                 mons_targd = MHITNOT;
             }
 
@@ -684,7 +701,7 @@ void issue_orders()
 
     if (you.cannot_speak() && you.berserk())
     {
-        mpr("You're too berserk to give orders, and you can't shout!");
+        mpr(jtrans("You're too berserk to give orders, and you can't shout!"));
         return;
     }
 
@@ -706,7 +723,37 @@ void issue_orders()
     _set_friendly_foes(keyn == 's' || keyn == 'w');
 
     if (mons_targd != MHITNOT && mons_targd != MHITYOU)
-        mpr("Attack!");
+        mpr(jtrans("Attack!"));
+}
+
+static string _want_to_shout_verb(const string& verb)
+{
+    if (!get_form()->shout_verb.empty())
+    {
+        string v = get_form()->shout_verb;
+        v = replace_all(v, "立てる", "立てたい");
+        v = replace_all(v, "鳴く", "鳴きたい");
+        v = replace_all(v, "放つ", "放ちたい");
+        v = replace_all(v, "吠える", "吠えたい");
+        return v;
+    }
+
+    if (verb == "shout")
+        return "大声を上げたい";
+    else if (verb == "yell")
+        return "叫びたい";
+    else if (verb == "scream")
+        return "絶叫したい";
+    else if (verb == "meow")
+        return "ニャーと鳴きたい";
+    else if (verb == "yowl")
+        return "ニャオーンと鳴きたい";
+    else if (verb == "caterwaul")
+        return "ギャーギャーと鳴きたい";
+    else if (verb == "hiss")
+        return "フーッと鳴きたい";
+    else
+        return "buggy(see _want_to_shout_verb()";
 }
 
 /**
@@ -719,6 +766,8 @@ void yell(const actor* mon)
     ASSERT(!crawl_state.game_is_arena());
 
     const string shout_verb = you.shout_verb(mon != nullptr);
+    const string shouted_verb = jconj_verb(shout_verb, JCONJ_PERF);
+    const string want_to_shout_verb = _want_to_shout_verb(shout_verb);
     const int noise_level = you.shout_volume();
 
     if (you.cannot_speak())
@@ -727,35 +776,36 @@ void yell(const actor* mon)
         {
             if (you.paralysed() || you.duration[DUR_WATER_HOLD])
             {
-                mprf("You feel a strong urge to %s, but "
-                     "you are unable to make a sound!",
-                     shout_verb.c_str());
+                mprf(jtransc("You feel a strong urge to %s, but "
+                             "you are unable to make a sound!"),
+                     want_to_shout_verb.c_str());
             }
             else
             {
-                mprf("You feel a %s rip itself from your throat, "
-                     "but you make no sound!",
-                     shout_verb.c_str());
+                mprf(jtransc("You feel a %s rip itself from your throat, "
+                             "but you make no sound!"),
+                     want_to_shout_verb.c_str());
             }
         }
         else
-            mpr("You are unable to make a sound!");
+            mpr(jtrans("You are unable to make a sound!"));
 
         return;
     }
 
     if (mon)
     {
-        mprf("You %s%s at %s!",
-             shout_verb.c_str(),
-             you.duration[DUR_RECITE] ? " your recitation" : "",
-             mon->name(DESC_THE).c_str());
+        mprf(jtransc("You %s%s at %s!"),
+             you.duration[DUR_RECITE] ? (mon->name(DESC_THE) + "に").c_str()
+                                      : (mon->name(DESC_THE) + "に向かって").c_str(),
+             jtransc(you.duration[DUR_RECITE] ? " your recitation" : ""),
+             verb_jc(shout_verb));
     }
     else
     {
-        mprf(MSGCH_SOUND, "You %s%s!",
-             shout_verb.c_str(),
-             you.berserk() ? " wildly" : " for attention");
+        mprf(MSGCH_SOUND, jtransc("You %s%s!"),
+             jtransc(you.berserk() ? " wildly" : " for attention"),
+             verb_jc(shouted_verb));
     }
 
     noisy(noise_level, you.pos());
@@ -811,7 +861,7 @@ bool noisy(int original_loudness, const coord_def& where,
 
     // Add +1 to scaled_loudness so that all squares adjacent to a
     // sound of loudness 1 will hear the sound.
-    const string noise_msg(msg? msg : "");
+    const string noise_msg(msg? jtrans(msg) : "");
     _noise_grid.register_noise(
         noise_t(where, noise_msg, (scaled_loudness + 1) * 1000, who, flags));
 
@@ -827,7 +877,7 @@ bool noisy(int original_loudness, const coord_def& where,
     if (player_distance <= dist && player_can_hear(where))
     {
         if (msg && !fake_noise)
-            mprf(MSGCH_SOUND, "%s", msg);
+            mprf(MSGCH_SOUND, "%s", jtransc(msg));
         return true;
     }
     return false;
@@ -1081,7 +1131,7 @@ void noise_grid::propagate_noise()
 #ifdef DEBUG_NOISE_PROPAGATION
     if (affected_actor_count)
     {
-        mprf(MSGCH_WARN, "Writing noise grid with %d noise sources",
+        mprf(MSGCH_WARN, jtransc("Writing noise grid with %d noise sources"),
              noises.size());
         dump_noise_grid("noise-grid.html");
     }

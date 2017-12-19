@@ -84,11 +84,11 @@ function TroveMarker:fdesc_long (marker)
 
   if toll.item then
     if self:showing_item() then
-      state = "This portal requires the presence of " ..
-              self:item_name() .. " to function."
+      state = "このポータルを動かすには" ..
+              self:item_name() .. "を持っている必要がある。"
     else
-      state = "This portal needs " ..
-              self:item_name() .. " to function."
+      state = "このポータルを動かすには" ..
+              self:item_name() .. "を手放す必要がある。"
     end
   elseif toll.nopiety then
     state = "The portal is engraved with runes symbolizing the primacy of the "
@@ -98,7 +98,7 @@ function TroveMarker:fdesc_long (marker)
   else
     error("\nThis portal is very buggy.")
   end
-  state = "\n" .. state .. "\n"
+  state = "\n" .. crawl.jtrans(state) .. "\n"
   return state
 end
 
@@ -116,12 +116,12 @@ function TroveMarker:overview_note (marker)
   local toll = get_toll(self.props)
   if toll.item then
     if self:showing_item() then
-      return "show " .. self:item_name(false)
+      return "通行条件: " .. self:item_name(false) .. "を提示"
     else
-      return "give " .. self:item_name(false)
+      return "通行条件: " .. self:item_name(false) .. "を手放す"
     end
   elseif toll.nopiety then
-    return "lose all piety"
+     return crawl.jtrans("lose all piety")
   else
     return "be buggy"
   end
@@ -286,26 +286,17 @@ function TroveMarker:item_name(do_grammar)
 
   local s = ""
   if item.quantity > 1 then
-    s = s .. item.quantity
+    s = s .. item.quantity .. "の"
   end
 
   if item.sub_type == "rune of Zot" then
     if do_grammar == false then
-      -- See trove.des where the name of the rune is stuffed into this variable.
-      -- The format is "xxx rune of Zot". Not just "xxx".
-      -- Where "xxx" is like "slimy".
-      return item.ego_type
-    else
-      return crawl.grammar(item.ego_type, "the")
+      return crawl.jtrans(item.ego_type)
     end
   end
 
   if item.sub_type == "horn of Geryon" then
-    if do_grammar == false then
-      return "horn of Geryon"
-    else
-      return "the horn of Geryon"
-    end
+    return crawl.jtrans("horn of Geryon")
   end
 
   if item.artefact_name ~= false then
@@ -317,13 +308,10 @@ function TroveMarker:item_name(do_grammar)
   end
 
   if item.base_type == "weapon" or item.base_type == "armour" then
-    if item.plus1 ~= false and item.plus1 ~= nil then
-      s = s .. " "
-      if item.plus1 > -1 then
-        s = s .. "+"
-      end
-      s = s .. item.plus1
+    if item.ego_type then
+      s = s .. crawl.jtrans(" of " .. item.ego_type)
     end
+      s = s .. crawl.jtrans(item.sub_type)
   end
 
   local jwith_pluses = {"ring of protection", "ring of evasion",
@@ -337,43 +325,34 @@ function TroveMarker:item_name(do_grammar)
 
   if item.base_type == "potion" or item.base_type == "scroll" then
     if item.quantity > 1 then
-      s = s .. " " .. item.base_type .. "s of"
-    else
-      s = s .. " " .. item.base_type .. " of"
+      s = s .. crawl.jtrans(item.base_type .. " of" .. " " .. item.sub_type)
     end
   elseif item.base_type == "book" then
     books = {"Necronomicon", "tome of Destruction",
              "Young Poisoner's Handbook", "Grand Grimoire"}
     if util.contains(books, item.sub_type) then
-      if do_grammar == false then
-        return item.sub_type
-      else
-        return "a " .. item.sub_type
-      end
+      return crawl.jtrans(item.sub_type)
     end
   elseif item.base_type == "wand" then
-    s = s .. " wand of"
+    s = s .. crawl.jtrans(" wand of".. " " .. item.sub_type)
   end
 
-  s = s .. " " .. item.sub_type
+  if item.base_type == "armour" or item.base_type == "weapon" then
+    if item.plus1 ~= false and item.plus1 ~= nil then
+      s = s .. " ("
+      if item.plus1 > -1 then
+        s = s .. "+"
+      end
+      s = s .. item.plus1
+    end
+    s = s .. ")"
+  end
 
   if item.base_type == "wand" then
     s = s .. " (" .. item.plus1 .. ")"
   end
 
-  if item.base_type == "armour" or item.base_type == "weapon" then
-    if item.ego_type then
-      s = s .. " of " .. item.ego_type
-    end
-  end
-
-  s = util.trim(s)
-
-  if string.find(s, "^%d+") or do_grammar == false then
-    return s
-  else
-    return crawl.grammar(s, "a")
-  end
+  return util.trim(s)
 end
 
 function TroveMarker:search_for_rune(marker, pname, dry_run)
@@ -534,16 +513,14 @@ function TroveMarker:check_item_veto(marker, pname)
   -- The message is slightly different for items that aren't actually taken by
   -- the trove (runes, currently).
   if self:showing_item() then
-    if not crawl.yesno("This trove requires the presence of "
-                       .. self:item_name() .. " to function. Show it the item"
-                       .. self:plural() .. "?", true, "n") then
+    if not crawl.yesno("埋蔵庫へのポータルを動かすには"
+                       .. self:item_name() .. "を呈示する必要があります。そうしますか？", true, "n") then
       crawl.mpr("Okay, then.", "prompt")
       return "veto"
     end
   else
-    if not crawl.yesno("This trove needs " .. self:item_name() ..
-                       " to function. Give it the item" ..
-                       self:plural() .. "?", true, "n") then
+    if not crawl.yesno("埋蔵庫へのポータルを動かすには" .. self:item_name() ..
+                       "が必要です。手放しますか？", true, "n") then
       crawl.mpr("Okay, then.", "prompt")
       return "veto"
     end
@@ -557,7 +534,7 @@ function TroveMarker:check_item_veto(marker, pname)
       self:note_payed("rune", false, item.ego_type)
       return
     else
-      crawl.mpr("You don't have " .. self:item_name() .. " with you.")
+      crawl.mpr("あなたはまだ" .. self:item_name() .. "を手にしていない。")
       return "veto"
     end
   end
@@ -568,7 +545,7 @@ function TroveMarker:check_item_veto(marker, pname)
   if #acceptable_items == 0 then
     -- Give a different message for items that are not taken away.
     if self:showing_item() then
-      crawl.mpr("You don't have " .. self:item_name() .. " with you.")
+      crawl.mpr("あなたはまだ" .. self:item_name() .. "を手にしていない。")
     else
       crawl.mpr("You don't have the item" .. self:plural() ..
                 " to give! Perhaps you haven't completely identified the item yet?")
@@ -657,15 +634,15 @@ function TroveMarker:note_payed(toll_item, item_taken, rune_name)
 
   local prefix
   if item_taken then
-    prefix = "You paid a toll of "
+    prefix = "あなたは" .. crawl.jtrans(toll_desc) .. "通行料として"
   else
-    prefix = "You showed "
+    prefix = "あなたは" .. crawl.jtrans(toll_desc) .. "ために"
   end
 
   -- Ugly special case. At this point in the code there is no rune item, so we
   -- can not rely on any of the normal item naming code.
   if toll_item == "rune" then
-    crawl.take_note(prefix .. "the " .. rune_name .. " " .. toll_desc)
+    crawl.take_note(prefix .. crawl.jtrans(rune_name) .. "を見せた")
     return
   end
 
@@ -679,7 +656,11 @@ function TroveMarker:note_payed(toll_item, item_taken, rune_name)
   local real_plus1 = toll_item.pluses()
   requested_item.plus1 = real_plus1
 
-  crawl.take_note(prefix .. self:item_name() .. " " .. toll_desc)
+  if item_taken then
+    crawl.take_note(prefix .. self:item_name() .. "を支払った")
+  else
+    crawl.take_note(prefix .. self:item_name() .. "を見せた")
+  end
 
   requested_item.plus1 = target_plus1
 end

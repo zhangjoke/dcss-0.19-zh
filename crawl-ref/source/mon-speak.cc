@@ -405,6 +405,9 @@ bool mons_speaks(monster* mons)
     ASSERT(mons); // XXX: change to monster &mons
     ASSERT(!invalid_monster_type(mons->type));
 
+    // ユニークと幽霊のセリフは保留
+    if (mons_is_unique(mons->type) || (mons->type == MONS_PLAYER_GHOST)) return true;
+
     // Natasha's death lines aren't physical speech.
     if ((mons->asleep() || mons->cannot_act() || mons->flags & MF_EXPLODE_KILL)
         && !(mons->type == MONS_NATASHA && !mons->alive()))
@@ -624,14 +627,14 @@ bool mons_speaks(monster* mons)
         // old speech?
         if (!mons->mname.empty() && mons->can_speak() && msg.empty())
         {
-            msg = _get_speak_string(prefixes, mons->name(DESC_PLAIN),
+            msg = _get_speak_string(prefixes, mons->name_en(DESC_PLAIN),
                                     mons, no_player, no_foe, no_foe_name,
                                     no_god, unseen);
         }
 
         if (msg.empty())
         {
-            msg = _get_speak_string(prefixes, mons->base_name(DESC_PLAIN),
+            msg = _get_speak_string(prefixes, mons->name_en(DESC_PLAIN),
                                     mons, no_player, no_foe, no_foe_name,
                                     no_god, unseen);
         }

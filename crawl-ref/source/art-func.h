@@ -22,6 +22,7 @@
 
 #include "beam.h"          // For Lajatang of Order's silver damage
 #include "cloud.h"         // For storm bow's and robe of clouds' rain
+#include "database.h"      // For jtrans
 #include "english.h"       // For apostrophise
 #include "exercise.h"      // For practise_evoking
 #include "fight.h"
@@ -58,7 +59,7 @@ static void _equip_mpr(bool* show_msgs, const char* msg,
         show_msgs = &do_show;
 
     if (*show_msgs)
-        mprf(chan, "%s", msg);
+        mprf(chan, "%s", jtransc(msg));
 
     // Caller shouldn't give any more messages.
     *show_msgs = false;
@@ -89,16 +90,16 @@ static bool _evoke_sceptre_of_asmodeus()
 
     if (m)
     {
-        mpr("The sceptre summons one of its servants.");
+        mpr(jtrans("The sceptre summons one of its servants."));
         did_god_conduct(DID_EVIL, 3);
 
         m->add_ench(mon_enchant(ENCH_FAKE_ABJURATION, 6));
 
         if (!player_angers_monster(m))
-            mpr("You don't feel so good about this...");
+            mpr(jtrans("You don't feel so good about this..."));
     }
     else
-        mpr("The air shimmers briefly.");
+        mpr(jtrans("The air shimmers briefly."));
 
     return true;
 }
@@ -125,7 +126,7 @@ static void _CEREBOV_melee_effects(item_def* weapon, actor* attacker,
             && defender->res_fire() <= 3
             && !you.duration[DUR_FIRE_VULN])
         {
-            mpr("The sword of Cerebov burns away your fire resistance.");
+            mpr(jtrans("The sword of Cerebov burns away your fire resistance."));
             you.increase_duration(DUR_FIRE_VULN, 3 + random2(dam), 50);
         }
         if (defender->is_monster()
@@ -135,7 +136,7 @@ static void _CEREBOV_melee_effects(item_def* weapon, actor* attacker,
         {
             if (you.can_see(*attacker))
             {
-                mprf("The sword of Cerebov burns away %s fire resistance.",
+                mprf(jtransc("The sword of Cerebov burns away %s fire resistance."),
                      defender->name(DESC_ITS).c_str());
             }
             defender->as_monster()->add_ench(
@@ -183,7 +184,7 @@ static bool _DISPATER_evoke(item_def *item, bool* did_work, bool* unevokable)
 {
     if (!enough_hp(11, true))
     {
-        mpr("You're too close to death to use this item.");
+        mpr(jtrans("You're too close to death to use this item."));
         *unevokable = true;
         return true;
     }
@@ -204,7 +205,7 @@ static bool _DISPATER_evoke(item_def *item, bool* did_work, bool* unevokable)
         return false;
     }
 
-    mpr("You feel the staff feeding on your energy!");
+    mpr(jtrans("You feel the staff feeding on your energy!"));
     dec_hp(5 + random2avg(19, 2), false);
     dec_mp(2 + random2avg(5, 2));
     make_hungry(100, false, true);
@@ -306,11 +307,11 @@ static void _SINGING_SWORD_equip(item_def *item, bool *show_msgs, bool unmeld)
 
     if (!item->props.exists(SS_WELCOME_KEY))
     {
-        mprf(MSGCH_TALK, "The sword says, \"Hi! I'm the Singing Sword!\"");
+        mprf(MSGCH_TALK, jtrans("The sword says, \"Hi! I'm the Singing Sword!\""));
         item->props[SS_WELCOME_KEY].get_bool() = true;
     }
     else
-        mprf(MSGCH_TALK, "The Singing Sword hums in delight!");
+        mprf(MSGCH_TALK, jtrans("The Singing Sword hums in delight!"));
 
     *show_msgs = false;
 }
@@ -427,7 +428,7 @@ static bool _WUCAD_MU_evoke(item_def *item, bool* did_work, bool* unevokable)
 #if TAG_MAJOR_VERSION == 34
     if (you.species == SP_DJINNI)
     {
-        mpr("The staff is unable to affect your essence.");
+        mpr(jtrans("The staff is unable to affect your essence."));
         *unevokable = true;
         return true;
     }
@@ -435,7 +436,7 @@ static bool _WUCAD_MU_evoke(item_def *item, bool* did_work, bool* unevokable)
 #endif
     if (you.magic_points == you.max_magic_points)
     {
-        mpr("Your reserves of magic are full.");
+        mpr(jtrans("Your reserves of magic are full."));
         *unevokable = true;
         return true;
     }
@@ -450,7 +451,7 @@ static bool _WUCAD_MU_evoke(item_def *item, bool* did_work, bool* unevokable)
         return false;
     }
 
-    mpr("Magical energy flows into your mind!");
+    mpr(jtrans("Magical energy flows into your mind!"));
 
     inc_mp(3 + random2(5) + you.skill_rdiv(SK_EVOCATIONS, 1, 3));
     make_hungry(50, false, true);
@@ -533,7 +534,7 @@ static void _GONG_melee_effects(item_def* item, actor* wearer,
 
     string msg = getSpeakString("shield of the gong");
     if (msg.empty())
-        msg = "You hear a strange loud sound.";
+        msg = jtrans("You hear a strange loud sound.");
     mprf(MSGCH_SOUND, "%s", msg.c_str());
 
     noisy(40, wearer->pos());
@@ -606,7 +607,7 @@ static void _DEMON_AXE_world_reacts(item_def *item)
 
     if (!you.beheld_by(closest))
     {
-        mprf("Visions of slaying %s flood into your mind.",
+        mprf(jtransc("Visions of slaying %s flood into your mind."),
              closest.name(DESC_THE).c_str());
 
         // The monsters (if any) currently mesmerising the player do not include
@@ -618,7 +619,7 @@ static void _DEMON_AXE_world_reacts(item_def *item)
 
     if (you.confused())
     {
-        mpr("Your confusion fades away as the thirst for blood takes over your mind.");
+        mpr(jtrans("Your confusion fades away as the thirst for blood takes over your mind."));
         you.duration[DUR_CONF] = 0;
     }
 
@@ -634,7 +635,7 @@ static void _DEMON_AXE_unequip(item_def *item, bool *show_msgs)
         // Since unwielding it costs scrolls of rem curse, we might say getting
         // the demon away is enough of a shock to get you back to senses.
         you.clear_beholders();
-        mpr("Your thirst for blood fades away.");
+        mpr(jtrans("Your thirst for blood fades away."));
     }
 }
 
@@ -692,9 +693,9 @@ static void _WYRMBANE_melee_effects(item_def* weapon, actor* attacker,
 
     if (!mondied)
     {
-        mprf("%s %s!",
+        mprf(jtransc("%s {convulse}!"),
             defender->name(DESC_THE).c_str(),
-            defender->conj_verb("convulse").c_str());
+            defender->conj_verb_j("convulse").c_str());
 
         defender->hurt(attacker, 1 + random2(3*dam/2));
 
@@ -725,13 +726,13 @@ static void _WYRMBANE_melee_effects(item_def* weapon, actor* attacker,
         // Including you, if you were a dragonform felid with lives left.
         if (weapon->plus == 18)
         {
-            mprf("<white>The lance glows brightly as it skewers %s. You feel "
-                 "that it has reached its full power.</white>",
+            mprf(jtransc("<white>The lance glows brightly as it skewers %s. You feel "
+                         "that it has reached its full power.</white>"),
                  name.c_str());
         }
         else
         {
-            mprf("<green>The lance glows as it skewers %s.</green>",
+            mprf(jtransc("<green>The lance glows as it skewers %s.</green>"),
                  name.c_str());
         }
 
@@ -747,9 +748,9 @@ static void _UNDEADHUNTER_melee_effects(item_def* item, actor* attacker,
     if (defender->holiness() & MH_UNDEAD && !one_chance_in(3)
         && !mondied && dam)
     {
-        mprf("%s %s blasted by disruptive energy!",
+        mprf(jtransc("%s %s blasted by disruptive energy!"),
               defender->name(DESC_THE).c_str(),
-              defender->conj_verb("be").c_str());
+              defender->conj_verb_j("be").c_str());
         defender->hurt(attacker, random2avg((1 + (dam * 3)), 3));
     }
 }
@@ -830,7 +831,7 @@ static void _PLUTONIUM_SWORD_melee_effects(item_def* weapon, actor* attacker,
         && (!defender->is_monster()
              || !mons_immune_magic(*defender->as_monster())))
     {
-        mpr("Mutagenic energy flows through the plutonium sword!");
+        mpr(jtrans("Mutagenic energy flows through the plutonium sword!"));
         MiscastEffect(defender, attacker, MELEE_MISCAST, SPTYP_TRANSMUTATION,
                       random2(9), random2(70), "the plutonium sword", NH_NEVER);
 
@@ -870,11 +871,12 @@ static void _WOE_melee_effects(item_def* weapon, actor* attacker,
     }
     if (you.see_cell(attacker->pos()) || you.see_cell(defender->pos()))
     {
-        mprf("%s %s %s%s.", attacker->name(DESC_THE).c_str(),
-             attacker->conj_verb(verb).c_str(),
-             (attacker == defender ? defender->pronoun(PRONOUN_REFLEXIVE)
+        mprf(jtransc("{attacker} {verb} {defender} {adv}."),
+             attacker->name(DESC_THE).c_str(),
+             attacker->conj_verb_j(verb).c_str(),
+             (attacker == defender ? defender->pronoun_j(PRONOUN_REFLEXIVE)
                                    : defender->name(DESC_THE)).c_str(),
-             adv);
+             tagged_jtransc("[adv]", adv));
     }
 
     if (!mondied)
@@ -973,11 +975,11 @@ static void _ELEMENTAL_STAFF_melee_effects(item_def*, actor* attacker,
     if (bonus_dam <= 0)
         return;
 
-    mprf("%s %s %s.",
+    mprf(jtransc("{attacker} {verb} {defender}."),
          attacker->name(DESC_THE).c_str(),
-         attacker->conj_verb(verb).c_str(),
-         (attacker == defender ? defender->pronoun(PRONOUN_REFLEXIVE)
-                               : defender->name(DESC_THE)).c_str());
+         (attacker == defender ? defender->pronoun_j(PRONOUN_REFLEXIVE)
+                               : defender->name(DESC_THE)).c_str(),
+         attacker->conj_verb_j(verb).c_str());
 
     defender->hurt(attacker, bonus_dam, flavour);
 
@@ -1013,9 +1015,9 @@ static void _ARC_BLADE_melee_effects(item_def* weapon, actor* attacker,
         else
         {
             if (you.can_see(*attacker))
-                mpr("The arc blade crackles.");
+                mpr(jtrans("The arc blade crackles."));
             else
-                mpr("You hear the crackle of electricity.");
+                mpr(jtrans("You hear the crackle of electricity."));
         }
     }
 }
@@ -1071,7 +1073,7 @@ static void _ORDER_melee_effects(item_def* item, actor* attacker,
         if (silver_dam)
         {
             if (you.can_see(*defender))
-                mpr(msg);
+                mpr(jtrans(msg));
             defender->hurt(attacker, silver_dam);
         }
     }
@@ -1098,7 +1100,7 @@ static void _FIRESTARTER_melee_effects(item_def* weapon, actor* attacker,
             && !mondied
             && !defender->as_monster()->has_ench(ENCH_INNER_FLAME))
         {
-            mprf("%s is filled with an inner flame.",
+            mprf(jtransc("%s is filled with an inner flame."),
                  defender->name(DESC_THE).c_str());
             defender->as_monster()->add_ench(
                 mon_enchant(ENCH_INNER_FLAME, 0, attacker,
@@ -1128,7 +1130,7 @@ static void _CHILLY_DEATH_melee_effects(item_def* weapon, actor* attacker,
             && !mondied
             && !defender->as_monster()->has_ench(ENCH_FROZEN))
         {
-            mprf("%s is flash-frozen.",
+            mprf(jtransc("%s is flash-frozen."),
                  defender->name(DESC_THE).c_str());
             defender->as_monster()->add_ench(
                 mon_enchant(ENCH_FROZEN, 0, attacker,
@@ -1137,7 +1139,7 @@ static void _CHILLY_DEATH_melee_effects(item_def* weapon, actor* attacker,
         else if (defender->is_player()
             && !you.duration[DUR_FROZEN])
         {
-            mprf(MSGCH_WARN, "You are encased in ice.");
+            mprf(MSGCH_WARN, jtrans("You are encased in ice."));
             you.increase_duration(DUR_FROZEN, 5 + random2(dam));
         }
     }
@@ -1184,8 +1186,8 @@ static void _MAJIN_equip(item_def *item, bool *show_msgs, bool unmeld)
 
     if (!item->props.exists(MB_WELCOME_KEY) && should_msg)
     {
-        const string msg = "A voice whispers, \"" +
-                           getSpeakString("majin-bo greeting") + "\"";
+        const string msg = make_stringf(jtransc("A voice whispers, \"{majin-bo greeting}\""),
+                                        getSpeakString("majin-bo greeting").c_str());
         mprf(MSGCH_TALK, "%s", msg.c_str());
         item->props[MB_WELCOME_KEY].get_bool() = true;
     }
@@ -1266,10 +1268,10 @@ static void _CAPTAIN_melee_effects(item_def* weapon, actor* attacker,
         item_def *wpn = defender->as_monster()->disarm();
         if (wpn)
         {
-            mprf("The captain's cutlass flashes! You lacerate %s!!",
+            mprf(jtransc("The captain's cutlass flashes! You lacerate %s!!"),
                 defender->name(DESC_THE).c_str());
-            mprf("%s %s falls to the floor!",
-                apostrophise(defender->name(DESC_THE)).c_str(),
+            mprf(jtransc("%s %s falls to the floor!"),
+                jtransc(defender->name(DESC_THE)),
                 wpn->name(DESC_PLAIN).c_str());
             defender->hurt(attacker, 18 + random2(18));
             did_god_conduct(DID_UNCHIVALRIC_ATTACK, 3);

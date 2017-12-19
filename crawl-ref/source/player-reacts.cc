@@ -185,9 +185,9 @@ static bool _decrement_a_duration(duration_type dur, int delay,
             if (you.duration[dur] <= 0)
                 you.duration[dur] = 1;
             if (need_expiration_warning(dur))
-                mprf(MSGCH_DANGER, "Careful! %s", midmsg);
+                mprf(MSGCH_DANGER, jtransc("Careful! %s"), jtransc(midmsg));
             else
-                mprf(chan, "%s", midmsg);
+                mprf(chan, jtrans(midmsg));
         }
     }
 
@@ -195,7 +195,7 @@ static bool _decrement_a_duration(duration_type dur, int delay,
     {
         you.duration[dur] = 0;
         if (endmsg && *endmsg != '\0')
-            mprf(chan, "%s", endmsg);
+            mprf(chan, jtrans(endmsg));
         return true;
     }
 
@@ -214,8 +214,8 @@ static void _decrement_petrification(int delay)
                                             "flesh" :
                                             get_form()->flesh_equivalent;
 
-        mprf(MSGCH_DURATION, "You turn to %s and can move again.",
-             flesh_equiv.c_str());
+        mprf(MSGCH_DURATION, jtransc("You turn to %s and can move again."),
+             tagged_jtransc("[form flesh equivalent]", flesh_equiv.c_str()));
     }
 
     if (you.duration[DUR_PETRIFYING])
@@ -233,7 +233,7 @@ static void _decrement_petrification(int delay)
             you.fully_petrify(nullptr);
         }
         else if (dur < 15 && old_dur >= 15)
-            mpr("Your limbs are stiffening.");
+            mpr(jtrans("Your limbs are stiffening."));
     }
 }
 
@@ -247,7 +247,7 @@ static void _decrement_paralysis(int delay)
 
         if (!you.duration[DUR_PARALYSIS] && !you.petrified())
         {
-            mprf(MSGCH_DURATION, "You can move again.");
+            mprf(MSGCH_DURATION, jtrans("You can move again."));
             you.redraw_evasion = true;
             you.duration[DUR_PARALYSIS_IMMUNITY] = roll_dice(1, 3)
             * BASELINE_DELAY;
@@ -269,7 +269,7 @@ static void _maybe_melt_armour()
     if (you.props.exists(MELT_ARMOUR_KEY))
     {
         you.props.erase(MELT_ARMOUR_KEY);
-        mprf(MSGCH_DURATION, "The heat melts your icy armour.");
+        mprf(MSGCH_DURATION, jtrans("The heat melts your icy armour."));
     }
 }
 
@@ -372,11 +372,11 @@ static void _update_cowardice()
         return;
 
     if (horror_level >= HORROR_LVL_OVERWHELMING)
-        mpr("Monsters! Monsters everywhere! You have to get out of here!");
+        mpr(jtrans("Monsters! Monsters everywhere! You have to get out of here!"));
     else if (horror_level >= HORROR_LVL_EXTREME)
-        mpr("You reel with horror at the sight of these foes!");
+        mpr(jtrans("You reel with horror at the sight of these foes!"));
     else
-        mpr("You feel a twist of horror at the sight of this foe.");
+        mpr(jtrans("You feel a twist of horror at the sight of this foe."));
 }
 
 // Uskawyaw piety decays incredibly fast, but only to a baseline level of *.
@@ -483,7 +483,7 @@ static bool _check_recite()
         || you.petrified()
         || you.berserk())
     {
-        mprf(MSGCH_DURATION, "Your recitation is interrupted.");
+        mprf(MSGCH_DURATION, jtrans("Your recitation is interrupted."));
         you.duration[DUR_RECITE] = 0;
         return false;
     }
@@ -509,19 +509,18 @@ static void _handle_recitation(int step)
 
     if (step == 0)
     {
-        string speech = zin_recite_text(you.attribute[ATTR_RECITE_SEED],
-                                        you.attribute[ATTR_RECITE_TYPE], -1);
-        speech += ".";
+        string speech = make_stringf(jtransc("You finish reciting %s"),
+                                     zin_recite_text(you.attribute[ATTR_RECITE_SEED],
+                                                     you.attribute[ATTR_RECITE_TYPE], -1).c_str());
         if (one_chance_in(9))
         {
-            const string closure = getSpeakString("recite_closure");
+            string closure = getSpeakString("recite_closure");
             if (!closure.empty() && one_chance_in(3))
             {
-                speech += " ";
                 speech += closure;
             }
         }
-        mprf(MSGCH_DURATION, "You finish reciting %s", speech.c_str());
+        mprf(MSGCH_DURATION, speech);
     }
 }
 
@@ -534,7 +533,7 @@ static void _try_to_respawn_ancestor()
      if (!ancestor)
          return;
 
-    mprf("%s emerges from the mists of memory!",
+    mprf(jtransc("%s emerges from the mists of memory!"),
          ancestor->name(DESC_YOUR).c_str());
     add_companion(ancestor);
     check_place_cloud(CLOUD_MIST, ancestor->pos(), random_range(1,2),
@@ -610,7 +609,7 @@ static void _decrement_durations()
             if (you.duration[DUR_DIVINE_SHIELD] <= 1)
             {
                 you.duration[DUR_DIVINE_SHIELD] = 1;
-                mprf(MSGCH_DURATION, "Your divine shield starts to fade.");
+                mprf(MSGCH_DURATION, jtrans("Your divine shield starts to fade."));
             }
         }
 
@@ -620,7 +619,7 @@ static void _decrement_durations()
             if (--you.attribute[ATTR_DIVINE_SHIELD] == 0)
             {
                 you.duration[DUR_DIVINE_SHIELD] = 0;
-                mprf(MSGCH_DURATION, "Your divine shield fades away.");
+                mprf(MSGCH_DURATION, jtrans("Your divine shield fades away."));
             }
         }
     }
@@ -696,7 +695,7 @@ static void _decrement_durations()
         if (you.stat(s) > 0
             && _decrement_a_duration(stat_zero_duration(s), delay))
         {
-            mprf(MSGCH_RECOVERY, "Your %s has recovered.", stat_desc(s, SD_NAME));
+            mprf(MSGCH_RECOVERY, jtransc("Your %s has recovered."), stat_desc(s, SD_NAME));
             you.redraw_stats[s] = true;
         }
     }
@@ -713,10 +712,10 @@ static void _decrement_durations()
         gain_piety(1, 1);
 
 #if defined(DEBUG_DIAGNOSTICS) || defined(DEBUG_SACRIFICE) || defined(DEBUG_PIETY)
-        mprf(MSGCH_DIAGNOSTICS, "Piety increases by 1 due to piety pool.");
+        mprf(MSGCH_DIAGNOSTICS, jtrans("Piety increases by 1 due to piety pool."));
 
         if (you.duration[DUR_PIETY_POOL] == 0)
-            mprf(MSGCH_DIAGNOSTICS, "Piety pool is now empty.");
+            mprf(MSGCH_DIAGNOSTICS, jtrans("Piety pool is now empty."));
 #endif
     }
 
@@ -773,7 +772,7 @@ static void _decrement_durations()
     if (you.duration[DUR_DARKNESS] && you.haloed())
     {
         you.duration[DUR_DARKNESS] = 0;
-        mpr("The divine light dispels your darkness!");
+        mpr(jtrans("The divine light dispels your darkness!"));
         update_vision_range();
     }
 
@@ -901,7 +900,7 @@ static void _rot_ghoul_players()
     if (one_chance_in(resilience))
     {
         dprf("rot rate: 1/%d", resilience);
-        mprf(MSGCH_WARN, "You feel your flesh rotting away.");
+        mprf(MSGCH_WARN, jtrans("You feel your flesh rotting away."));
         rot_hp(1);
     }
 }
@@ -912,7 +911,7 @@ static void _handle_emergency_flight()
 
     if (!is_feat_dangerous(orig_terrain(you.pos()), true, false))
     {
-        mpr("You float gracefully downwards.");
+        mpr(jtrans("You float gracefully downwards."));
         land_player();
         you.props.erase(EMERGENCY_FLIGHT_KEY);
     }
@@ -1015,7 +1014,7 @@ void player_reacts()
     {
         if (you.duration[DUR_SONG_OF_SLAYING])
         {
-            mpr("The silence causes your song to end.");
+            mpr(jtrans("The silence causes your song to end."));
             _decrement_a_duration(DUR_SONG_OF_SLAYING, you.duration[DUR_SONG_OF_SLAYING]);
         }
     }

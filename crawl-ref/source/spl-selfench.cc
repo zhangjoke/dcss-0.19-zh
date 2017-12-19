@@ -40,8 +40,8 @@ int allowed_deaths_door_hp()
 spret_type cast_deaths_door(int pow, bool fail)
 {
     fail_check();
-    mpr("You stand defiantly in death's doorway!");
-    mprf(MSGCH_SOUND, "You seem to hear sand running through an hourglass...");
+    mpr(jtrans("You stand defiantly in death's doorway!"));
+    mprf(MSGCH_SOUND, jtrans("You seem to hear sand running through an hourglass..."));
 
     set_hp(allowed_deaths_door_hp());
     deflate_hp(you.hp_max, false);
@@ -56,7 +56,7 @@ spret_type cast_deaths_door(int pow, bool fail)
 
 void remove_ice_armour()
 {
-    mprf(MSGCH_DURATION, "Your icy armour melts away.");
+    mprf(MSGCH_DURATION, jtrans("Your icy armour melts away."));
     you.redraw_armour_class = true;
     you.duration[DUR_ICY_ARMOUR] = 0;
 }
@@ -66,16 +66,16 @@ spret_type ice_armour(int pow, bool fail)
     fail_check();
 
     if (you.duration[DUR_ICY_ARMOUR])
-        mpr("Your icy armour thickens.");
+        mpr(jtrans("Your icy armour thickens."));
     else if (you.form == TRAN_ICE_BEAST)
-        mpr("Your icy body feels more resilient.");
+        mpr(jtrans("Your icy body feels more resilient."));
     else
-        mpr("A film of ice covers your body!");
+        mpr(jtrans("A film of ice covers your body!"));
 
     if (you.attribute[ATTR_BONE_ARMOUR] > 0)
     {
         you.attribute[ATTR_BONE_ARMOUR] = 0;
-        mpr("Your corpse armour falls away.");
+        mpr(jtrans("Your corpse armour falls away."));
     }
 
     you.increase_duration(DUR_ICY_ARMOUR, random_range(40, 50), 50);
@@ -162,9 +162,9 @@ spret_type corpse_armour(int pow, bool fail)
     }
 
     if (you.attribute[ATTR_BONE_ARMOUR] <= 0)
-        mpr("The bodies of the dead rush to embrace you!");
+        mpr(jtrans("The bodies of the dead rush to embrace you!"));
     else
-        mpr("Your shell of carrion and bone grows thicker.");
+        mpr(jtrans("Your shell of carrion and bone grows thicker."));
 
     // value of ATTR_BONE_ARMOUR will be sqrt(9*harvested), rounded randomly
     int squared = sqr(you.attribute[ATTR_BONE_ARMOUR]) + 9 * harvested;
@@ -178,7 +178,7 @@ spret_type missile_prot(int pow, bool fail)
 {
     fail_check();
     you.attribute[ATTR_REPEL_MISSILES] = 1;
-    mpr("You feel protected from missiles.");
+    mpr(jtrans("You feel protected from missiles."));
     return SPRET_SUCCESS;
 }
 
@@ -186,7 +186,7 @@ spret_type deflection(int pow, bool fail)
 {
     fail_check();
     you.attribute[ATTR_DEFLECT_MISSILES] = 1;
-    mpr("You feel very safe from missiles.");
+    mpr(jtrans("You feel very safe from missiles."));
     // Replace RMsl, if active.
     if (you.attribute[ATTR_REPEL_MISSILES])
         you.attribute[ATTR_REPEL_MISSILES] = 0;
@@ -206,7 +206,7 @@ spret_type cast_regen(int pow, bool fail)
 spret_type cast_revivification(int pow, bool fail)
 {
     fail_check();
-    mpr("Your body is healed in an amazingly painful way.");
+    mpr(jtrans("Your body is healed in an amazingly painful way."));
 
     const int loss = 6 + binomial(9, 8, pow);
     dec_max_hp(loss * you.hp_max / 100);
@@ -214,7 +214,7 @@ spret_type cast_revivification(int pow, bool fail)
 
     if (you.duration[DUR_DEATHS_DOOR])
     {
-        mprf(MSGCH_DURATION, "Your life is in your own hands once again.");
+        mprf(MSGCH_DURATION, jtrans("Your life is in your own hands once again."));
         // XXX: better cause name?
         paralyse_player("Death's Door abortion", 5 + random2(5));
         confuse_player(10 + random2(10));
@@ -231,9 +231,9 @@ spret_type cast_swiftness(int power, bool fail)
     if (you.in_liquid())
     {
         // Hint that the player won't be faster until they leave the liquid.
-        mprf("The %s foams!", you.in_water() ? "water"
-                            : you.in_lava()  ? "lava"
-                                             : "liquid ground");
+        mprf(jtransc("The %s foams!"), jtransc(you.in_water() ? "water"
+                                                              : you.in_lava()  ? "lava"
+                                                              : "liquid ground"));
     }
 
     you.set_duration(DUR_SWIFTNESS, 12 + random2(power)/2, 30,
@@ -256,7 +256,7 @@ int cast_selective_amnesia(const string &pre_msg)
     int slot;
 
     // Pick a spell to forget.
-    mprf(MSGCH_PROMPT, "Forget which spell ([?*] list [ESC] exit)? ");
+    mprf(MSGCH_PROMPT, jtrans("Forget which spell ([?*] list [ESC] exit)? "));
     keyin = list_spells(false, false, false, "Forget which spell?");
     redraw_screen();
 
@@ -277,7 +277,7 @@ int cast_selective_amnesia(const string &pre_msg)
         if (!isaalpha(keyin))
         {
             clear_messages();
-            mprf(MSGCH_PROMPT, "Forget which spell ([?*] list [ESC] exit)? ");
+            mprf(MSGCH_PROMPT, jtrans_notrim("Forget which spell ([?*] list [ESC] exit)? "));
             keyin = get_ch();
             continue;
         }
@@ -287,8 +287,8 @@ int cast_selective_amnesia(const string &pre_msg)
 
         if (spell == SPELL_NO_SPELL)
         {
-            mpr("You don't know that spell.");
-            mprf(MSGCH_PROMPT, "Forget which spell ([?*] list [ESC] exit)? ");
+            mpr(jtrans("You don't know that spell."));
+            mprf(MSGCH_PROMPT, jtrans_notrim("Forget which spell ([?*] list [ESC] exit)? "));
             keyin = get_ch();
         }
         else
@@ -307,9 +307,9 @@ spret_type cast_infusion(int pow, bool fail)
 {
     fail_check();
     if (!you.duration[DUR_INFUSION])
-        mpr("You begin infusing your attacks with magical energy.");
+        mpr(jtrans("You begin infusing your attacks with magical energy."));
     else
-        mpr("You extend your infusion's duration.");
+        mpr(jtrans("You extend your infusion's duration."));
 
     you.increase_duration(DUR_INFUSION,  8 + roll_dice(2, pow), 100);
     you.props["infusion_power"] = pow;
@@ -322,9 +322,9 @@ spret_type cast_song_of_slaying(int pow, bool fail)
     fail_check();
 
     if (you.duration[DUR_SONG_OF_SLAYING])
-        mpr("You start a new song!");
+        mpr(jtrans("You start a new song!"));
     else
-        mpr("You start singing a song of slaying.");
+        mpr(jtrans("You start singing a song of slaying."));
 
     you.set_duration(DUR_SONG_OF_SLAYING, 20 + random2avg(pow, 2));
 
@@ -335,7 +335,7 @@ spret_type cast_song_of_slaying(int pow, bool fail)
 spret_type cast_silence(int pow, bool fail)
 {
     fail_check();
-    mpr("A profound silence engulfs you.");
+    mpr(jtrans("A profound silence engulfs you."));
 
     you.increase_duration(DUR_SILENCE, 10 + pow/4 + random2avg(pow/2, 2), 100);
     invalidate_agrid(true);
@@ -354,7 +354,7 @@ spret_type cast_liquefaction(int pow, bool fail)
     flash_view_delay(UA_PLAYER, YELLOW, 80);
     flash_view_delay(UA_PLAYER, BROWN, 140);
 
-    mpr("The ground around you becomes liquefied!");
+    mpr(jtrans("The ground around you becomes liquefied!"));
 
     you.increase_duration(DUR_LIQUEFYING, 10 + random2avg(pow, 2), 100);
     invalidate_agrid(true);
@@ -365,9 +365,9 @@ spret_type cast_shroud_of_golubria(int pow, bool fail)
 {
     fail_check();
     if (you.duration[DUR_SHROUD_OF_GOLUBRIA])
-        mpr("You renew your shroud.");
+        mpr(jtrans("You renew your shroud."));
     else
-        mpr("Space distorts slightly along a thin shroud covering your body.");
+        mpr(jtrans("Space distorts slightly along a thin shroud covering your body."));
 
     you.increase_duration(DUR_SHROUD_OF_GOLUBRIA, 7 + roll_dice(2, pow), 50);
     return SPRET_SUCCESS;

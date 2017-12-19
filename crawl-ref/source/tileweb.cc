@@ -16,6 +16,7 @@
 #include "branch.h"
 #include "command.h"
 #include "coord.h"
+#include "database.h"
 #include "directn.h"
 #include "english.h"
 #include "env.h"
@@ -710,19 +711,22 @@ void TilesFramework::_send_player(bool force_full)
     json_open_object();
     json_write_string("msg", "player");
     json_treat_as_empty();
+    string status_name = make_stringf("%s『%s』(%s)",
+                                      jtransc(player_title(false)),
+                                      you.your_name.c_str(),
+                                      species_name_jc(you.species));
 
-    _update_string(force_full, c.name, you.your_name, "name");
-    _update_string(force_full, c.job_title, filtered_lang(player_title()),
-                   "title");
+    _update_string(force_full, c.name, status_name, "name");
+    _update_string(force_full, c.job_title, "", "title");
     _update_int(force_full, c.wizard, you.wizard, "wizard");
     _update_string(force_full, c.species, species_name(you.species),
                    "species");
     string god = "";
     if (you_worship(GOD_JIYVA))
-        god = god_name_jiyva(true);
+        god = god_name_jiyva(false);
     else if (!you_worship(GOD_NO_GOD))
         god = god_name(you.religion);
-    _update_string(force_full, c.god, god, "god");
+    _update_string(force_full, c.god, jtrans(god), "god");
     _update_int(force_full, c.under_penance, (bool) player_under_penance(), "penance");
     uint8_t prank = 0;
     if (!you_worship(GOD_NO_GOD))
@@ -804,21 +808,9 @@ void TilesFramework::_send_player(bool force_full)
     }
 
     const PlaceInfo& place = you.get_place_info();
-    string short_name = branches[place.branch].shortname;
+    string abbrev_name = branches[place.branch].abbrevname;
 
-    if (brdepth[place.branch] == 1)
-    {
-        // Definite articles
-        if (place.branch == BRANCH_ABYSS)
-            short_name.insert(0, "The ");
-        // Indefinite articles
-        else if (place.branch != BRANCH_PANDEMONIUM &&
-                 !is_connected_branch(place.branch))
-        {
-            short_name = article_a(short_name);
-        }
-    }
-    _update_string(force_full, c.place, short_name, "place");
+    _update_string(force_full, c.place, branch_name_j(abbrev_name), "place");
     _update_int(force_full, c.depth, brdepth[place.branch] > 1 ? you.depth : 0, "depth");
 
     if (m_origin.equals(-1, -1))
@@ -840,7 +832,7 @@ void TilesFramework::_send_player(bool force_full)
         {
             json_open_object();
             if (!status.light_text.empty())
-                json_write_string("light", status.light_text);
+                json_write_string("light", duration_name_j(status.light_text));
             if (!status.short_text.empty())
                 json_write_string("text", status.short_text);
             if (status.light_colour)
@@ -871,7 +863,7 @@ void TilesFramework::_send_player(bool force_full)
                 (int8_t) you.m_quiver.get_fire_item(), "quiver_item");
 
     _update_string(force_full, c.unarmed_attack,
-                   you.unarmed_attack_name(), "unarmed_attack");
+                   jtrans(you.unarmed_attack_name()), "unarmed_attack");
     _update_int(force_full, c.unarmed_attack_colour,
                 (uint8_t) get_form()->uc_colour, "unarmed_attack_colour");
     _update_int(force_full, c.quiver_available, !fire_warn_if_impossible(true),

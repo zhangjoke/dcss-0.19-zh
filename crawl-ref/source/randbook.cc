@@ -14,6 +14,7 @@
 #include "itemname.h"
 #include "items.h"
 #include "religion.h"
+#include "skills.h"
 #include "spl-book.h"
 #include "stringutil.h"
 
@@ -471,11 +472,9 @@ static void _make_book_randart(item_def &book)
 static string _gen_randlevel_owner(god_type god)
 {
     if (god != GOD_NO_GOD)
-        return god_name(god, false);
+        return god_name_j(god, false);
     if (one_chance_in(30))
-        return god_name(GOD_SIF_MUNA, false);
-    if (one_chance_in(3))
-        return make_name();
+        return god_name_j(GOD_SIF_MUNA, false);
     return "";
 }
 
@@ -502,13 +501,13 @@ static string _gen_randlevel_name(int level, god_type god)
 {
     const string owner_name = _gen_randlevel_owner(god);
     const bool has_owner = !owner_name.empty();
-    const string apostrophised_owner = owner_name.empty() ? "" :
-    apostrophise(owner_name) + " ";
+    const string apostrophised_owner = owner_name.empty() ? "" : (owner_name + "の");
 
     if (god == GOD_XOM && coinflip())
     {
-        const string xomname = getRandNameString("book_noun") + " of "
-        + getRandNameString("Xom_book_title");
+        const string xomname = make_stringf(jtransc("{book noun} of {xom book title}"),
+                                            getRandNameString("Xom_book_title").c_str(),
+                                            getRandNameString("book_noun").c_str());
         return apostrophised_owner + xomname;
     }
 
@@ -777,8 +776,7 @@ static string _gen_randbook_name(string subject, string owner,
                                  spschool_flag_type disc2)
 {
     const string apostrophised_owner = owner.empty() ?
-        "" :
-        apostrophise(owner) + " ";
+        "" : (jtrans(owner) + "の");
 
     const string real_subject = subject.empty() ?
         _maybe_gen_book_subject(owner) :
@@ -786,17 +784,13 @@ static string _gen_randbook_name(string subject, string owner,
 
     if (!real_subject.empty())
     {
-        return make_stringf("%s%s of %s",
+        return make_stringf(jtransc("%s%s of %s"),
                             apostrophised_owner.c_str(),
-                            getRandNameString("book_noun").c_str(),
-                            real_subject.c_str());
+                            real_subject.c_str(),
+                            getRandNameString("book_noun").c_str());
     }
 
-    string name = apostrophised_owner;
-
-    // Give a name that reflects the primary and secondary
-    // spell disciplines of the spells contained in the book.
-    name += getRandNameString("book_name") + " ";
+    string name = apostrophised_owner; // "誰々の"
 
     // For the actual name there's a 66% chance of getting something like
     //  <book> of the Fiery Traveller (Translocation/Fire), else
@@ -819,7 +813,7 @@ static string _gen_randbook_name(string subject, string owner,
 
         if (disc1 != disc2)
         {
-            name += " and ";
+            name += "と";
             type_name = getRandNameString(spelltype_long_name(disc2));
 
             if (type_name.empty())
@@ -830,7 +824,7 @@ static string _gen_randbook_name(string subject, string owner,
     }
     else
     {
-        string bookname = type_name + " ";
+        string bookname = type_name;
 
         // Add the noun for the first discipline.
         type_name = getRandNameString(spelltype_long_name(disc1));
@@ -847,6 +841,8 @@ static string _gen_randbook_name(string subject, string owner,
         }
         name += bookname;
     }
+
+    name += getRandNameString("book_name"); // "の書/ガイド/etc."
 
     return name;
 }
@@ -892,7 +888,7 @@ static string _gen_randbook_owner(god_type god, spschool_flag_type disc1,
     // name of gifting god?
     const bool god_gift = god != GOD_NO_GOD;
     if (god_gift && !one_chance_in(4))
-        return god_name(god, false);
+        return god_name_j(god, false);
 
     // thematically appropriate name?
     if (god_gift && one_chance_in(3) || one_chance_in(5))
@@ -923,10 +919,6 @@ static string _gen_randbook_owner(god_type god, spschool_flag_type disc1,
         }
     }
 
-    // random name?
-    if (god_gift || one_chance_in(5))
-        return make_name();
-
     // applicable god's name?
     if (!god_gift && one_chance_in(9))
     {
@@ -934,16 +926,16 @@ static string _gen_randbook_owner(god_type god, spschool_flag_type disc1,
         {
             case SPTYP_NECROMANCY:
                 if (all_spells_disc1 && !one_chance_in(6))
-                    return god_name(GOD_KIKUBAAQUDGHA, false);
+                    return god_name_j(GOD_KIKUBAAQUDGHA, false);
                 break;
             case SPTYP_CONJURATION:
                 if (all_spells_disc1 && !one_chance_in(4))
-                    return god_name(GOD_VEHUMET, false);
+                    return god_name_j(GOD_VEHUMET, false);
                 break;
             default:
                 break;
         }
-        return god_name(GOD_SIF_MUNA, false);
+        return god_name_j(GOD_SIF_MUNA, false);
     }
 
     return "";
@@ -1031,14 +1023,14 @@ void make_book_kiku_gift(item_def &book, bool first)
     for (int i = 0; i < RANDBOOK_SIZE; i++)
         spell_vec[i].get_int() = chosen_spells[i];
 
-    string name = "Kikubaaqudgha's ";
+    string name = jtrans("Kikubaaqudgha's ");
     book.props[BOOK_TITLED_KEY].get_bool() = true;
-    name += getRandNameString("book_name") + " ";
     string type_name = getRandNameString("Necromancy");
     if (type_name.empty())
-        name += "Necromancy";
+        name += skill_name_j("Necromancy");
     else
         name += type_name;
+    name += getRandNameString("book_name");
     set_artefact_name(book, name);
 }
 
