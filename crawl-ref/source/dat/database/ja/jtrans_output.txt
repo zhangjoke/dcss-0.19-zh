@@ -319,6 +319,10 @@ no status effects
 
 # jtrans_mutations.txtに記載
 %%%%
+no striking features
+
+特になし
+%%%%
 <w>0:</w> Orb of Zot
 
 <w>0:</w> ゾットのオーブ
