@@ -4755,7 +4755,7 @@ bool haste_player(int turns, bool rageext)
     const int threshold = 40;
 
     if (!you.duration[DUR_HASTE])
-        mpr(jtrans("You feel yourself speed up."));
+        mpr(tagged_jtrans("[haste_player()]", "You feel yourself speed up."));
     else if (you.duration[DUR_HASTE] > threshold * BASELINE_DELAY)
         mpr(jtrans("You already have as much speed as you can handle."));
     else if (!rageext)
