@@ -1165,27 +1165,27 @@ This armour may have some hidden properties.
 %%%%
 It affects your AC (%+d).
 
-この%%sはあなたのACに影響する。(AC %+d)
+この%sはあなたのACに影響する。(AC %+d)
 %%%%
 It affects your evasion (%+d).
 
-この%%sはあなたの回避力に影響する。(回避 %+d)
+この%sはあなたの回避力に影響する。(回避 %+d)
 %%%%
 It affects your strength (%+d).
 
-この%%sはあなたの腕力に影響する。(腕力 %+d)
+この%sはあなたの腕力に影響する。(腕力 %+d)
 %%%%
 It affects your intelligence (%+d).
 
-この%%sはあなたの知力に影響する。(知力 %+d)
+この%sはあなたの知力に影響する。(知力 %+d)
 %%%%
 It affects your dexterity (%+d).
 
-この%%sはあなたの器用さに影響する。(器用 %+d)
+この%sはあなたの器用さに影響する。(器用 %+d)
 %%%%
 It affects your accuracy and damage with ranged weapons and melee attacks (%+d).
 
-この%%sはあなたの命中率およびダメージを与える能力に影響する。(命中・ダメージ %+d)
+この%sはあなたの命中率およびダメージを与える能力に影響する。(命中・ダメージ %+d)
 %%%%
 It affects your shielding (%+d).
 

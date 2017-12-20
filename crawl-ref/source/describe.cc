@@ -1522,7 +1522,8 @@ static string _describe_armour(const item_def &item, bool verbose)
 
 static string _describe_jewellery(const item_def &item, bool verbose)
 {
-    string description;
+    string description = "\n";
+    string basename = jewellery_is_amulet(item) ? "amulet" : "ring";
 
     description.reserve(200);
 
@@ -1536,37 +1537,44 @@ static string _describe_jewellery(const item_def &item, bool verbose)
             {
             case RING_PROTECTION:
                 description += make_stringf(jtrans_notrimc("\nIt affects your AC (%+d)."),
+                                            jtransc(basename),
                                             item.plus);
                 break;
 
             case RING_EVASION:
                 description += make_stringf(jtrans_notrimc("\nIt affects your evasion (%+d)."),
+                                            jtransc(basename),
                                             item.plus);
                 break;
 
             case RING_STRENGTH:
                 description += make_stringf(jtrans_notrimc("\nIt affects your strength (%+d)."),
+                                            jtransc(basename),
                                             item.plus);
                 break;
 
             case RING_INTELLIGENCE:
                 description += make_stringf(jtrans_notrimc("\nIt affects your intelligence (%+d)."),
+                                            jtransc(basename),
                                             item.plus);
                 break;
 
             case RING_DEXTERITY:
                 description += make_stringf(jtrans_notrimc("\nIt affects your dexterity (%+d)."),
+                                            jtransc(basename),
                                             item.plus);
                 break;
 
             case RING_SLAYING:
                 description += make_stringf(jtrans_notrimc("\nIt affects your accuracy and"
                                                            " damage with ranged weapons and melee attacks (%+d)."),
-                      item.plus);
+                                            jtransc(basename),
+                                            item.plus);
                 break;
 
             case AMU_REFLECTION:
                 description += make_stringf(jtrans_notrimc("\nIt affects your shielding (%+d)."),
+                                            jtransc(basename),
                                             item.plus);
                 break;
 
@@ -1589,7 +1597,7 @@ static string _describe_jewellery(const item_def &item, bool verbose)
             !item_ident(item, ISFLAG_KNOW_TYPE))
         {
             description += make_stringf(jtrans_notrimc("\nThis {amulet|ring} may have hidden properties."),
-                                        (jewellery_is_amulet(item) ? "amulet" : "ring"));
+                                        jtransc(basename));
         }
     }
 
@@ -1847,8 +1855,7 @@ string get_item_description(const item_def &item, bool verbose,
         break;
 
     case OBJ_JEWELLERY:
-        desc += make_stringf(_describe_jewellery(item, verbose).c_str(),
-                                        jtransc(jewellery_is_amulet(item) ? "amulet" : "ring"));
+        desc += _describe_jewellery(item, verbose);
         break;
 
     case OBJ_BOOKS:
