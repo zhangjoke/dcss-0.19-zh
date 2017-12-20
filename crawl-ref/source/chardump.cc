@@ -782,7 +782,7 @@ static string spell_type_shortname(spschool_flag_type spell_class, bool slash)
     if (slash)
         ret = "/";
 
-    ret += tagged_jtrans("[spelltype]", spelltype_short_name(spell_class));
+    ret += tagged_jtrans("[spell type]", spelltype_short_name(spell_class));
 
     return ret;
 }
