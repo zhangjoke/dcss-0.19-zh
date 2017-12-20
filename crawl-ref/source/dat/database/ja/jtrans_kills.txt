@@ -65,7 +65,7 @@ spectral {monster}
 %%%%
 The ghost of {monster}
 
-{monster}の幽霊
+%sの幽霊
 %%%%
 Can't find kill string?
 
