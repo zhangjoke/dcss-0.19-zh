@@ -242,7 +242,7 @@ Vault maps used:
 
 発動
 %%%%
-[desc action] Use
+[desc action]Use
 
 使用
 %%%%
@@ -250,7 +250,7 @@ Vault maps used:
 
 急所攻撃
 %%%%
-[desc action] Eat
+[desc action]Eat
 
 食事
 %%%%
