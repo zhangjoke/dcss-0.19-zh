@@ -490,6 +490,16 @@ static string _randlevel_difficulty_name(int level)
     return "difficult";
 }
 
+static string _apostrophised(const string &owner_name)
+{
+    if (owner_name.empty()) return "";
+
+    string name = jtrans(owner_name) + "の";
+    name = replace_all(name, "『", "");
+    name = replace_all(name, "』", "");
+    return name;
+}
+
 /**
  * Generate a name for a randomly-generated single-level spellbook.
  *
@@ -501,7 +511,7 @@ static string _gen_randlevel_name(int level, god_type god)
 {
     const string owner_name = _gen_randlevel_owner(god);
     const bool has_owner = !owner_name.empty();
-    const string apostrophised_owner = owner_name.empty() ? "" : (owner_name + "の");
+    const string apostrophised_owner = _apostrophised(owner_name);
 
     if (god == GOD_XOM && coinflip())
     {
@@ -775,8 +785,7 @@ static string _gen_randbook_name(string subject, string owner,
                                  spschool_flag_type disc1,
                                  spschool_flag_type disc2)
 {
-    const string apostrophised_owner = owner.empty() ?
-        "" : (jtrans(owner) + "の");
+    const string apostrophised_owner = _apostrophised(owner);
 
     const string real_subject = subject.empty() ?
         _maybe_gen_book_subject(owner) :
