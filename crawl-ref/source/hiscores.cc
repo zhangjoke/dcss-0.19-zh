@@ -1821,9 +1821,11 @@ string scorefile_entry::terse_missile_cause() const
 
 string scorefile_entry::terse_beam_cause() const
 {
-    string cause = auxkilldata;
-    if (starts_with(cause, "by ") || starts_with(cause, "By "))
-        cause = replace_all(jtrans(cause), "によって", "");
+    string cause = zap_name_j(auxkilldata);
+
+    if (cause.find(jtrans("By ")) != string::npos);
+        cause = replace_all(cause, jtrans("By "), "");
+
     return cause;
 }
 
@@ -2111,7 +2113,8 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
             // keeping this short to leave room for the deep elf spellcasters:
             desc += themself ? (jtrans("themself") + "を")
                              : (jtrans(death_source_desc())  + "に");
-            string end_desc = themself ? "撃って死んだ" : "撃たれて死んだ";
+            string end_desc = final_hp > 0 ? (themself ? "撃った" : "撃たれた")
+                                           : (themself ? "撃って死んだ" : "撃たれて死んだ");
 
             if (semiverbose)
             {
@@ -2140,8 +2143,14 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
         {
             // If terse we have to parse the information from the string.
             // Darn it to heck.;
-            string text = replace_all(terse? terse_missile_cause() : auxkilldata, "を撃たれた", "を撃たれて死んだ");
-            text = replace_all(text, "に当たった", "に当たって死んだ");
+
+            string text;
+            if (final_hp <= 0)
+            {
+                text = replace_all(terse ? terse_missile_cause() : auxkilldata,
+                                   "を撃たれた", "を撃たれて死んだ");
+                text = replace_all(text, "に当たった", "に当たって死んだ");
+            }
 
             desc += text;
             needs_damage = true;
@@ -2668,7 +2677,7 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
             desc += death_source_name;
 
         if (needs_damage && damage > 0)
-            desc += " " + damage_string(true);
+            desc += damage_string(true);
     }
     else if (verbose)
     {

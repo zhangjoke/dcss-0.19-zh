@@ -35,6 +35,10 @@ damage
 
 ダメージ
 %%%%
+By
+
+によって
+%%%%
 %8d %s the %s (level %d
 
 %8d %s『%s』(レベル%d
