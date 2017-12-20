@@ -609,7 +609,7 @@ It is a scroll of enchant armour.
 %%%%
 It is a scroll of amnesia.
 
-これは記憶喪失の巻物だ。
+これは忘却の巻物だ。
 %%%%
 You feel forgetful for a moment.
 
