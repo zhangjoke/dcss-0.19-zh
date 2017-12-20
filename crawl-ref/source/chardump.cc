@@ -577,7 +577,7 @@ static void _sdump_notes(dump_params &par)
         return;
 
     text += jtrans_notrim("Notes\nTurn   | Place    | Note\n");
-    text += "-------+----------+-------------------------------------------\n";
+    text += "-------+-" + string(MAX_NOTE_PLACE_LEN, '-')  + "-+-------------------------------------------\n";
     for (const Note &note : note_list)
     {
         if (note.hidden())
