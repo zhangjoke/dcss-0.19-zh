@@ -828,7 +828,7 @@ static void _describe_poison(status_info* inf)
          (pois_perc > 65)   ? "seriously" :
          (pois_perc > 35)   ? "quite"
                             : "mildly";
-    inf->short_text   = jtrans(adj + " poisoned")
+    inf->short_text   = duration_name_j(adj + " poisoned")
         + make_stringf(" (%d -> %d)", you.hp, poison_survival());
     inf->long_text    = "You are " + inf->short_text + ".";
 }
