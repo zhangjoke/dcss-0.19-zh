@@ -768,13 +768,13 @@ stealth player
 
 プレイヤーの隠匿
 %%%
-%d-stop teleportation journey%s
+%d-stop teleportation journey
 
-%d連続のテレポート%s
+%d連続のテレポート
 %%%%
-1-stop teleportation journey%s
+1-stop teleportation journey
 
-テレポート%s
+テレポート
 %%%%
 (dangerous)
 
