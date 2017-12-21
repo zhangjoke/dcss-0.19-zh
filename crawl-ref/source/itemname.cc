@@ -1523,7 +1523,7 @@ string ghost_brand_name(int brand)
     if (brand == SPWPN_ANTIMAGIC)
         return jtrans("an antimagic weapon");
     if (brand == SPWPN_VORPAL)
-        return "a vorpal weapon"; // can't use brand_type_name
+        return jtrans("a vorpal weapon"); // can't use brand_type_name
     return make_stringf(jtransc("a weapon of %s"),
                         jtransc(string("of ") + brand_type_name(brand, false)));
 }
