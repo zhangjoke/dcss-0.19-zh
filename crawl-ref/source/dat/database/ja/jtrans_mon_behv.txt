@@ -17,7 +17,7 @@ PLAIN:追い詰められた@The_monster@は戦いを始めた！
 %%%%
 (press <w>%c</w> on the <w>%s</w>bility menu to convert to Beogh)
 
-(ベオに改宗するには<w>%s</w>bilityメニューで <w>%c</w> を押してください)
+(ベオに改宗するには(<w>%s</w>)bilityメニューで <w>%c</w> を押してください)
 %%%%
 Monster %d forgot about foe %d. (Previous foe_memory: %d)
 
