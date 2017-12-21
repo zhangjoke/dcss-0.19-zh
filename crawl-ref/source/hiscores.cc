@@ -2079,7 +2079,7 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
         {
             desc += make_stringf(jtransc("Succumbed to %s %s"),
                                  jtransc(_is_you(death_source_name) ? "their own" : death_source_name),
-                                 jtransc(auxkilldata.empty() ? "poison" : auxkilldata));
+                                 zap_name_jc(auxkilldata.empty() ? "poison" : auxkilldata));
         }
         break;
 
