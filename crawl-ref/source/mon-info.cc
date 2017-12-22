@@ -887,7 +887,7 @@ string monster_info::_core_name() const
         {
         case MONS_SLIME_CREATURE:
             ASSERT((size_t) slime_size <= ARRAYSZ(slime_sizes));
-            s = jtrans(slime_sizes[slime_size] + s);
+            s = jtrans(string(slime_sizes[slime_size]) + get_monster_data(nametype)->name);
             break;
         case MONS_UGLY_THING:
         case MONS_VERY_UGLY_THING:
