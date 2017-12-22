@@ -990,7 +990,7 @@ You no longer have enough gold to %s.
 %%%%
 You escape %s grasp.
 
-あなたは%sの束縛から逃れた。
+あなたは%s束縛から逃れた。
 %%%%
 %s grasp on you weakens, but your attempt to escape fails.
 
