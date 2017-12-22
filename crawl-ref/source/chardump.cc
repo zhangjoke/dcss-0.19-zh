@@ -594,7 +594,7 @@ static void _sdump_location(dump_params &par)
     string text;
 
     if (you.depth == 0 && player_in_branch(BRANCH_DUNGEON))
-        text += "You escaped";
+        text += jtrans("You escaped");
     else if (par.se)
         text += make_stringf(jtransc("You were {in branch}"),
                              prep_branch_level_name().c_str());
