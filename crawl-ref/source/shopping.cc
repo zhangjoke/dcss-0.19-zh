@@ -1283,9 +1283,6 @@ void ShopMenu::purchase_selected()
         more = formatted_string::parse_string(make_stringf(
             jtrans_notrimc("<%s>I'll put %s outside for you.</%s>\n"),
             col.c_str(),
-            bought_indices.size() == 1             ? "it" :
-      (int) bought_indices.size() == outside_items ? "them"
-                                                   : "some of them",
             col.c_str()));
         more += old_more;
     }
