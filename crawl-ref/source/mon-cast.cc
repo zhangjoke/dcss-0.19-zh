@@ -7691,7 +7691,7 @@ static void _siren_sing(monster* mons, bool avatar)
         else if (you.duration[DUR_MESMERISE_IMMUNE] && !already_mesmerised)
             canned_msg(MSG_YOU_RESIST);
         else
-            mprf("You%s", you.resist_margin_phrase(res_magic).c_str());
+            mprf(jtransc("You%s"), you.resist_margin_phrase(res_magic).c_str());
         return;
     }
 
