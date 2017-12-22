@@ -435,7 +435,7 @@ Missing status description.
 
 再生
 %%%%
-[dur]RegenMR++
+[dur]Regen MR++
 
 再生 耐魔法＋＋
 %%%%
