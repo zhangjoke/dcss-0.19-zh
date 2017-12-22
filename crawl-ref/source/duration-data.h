@@ -170,7 +170,7 @@ static const duration_def duration_data[] =
       "", D_DISPELLABLE,
       {{ "", []() {
           if (!you.backlit())
-              mprf(MSGCH_DURATION, "You are no longer glowing.");
+              mprf(MSGCH_DURATION, jtrans("You are no longer glowing."));
       }}}},
     { DUR_DEATH_CHANNEL,
       MAGENTA, "DChan",
