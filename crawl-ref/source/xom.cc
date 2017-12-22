@@ -3565,8 +3565,8 @@ static void _xom_good_teleport(int /*sever*/)
     string note = count > 1 ? make_stringf(jtransc("%d-stop teleportation journey"), count)
                             : jtrans("1-stop teleportation journey");
 #ifdef NOTE_DEBUG_XOM
-             if (player_in_a_dangerous_place())
-                 note += jtrans(" (dangerous)");
+    if (player_in_a_dangerous_place())
+        note += jtrans(" (dangerous)");
 #endif
     take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
 }
@@ -3594,12 +3594,11 @@ static void _xom_bad_teleport(int sever)
     maybe_update_stashes();
 
     // Take a note.
-    const string note = make_stringf(jtransc(count > 1 ? "%d-stop teleportation journey%s"
-                                                       :  "1-stop teleportation journey%s"), count, jtrans(
+    string note = count > 1 ? make_stringf(jtransc("%d-stop teleportation journey"), count)
+                            : jtrans("1-stop teleportation journey");
 #ifdef NOTE_DEBUG_XOM
-             badness == 3 ? " (dangerous)" : "");
-#else
-    "").c_str());
+    if (player_in_a_dangerous_place())
+        note += jtrans(" (dangerous)");
 #endif
     take_note(Note(NOTE_XOM_EFFECT, you.piety, -1, note), true);
 }
