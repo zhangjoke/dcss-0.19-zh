@@ -2912,9 +2912,9 @@ void melee_attack::mons_apply_attack_flavour()
         {
             mprf(jtransc("%s %s %s%s"),
                  atk_name(DESC_THE).c_str(),
+                 defender_name(true).c_str(),
                  _melee_attack_particle("sear").c_str(),
                  attacker->conj_verb_j("sear").c_str(),
-                 defender_name(true).c_str(),
                  attack_strength_punctuation(special_damage).c_str());
 
         }
@@ -3080,9 +3080,9 @@ void melee_attack::mons_apply_attack_flavour()
             {
                 mprf(jtransc("%s %s %s%s"),
                      atk_name(DESC_THE).c_str(),
+                     defender_name(true).c_str(),
                      _melee_attack_particle("drown").c_str(),
                      attacker->conj_verb_j("drown").c_str(),
-                     defender_name(true).c_str(),
                      attack_strength_punctuation(special_damage).c_str());
             }
         }

@@ -734,7 +734,7 @@ mutagenic touch
 %%%%
 %s %s %s%s
 
-%sは%s%s%s
+%sは%s%s%s%s
 %%%%
 [verb]shock
 
