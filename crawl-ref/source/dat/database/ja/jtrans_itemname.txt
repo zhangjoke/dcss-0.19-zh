@@ -735,7 +735,7 @@ of bugginess
 %%%%
 [ring adj]granite
 
-御影石
+御影石の
 %%%%
 [ring adj]ivory
 
