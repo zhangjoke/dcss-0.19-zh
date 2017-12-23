@@ -1861,7 +1861,9 @@ static string _append_sentence_delimiter(const string &sentence,
         return sentence;
 
     const char lastch = sentence[sentence.length() - 1];
-    if (lastch == '!' || lastch == '.' || ends_with(sentence, delimiter))
+    if (lastch == '!' || lastch == '.' || ends_with(sentence, delimiter)
+                                       || ends_with(sentence, jtrans("."))
+                                       || ends_with(sentence, jtrans("!")))
         return sentence;
 
     return sentence + delimiter;
@@ -2653,8 +2655,24 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
         break;
     }
 
-    if (add_stop && !ends_with(desc, jtrans(".")) && !ends_with(desc, jtrans("!")))
-        desc += jtrans(".");
+    if (add_stop)
+    {
+        if (!oneline)
+        {
+            if (death_type == KILLED_BY_LEAVING
+                || death_type == KILLED_BY_WINNING)
+            {
+                // TODO: strcat "after reaching level %d"; for LEAVING
+                if (verbosity == DDV_NORMAL || verbose)
+                {
+                    desc = _append_sentence_delimiter(desc,
+                                                      jtrans(num_runes > 0? "!" : ""));
+                }
+            }
+        }
+
+        desc = _append_sentence_delimiter(desc, jtrans("."));
+    }
 
     if (oneline && desc.length() > 2)
         desc[1] = tolower(desc[1]);
@@ -2706,17 +2724,8 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
 
     if (!oneline)
     {
-        if (death_type == KILLED_BY_LEAVING
-            || death_type == KILLED_BY_WINNING)
-        {
-            // TODO: strcat "after reaching level %d"; for LEAVING
-            if (verbosity == DDV_NORMAL || verbose)
-            {
-                desc = _append_sentence_delimiter(desc,
-                                                  jtrans(num_runes > 0? "!" : ""));
-            }
+        if (death_type == KILLED_BY_LEAVING || death_type == KILLED_BY_WINNING)
             desc += _hiscore_newline_string();
-        }
     }
 
     if (terse)
