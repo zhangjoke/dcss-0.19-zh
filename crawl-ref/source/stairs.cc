@@ -489,7 +489,7 @@ static level_id _travel_destination(const dungeon_feature_type how,
         if (!known_shaft)
         {
             mark_milestone("shaft", make_stringf(jtransc("fell down a shaft to %s."),
-                                                 shaft_dest.describe_j().c_str()));
+                                                 shaft_dest.describe_j(true).c_str()));
         }
 
         string howfar;
