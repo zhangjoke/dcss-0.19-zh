@@ -99,11 +99,11 @@ Gained mutation: %s
 
 突然変異が発現した: %s
 %%%%
-Lost mutation:
+Lost mutation: %s
 
-突然変異を失った:
+突然変異を失った: %s
 %%%%
-Mutation became permanent:
+Mutation became permanent: %s
 
 突然変異が定着した: %s
 %%%%
