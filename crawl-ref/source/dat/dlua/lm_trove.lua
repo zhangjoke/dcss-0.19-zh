@@ -116,7 +116,7 @@ function TroveMarker:overview_note (marker)
   local toll = get_toll(self.props)
   if toll.item then
     if self:showing_item() then
-      return "通行条件: " .. self:item_name(false) .. "を提示"
+      return "通行条件: " .. self:item_name(false) .. "を呈示"
     else
       return "通行条件: " .. self:item_name(false) .. "を手放す"
     end
@@ -286,13 +286,11 @@ function TroveMarker:item_name(do_grammar)
 
   local s = ""
   if item.quantity > 1 then
-    s = s .. item.quantity .. "の"
+    s = s .. item.quantity .. crawl.jcounter(item.base_type) .. "の"
   end
 
   if item.sub_type == "rune of Zot" then
-    if do_grammar == false then
-      return crawl.jtrans(item.ego_type)
-    end
+    return crawl.jtrans(item.ego_type)
   end
 
   if item.sub_type == "horn of Geryon" then
@@ -300,11 +298,7 @@ function TroveMarker:item_name(do_grammar)
   end
 
   if item.artefact_name ~= false then
-    if string.find(item.artefact_name, "'s") or do_grammar == false then
-      return item.artefact_name
-    else
-      return "the " .. item.artefact_name
-    end
+    return item.artefact_name
   end
 
   if item.base_type == "weapon" or item.base_type == "armour" then
@@ -324,9 +318,7 @@ function TroveMarker:item_name(do_grammar)
   end
 
   if item.base_type == "potion" or item.base_type == "scroll" then
-    if item.quantity > 1 then
-      s = s .. crawl.jtrans(item.base_type .. " of" .. " " .. item.sub_type)
-    end
+    s = s .. crawl.jtrans(item.base_type .. " of" .. " " .. item.sub_type)
   elseif item.base_type == "book" then
     books = {"Necronomicon", "tome of Destruction",
              "Young Poisoner's Handbook", "Grand Grimoire"}

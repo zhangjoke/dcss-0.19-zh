@@ -64,9 +64,17 @@ You must unequip the item first!
 
 まずはそのアイテムを手から放してください！
 %%%%
+You must unequip the items first!
+
+<You must unequip the item first!>
+%%%%
 The portal accepts the item and buzzes to life!
 
 ポータルはアイテムを飲み込み、うなりを上げて作動を開始した！
+%%%%
+The portal accepts the items and buzzes to life!
+
+<The portal accepts the item and buzzes to life!>
 %%%%
 This portal proclaims the superiority of the material over the divine; those who enter it will find they have lost all favor with their chosen deity. Enter anyway?
 
