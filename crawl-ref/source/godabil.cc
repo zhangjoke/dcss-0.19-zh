@@ -190,7 +190,7 @@ bool bless_weapon(god_type god, brand_type brand, colour_t colour)
     you.redraw_evasion = true;      // or evasion
     const string desc = make_stringf(jtransc("{old name} {blessing description}"),
                                      old_name.c_str(),
-                                     _god_blessing_description(god));
+                                     jtransc(_god_blessing_description(god)));
     take_note(Note(NOTE_ID_ITEM, 0, 0, wpn.name(DESC_A), desc));
     wpn.flags |= ISFLAG_NOTED_ID;
     wpn.props[FORCED_ITEM_COLOUR_KEY] = colour;
