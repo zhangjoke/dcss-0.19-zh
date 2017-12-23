@@ -597,7 +597,7 @@ string player::arm_name(bool plural, bool *can_plural) const
         *can_plural = true;
 
     string adj;
-    string str = "arm";
+    string str = jtrans("arm");
 
     if (species_is_draconian(you.species) || species == SP_NAGA)
         adj = "scaled";
@@ -606,7 +606,7 @@ string player::arm_name(bool plural, bool *can_plural) const
     else if (species == SP_MUMMY)
         adj = "bandage-wrapped";
     else if (species == SP_OCTOPODE)
-        str = "tentacle";
+        str = jtrans("tentacle");
 
     if (form == TRAN_LICH)
         adj = "bony";
@@ -616,9 +616,9 @@ string player::arm_name(bool plural, bool *can_plural) const
     if (plural)
     {
         if (species == SP_OCTOPODE)
-            str =jpluralise(str, "両方の");
+            str = jpluralise(str, "両方の");
         else
-            str =jpluralise(str, "両");
+            str = jpluralise(str, "両");
     }
 
     if (!adj.empty())

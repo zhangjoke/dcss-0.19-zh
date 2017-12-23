@@ -2745,7 +2745,7 @@ string monster::arm_name(bool plural, bool *can_plural) const
         *can_plural = true;
 
     string adj;
-    string str = "arm";
+    string str = jtrans("arm");
 
     switch (mons_genus(type))
     {
@@ -2763,7 +2763,7 @@ string monster::arm_name(bool plural, bool *can_plural) const
         break;
 
     case MONS_OCTOPODE:
-        str = "tentacle";
+        str = jtrans("tentacle");
         break;
 
     case MONS_LICH:
@@ -2778,7 +2778,12 @@ string monster::arm_name(bool plural, bool *can_plural) const
     }
 
     if (plural)
-        str = jpluralise(str, "両");
+    {
+        if (mons_genus(type) == MONS_OCTOPODE)
+            str = jpluralise(str, "両方の");
+        else
+            str = jpluralise(str, "両");
+    }
 
     if (!adj.empty())
         str = adj_j(adj) + str;
