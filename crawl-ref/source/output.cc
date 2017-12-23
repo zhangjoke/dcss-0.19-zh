@@ -2654,7 +2654,7 @@ static string _status_mut_abilities(int sw)
     {
         if (you.runes[i])
         {
-            string rune_name = tagged_jtrans(rune_type_name(i), " rune of Zot");
+            string rune_name = tagged_jtrans("", rune_type_name(i),  " rune of Zot");
             runes.emplace_back(replace_all(rune_name, "のルーン", ""));
         }
     }
