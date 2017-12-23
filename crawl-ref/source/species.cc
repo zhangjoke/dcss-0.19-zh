@@ -337,7 +337,8 @@ void give_level_mutations(species_type species, int xp_level)
         if (lum.xp_level == xp_level)
         {
             perma_mutate(lum.mut, lum.mut_level,
-                         species_name(species) + " growth");
+                         make_stringf(jtransc("%s growth"),
+                                      species_name_jc(species)));
         }
 }
 
