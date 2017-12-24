@@ -49,7 +49,7 @@ killed
 %%%%
 %s the ghost of %s.
 
-%sの幽霊%s。
+%sの幽霊%s
 %%%%
 %s %s.
 
