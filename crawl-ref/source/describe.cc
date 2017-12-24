@@ -3365,7 +3365,7 @@ static string _monster_stat_description(const monster_info& mi)
                                pronoun.c_str(),
                                to_separated_line(resist_descriptions.begin(),
                                                  resist_descriptions.end(),
-                                                 sep, sep).c_str());
+                                                 sep, sep, sep).c_str());
     }
 
     // Is monster susceptible to anything? (On a new line.)
