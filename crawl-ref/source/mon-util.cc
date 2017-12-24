@@ -5496,7 +5496,7 @@ void set_ancestor_spells(monster &ancestor, bool notify)
         {
             mprf(jtransc("%s regains %s memory of %s."),
                  ancestor.name(DESC_PLAIN, true).c_str(),
-                 spell_title_j(spellslot.spell));
+                 spell_title_jc(spellslot.spell));
         }
     }
 }
