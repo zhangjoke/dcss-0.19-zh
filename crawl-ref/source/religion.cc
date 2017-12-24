@@ -505,7 +505,7 @@ void dec_penance(god_type god, int val)
         you.penance[god] = 0;
 
         mark_milestone("god.mollify",
-                       make_stringf(jtransc("mollified %s."),
+                       make_stringf(jtransc("mollified {god name}."),
                                     god_name_jc(god)));
 
         const bool dead_jiyva = (god == GOD_JIYVA && jiyva_is_dead());
