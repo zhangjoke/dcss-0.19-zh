@@ -5898,17 +5898,13 @@ bool ru_do_sacrifice(ability_type sac)
 
         if (sac == ABIL_RU_SACRIFICE_ARCANA)
             offer_text = jtrans(sac_text) + jtrans(sac_def.sacrifice_text);
-        else if (sac == ABIL_RU_SACRIFICE_HEALTH ||
-                 sac == ABIL_RU_SACRIFICE_ESSENCE ||
-                 sac == ABIL_RU_SACRIFICE_PURITY)
-            offer_text = jtrans(sac_def.sacrifice_text) + tagged_jtrans("[sacrifice]", sac_text);
         else
-            offer_text = jtrans(sac_def.sacrifice_text) + jtrans(sac_text);
+            offer_text = jtrans(sac_def.sacrifice_text) + "(" + jtrans(sac_text) + ")";
 
         if (!sac_arcana_text.empty()) sac_text = make_stringf("(%s)", sac_arcana_text.c_str());
 
-        mile_text = make_stringf("%s %s", jtransc(sac_def.milestone_text),
-                                 tagged_jtransc("[sacrifice]", sac_text));
+        mile_text = make_stringf("%s (%s)", jtransc(sac_def.milestone_text),
+                                 jtransc(sac_text));
     }
     else
     {
