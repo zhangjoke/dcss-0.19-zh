@@ -45,7 +45,7 @@ Please choose an option below
 
 の御業があなたの能力値を変更した。
 %%%%
-You feel weakend.
+You feel weakened.
 
 あなたは弱くなったような気がした。
 %%%%
