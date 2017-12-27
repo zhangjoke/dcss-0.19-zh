@@ -3743,7 +3743,7 @@ void swap_ability_slots(int index1, int index2, bool silent)
     if (!silent)
     {
         mprf_nocap("%c - %s", index_to_letter(index2),
-                   jtransc(ability_name(you.ability_letter_table[index2])));
+                   ability_name_jc(you.ability_letter_table[index2]));
     }
 
 }
