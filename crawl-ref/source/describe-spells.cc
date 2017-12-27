@@ -139,7 +139,7 @@ static string _booktype_header(mon_spell_slot_flag type, size_t num_books,
 
     const string descriptor = tagged_jtrans("[descriptor]", _ability_type_descriptor(type));
 
-    return make_stringf(jtransc("possesses the following %s abilities%s%s:"),
+    return make_stringf(jtrans_notrimc("possesses the following %s abilities%s%s:\n"),
                         spell_filter_desc.c_str(),
                         descriptor.c_str(),
                         vulnerabilities.c_str());
@@ -261,11 +261,10 @@ static void _monster_spellbooks(const monster_info &mi,
                 "\n" +
                 pronoun +
                 _booktype_header(type, valid_books.size(), has_silencable,
-                                 filtered_books, mi.pronoun_j(PRONOUN_OBJECTIVE)) +
-                make_stringf(jtrans_notrimc("\n\n%s %d:"),
-                             set_name.c_str(), (int) i + 1);
+                                 filtered_books, mi.pronoun_j(PRONOUN_OBJECTIVE));
         }
-        else
+
+        if (valid_books.size() > 1)
         {
             output_book.label += make_stringf(jtrans_notrimc("\n%s %d:"),
                                               set_name.c_str(), (int) i + 1);
