@@ -40,29 +40,65 @@ Invalid draconian subrace: %d
 # for debug
 %%%%
 # ugly_colour_names
-red
+[ugly things colour]red
 
 赤い
 %%%%
-brown
+[ugly things colour]brown
 
 茶色の
 %%%%
-green
+[ugly things colour]green
 
 緑色の
 %%%%
-cyan
+[ugly things colour]cyan
 
 水色の
 %%%%
-purple
+[ugly things colour]purple
 
 紫色の
 %%%%
-white
+[ugly things colour]white
 
 白い
+%%%%
+[drac colour]black
+
+黒色
+%%%%
+[drac colour]mottled
+
+斑紋
+%%%%
+[drac colour]yellow
+
+黄色
+%%%%
+[drac colour]green
+
+緑色
+%%%%
+[drac colour]purple
+
+紫
+%%%%
+[drac colour]red
+
+赤色
+%%%%
+[drac colour]white
+
+白色
+%%%%
+[drac colour]grey
+
+灰色
+%%%%
+[drac colour]pale
+
+蒼白
 %%%%
 # monstrous
 

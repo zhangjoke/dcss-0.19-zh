@@ -879,7 +879,7 @@ string monster_info::_core_name() const
         s = jtrans(get_monster_data(nametype)->name);
 
         if (mons_is_draconian_job(type) && base_type != MONS_NO_MONSTER)
-            s = jtrans(draconian_colour_name(base_type) + " " + s);
+            s = tagged_jtrans("[drac colour]", draconian_colour_name(base_type)) + s;
         else if (mons_is_demonspawn_job(type) && base_type != MONS_NO_MONSTER)
             s = jtrans(demonspawn_base_name(base_type)) + s;
 
@@ -891,7 +891,7 @@ string monster_info::_core_name() const
             break;
         case MONS_UGLY_THING:
         case MONS_VERY_UGLY_THING:
-            s = jtrans(ugly_thing_colour_name(_colour)) + s;
+            s = tagged_jtrans("[ugly things colour]", ugly_thing_colour_name(_colour)) + s;
             break;
 
         case MONS_DANCING_WEAPON:
