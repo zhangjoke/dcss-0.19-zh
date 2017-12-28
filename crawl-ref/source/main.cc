@@ -2754,11 +2754,7 @@ static bool _cancel_confused_move(bool stationary)
         }
         else
         {
-            string name = bad_mons->name_en(DESC_PLAIN);
-            if (starts_with(name, "the "))
-               name.erase(0, 4);
-            if (!starts_with(bad_adj, "your"))
-               bad_adj = "the " + bad_adj;
+            string name = bad_mons->name(DESC_PLAIN);
 
             prompt += make_stringf(jtransc("Are you sure you want to %s while confused and next to %s?"),
                                    (bad_adj + name + bad_suff).c_str(),
