@@ -17,6 +17,14 @@ You are too confused!
 
 あなたは混乱している！
 %%%%
+You are held in a net!
+
+あなたは網で拘束されている！
+%%%%
+You are caught in a web!
+
+あなたは蜘蛛の巣に巻きつかれている！
+%%%%
 No target in view!
 
 視界内に敵はいない！

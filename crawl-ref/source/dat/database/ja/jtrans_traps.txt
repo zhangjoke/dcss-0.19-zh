@@ -201,7 +201,7 @@ evades a web.
 %%%%
 is caught in a web!
 
-は蜘蛛の巣に捕まった！
+は蜘蛛の巣に巻きつかれている！
 %%%%
 A web moves frantically as something is caught in it!
 
@@ -339,7 +339,7 @@ A web harmlessly splats on %s.
 
 蜘蛛の巣は%sの動きを阻害することなく貼りついた。
 %%%%
-You are caught in a web!
+# You are caught in a web!
 
-あなたは蜘蛛の巣に捕まった！
+# jtrans_dat_clua.txtと重複
 %%%%
