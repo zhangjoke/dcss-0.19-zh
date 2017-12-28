@@ -1679,7 +1679,7 @@ static void _name_deck(const item_def &deck, description_level_type desc,
 
         buff << make_stringf(jtransc(deck.used_count > 0 ? "drawn: %d"
                                                          : "left: %d"),
-                             abs(deck.used_count));
+                             (int)abs(deck.used_count));
     }
 
     buff << "}";
