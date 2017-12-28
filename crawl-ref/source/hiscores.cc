@@ -2348,7 +2348,7 @@ string scorefile_entry::death_description(death_desc_verbosity verbosity, bool a
         {
             desc += death_source_desc() + "に";
             if (!semiverbose)
-                desc += beam_cause_line(verbosity);
+                desc += replace_all(beam_cause_line(verbosity), "を", "で");
             desc += jtrans("Incinerated by ");
 
             if (!auxkilldata.empty())
