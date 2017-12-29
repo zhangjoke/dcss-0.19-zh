@@ -75,7 +75,7 @@ Select a spell to read its description { or ... }.
 
 %s解説文を読むにはそれぞれの呪文を選択してください。
 %%%%
-or to to memorise it
+or to memorise it
 
 呪文を記憶したり、
 %%%%

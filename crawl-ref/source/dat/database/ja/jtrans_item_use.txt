@@ -441,9 +441,13 @@ Identify which item? (\ to view known items)
 
 どのアイテムを鑑定しますか？ (\で既知のアイテム一覧を表示)
 %%%%
-%s glows green for a moment.
+%s %s green for a moment.
 
-%sは一瞬緑色に輝いた。
+%sは一瞬緑色に%s。
+%%%%
+[verb]glow
+
+<[verb]glows>
 %%%%
 Enchant which item?
 

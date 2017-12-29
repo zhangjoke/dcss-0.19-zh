@@ -628,7 +628,7 @@ void list_spellset(const spellset &spells, const monster_info *mon_owner,
     description.textcolour(LIGHTGREY);
 
     string desc = make_stringf(jtrans_notrimc("Select a spell to read its description { or ... }.\n"),
-                               jtransc(can_memorise ? " or to to memorise it" : ""));
+                               jtransc(can_memorise ? " or to memorise it" : ""));
     description.cprintf(desc);
 
     spell_scroller ssc(spells, mon_owner, source_item);
