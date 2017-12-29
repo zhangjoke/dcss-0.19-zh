@@ -1,4 +1,14 @@
 %%%%
+# item_use.h
+Your stasis keeps you stable.
+
+あなたの体質は停滞状態を維持した。
+%%%%
+You cannot haste.
+
+あなたは加速できない。
+%%%%
+# item_use.cc
 Inventory Items
 
 所持中のアイテム

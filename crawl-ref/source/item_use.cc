@@ -3002,7 +3002,7 @@ bool check_stasis(const char *msg)
 {
     bool blocked = you.species == SP_FORMICID;
     if (blocked)
-        mpr(msg);
+        mpr(jtrans(msg));
     return blocked;
 }
 
