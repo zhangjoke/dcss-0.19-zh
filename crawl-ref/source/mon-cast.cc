@@ -7242,6 +7242,11 @@ static void _speech_fill_target(string& targ_prep, string& target,
         target = "something";
 }
 
+static string _beam_name_j(const string &name)
+{
+    return tagged_jtrans("[beam name]", name);
+}
+
 void mons_cast_noise(monster* mons, const bolt &pbolt,
                      spell_type spell_cast, mon_spell_slot_flags slot_flags)
 {
@@ -7301,7 +7306,10 @@ void mons_cast_noise(monster* mons, const bolt &pbolt,
     else
         beam_name = pbolt.get_short_name();
 
-    msg = replace_all(msg, "@beam@", zap_name_j(beam_name));
+    msg = replace_all(msg, "@beam@", _beam_name_j(beam_name));
+
+    if (pbolt.get_short_name() == "damnation")
+        msg = replace_all(msg, "を放った", "を下した");
 
     const msg_channel_type chan =
         (unseen              ? MSGCH_SOUND :

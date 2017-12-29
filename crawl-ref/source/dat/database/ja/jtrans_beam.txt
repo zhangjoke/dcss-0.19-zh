@@ -715,5 +715,315 @@ By Zin's power, the %s is contained.
 
 ジンの御業により、%sの威力は抑えられた。
 %%%%
-# bolt::get_short_name(), _beam_type_name()内の文字列は訳不要
+[beam name]sticky fire
+
+<[zap]sticky flame>
+%%%%
+[beam name]lightning
+
+稲妻
+%%%%
+[beam name]energy
+
+エネルギーの奔流
+%%%%
+[beam name]dispelling energy
+
+<[zap]bolt of dispelling energy>
+%%%%
+[beam name]missile
+
+飛び道具
+%%%%
+[beam name]magic missile
+
+魔法の射撃
+%%%%
+[beam name]fire
+
+炎
+%%%%
+[beam name]cold
+
+冷気
+%%%%
+[beam name]water
+
+水しぶき
+%%%%
+[beam name]magic
+
+魔法
+%%%%
+[beam name]electricity
+
+電撃
+%%%%
+[beam name]noxious fumes
+
+悪臭
+%%%%
+[beam name]poison
+
+毒
+%%%%
+[beam name]negative energy
+
+負のエネルギー
+%%%%
+[beam name]acid
+
+<[zap]>acid
+%%%%
+[beam name]miasma
+
+瘴気
+%%%%
+[beam name]spores
+
+胞子
+%%%%
+[beam name]poison arrow
+
+<[zap]poison arrow>
+%%%%
+[beam name]damnation
+
+<[zap]damnation>
+%%%%
+[beam name]steam
+
+蒸気
+%%%%
+[beam name]holy energy
+
+聖なるエネルギー
+%%%%
+[beam name]fragments
+
+破片
+%%%%
+[beam name]magma
+
+溶岩
+%%%%
+[beam name]ice
+
+氷
+%%%%
+[beam name]devastation
+
+破滅の光線
+%%%%
+[beam name]random
+
+ランダムな光線
+%%%%
+[beam name]chaos
+
+混沌
+%%%%
+[beam name]slow
+
+減速の光線
+%%%%
+[beam name]haste
+
+加速の光線
+%%%%
+[beam name]might
+
+強化の光線
+%%%%
+[beam name]healing
+
+治癒の光線
+%%%%
+[beam name]paralysis
+
+麻痺の光線
+%%%%
+[beam name]confusion
+
+混乱の光線
+%%%%
+[beam name]invisibility
+
+透明化の光線
+%%%%
+[beam name]digging
+
+掘削の光線
+%%%%
+[beam name]teleportation
+
+テレポートの光線
+%%%%
+[beam name]polymorph
+
+変化の光線
+%%%%
+[beam name]malmutation
+
+悪性変異の光線
+%%%%
+[beam name]enslave
+
+隷属の光線
+%%%%
+[beam name]banishment
+
+追放の光線
+%%%%
+[beam name]enslave soul
+
+魂の隷属の光線
+%%%%
+[beam name]pain
+
+苦痛の光線
+%%%%
+[beam name]agony
+
+<[zap]agony>
+%%%%
+[beam name]dispel undead
+
+アンデッドの解呪の光線
+%%%%
+[beam name]disintegration
+
+分解の光線
+%%%%
+[beam name]blink
+
+瞬間移動の光線
+%%%%
+[beam name]blink close
+
+瞬間引き寄せの光線
+%%%%
+[beam name]beckoning
+
+<[zap]beckoning>
+%%%%
+[beam name]petrify
+
+石化の光線
+%%%%
+[beam name]backlight
+
+照身の光線
+%%%%
+[beam name]porkalator
+
+<[zap]porkalator>
+%%%%
+[beam name]hibernation
+
+眠りの光線
+%%%%
+[beam name]sleep
+
+眠りの光線
+%%%%
+[beam name]berserk
+
+バーサークの光線
+%%%%
+[beam name]visual effects
+
+視覚効果
+%%%%
+[beam name]torment damage
+
+邪悪なる苦痛の光線
+%%%%
+[beam name]cleansing flame
+
+<[zap]cleansing flame>
+%%%%
+[beam name]air
+
+疾風
+%%%%
+[beam name]inner flame
+
+<inner flame>
+%%%%
+[beam name]calcifying dust
+
+<[cloud]calcifying dust>
+%%%%
+[beam name]magic web
+
+魔法の網
+%%%%
+[beam name]sentinel's mark
+
+<[spell]sentinel's mark>
+%%%%
+[beam name]dimension anchor
+
+<[spell]dimension anchor>
+%%%%
+[beam name]vulnerability
+
+脆弱化の光線
+%%%%
+[beam name]malign offering
+
+悪意の供物の光線
+%%%%
+[beam name]virulence
+
+病毒の光線
+%%%%
+[beam name]agility
+
+敏捷化の光線
+%%%%
+[beam name]sap magic
+
+魔法阻害の光線
+%%%%
+[beam name]crystal bolt
+
+<[zap]crystal bolt>
+%%%%
+[beam name]drain magic
+
+衰弱の光線
+%%%%
+[beam name]tukima's dance
+
+<[spell]tukima's dance>
+%%%%
+[beam name]bouncy tracer
+
+<[zap]random bolt tracer>
+%%%%
+[beam name]breath of the dead
+
+死の息吹
+%%%%
+[beam name]resistance
+
+耐性強化の光線
+%%%%
+[beam name]unravelling
+
+<[zap]unravelling>
+%%%%
+[beam name]unravelled magic
+
+破損された魔力
+%%%%
+[beam name]shared pain
+
+痛み分け
+%%%%
+[beam name]infestation
+
+<[zap]infestation>
 %%%%
