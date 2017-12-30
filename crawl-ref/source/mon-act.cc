@@ -3336,8 +3336,8 @@ static void _jelly_grows(monster& mons)
 {
     if (player_can_hear(mons.pos()))
     {
-        mprf(MSGCH_SOUND, jtransc("You hear a%s slurping noise."),
-             jtransc(you.see_cell(mons.pos()) ? "" : " distant"));
+        mprf(MSGCH_SOUND, jtrans(make_stringf("You hear a%s slurping noise.",
+                                              you.see_cell(mons.pos()) ? "" : " distant")));
     }
 
     const int avg_hp = mons_avg_hp(mons.type);
