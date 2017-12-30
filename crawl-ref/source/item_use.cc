@@ -35,6 +35,7 @@
 #include "invent.h"
 #include "itemprop.h"
 #include "items.h"
+#include "japanese.h"
 #include "libutil.h"
 #include "macro.h"
 #include "makeitem.h"

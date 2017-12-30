@@ -274,7 +274,7 @@ The power of Pakellas' abilities is governed by Evocations skill instead of Invo
 
 %sはあなたの罪をはっきりと覚えている。
 %%%%
-%s is ready to forgive your sins.
+%s is almost ready to forgive your sins.
 
 %sはあなたの罪を赦そうとしている。
 %%%%

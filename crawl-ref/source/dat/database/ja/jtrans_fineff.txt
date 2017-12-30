@@ -75,3 +75,7 @@ The injured %s weaves a defensive illusion!
 
 手負いの%sは身を守るために幻影を生み出した！
 %%%%
+%s bursts from %s!
+
+%sが%sの体内から飛び出してきた！
+%%%%
