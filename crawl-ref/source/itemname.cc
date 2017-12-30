@@ -2268,9 +2268,9 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
         else if (!dbname && with_inscription)
         {
             if (used_count == ZAPCOUNT_EMPTY)
-                buff << " {empty}";
+                buff << jtrans_notrim(" {empty}");
             else if (used_count == ZAPCOUNT_RECHARGED)
-                buff << " {recharged}";
+                buff << jtrans_notrim(" {recharged}");
             else if (used_count > 0)
                 buff << make_stringf(jtrans_notrimc(" {zapped: %d}"),
                                      used_count);
