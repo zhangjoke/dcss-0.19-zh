@@ -145,7 +145,7 @@ cloud of %s
 %%%%
 Engulfed by %s%s %s
 
-%s%s%sに包まれて死んだ
+%s%sに包まれて死んだ
 %%%%
 their own
 
