@@ -7,6 +7,18 @@
 
 # jtrans_player.txtと重複
 %%%%
+[dur]Ray+
+
+光線＋
+%%%%
+[dur]Ray++
+
+光線＋＋
+%%%%
+[dur]Ray
+
+光線
+%%%%
 [dur]-Cast
 
 魔法×
@@ -43,7 +55,7 @@ Corr (%d)
 
 鈍足
 %%%%
-You are moving sluggishly
+You are moving sluggishly.
 
 あなたは動きが緩慢だ。
 %%%%
@@ -242,10 +254,6 @@ Your life force is heavily drained.
 Your life force is drained.
 
 あなたの生命力は衰弱している。
-%%%%
-[dur]Ray
-
-光線
 %%%%
 [dur]Dig
 

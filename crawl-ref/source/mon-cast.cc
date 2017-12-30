@@ -9,6 +9,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <functional>
 #include <unordered_set>
 
 #include "act-iter.h"
@@ -186,7 +187,7 @@ static const map<spell_type, mons_spell_logic> spell_to_logic = {
         _selfench_beam_setup(BEAM_INVISIBILITY),
     } },
     { SPELL_HASTE, {
-        _should_selfench(ENCH_INVIS),
+        _should_selfench(ENCH_HASTE),
         _fire_simple_beam,
         _selfench_beam_setup(BEAM_HASTE),
     } },
@@ -436,7 +437,9 @@ static const map<spell_type, mons_spell_logic> spell_to_logic = {
     { SPELL_BANISHMENT, _hex_logic(SPELL_BANISHMENT) },
     { SPELL_PARALYSE, _hex_logic(SPELL_PARALYSE) },
     { SPELL_PETRIFY, _hex_logic(SPELL_PETRIFY) },
-    { SPELL_PAIN, _hex_logic(SPELL_PAIN) },
+    { SPELL_PAIN, _hex_logic(SPELL_PAIN, [](const monster& caster) {
+            return _torment_vulnerable(caster.get_foe());
+    }) },
     { SPELL_DISINTEGRATE, _hex_logic(SPELL_DISINTEGRATE) },
     { SPELL_CORONA, _hex_logic(SPELL_CORONA, [](const monster& caster) {
             return !caster.get_foe()->backlit();
@@ -5566,10 +5569,11 @@ static void _sheep_message(int num_sheep, int sleep_pow, actor& foe)
                                num_sheep == 1 ? "s its" : " their");
     }
 
-    if (!foe.is_player()) // Messaging for non-player targets
+    // Messaging for non-player targets
+    if (!foe.is_player() && you.see_cell(foe.pos()))
     {
         const string foe_name = foe.name(DESC_THE);
-        if (you.see_cell(foe.pos()) && sleep_pow)
+        if (sleep_pow)
         {
             mprf(foe.as_monster()->friendly() ? MSGCH_FRIEND_SPELL
                                               : MSGCH_MONSTER_SPELL,
@@ -5585,7 +5589,7 @@ static void _sheep_message(int num_sheep, int sleep_pow, actor& foe)
             mprf(jtransc("%s is unaffected."), foe_name.c_str());
         }
     }
-    else
+    else if (foe.is_player())
     {
         mprf(MSGCH_MONSTER_SPELL, "%s%s", jtransc(message),
              jtrans_notrimc(sleep_pow ? " You feel drowsy..." : ""));

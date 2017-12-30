@@ -195,10 +195,6 @@ set off by their pet
 
 %sは爆発した！
 %%%%
-%s bursts from %s!
-
-%sが%sの体内から飛び出してきた！
-%%%%
 's corpse
 
 の死体

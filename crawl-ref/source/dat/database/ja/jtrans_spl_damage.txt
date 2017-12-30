@@ -551,6 +551,10 @@ toxic radiance
 
 毒気の光輪
 %%%%
+(Press <w>%</w> to maintain the ray.)
+
+(光線を維持するには(<w>%</w>)を押してください)
+%%%%
 Without enough magic to sustain it, your searing ray dissipates.
 
 維持に要する魔力が切れたため、焼灼の光線は消え去った。

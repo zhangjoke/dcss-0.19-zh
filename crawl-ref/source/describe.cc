@@ -1134,7 +1134,7 @@ static string _describe_weapon(const item_def &item, bool verbose)
     {
         const skill_type skill = item_attack_skill(item);
         const string text = make_stringf(jtrans_notrimc("\n\nThis {weapon name} falls into the '{skill}' category."),
-                                         jtransc(is_unrandom_artefact(item) ? get_artefact_base_name(item, true).c_str()
+                                         jtransc(is_unrandom_artefact(item) ? get_artefact_base_name(item).c_str()
                                                                             : "weapon"),
                                          skill == SK_FIGHTING ? "buggy" : skill_name_jc(skill));
 

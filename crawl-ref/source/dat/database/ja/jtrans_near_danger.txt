@@ -7,6 +7,10 @@ There is a lethal amount of poison in your body!
 
 あなたの体に致死量の毒が回った！
 %%%%
+You are on fire!
+
+あなたの体は炎上している！
+%%%%
 %s is nearby!
 
 %sが近くにいる！

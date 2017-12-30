@@ -15,10 +15,6 @@ Enter next level anyway?
 
 %sはあなたが%sとすると、移動して遠ざかった！
 %%%%
-The hatch slams shut behind you.
-
-脱出ハッチがあなたの背後でピシャッと閉まった。
-%%%%
 The world spins around you as you enter the gateway.
 
 門をくぐると共に世界があなたを中心に回転した。
@@ -34,6 +30,10 @@ You fly downwards.
 You slide downwards.
 
 あなたは下へとすべり込んだ。
+%%%%
+The hatch slams shut behind you.
+
+脱出ハッチがあなたの背後でピシャッと閉まった。
 %%%%
 You fly up through the gate.
 
@@ -207,14 +207,6 @@ Buggered into bugdom
 
 # 訳不要
 %%%%
-Welcome to %s!
-
-%sにようこそ！
-%%%%
-Welcome back to %s!
-
-%sによくぞ帰ってきた！
-%%%%
 You plunge deeper into the Abyss.
 
 あなたはアビスの更なる深みに沈んでいった。
@@ -242,6 +234,14 @@ You feel %s slowing down the madness of this place.
 You pass into a different region of Pandemonium.
 
 あなたはパンデモニウムの別の領域へと進んでいった。
+%%%%
+Welcome back to %s!
+
+%sによくぞ帰ってきた！
+%%%%
+Welcome to %s!
+
+%sにようこそ！
 %%%%
 left %s.
 

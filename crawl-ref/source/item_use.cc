@@ -35,6 +35,7 @@
 #include "invent.h"
 #include "itemprop.h"
 #include "items.h"
+#include "japanese.h"
 #include "libutil.h"
 #include "macro.h"
 #include "makeitem.h"
@@ -1959,6 +1960,9 @@ void drink(item_def* potion)
         // Always drink oldest potion.
         remove_oldest_perishable_item(*potion);
     }
+
+    // We'll need this later, after destroying the item.
+    const bool was_exp = potion->sub_type == POT_EXPERIENCE;
     if (in_inventory(*potion))
     {
         dec_inv_item_quantity(potion->link, 1);
@@ -1968,8 +1972,9 @@ void drink(item_def* potion)
         dec_mitm_item_quantity(potion->index(), 1);
     count_action(CACT_USE, OBJ_POTIONS);
     you.turn_is_over = true;
+
     // This got deferred from PotionExperience::effect to prevent SIGHUP abuse.
-    if (potion->sub_type == POT_EXPERIENCE)
+    if (was_exp)
         level_change();
 }
 
@@ -2303,8 +2308,11 @@ bool enchant_armour(int &ac_change, bool quiet, item_def &arm)
     // Output message before changing enchantment and curse status.
     if (!quiet)
     {
-        mprf(jtransc("%s glows green for a moment."),
-             jtransc(_item_name(arm)));
+        const bool plural = armour_is_hide(arm)
+                            && arm.sub_type != ARM_TROLL_LEATHER_ARMOUR;
+        mprf(jtransc("%s %s green for a moment."),
+             _item_name(arm).c_str(),
+             conjugate_verb_j("glow", plural).c_str());
     }
 
     arm.plus++;
