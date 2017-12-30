@@ -526,14 +526,14 @@ bool monster_polymorph(monster* mons, monster_type targetc,
     bool player_messaged = true;
     if (could_see)
     {
-        string verb = "";
+        string be = "は", verb = "";
         string obj = can_see ? mons_type_name(targetc, DESC_A)
                              : "something you cannot see";
 
         if (oldc == MONS_OGRE && targetc == MONS_TWO_HEADED_OGRE)
         {
-            verb = "grows a second head";
             obj = "";
+            verb = "grows a second head";
         }
         else if (mons->is_shapeshifter())
             verb = "changes into ";
@@ -547,6 +547,7 @@ bool monster_polymorph(monster* mons, monster_type targetc,
         {
             verb = make_stringf(jtransc("evaporates and reforms as %s"),
                                 jtransc(obj));
+            be = "の姿は";
             obj = "";
         }
 
@@ -554,8 +555,8 @@ bool monster_polymorph(monster* mons, monster_type targetc,
         if (old_name_the == obj)
             obj = make_stringf("別の%sの姿", obj.c_str());
 
-        mprf(jtransc("%s %s%s!"),
-             jtransc(old_name_the),
+        mprf(jtransc("{old name} {be} {obj} {verb}!"),
+             jtransc(old_name_the), be.c_str(),
              jtransc(obj), jtransc(verb));
     }
     else if (can_see)

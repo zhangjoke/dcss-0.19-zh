@@ -43,13 +43,13 @@ quivers uncontrollably and liquefies into
 
 なすすべもなく震え、%sに変化した
 %%%%
-evaporates and reforms as
+evaporates and reforms as %s
 
 一瞬消え、%sに変化した
 %%%%
-%s %s%s!
+{old name} {be} {obj} {verb}!
 
-%sは%s%s！
+%s%s%s%s！
 %%%%
 # %s appears out of thin air!
 
