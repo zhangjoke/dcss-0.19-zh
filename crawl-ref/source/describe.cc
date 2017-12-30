@@ -1522,7 +1522,7 @@ static string _describe_armour(const item_def &item, bool verbose)
 
 static string _describe_jewellery(const item_def &item, bool verbose)
 {
-    string description = "\n";
+    string description;
     string basename = jewellery_is_amulet(item) ? "amulet" : "ring";
 
     description.reserve(200);
@@ -1829,7 +1829,7 @@ string get_item_description(const item_def &item, bool verbose,
                 }
             }
             else
-                description << db_desc;
+                description << db_desc << "\n";
 
             // Get rid of newline at end of description; in most cases we
             // will be adding "\n\n" immediately, and we want only one,
