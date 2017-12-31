@@ -7248,7 +7248,10 @@ static void _speech_fill_target(string& targ_prep, string& target,
 
 static string _beam_name_j(const string &name)
 {
-    return tagged_jtrans("[beam name]", name);
+    if (jtrans_has_key("[beam name]" + trimmed_string(name)))
+        return tagged_jtrans("[beam name]", name);
+    else
+        return zap_name_j(name);
 }
 
 void mons_cast_noise(monster* mons, const bolt &pbolt,
