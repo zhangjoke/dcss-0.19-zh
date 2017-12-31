@@ -1688,7 +1688,7 @@ void cloud_struct::announce_actor_engulfed(const actor *act,
         mprf(jtransc("%s %s standing in %s."),
              act->name(DESC_THE).c_str(),
              act->conj_verb_j("are").c_str(),
-             _cloud_j(type == CLOUD_STORM ? "a thunderstorm" : "the rain"));
+             _cloud_j(type == CLOUD_STORM ? "a thunderstorm" : "the rain").c_str());
     }
 }
 
