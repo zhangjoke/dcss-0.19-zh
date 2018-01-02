@@ -475,7 +475,7 @@ With Pikel's spell broken, the former slave thanks you for its freedom.
 
 『ピケル』の呪縛が破れ、元奴隷は自由を与えてくれたあなたに感謝した。
 %%%%
-No longer under Kirke's spell, the hog turns into a human!
+No longer under Kirke's spell, the hog returns to its human form!
 
 『キルケー』の魔法が解け、豚は人間の姿に戻った！
 %%%%
@@ -483,11 +483,11 @@ No longer under Kirke's spell, the hog returns to its original form!
 
 『キルケー』の魔法が解け、豚は元の姿に戻った！
 %%%%
-No longer under Kirke's spell, the hogs revert to their human forms!
+No longer under Kirke's spell, the hogs return to their human forms!
 
 『キルケー』の魔法が解け、豚の群れは人間の姿に戻った！
 %%%%
-No longer under Kirke's spell, the hogs revert to their original forms!
+No longer under Kirke's spell, the hogs return to their original forms!
 
 『キルケー』の魔法が解け、豚の群れは元の姿に戻った！
 %%%%
