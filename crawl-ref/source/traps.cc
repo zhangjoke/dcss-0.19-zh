@@ -638,7 +638,7 @@ void trap_def::trigger(actor& triggerer)
             {
                 mpr(jtrans("A huge blade swings out and slices into you!"));
                 const int damage = you.apply_ac(48 + random2avg(29, 2));
-                string n = name(DESC_A);
+                string n = jtrans(name(DESC_PLAIN));
                 ouch(damage, KILLED_BY_TRAP, MID_NOBODY, n.c_str());
                 bleed_onto_floor(you.pos(), MONS_PLAYER, damage, true);
             }
@@ -1364,7 +1364,7 @@ void trap_def::shoot_ammo(actor& act, bool was_known)
         {
             mprf(jtransc("%s shoots out and hits you!"), shot.name(DESC_A).c_str());
 
-            string n = name(DESC_A);
+            string n = jtrans(name(DESC_PLAIN));
 
             // Needle traps can poison.
             if (poison)
