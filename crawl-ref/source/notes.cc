@@ -361,7 +361,7 @@ string Note::describe(bool when, bool where, bool what) const
                                        to_stringc(first));
             else
                 result << make_stringf(jtransc("Paralysed by %s for %s turns"),
-                                       name.c_str(), to_stringc(first));
+                                       jtransc(name), to_stringc(first));
             break;
         case NOTE_NAMED_ALLY:
             result << make_stringf(jtransc("Gained %s as an ally"),
