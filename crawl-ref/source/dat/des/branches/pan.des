@@ -38,7 +38,7 @@ function pan_lord_epilogue(name)
                                                            .. crawl.jtrans(" resides here.", "warning"))
     -- Counterpart to branch_rune_desc from lookup_help.cc
     crawl.mpr("かの王は" .. crawl.jtrans(runes[name] .. " rune of Zot") .. "を守っている。")
-    crawl.take_note(name .. crawl.jtrans('Entered the realm of '))
+    crawl.take_note(crawl.jtrans(name) .. crawl.jtrans('Entered the realm of '))
     crawl.mark_milestone('br.enter', crawl.jtrans(name) .. crawl.jtrans('entered the realm of '), "")
 end
 
