@@ -18,4 +18,4 @@ note_messages += はあなたを損傷から護った
 # note_messages += You (fall through|are sucked into) a shaft
 note_messages += あなたは縦穴に(転がり落ち|吸い込まれ)た
 # note_monsters += orb of fire, ancient lich, Sigmund
-note_messages += 炎の球体, 太古のリッチ, 『シグムンド』
+note_monsters += 炎の球体, 太古のリッチ, 『シグムンド』
