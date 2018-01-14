@@ -1124,9 +1124,9 @@ string monster_info::common_name(description_level_type desc) const
     {
         const int xl = props[MUTANT_BEAST_TIER].get_short();
         const int tier = mutant_beast_tier(xl);
-        ss << _mutant_beast_tier_name(tier);
         for (auto facet : props[MUTANT_BEAST_FACETS].get_vector())
-            ss << _mutant_beast_facet(facet.get_int()); // no space between
+            ss << tagged_jtrans("[mutant facet]", _mutant_beast_facet(facet.get_int())); // no space between
+        ss << tagged_jtrans("[mutant tier]", _mutant_beast_tier_name(tier));
         ss << jtrans(" beast");
     }
 
