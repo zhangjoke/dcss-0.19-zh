@@ -11,6 +11,18 @@ exclusion not up-to-date: e (%d,%d) p (%d,%d)
 
 (発見済)
 %%%%
+# door
+
+# jtrans_actor.txtと重複
+%%%%
+upstairs
+
+上り階段
+%%%%
+downstairs
+
+下り階段
+%%%%
 %d %s
 
 %s x%d
