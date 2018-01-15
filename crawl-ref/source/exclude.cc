@@ -479,7 +479,7 @@ void set_exclude(const coord_def &p, int radius, bool autoexcl, bool vaultexcl,
         if (exc->desc.empty() && defer_updates)
         {
             if (cloud_struct* cloud = cloud_at(p))
-                exc->desc = cloud->cloud_name_j(true);
+                exc->desc = cloud->cloud_name_j(true) + " cloud";
         }
         else if (exc->radius == radius)
             return;
@@ -519,7 +519,7 @@ void set_exclude(const coord_def &p, int radius, bool autoexcl, bool vaultexcl,
             }
         }
         else if (cloud_struct* cloud = cloud_at(p))
-            desc = cloud->cloud_name_j(true);
+            desc = cloud->cloud_name_j(true) + " cloud";
 
         curr_excludes.add_exclude(p, radius, autoexcl, desc, vaultexcl);
     }
@@ -559,7 +559,7 @@ string exclude_set::get_exclusion_desc()
         travel_exclude &ex = entry.second;
 
         // Don't count cloud exclusions.
-        if (strstr(ex.desc.c_str(), "cloud"))
+        if (ends_with(ex.desc, " cloud"))
             continue;
 
         // Don't duplicate if there's already an annotation from unique monsters.
