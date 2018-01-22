@@ -1,0 +1,26 @@
+###############################################################################
+# Voices of fleeing monsters.
+# 'flee' is for when they start running.
+# 'fleeing' is for flight in progress (sometimes).
+# 'cornered' is when they realize they have nowhere to go.
+#########
+%%%%
+dream sheep flee
+
+# w:30
+# @The_monster@ bleats in terror.
+w:30
+@The_monster@は恐怖してメーメーと鳴いた。
+
+# VISUAL:@The_monster@ is struck with panic!
+VISUAL:@The_monster@はパニックに陥った！
+
+# VISUAL:@The_monster@ panics and turns to flee.
+VISUAL:@The_monster@はパニックして逃げ去った。
+
+# VISUAL:A frightened @monster@ leaps away.
+VISUAL:恐怖に怯えた@monster@は跳ね回りながら去っていった。
+
+# VISUAL:@The_monster@ stampedes away.
+VISUAL:@The_monster@は暴走して走り去った。
+%%%%
