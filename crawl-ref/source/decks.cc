@@ -334,12 +334,6 @@ const string card_name_j(const string &name, bool card_of)
     return tagged_jtrans("[card]", name) + (card_of ? "のカード" : "");
 }
 
-const char* card_name_jc(card_type card, bool card_of)
-{
-    string name = card_name_j(card, card_of);
-    return name.c_str();
-}
-
 card_type name_to_card(string name)
 {
     for (int i = 0; i < NUM_CARDS; i++)
@@ -435,7 +429,7 @@ static card_type _draw_top_card(item_def& deck, bool message,
         const char *verb = (_flags & CFLAG_DEALT) ? "deal" : "draw";
 
         mprf(jtransc("You {verb} a card... It is {card name}."),
-             card_name_jc(card), verb_jc(verb));
+             card_name_j(card).c_str(), verb_jc(verb));
     }
 
     return card;
@@ -788,7 +782,7 @@ static void _redraw_stacked_cards(const vector<card_type>& draws,
     {
         cgotoxy(2, i+3);
         textcolour(selected == i ? WHITE : LIGHTGREY);
-        cprintf("%u - %s", i+1, card_name_jc(draws[i], true));
+        cprintf("%u - %s", i+1, card_name_j(draws[i], true).c_str());
         clear_to_end_of_line();
     }
 }
@@ -1216,7 +1210,7 @@ void evoke_deck(item_def& deck)
                 flags |= CFLAG_PUNISHMENT;
                 simple_god_message(" seems to have exchanged this card "
                                    "behind your back!", GOD_NEMELEX_XOBEH);
-                mprf(jtransc("It's actually %s."), card_name_jc(card, true));
+                mprf(jtransc("It's actually %s."), card_name_j(card, true).c_str());
                 // You never completely appease Nemelex, but the effects
                 // get less frequent.
                 you.penance[GOD_NEMELEX_XOBEH] -=
@@ -1537,7 +1531,7 @@ static void _damaging_card(card_type card, int power, deck_rarity_type rarity,
 
     bool done_prompt = false;
     string prompt = make_stringf(jtransc("You have %s %s."), verb_jc(participle),
-                                 card_name_jc(card, true));
+                                 card_name_j(card, true).c_str());
 
     dist target;
     zap_type ztype = ZAP_DEBUGGING_RAY;
@@ -2231,7 +2225,7 @@ void card_effect(card_type which_card, deck_rarity_type rarity,
             && which_card != CARD_ORB)
         {
             mprf(jtransc("You have %s %s."), verb_jc(participle),
-                 card_name_jc(which_card, true));
+                 card_name_j(which_card, true).c_str());
         }
     }
 
