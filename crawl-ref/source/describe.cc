@@ -2551,7 +2551,6 @@ static string _player_spell_stats(const spell_type spell, bool rod)
     description += spell_hunger_string(spell, rod);
     description += jtrans_notrim("\nNoise : ");
     description += spell_noise_string(spell);
-    description += "\n";
     return sp2nbsp(description);
 }
 
@@ -2648,23 +2647,23 @@ static string _player_spell_desc(spell_type spell, const item_def* item)
     const int limit = summons_limit(spell);
     if (limit)
     {
-        description += make_stringf(jtrans_notrimc("You can sustain at most {num}"
-                                                   " creature(s) summoned by this spell.\n"),
+        description += make_stringf(jtrans_notrimc("\nYou can sustain at most {num}"
+                                                   " creature(s) summoned by this spell."),
                                     to_stringc(limit));
     }
 
     const bool rod = item && item->base_type == OBJ_RODS;
     if (god_hates_spell(spell, you.religion, rod))
     {
-        description += god_name_j(you.religion)
-                       + jtransln(" frowns upon the use of this spell.\n");
+        description += "\n" + god_name_j(you.religion)
+                     + jtrans(" frowns upon the use of this spell.");
         if (god_loathes_spell(spell, you.religion))
-            description += jtrans_notrim("You'd be excommunicated if you dared to cast it!\n");
+            description += jtrans_notrim("You'd be excommunicated if you dared to cast it!");
     }
     else if (god_likes_spell(spell, you.religion))
     {
-        description += god_name_j(you.religion)
-                       + jtransln(" supports the use of this spell.\n");
+        description += "\n" + god_name_j(you.religion)
+                     + jtransln(" supports the use of this spell.");
     }
 
     if (!you_can_memorise(spell))
@@ -2677,7 +2676,7 @@ static string _player_spell_desc(spell_type spell, const item_def* item)
         reason = replace_all(reason, "だ。", "なため");
         reason = replace_all(reason, "。", "ため");
 
-        description += make_stringf(jtrans_notrimc("\nYou cannot memorise this spell because {reason}\n"),
+        description += make_stringf(jtrans_notrimc("\nYou cannot memorise this spell because {reason}"),
                                     reason.c_str());
     }
     else if (spell_is_useless(spell, true, false, rod))
@@ -2690,9 +2689,12 @@ static string _player_spell_desc(spell_type spell, const item_def* item)
         reason = replace_all(reason, "だ。", "なため");
         reason = replace_all(reason, "。", "ため");
 
-        description += make_stringf(jtrans_notrimc("\nThis spell will have no effect right now because {reason}\n"),
+        description += make_stringf(jtrans_notrimc("\nThis spell will have no effect right now because {reason}"),
                                     reason.c_str());
     }
+
+    if(!description.empty())
+        description = "\n" + description;
 
     return sp2nbsp(description);
 }
