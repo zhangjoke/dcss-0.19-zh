@@ -1078,7 +1078,7 @@ bool draw_three(int slot)
             {
                 msg::streams(MSGCH_PROMPT)
                     << msg::nocap << (static_cast<char>(i + 'a')) << " - "
-                    << card_name_j(draws[i]) << endl;
+                    << card_name_j(draws[i], true) << endl;
             }
             need_prompt_redraw = false;
         }
