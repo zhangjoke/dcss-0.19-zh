@@ -1544,7 +1544,12 @@ string cloud_type_name_j(cloud_type type, bool terse)
         case CLOUD_SPECTRAL:
         case CLOUD_ACID:
         case CLOUD_NEGATIVE_ENERGY:
+        case CLOUD_FLUFFY:
+        case CLOUD_XOM_TRAIL:
             return _cloud_j(clouds[type].terse_name);
+
+        case CLOUD_SALT:
+            return _cloud_j(clouds[type].terse_name) + "煙";
 
         default:
             return "buggy cloud";
