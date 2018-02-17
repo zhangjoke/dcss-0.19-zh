@@ -663,7 +663,12 @@ static MenuEntry* _monster_menu_gen(char letter, const string &str,
     prefix += colour_to_str(colour);
     prefix += ">) ";
 
-    const string title = prefix + name + "/" + jtrans(name);
+    string title = prefix + name + "/" + jtrans(name);
+    if (_is_soh(str))
+    {
+        string hell_type = str.substr(string(name).length());
+        title += ("(" + branch_name_j(hell_type) + ")");
+    }
 #else
     const string &title = name;
 #endif
