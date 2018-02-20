@@ -1006,7 +1006,8 @@ static string _spacer(const int length)
 
 static int _describe_key(const string &key, const string &suffix,
                          string footer, const string &extra_info,
-                         const string &tag = "", const string &title = "")
+                         const string &force_title_ja = "",
+                         const string &force_title_en = "")
 {
     describe_info inf;
     inf.quote = getQuoteString(key);
@@ -1016,10 +1017,10 @@ static int _describe_key(const string &key, const string &suffix,
 
     inf.body << desc << extra_info;
 
-    string title_en = title.empty() ? key : title;
+    string title_en = force_title_en.empty() ? key : force_title_en;
     strip_suffix(title_en, suffix);
     title_en = uppercase_first(title_en);
-    string title_ja = tagged_jtrans(tag, title_en);
+    string title_ja = force_title_ja.empty() ? jtrans(title_en) : force_title_ja;
     string spacer = _spacer(get_number_of_cols() - strwidth(title_ja)
                                                  - strwidth(title_en) - 1);
     linebreak_string(footer, width - 1);
@@ -1101,7 +1102,8 @@ static int _describe_spell(const string &key, const string &suffix,
 
     const string spell_info = player_spell_desc(spell);
     const string source_info = _spell_sources(spell);
-    return _describe_key(key, suffix, footer, spell_info + source_info, "[spell]");
+    return _describe_key(key, suffix, footer, spell_info + source_info,
+                         spell_title_j(replace_all(key, " spell", "")));
 }
 
 /**
@@ -1236,7 +1238,8 @@ static int _describe_cloud(const string &key, const string &suffix,
     const string cloud_name = key.substr(0, key.size() - suffix.size());
     const cloud_type cloud = cloud_name_to_type(cloud_name);
     ASSERT(cloud != NUM_CLOUD_TYPES);
-    return _describe_key(key, suffix, footer, extra_cloud_info(cloud));
+    return _describe_key(key, suffix, footer, extra_cloud_info(cloud),
+                         cloud_type_name_j(cloud));
 }
 
 
@@ -1419,7 +1422,9 @@ static int _describe_branch(const string &key, const string &suffix,
             + "\n\n"
             + branch_rune_desc(branch, false);
 
-    return _describe_key(key, suffix, footer, info, "[branch]", branches[branch].longname);
+    return _describe_key(key, suffix, footer, info,
+                         branch_name_j(branches[branch].longname),
+                         branches[branch].longname);
 }
 
 /// All types of ?/ queries the player can enter.
