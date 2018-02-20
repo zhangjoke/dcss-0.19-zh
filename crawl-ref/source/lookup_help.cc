@@ -1036,6 +1036,12 @@ static int _describe_key(const string &key, const string &suffix,
     strip_suffix(title_en, suffix);
     title_en = uppercase_first(title_en);
     string title_ja = force_title_ja.empty() ? jtrans(title_en) : force_title_ja;
+
+    // 日本語と英語併記が1行に収まらない場合は日本語表記のみにする
+    // 『キクバークッグァ』の古代の骨で造られた祭壇/An ancient bone altar of Kikubaaqudgha 等
+    if (strwidth(title_ja) + strwidth(title_en) + 2 > get_number_of_cols())
+        title_en = "";
+
     string spacer = _spacer(get_number_of_cols() - strwidth(title_ja)
                                                  - strwidth(title_en) - 1);
     linebreak_string(footer, width - 1);
