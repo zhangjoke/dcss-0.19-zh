@@ -1620,7 +1620,7 @@ void init_feat_desc_cache()
     for (int i = 0; i < NUM_FEATURES; i++)
     {
         dungeon_feature_type feat = static_cast<dungeon_feature_type>(i);
-        string               desc = feature_description(feat);
+        string               desc = feature_description_en(feat);
 
         lowercase(desc);
         if (!feat_desc_cache.count(desc))

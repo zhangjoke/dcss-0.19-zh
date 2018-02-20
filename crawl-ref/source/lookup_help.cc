@@ -514,8 +514,8 @@ static void _recap_feat_keys(vector<string> &keys)
             keys[i] = "A shop";
         else
         {
-            keys[i] = feature_description(type, NUM_TRAPS, "", DESC_A,
-                                          false);
+            keys[i] = feature_description_en(type, NUM_TRAPS, "", DESC_A,
+                                             false);
         }
     }
 }
@@ -682,10 +682,25 @@ static MenuEntry* _monster_menu_gen(char letter, const string &str,
 /**
  * Generate a ?/F menu entry. (ref. _simple_menu_gen()).
  */
+static string _cleaned_feat_desc(const string &desc)
+{
+    string s = lowercase_first(desc);
+    if (s.length() && s[s.length() - 1] == '.')
+        s.erase(s.length() - 1);
+    if (starts_with(s, "a "))
+        s = s.substr(2);
+    else if (starts_with(s, "an "))
+        s = s.substr(3);
+
+    return s;
+}
+
 static MenuEntry* _feature_menu_gen(char letter, const string &str, string &key)
 {
     const dungeon_feature_type feat = feat_by_desc(str);
-    MenuEntry* me = new FeatureMenuEntry(str, feat, letter);
+    string title = str + "/" + feature_name_j(_cleaned_feat_desc(str));
+
+    MenuEntry* me = new FeatureMenuEntry(title, feat, letter);
     me->data = &key;
 
 #ifdef USE_TILE
@@ -1295,6 +1310,19 @@ static int _describe_item(const string &key, const string &suffix,
 }
 
 /**
+ * Describe the feature with the given name.
+ *
+ * @param key       The name of the feature in question.
+ * @return          0.
+ */
+static int _describe_feature(const string &key, const string &suffix,
+                             string footer)
+{
+    return _describe_key(key, suffix, footer, "",
+                         feature_name_j(_cleaned_feat_desc(key)));
+}
+
+/**
  * Describe the god with the given name.
  *
  * @param key       The name of the god in question.
@@ -1455,7 +1483,7 @@ static const vector<LookupType> lookup_types = {
                lookup_type::NONE),
     LookupType('F', "feature", _recap_feat_keys, _feature_filter,
                nullptr, nullptr, _feature_menu_gen,
-               _describe_generic,
+               _describe_feature,
                lookup_type::SUPPORT_TILES),
     LookupType('G', "god", nullptr, nullptr,
                nullptr, _get_god_keys, _god_menu_gen,
