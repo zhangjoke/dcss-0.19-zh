@@ -848,6 +848,16 @@ static MenuEntry* _cloud_menu_gen(char letter, const string &str, string &key)
     return me;
 }
 
+/**
+ * Generate a ?/T menu entry. (ref. _simple_menu_gen()).
+ */
+static MenuEntry* _status_menu_gen(char letter, const string &str, string &key)
+{
+    MenuEntry* me = new MenuEntry(str, MEL_ITEM, 1, letter);
+    me->data = &key;
+    me->text = me->text + "/" + duration_name_j(me->text);
+    return me;
+}
 
 /**
  * How should this type be expressed in the prompt string?
@@ -1516,7 +1526,7 @@ static const vector<LookupType> lookup_types = {
                _describe_cloud,
                lookup_type::DB_SUFFIX | lookup_type::SUPPORT_TILES),
     LookupType('T', "status", nullptr, _status_filter,
-               nullptr, nullptr, _simple_menu_gen,
+               nullptr, nullptr, _status_menu_gen,
                _describe_generic,
                lookup_type::DB_SUFFIX),
 };
