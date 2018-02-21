@@ -820,6 +820,18 @@ static MenuEntry* _cloud_menu_gen(char letter, const string &str, string &key)
     const cloud_type cloud = cloud_name_to_type(cloud_name);
     ASSERT(cloud != NUM_CLOUD_TYPES);
 
+    string cloud_name_j = "buggy cloud key";
+    for (int i = CLOUD_NONE + 1; i < NUM_CLOUD_TYPES; i++)
+    {
+        if (cloud_name == cloud_type_name(static_cast<cloud_type>(i), true))
+        {
+            cloud_name_j = cloud_type_name_j(static_cast<cloud_type>(i), true);
+            if (cloud_name_j == "buggy cloud")
+                break;
+        }
+    }
+    me->text = me->text + "/" + cloud_name_j;
+
     cloud_struct fake_cloud;
     fake_cloud.type = cloud;
     fake_cloud.decay = 1000;
