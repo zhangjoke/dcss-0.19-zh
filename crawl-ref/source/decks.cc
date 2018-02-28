@@ -1530,8 +1530,9 @@ static void _damaging_card(card_type card, int power, deck_rarity_type rarity,
     const char *participle = dealt ? "dealt" : "drawn";
 
     bool done_prompt = false;
-    string prompt = make_stringf(jtransc("You have %s %s."), verb_jc(participle),
-                                 card_name_j(card, true).c_str());
+    string prompt = make_stringf(jtransc("You have %s %s."),
+                                 card_name_j(card, true).c_str(),
+                                 verb_jc(participle));
 
     dist target;
     zap_type ztype = ZAP_DEBUGGING_RAY;
@@ -2224,8 +2225,9 @@ void card_effect(card_type which_card, deck_rarity_type rarity,
             && which_card != CARD_PAIN
             && which_card != CARD_ORB)
         {
-            mprf(jtransc("You have %s %s."), verb_jc(participle),
-                 card_name_j(which_card, true).c_str());
+            mprf(jtransc("You have %s %s."),
+                 card_name_j(which_card, true).c_str(),
+                 verb_jc(participle));
         }
     }
 
