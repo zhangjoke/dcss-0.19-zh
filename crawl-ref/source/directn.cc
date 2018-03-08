@@ -637,7 +637,7 @@ void full_describe_view()
     // Build menu entries for monsters.
     if (!list_mons.empty())
     {
-        desc_menu.add_entry(new MenuEntry("Monsters", MEL_SUBTITLE));
+        desc_menu.add_entry(new MenuEntry(jtrans("Monsters"), MEL_SUBTITLE));
         for (const monster_info &mi : list_mons)
         {
             // List monsters in the form
@@ -3366,7 +3366,7 @@ string get_monster_equipment_desc(const monster_info& mi,
                 attributes.emplace_back(jtrans("expiring"));
 
             string str = comma_separated_line(attributes.begin(),
-                                              attributes.end());
+                                              attributes.end(), ", ");
 
             if (mi.type == MONS_DANCING_WEAPON
                 || mi.type == MONS_PANDEMONIUM_LORD
