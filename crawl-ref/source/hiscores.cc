@@ -1985,7 +1985,7 @@ string scorefile_entry::death_place(death_desc_verbosity verbosity) const
     if (!mapdesc.empty())
         place += make_stringf("(%s)", jtransc(mapdesc));
 
-    return place + "で";
+    return place + "で" + _hiscore_newline_string();
 }
 
 static bool _is_you(const string &source)
@@ -2975,8 +2975,6 @@ string scorefile_entry::death_description_prefix(death_desc_verbosity verbosity)
         else if (death_type != KILLED_BY_QUITTING
                  && death_type != KILLED_BY_WIZMODE)
         {
-            desc += _hiscore_newline_string();
-
             if (!killerpath.empty())
             {
                 vector<string> summoners = _xlog_split_fields(killerpath);
