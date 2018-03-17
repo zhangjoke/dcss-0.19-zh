@@ -704,7 +704,7 @@ vector<stash_search_result> ShopInfo::matches_search(
         res.pos.pos = shop.pos;
         results.push_back(res);
         // if the player is just searching for shops, don't show contents
-        if (search.matches("shop"))
+        if (search.matches("shop") || search.matches("店"))
             return results;
     }
 
