@@ -292,7 +292,7 @@ static TextDB AllDBs[] =
            "jtrans_dat_des_variable.txt",
            "jtrans_dat_clua.txt",
            "jtrans_dat_dlua.txt",
-           
+
            "jtrans_skill_title.txt",
            "jtrans_divine_title.txt",
            "jtrans_weapon_name.txt",
