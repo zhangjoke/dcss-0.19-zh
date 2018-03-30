@@ -582,7 +582,10 @@ static void _sdump_notes(dump_params &par)
     {
         if (note.hidden())
             continue;
-        text += note.describe();
+
+        text += replace_all(note.describe(), "\n",
+                            "\n" + string(MAX_NOTE_TURNS_LEN, ' ') + " | " +
+                                   string(MAX_NOTE_PLACE_LEN, ' ') + " | ");
         text += "\n";
     }
 
