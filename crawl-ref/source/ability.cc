@@ -3183,7 +3183,7 @@ int choose_ability_menu(const vector<talent>& talents)
 
     abil_menu.set_highlighter(nullptr);
 
-#ifdef TILESDL_H
+#ifndef USE_TILE_WEB
     string offset = "";
 #else
     string offset = tiles.is_controlled_from_web() ? string(4, ' ') : "";
