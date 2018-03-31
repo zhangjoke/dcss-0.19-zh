@@ -118,7 +118,9 @@ static void _initialize()
     if (!crawl_state.tiles_disabled && crawl_state.title_screen)
     {
         tiles.draw_title();
-        tiles.update_title_msg("Loading databases...");
+        // tiles.update_title_msg("Loading databases...");
+        // データベース読み込みが完了しないと翻訳できないのでベタ書き
+        tiles.update_title_msg("データベース読み込み中……");
     }
 #endif
 
@@ -126,7 +128,7 @@ static void _initialize()
     databaseSystemInit();
 #ifdef USE_TILE_LOCAL
     if (!crawl_state.tiles_disabled && crawl_state.title_screen)
-        tiles.update_title_msg("Loading spells and features...");
+        tiles.update_title_msg(jtrans("Loading spells and features..."));
 #endif
 
     init_feat_desc_cache();
@@ -134,7 +136,7 @@ static void _initialize()
     init_spell_rarities();
 #ifdef USE_TILE_LOCAL
     if (!crawl_state.tiles_disabled && crawl_state.title_screen)
-        tiles.update_title_msg("Loading maps...");
+        tiles.update_title_msg(jtrans("Loading maps..."));
 #endif
 
     // Read special levels and vaults.
@@ -149,7 +151,7 @@ static void _initialize()
         && !Options.tile_skip_title
         && crawl_state.title_screen)
     {
-        tiles.update_title_msg("Loading complete, press any key to start.");
+        tiles.update_title_msg(jtrans("Loading complete, press any key to start."));
         tiles.hide_title();
     }
 #endif
@@ -424,7 +426,7 @@ static void _construct_game_modes_menu(MenuScroller* menu)
     tmp = new TextItem();
 #endif
     text = "Hints Mode for Dungeon Crawl";
-    tmp->set_text(text);
+    tmp->set_text(jtrans(text));
     tmp->set_fg_colour(WHITE);
     tmp->set_highlight_colour(WHITE);
     tmp->set_id(GAME_TYPE_HINTS);
@@ -655,22 +657,24 @@ again:
 
     tmp = new NoSelectTextItem();
 
-    string text = "Use the up/down keys to select the type of game or load a "
-                  "character.";
+    string text = jtrans("Use the up/down keys to select the type of game or load a "
+                         "character.");
+    string text2;
+
 #ifdef USE_TILE_LOCAL
     if (tiles.is_using_small_layout())
         text += " ";
     else
 #endif
         text += "\n";
-    text +=       "You can type your name; if you leave it blank you will be "
+    text2 +=      "You can type your name; if you leave it blank you will be "
                   "asked later.\n"
                   "Press Enter to start";
     // TODO: this should include a description of that character.
     if (_game_defined(defaults))
-        text += ", Tab to repeat the last game's choice";
-    text += ".\n";
-    tmp->set_text(jtrans_notrim(text));
+        text2 += ", Tab to repeat the last game's choice";
+    text2 += ".\n";
+    tmp->set_text(text + jtrans_notrim(text2));
     tmp->set_bounds(coord_def(1, help_start), coord_def(max_col - 1, help_end));
     freeform->attach_item(tmp);
     tmp->set_visible(true);
