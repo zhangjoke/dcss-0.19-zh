@@ -120,7 +120,7 @@ static void _initialize()
         tiles.draw_title();
         // tiles.update_title_msg("Loading databases...");
         // データベース読み込みが完了しないと翻訳できないのでベタ書き
-        tiles.update_title_msg("データベース読み込み中……");
+        tiles.update_title_msg("データベースを読み込み中……");
     }
 #endif
 
