@@ -384,7 +384,11 @@ string describe_mutations(bool center_title)
 
     result += "<white>";
     result += mut_title;
+#ifndef USE_TILE_LOCAL
     result += "</white>\n" ZWSP "\n";
+#else
+    result += "</white>\n\n";
+#endif
 
     result += "<lightblue>";
     const string old_result = result;
@@ -630,7 +634,11 @@ static void _display_vampire_attributes()
             if (y > 0 && x == current)
                 result += "</w>";
         }
+#ifndef USE_TILE_LOCAL
         result += "\n" ZWSP;
+#else
+        result += "\n";
+#endif
     }
 
     result += "\n";
@@ -745,7 +753,11 @@ void display_mutations()
         if (!extra.empty())
             extra += "\n";
 
+#ifndef USE_TILE_LOCAL
         extra += ZWSP "\n";
+#else
+        extra += "\n";
+#endif
         extra += jtrans(_vampire_Ascreen_footer);
     }
 

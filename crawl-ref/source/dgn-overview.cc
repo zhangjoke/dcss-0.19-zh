@@ -544,7 +544,11 @@ static string _get_portals()
     string disp;
 
     if (!portals_present.empty())
+#ifndef USE_TILE_LOCAL
         disp += ZWSP + jtrans_notrim("\n<green>Portals:</green>\n");
+#else
+        disp += jtrans_notrim("\n<green>Portals:</green>\n");
+#endif
     disp += _portals_description_string();
 
     return disp;
@@ -565,7 +569,12 @@ static string _get_notes()
 
     if (disp.empty())
         return disp;
+
+#ifndef USE_TILE_LOCAL
     return ZWSP + jtrans_notrim("\n<green>Annotations:</green>\n") + disp;
+#else
+    return jtrans_notrim("\n<green>Annotations:</green>\n") + disp;
+#endif
 }
 
 template <typename Z, typename Key>
