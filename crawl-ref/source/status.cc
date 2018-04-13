@@ -844,7 +844,8 @@ static void _describe_poison(status_info* inf)
                             : "mildly";
     inf->short_text   = duration_name_j(adj + " poisoned")
         + make_stringf(" (%d -> %d)", you.hp, poison_survival());
-    inf->long_text    = "You are " + inf->short_text + ".";
+    inf->long_text    = make_stringf(jtransc("You are %s."),
+                                     inf->short_text.c_str());
 }
 
 static void _describe_speed(status_info* inf)
