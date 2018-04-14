@@ -789,7 +789,7 @@ void MiscastEffect::_conjuration(int severity)
             // Player only (for now).
             bool plural;
             string hair = _hair_str(target, plural);
-            you_msg = make_stringf("Your %s stand%s on end.", jtransc(hair),
+            you_msg = make_stringf(jtransc("Your %s stand%s on end."), jtransc(hair),
                                    plural ? "" : "s");
         }
         }
