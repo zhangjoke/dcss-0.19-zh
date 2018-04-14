@@ -1010,14 +1010,14 @@ void TilesFramework::do_layout()
     {
         m_region_msg->place(0, 0, 0); // TODO: Maybe add an option to place
                                       // overlay at the bottom.
-        m_region_msg->resize_to_fit(m_stat_x_divider, Options.msg_min_height
-                                    * m_region_msg->dy);
+        m_region_msg->resize(Options.msg_region_width,
+                             Options.msg_min_height);
         m_region_msg->set_overlay(message_overlay);
     }
     else
     {
-        m_region_msg->resize_to_fit(m_stat_x_divider, m_windowsz.y
-                                    - message_y_divider);
+        m_region_msg->resize(Options.msg_region_width,
+                             Options.msg_min_height);
         m_region_msg->place(0, m_region_tile->ey, 0);
     }
 

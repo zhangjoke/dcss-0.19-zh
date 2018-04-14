@@ -376,6 +376,8 @@ const vector<GameOption*> game_options::build_options_list()
         new BoolGameOption(SIMPLE_NAME(remember_name), true),
 #endif
         new BoolGameOption(SIMPLE_NAME(vanilla_randart_name), false),
+        new IntGameOption(SIMPLE_NAME(msg_region_width), 130, 0, INT_MAX),
+        new IntGameOption(SIMPLE_NAME(font_dx_factor), 60, 0, INT_MAX),
     };
 
 #undef SIMPLE_NAME
