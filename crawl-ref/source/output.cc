@@ -1133,7 +1133,7 @@ static void _redraw_title()
     string title = make_stringf("%s『%s』(%s)",
                                 player_title().c_str(),
                                 you.your_name.c_str(),
-                                jtransc(species_name(you.species)));
+                                species_name_jc(you.species));
     const bool small_layout =
 #ifdef USE_TILE_LOCAL
                               tiles.is_using_small_layout();
