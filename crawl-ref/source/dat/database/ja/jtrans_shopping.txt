@@ -205,7 +205,7 @@ Shopping list: removing %s
 
 購入リスト管理: %sを削除しました。
 %%%%
-You now have enough gold to buy {item list}.
+You now have enough gold to {item list}.
 
 あなたは%sのどれかを購入するのに足る金貨を手にした。
 %%%%
