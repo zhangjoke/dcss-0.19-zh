@@ -1716,7 +1716,9 @@ endif
 
 #	fix encoding (utf-8 -> shift-jis)
 	nkf -Ws --overwrite build-win/stone_soup-tiles-$(MAJOR_VERSION)/dat/defaults/*.txt
+	nkf -Ws --overwrite build-win/stone_soup-tiles-$(MAJOR_VERSION)/dat/dlua/lm_timed.lua
 	nkf -Ws --overwrite build-win/stone_soup-tiles-$(MAJOR_VERSION)/dat/dlua/lm_tmsg.lua
+	nkf -Ws --overwrite build-win/stone_soup-tiles-$(MAJOR_VERSION)/dat/dlua/lm_trove.lua
 
 	cd build-win && zip -9r ../stone_soup-$(SRC_VERSION)-tiles-win32.zip *
 	rm -rf build-win
