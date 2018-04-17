@@ -314,7 +314,7 @@ static void _add_hiscore_row(MenuScroller* scroller, scorefile_entry& se, int id
     tmp->set_highlight_colour(WHITE);
 
     tmp->set_text(hiscores_format_single(se));
-    tmp->set_description_text(hiscores_format_single_long(se, true));
+    tmp->set_description_text(hiscores_format_single_long(se, true, true));
     tmp->set_id(id);
     tmp->set_bounds(coord_def(1,1), coord_def(1,2));
 
