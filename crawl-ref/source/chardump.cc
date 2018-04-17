@@ -1491,8 +1491,12 @@ void dump_map(FILE *fp, bool debug, bool dist)
                     fputc('!', fp);
                 else
                 {
+#ifdef USE_TILE_LOCAL
+                    fputs(stringize_glyph(get_feature_def(grd[x][y]).symbol()).c_str(), fp);
+#else
                     fputs(OUTS(stringize_glyph(
                                get_feature_def(grd[x][y]).symbol())), fp);
+#endif
                 }
             }
             fputc('\n', fp);
@@ -1522,8 +1526,12 @@ void dump_map(FILE *fp, bool debug, bool dist)
         {
             for (int x = min_x; x <= max_x; ++x)
             {
+#ifdef USE_TILE_LOCAL
+                fputs(stringize_glyph(get_cell_glyph(coord_def(x, y)).ch).c_str(), fp);
+#else
                 fputs(OUTS(stringize_glyph(
                            get_cell_glyph(coord_def(x, y)).ch)), fp);
+#endif
             }
 
             fputc('\n', fp);
@@ -1574,7 +1582,11 @@ static bool _write_dump(const string &fname, const dump_params &par, bool quiet)
     {
         string dump = _trim_dump(nbsp2sp(par.text));
 
+#ifdef USE_TILE_LOCAL
+        fputs(dump.c_str(), handle);
+#else
         fputs(OUTS(dump), handle);
+#endif
         fclose(handle);
         succeeded = true;
         if (!quiet)
