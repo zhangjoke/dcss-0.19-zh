@@ -2,6 +2,7 @@
 
 #include "jobs.h"
 
+#include "database.h"
 #include "enum.h"
 #include "errors.h"
 #include "itemprop.h"
@@ -52,9 +53,11 @@ job_type get_job_by_name(const char *name)
     for (auto& entry : job_data)
     {
         string low_job = lowercase_string(entry.second.name);
+        string low_job_j = tagged_jtrans("[job]", low_job);
 
         const size_t pos = low_job.find(low_name);
-        if (pos != string::npos)
+        const size_t pos_j = low_job_j.find(low_name);
+        if ((pos != string::npos) || (pos_j != string::npos))
         {
             job = entry.first;
             if (!pos)  // prefix takes preference

@@ -49,7 +49,8 @@ species_type str_to_species(const string &species)
     for (int i = 0; i < NUM_SPECIES; ++i)
     {
         sp = static_cast<species_type>(i);
-        if (species == species_name(sp))
+        if (species == species_name(sp) ||
+            species == species_name_j(sp))
             return sp;
     }
 
