@@ -2961,8 +2961,8 @@ spret_type cast_glaciate(actor *caster, int pow, coord_def aim, bool fail)
     if (you.can_see(*caster) || caster->is_player())
     {
         mprf(jtransc("%s %s a mighty blast of ice!"),
-             caster->conj_verb_j("conjure").c_str(),
-             caster->name(DESC_THE).c_str());
+             caster->name(DESC_THE).c_str(),
+             caster->conj_verb_j("conjure").c_str());
     }
 
     beam.glyph = 0;
