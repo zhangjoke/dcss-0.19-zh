@@ -193,7 +193,7 @@ Spells:
 %%%%
 %d memorised, %d level%s left
 
-记住%d级，剩余%d级
+记住%d级/剩余%d级
 %%%%
 Lives:
 
