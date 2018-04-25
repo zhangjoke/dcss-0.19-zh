@@ -474,8 +474,8 @@ void actor::end_constriction(mid_t whom, bool intentional, bool quiet)
     {
         mprf(jtransc("%s %s %s grip on %s."),
                 name(DESC_THE).c_str(),
-                constrictee->name(DESC_THE).c_str(),
-                conj_verb_j(intentional ? "release" : "lose").c_str());
+                conj_verb_j(intentional ? "release" : "lose").c_str(),
+                constrictee->name(DESC_THE).c_str());
     }
 
     if (constrictee->is_player())
@@ -682,8 +682,8 @@ void actor::handle_constriction()
             mprf(jtransc("{attacker} {verb} {defender}{!}{dmg}"),
                  jtransc(is_player() ? "You"
                                      : name(DESC_THE)),
-                 defender->name(DESC_THE).c_str(),
                  conj_verb_j("constrict").c_str(),
+                 defender->name(DESC_THE).c_str(),
                  exclamations.c_str(),
 #ifdef DEBUG_DIAGNOSTICS
                  make_stringf(jtransc(" for %d"), damage).c_str()
