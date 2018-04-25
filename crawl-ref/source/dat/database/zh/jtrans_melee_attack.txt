@@ -193,7 +193,7 @@ squeeze
 %%%%
 Your %s misses %s.
 
-%sはあなたの%sを躱した。
+%s%sを躱した。
 %%%%
 You %s %s %s.
 
@@ -245,7 +245,7 @@ Your shield and {armour} prevent you from hitting
 %%%%
 You {evasion margin} miss {name}
 
-あなたは%sへの攻撃を%s外した。
+你%s命中%s。
 %%%%
 [verb]hit
 

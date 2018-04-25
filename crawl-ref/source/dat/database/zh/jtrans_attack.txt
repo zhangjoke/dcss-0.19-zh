@@ -1,7 +1,7 @@
 %%%%
 something's
 
-何かの
+某物的
 %%%%
 # something
 
@@ -9,19 +9,19 @@ something's
 %%%%
 Space bends around %s.
 
-%sの周りの空間が歪んだ。
+%s周围的空间发生了扭曲。
 %%%%
 Space warps horribly around %s!
 
-%sの周りの空間が激しく歪んだ！
+%s周围的空间可怕的扭曲着！
 %%%%
 %s %s in agony.
 
-%sは苦痛に%s。
+%s在剧痛中%s。
 %%%%
 [verb]writhe
 
-悶えた
+翻滚
 %%%%
 [chaos effect]clone
 
@@ -29,23 +29,23 @@ Space warps horribly around %s!
 %%%%
 %s is duplicated!
 
-%sが二体になった！
+%s分裂出了复制体！
 %%%%
 [chaos effect]polymorph
 
-変身
+变形
 %%%%
 [chaos effect]polymorph PPT_MORE
 
-より強力なモンスターに変身
+变身为更强大的怪物
 %%%%
 [chaos effect]shifter
 
-変身能力者化
+位移
 %%%%
 [chaos effect]miscast
 
-魔法失敗
+错误施法
 %%%%
 [chaos effect]rage
 
@@ -53,7 +53,7 @@ Space warps horribly around %s!
 %%%%
 [chaos effect]healing
 
-治癒
+治疗
 %%%%
 [chaos effect]hasting
 
@@ -61,15 +61,15 @@ Space warps horribly around %s!
 %%%%
 [chaos effect]invisible
 
-透明化
+隐身
 %%%%
 [chaos effect]slowing
 
-減速
+减速
 %%%%
 [chaos effect]paralysis
 
-麻痺
+麻痹
 %%%%
 [chaos effect]petrify
 
@@ -77,11 +77,11 @@ Space warps horribly around %s!
 %%%%
 CHAOS effect:
 
-カオス効果:
+混沌效果:
 %%%%
 protects you from inadvertent hurry.
 
-は意図しない加速からあなたを保護した。
+保护你免受无意的加速效果的影响。
 %%%%
 CHAOS brand: (plain)
 
@@ -141,19 +141,19 @@ CHAOS brand: (other)
 %%%%
 a chaos effect from %s
 
-%sから受けたカオス効果
+%s带来的混沌效果
 %%%%
 {attacker} {verb} {defender}!
 
-%sは%sを%s！
+%s%s了%s的能力！
 %%%%
 [verb]drain
 
-衰弱させた
+吸取
 %%%%
 {attacker} {verb} {defender's} vigour!
 
-%sは%s活力を%s！
+%s%s了%s的活力！
 %%%%
 # for %d
 
@@ -169,63 +169,68 @@ a chaos effect from %s
 %%%%
 [adv]completely
 
-完全に
+完全没有
+%%%%
+%%%%
+[adv]somehow
+
+没有
 %%%%
 [adv]closely
 
-きわどく
+差点就要
 %%%%
 [adv]barely
 
-ぎりぎり
+差一点要
 %%%%
 You %s %s from a blind spot!
 
-あなたは死角から%s%s！
+你从死角%s%s！
 %%%%
 [stab verb]pounce on
 
-に飛びかかった
+突袭了
 %%%%
 [stab verb]strike
 
-を攻撃した
+攻击了
 %%%%
 You catch %s momentarily off-guard.
 
-あなたの一撃は%sが防御を開けた瞬間をとらえた。
+你抓住了%s失去防备的时机。
 %%%%
 You catch %s completely off-guard!
 
-あなたの一撃は%sが完全に無防備な瞬間をとらえた。
+你抓住了%s毫无防备的时机。
 %%%%
 You %s %s from behind!
 
-あなたは背後から%s%s！
+你从背后%s%s！
 %%%%
 You pounce on the unaware %s!
 
-あなたはこちらに気付いていない%sに飛びかかった！
+你突袭了没有知觉的%s！
 %%%%
 %s fails to defend %s.
 
-%sは防御できなかった。
+%s防御%s失败了。
 %%%%
 {defender} {verb} {itself} attack.
 
-%sは%s攻撃を%s。
+%s%s了%s的攻击。
 %%%%
 [verb]block
 
-防いだ
+挡
 %%%%
 its own
 
-自分自身の
+它自己
 %%%%
 [verb]melt
 
-溶かした
+熔化了
 %%%%
 # [verb]burn
 
@@ -237,7 +242,7 @@ its own
 %%%%
 {defender} {verb}{!}
 
-%sは%s%s
+%s%s%s
 %%%%
 # [verb]convulse
 
@@ -245,25 +250,25 @@ its own
 %%%%
 You are electrocuted!
 
-あなたは感電させられた！
+你被电击了！
 %%%%
 There is a sudden explosion of sparks!
 
-電光の爆発が突然巻き起こった！
+突然出现了一团爆炸的火花！
 %%%%
 %s draws strength from your wounds!
 
-%sはあなたの傷から生命力を吸い取った！
+%s从你的伤口吸取了生命！
 %%%%
 %s is healed.
 
-%sは回復した。
+%s回复了生命。
 %%%%
 [verb]damn
 
-打擲した
+诅咒
 %%%%
 {attacker} {verb} {defender}{!}
 
-%sは%sを%s%s
+%s%s%s%s
 %%%%

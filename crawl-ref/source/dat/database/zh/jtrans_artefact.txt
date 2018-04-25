@@ -1,11 +1,11 @@
 %%%%
 @player_name@'s
 
-@player_name@の
+@player_name@的
 %%%%
 of {god name}'s {divine esteem}
 
-%sの%sの
+%s之%s
 %%%%
 exec axe
 
