@@ -139,7 +139,7 @@ static TextDB AllDBs[] =
             "hints.txt",    // hints mode
             "tutorial.txt", // tutorial mode
             nullptr),
-    TextDB("jtrans", "database/ja/",
+    TextDB("jtrans", "database/zh/",
            "jtrans_ability.txt",
            "jtrans_abyss.txt",
            "jtrans_acquire.txt",
@@ -329,7 +329,7 @@ static TextDB AllDBs[] =
            "montitle.txt",
            nullptr),
 
-    TextDB("randart_vanilla", "database/ja/crawlj/",
+    TextDB("randart_vanilla", "database/zh/crawlj/",
            "randname.txt",
            "rand_wpn.txt",
            "rand_arm.txt",
