@@ -1,17 +1,17 @@
 %%%%
 The Orb lets out a hideous shriek!
 
-ゾットのオーブは忌まわしき騒音をまき散らした！
+宝珠发出骇人的尖叫声！
 %%%%
 The Orb lets out a furious burst of light!
 
-ゾットのオーブは目もくらむほどに輝いた！
+宝珠发出一道耀眼的光芒！
 %%%%
 The lords of Pandemonium are not amused. Beware!
 
-パンデモニウムの君主たちはよい顔をしていない。気をつけろ！
+魔窟的魔王们很生气。当心！
 %%%%
 tells them not to hurry.
 
-は彼らにあまり急ぐなと伝えた。
+告诉它们不要着急。
 %%%%

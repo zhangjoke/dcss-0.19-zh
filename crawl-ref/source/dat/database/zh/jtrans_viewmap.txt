@@ -1,21 +1,21 @@
 %%%%
 (Press <w>?</w> for help)
 
-(<w>?</w> でヘルプ表示)
+(按<w>?</w>查看帮助)
 %%%%
 Level map cleared.
 
-階層のマップを消去しました。
+清除地图。
 %%%%
 Remembered map restored.
 
-記録済みのマップを修復しました。
+恢复记录的地图。
 %%%%
 No remembered map.
 
-記録されたマップはありません。
+没有记录的地图。
 %%%%
 You can't annotate this level.
 
-この階層に注釈を付けることはできません。
+你不能在这一层作注释。
 %%%%

@@ -109,7 +109,7 @@
 %%%%
 [ability]End Transformation
 
-停止变形
+结束变身
 %%%%
 # Zin
 [ability]Recite
@@ -786,11 +786,11 @@ frowns upon the use of this ability.
 %%%%
 You can't untransform!
 
-你不能停止变形！
+你不能结束变身！
 %%%%
 Sorry, you're too full to transform right now.
 
-抱歉，你现在太饱了，不能变形。
+抱歉，你现在太饱了，不能变身。
 %%%%
 You're already flying!
 
@@ -886,7 +886,7 @@ Stopping flight right now would be fatal!
 %%%%
 Turning back right now would cause you to %s!
 
-现在停止变形会使你%s！
+现在结束变身会使你%s！
 %%%%
 [activate_talent()]burn
 

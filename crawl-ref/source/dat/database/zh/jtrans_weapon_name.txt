@@ -9,7 +9,7 @@ club
 %%%%
 whip
 
-鞭
+鞭子
 %%%%
 # TAG_MAJOR_VERSION == 34
 # hammer
@@ -17,35 +17,35 @@ whip
 %%%%
 mace
 
-メイス
+矛锤
 %%%%
 flail
 
-フレイル
+连枷
 %%%%
 morningstar
 
-モーニングスター
+晨星
 %%%%
 demon whip
 
-悪魔の鞭
+恶魔鞭子
 %%%%
 sacred scourge
 
-聖なる鞭
+神圣鞭子
 %%%%
 dire flail
 
-大型フレイル
+大连枷
 %%%%
 eveningstar
 
-イブニングスター
+狼牙棒
 %%%%
 great mace
 
-大型メイス
+大矛锤
 %%%%
 giant club
 
@@ -53,59 +53,59 @@ giant club
 %%%%
 giant spiked club
 
-釘つき巨大棍棒
+巨大狼牙棒
 %%%%
 dagger
 
-ダガー
+匕首
 %%%%
 quick blade
 
-クイックブレード
+快刀
 %%%%
 short sword
 
-ショートソード
+短剑
 %%%%
 rapier
 
-レイピア
+西洋剑
 %%%%
 cutlass
 
-カトラス
+短弯刀
 %%%%
 falchion
 
-ファルシオン
+砍刀
 %%%%
 long sword
 
-ロングソード
+长剑
 %%%%
 scimitar
 
-シミター
+弯刀
 %%%%
 demon blade
 
-悪魔の刃
+恶魔之刃
 %%%%
 eudemon blade
 
-悪魔祓いの刃
+神圣之刃
 %%%%
 double sword
 
-ダブルソード
+双重剑
 %%%%
 great sword
 
-グレートソード
+大剑
 %%%%
 triple sword
 
-トリプルソード
+三重剑
 %%%%
 # TAG_MAJOR_VERSION == 34
 # old falchion
@@ -133,55 +133,55 @@ triple sword
 %%%%
 hand axe
 
-ハンドアックス
+手斧
 %%%%
 war axe
 
-ウォーアックス
+战斧
 %%%%
 broad axe
 
-ブロードアックス
+阔斧
 %%%%
 battleaxe
 
-バトルアックス
+大战斧
 %%%%
 executioner's axe
 
-処刑人の斧
+处决者之斧
 %%%%
 spear
 
-スピア
+长矛
 %%%%
 trident
 
-トライデント
+三叉戟
 %%%%
 halberd
 
-ハルバード
+长戟
 %%%%
 scythe
 
-大鎌
+镰刀
 %%%%
 demon trident
 
-悪魔の三叉戟
+恶魔三叉戟
 %%%%
 trishula
 
-トリシューラ
+神圣三叉戟
 %%%%
 glaive
 
-グレイブ
+长柄刀
 %%%%
 bardiche
 
-バルディッシュ
+长柄大刀
 %%%%
 staff
 
@@ -189,41 +189,41 @@ staff
 %%%%
 quarterstaff
 
-六尺棒
+铁头木棒
 %%%%
 lajatang
 
-ラジャタン
+月牙铲
 %%%%
 blowgun
 
-吹き矢筒
+吹箭
 %%%%
 hunting sling
 
-小型スリング
+投石索
 %%%%
 fustibalus
 
-竿付きスリング
+投石棒
 %%%%
 hand crossbow
 
-小型クロスボウ
+手弩
 %%%%
 arbalest
 
-アーバレスト
+钢弩
 %%%%
 triple crossbow
 
-トリプルクロスボウ
+三重弩
 %%%%
 shortbow
 
-ショートボウ
+短弓
 %%%%
 longbow
 
-ロングボウ
+长弓
 %%%%

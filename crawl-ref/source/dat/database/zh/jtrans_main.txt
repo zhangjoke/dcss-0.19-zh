@@ -1,23 +1,23 @@
 %%%%
 Upgraded the game from %s to %s
 
-ゲームバージョンを%sから%sに更新した
+游戏从%s更新到%s
 %%%%
 Welcome,
 
-ようこそ、
+欢迎，
 %%%%
 Welcome back,
 
-よくぞ帰ってきた、
+欢迎回来
 %%%%
 {name} the {species} {job}.</yellow>
 
-%sの%s『%s』よ。</yellow>
+%s%s%s。</yellow>
 %%%%
 Press <w>?</w> for a list of commands and other information.
 
-コマンド一覧やその他の情報を見るには <w>?</w>キー を押してください。
+按<w>?</w>查看指令列表和其他信息。
 %%%%
 # Command line options:
 
@@ -26,163 +26,163 @@ Press <w>?</w> for a list of commands and other information.
 %%%%
 You wake up in a daze, and can't recall much.
 
-あなたは茫然と覚醒したばかりで、まだ十分な力を取り戻していない。
+你从眩晕中清醒过来，记不起多少过去的事。
 %%%%
 set off with:
 
-は以下の装備を持って出発した:
+带着这些物品出发:
 %%%%
 {name}, the {species} {job}, began the quest for the Orb.
 
-%sの%s『%s』がオーブを探す冒険を始めた
+%s%s开始了寻找宝珠的冒险
 %%%%
 began the quest for the Orb.
 
-オーブを探す冒険を始めた
+开始了寻找宝珠的冒险。
 %%%%
 You started the game in wizard mode.
 
-あなたはウィザードモードでゲームを開始した
+你开启了巫师模式。
 %%%%
 You can only abyss_teleport() inside the Abyss.
 
-このコマンドはアビス内部でしか使えません。
+你只能在深渊中使用abyss_teleport()。
 %%%%
 wizard command
 
-ウィザードモードでの操作
+巫师模式指令
 %%%%
 Intentional crash
 
-故意のクラッシュ
+故意的崩溃
 %%%%
 Running Jiyva off-level sacrifice.
 
-別の階層にあるアイテムをジーヴァに捧げます。
+在别的阶层执行吉瓦献祭。
 %%%%
 This only makes sense in a labyrinth!
 
-このコマンドはラビリンス内部でしか使えません！
+只有在迷宫中这么做才有意义！
 %%%%
 Cost level: %d  Total experience: %d  Next cost level: %d Skill cost: %d
 
-コストレベル: %d 累計経験値: %d 次のコストレベルまで: %d スキルコスト: %d
+花费等级: %d 累计经验值: %d 下一花费等级: %d 技能花费: %d
 %%%%
 Failure to give mutation.
 
-突然変異の付与に失敗しました。
+获得突变失败。
 %%%%
 Not a <magenta>Wizard</magenta> Command.
 
-<magenta>ウィザードモード</magenta>用のコマンドではありません。
+不是一个<magenta>巫师模式</magenta>指令。
 %%%%
 WARNING: ABOUT TO ENTER WIZARD MODE!
 
-警告: ウィザードモードに入ろうとしています！
+警告: 将要进入巫师模式！
 %%%%
 If you continue, your game will not be scored!
 
-続行した場合、スコア一覧には載りません！
+如果你继续，你的游戏不会计分！
 %%%%
 Do you really want to enter wizard mode?
 
-本当にウィザードモードに移行しますか？
+真的要进入巫师模式吗？
 %%%%
 Entered wizard mode.
 
-ウィザードモードに移行した
+进入巫师模式。
 %%%%
 Can't repeat entering wizard mode.
 
-ウィザードモード移行コマンドを繰り返すことはできません。
+不能重复进入巫师模式。
 %%%%
 Enter Wizard Command (? - help):
 
-ウィザードコマンドを入力してください (? - ヘルプ):
+输入巫师模式指令 (? - 帮助):
 %%%%
 You cannot repeat that wizard command.
 
-そのウィザードコマンドを繰り返すことはできません。
+你不能重复这个巫师模式指令。
 %%%%
 WARNING: ABOUT TO ENTER EXPLORE MODE!
 
-警告: 探索モードに入ろうとしています！
+警告: 将要进入探索模式！
 %%%%
 Do you really want to enter explore mode?
 
-本当に探索モードに移行しますか？
+你真的要进入探索模式吗？
 %%%%
 Entered explore mode.
 
-探索モードに移行した
+进入探索模式。
 %%%%
 Can't repeat entering explore mode
 
-探索モード移行コマンドを繰り返すことはできません。
+你不能重复进入探索模式。
 %%%%
 You're standing next to a slime covered wall!
 
-あなたはスライムに覆われた岩の壁のそばに立っている！
+你站在史莱姆覆盖的墙壁的旁边！
 %%%%
 You're about to run into the slime covered wall!
 
-あなたはスライムに覆われた岩の壁にぶつかりそうだ！
+你正要走入史莱姆覆盖的墙壁！
 %%%%
 You can't repeat informational commands.
 
-情報閲覧コマンドを繰り返すことはできません。
+你不能重复信息性指令。
 %%%%
 You can't repeat multi-turn commands.
 
-ターンをまたぐコマンドを繰り返すことはできません。
+你不能重复多回合指令。
 %%%%
 You can't repeat that command.
 
-そのコマンドを繰り返すことはできません。
+你不能重复这个指令。
 %%%%
 You can't repeat map commands.
 
-マップコマンドを繰り返すことはできません。
+你不能重复地图指令。
 %%%%
 You can't repeat mouse clicks or movements.
 
-マウスクリックやマウス移動を繰り返すことはできません。
+你不能重复鼠标点击或移动。
 %%%%
 You can't repeat the repeat command!
 
-反復コマンドを繰り返すことはできません！
+你不能重复“重复”指令。
 %%%%
 Why would you want to repeat a run command?
 
-走るコマンドを繰り返すことはできません。
+你为什么重复一个奔跑指令？
 %%%%
 No previous command to repeat.
 
-繰り返すコマンドがありません。
+没有先前指令。
 %%%%
 Really repeat movement command while monsters are nearby?
 
-モンスターが近くにいますが、本当に動作を繰り返しますか？
+你真的要在怪物旁边重复移动指令吗？
 %%%%
 Unknown command, not repeating.
 
-不明なコマンドだったので繰り返しませんでした。
+没有重复未知指令。
 %%%%
 Game saved, see you later!
 
-ゲームを保存しました。
+游戏已保存，再见！
 %%%%
 Key pressed, interrupting command repetition.
 
-キーが押されたため、コマンドを繰り返すのを中止しました。
+检测到按键，终止指令重复。
 %%%%
 Cannot move, cancelling command repetition.
 
-これ以上動けないため、コマンドを繰り返すのを中止しました。
+无法移动，终止指令重复。
 %%%%
 Infinite lua loop detected, aborting.
 
-luaスクリプトの無限ループを検知したため、中断しました。
+检测到lua脚本死循环，正在中止。
 %%%%
 # You cannot move away from %s!
 
@@ -190,115 +190,115 @@ luaスクリプトの無限ループを検知したため、中断しました�
 %%%%
 You can't do that while held in a net.
 
-網で拘束されている間は階段を上り下りできない。
+困在网中的你不能这么。
 %%%%
 You can't do that while caught in a web.
 
-蜘蛛の巣に巻きつかれている間は階段を上り下りできない。
+困在蜘蛛网中的你不能这么。
 %%%%
 There is nothing on the other side of the stone arch.
 
-石のアーチの向こう側には何もない。
+石拱门的另一边没有东西。
 %%%%
 This shop appears to be closed.
 
-この店は閉まっているようだ。
+这家店关门了。
 %%%%
 A magical barricade bars your way!
 
-魔力の障壁が行く手を塞いでいる！
+一个魔法壁垒挡住了你的路！
 %%%%
 You can't go down here!
 
-ここでは降りられない！
+你不能在这里下楼！
 %%%%
 You can't go up here!
 
-ここでは上れない！
+你不能在这里上楼！
 %%%%
 You need a rune to enter this place.
 
-この場所に入るにはルーンが必要だ。
+你需要一个符文才能进入这里！
 %%%%
 You need at least %d runes to enter this place.
 
-この場所に入るには少なくとも%d個のルーンが必要だ。
+你需要一至少%d个符文才能进入这里！
 %%%%
 If you enter this portal you might not be able to return immediately. Continue?
 
-一旦このポータルに突入するとすぐには出られないかもしれません。それでも入りますか？
+如果你进入这个传送门，你无法立刻返回。要继续吗？
 %%%%
 Are you sure you wish to approach this portal? There's no telling what its forces would wreak upon your fragile self.
 
-本当にこのポータルに近づきますか？ その発する力があなた自身にどういった影響を及ぼすか全くわかりません。
+你确定要进入这个传送门吗？脆弱的你将面对无法预料的敌人。
 %%%%
 A rune of Zot still resides in this realm, and once you leave you can never return. Are you sure you want to leave?
 
-何らかのルーンが未だこのフロアに残されており、一度ここを離れると決して戻ることはできません。本当に立ち去りますか？
+一个佐特符文藏在这个地方，一旦你离开就再也回不来了。你确定你要离开吗？
 %%%%
 Are you sure you want to leave this ziggurat?
 
-本当にジグラットを立ち去りますか？
+你确定你要离开金字塔吗？
 %%%%
 Really leave the Orb behind?
 
-本当にオーブを置いていきますか？
+你确定你要永远失去宝珠吗？
 %%%%
 Are you sure you want to leave %s?%s
 
-本当に%sを立ち去りますか？%s
+你确定你要离开%s吗？%s
 %%%%
 This will make you lose the game!
 
-目的を達成しないままゲームを終わることになりますよ！
+这会导致你输掉游戏！
 %%%%
 Alright, then stay!
 
-了解しました。
+好吧，那就留下来！
 %%%%
 Really go through this one-way escape hatch?
 
-本当に一方通行の脱出ハッチを通り抜けますか？
+真的要走入这个单程的逃生通道吗？
 %%%%
 Really dive through this shaft in the floor?
 
-本当に床に空いた縦穴に飛びこみますか？
+真的要跳入这个地洞吗？
 %%%%
 This passage doesn't lead anywhere!
 
-この通り道はどこにも通じていない！
+这个通道没有终点！
 %%%%
 You are a level %d %s %s.
 
-あなたは%sの%s(レベル%d)です。
+你是一个%s%s(等级%d)。
 %%%%
 You are %d%% of the way to level %d.
 
-レベル%dまでに要する経験値が%d%%貯まっています。
+距%d级已经获取%d%%的经验值。
 %%%%
 I'm sorry, level %d is as high as you can go.
 
-残念ながら、レベル%dが到達可能な最高レベルです。
+很抱歉，%d是你能达到的最高等级。
 %%%%
 With the way you've been playing, I'm surprised you got this far.
 
-ここまで生き延びるとは、あなたの手腕には驚きを禁じえません。
+以你游玩的方式，我很惊讶你能到达这一步。
 %%%%
 You'll get an extra life in %d.%02d levels' worth of XP.
 
-あと%d.%02dレベル上昇すればさらなる命を得るでしょう。
+在获得相当于提升%d.%02d级所需的经验值之后，你能获得一条额外的生命。
 %%%%
 If you died right now, you'd get an extra life in %d.%02d levels' worth of XP.
 
-もしあなたが今死んだ場合、あと%d.%02dレベル上昇すればさらなる命を得るでしょう。
+如果你现在死亡，在获得相当于提升%d.%02d级所需的经验值之后，你能获得一条额外的生命。。
 %%%%
 Play time:
 
-プレイ時間:
+游戏时间:
 %%%%
 (%d turns)
 
-(%dターン)
+(%d回合)
 %%%%
 #ifdef DEBUG_DIAGNOSTICS
 Gourmand charge: %d
@@ -310,7 +310,7 @@ Turns spent on this level: %d
 %%%%
 You can't remove your fur, sorry.
 
-残念ながら、自分の毛皮を脱ぐことはできない。
+抱歉，你不能脱下你的毛皮。
 %%%%
 # You can't wear or remove anything in your present form.
 
@@ -318,49 +318,49 @@ You can't remove your fur, sorry.
 %%%%
 Take off which item?
 
-どれを脱ぎますか？
+脱下哪件物品？
 %%%%
 You pace your travel speed to your slowest ally.
 
-あなたは自動移動の速度を仲間のうち最も遅いものに合わせた。
+你的自动移动速度将于你最慢的友军一致。
 %%%%
 You travel at normal speed.
 
-あなたは通常の速度で自動移動するようになった。
+你将以通常的速度进行自动移动。
 %%%%
 You're too hungry to rest.
 
-あなたは腹が空きすぎており休息できない。
+你太饿了，不能休息。
 %%%%
 You start waiting.
 
-あなたは待機を始めた。
+你开始等待。
 %%%%
 You start resting.
 
-あなたは休憩を始めた。
+你开始休息。
 %%%%
 Clearing travel trail.
 
-自動探索の足跡を消去した。
+清除自动移动留下的轨迹。
 %%%%
 Clearing level map.
 
-階層のマップを消去した。
+清除楼层地图。
 %%%%
 #ifdef USE_TILE_LOCAL
 Move the cursor to view the level map, or type <w>?</w> for a list of commands.
 
-階層マップを見るにはカーソルを動かすか、<w>?</w>キーを押してコマンド一覧を見てください。
+通过移动光标观察地图，按<w>?</w>获取指令列表。
 %%%%
 #ifdef USE_TILE_LOCAL
 Returning to the game...
 
-ゲームへ復帰中……
+回到游戏中……
 %%%%
 You can't grasp things well enough to throw them.
 
-あなたはそれを投擲できるほどしっかり掴むことができない。
+你无法投掷物品。
 %%%%
 #ifdef DEBUG_QUIVER
 next slot: %d, item: %s
@@ -368,35 +368,35 @@ next slot: %d, item: %s
 %%%%
 No other missiles available. Use F to throw any item.
 
-他のアイテムを選択できません。任意のアイテムを選択するには(F)ireコマンドを使用してください。
+没有其他可用的弹药了。按F投掷任意物品。
 %%%%
 No missiles available. Use F to throw any item.
 
-適したアイテムを持っていません。任意のアイテムを選択するには(F)ireコマンドを使用してください。
+没有可用的弹药了。按F投掷任意物品。
 %%%%
 You have %d gold piece%s.
 
-あなたは今%d枚の金貨を持っている。
+你拥有%d枚金币。
 %%%%
 You have 0 gold piece.
 
-あなたは一文無しだ。
+你没有金币。
 %%%%
 You should not fight recklessly!
 
-あなたはむやみに攻撃すべきではない！
+你不应该鲁莽地战斗！
 %%%%
 Autopickup is now on.
 
-アイテム自動拾いを開始しました。
+自动拾取已打开。
 %%%%
 Autopickup is now off.
 
-アイテム自動拾いを停止しました。
+自动拾取已关闭。
 %%%%
 You carefully extract the barbed spikes from your body.
 
-あなたは食い込んだ逆棘を注意深く抜き取った。
+你仔细地取出了你体内的刺。
 %%%%
 # Char dump unsuccessful! Sorry about that.
 
@@ -404,23 +404,23 @@ You carefully extract the barbed spikes from your body.
 %%%%
 Save game and return to main menu?
 
-セーブしてメインメニューに戻りますか？
+保存游戏并回到主菜单？
 %%%%
 Save game and exit?
 
-セーブして終了しますか？
+保存并退出游戏？
 %%%%
 Saving game... please wait.
 
-セーブしています……お待ちください。
+保存游戏中……请稍等。
 %%%%
 Are you sure you want to abandon this character and quit the game?
 
-本当にこのキャラクターを放棄してゲームを終了しますか？
+你确定你要你要放弃这个角色并退出游戏吗？
 %%%%
 Unknown command. (For a list of commands type <w>?\?</w>.)
 
-そのコマンドは存在しません。(<w>?</w> コマンドで一覧を表示)
+未知指令。(按<w>?</w>显示指令列表)
 %%%%
 Unknown command.
 
@@ -428,43 +428,43 @@ Unknown command.
 %%%%
 Press <w>%</w> or <w>%</w> to pray at altars.
 
-祭壇で祈るには <w>%</w> もしくは <w>%</w> を押してください。
+按<w>%</w>或<w>%</w>向祭坛祈祷。
 %%%%
 You have a vision of a gate.
 
-あなたは門の幻影を目にした。
+你看见了一扇门。
 %%%%
 You have a vision of multiple gates.
 
-あなたはいくつかの門の幻影を目にした。
+你看见了多扇门。
 %%%%
 You are cast into the Abyss!
 
-あなたはアビスに追放された！
+你被放逐到了深渊！
 %%%%
 You are cast deeper into the Abyss!
 
-あなたはアビスのさらなる奥深くへと追放された！
+你被放逐到了深渊的更深处！
 %%%%
 The Abyss bends around you!
 
-あなたの周囲の空間が歪曲した。
+你周围的空间弯曲了。
 %%%%
 Your passage of Golubria closes with a snap!
 
-ゴルブリアの通り道が音を立てて閉じた！
+你的格鲁布里亚通道啪地关闭了！
 %%%%
 You hear a snapping sound.
 
-あなたは何かが閉じる音を聞いた。
+你听到了啪的声音。
 %%%%
 Outside, the world ends.
 
-この世の終わりだ。
+外面的世界终结了。
 %%%%
 Sorry, but your quest for the Orb is now rather pointless. You quit...
 
-あなたの冒険は今や目的を見失っている……ゲームを終了しました。
+抱歉，你寻找宝珠的任务失去了意义。你退出了……
 %%%%
 #if defined(DEBUG_TENSION) || defined(DEBUG_RELIGION)
 TENSION = %d
@@ -472,15 +472,15 @@ TENSION = %d
 %%%%
 Are you sure you want to %s while confused and next to %s %s?
 
-%s本当に%sしますか？ 間違えて%sに落ちる危険があります。
+你确定要在混乱且%s时%s吗？你有掉入%s的风险。
 %%%%
 stumble around
 
-移動
+移动
 %%%%
 swing wildly
 
-攻撃
+攻击
 %%%%
 # lava
 
@@ -492,195 +492,195 @@ deep water
 %%%%
 while you are losing your buoyancy
 
-飛行能力が失われようとしていますが、
+失去浮力
 %%%%
 while your transformation is expiring
 
-変身が解けようとしていますが、
+变身快要结束
 %%%%
 Are you sure you want to %s while confused and next to %s?
 
-あなたは混乱しており、%sのそばに立っています。それでも%sしますか？
+你确定要在混乱时%s吗？你有掉入%s的风险。
 %%%%
 You're too confused to attack without stumbling around!
 
-あなたは混乱していたので、攻撃しようとしてよろめいてしまった。
+你太混乱了，只能磕磕绊绊地攻击。
 %%%%
 You nearly hit yourself!
 
-あなたは自分自身を打ちすえるところだった！
+你差点命中自己！
 %%%%
 [stop attack prompt]attack
 
-を攻撃し
+攻击
 %%%%
 You swing at nothing.
 
-あなたは空振りした。
+你空挥了一下。
 %%%%
 There's nothing to open nearby.
 
-周囲には開けられるようなものがない。
+周围没有能打开的门。
 %%%%
 Which direction?
 
-どの方向ですか？
+哪个方向？
 %%%%
 The door is shut tight!
 
-ドアは固く閉ざされた！
+这扇门关的紧紧的！
 %%%%
 It's already open!
 
-既に開いている！
+这扇门开着！
 %%%%
 That door is sealed shut!
 
-扉が封印されている！
+这扇门关被封住了！
 %%%%
 There isn't anything that you can open there!
 
-ここにはあなたが開けられるものはない！
+那里没有能打开的门！
 %%%%
 You can't close doors while held in a net.
 
-網で拘束されている間はドアを閉めることはできない。
+当你被网困住的时候你不能关门。
 %%%%
 You can't close doors while caught in a web.
 
-蜘蛛の巣に巻きつかれている間はドアを閉めることはできない。
+当你被蜘蛛网困住的时候你不能关门。
 %%%%
 There's nothing to close nearby.
 
-周囲には閉められるようなものがない。
+周围没有能关的门。
 %%%%
 You can't close doors on yourself!
 
-体が邪魔で閉めることができない！
+你不能关闭你所处的门！
 %%%%
 It's already closed!
 
-既に閉まっている！
+这扇门已经关上了！
 %%%%
 There isn't anything that you can close there!
 
-ここにはあなたが閉められるものはない！
+那里没有你能关的门！
 %%%%
 You feel a strong urge to attack something.
 
-あなたは激しい攻撃衝動に駆られている。
+你感觉到了一股杀戮的冲动。
 %%%%
 You feel your anger subside.
 
-あなたの怒りは流れ去っていった。
+你感觉你的愤怒平息下来了。
 %%%%
 Your blood rage is quickly leaving you.
 
-あなたの血に飢えた激情は速やかに消え去った。
+你的愤怒快要结束了。
 %%%%
 Something prevents you from swapping places.
 
-何かが位置交換をするのを妨げた。
+某样东西阻止了你交换位置。
 %%%%
 You swap places.
 
-あなたはお互いの場所を交換した。
+你交换了位置。
 %%%%
 %s %s twisted violently and ejected from the portal!
 
-%sの体は乱暴にねじられ、ポータルから排出された！
+%s剧烈地扭曲着，从传送门中喷涌而出！
 %%%%
 entering a malign gateway
 
-邪悪なる通り道に足を踏み入れて
+进入怨恨之门
 %%%%
 You cannot move. (Use ctrl+direction to attack without moving.)
 
-あなたはその場を動けない。(Ctrl+(方向)でその場を動かずに攻撃できます)
+你不能移动。(使用Ctrl+(方向)在不移动的同时进行攻击。)
 %%%%
 You're too confused to move!
 
-あなたは混乱しすぎていて動けない！
+你太混乱了，不能移动！
 %%%%
 Your mandibles retract as you bump into %s
 
-%sの方向へ突き飛ばされたため、あなたの大顎が引っ込んだ。
+在你撞上%s的时候，你的颚缩了回去。
 %%%%
 You bump into %s
 
-あなたは%sの方向へ突き飛ばされた。
+你撞上了%s。
 %%%%
 This wall is too hard to dig through.
 
-この壁は固すぎて掘り抜くことができない。
+这面墙太厚了，挖不穿。
 %%%%
 You %s carefully through the %s.
 
-あなたは慎重に%sを通り抜けた。
+你小心地通过了%s。
 %%%%
 [feature]fungus
 
-群生する茸
+真菌
 %%%%
 [feature]plants
 
-草むら
+植物
 %%%%
 You can't dig through that.
 
-あなたはその場所を掘り抜けない。
+你不能挖穿那个。
 %%%%
 You retract your mandibles.
 
-あなたは大顎をひっこめた。
+你缩回了你的颚。
 %%%%
 refuses to make way for you. (Use ctrl+direction to attack.)
 
-は道を譲ろうとはしていない。(Ctrl+(方向)で攻撃できます)
+拒绝为你让路。(使用Ctrl+(方向)进行攻击)
 %%%%
 You're too terrified to move while being watched!
 
-あなたは怯えすぎており、見つめられている間動くことができない！
+你太恐惧了，无法移动！
 %%%%
 You nearly stumble into %s!
 
-あなたはもう少しで%sに踏み込むところだった！
+你差点落入了%s！
 %%%%
 The barbs in your skin will harm you if you move. Continue?
 
-あなたの体に食い込んだ逆棘は動くたびに傷を広げる。それでも移動しますか？
+如果你移动的话，你皮肤里的刺会伤害到你。要继续移动吗？
 %%%%
 You deftly slip free of the water engulfing you.
 
-あなたは体を包む水の塊から巧みに抜け出した。
+你灵巧地从吞没你的水之中逃了出来。
 %%%%
 With effort, you pull free of the water engulfing you.
 
-あなたは体を包む水の塊からどうにか抜け出した。
+通过，你从吞没你的水之中逃了出来。
 %%%%
 You dig through %s.
 
-あなたは%sを掘り抜いた。
+你挖通了%s。
 %%%%
 The barbed spikes dig painfully into your body as you move.
 
-あなたが動いたせいで逆棘はさらに食い込んだ。
+随着你的移动，你体内的刺扎痛了你。
 %%%%
 The barbed spikes snap loose.
 
-マンティコアの逆棘は緩んで抜け落ちた。
+你体内的刺脱落了。
 %%%%
 The ferocious winds and tides of the open sea thwart your progress.
 
-荒れ狂う潮風と高波があなたの行く手を妨げている。
+远海凶猛的风浪阻止你继续前进。
 %%%%
 The endless sea of lava is not a nice place.
 
-溶岩の海はあなたにとってよい場所ではない。
+无尽的岩浆之海并不有趣。
 %%%%
 You cannot walk through the dense trees.
 
-あなたは密集した森林を通り抜けることができない。
+你穿不过茂密的树林。
 %%%%
 # You cannot move closer to %s!
 
@@ -688,37 +688,37 @@ You cannot walk through the dense trees.
 %%%%
 Can't repeat a command which takes no turns (unless it's a wizard command), cancelling
 
-ターンを消費しないコマンド(ウィザードコマンドを除く)は繰り返すことができないため、繰り返しをキャンセルしました。
+不能重复一个瞬时的指令(除非是巫师模式指令)，终止重复。
 %%%%
 Can't repeat a command which takes no turns, cancelling repetitions.
 
-ターンを消費しないコマンドは繰り返すことができないため、繰り返しをキャンセルしました。
+不能重复一个瞬时的指令，终止重复。
 %%%%
 (Key replay stole keys)
 
-(キーリプレイは中断しました)
+(按键中断了)
 %%%%
 Number of times to repeat, then command key:
 
-繰り返す回数を入力してからコマンドを入力してください:
+输入重复的次数和要重复的指令:
 %%%%
 You must enter the number of times for the command to repeat.
 
-コマンドを繰り返す回数を入力しないといけません。
+你必须输入要输入重复的次数。
 %%%%
 Enter command to be repeated:
 
-繰り返すコマンドを入力してください:
+输入要重复的指令:
 %%%%
 Can't re-do previous command from within a macro.
 
-マクロ内で一つ前のコマンドを再度行うことはできません。
+你不能重复宏指令。
 %%%%
 No previous command to re-do.
 
-再度行うコマンドがありません。
+没有先前的指令。
 %%%%
 Trying to re-do re-do command, aborting.
 
-リドゥコマンドを再度行うことはできません。中断しました。
+试图重复“重复”指令，终止。
 %%%%

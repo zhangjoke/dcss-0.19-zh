@@ -4,11 +4,11 @@
 %%%%
 The tide is released from %s call.
 
-%sの呼びかけに従って潮が解放された。
+%s的呼唤释放了潮水。
 %%%%
 Not in Shoals or no heightmap; tide not available.
 
-浅瀬にいないか陸地にいるため、潮の操作はできない。
+不在海滩或没有高度图；潮汐不可用。
 %%%%
 Tide inertia: %d. New value (smaller = faster tide) or use +/- to change tide:
 

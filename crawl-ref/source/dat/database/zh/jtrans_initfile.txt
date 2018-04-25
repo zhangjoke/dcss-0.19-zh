@@ -1,25 +1,25 @@
 %%%%
 [gametype]normal
 
-通常ゲーム
+标准游戏
 %%%%
 [gametype]tutorial
 
-チュートリアル
+教程
 %%%%
 [gametype]arena
 
-アリーナ
+竞技场
 %%%%
 [gametype]sprint
 
-ダンジョンスプリント
+地下城冲刺
 %%%%
 [gametype]hints
 
-ヒントモード
+提示模式
 %%%%
 [gametype]none
 
-(不明なゲームモード)
+(未知的游戏模式)
 %%%%

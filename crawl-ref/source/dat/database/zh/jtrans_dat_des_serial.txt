@@ -3,5 +3,5 @@
 %%%%
 [feature]broken pillar
 
-崩壊した柱
+破碎的石柱
 %%%%

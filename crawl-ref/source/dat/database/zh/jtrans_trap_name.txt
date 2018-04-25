@@ -5,59 +5,59 @@ dart trap
 %%%%
 arrow trap
 
-弓矢の罠
+弓箭陷阱
 %%%%
 spear trap
 
-槍の罠
+长矛陷阱
 %%%%
 teleport trap
 
-テレポートの罠
+传送陷阱
 %%%%
 permanent teleport trap
 
-テレポートの永続罠
+永久传送陷阱
 %%%%
 alarm trap
 
-警報の罠
+警报陷阱
 %%%%
 blade trap
 
-刃の罠
+刀片陷阱
 %%%%
 bolt trap
 
-クロスボウの罠
+弩矢陷阱
 %%%%
 net trap
 
-網の罠
+捕网陷阱
 %%%%
 Zot trap
 
-ゾットの罠
+佐特陷阱
 %%%%
 needle trap
 
-針の罠
+飞针陷阱
 %%%%
 shaft
 
-縦穴
+地洞
 %%%%
 passage of Golubria
 
-ゴルブリアの通り道
+格鲁布里亚通道
 %%%%
 pressure plate
 
-足踏みスイッチ
+压力板
 %%%%
 web
 
-蜘蛛の巣
+蜘蛛网
 %%%%
 # TAG_MAJOR_VERSION == 34
 gas trap

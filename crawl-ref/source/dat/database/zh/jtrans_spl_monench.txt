@@ -9,19 +9,19 @@
 %%%%
 You radiate an aura of cold.
 
-あなたは冷気のオーラを放った。
+你辐射出冰冻的光环。
 %%%%
 is outlined in light.
 
-の体表は光を放っている。
+的体表发出了光。
 %%%%
 glows brighter for a moment.
 
-は一瞬さらに輝いた。
+一时间变得更亮了。
 %%%%
 glows brighter.
 
-はさらに輝いた。
+发出了更亮的光。
 %%%%
 # seems to slow down.
 

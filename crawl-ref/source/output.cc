@@ -1449,7 +1449,7 @@ void draw_border()
         CPRINTF("Contam:");
     else
 #endif
-    CGOTOXY(1, ac_pos, GOTO_STAT); CPRINTF("AC:");
+    CGOTOXY(1, ac_pos, GOTO_STAT); CPRINTF(jtransc("AC:"));
     CGOTOXY(1, ev_pos, GOTO_STAT); CPRINTF(jtransc("EV:"));
     CGOTOXY(1, sh_pos, GOTO_STAT); CPRINTF(jtransc("SH:"));
 

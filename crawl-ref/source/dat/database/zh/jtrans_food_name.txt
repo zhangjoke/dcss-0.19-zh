@@ -1,7 +1,7 @@
 %%%%
 meat ration
 
-肉の保存食
+肉食
 %%%%
 # itemprop.cc
 meat rations
@@ -20,15 +20,15 @@ chunks
 # itemprop.cc
 chunk of flesh
 
-肉の塊
+肉块
 %%%%
 beef jerky
 
-ビーフジャーキー
+牛肉干
 %%%%
 bread ration
 
-パンの保存食
+面包
 %%%%
 # itemprop.cc
 bread rations
@@ -37,11 +37,11 @@ bread rations
 %%%%
 fruit
 
-果物
+水果
 %%%%
 royal jelly
 
-ロイヤルゼリー
+蜂王浆
 %%%%
 # itemprop.cc
 royal jellies
@@ -50,10 +50,10 @@ royal jellies
 %%%%
 pizza
 
-ピザ
+比萨
 %%%%
 # itemprop.cc
 slice of pizza
 
-一切れのピザ
+一块比萨
 %%%%

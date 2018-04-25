@@ -1,11 +1,11 @@
 %%%%
 Necronomicon
 
-ネクロノミコン
+死灵之书
 %%%%
 Grand Grimoire
 
-グラン・グリモア
+大魔法书
 %%%%
 # TAG_MAJOR_VERSION == 34
 tome of obsoleteness
@@ -13,171 +13,171 @@ tome of obsoleteness
 %%%%
 Young Poisoner's Handbook
 
-初級毒殺者の手引書
+初级投毒者的手册
 %%%%
 Fen Folio
 
-沼沢の書
+沼泽魔法书
 %%%%
 # TAG_MAJOR_VERSION == 34
 Akashic Record
 
-アカシック・レコード
+阿卡西记录
 %%%%
 book of Minor Magic
 
-下級魔術の魔法書
+初级魔法书
 %%%%
 book of Conjurations
 
-妖術の魔法書
+塑能魔法书
 %%%%
 book of Flames
 
-炎の魔法書
+火焰魔法书
 %%%%
 book of Frost
 
-冷気の魔法書
+寒霜魔法书
 %%%%
 book of Summonings
 
-召喚の魔法書
+召唤魔法书
 %%%%
 book of Fire
 
-猛火の魔法書
+烈焰魔法书
 %%%%
 book of Ice
 
-氷結の魔法書
+寒冰魔法书
 %%%%
 book of Spatial Translocations
 
-空間転位の魔法書
+空间位移魔法书
 %%%%
 book of Enchantments
 
-呪術の魔法書
+妖术之书
 %%%%
 book of the Tempests
 
-天災の魔法書
+天灾魔法书
 %%%%
 book of Death
 
-死の魔法書
+死亡魔法书
 %%%%
 book of Misfortune
 
-災難の魔法書
+灾祸魔法书
 %%%%
 book of Changes
 
-小変異の魔法書
+变化魔法书
 %%%%
 book of Transfigurations
 
-変容の魔法書
+变形魔法书
 %%%%
 book of Battle
 
-戦いの魔法書
+战斗魔法书
 %%%%
 book of Clouds
 
-雲烟の魔法書
+云雾魔法书
 %%%%
 book of Necromancy
 
-死霊術の魔法書
+死灵术之书
 %%%%
 book of Callings
 
-招集の魔法書
+召集魔法书
 %%%%
 book of Maledictions
 
-呪詛の魔法書
+诅咒魔法书
 %%%%
 book of Air
 
-大気の魔法書
+空气魔法书
 %%%%
 book of the Sky
 
-蒼穹の魔法書
+苍穹魔法书
 %%%%
 book of the Warp
 
-次元歪曲の魔法書
+次元弯曲魔法书
 %%%%
 # TAG_MAJOR_VERSION == 34
 book of Envenomations
 
-毒害の魔法書
+注毒魔法书
 %%%%
 book of Annihilations
 
-殲滅の魔法書
+湮灭魔法书
 %%%%
 book of Unlife
 
-反生命の魔法書
+反生命魔法书
 %%%%
 #if TAG_MAJOR_VERSION == 34
 book of Control
 
-支配の魔法書
+支配魔法书
 %%%%
 book of Geomancy
 
-地占術の魔法書
+地卜魔法书
 %%%%
 book of the Earth
 
-大地の魔法書
+大地魔法书
 %%%%
 #if TAG_MAJOR_VERSION == 34
 book of Wizardry
 
-魔術の魔法書
+巫术魔法书
 %%%%
 book of Power
 
-力の魔法書
+力量魔法书
 %%%%
 book of Cantrips
 
-悪戯の魔法書
+恶作剧魔法书
 %%%%
 book of Party Tricks
 
-パーティートリックの魔法書
+派对花招魔法书
 %%%%
 book of Debilitation
 
-衰弱の魔法書
+弱化魔法书
 %%%%
 book of the Dragon
 
-ドラゴンの魔法書
+巨龙魔法书
 %%%%
 book of Burglary
 
-夜盗の魔法書
+盗窃魔法书
 %%%%
 book of Dreams
 
-夢幻の魔法書
+梦境魔法书
 %%%%
 book of Alchemy
 
-錬金術の魔法書
+炼金术之书
 %%%%
 book of Beasts
 
-獣の魔法書
+野兽魔法书
 %%%%
 book of Fixed Level
 

@@ -1,19 +1,19 @@
 %%%%
 You hear a mighty clap of thunder!
 
-あなたは雷鳴が力強く轟くのを耳にした！
+你听到了一阵响亮的雷鸣声！
 %%%%
 Animating this weapon would place you under penance. Really cast this spell?
 
-その武器を動かすと神に懺悔をする羽目になります。本当にその呪文を唱えますか？
+赋予这件武器生命会使你受到神罚。真的要施放这个法术吗？
 %%%%
 Poisoning this monster would place you under penance. Continue anyway?
 
-そのモンスターを毒に冒すと神に懺悔をする羽目になります。それでも続けますか？
+给这个怪物下毒会使你受到神罚。无论如何都要这么做吗？
 %%%%
 %s appears from out of thin air!
 
-%sがどこからともなく現れた！
+%s从空气中现身了！
 %%%%
 [verb]burns
 
@@ -29,11 +29,11 @@ bugs
 %%%%
 You hear a grinding noise.
 
-あなたは壁を削るような音を耳にした。
+你听到了刺耳的噪声。
 %%%%
 The damaged grate falls apart.
 
-ぼろぼろになった鉄格子が崩れ落ちた。
+受损的铁栅栏裂成了碎片。
 %%%%
 # slime
 
@@ -46,28 +46,29 @@ The damaged grate falls apart.
 %%%%
 %s %s shatters into small pieces.
 
-壁が粉々になった。
+墙壁裂成了碎片。
 # 細かい素材表現は無視
+# 无视了细节
 %%%%
 The tree smoulders and burns.
 
-木はくすぶって燃えだした。
+树木烧了起来。
 %%%%
 The tree burns like a torch!
 
-木は松明のように燃え上がった！
+树木像火炬一样烧了起来！
 %%%%
 You smell burning wood.
 
-あなたは木の燃える臭いを嗅いだ。
+你闻到了燃烧的树木的气味。
 %%%%
 explodes into countless fragments.
 
-は木っ端微塵に爆発した。
+爆炸成了无数的碎片。
 %%%%
 The grate screeches as it bends and collapses.
 
-鉄格子が曲がって甲高い音を立て、そして壊れた。
+铁栅栏随着弯曲和崩塌发出了尖锐的声音。
 %%%%
 You hear the screech of bent metal.
 

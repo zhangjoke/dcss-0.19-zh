@@ -1,13 +1,13 @@
 %%%%
 The curse is absorbed by %s.
 
-呪いは%sの手に吸い込まれた。
+诅咒被%s吸收了。
 %%%%
 Your %s glows black briefly, but repels the curse.
 
-あなたの%sはしばらく黒く輝いたが、呪いをはねのけたようだ。
+你的%s突然变黑了，但抵挡住了诅咒。
 %%%%
 Your %s glows black for a moment.
 
-あなたの%sは一瞬黒く輝いた。
+你的%s变黑了片刻。
 %%%%

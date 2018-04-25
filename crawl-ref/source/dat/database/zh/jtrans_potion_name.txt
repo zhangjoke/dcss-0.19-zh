@@ -1,27 +1,27 @@
 %%%%
 potion of curing
 
-治療の薬
+治疗药剂
 %%%%
 potion of heal wounds
 
-怪我の治療の薬
+疗伤药剂
 %%%%
 potion of haste
 
-スピードの薬
+急速药剂
 %%%%
 potion of might
 
-怪力の薬
+力量药剂
 %%%%
 potion of agility
 
-器用さの薬
+敏捷药剂
 %%%%
 potion of brilliance
 
-知性の薬
+智慧药剂
 %%%%
 # TAG_MAJOR_VERSION == 34
 potion of gain strength
@@ -49,7 +49,7 @@ potion of slowing
 %%%%
 potion of flight
 
-飛行の薬
+飞行药剂
 %%%%
 # TAG_MAJOR_VERSION == 34
 potion of poison
@@ -57,19 +57,19 @@ potion of poison
 %%%%
 potion of cancellation
 
-無力化の薬
+消退药剂
 %%%%
 potion of ambrosia
 
-アンブロシアの薬
+琼浆药剂
 %%%%
 potion of invisibility
 
-透明化の薬
+隐身药剂
 %%%%
 potion of degeneration
 
-能力低下の薬
+退化药剂
 %%%%
 # TAG_MAJOR_VERSION == 34
 potion of decay
@@ -77,11 +77,11 @@ potion of decay
 %%%%
 potion of experience
 
-経験の薬
+经验药剂
 %%%%
 potion of magic
 
-魔力の薬
+魔力药剂
 %%%%
 # TAG_MAJOR_VERSION == 34
 potion of restore abilities
@@ -89,19 +89,19 @@ potion of restore abilities
 %%%%
 potion of berserk rage
 
-狂戦士の薬
+狂暴药剂
 %%%%
 potion of cure mutation
 
-突然変異治療の薬
+治疗突变药剂
 %%%%
 potion of mutation
 
-突然変異の薬
+突变药剂
 %%%%
 potion of blood
 
-血液の薬
+血液药剂
 %%%%
 # TAG_MAJOR_VERSION == 34
 potion of coagulated blood
@@ -109,15 +109,15 @@ potion of coagulated blood
 %%%%
 potion of resistance
 
-耐性の薬
+抗性药剂
 %%%%
 potion of lignification
 
-樹木化の薬
+变树药剂
 %%%%
 potion of beneficial mutation
 
-良性突然変異の薬
+有益突变药剂
 %%%%
 potion of bugginess
 

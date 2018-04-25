@@ -1,63 +1,63 @@
 %%%%
 wand of flame
 
-火炎のワンド
+火焰魔杖
 %%%%
 wand of slowing
 
-減速のワンド
+减速魔杖
 %%%%
 wand of hasting
 
-加速のワンド
+加速魔杖
 %%%%
 wand of heal wounds
 
-癒しのワンド
+疗伤魔杖
 %%%%
 wand of paralysis
 
-金縛りのワンド
+麻痹魔杖
 %%%%
 wand of confusion
 
-混乱のワンド
+混乱魔杖
 %%%%
 wand of digging
 
-掘削のワンド
+挖掘魔杖
 %%%%
 wand of iceblast
 
-吹雪のワンド
+冰爆魔杖
 %%%%
 wand of teleportation
 
-テレポートのワンド
+传送魔杖
 %%%%
 wand of lightning
 
-稲妻のワンド
+电击魔杖
 %%%%
 wand of polymorph
 
-変化のワンド
+变形魔杖
 %%%%
 wand of enslavement
 
-隷属のワンド
+奴役魔杖
 %%%%
 wand of acid
 
-強酸のワンド
+强酸魔杖
 %%%%
 wand of random effects
 
-でたらめのワンド
+随机效果魔杖
 %%%%
 wand of disintegration
 
-分解のワンド
+裂解魔杖
 %%%%
 wand of removedness
 

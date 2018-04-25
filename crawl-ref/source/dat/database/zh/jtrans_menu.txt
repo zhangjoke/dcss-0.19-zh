@@ -1,25 +1,25 @@
 %%%%
 -more-
 
---続く--
+--更多--
 %%%%
 <cyan>[ <w>+</w>, <w>></w>, <w>Space</w> or <w>L-click</w>: Page down.   <w>-</w> or <w><<</w>: Page up.   <w>Esc</w> or <w>R-click</w> exits.]
 
-<cyan>[ <w>+</w>, <w>></w>, <w>Space</w>または<w>左クリック</w>: 一画面上へ <w>-</w>または<w><<</w>: 一画面下へ <w>Esc</w>または<w>右クリック</w> 戻る]
+<cyan>[ <w>+</w>, <w>></w>, <w>Space</w>或<w>左クリック</w>: 上一页 <w>-</w>或<w><<</w>: 下一页 <w>Esc</w>或<w>右クリック</w> 退出]
 %%%%
 <cyan>[ <w>+</w>, <w>></w> or <w>Space</w>: Page down.   <w>-</w> or <w><<</w>: Page up.                       <w>Esc</w> exits.]
 
-<cyan>[ <w>+</w>, <w>></w>または<w>Space</w>: 一画面上へ <w>-</w>または<w><<</w>: 一画面下へ                    <w>Esc</w> 戻る]
+<cyan>[ <w>+</w>, <w>></w>或<w>Space</w>: 上一页 <w>-</w>或<w><<</w>: 下一页                    <w>Esc</w> 退出]
 %%%%
 Select what? (regex)
 
-何を選択しますか？ (正規表現可)
+选择哪一个？ (正则表达式)
 %%%%
 (%d item%s)
 
-(%d個のアイテム)
+(%d个物品)
 %%%%
 (page %d of %d)
 
-(%d/%d ページ)
+(%d/%d页)
 %%%%

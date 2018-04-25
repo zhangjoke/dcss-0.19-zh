@@ -1,13 +1,13 @@
 %%%%
 This branch is very noisy, and so sound travels much less far.
 
-この分岐は物音に満ちあふれており、音がそんなに遠くまで届かない。
+这个分支非常嘈杂，声音传不到远处。
 %%%%
 This branch is unnaturally silent, and so sound travels much further.
 
-この分岐は不自然なまでに静かで、音が遠くまでよく届く。
+这个分支异常安静，声音能传到很远的地方。
 %%%%
 This branch contains the %s rune%s of Zot.
 
-この分岐の奥底には%sが隠されている。
+这个分支藏有%s。
 %%%%

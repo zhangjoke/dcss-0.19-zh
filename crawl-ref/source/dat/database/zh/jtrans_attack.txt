@@ -37,7 +37,7 @@ Space warps horribly around %s!
 %%%%
 [chaos effect]polymorph PPT_MORE
 
-变身为更强大的怪物
+变形为更强大的怪物
 %%%%
 [chaos effect]shifter
 

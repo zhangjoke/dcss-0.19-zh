@@ -1,43 +1,43 @@
 %%%%
 scroll of identify
 
-鑑定の巻物
+鉴定卷轴
 %%%%
 scroll of teleportation
 
-テレポートの巻物
+传送卷轴
 %%%%
 scroll of fear
 
-恐慌の巻物
+恐惧卷轴
 %%%%
 scroll of noise
 
-騒音の巻物
+噪声卷轴
 %%%%
 scroll of remove curse
 
-解呪の巻物
+解除诅咒卷轴
 %%%%
 scroll of summoning
 
-召喚の巻物
+召唤卷轴
 %%%%
 scroll of enchant weapon
 
-武器強化の巻物
+武器强化卷轴
 %%%%
 scroll of enchant armour
 
-防具強化の巻物
+防具强化卷轴
 %%%%
 scroll of torment
 
-拷問の巻物
+折磨卷轴
 %%%%
 scroll of random uselessness
 
-無為無作為の巻物
+随机无用卷轴
 %%%%
 # TAG_MAJOR_VERSION == 34
 scroll of curse weapon
@@ -53,47 +53,47 @@ scroll of curse jewellery
 %%%%
 scroll of immolation
 
-焼き討ちの巻物
+内火卷轴
 %%%%
 scroll of blinking
 
-瞬間移動の巻物
+闪烁卷轴
 %%%%
 scroll of magic mapping
 
-魔法の地図の巻物
+魔法地图卷轴
 %%%%
 scroll of fog
 
-煙幕の巻物
+烟雾卷轴
 %%%%
 scroll of acquirement
 
-獲得の巻物
+获得卷轴
 %%%%
 scroll of brand weapon
 
-魔力の武器の巻物
+武器铭刻卷轴
 %%%%
 scroll of recharging
 
-魔力充填の巻物
+充能卷轴
 %%%%
 scroll of holy word
 
-聖なる御言葉の巻物
+圣言卷轴
 %%%%
 scroll of vulnerability
 
-脆弱の巻物
+脆弱卷轴
 %%%%
 scroll of silence
 
-静寂の巻物
+沉默卷轴
 %%%%
 scroll of amnesia
 
-忘却の巻物
+忘却卷轴
 %%%%
 scroll of bugginess
 

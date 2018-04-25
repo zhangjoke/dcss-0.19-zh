@@ -1,7 +1,7 @@
 %%%%
 (Hit _)
 
-('_' を押してください)
+(按'_')
 %%%%
 # TAG_MAJOR_VERSION == 34
 Temperature:
@@ -9,11 +9,11 @@ Temperature:
 %%%%
 Quiver unavailable
 
-(射撃準備できない)
+(弹药不可用)
 %%%%
 Nothing quivered
 
-(射撃準備していない)
+(没有准备好的弹药)
 %%%%
 # WIZARD
 
@@ -25,51 +25,55 @@ Nothing quivered
 %%%%
 XL:
 
-Lv:
+等级:
 %%%%
 Next:
 
-次Lv:
+下一级:
 %%%%
 Place:
 
-現在地:
+位置:
+%%%%
+AC:
+
+护甲:
 %%%%
 EV:
 
-回避:
+闪避:
 %%%%
 SH:
 
-盾:
+盾挡:
 %%%%
 Str:
 
-腕力:
+力量:
 %%%%
 Int:
 
-知力:
+智慧:
 %%%%
 Dex:
 
-器用:
+敏捷:
 %%%%
 Gold:
 
-所持金:
+金币:
 %%%%
 Time:
 
-時間:
+时间:
 %%%%
 Turn:
 
-ターン:
+回合:
 %%%%
 [adj]friendly
 
-友好的な
+友好
 %%%%
 # [adj]neutral
 
@@ -77,19 +81,19 @@ Turn:
 %%%%
 There were no monsters in sight!
 
-見える場所にはモンスターがいなかった！
+视野里没有怪物！
 %%%%
 There are no monsters in sight!
 
-見える場所にはモンスターがいない！
+视野里没有怪物！
 %%%%
 You could see
 
-あなたは%sを目にしていた。
+你看到了%s。
 %%%%
 You can see
 
-あなたは%sを目にしている。
+你看到了%s。
 %%%%
 [eq slot]Weapon
 
@@ -133,19 +137,19 @@ You can see
 %%%%
 Stlth
 
-隠密
+潜行
 %%%%
 melded
 
-肉体と融合した
+融入体内
 %%%%
 - Unarmed
 
-- 素手
+- 空手
 %%%%
 - Blade Hands
 
-- 刃の手
+- 手刃
 %%%%
 - Blade Hand
 
@@ -153,31 +157,31 @@ melded
 %%%%
 <darkgrey>(no {barding})</darkgrey>
 
-<darkgrey>(%sに装備していない)</darkgrey>
+<darkgrey>(没有装备%s)</darkgrey>
 %%%%
 <darkgrey>(%s unavailable)</darkgrey>
 
-<darkgrey>(%sを装備できない)</darkgrey>
+<darkgrey>(%s不可用)</darkgrey>
 %%%%
 <darkgrey>(%s currently unavailable)</darkgrey>
 
-<darkgrey>(今のところ%sを装備できない)</darkgrey>
+<darkgrey>(%s暂时不可用)</darkgrey>
 %%%%
 <darkgrey>(%s restricted)</darkgrey>
 
-<darkgrey>(%sは制限されている)</darkgrey>
+<darkgrey>(%s受限制)</darkgrey>
 %%%%
 <darkgrey>(no %s)</darkgrey>
 
-<darkgrey>(%sを装備していない)</darkgrey>
+<darkgrey>(没有装备%s)</darkgrey>
 %%%%
 ({species} {job})
 
-(%sの%s)
+(%s%s)
 %%%%
 Turns: %d, Time:
 
-経過ターン: %d プレイ時間
+回合: %d 时间：
 %%%%
 God:
 
@@ -185,15 +189,15 @@ God:
 %%%%
 Spells:
 
-魔法:
+法术:
 %%%%
 %d memorised, %d level%s left
 
-%d個記憶中/残り記憶力%d
+记住%d级，剩余%d级
 %%%%
 Lives:
 
-残り命:
+生命数:
 %%%%
 Deaths:
 
@@ -201,43 +205,43 @@ Deaths:
 %%%%
 rFire
 
-火炎耐性
+火焰抗性
 %%%%
 rCold
 
-冷気耐性
+冰冻抗性
 %%%%
 rNeg
 
-衰弱耐性
+负能抗性
 %%%%
 rPois
 
-毒素耐性
+毒素抗性
 %%%%
 rElec
 
-電撃耐性
+电击抗性
 %%%%
 rCorr
 
-腐蝕阻止
+腐蚀抗性
 %%%%
 rMut
 
-耐変異
+突变抗性
 %%%%
 MR
 
-魔法防御
+魔法抗性
 %%%%
 SeeInvis
 
-霊視
+侦测隐身
 %%%%
 Gourm
 
-悪食
+暴食
 %%%%
 Faith
 
@@ -245,7 +249,7 @@ Faith
 %%%%
 Spirit
 
-精霊盾
+灵能护盾
 %%%%
 Reflect
 
@@ -253,11 +257,11 @@ Reflect
 %%%%
 Harm
 
-痛撃
+伤害
 %%%%
 Rnd*Rage
 
-突発狂乱
+随机狂暴
 %%%%
 # Clarity
 
@@ -265,35 +269,35 @@ Rnd*Rage
 %%%%
 NoTele
 
-転位不可
+无法传送
 %%%%
 Rnd*Tele
 
-突発転位
+随机传送
 %%%%
 NoCast
 
-魔法不可
+无法施法
 %%%%
 [status]very quick
 
-非常に俊敏
+非常快
 %%%%
 [status]quick
 
-俊敏
+快
 %%%%
 [status]slow
 
-鈍足
+慢
 %%%%
 [status]very slow
 
-非常に鈍足
+非常慢
 %%%%
 no status effects
 
-特になし
+无状态
 %%%%
 # unfitting armour
 
@@ -321,13 +325,13 @@ no status effects
 %%%%
 no striking features
 
-特になし
+无特征
 %%%%
 <w>0:</w> Orb of Zot
 
-<w>0:</w> ゾットのオーブ
+<w>0:</w> 佐特宝珠
 %%%%
 <w>%s:</w> %d/%d rune%s: %s
 
-<w>%s:</w> %d/%d ルーン: %s
+<w>%s:</w> %d/%d 符文: %s
 %%%%

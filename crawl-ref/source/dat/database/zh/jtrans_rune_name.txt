@@ -1,79 +1,79 @@
 %%%%
 iron rune of Zot
 
-鉄のルーン
+铁制佐特符文
 %%%%
 obsidian rune of Zot
 
-黒曜石のルーン
+黑曜石佐特符文
 %%%%
 icy rune of Zot
 
-氷のルーン
+冰制佐特符文
 %%%%
 bone rune of Zot
 
-骨のルーン
+骨制佐特符文
 %%%%
 slimy rune of Zot
 
-ぬめりのルーン
+史莱姆佐特符文
 %%%%
 silver rune of Zot
 
-銀のルーン
+白银佐特符文
 %%%%
 serpentine rune of Zot
 
-蛇行のルーン
+蛇形佐特符文
 %%%%
 elven rune of Zot
 
-エルフのルーン
+精灵佐特符文
 %%%%
 golden rune of Zot
 
-黄金のルーン
+黄金佐特符文
 %%%%
 decaying rune of Zot
 
-腐敗のルーン
+腐败佐特符文
 %%%%
 barnacled rune of Zot
 
-フジツボのルーン
+藤壶佐特符文
 %%%%
 gossamer rune of Zot
 
-遊糸のルーン
+蛛网佐特符文
 %%%%
 mossy rune of Zot
 
-苔のルーン
+青苔佐特符文
 %%%%
 demonic rune of Zot
 
-悪魔のルーン
+恶魔佐特符文
 %%%%
 abyssal rune of Zot
 
-深淵のルーン
+深渊佐特符文
 %%%%
 glowing rune of Zot
 
-輝きのルーン
+发光佐特符文
 %%%%
 magical rune of Zot
 
-魔法のルーン
+魔法佐特符文
 %%%%
 fiery rune of Zot
 
-火のルーン
+火焰佐特符文
 %%%%
 dark rune of Zot
 
-暗黒のルーン
+黑暗佐特符文
 %%%%
 buggy rune of Zot
 

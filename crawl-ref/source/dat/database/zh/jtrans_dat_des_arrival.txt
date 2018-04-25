@@ -3,5 +3,5 @@
 %%%%
 [feature]adventurer's gravestone
 
-冒険者の墓石
+冒险者的墓碑
 %%%%

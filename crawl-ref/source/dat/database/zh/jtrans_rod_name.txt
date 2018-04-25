@@ -1,11 +1,11 @@
 %%%%
 lightning rod
 
-稲妻のロッド
+闪电魔棒
 %%%%
 iron rod
 
-鉄弾のロッド
+铁弹魔棒
 %%%%
 # TAG_MAJOR_VERSION == 34
 rod of the swarm
@@ -17,7 +17,7 @@ rod of warding
 %%%%
 rod of shadows
 
-影の怪物のロッド
+暗影魔棒
 %%%%
 # TAG_MAJOR_VERSION == 34
 rod of venom
@@ -25,15 +25,15 @@ rod of venom
 %%%%
 rod of inaccuracy
 
-不正確の矢のロッド
+不精确魔棒
 %%%%
 rod of ignition
 
-燃焼のロッド
+燃烧魔棒
 %%%%
 rod of clouds
 
-雲烟のロッド
+云雾魔棒
 %%%%
 # TAG_MAJOR_VERSION == 34
 rod of destruction

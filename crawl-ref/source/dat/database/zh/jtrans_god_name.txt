@@ -1,119 +1,119 @@
 %%%%
 No God
 
-無信仰
+无信仰
 %%%%
-Ashenzari
+艾申扎利
 
 アシェンザリ
 %%%%
 Ashenzari the Shackled
 
-束縛されしもの『アシェンザリ』
+束缚之神艾申扎利
 %%%%
 Beogh
 
-ベオ
+贝奥夫
 %%%%
 Beogh the Brigand
 
-略奪者『ベオ』
+掠夺之神贝奥夫
 %%%%
 Cheibriados
 
-ケイブリアドス
+切布理亚多
 %%%%
 Cheibriados the Contemplative
 
-瞑想者『ケイブリアドス』
+冥想之神切布理亚多
 %%%%
 Dithmenos
 
-ディスメノス
+迪斯姆诺
 %%%%
 Dithmenos the Shadowed
 
-陰影の『ディスメノス』
+暗影之神迪斯姆诺
 %%%%
 Elyvilon
 
-エリヴィロン
+艾利维隆
 %%%%
 Elyvilon the Healer
 
-癒し手『エリヴィロン』
+治愈之神艾利维隆
 %%%%
 Fedhas
 
-フェダス
+费德哈
 %%%%
 Fedhas Madash
 
-『フェダス・マダシュ』
+费德哈·马达许
 %%%%
 Gozag
 
-ゴザーグ
+哥萨戈
 %%%%
 Gozag Ym Sagoz the Greedy
 
-強欲なる『ゴザーグ・イム・サゴーズ』
+贪婪之神哥萨戈·萨格斯
 %%%%
 Hepliaklqana
 
-ヘプリアクルカナ
+惠普利亚卡纳
 %%%%
 Hepliaklqana the Forgotten
 
-忘れられし『ヘプリアクルカナ』
+遗忘之神惠普利亚卡纳
 %%%%
 Jiyva
 
-ジーヴァ
+吉瓦
 %%%%
 Jiyva lastname
 
-『ジーヴァ』
+吉瓦
 %%%%
 Kikubaaqudgha
 
-キクバークッグァ
+奇库巴库哈
 %%%%
 Kikubaaqudgha lastname
 
-『キクバークッグァ』
+奇库巴库哈
 %%%%
 Lugonu
 
-ルゴヌ
+卢格努
 %%%%
 Lugonu the Unformed
 
-無形の『ルゴヌ』
+无形之神卢格努
 %%%%
 Makhleb
 
-マクレブ
+马科列布
 %%%%
 Makhleb the Destroyer
 
-破壊者『マクレブ』
+破坏之神马科列布
 %%%%
 Nemelex Xobeh
 
-ネメレクス・ソベー
+尼姆雷斯・索布
 %%%%
 Nemelex Xobeh the Trickster
 
-トリックスター『ネメレクス・ソベー』
+诡计之神尼姆雷斯・索布
 %%%%
 Okawaru
 
-オカワル
+奥卡瓦鲁
 %%%%
 Warmaster Okawaru
 
-戦上手の『オカワル』
+战争之神奥卡瓦鲁
 %%%%
 Pakellas
 
@@ -125,193 +125,193 @@ Pakellas the Inventive
 %%%%
 Qazlal
 
-クァズラル
+卡兹拉尔
 %%%%
 Qazlal Stormbringer
 
-嵐を呼ぶ者『クァズラル』
+呼唤风暴之神卡兹拉尔
 %%%%
 Ru
 
-ルー
+孺
 %%%%
 Ru the Awakened
 
-覚者『ルー』
+觉醒之神孺
 %%%%
 Sif Muna
 
-シフ・ムーナ
+席夫·穆纳
 %%%%
 Sif Muna the Loreminder
 
-知識の守護者『シフ・ムーナ』
+知识守护神席夫·穆纳
 %%%%
 The Shining One
 
-輝けるもの
+光明神
 %%%%
 The Shining One lastname
 
-『輝けるもの』
+光明神
 %%%%
 Trog
 
-トログ
+特洛戈
 %%%%
 Trog the Wrathful
 
-激怒せる『トログ』
+愤怒之神特洛戈
 %%%%
 Uskayaw
 
-ウスカヤー
+乌卡亚
 %%%%
 Uskayaw the Reveler
 
-酔客『ウスカヤー』
+狂欢之神乌卡亚
 %%%%
 Vehumet
 
-ヴェフメット
+维忽麦特
 %%%%
 Vehumet lastname
 
-『ヴェフメット』
+维忽麦特
 %%%%
 Xom
 
-ゾム
+佐姆
 %%%%
 Xom of Chaos
 
-混沌の『ゾム』
+混沌之神佐姆
 %%%%
 Xom the Random
 
-無秩序の『ゾム』
+随机之神佐姆
 %%%%
 Xom the Random Number God
 
-乱数の神『ゾム』
+随机数之神佐姆
 %%%%
 Xom the Elder Chaos God
 
-太古の混沌神『ゾム』
+上古混沌之神佐姆
 %%%%
 Xom the Tricky
 
-トリックの『ゾム』
+狡猾之神佐姆
 %%%%
 Xom the Less-Predictable
 
-予測不能の『ゾム』
+难以预料之神佐姆
 %%%%
 Xom the Unpredictable
 
-予測不可能の『ゾム』
+变化莫测之神佐姆
 %%%%
 Xom of Many Doors
 
-数多の扉の『ゾム』
+众门之神佐姆
 %%%%
 Xom the Capricious
 
-気紛れの『ゾム』
+任性之神佐姆
 %%%%
 Xom of Bloodstained Whimsey
 
-血塗られし奇想の『ゾム』
+血色奇想之神佐姆
 %%%%
 Xom of Enforced Whimsey
 
-奇想の執行者『ゾム』
+奇想执行之神佐姆
 %%%%
 Xom of Bone-Dry Humour
 
-残忍なる機知の『ゾム』
+残酷幽默之神佐姆
 %%%%
 Xom of Malevolent Giggling
 
-邪悪なる戯れの『ゾム』
+恶毒笑话之神佐姆
 %%%%
 Xom of Malicious Giggling
 
-悪意ある冗談の『ゾム』
+恶意笑话之神佐姆
 %%%%
 Xom the Psychotic
 
-狂気の『ゾム』
+疯子之神佐姆
 %%%%
 Xom the Psychopath
 
-精神病質者『ゾム』
+精神病之神佐姆
 %%%%
 Xom of Gnomic Intent
 
-戯れの『ゾム』
+精辟之神佐姆
 %%%%
 Xom of Ineffable Intent
 
-恐るべき『ゾム』
+不可名状之神佐姆
 %%%%
 Xom of Fickle Intent
 
-移り気の『ゾム』
+意图易变之神佐姆
 %%%%
 Xom of Swiftly Tilting Intent
 
-前言撤回の『ゾム』
+不算话之神佐姆
 %%%%
 Xom of Unknown Intent
 
-知られざる意図の『ゾム』
+意图不明之神佐姆
 %%%%
 Xom the Fickle
 
-移り気の『ゾム』
+易变之神佐姆
 %%%%
 Xom of Unknown Intention
 
-知られざる意図の『ゾム』
+目的不明之神佐姆
 %%%%
 The Xom-Meister
 
-『ゾム・マイスター』
+佐姆・麦斯特
 %%%%
 The Xom-Meister, Xom-a-lom-a-ding-dong
 
-『ゾム・マイスター ゾム-ア-ロム-ア-ディン-ドン』
+佐姆・麦斯特，佐姆・呤・叮・咚
 %%%%
 The Xom-Meister, Xom-o-Rama
 
-『ゾム・マイスター ゾム-オ-ラマ』
+佐姆・麦斯特，佐姆・欧・拉姆
 %%%%
 The Xom-Meister, Xom-Xom-bo-Bom, Banana-Fana-fo-Fom
 
-『ゾム・マイスター ゾム-ゾム-ボ-ボン バナナ-ファナ-フォ-フォム』
+佐姆・麦斯特，佐姆・佐姆・波・波姆，巴纳纳・法纳・佛・佛姆
 %%%%
 Xom the Begetter of Turbulence
 
-争乱をもたらすもの『ゾム』
+动荡之父佐姆
 %%%%
 Xom the Begetter of Discontinuities
 
-無秩序をもたらすもの『ゾム』
+无序之父佐姆
 %%%%
 Yredelemnul
 
-イレデレンヌル
+伊莱德莱姆努尔
 %%%%
 Yredelemnul the Dark
 
-暗黒の『イレデレンヌル』
+黑暗之神伊莱德莱姆努尔
 %%%%
 Zin
 
-ジン
+辛
 %%%%
 Zin the Law-Giver
 
-法の制定者『ジン』
+律法之神辛
 %%%%
