@@ -958,8 +958,8 @@ void attack::drain_defender()
                 make_stringf(
                     jtransc("{attacker} {verb} {defender}!"),
                     atk_name(DESC_THE).c_str(),
-                    defender_name(true).c_str(),
-                    attacker->conj_verb_j("drain").c_str());
+                    attacker->conj_verb_j("drain").c_str(),
+                    defender_name(true).c_str());
         }
     }
 }
@@ -970,8 +970,8 @@ void attack::drain_defender_speed()
     {
         mprf(jtransc("{attacker} {verb} {defender's} vigour!"),
              atk_name(DESC_THE).c_str(),
-             def_name(DESC_ITS).c_str(),
-             attacker->conj_verb_j("drain").c_str());
+             attacker->conj_verb_j("drain").c_str(),
+             def_name(DESC_ITS).c_str());
     }
     defender->slow_down(attacker, 5 + random2(7));
 }
@@ -1036,7 +1036,7 @@ string attack::attack_strength_punctuation(int dmg)
 string attack::evasion_margin_adverb()
 {
     return (ev_margin <= -20) ? " completely" :
-           (ev_margin <= -12) ? "" :
+           (ev_margin <= -12) ? " somehow" :
            (ev_margin <= -6)  ? " closely"
                               : " barely";
 }
@@ -1069,8 +1069,8 @@ void attack::stab_message()
         else
         {
             mprf(jtransc("You %s %s from behind!"),
-                 defender->name(DESC_THE).c_str(),
-                 verb_j((you.species == SP_FELID) ? "pounce on" : "strike", "[stab verb]").c_str());
+                verb_j((you.species == SP_FELID) ? "pounce on" : "strike", "[stab verb]").c_str()，
+                defender->name(DESC_THE).c_str());
         }
         break;
     case 2:
@@ -1130,7 +1130,7 @@ string attack::wep_name(description_level_type desc, iflags_t ignre_flags)
     }
 
     if (possessive)
-        name = atk_name(desc) + "の";
+        name = atk_name(desc) + "的";
 
     name += weapon->name(DESC_PLAIN, false, false, false, false, ignre_flags);
 
@@ -1430,9 +1430,9 @@ bool attack::attack_shield_blocked(bool verbose)
         {
             mprf(jtransc("{defender} {verb} {itself} attack."),
                  defender_name(false).c_str(),
+                 defender->conj_verb_j("block").c_str(),
                  jtransc(attacker == defender ? "its own"
-                                              : atk_name(DESC_ITS).c_str()),
-                 defender->conj_verb_j("block").c_str());
+                                              : atk_name(DESC_ITS).c_str()));
         }
 
         defender->shield_block_succeeded(attacker);
@@ -1825,9 +1825,9 @@ void attack::calc_elemental_brand_damage(beam_type flavour,
             jtransc("{attacker} {verb} {defender}{!}"),
             what ? what : atk_name(DESC_THE).c_str(),
             // Don't allow reflexive if the subject wasn't the attacker.
-            (defender_name(!what) + (strcmp(verb, "melt") ? "" : "の体")).c_str(),
             what ? conjugate_verb_j(verb, false).c_str()
                  : attacker->conj_verb_j(verb).c_str(),
+            (defender_name(!what) + (strcmp(verb, "melt") ? "" : "的身体")).c_str(),
             attack_strength_punctuation(special_damage).c_str());
     }
 }

@@ -1481,8 +1481,8 @@ string melee_attack::player_why_missed()
     }
 
     return make_stringf(jtransc("You {evasion margin} miss {name}"),
-                        defender->name(DESC_PLAIN).c_str(),
-                        adv_jc(evasion_margin_adverb()));
+                        adv_jc(evasion_margin_adverb()),
+                        defender->name(DESC_PLAIN).c_str(),);
 }
 
 void melee_attack::player_warn_miss()
