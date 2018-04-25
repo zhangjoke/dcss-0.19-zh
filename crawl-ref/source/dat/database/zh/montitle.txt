@@ -1,0 +1,289 @@
+%%%%
+Agnes the Wanderer
+
+放浪者『アグネス』
+%%%%
+Aizul the Neglectful Guardian
+
+怠慢なる番人『アイズル』
+%%%%
+Antaeus, Guardian of Cocytus
+
+コキュートスの番人『アンテウス』
+%%%%
+Arachne the Weaver
+
+糸の編み手『アラクネ』
+%%%%
+Asmodeus, Prince of Gehenna
+
+ゲヘナの王子『アスモデウス』
+%%%%
+Asterion the Fallen King
+
+堕落せし王『アステリオン』
+%%%%
+Azrael the Boundless Flame
+
+永劫の炎の『アズラエル』
+%%%%
+Bai Suzhen, Madame White Snake
+
+白蛇の婦人『白娘子』
+%%%%
+Boris, Master of Life and Death
+
+生と死の熟達者『ボリス』
+%%%%
+Cerebov, Demon Lord of Fire and Steel
+
+炎と鉄の魔王『セレボブ』
+%%%%
+Chuck the Collector
+
+収集者『チャック』
+%%%%
+Crazy Yiuf the Enlightened
+
+啓蒙されし『狂人ヰゥフ』
+%%%%
+Dispater, Lord of the Iron City
+
+鉄の都の王『ディスペータ』
+%%%%
+Dissolution, High Priest of Jiyva
+
+ジーヴァの大司祭『溶解者』
+%%%%
+Donald the Adventurer
+
+冒険者『ドナルド』
+%%%%
+Dowan, Brother of Duvessa
+
+デュヴェッサの双子の兄『ドウェン』
+%%%%
+Duvessa, Sister of Dowan
+
+ドウェンの双子の妹『デュヴェッサ』
+%%%%
+Edmund the Younger
+
+シグムンドの弟『エドマンド』
+%%%%
+Ereshkigal, Queen of Tartarus
+
+タルタロスの女王『エレシュキガル』
+%%%%
+Erica the Fiery-Tempered
+
+燃えさかる気性の『エリカ』
+%%%%
+Erolcha the Cunning
+
+狡猾なる『エロルカ』
+%%%%
+Eustachio the Magnificent
+
+偉大なる『エウスタキオ』
+%%%%
+Fannar the Cold-Hearted
+
+冷血なる『ファンナール』
+%%%%
+Frances, Duchess of Pandemonium
+
+パンデモニウムの女公爵『フランセス』
+%%%%
+Frederick the Flawless
+
+完全無欠の『フレデリック』
+%%%%
+Gastronok the Ponderous
+
+重厚なる『ガストロノク』
+%%%%
+Geryon, Gatekeeper of Hell
+
+地獄の門番『ゲリュオン』
+%%%%
+Gloorx Vloq, Demon Lord of Darkness
+
+暗闇の魔王『グロオルクス・ヴロック』
+%%%%
+Grum the Hunter
+
+狩人『グルム』
+%%%%
+Harold the Weathered
+
+年月を重ねしもの『ハロルド』
+%%%%
+Ignacio, Master of Excruciating Pain
+
+処刑の達人『イグナシオ』
+%%%%
+Ilsuiw, Witch of the Tides
+
+海流の魔女『イルスィウ』
+%%%%
+Ijyb the Twisted Goblin
+
+捻じ曲がりしゴブリン『イジェィブ』
+%%%%
+Jessica the Apprentice Sorceress
+
+見習い魔法使い『ジェシカ』
+%%%%
+Jorgrun Earthshaker
+
+大地を揺らす者『ジョーグルン』
+%%%%
+Jory the Bloodstained Count
+
+血まみれ伯爵『ジョリー』
+%%%%
+Joseph, a Mercenary
+
+傭兵『ジョセフ』
+%%%%
+Josephine the Decaying Necromancer
+
+腐敗せる死人使い『ジョセフィーヌ』
+%%%%
+Khufu the Undying Pharaoh
+
+不滅のファラオ『クフ王』
+%%%%
+Kirke, Weaver of Myths
+
+秘蹟の編み手『キルケー』
+%%%%
+Lom Lobon, Demon Lord of Forbidden Knowledge
+
+禁じられし知識の魔王『ロム・ロボン』
+%%%%
+Louise the Corrupted
+
+崩壊せし者『ルイーズ』
+%%%%
+Mara, Lord of Illusions
+
+幻影の王『マーラ』
+%%%%
+Margery the Dragonslayer
+
+ドラゴン殺し『マージェリー』
+%%%%
+Maud the Forgotten
+
+忘れ去られし『モード』
+%%%%
+Maurice the Thief
+
+盗賊『モーリス』
+%%%%
+Menkaure, Prince of Dust
+
+塵の貴公子『メンカウラー王』
+%%%%
+Mennas, the Voice of Zin
+
+ジンの代弁者『メナス』
+%%%%
+Mnoleg, Demon Lord of Chaos
+
+混沌の魔王『ムノレグ』
+%%%%
+Murray the Demonic Talking Skull
+
+物言う髑髏『マーリー』
+%%%%
+Natasha, Servant of Life and Death
+
+生と死の下僕『ナターシャ』
+%%%%
+Nellie, Star of the Show
+
+興業の星『ネリー』
+%%%%
+Nergalle the Soulbinder
+
+魂を縛る者『ネルガレ』
+%%%%
+Nessos the Markscentaur
+
+射撃の名手『ネッソス』
+%%%%
+Nikola the Mad Inventor
+
+狂気の発明者『ニコラ』
+%%%%
+Pikel the Slaver
+
+奴隷使い『ピケル』
+%%%%
+Polyphemus the Watchful Shepherd
+
+目敏き羊飼い『ポリュペモス』
+%%%%
+Psyche the Insane Magess
+
+狂気の魔道師『サイキ』
+%%%%
+Purgy the Meek
+
+いくじなし『パージー』
+%%%%
+Robin of the Strong Arm
+
+剛腕の『ロビン』
+%%%%
+Roxanne, Geomancer Emeritus
+
+名誉地霊術師『ロクサーヌ』
+%%%%
+Rupert the Wild
+
+野生児『ルパート』
+%%%%
+Saint Roka the Messiah
+
+救世主『聖者ロカ』
+%%%%
+Sigmund the Dreaded
+
+恐怖の『シグムンド』
+%%%%
+Snorg the Insatiable
+
+強欲なる『スノーグ』
+%%%%
+Sojobo, Queen of Tengu
+
+天狗の女王『僧正坊』
+%%%%
+Sonja, the Graceful Assassin
+
+優美なる暗殺者『ソーニャ』
+%%%%
+Terence the Incautious
+
+うっかり者『テレンス』
+%%%%
+Tiamat, Avatar of the Dragonlord
+
+竜王の化身『ティアマト』
+%%%%
+Urug the Orcish Ballista
+
+オークの槍投手『ウルグ』
+%%%%
+Vashnia the Elite Marksnaga
+
+ナーガの精鋭射手『ヴァシュニア』
+%%%%
+Xtahua the Ancient
+
+古代竜『ザッハ』
+%%%%

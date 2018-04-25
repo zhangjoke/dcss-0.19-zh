@@ -1,0 +1,37 @@
+%%%%
+revokes the gift of sanctuary.
+
+撤回了圣殿。
+%%%%
+The sanctuary starts shrinking.
+
+圣殿开始缩小。
+%%%%
+The sanctuary disappears.
+
+圣殿消失了。
+%%%%
+By Zin's power, hidden traps are revealed to you.
+
+通过辛的力量，隐藏的陷阱被揭示了。
+%%%%
+By Zin's power, the foul cloud within the sanctuary is swept away.
+
+通过辛的力量，圣殿内的有害云一扫而空。
+%%%%
+By Zin's power, all foul fumes within the sanctuary are swept away.
+
+通过辛的力量，圣殿内的有害云一扫而空。
+%%%%
+By Zin's power, all blood is cleared from the sanctuary.
+
+通过辛的力量，圣殿内的血被清除了。
+%%%%
+turns to flee the light!
+
+开始逃离圣光！
+%%%%
+The monsters scatter in all directions!
+
+怪物们向各个方向逃窜！
+%%%%

@@ -1,0 +1,166 @@
+%%%%
+animal skin
+
+动物毛皮
+%%%%
+robe
+
+长袍
+%%%%
+leather armour
+
+皮甲
+%%%%
+ring mail
+
+锁环甲
+%%%%
+scale mail
+
+鳞甲
+%%%%
+chain mail
+
+链甲
+%%%%
+plate armour
+
+板甲
+%%%%
+crystal plate armour
+
+水晶板甲
+%%%%
+removed troll hide
+
+# 訳不要
+%%%%
+troll leather armour
+
+巨魔皮甲
+%%%%
+steam dragon scales
+
+蒸汽龙鳞甲
+%%%%
+removed steam dragon hide
+
+# 訳不要
+%%%%
+mottled dragon scales
+
+斑纹龙鳞甲
+%%%%
+removed mottled dragon hide
+
+# 訳不要
+%%%%
+quicksilver dragon scales
+
+水银龙鳞甲
+%%%%
+removed quicksilver dragon hide
+
+# 訳不要
+%%%%
+swamp dragon scales
+
+沼泽龙鳞甲
+%%%%
+removed swamp dragon hide
+
+# 訳不要
+%%%%
+fire dragon scales
+
+火龙鳞甲
+%%%%
+removed fire dragon hide
+
+# 訳不要
+%%%%
+ice dragon scales
+
+冰龙鳞甲
+%%%%
+removed ice dragon hide
+
+# 訳不要
+%%%%
+pearl dragon scales
+
+珍珠龙鳞甲
+%%%%
+removed pearl dragon hide
+
+# 訳不要
+%%%%
+storm dragon scales
+
+风暴龙鳞甲
+%%%%
+removed storm dragon hide
+
+# 訳不要
+%%%%
+shadow dragon scales
+
+暗影龙鳞甲
+%%%%
+removed shadow dragon hide
+
+# 訳不要
+シャドウドラゴンの皮
+%%%%
+gold dragon scales
+
+金龙鳞甲
+%%%%
+removed gold dragon hide
+
+# 訳不要
+%%%%
+cloak
+
+披风
+%%%%
+gloves
+
+手套
+%%%%
+helmet
+
+头盔
+%%%%
+# TAG_MAJOR_VERSION == 34
+# cap
+
+%%%%
+hat
+
+帽子
+%%%%
+boots
+
+靴子
+%%%%
+centaur barding
+
+半人马甲
+%%%%
+naga barding
+
+娜迦甲
+%%%%
+buckler
+
+小圆盾
+%%%%
+shield
+
+盾
+%%%%
+large shield
+
+大盾
+%%%%

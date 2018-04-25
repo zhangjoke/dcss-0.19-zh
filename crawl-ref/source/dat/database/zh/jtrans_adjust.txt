@@ -1,0 +1,33 @@
+%%%%
+Adjust (i)tems, (s)pells, or (a)bilities?
+
+调整(i)物品 ，(s)法术还是(a)能力的字母？
+%%%%
+Adjust which item?
+
+调整哪件物品？
+%%%%
+Adjust to which letter?
+
+调整为那个字母？
+%%%%
+Adjust which spell?
+
+调整哪道法术？
+%%%%
+You don't know that spell.
+
+你不知道这道法术。
+%%%%
+You don't currently have any abilities.
+
+你现在没有任何能力。
+%%%%
+Adjust which ability?
+
+调整哪个能力？
+%%%%
+No such ability.
+
+没有这个能力。
+%%%%

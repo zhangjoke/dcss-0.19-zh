@@ -1,0 +1,1573 @@
+%%%%
+its
+
+<[gender neuter poss]its>
+%%%%
+(melded)
+
+(融入体内)
+%%%%
+(worn)
+
+(装备中)
+%%%%
+left {hand}
+
+左%s
+%%%%
+right {hand}
+
+右%s
+%%%%
+(quivered)
+
+(当前弹药)
+%%%%
+(curse)
+
+(诅咒)
+%%%%
+#if TAG_MAJOR_VERSION == 34
+# [missile brand]flame
+
+%%%%
+#if TAG_MAJOR_VERSION == 34
+# [missile brand]frost
+
+%%%%
+[missile brand]poison
+
+毒
+%%%%
+[missile brand]curare
+
+箭毒
+%%%%
+[missile brand]explode
+
+爆炸
+%%%%
+[missile brand]steel
+
+钢制
+%%%%
+[missile brand]silver
+
+银制
+%%%%
+[missile brand]paralysis
+
+麻痹
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[missile brand]slow
+
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[missile brand]slowing
+
+%%%%
+[missile brand]sleep
+
+睡眠
+%%%%
+[missile brand]confusion
+
+混乱
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[missile brand]sick
+
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[missile brand]sickness
+
+%%%%
+[missile brand]frenzy
+
+激怒
+%%%%
+[missile brand]returning
+
+返回
+%%%%
+[missile brand]chaos
+
+混沌
+%%%%
+[missile brand]penetration
+
+穿透
+%%%%
+[missile brand]dispersal
+
+驱散
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[missile brand]blind
+
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[missile brand]blinding
+
+%%%%
+[item adj terse]flame
+
+火焰
+%%%%
+[item adj terse]freeze
+
+病毒
+%%%%
+[item adj terse]holy
+
+神圣愤怒
+%%%%
+[item adj terse]elec
+
+电击
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[item adj terse]obsolete
+
+%%%%
+[item adj terse]venom
+
+淬毒
+%%%%
+[item adj terse]protect
+
+防护
+%%%%
+[item adj terse]drain
+
+虚弱
+%%%%
+[item adj terse]speed
+
+快速
+%%%%
+[item adj terse]buggy-vorpal
+
+#訳不要
+%%%%
+[item adj terse]vamp
+
+吸血
+%%%%
+[item adj terse]pain
+
+痛苦
+%%%%
+[item adj terse]antimagic
+
+反魔法
+%%%%
+[item adj terse]distort
+
+扭曲
+%%%%
+[item adj terse]chaos
+
+混沌
+%%%%
+[item adj terse]evade
+
+回避
+%%%%
+
+%%%%
+[item adj terse]confuse
+
+混乱
+%%%%
+[item adj terse]penet
+
+穿透
+%%%%
+[item adj terse]reap
+
+收割
+%%%%
+[item adj terse]buggy-num
+
+#訳不要
+%%%%
+[item adj terse]acid
+
+酸性
+%%%%
+[item adj verbose]flaming
+
+<[item adj terse]flame>
+%%%%
+of flaming
+
+火焰
+%%%%
+[item adj verbose]freezing
+
+<[item adj terse]freeze>
+%%%%
+of freezing
+
+冰冻
+%%%%
+[item adj verbose]holy wrath
+
+<[item adj terse]holy>
+%%%%
+of holy wrath
+
+神圣愤怒
+%%%%
+[item adj verbose]electrocution
+
+<[item adj terse]elec>
+%%%%
+of electrocution
+
+电击
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[item adj verbose]orc slaying
+
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[item adj verbose]dragon slaying
+
+%%%%
+[item adj verbose]venom
+
+<[item adj terse]venom>
+%%%%
+of venom
+
+淬毒
+%%%%
+[item adj verbose]protection
+
+<[item adj terse]protect>
+%%%%
+of protection
+
+防护
+%%%%
+[item adj verbose]draining
+
+<[item adj terse]drain>
+%%%%
+of draining
+
+虚弱
+%%%%
+[item adj verbose]speed
+
+<[item adj terse]speed>
+%%%%
+of speed
+
+速度
+%%%%
+[item adj verbose]buggy-vorpal
+
+<[item adj terse]buggy-vorpal>
+%%%%
+of buggy-vorpal
+
+# 訳不要
+%%%%
+[item adj verbose]pain
+
+<[item adj terse]pain>
+%%%%
+of pain
+
+痛苦
+%%%%
+[item adj verbose]distortion
+
+<[item adj terse]distort>
+%%%%
+of distortion
+
+扭曲
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[item adj verbose]reaching
+
+%%%%
+#if TAG_MAJOR_VERSION == 34
+[item adj verbose]returning
+
+%%%%
+[item adj verbose]chaos
+
+<[item adj terse]chaos>
+%%%%
+of chaos
+
+混沌
+%%%%
+[item adj verbose]evasion
+
+<[item adj terse]evade>
+%%%%
+of evasion
+
+回避
+%%%%
+[item adj verbose]confusion
+
+<[item adj terse]confuse>
+%%%%
+of confusion
+
+混乱
+%%%%
+[item adj verbose]penetration
+
+<[item adj terse]penet>
+%%%%
+of penetration
+
+穿透
+%%%%
+[item adj verbose]reaping
+
+<[item adj terse]reap>
+%%%%
+of reaping
+
+收割
+%%%%
+[item adj verbose]buggy-num
+
+<[item adj terse]buggy-num>
+%%%%
+[item adj verbose]acid
+
+<[item adj terse]acid>
+%%%%
+of acid
+
+酸性
+%%%%
+[item adj terse]vorpal
+
+# 訳不要
+%%%%
+[item adj verbose]vorpal
+
+<[item adj terse]vorpal>
+%%%%
+[item adj terse]velocity
+
+高速
+%%%%
+[item adj verbose]velocity
+
+<[item adj terse]velocity>
+%%%%
+of velocity
+
+高速
+%%%%
+[item adj terse]crush
+
+粉碎
+%%%%
+[item adj verbose]crushing
+
+<[item adj terse]crush>
+%%%%
+of crushing
+
+粉碎
+%%%%
+[item adj terse]slice
+
+切割
+%%%%
+[item adj verbose]slicing
+
+<[item adj terse]slice>
+%%%%
+of slicing
+
+切割
+%%%%
+[item adj terse]pierce
+
+贯穿
+%%%%
+[item adj verbose]piercing
+
+<[item adj terse]pierce>
+%%%%
+of piercing
+
+贯穿
+%%%%
+[item adj terse]chop
+
+砍断
+%%%%
+[item adj verbose]chopping
+
+<[item adj terse]chop>
+%%%%
+of chopping
+
+砍断
+%%%%
+[item adj terse]slash
+
+斩断
+%%%%
+[item adj verbose]slashing
+
+<[item adj terse]slash>
+%%%%
+of slashing
+
+斩断
+%%%%
+buggy vorpal
+
+# 訳不要
+%%%%
+buggy destruction
+
+# 訳不要
+%%%%
+of speedy slithering
+
+速滑
+%%%%
+of running
+
+速滑
+%%%%
+of fire resistance
+
+火焰抗性
+%%%%
+of cold resistance
+
+冰冻抗性
+%%%%
+of poison resistance
+
+毒抗性
+%%%%
+of see invisible
+
+侦测隐身
+%%%%
+of invisibility
+
+隐身
+%%%%
+of strength
+
+力量
+%%%%
+of dexterity
+
+敏捷
+%%%%
+of intelligence
+
+智慧
+%%%%
+of ponderousness
+
+笨重
+%%%%
+of flying
+
+飞行
+%%%%
+of magic resistance
+
+魔法抗性
+%%%%
+# of protection
+
+# 武器エゴと重複
+%%%%
+of stealth
+
+潜行
+%%%%
+of resistance
+
+抗性
+%%%%
+of positive energy
+
+正能量
+%%%%
+of the Archmagi
+
+大法师
+%%%%
+#if TAG_MAJOR_VERSION == 34
+of jumping
+
+%%%%
+#if TAG_MAJOR_VERSION == 34
+of preservation
+
+%%%%
+of reflection
+
+反射
+%%%%
+of spirit shield
+
+灵能护盾
+%%%%
+of archery
+
+射术
+%%%%
+of bugginess
+
+# 訳不要
+%%%%
+# ワンド関連はjtrans_wand_name.txtに記述
+%%%%
+[wand adj]jewelled
+
+镶嵌宝石的
+%%%%
+[wand adj]curved
+
+弯曲的
+%%%%
+[wand adj]long
+
+长
+%%%%
+[wand adj]short
+
+短
+%%%%
+[wand adj]twisted
+
+扭曲的
+%%%%
+[wand adj]crooked
+
+歪斜的
+%%%%
+[wand adj]forked
+
+分叉的
+%%%%
+[wand adj]shiny
+
+耀眼的
+%%%%
+[wand adj]blackened
+
+黑色
+%%%%
+[wand adj]tapered
+
+锥形的
+%%%%
+[wand adj]glowing
+
+发光的
+%%%%
+[wand adj]worn
+
+磨损的
+%%%%
+[wand adj]encrusted
+
+带外壳的
+%%%%
+[wand adj]runed
+
+符文
+%%%%
+[wand adj]sharpened
+
+尖锐的
+%%%%
+[wand adj]iron
+
+铁制
+%%%%
+[wand adj]brass
+
+黄铜
+%%%%
+[wand adj]bone
+
+骨制
+%%%%
+[wand adj]wooden
+
+木制
+%%%%
+[wand adj]copper
+
+铜制
+%%%%
+[wand adj]gold
+
+黄金
+%%%%
+[wand adj]silver
+
+白银
+%%%%
+[wand adj]bronze
+
+青铜
+%%%%
+[wand adj]ivory
+
+象牙
+%%%%
+[wand adj]glass
+
+玻璃
+%%%%
+[wand adj]lead
+
+铅制
+%%%%
+[wand adj]fluorescent
+
+荧光
+%%%%
+# 薬関連はjtrans_potion_name.txtに記述
+%%%%
+# 巻物関連はjtrans_scroll_name.txtに記述
+%%%%
+# 装身具関連はjtrans_jewellery_name.txtに記述
+%%%%
+[ring adj]encrusted
+
+带外壳的
+%%%%
+[ring adj]glowing
+
+发光的
+%%%%
+[ring adj]tubular
+
+管状的
+%%%%
+[ring adj]runed
+
+符文
+%%%%
+[ring adj]blackened
+
+黑色
+%%%%
+[ring adj]scratched
+
+有刮痕的
+%%%%
+[ring adj]small
+
+小
+%%%%
+[ring adj]large
+
+大
+%%%%
+[ring adj]twisted
+
+扭曲的
+%%%%
+[ring adj]shiny
+
+耀眼的
+%%%%
+[ring adj]notched
+
+锯齿的
+%%%%
+[ring adj]knobbly
+
+多节的
+%%%%
+[ring adj]wooden
+
+木制
+%%%%
+[ring adj]silver
+
+白银
+%%%%
+[ring adj]golden
+
+黄金
+%%%%
+[ring adj]iron
+
+铁制
+%%%%
+[ring adj]steel
+
+钢制
+%%%%
+[ring adj]tourmaline
+
+电气石
+%%%%
+[ring adj]brass
+
+黄铜
+%%%%
+[ring adj]copper
+
+铜制
+%%%%
+[ring adj]granite
+
+篁刚一
+%%%%
+[ring adj]ivory
+
+象牙
+%%%%
+[ring adj]ruby
+
+红宝石
+%%%%
+[ring adj]marble
+
+大理石
+%%%%
+[ring adj]jade
+
+翡翠
+%%%%
+[ring adj]glass
+
+玻璃
+%%%%
+[ring adj]agate
+
+玛瑙
+%%%%
+[ring adj]bone
+
+骨制
+%%%%
+[ring adj]diamond
+
+钻石
+%%%%
+[ring adj]emerald
+
+绿宝石
+%%%%
+[ring adj]peridot
+
+橄榄石
+%%%%
+[ring adj]garnet
+
+石榴石
+%%%%
+[ring adj]opal
+
+蛋白石
+%%%%
+[ring adj]pearl
+
+珍珠
+%%%%
+[ring adj]coral
+
+珊瑚
+%%%%
+[ring adj]sapphire
+
+蓝宝石
+%%%%
+[ring adj]cabochon
+
+圆宝石
+%%%%
+[ring adj]gilded
+
+镀金
+%%%%
+[ring adj]onyx
+
+缟玛瑙
+%%%%
+[ring adj]bronze
+
+青铜
+%%%%
+[ring adj]moonstone
+
+月长石
+%%%%
+[amulet adj]dented
+
+有凹痕的
+%%%%
+[amulet adj]square
+
+正方形的
+%%%%
+[amulet adj]thick
+
+厚的
+%%%%
+[amulet adj]thin
+
+薄的
+%%%%
+[amulet adj]runed
+
+符文
+%%%%
+[amulet adj]blackened
+
+黑色
+%%%%
+[amulet adj]glowing
+
+发光的
+%%%%
+[amulet adj]small
+
+小
+%%%%
+[amulet adj]large
+
+大
+%%%%
+[amulet adj]twisted
+
+扭曲的
+%%%%
+[amulet adj]tiny
+
+微型
+%%%%
+[amulet adj]triangular
+
+三角形的
+%%%%
+[amulet adj]lumpy
+
+波浪性的
+%%%%
+[amulet adj]sapphire
+
+蓝宝石
+%%%%
+[amulet adj]zirconium
+
+锆石
+%%%%
+[amulet adj]golden
+
+黄金
+%%%%
+[amulet adj]emerald
+
+绿宝石
+%%%%
+[amulet adj]garnet
+
+石榴石
+%%%%
+[amulet adj]bronze
+
+青铜
+%%%%
+[amulet adj]brass
+
+黄铜
+%%%%
+[amulet adj]copper
+
+铜制
+%%%%
+[amulet adj]ruby
+
+红宝石
+%%%%
+[amulet adj]citrine
+
+黄水晶
+%%%%
+[amulet adj]bone
+
+骨制
+%%%%
+[amulet adj]platinum
+
+白金
+%%%%
+[amulet adj]jade
+
+翡翠
+%%%%
+[amulet adj]fluorescent
+
+荧光
+%%%%
+[amulet adj]amethyst
+
+紫水晶
+%%%%
+[amulet adj]cameo
+
+多彩宝石
+%%%%
+[amulet adj]pearl
+
+珍珠
+%%%%
+[amulet adj]blue
+
+蓝色
+%%%%
+[amulet adj]peridot
+
+橄榄石
+%%%%
+[amulet adj]jasper
+
+碧玉
+%%%%
+[amulet adj]diamond
+
+钻石
+%%%%
+[amulet adj]malachite
+
+孔雀石
+%%%%
+[amulet adj]steel
+
+钢制
+%%%%
+[amulet adj]cabochon
+
+圆宝石
+%%%%
+[amulet adj]silver
+
+白银
+%%%%
+[amulet adj]soapstone
+
+皂石
+%%%%
+[amulet adj]lapis lazuli
+
+天青石
+%%%%
+[amulet adj]filigree
+
+金银丝
+%%%%
+[amulet adj]beryl
+
+绿柱石
+%%%%
+# ルーン関連はjtrans_rune_name.txtに記述
+%%%%
+plain
+
+普通的
+%%%%
+ornate
+
+华丽的
+%%%%
+# legendary
+
+# jtrans_describe.txtと重複
+%%%%
+deck of cards
+
+套牌
+%%%%
+# 発動アイテム関連はjtrans_misc_name.txtで記述
+%%%%
+[book adj]chunky
+
+厚实的
+%%%%
+[book adj]thick
+
+厚的
+%%%%
+[book adj]thin
+
+薄的
+%%%%
+[book adj]wide
+
+宽的
+%%%%
+[book adj]glowing
+
+发光的
+%%%%
+[book adj]dog-eared
+
+有折角的
+%%%%
+[book adj]oblong
+
+椭圆形的
+%%%%
+[book adj]runed
+
+符文的
+%%%%
+[book adj]paperback
+
+平装
+%%%%
+[book adj]hardcover
+
+精装
+%%%%
+[book adj]leatherbound
+
+皮革装订的
+%%%%
+[book adj]metal-bound
+
+金属装订的
+%%%%
+[book adj]papyrus
+
+莎草纸的
+%%%%
+# 魔法書関連はjtrans_book_name.txtに記述
+%%%%
+[staff adj]crooked
+
+歪的
+%%%%
+[staff adj]knobbly
+
+有节的
+%%%%
+[staff adj]weird
+
+奇怪的
+%%%%
+[staff adj]gnarled
+
+多节的
+%%%%
+[staff adj]thin
+
+细的
+%%%%
+[staff adj]curved
+
+弯曲的
+%%%%
+[staff adj]twisted
+
+扭曲的
+%%%%
+[staff adj]thick
+
+粗的
+%%%%
+[staff adj]long
+
+长的
+%%%%
+[staff adj]short
+
+短的
+%%%%
+[staff adj]glowing
+
+发光的
+%%%%
+[staff adj]jewelled
+
+镶嵌宝石的
+%%%%
+[staff adj]runed
+
+符文
+%%%%
+[staff adj]smoking
+
+冒烟的
+%%%%
+# 杖関連はjtrans_staff_name.txtに記述
+%%%%
+# ロッド関連はjtrans_rod_name.txtに記述
+%%%%
+# weapon
+
+# jtrans_describe.txtと重複
+%%%%
+missile
+
+弹药
+%%%%
+armour
+
+防具
+%%%%
+wand
+
+魔杖
+%%%%
+food
+
+食物
+%%%%
+scroll
+
+卷轴
+%%%%
+# jewellery
+
+# jtrans_describe.txtと重複
+%%%%
+potion
+
+药剂
+%%%%
+# book
+
+# jtrans_describe_spells.txtと重複
+%%%%
+# staff
+
+# jtrans_weapon_name.txtと重複
+%%%%
+rod
+
+魔棒
+%%%%
+orb
+
+<orb of Zot>
+%%%%
+miscellaneous
+
+其他
+%%%%
+corpse
+
+尸体
+%%%%
+gold
+
+金币
+%%%%
+rune
+
+符文
+%%%%
+manual
+
+指南
+%%%%
+manual of
+
+指南
+%%%%
+orb of Zot
+
+佐特宝珠
+%%%%
+rune of Zot
+
+佐特符文
+%%%%
+a vampiric weapon
+
+吸血武器
+%%%%
+an antimagic weapon
+
+反魔法武器
+%%%%
+a vorpal weapon
+
+杀戮武器
+%%%%
+a weapon of %s
+
+%s武器
+%%%%
+vampirism
+
+吸血
+%%%%
+antimagic
+
+反魔法
+%%%%
+# damnation
+
+# jtrans_art_func.txtと重複
+%%%%
+[item adj]damnation
+
+地狱诅咒
+%%%%
+drawn: %d
+
+已抽取%d张
+%%%%
+left: %d
+
+剩余%d张
+%%%%
+cursed
+
+诅咒的
+%%%%
+uncursed
+
+未诅咒的
+%%%%
+runed
+
+符文
+%%%%
+glowing
+
+发光
+%%%%
+[ego prefix]vampiric
+
+吸血
+%%%%
+[ego prefix]antimagic
+
+反魔法
+%%%%
+[ego prefix]enchanted
+
+附魔
+%%%%
+(%s)
+
+
+%%%%
+of
+
+
+%%%%
+x)
+
+
+%%%%
+(curse)" :  "
+
+
+%%%%
+terse" is only currently used for the "in hand
+
+
+%%%%
+(damnation)
+
+(地狱诅咒)
+%%%%
+pair of
+
+一对
+%%%%
+embroidered
+
+绣花的
+%%%%
+shiny
+
+闪耀的
+%%%%
+dyed
+
+染色的
+%%%%
+supercharged
+
+# obsolete: Pakellas
+%%%%
+{empty}
+
+{空}
+%%%%
+{recharged}
+
+{已充能}
+%%%%
+{zapped: %d}
+
+{使用过%d次}
+%%%%
+[potion adj]bubbling
+
+冒泡的
+%%%%
+[potion adj]fuming
+
+发烟的
+%%%%
+[potion adj]fizzy
+
+泡沫的
+%%%%
+[potion adj]viscous
+
+粘稠的
+%%%%
+[potion adj]lumpy
+
+波浪起伏的
+%%%%
+[potion adj]smoky
+
+冒烟的
+%%%%
+[potion adj]glowing
+
+发光的
+%%%%
+[potion adj]sedimented
+
+有沉淀物的
+%%%%
+[potion adj]metallic
+
+金属色的
+%%%%
+[potion adj]murky
+
+浑浊的
+%%%%
+[potion adj]gluggy
+
+粘粘的
+%%%%
+[potion adj]oily
+
+油状的
+%%%%
+[potion adj]slimy
+
+粘滑的
+%%%%
+[potion adj]emulsified
+
+乳化的
+%%%%
+[potion adj]clear
+
+透明的
+%%%%
+[potion adj]blue
+
+蓝色
+%%%%
+[potion adj]black
+
+黑色
+%%%%
+[potion adj]silvery
+
+银色
+%%%%
+[potion adj]cyan
+
+青色
+%%%%
+[potion adj]purple
+
+紫色
+%%%%
+[potion adj]orange
+
+橙色
+%%%%
+[potion adj]inky
+
+墨水色
+%%%%
+[potion adj]red
+
+红色
+%%%%
+[potion adj]yellow
+
+黄色
+%%%%
+[potion adj]green
+
+绿色
+%%%%
+[potion adj]brown
+
+棕色
+%%%%
+[potion adj]ruby
+
+红宝石色
+%%%%
+[potion adj]white
+
+白色
+%%%%
+[potion adj]emerald
+
+翠绿色
+%%%%
+[potion adj]grey
+
+灰色
+%%%%
+[potion adj]pink
+
+粉色
+%%%%
+[potion adj]coppery
+
+铜色
+%%%%
+[potion adj]golden
+
+金色
+%%%%
+[potion adj]dark
+
+暗色
+%%%%
+[potion adj]puce
+
+深褐色
+%%%%
+[potion adj]amethyst
+
+紫水晶色
+%%%%
+[potion adj]sapphire
+
+天蓝色
+%%%%
+# 食料関連はjtrans_food_name.txtで記述
+%%%%
+mutagenic
+
+诱变的
+%%%%
+inedible
+
+不可食用的
+%%%%
+scroll labeled %s
+
+标有“%s”的卷轴
+%%%%
+# amulet
+
+# jtrans_describe.txtと重複
+%%%%
+# ring
+
+# jtrans_describe.txtと重複
+%%%%
+(inert)
+
+(无效的)
+%%%%
+rand artefact spellbook '%s'
+
+魔法书“%s”
+%%%%
+manual of %s
+
+%s指南
+%%%%
+# ロッド関連はjtrans_rod_name.txtで記述
+%%%%
+gold piece
+
+金币
+%%%%
+decaying skeleton
+
+风化的骷髅
+%%%%
+# skeleton
+
+# jtrans_monster_data.txtと重複
+%%%%
+corpse bug
+
+# 訳不要
+%%%%
+Select to reset item to default:
+
+选择要改为默认的物品:
+%%%%
+manuals
+
+<manual>
+%%%%
+runes
+
+<rune>
+%%%%
+unknown %s
+
+未鉴定的%s
+%%%%
+Items not yet recognised: (toggle with -)
+
+尚未鉴定的物品: (按 - 切换)
+%%%%
+Recognised items. (- for unrecognised, select to toggle autopickup)
+
+已鉴定的物品。 (按 - 切换未鉴定的物品，选择物品切换是否自动拾取)
+%%%%
+You recognise all items. (Select to toggle autopickup)
+
+你已鉴定所有的物品。 (选择物品切换是否自动拾取)
+%%%%
+(_ for help)
+
+(按 _ 查看帮助)
+%%%%
+Other Items
+
+其他物品
+%%%%
+<magenta>The Orb of Zot</magenta>
+
+<magenta>佐特宝珠</magenta>
+%%%%
+<darkgrey>The Orb of Zot (the Realm of Zot)</darkgrey>
+
+<darkgrey>佐特宝珠(佐特领域)</darkgrey>
+%%%%
+<white>Runes of Zot (</white><%s>%d</%s><white> collected) & Orbs of Power</white>
+
+<white>佐特符文(已取得</white><%s>%d</%s><white>个)和力量宝珠</white>
+%%%%

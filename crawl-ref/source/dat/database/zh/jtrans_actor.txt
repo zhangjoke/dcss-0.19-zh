@@ -1,0 +1,127 @@
+%%%%
+# actor.h
+the acid
+
+酸
+%%%%
+# actor.cc
+%s %s off the %s.
+
+%s从%s上%s了下来。
+%%%%
+[verb]fall
+
+摔
+%%%%
+door
+
+门
+%%%%
+wall
+
+墙壁
+%%%%
+%s %s %s grip on %s.
+
+%s%s了对%s的缠绕。
+%%%%
+[verb]release
+
+松开
+%%%%
+[verb]lose
+
+失去
+%%%%
+, but do no damage.
+
+，但没有造成伤害。
+%%%%
+{attacker} {verb} {defender}{!}{dmg}
+
+%s%s住了%s%s%s
+%%%%
+你
+
+あなた
+%%%%
+[verb]constrict
+
+缠绕
+%%%%
+for %d
+
+造成了%d点伤害。
+%%%%
+{defender} {verb} constricted{!}{dmg}
+
+%s%s缠绕住了%s%s
+%%%%
+[verb]are
+
+被
+%%%%
+unaffected.
+
+没有受到影响。
+%%%%
+barely %s.
+
+勉强地%s住了。
+%%%%
+[verb]resist
+
+抵抗
+%%%%
+%s to resist.
+
+%s着抵抗住了。
+%%%%
+[verb]struggle
+
+挣扎
+%%%%
+%s with significant effort.
+
+付出巨大努力%s住了。
+%%%%
+%s with some effort.
+
+付出一些努力%s住了。
+%%%%
+easily %s.
+
+轻松地%s住了。
+%%%%
+%s with almost no effort.
+
+不费吹灰之力就%s住了。
+%%%%
+%s %s with %s!
+
+%s与%s%s在一起！
+%%%%
+[verb]collide
+
+撞
+%%%%
+%s %s into %s!
+
+%s%s了%s！
+%%%%
+[verb]slam
+
+猛击
+%%%%
+something
+
+某物
+%%%%
+%s violently %s moving!
+
+%s猛地%s了移动！
+%%%%
+[verb]stop
+
+停止
+%%%%

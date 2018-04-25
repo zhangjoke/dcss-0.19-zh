@@ -1,0 +1,57 @@
+%%%%
+The demon of the infinite void smiles upon you.
+
+无尽虚空中的恶魔向你露出了微笑。
+%%%%
+snickers.
+
+偷偷地笑。
+%%%%
+[acq menu]Weapon
+
+武器
+%%%%
+[acq menu]Armour
+
+盔甲
+%%%%
+[acq menu]Jewellery
+
+珠宝
+%%%%
+[acq menu]Book
+
+书
+%%%%
+[acq menu]Staff
+
+魔法杖
+%%%%
+[acq menu]Wand
+
+魔杖
+%%%%
+[acq menu]Misc. Evocable
+
+魔法物品
+%%%%
+[acq menu]Gold
+
+金币
+%%%%
+[acq menu]Fruit
+
+水果
+%%%%
+[acq menu]Blood
+
+血液
+%%%%
+[acq menu]Food
+
+食物
+%%%%
+What kind of item would you like to acquire? (\ to view known items)
+
+你想要获得什么种类的物品？ ('\' 显示已知的物品)
+%%%%

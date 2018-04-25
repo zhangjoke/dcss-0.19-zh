@@ -1,0 +1,57 @@
+%%%%
+({banisher})
+
+%s
+%%%%
+You are banished to a different region of the Abyss.
+
+你被放逐到了深渊的另一个区域。
+%%%%
+Cast into level %d of the Abyss
+
+你被放逐到了深渊的第%d层
+%%%%
+was cast into the Abyss!
+
+被放逐到了深渊！
+%%%%
+a distortion unwield
+
+卸下扭曲武器
+%%%%
+Xom snickers loudly.
+
+扫姆大声地偷笑。
+%%%%
+is pulled into the Abyss.
+
+被拉入了深渊。
+%%%%
+You are suddenly pulled into a different region of the Abyss!
+
+你突然被拉入了深渊的另一区域！
+%%%%
+Lugonu's corruption
+
+卢格努的腐化
+%%%%
+This place is already infused with evil and corruption.
+
+这里已经充斥着邪恶与腐败。
+%%%%
+'s Hand of Corruption reaches out!
+
+伸出了腐化之手！
+%%%%
+Corrupted %s
+
+腐化了%s
+%%%%
+The substance of the Abyss twists violently, and a gateway leading down appears!
+
+深渊中的物质剧烈地扭曲，一个通往更深处的门出现了！
+%%%%
+The substance of the Abyss twists violently, and a gateway leading out appears!
+
+深渊中的物质剧烈地扭曲，一个通往外面的门出现了！
+%%%%

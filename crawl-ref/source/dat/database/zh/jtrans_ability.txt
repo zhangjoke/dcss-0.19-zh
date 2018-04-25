@@ -1,0 +1,1207 @@
+%%%%
+[ability]No ability
+
+无特殊能力
+%%%%
+[ability]Spit Poison
+
+喷吐毒液
+%%%%
+[ability]Blink
+
+闪烁
+%%%%
+[ability]Breathe Fire
+
+火焰吐息
+%%%%
+[ability]Breathe Frost
+
+冰霜吐息
+%%%%
+[ability]Breathe Poison Gas
+
+毒气吐息
+%%%%
+[ability]Breathe Noxious Fumes
+
+恶臭吐息
+%%%%
+[ability]Breathe Lightning
+
+闪电吐息
+%%%%
+[ability]Breathe Dispelling Energy
+
+驱魔吐息
+%%%%
+[ability]Breathe Sticky Flame
+
+粘性火焰吐息
+%%%%
+[ability]Breathe Steam
+
+蒸汽吐息
+%%%%
+[ability]Bat Form
+
+蝙蝠形态
+%%%%
+[ability]Spit Acid
+
+喷吐酸液
+%%%%
+[ability]Fly
+
+飞行
+%%%%
+[ability]Stop Flying
+
+停止飞行
+%%%%
+[ability]Hurl Damnation
+
+地狱诅咒
+%%%%
+[ability]Release Delayed Fireball
+
+释放延时火球
+%%%%
+[ability]Stop Singing
+
+停止歌唱
+%%%%
+[ability]Dig
+
+挖掘
+%%%%
+[ability]Shaft Self
+
+挖地洞
+%%%%
+[ability]Evoke Blink
+
+发动闪烁
+%%%%
+[ability]Device Recharging
+
+魔法物品充能
+%%%%
+[ability]Evoke Berserk Rage
+
+发动狂暴
+%%%%
+[ability]Evoke Invisibility
+
+发动隐身
+%%%%
+[ability]Turn Visible
+
+结束隐身
+%%%%
+[ability]Evoke Flight
+
+发动飞行
+%%%%
+[ability]Evoke Fog
+
+发动烟雾
+%%%%
+[ability]End Transformation
+
+停止变形
+%%%%
+# Zin
+[ability]Recite
+
+背诵律法
+%%%%
+[ability]Vitalisation
+
+生命力
+%%%%
+[ability]Imprison
+
+监禁
+%%%%
+[ability]Sanctuary
+
+圣殿
+%%%%
+[ability]Cure All Mutations
+
+治愈所有突变
+%%%%
+[ability]Donate Gold
+
+捐献金币
+%%%%
+# TSO
+[ability]Divine Shield
+
+圣盾
+%%%%
+[ability]Cleansing Flame
+
+净化烈焰
+%%%%
+[ability]Summon Divine Warrior
+
+召唤神圣战士
+%%%%
+[ability]Brand Weapon With Holy Wrath
+
+神圣愤怒铭文
+%%%%
+# Kiku
+[ability]Receive Corpses
+
+接收尸体
+%%%%
+[ability]Torment
+
+折磨
+%%%%
+[ability]Receive Necronomicon
+
+接收死灵之书
+%%%%
+[ability]Brand Weapon With Pain
+
+痛苦铭文
+%%%%
+# Yred
+[ability]Injury Mirror
+
+反射伤害
+%%%%
+[ability]Animate Remains
+
+复活尸骨
+%%%%
+[ability]Recall Undead Slaves
+
+召回不死奴仆
+%%%%
+[ability]Animate Dead
+
+复活死者
+%%%%
+[ability]Drain Life
+
+吸取生命
+%%%%
+[ability]Enslave Soul
+
+奴役灵魂
+%%%%
+# Oka
+[ability]Heroism
+
+英勇
+%%%%
+[ability]Finesse
+
+神速
+%%%%
+[ability]Minor Destruction
+
+次级毁灭
+%%%%
+[ability]Lesser Servant of Makhleb
+
+马科列布的次级奴仆
+%%%%
+[ability]Major Destruction
+
+高级毁灭
+%%%%
+[ability]Greater Servant of Makhleb
+
+马科列布的高级奴仆
+%%%%
+# Sif
+[ability]Divine Energy
+
+神圣能量
+%%%%
+[ability]Stop Divine Energy
+
+停止神圣能量
+%%%%
+[ability]Forget Spell
+
+忘记法术
+%%%%
+[ability]Channel Magic
+
+回复魔法
+%%%%
+# Trog
+[ability]Burn Spellbooks
+
+焚烧魔法书
+%%%%
+[ability]Berserk
+
+狂暴
+%%%%
+[ability]Trog's Hand
+
+特洛戈之手
+%%%%
+[ability]Brothers in Arms
+
+召唤战友
+%%%%
+# Ely
+[ability]Divine Protection
+
+神圣保护
+%%%%
+[ability]Lesser Healing
+
+次级治疗
+%%%%
+[ability]Heal Other
+
+治疗他者
+%%%%
+[ability]Purification
+
+净化
+%%%%
+[ability]Greater Healing
+
+高级治疗
+%%%%
+[ability]Divine Vigour
+
+神圣活力
+%%%%
+# Lugonu
+[ability]Depart the Abyss
+
+离开深渊
+%%%%
+[ability]Bend Space
+
+扭曲空间
+%%%%
+[ability]Banish
+
+放逐
+%%%%
+[ability]Corrupt
+
+腐化
+%%%%
+[ability]Enter the Abyss
+
+进入深渊
+%%%%
+[ability]Brand Weapon With Distortion
+
+扭曲铭文
+%%%%
+# Nemelex
+[ability]Triple Draw
+
+抽三张
+%%%%
+[ability]Deal Four
+
+发四张
+%%%%
+[ability]Stack Five
+
+叠五张
+%%%%
+# Beogh
+[ability]Smiting
+
+惩击
+%%%%
+[ability]Recall Orcish Followers
+
+召回兽人追随者
+%%%%
+[ability]Give Item to Named Follower
+
+赐予指名的追随者物品
+%%%%
+[ability]Resurrection
+
+复活
+%%%%
+# Jiyva
+[ability]Request Jelly
+
+召唤胶质怪
+%%%%
+[ability]Slimify
+
+史莱姆化
+%%%%
+[ability]Cure Bad Mutation
+
+治疗有害突变
+%%%%
+# Fedhas
+[ability]Fungal Bloom
+
+真菌生长
+%%%%
+[ability]Evolution
+
+进化
+%%%%
+[ability]Sunlight
+
+阳光
+%%%%
+[ability]Growth
+
+种植
+%%%%
+[ability]Reproduction
+
+孢子繁殖
+%%%%
+[ability]Rain
+
+降雨
+%%%%
+# Chei
+[ability]Bend Time
+
+扭曲时间
+%%%%
+[ability]Temporal Distortion
+
+瞬时扭曲
+%%%%
+[ability]Slouch
+
+懒散
+%%%%
+[ability]Step From Time
+
+脱离时间
+%%%%
+# Ashenzari
+[ability]Curse Item
+
+诅咒物品
+%%%%
+[ability]Scrying
+
+探知
+%%%%
+[ability]Transfer Knowledge
+
+转换技能
+%%%%
+[ability]End Transfer Knowledge
+
+停止转换技能
+%%%%
+# Dithmenos
+[ability]Shadow Step
+
+暗影步
+%%%%
+[ability]Shadow Form
+
+暗影形态
+%%%%
+# Ru
+[ability]Draw Out Power
+
+解放力量
+%%%%
+[ability]Power Leap
+
+强力跳跃
+%%%%
+[ability]Apocalypse
+
+启示录
+%%%%
+[ability]Sacrifice Purity
+
+牺牲纯洁
+%%%%
+[ability]Sacrifice Words
+
+牺牲话语
+%%%%
+[ability]Sacrifice Drink
+
+牺牲饮用
+%%%%
+[ability]Sacrifice Essence
+
+牺牲魔力
+%%%%
+[ability]Sacrifice Health
+
+牺牲健康
+%%%%
+[ability]Sacrifice Stealth
+
+牺牲潜行
+%%%%
+[ability]Sacrifice Artifice
+
+牺牲发动
+%%%%
+[ability]Sacrifice Love
+
+牺牲爱
+%%%%
+[ability]Sacrifice Courage
+
+牺牲勇气
+%%%%
+[ability]Sacrifice Arcana
+
+牺牲秘法
+%%%%
+[ability]Sacrifice Nimbleness
+
+牺牲敏捷
+%%%%
+[ability]Sacrifice Durability
+
+牺牲顽强
+%%%%
+[ability]Sacrifice a Hand
+
+牺牲一只手
+%%%%
+[ability]Sacrifice Experience
+
+牺牲经验
+%%%%
+[ability]Sacrifice Skill
+
+牺牲技能
+%%%%
+[ability]Sacrifice an Eye
+
+牺牲一只眼睛
+%%%%
+[ability]Sacrifice Resistance
+
+牺牲抗性
+%%%%
+[ability]Reject Sacrifices
+
+拒绝牺牲
+%%%%
+# Gozag
+[ability]Potion Petition
+
+购买药水
+%%%%
+[ability]Call Merchant
+
+召集商人
+%%%%
+[ability]Bribe Branch
+
+贿赂分支
+%%%%
+# Qaz
+[ability]Upheaval
+
+自然之怒
+%%%%
+[ability]Elemental Force
+
+元素之力
+%%%%
+[ability]Disaster Area
+
+天降灾祸
+%%%%
+# Pakellas
+[ability]Device Surge
+
+# obsolete: Pakellas
+%%%%
+[ability]Quick Charge
+
+# obsolete: Pakellas
+%%%%
+[ability]Supercharge
+
+# obsolete: Pakellas
+%%%%
+# Uskayaw
+[ability]Stomp
+
+震地跺击
+%%%%
+[ability]Line Pass
+
+一线突入
+%%%%
+[ability]Grand Finale
+
+压轴好戏
+%%%%
+# Hep
+[ability]Recall Ancestor
+
+召回祖灵
+%%%%
+[ability]Transference
+
+交换位置
+%%%%
+[ability]Idealise
+
+理想化祖灵
+%%%%
+[ability]Ancestor Life: Knight
+
+祖灵生平：骑士
+%%%%
+[ability]Ancestor Life: Battlemage
+
+祖灵生平：战斗法师
+%%%%
+[ability]Ancestor Life: Hexer
+
+祖灵生平：妖术师
+%%%%
+[ability]Ancestor Identity
+
+祖灵身份
+%%%%
+[ability]Stop Recall
+
+停止召回
+%%%%
+[ability]Renounce Religion
+
+放弃信仰
+%%%%
+[ability]Convert to Beogh
+
+皈依贝奥夫
+%%%%
+no special abilities
+
+无特殊能力
+%%%%
+, %d %sMP
+
+, %sMP%d
+%%%%
+Permanent
+
+最大
+%%%%
+, %d MP
+
+# obsolete: Pakellas
+%%%%
+, %d %sHP
+
+, %sHP%d
+%%%%
+, Hunger
+
+, 饥饿值
+%%%%
+, Piety
+
+, 信仰值
+%%%%
+, Breath
+
+, 吐息
+%%%%
+, Delay
+
+, 时间
+%%%%
+, Pain
+
+, 痛苦
+%%%%
+, Exhaustion
+
+, 疲劳
+%%%%
+, Instant
+
+, 瞬间
+%%%%
+, Fruit
+
+, 水果
+%%%%
+, Fruit or Piety
+
+, 水果或信仰值
+%%%%
+, Skill drain
+
+, 技能虚弱
+%%%%
+, Scroll of remove curse
+
+, 解除诅咒卷轴
+%%%%
+, %d Gold
+
+, %d金币
+%%%%
+, Free
+
+, 免费
+%%%%
+, Gold
+
+, 金币
+%%%%
+None
+
+无
+%%%%
+This ability costs:
+
+这个能力花费:
+%%%%
+Max MP :
+
+最大MP :
+%%%%
+MP     :
+
+MP :
+%%%%
+Max HP :
+
+最大HP :
+%%%%
+HP     :
+
+HP :
+%%%%
+Hunger :
+
+饥饿值 :
+%%%%
+Piety  : variable
+
+信仰值 : 变化的
+%%%%
+Piety  : extremely large
+
+信仰值 : 非常大
+%%%%
+Piety  : large
+
+信仰值 : 大
+%%%%
+Piety  : moderate
+
+信仰值 : 中
+%%%%
+Piety  : small
+
+信仰值 : 小
+%%%%
+Gold   :
+
+金币 :
+%%%%
+free
+
+免费
+%%%%
+variable
+
+变化的
+%%%%
+One scroll of remove curse
+
+一张解除诅咒卷轴
+%%%%
+nothing.
+
+无。
+%%%%
+You must catch your breath between uses of this ability.
+
+在重复使用这个能力之前，你必须先踹一口气。
+%%%%
+It takes some time before being effective.
+
+这个能力需要花费一些时间才能产生效果。
+%%%%
+Using this ability will hurt you.
+
+使用这个能力会伤害你。
+%%%%
+It causes exhaustion, and cannot be used when exhausted.
+
+这个能力会导致疲劳，而且这个能力不能在疲劳的时候使用。
+%%%%
+It is instantaneous.
+
+这个能力的效果是瞬间的。
+%%%%
+You can use it even if confused.
+
+你甚至能在混乱的时候使用这个能力。
+%%%%
+It will temporarily drain your skills when used.
+
+使用这个能力会使你暂时虚弱。
+%%%%
+If you make this sacrifice, your powers granted by Ru will become stronger in proportion to the value of the sacrifice, and you may gain new powers as well.\n\nSacrifices cannot be taken back.
+
+一旦你做出了这个牺牲，孺赐予你的力量会依据你的牺牲的价值按比例提升，
+同时你也能获得新的能力。
+
+你不能取回你的牺牲。
+%%%%
+After this sacrifice, you will find that {sac list}.
+
+在做出这个牺牲之后吗，你会发现%s。
+%%%%
+No description found.
+
+无说明。
+%%%%
+frowns upon the use of this ability.
+
+不赞成你使用这个能力。
+%%%%
+You can't untransform!
+
+你不能停止变形！
+%%%%
+Sorry, you're too full to transform right now.
+
+抱歉，你现在太饱了，不能变形。
+%%%%
+You're already flying!
+
+你已经在飞行了！
+%%%%
+Sorry, you're not good enough to have a special ability.
+
+抱歉，你还没有特殊能力。
+%%%%
+Use which ability? (? or * to list)
+
+使用哪个能力？ (? 或 * 显示列表)
+%%%%
+You can't do that.
+
+你不能这样做。
+%%%%
+You cannot call out to %s while silenced.
+
+沉默状态下你不能使用%s。
+%%%%
+You don't have enough innate magic capacity to sacrifice.
+
+你的最大MP不足以用来牺牲。
+%%%%
+Really use {ability name}?
+
+真的要使用%s能力吗？
+%%%%
+There's no appreciative audience!
+
+这里没有能够欣赏的观众！
+%%%%
+You are not zealous enough to affect this audience!
+
+你还不够狂热，不足以感动这群观众！
+%%%%
+You have no mutations to be cured!
+
+你没有需要治疗的突变！
+%%%%
+There's already a sanctuary in place on this level.
+
+这层已经有一个圣殿了。
+%%%%
+You have nothing to donate!
+
+你没有能捐献的金币！
+%%%%
+Nothing ails you!
+
+你安然无恙！
+%%%%
+You aren't in the Abyss!
+
+你不在深渊！
+%%%%
+You're already here!
+
+你已经在深渊了！
+%%%%
+You have nothing more to learn.
+
+你不需要学习更多知识了。
+%%%%
+No corpses are in range.
+
+范围内没有尸体。
+%%%%
+It's too cloudy to do that here.
+
+这里已有的云阻止了你这么做。
+%%%%
+The air is too still for clouds to form.
+
+大气过于平静，无法形成云。
+%%%%
+You don't have enough experience to sacrifice.
+
+你的经验值不足以用来献祭。
+%%%%
+You have no magic power.
+
+# obsolete: Pakellas
+%%%%
+%s is still trapped in memory!
+
+%s依旧囚禁在记忆之中！
+%%%%
+Stopping flight right now would be fatal!
+
+现在停止飞行是致命的！
+%%%%
+Turning back right now would cause you to %s!
+
+现在停止变形会使你%s！
+%%%%
+[activate_talent()]burn
+
+烧死
+%%%%
+[activate_talent()]drown
+
+淹死
+%%%%
+You fail to use your ability.
+
+你使用特殊能力失败了。
+%%%%
+You extend your mandibles.
+
+你伸长了你的颚。
+%%%%
+You are already prepared to dig.
+
+你已经准备好挖掘了。
+%%%%
+Are you sure you want to shaft yourself?
+
+你确定要往下挖吗？
+%%%%
+Aiming: <white>Delayed Fireball</white>
+
+瞄准: <white>延时火球</white>
+%%%%
+[stop attack prompt]spit at
+
+吐在
+%%%%
+You spit a glob of burning liquid.
+
+你吐出了一团燃烧的液体。
+%%%%
+You breathe a blast of fire.
+
+你喷出了一团火焰。
+%%%%
+You breathe a blast of fire!
+
+你喷出了一团火焰！
+%%%%
+You exhale a wave of freezing cold.
+
+你呼出了一阵冰冻的寒风。
+%%%%
+You exhale a blast of poison gas.
+
+你喷出了一团有毒的气体。
+%%%%
+You breathe a wild blast of lightning!
+
+你喷出了一道四射的闪电！
+%%%%
+You spit a glob of acid.
+
+你吐出了一团酸液。
+%%%%
+You breathe a bolt of dispelling energy.
+
+你呼出了一道驱魔之矢。
+%%%%
+You exhale a blast of scalding steam.
+
+你呼出了一团灼热的蒸汽。
+%%%%
+You exhale a blast of noxious fumes.
+
+你呼出了一团恶臭的气体。
+%%%%
+You feel very comfortable in the air.
+
+你在空中感觉非常轻快。
+%%%%
+You feel less transparent.
+
+你感觉你快现形了。
+%%%%
+You feel more buoyant.
+
+你感觉更轻快了。
+%%%%
+With a swish of your cloak, you release a cloud of fog.
+
+你挥动了一下斗篷，释放了一团烟雾。
+%%%%
+You stop singing.
+
+你停止了唱歌。
+%%%%
+You clear your throat and prepare to recite.
+
+你清了清嗓子，准备背诵律法。
+%%%%
+You cannot imprison yourself!
+
+你不能监禁你自己！
+%%%%
+There is no monster there to imprison!
+
+这里没有能监禁的怪物！
+%%%%
+You cannot imprison that!
+
+你不能监禁那玩意！
+%%%%
+You cannot imprison a law-abiding creature!
+
+你不能监禁守法的生物！
+%%%%
+will bless one of your weapons.
+
+会祝福你的一把武器。
+%%%%
+There are no corpses to sacrifice!
+
+这里没有能献祭的尸体！
+%%%%
+torments the living!
+
+折磨了生者！
+%%%%
+will bloody one of your weapons with pain.
+
+会将痛苦的血液裹满你的一把武器。
+%%%%
+Another wave of unholy energy enters you.
+
+另一股邪恶的能量进入了你的体内。
+%%%%
+You offer yourself to %s, and are filled with unholy energy.
+
+你把自己献祭给了%s，邪恶的能量充满了你的全身。
+%%%%
+There are no remains here to animate!
+
+值了没有能复活的尸骨！
+%%%%
+You feel life flooding into your body.
+
+你感觉生命涌入了你的身体。
+%%%%
+Your soul already belongs to Yredelemnul.
+
+你的灵魂已归属于伊莱德莱姆努尔。
+%%%%
+You see nothing there you can enslave the soul of!
+
+你没有看到能奴役的灵魂！
+%%%%
+'s soul is too badly injured.
+
+的灵魂受了太重的伤。
+%%%%
+You feel more confident with your borrowed prowess.
+
+你对你借来的英勇非常自信。
+%%%%
+You gain the combat prowess of a mighty hero.
+
+你获得了伟大的英雄所具备的英勇。
+%%%%
+[hands act]your hands get new energy.
+
+你的双手获得了新的能量。
+%%%%
+You can now deal lightning-fast blows.
+
+你现在具有了闪电般的攻击速度。
+%%%%
+will now grant you divine energy when your reserves of magic are depleted.
+
+现在会赐予你神圣能量，允许你在MP耗尽后继续施法。
+%%%%
+You will briefly lose access to your magic after casting a spell in this manner.
+
+在你按照这个方法释放一个法术之后，你会短暂地失去你的施法能力。
+%%%%
+stops granting you divine energy.
+
+不再赐予你神圣能量。
+%%%%
+You renew your call for help.
+
+你祈求延长你受到的保护。
+%%%%
+You beseech %s to protect your life.
+
+你祈求%s保护你的生命。
+%%%%
+You are healed.
+
+你获得了治疗。
+%%%%
+You cannot banish yourself!
+
+你不能放逐你自己！
+%%%%
+will brand one of your weapons with the corruption of the Abyss.
+
+会以深渊之名腐化你的一把武器。
+%%%%
+You stop recalling your allies.
+
+你停止召回你的友军。
+%%%%
+your
+
+你的
+%%%%
+A thick mucus forms on %s.
+
+%s上裹满了厚厚的粘液。
+%%%%
+You need a scroll of remove curse to do this.
+
+你需要一张解除诅咒卷轴来使用这个能力。
+%%%%
+You extend your astral sight.
+
+你延长了你的星界视觉。
+%%%%
+You gain astral sight.
+
+你获得了星界视觉。
+%%%%
+You're too exhausted to draw out your power.
+
+你太疲劳了，不能解放你的力量。
+%%%%
+You have no need to draw out power.
+
+你不需要解放你的力量。
+%%%%
+You're too exhausted to power leap.
+
+你太疲劳了，不能强力跳跃。
+%%%%
+You're too exhausted to unleash your apocalyptic power.
+
+你太疲劳了，不能发动启示录的力量。
+%%%%
+You feel a buildup of energy.
+
+# obsolete: Pakellas
+%%%%
+will supercharge a wand or rod.
+
+# obsolete: Pakellas
+%%%%
+Supercharge what?
+
+# obsolete: Pakellas
+%%%%
+You cannot supercharge that!
+
+# obsolete: Pakellas
+%%%%
+Do you wish to have {wand name} supercharged?
+
+# obsolete: Pakellas
+%%%%
+supercharged by Pakellas
+
+# obsolete: Pakellas
+%%%%
+Your %s glows brightly!
+
+# obsolete: Pakellas
+%%%%
+booms: Use this gift wisely!
+
+的轰鸣声：明智地使用我的礼物！
+# godabil.ccでも使うのでこちらに記載
+%%%%
+Really renounce your faith, foregoing its fabulous benefits?
+
+真的要放弃信仰，放弃它带来的极大的福利？
+%%%%
+Are you sure you won't change your mind later?
+
+你确定不会后悔吗？
+%%%%
+Sorry, you can't do that.
+
+抱歉,你不能这么做。
+%%%%
+Ability - do what?
+
+能力 - 使用那一个？
+%%%%
+Cost
+
+花费
+%%%%
+Failure
+
+失败率
+%%%%
+Ability - describe what?
+
+能力 - 描述哪一个？
+%%%%
+Press '<w>!</w>' or '<w>?</w>' to toggle between ability selection and description.
+
+按 '<w>!</w>' 或 '<w>?</w>' 在能力选择界面和能力描述界面之间切换。
+%%%%
+Invocations -
+
+祈祷 -
+%%%%
+hostile
+
+敌对
+%%%%
