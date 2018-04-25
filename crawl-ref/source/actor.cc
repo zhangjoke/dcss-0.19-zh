@@ -437,8 +437,8 @@ bool actor::check_clinging(bool stepped, bool door)
         if (you.can_see(*this))
         {
             mprf(jtransc("%s %s off the %s."), name(DESC_THE).c_str(),
-                 conj_verb_j("fall").c_str(),
-                 jtransc(door ? "door" : "wall"));
+                 jtransc(door ? "door" : "wall"),
+                 conj_verb_j("fall").c_str());
         }
         apply_location_effects(pos());
     }

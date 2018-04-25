@@ -486,7 +486,7 @@ static void _draw_title(const coord_def& cpos, const feature_list& feats)
 {
     const int columns = get_number_of_cols();
     const formatted_string help =
-        formatted_string::parse_string("(Press <w>?</w> for help)");
+        formatted_string::parse_string(jtrans("(Press <w>?</w> for help)"));
     const int helplen = help.width();
 
     if (columns < helplen)
@@ -511,7 +511,7 @@ static void _draw_title(const coord_def& cpos, const feature_list& feats)
     textcolour(WHITE);
 
     cprintf("%s", chop_string(
-                    uppercase_first(level_id::current().describe(true, true))
+                    uppercase_first(level_id::current().describe_j(true, true))
                       + pstr, columns - helplen).c_str());
 
     cgotoxy(max(1, (columns - titlelen) / 2), 1);
@@ -885,7 +885,7 @@ bool show_map(level_pos &lpos,
                     MapKnowledge *old = new MapKnowledge(env.map_knowledge);
                     _forget_map();
                     env.map_forgotten.reset(old);
-                    mpr("Level map cleared.");
+                    mpr(jtrans("Level map cleared."));
                 }
                 break;
 
@@ -894,10 +894,10 @@ bool show_map(level_pos &lpos,
                 {
                     _unforget_map();
                     env.map_forgotten.reset();
-                    mpr("Remembered map restored.");
+                    mpr(jtrans("Remembered map restored."));
                 }
                 else
-                    mpr("No remembered map.");
+                    mpr(jtrans("No remembered map."));
                 break;
 
             case CMD_MAP_ADD_WAYPOINT:
@@ -1174,7 +1174,7 @@ bool show_map(level_pos &lpos,
                 le.go_to(lpos.id);
 
                 if (!is_map_persistent())
-                    mpr("You can't annotate this level.");
+                    mpr(jtrans("You can't annotate this level."));
                 else
                     do_annotate(lpos.id);
 

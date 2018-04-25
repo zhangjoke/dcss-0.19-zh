@@ -222,6 +222,7 @@ static TextDB AllDBs[] =
            "jtrans_mutant_beast.txt",
            "jtrans_near_danger.txt",
            "jtrans_newgame.txt",
+           "jtrans_ng_input.txt",
            "jtrans_notes.txt",
            "jtrans_orb.txt",
            "jtrans_ouch.txt",
@@ -273,6 +274,7 @@ static TextDB AllDBs[] =
            "jtrans_travel.txt",
            "jtrans_tutorial.txt",
            "jtrans_view.txt",
+           "jtrans_viewmap.txt",
            "jtrans_wiz_dgn.txt",
            "jtrans_wiz_fsim.txt",
            "jtrans_wiz_item.txt",
@@ -292,7 +294,7 @@ static TextDB AllDBs[] =
            "jtrans_dat_des_variable.txt",
            "jtrans_dat_clua.txt",
            "jtrans_dat_dlua.txt",
-           
+
            "jtrans_skill_title.txt",
            "jtrans_divine_title.txt",
            "jtrans_weapon_name.txt",

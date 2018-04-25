@@ -5414,7 +5414,7 @@ string player_save_info::short_desc() const
     if (!qualifier.empty())
         desc << "[" << qualifier << "] ";
 
-    desc << make_stringf(jtransc("{name}, a level {lv} {species} {job} {of some God"),
+    desc << make_stringf(jtransc("{name}, a level {lv} {species} {job} {of some God}"),
                          (religion != GOD_NO_GOD) ? make_stringf(jtransc("of {some God}"),
                                                                  jtransc(god_name)).c_str()
                                                   : "",

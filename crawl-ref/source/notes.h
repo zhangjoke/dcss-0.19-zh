@@ -13,6 +13,7 @@
 #include "player.h"
 
 #define MAX_NOTE_PLACE_LEN (strwidth("ゾットの領域:5"))
+#define MAX_NOTE_TURNS_LEN 6
 
 class reader;
 class writer;

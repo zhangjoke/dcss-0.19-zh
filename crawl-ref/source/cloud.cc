@@ -1531,6 +1531,9 @@ string cloud_type_name_j(cloud_type type, bool terse)
         case CLOUD_PURPLE_SMOKE:
         case CLOUD_TLOC_ENERGY:
         case CLOUD_FOREST_FIRE:
+#if TAG_MAJOR_VERSION == 34
+        case CLOUD_GLOOM:
+#endif
         case CLOUD_INK:
         case CLOUD_PETRIFY:
         case CLOUD_HOLY_FLAMES:
@@ -1544,7 +1547,12 @@ string cloud_type_name_j(cloud_type type, bool terse)
         case CLOUD_SPECTRAL:
         case CLOUD_ACID:
         case CLOUD_NEGATIVE_ENERGY:
+        case CLOUD_FLUFFY:
+        case CLOUD_XOM_TRAIL:
             return _cloud_j(clouds[type].terse_name);
+
+        case CLOUD_SALT:
+            return _cloud_j(clouds[type].terse_name) + "煙";
 
         default:
             return "buggy cloud";

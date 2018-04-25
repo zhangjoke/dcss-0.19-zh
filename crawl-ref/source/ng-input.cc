@@ -5,6 +5,7 @@
 #include <cwctype>
 
 #include "cio.h"
+#include "database.h"
 #include "end.h"
 #include "files.h"
 #include "format.h"
@@ -19,17 +20,20 @@
 // Eventually, this should be something more grand. {dlb}
 void opening_screen()
 {
-    string msg =
+    string msg = make_stringf(jtrans_notrimc("opening screen\n"),
+                              CRAWL,
+                              Version::Long);
+    /*
     "<yellow>Hello, welcome to " CRAWL " " + string(Version::Long) + "!</yellow>\n"
     "<brown>(c) Copyright 1997-2002 Linley Henzell, 2002-2016 Crawl DevTeam\n"
     "Read the instructions for legal details.</brown> ";
-
+    */
 
     FileLineInput f(Options.filename.c_str());
 
     if (!f.error())
     {
-        msg += "<lightgrey>(Options read from ";
+        msg += jtrans_notrim("<lightgrey>(Options read from ");
 #ifdef DGAMELAUNCH
         // For dgl installs, show only the last segment of the .crawlrc
         // file name so that we don't leak details of the directory
@@ -38,23 +42,25 @@ void opening_screen()
 #else
         msg += Options.filename;
 #endif
-        msg += ".)</lightgrey>";
+        msg += jtrans_notrim(" .)</lightgrey>");
     }
     else
     {
-        msg += "<lightred>(Options file ";
+        msg += jtrans_notrim("<lightred>(Options file ");
         if (!Options.filename.empty())
         {
-            msg += make_stringf("\"%s\" is not readable",
+            msg += make_stringf(jtransc("\"%s\" is not readable"),
                                 Options.filename.c_str());
         }
         else
-            msg += "not found";
-        msg += "; using defaults.)</lightred>";
+            msg += jtrans("not found");
+        msg += jtrans("; using defaults.)</lightred>");
     }
 
     msg += "\n";
+    /* The survey is now closed
     msg += "<lightgreen>Take part in the player survey at http://crawl.develz.org</lightgreen>\n";
+    */
 
     formatted_string::parse_string(msg).display();
     textcolour(LIGHTGREY);
@@ -65,7 +71,7 @@ static void _show_name_prompt(int where)
     cgotoxy(1, where);
     textcolour(CYAN);
 
-    cprintf("\nWhat is your name today? (Leave blank for a random name, or use Escape to go back.) ");
+    cprintf("%s", jtrans_notrimc("\nWhat is your name today? (Leave blank for a random name, or use Escape to go back.) "));
 
     textcolour(LIGHTGREY);
 }
@@ -80,7 +86,7 @@ bool is_good_name(const string& name, bool blankOK, bool verbose)
             return true;
 
         if (verbose)
-            cprintf("\nThat's a silly name!\n");
+            cprintf("%s", jtrans_notrimc("\nThat's a silly name!\n"));
         return false;
     }
 
@@ -168,7 +174,7 @@ bool validate_player_name(const string &name, bool verbose)
         || strnicmp(name.c_str(), "LPT", 3) == 0)
     {
         if (verbose)
-            cprintf("\nSorry, that name gives your OS a headache.\n");
+            cprintf("%s", jtrans_notrimc("\nSorry, that name gives your OS a headache.\n"));
         return false;
     }
 #endif
@@ -189,10 +195,10 @@ bool validate_player_name(const string &name, bool verbose)
         {
             if (verbose)
             {
-                cprintf("\n"
+                cprintf("%s", jtrans_notrimc("\n"
                         "Alpha-numerics, spaces, hyphens, periods "
                         "and underscores only, please."
-                        "\n");
+                        "\n"));
             }
             return false;
         }

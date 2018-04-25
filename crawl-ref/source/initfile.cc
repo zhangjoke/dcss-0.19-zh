@@ -119,6 +119,14 @@ const vector<GameOption*> game_options::build_options_list()
 #else
         false;
 #endif
+#ifndef DGAMELAUNCH
+    const bool USING_LOCAL_TILES =
+#if defined(USE_TILE_LOCAL)
+        true;
+#else
+        false;
+#endif
+#endif
 #ifdef USE_TILE
     const bool USING_WEB_TILES =
 #if defined(USE_TILE_WEB)
@@ -199,7 +207,6 @@ const vector<GameOption*> game_options::build_options_list()
         new BoolGameOption(SIMPLE_NAME(arena_dump_msgs_all), false),
         new BoolGameOption(SIMPLE_NAME(arena_list_eq), false),
         new BoolGameOption(SIMPLE_NAME(default_manual_training), false),
-        new BoolGameOption(SIMPLE_NAME(vanilla_randart_name), false),
         new ColourGameOption(SIMPLE_NAME(tc_reachable), BLUE),
         new ColourGameOption(SIMPLE_NAME(tc_excluded), LIGHTMAGENTA),
         new ColourGameOption(SIMPLE_NAME(tc_exclude_circle), RED),
@@ -369,6 +376,8 @@ const vector<GameOption*> game_options::build_options_list()
         new BoolGameOption(SIMPLE_NAME(remember_name), true),
 #endif
         new BoolGameOption(SIMPLE_NAME(vanilla_randart_name), false),
+        new IntGameOption(SIMPLE_NAME(msg_region_width), 130, 0, INT_MAX),
+        new IntGameOption(SIMPLE_NAME(font_dx_factor), 60, 0, INT_MAX),
     };
 
 #undef SIMPLE_NAME

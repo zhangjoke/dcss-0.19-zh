@@ -6,9 +6,11 @@
 
 #include "libutil.h"
 #include "macro.h"
+#include "options.h"
 
 StatRegion::StatRegion(FontWrapper *font) : TextRegion(font)
 {
+    dx = dx * Options.font_dx_factor / 100;
 }
 
 int StatRegion::handle_mouse(MouseEvent &event)

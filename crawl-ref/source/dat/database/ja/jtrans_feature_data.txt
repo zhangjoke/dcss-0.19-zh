@@ -485,7 +485,7 @@
 %%%%
 [feature]oddly glowing altar of Pakellas
 
-# obsolete: Pakellas
+『パケラス』の奇妙に輝く祭壇
 %%%%
 [feature]hide-covered altar of Uskayaw
 

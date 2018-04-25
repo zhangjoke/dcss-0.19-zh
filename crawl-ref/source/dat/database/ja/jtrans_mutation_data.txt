@@ -1040,6 +1040,10 @@ Your genes go into a fast flux.
 
 あなたの遺伝子の流動が早くなった。
 %%%%
+Nature stops experimenting on you.
+
+自然界はあなたで実験するのをやめた。
+%%%%
 Your wild genetic ride slows down.
 
 あなたの荒ぶる遺伝子の流動は遅くなった。

@@ -180,10 +180,9 @@ static bool _is_noteworthy(const Note& note)
 string Note::describe(bool when, bool where, bool what) const
 {
     ostringstream result;
-    const int MAX_NOTES_TURNS_LEN = 6;
 
     if (when)
-        result << setw(MAX_NOTES_TURNS_LEN) << turn << " ";
+        result << setw(MAX_NOTE_TURNS_LEN) << turn << " ";
 
     if (where)
     {
@@ -260,8 +259,7 @@ string Note::describe(bool when, bool where, bool what) const
                                    name.c_str());
             if (!desc.empty())
             {
-                result << "\n "<< string(MAX_NOTES_TURNS_LEN, ' ') << "| "
-                       << string(MAX_NOTE_PLACE_LEN, ' ') << " | " << "(" << desc << ")";
+                result << "\n(" << desc << ")";
             }
             break;
         case NOTE_GET_ITEM:

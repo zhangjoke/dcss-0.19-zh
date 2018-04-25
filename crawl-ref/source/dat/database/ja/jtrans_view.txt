@@ -61,7 +61,7 @@ Press <w>%s</w> or perform an action to restore all view layers.
 
 <w>%s</w>を押すか、何か一行動することで通常画面表示に戻ります。
 %%%%
-Returning view layers.
+Restoring view layers.
 
 通常表示に戻りました。
 %%%%

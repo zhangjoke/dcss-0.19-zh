@@ -2,6 +2,7 @@
 # TAG_MAJOR_VERSION == 34
 It sustains your strength, intelligence and dexterity.
 
+この%sはあなたの腕力・知力・器用さを維持する。
 %%%%
 It improves your spell success rate.
 
@@ -22,6 +23,7 @@ It may teleport you next to monsters.
 # TAG_MAJOR_VERSION == 34
 It can be evoked for teleport control.
 
+この%sはテレポート制御の力を発動することができる。
 %%%%
 It increases damage dealt and taken.
 
@@ -38,10 +40,12 @@ It allows you to eat raw meat even when not hungry.
 # TAG_MAJOR_VERSION == 34
 It may teleport away creatures that harm you.
 
+この%sはあなたを傷つけるモンスターをテレポートさせることがある。
 %%%%
 # TAG_MAJOR_VERSION == 34
 It protects your inventory from destruction.
 
+この%sはあなたの持つアイテムが破損しないようにする。
 %%%%
 It causes incoming damage to be split between your health and magic.
 

@@ -261,7 +261,7 @@ Your life force is drained.
 %%%%
 [dur]Elixir
 
-秘薬
+霊薬
 %%%%
 [dur]-Wiz
 

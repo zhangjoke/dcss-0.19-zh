@@ -62,10 +62,12 @@
 # TAG_MAJOR_VERSION == 34
 [cloud]gloom
 
+暗闇
 %%%%
 # TAG_MAJOR_VERSION == 34
 [cloud]thick gloom
 
+暗闇
 %%%%
 [cloud]ink
 

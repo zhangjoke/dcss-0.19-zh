@@ -6,6 +6,7 @@
 
 #include "libutil.h"
 #include "macro.h"
+#include "options.h"
 #include "tilebuf.h"
 #include "tilefont.h"
 
@@ -13,6 +14,7 @@ MessageRegion::MessageRegion(FontWrapper *font) :
     TextRegion(font),
     m_overlay(false)
 {
+    dx = dx * Options.font_dx_factor / 100;
 }
 
 int MessageRegion::handle_mouse(MouseEvent &event)

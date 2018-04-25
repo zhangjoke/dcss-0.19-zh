@@ -13,7 +13,7 @@ Level
 %%%%
 <blue>Apt </blue>
 
-<blue>種族</blue>
+<blue>適性</blue>
 %%%%
 Source
 
@@ -217,13 +217,9 @@ Return to skill selection
 
 スキル選択画面に戻る
 %%%%
-<w>Help</w>
+<w>Help</w>                [<yellow>a</yellow>-<yellow>z</yellow>] skill descriptions
 
-<w>ヘルプ</w>
-%%%%
-[<yellow>a</yellow>-<yellow>z</yellow>] skill descriptions
-
-[<yellow>a</yellow>-<yellow>z</yellow>] 各スキル解説
+<w>ヘルプ</w>                    [<yellow>a</yellow>-<yellow>z</yellow>] 各スキル解説
 %%%%
 Select a skill as the source of the knowledge transfer. The chosen skill will be reduced to the level shown in <brown>brown</brown>.
 

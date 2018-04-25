@@ -1,7 +1,7 @@
 %%%%
 Loading databases...
 
-データベース読み込み中……
+# 訳不要
 %%%%
 Loading spells and features...
 
@@ -13,7 +13,7 @@ Loading maps...
 %%%%
 Loading complete, press any key to start.
 
-読み込み完了しました。任意のキーを押して開始してください。
+読み込みが完了しました。開始するには任意のキーを押してください。
 %%%%
 Non-debug Crawl cannot run tests. Please use a debug build (defined FULLDEBUG, DEBUG_DIAGNOSTIC or DEBUG_TESTS)
 
@@ -97,7 +97,7 @@ save games
 %%%%
 Enter your name:
 
-名前を入力してください:
+プレイヤー名入力:
 %%%%
 Choices:
 
@@ -105,7 +105,7 @@ Choices:
 %%%%
 Saved games:
 
-保存されているゲーム一覧:
+セーブデータ一覧:
 %%%%
 Use the up/down keys to select the type of game or load a character.
 

@@ -743,7 +743,12 @@ void show_targeting_help()
 
 #ifdef WIZARD
     if (you.wizard)
-        cols.add_formatted(0, targeting_help_1 + ZWSP "\n" +
+        cols.add_formatted(0, targeting_help_1 +
+#ifndef USE_TILE_LOCAL
+                              ZWSP "\n" +
+#else
+                              "\n" +
+#endif
                               targeting_help_wiz, true);
     else
         cols.add_formatted(0, targeting_help_1, true);

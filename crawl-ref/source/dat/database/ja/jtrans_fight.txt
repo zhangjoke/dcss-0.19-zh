@@ -47,6 +47,10 @@ Really %s%s%s?%s
 
 %s本当に%s%sますか？ %s
 %%%%
+Really %s %s%s?%s
+
+%s本当に%s%sますか？ %s
+%%%%
 This attack would place you under penance!
 
 <This could place you under penance!>

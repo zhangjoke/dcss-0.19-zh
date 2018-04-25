@@ -3183,7 +3183,11 @@ int choose_ability_menu(const vector<talent>& talents)
 
     abil_menu.set_highlighter(nullptr);
 
+#ifndef USE_TILE_WEB
+    string offset = "";
+#else
     string offset = tiles.is_controlled_from_web() ? string(4, ' ') : "";
+#endif
     string do_what   = offset + chop_string(jtrans_notrim("  Ability - do what?"), 32)
                      + align_centre(jtrans("Cost"), 30)
                      + align_centre(jtrans("Failure"), 12);

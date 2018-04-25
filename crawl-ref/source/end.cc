@@ -367,8 +367,12 @@ NORETURN void end_game(scorefile_entry &se, int hiscore_index)
                         hiscore_index);
 
 #ifndef DGAMELAUNCH
-    cprintf(jtrans_notrim("\nYou can find your morgue file in the '%s' directory."),
-            morgue_directory().c_str());
+    string morgue_dir = morgue_directory();
+    if (morgue_dir[morgue_dir.length() - 1] == FILE_SEPARATOR)
+        morgue_dir.pop_back();
+
+    cprintf(jtrans_notrimc("\nYou can find your morgue file in the '%s' directory."),
+            morgue_dir.c_str());
 #endif
 
     // just to pause, actual value returned does not matter {dlb}
