@@ -1,19 +1,19 @@
 %%%%
 [cloud]flame
 
-炎
+火焰
 %%%%
 [cloud]roaring flames
 
-燃えさかる炎
+熊熊火焰
 %%%%
 [cloud]noxious fumes
 
-悪臭
+恶臭
 %%%%
 [cloud]freezing vapour
 
-凍てつく大気
+冰汽
 %%%%
 [cloud]freezing vapours
 
@@ -21,81 +21,81 @@
 %%%%
 [cloud]poison gas
 
-毒ガス
+毒气
 %%%%
 [cloud]black smoke
 
-黒い煙
+黑烟
 %%%%
 [cloud]grey smoke
 
-灰色の煙
+灰烟
 %%%%
 [cloud]blue smoke
 
-青い煙
+蓝烟
 %%%%
 [cloud]purple smoke
 
-紫の煙
+紫烟
 %%%%
 [cloud]translocational energy
 
-転位のエネルギー
+传送能量
 %%%%
 [cloud]spreading flames
 
-燃え広がる炎
+扩散火焰
 %%%%
 [cloud]a forest fire
 
-森林火災
+森林大火
 %%%%
 [cloud]steam
 
-蒸気
+蒸汽
 %%%%
 [cloud]a cloud of scalding steam
 
-高熱の蒸気
+灼热蒸汽
 %%%%
 # TAG_MAJOR_VERSION == 34
 [cloud]gloom
 
-暗闇
+黑暗
 %%%%
 # TAG_MAJOR_VERSION == 34
 [cloud]thick gloom
 
-暗闇
+深暗
 %%%%
 [cloud]ink
 
-墨
+墨水
 %%%%
 [cloud]calcifying dust
 
-石化する雲
+石化粉尘
 %%%%
 [cloud]blessed fire
 
-聖なる炎
+祝福烈火
 %%%%
 [cloud]foul pestilence
 
-疫病の瘴気
+瘟疫瘴气
 %%%%
 [cloud]dark miasma
 
-薄黒い疫病の瘴気
+黑暗瘴气
 %%%%
 [cloud]thin mist
 
-薄霧
+薄雾
 %%%%
 [cloud]seething chaos
 
-渦巻く混沌
+汹涌的混沌
 %%%%
 [cloud]rain
 
@@ -107,27 +107,27 @@
 %%%%
 [cloud]mutagenic fog
 
-変異性の霧
+突变之雾
 %%%%
 [cloud]magical condensation
 
-凝縮された魔力
+凝结的魔力
 %%%%
 [cloud]raging winds
 
-荒れ狂う風
+呼啸的狂风
 %%%%
 [cloud]sparse dust
 
-まばらな塵
+薄尘
 %%%%
 [cloud]spectral mist
 
-鬼火
+幽灵迷雾
 %%%%
 [cloud]acidic fog
 
-酸性の霧
+酸雾
 %%%%
 [cloud]thunder
 
@@ -135,27 +135,27 @@
 %%%%
 [cloud]a thunderstorm
 
-<[cloud]thunder>
+雷暴
 %%%%
 [cloud]negative energy
 
-負のエネルギー
+负能量
 %%%%
 [cloud]white fluffiness
 
-ふわふわの綿雲
+白云
 %%%%
 [cloud]salt
 
-塩
+盐
 %%%%
 The forest fire spreads!
 
-森林火災が燃え広がった！
+森林火灾蔓延了开来！
 %%%%
 Lightning arcs down from a storm cloud!
 
-雷雲から稲妻が落ちた！
+闪电从风暴云中打了下来！
 %%%%
 # You hear a mighty clap of thunder!
 
@@ -163,69 +163,69 @@ Lightning arcs down from a storm cloud!
 %%%%
 The rain has left you waist-deep in water!
 
-雨によってできた水たまりはあなたの腰の深さまで残っている！
+雨积成了半腰深的水塘！
 %%%%
 %s %s in the rain.
 
-%sは雨の中で%s。
+%s在雨中%s。
 %%%%
 [verb]steam
 
-蒸気を発している
+发出了蒸汽
 %%%%
 [verb]sizzle
 
-ジュージューと音を立てている
+发出了嘶嘶声
 %%%%
 You choke on the stench!
 
-あなたは悪臭で窒息しそうだ！
+臭气使你窒息！
 %%%%
 The mutagenic energy flows into you.
 
-変異性のエネルギーがあなたに流れ込んだ。
+突变能量流入了你的体内。
 %%%%
 mutagenic cloud
 
-変異性の雲
+突变之云
 %%%%
 You are struck by lightning!
 
-あなたは雷に打たれた！
+你被闪电击中了！
 %%%%
 is struck by lightning.
 
-は雷に打たれた。
+被闪电击中了。
 %%%%
 Lightning from the thunderstorm strikes something you cannot see.
 
-雷雲から降った稲妻があなたの目に見えない何かに直撃した。
+雷暴打下的闪电击中了你看不见的怪物。
 %%%%
 You hear a clap of thunder!
 
-あなたは雷鳴を耳にした！
+你听到了轰鸣的雷声！
 %%%%
 %s %s in %s.
 
-%sは%sの中に%s。
+%s被%s%s。
 %%%%
 [verb]bask
 
-浸っている
+浸泡着
 %%%%
 engulfed
 
-包まれている
+吞没了
 %%%%
 %s %s standing in %s.
 
-%s%s%sの中に立っている。
+%s%s站在%s中。
 %%%%
 The air becomes perfectly still.
 
-大気の動きは完全に停止している。
+大气的运动完全停了下来。
 %%%%
 The air resumes its normal movements.
 
-大気は通常の流れを取り戻した。
+大气恢复了通常了流动。
 %%%%

@@ -396,7 +396,7 @@ Autopickup is now off.
 %%%%
 You carefully extract the barbed spikes from your body.
 
-你仔细地取出了你体内的刺。
+你仔细地取出了你体内的倒刺。
 %%%%
 # Char dump unsuccessful! Sorry about that.
 
@@ -424,7 +424,7 @@ Unknown command. (For a list of commands type <w>?\?</w>.)
 %%%%
 Unknown command.
 
-そのコマンドは存在しません。
+未知指令。
 %%%%
 Press <w>%</w> or <w>%</w> to pray at altars.
 
@@ -464,7 +464,7 @@ Outside, the world ends.
 %%%%
 Sorry, but your quest for the Orb is now rather pointless. You quit...
 
-抱歉，你寻找宝珠的任务失去了意义。你退出了……
+抱歉，你的寻找宝珠的任务失去了意义。你退出了……
 %%%%
 #if defined(DEBUG_TENSION) || defined(DEBUG_RELIGION)
 TENSION = %d
@@ -648,7 +648,7 @@ You nearly stumble into %s!
 %%%%
 The barbs in your skin will harm you if you move. Continue?
 
-如果你移动的话，你皮肤里的刺会伤害到你。要继续移动吗？
+如果你移动的话，你皮肤里的倒刺会伤害到你。要继续移动吗？
 %%%%
 You deftly slip free of the water engulfing you.
 
@@ -664,7 +664,7 @@ You dig through %s.
 %%%%
 The barbed spikes dig painfully into your body as you move.
 
-随着你的移动，你体内的刺扎痛了你。
+随着你的移动，你体内的倒刺扎痛了你。
 %%%%
 The barbed spikes snap loose.
 

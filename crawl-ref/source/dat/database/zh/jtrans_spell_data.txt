@@ -1,63 +1,63 @@
 %%%%
 [spell]Teleport Self
 
-自己テレポート
+传送自身
 %%%%
 [spell]Cause Fear
 
-恐慌の喚起
+恐惧术
 %%%%
 [spell]Magic Dart
 
-魔法の矢
+魔法飞镖
 %%%%
 [spell]Fireball
 
-ファイアボール
+火球
 %%%%
 [spell]Apportation
 
-収拾
+隔空取物
 %%%%
 [spell]Delayed Fireball
 
-遅延式ファイアボール
+延迟火球术
 %%%%
 [spell]Conjure Flame
 
-火柱の幻出
+火墙术
 %%%%
 [spell]Dig
 
-掘削
+挖掘
 %%%%
 [spell]Bolt of Fire
 
-猛火の矢
+烈火魔矢
 %%%%
 [spell]Bolt of Cold
 
-凍結の矢
+寒冰魔矢
 %%%%
 [spell]Lightning Bolt
 
-稲妻の矢
+闪电魔矢
 %%%%
 [spell]Blinkbolt
 
-雷霆の突進
+闪烁魔矢
 %%%%
 [spell]Bolt of Magma
 
-溶岩の矢
+熔岩魔矢
 %%%%
 [spell]Polymorph
 
-変化
+变形
 %%%%
 [spell]Slow
 
-減速
+减速
 %%%%
 [spell]Haste
 
@@ -73,207 +73,207 @@
 %%%%
 [spell]Invisibility
 
-透明化
+隐身
 %%%%
 [spell]Throw Flame
 
-火炎の投射
+投射火焰
 %%%%
 [spell]Throw Frost
 
-冷気の投射
+投射寒霜
 %%%%
 [spell]Controlled Blink
 
-精密瞬間移動
+受控瞬间移动
 %%%%
 [spell]Disjunction
 
-空間分離
+空间分裂
 %%%%
 [spell]Freezing Cloud
 
-凍気の雲
+冰冻之云
 %%%%
 [spell]Mephitic Cloud
 
-悪臭の雲
+恶臭之云
 %%%%
 [spell]Ring of Flames
 
-炎の円環
+火焰之环
 %%%%
 [spell]Venom Bolt
 
-猛毒の矢
+猛毒魔矢
 %%%%
 [spell]Olgreb's Toxic Radiance
 
-オルグレブの毒気の光輪
+奥格雷布之剧毒辐射术
 %%%%
 [spell]Teleport Other
 
-他者のテレポート
+传送他人
 %%%%
 [spell]Death's Door
 
-死のとば口
+死亡之门
 %%%%
 [spell]Mass Confusion
 
-集団の混乱
+群体混乱
 %%%%
 [spell]Smiting
 
-打擲の一撃
+惩击
 %%%%
 [spell]Summon Small Mammal
 
-小動物の召喚
+召唤小动物
 %%%%
 [spell]Abjuration
 
-解放の宣誓
+归还召唤物
 %%%%
 [spell]Aura of Abjuration
 
-解放のオーラ
+归还光环
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Summon Scorpions
 
-蠍の召喚
+召唤蝎子
 %%%%
 [spell]Bolt of Draining
 
-衰弱の矢
+虚弱魔矢
 %%%%
 [spell]Lehudib's Crystal Spear
 
-レフディブの水晶槍
+勒乎迪布之水晶魔矛
 %%%%
 [spell]Bolt of Inaccuracy
 
 # rod of inaccuracy
-不正確の矢
+不精准魔矢
 %%%%
 [spell]Tornado
 
-大竜巻
+龙卷风
 %%%%
 [spell]Poisonous Cloud
 
-猛毒の雲
+剧毒之云
 %%%%
 [spell]Fire Storm
 
-炎の嵐
+火焰风暴
 %%%%
 [spell]Call Down Damnation
 
-天罰の招来
+地狱降临
 %%%%
 [spell]Blink
 
-瞬間移動
+瞬间移动
 %%%%
 [spell]Blink Range
 
-瞬間退避
+瞬间退避
 %%%%
 [spell]Blink Away
 
-瞬間退避
+瞬间移远
 %%%%
 [spell]Blink Close
 
-瞬間接敵
+瞬间移近
 %%%%
 [spell]Iskenderun's Mystic Blast
 
-イスケンデルンの爆破の秘術
+伊斯肯德伦之秘法爆破
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Summon Swarm
 
-大群の召喚
+召唤兽群
 %%%%
 [spell]Summon Horrible Things
 
-おぞましきものの召喚
+召唤憎恶
 %%%%
 [spell]Malign Gateway
 
-邪悪なる通り道
+怨恨之门
 %%%%
 [spell]Enslavement
 
-隷属
+奴役
 %%%%
 [spell]Animate Dead
 
-死霊の蘇生
+复活死者
 %%%%
 [spell]Pain
 
-苦痛
+痛苦
 %%%%
 [spell]Control Undead
 
-アンデッドの指揮
+控制不死者
 %%%%
 [spell]Animate Skeleton
 
-スケルトンの造成
+复活骷髅
 %%%%
 [spell]Vampiric Draining
 
-ヴァンパイアの吸血
+吸血
 %%%%
 [spell]Haunt
 
-招霊
+作祟
 %%%%
 [spell]Borgnjor's Revivification
 
-ボーグンジョルの究極治癒
+博格尼尔之新生术
 %%%%
 [spell]Freeze
 
-氷結
+冰冻
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Summon Elemental
 
-精霊の召喚
+召唤元素
 %%%%
 [spell]Ozocubu's Refrigeration
 
-オゾクブの瞬間凍結
+奥佐库布之急速冷冻术
 %%%%
 [spell]Sticky Flame
 
-焼夷の炎
+粘性火焰
 %%%%
 [spell]Summon Ice Beast
 
-氷の獣の召喚
+召唤冰兽
 %%%%
 [spell]Ozocubu's Armour
 
-オゾクブの鎧
+奥佐库布之寒冰护甲
 %%%%
 [spell]Call Imp
 
-インプの召喚
+召唤小鬼
 %%%%
 [spell]Repel Missiles
 
-飛来物の防御
+抵挡弹药
 %%%%
 [spell]Berserker Rage
 
-狂戦士の怒り
+狂暴
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Frenzy
@@ -282,7 +282,7 @@
 %%%%
 [spell]Dispel Undead
 
-アンデッドの解呪
+驱散不死者
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Fulsome Distillation
@@ -291,11 +291,11 @@
 %%%%
 [spell]Poison Arrow
 
-毒素の矢
+剧毒魔箭
 %%%%
 [spell]Twisted Resurrection
 
-捻れた蘇生
+复活爬行的尸体
 %%%%
 [spell]Regeneration
 
@@ -303,7 +303,7 @@
 %%%%
 [spell]Banishment
 
-アビスへの追放
+放逐 
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Cigotuvi's Degeneration
@@ -312,19 +312,19 @@
 %%%%
 [spell]Sting
 
-毒針
+毒刺
 %%%%
 [spell]Sublimation of Blood
 
-血の昇華
+血之升华
 %%%%
 [spell]Tukima's Dance
 
-ツキマーの舞踏
+图奇马之舞
 %%%%
 [spell]Summon Demon
 
-デーモンの召喚
+召唤恶魔
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Demonic Horde
@@ -333,67 +333,67 @@
 %%%%
 [spell]Summon Greater Demon
 
-上位デーモンの召喚
+召唤高级恶魔
 %%%%
 [spell]Corpse Rot
 
-死体の腐蝕
+腐烂尸体
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Fire Brand
 
-火炎の武器
+火焰武器
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Freezing Aura
 
-凍結の武器
+冰冻武器
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Lethal Infusion
 
-死の装填
+虚弱武器
 %%%%
 [spell]Iron Shot
 
-鉄塊の矢
+钢铁魔弹
 %%%%
 [spell]Stone Arrow
 
-石錐の矢
+岩石魔箭
 %%%%
 [spell]Shock
 
-電撃
+电击
 %%%%
 [spell]Swiftness
 
-俊足
+迅捷
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Flight
 
-飛行
+飞行
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Insulation
 
-絶縁化
+绝缘
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Cure Poison
 
-毒の治療
+解毒
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Control Teleport
 
-精密テレポート
+受控传送
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Poison Weapon
 
-毒の武器
+剧毒武器
 %%%%
 [spell]Debugging Ray
 
@@ -401,71 +401,71 @@
 %%%%
 [spell]Recall
 
-招来
+召回
 %%%%
 [spell]Agony
 
-苦悶
+剧痛
 %%%%
 [spell]Spider Form
 
-蜘蛛の躯
+蜘蛛形态
 %%%%
 [spell]Disintegrate
 
-分解
+裂解
 %%%%
 [spell]Blade Hands
 
-刃の手
+利刃之手
 %%%%
 [spell]Statue Form
 
-石像の躯
+雕像形态
 %%%%
 [spell]Ice Form
 
-氷の躯
+寒冰形态
 %%%%
 [spell]Dragon Form
 
-ドラゴンの躯
+巨龙形态
 %%%%
 [spell]Hydra Form
 
-ヒドラの躯
+海德拉形态
 %%%%
 [spell]Necromutation
 
-死者の躯
+死灵形态
 %%%%
 [spell]Death Channel
 
-死の霊媒術
+死亡通道
 %%%%
 [spell]Symbol of Torment
 
-苦痛の紋章
+折磨印记
 %%%%
 [spell]Deflect Missiles
 
-飛来物の阻止
+偏移弹药
 %%%%
 [spell]Throw Icicle
 
-氷柱の投射
+投射冰柱
 %%%%
 [spell]Airstrike
 
-旋風の一撃
+空中打击
 %%%%
 [spell]Shadow Creatures
 
-影の怪物
+暗影生物
 %%%%
 [spell]Confusing Touch
 
-混乱の一撃
+混乱之触
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Sure Blade
@@ -474,70 +474,70 @@
 %%%%
 [spell]Flame Tongue
 
-炎の舌先
+火舌
 %%%%
 [spell]Passwall
 
-壁の透過
+穿墙
 %%%%
 [spell]Ignite Poison
 
-毒の燃焼
+燃烧毒素
 %%%%
 [spell]Sticks to Snakes
 
-棒切れの蛇
+化箭为蛇
 %%%%
 [spell]Call Canine Familiar
 
-犬族のしもべの召喚
+召唤犬类
 %%%%
 [spell]Summon Dragon
 
-ドラゴンの召喚
+召唤巨龙
 %%%%
 [spell]Ensorcelled Hibernation
 
-魔法の眠り
+催眠
 %%%%
 [spell]Metabolic Englaciation
 
-代謝の凍結
+群体减速
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]See Invisible
 
-透明体の視認
+侦测隐身
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Phase Shift
 
-位相変移
+相位移行
 %%%%
 [spell]Summon Butterflies
 
-胡蝶の召喚
+召唤蝴蝶
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Warp Weapon
 
-歪曲の武器
+扭曲武器
 %%%%
 [spell]Silence
 
-静寂
+沉默
 %%%%
 [spell]Shatter
 
-粉砕
+天崩地裂
 %%%%
 [spell]Dispersal
 
-転送
+分散
 %%%%
 [spell]Static Discharge
 
-空電放射
+静电释放
 %%%%
 [spell]Corona
 
@@ -545,7 +545,7 @@
 %%%%
 [spell]Alistair's Intoxication
 
-アリステイアの酩酊
+阿利斯泰尔之醉酒术
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Evaporate
@@ -554,11 +554,11 @@
 %%%%
 [spell]Lee's Rapid Deconstruction
 
-リーの瞬間解体術
+李之快速解体术
 %%%%
 [spell]Sandblast
 
-砂の突風
+喷沙
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Condensation Shield
@@ -572,35 +572,35 @@
 %%%%
 [spell]Simulacrum
 
-幻像
+幻象
 %%%%
 [spell]Conjure Ball Lightning
 
-魔術の球雷
+球形闪电
 %%%%
 [spell]Chain Lightning
 
-連鎖する稲妻
+连锁闪电
 %%%%
 [spell]Excruciating Wounds
 
-苦痛の傷痕
+痛苦武器
 %%%%
 [spell]Portal Projectile
 
-射出物の転送
+传送弹药
 %%%%
 [spell]Monstrous Menagerie
 
-怪物園の開場
+召唤巨兽
 %%%%
 [spell]Passage of Golubria
 
-ゴルブリアの通り道
+格鲁布里亚通道
 %%%%
 [spell]Fulminant Prism
 
-爆発性の晶柱
+爆炸棱镜
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Singularity
@@ -609,19 +609,19 @@
 %%%%
 [spell]Paralyse
 
-麻痺
+麻痹
 %%%%
 [spell]Minor Healing
 
-小さな癒し
+次级治疗
 %%%%
 [spell]Major Healing
 
-大いなる癒し
+高级治疗
 %%%%
 [spell]Hurl Damnation
 
-天罰
+地狱诅咒
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Vampire Summon
@@ -630,7 +630,7 @@
 %%%%
 [spell]Brain Feed
 
-脳食らい
+吞食大脑
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Rakshasa Summon
@@ -639,95 +639,95 @@
 %%%%
 [spell]Noxious Cloud
 
-悪臭の雲烟
+恶臭之云
 %%%%
 [spell]Steam Ball
 
-蒸気の爆裂球
+蒸汽球
 %%%%
 [spell]Summon Ufetubus
 
-ウフェツバスの召喚
+召唤乌佛图布
 %%%%
 [spell]Summon Hell Beast
 
-地獄の獣人の召喚
+召唤地狱野兽
 %%%%
 [spell]Energy Bolt
 
-電光の矢
+能量魔矢
 %%%%
 [spell]Spit Poison
 
-毒の唾
+喷吐毒液
 %%%%
 [spell]Summon Undead
 
-不死者の召喚
+召唤不死者
 %%%%
 [spell]Cantrip
 
-悪戯の文言
+恶作剧
 %%%%
 [spell]Quicksilver Bolt
 
-水銀の矢
+水银魔矢
 %%%%
 [spell]Metal Splinters
 
-鉄片の奔流
+金属裂片
 %%%%
 [spell]Miasma Breath
 
-瘴気のブレス
+瘴气吐息
 %%%%
 [spell]Summon Drakes
 
-ドレイクの召喚
+召唤幼龙
 %%%%
 [spell]Blink Other
 
-他者の瞬間移動
+瞬间移动他人
 %%%%
 [spell]Blink Other Close
 
-他者の瞬間接敵
+瞬间移近他人
 %%%%
 [spell]Summon Mushrooms
 
-茸の怪物の召喚
+召唤蘑菇
 %%%%
 [spell]Spit Acid
 
-酸の唾
+喷涂酸液
 %%%%
 [spell]Sticky Flame Range
 
-焼夷の炎(遠隔)
+远程粘性火焰
 %%%%
 [spell]Sticky Flame Splash
 
-焼夷の炎の飛沫
+溅射粘性火焰
 %%%%
 [spell]Fire Breath
 
-火炎の息
+火焰吐息
 %%%%
 [spell]Searing Breath
 
-焼灼のブレス
+炽热吐息
 %%%%
 [spell]Chaos Breath
 
-混沌のブレス
+混沌吐息
 %%%%
 [spell]Cold Breath
 
-冷気のブレス
+寒冰吐息
 %%%%
 [spell]Chilling Breath
 
-冷却のブレス
+刺骨吐息
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Draconian Breath
@@ -736,39 +736,39 @@
 %%%%
 [spell]Summon Water Elementals
 
-水の精霊の召喚
+召唤水元素
 %%%%
 [spell]Porkalator
 
-豚化の光線
+变猪光线
 %%%%
 [spell]Spawn Tentacles
 
-触手の発生
+召唤触手
 %%%%
 [spell]Tomb of Doroklohe
 
-ドルオロクヒの玄室
+多洛克罗赫之墓
 %%%%
 [spell]Summon Eyeballs
 
-眼球の怪物の召喚
+召唤眼球
 %%%%
 [spell]Haste Other
 
-他者の加速
+加速他人
 %%%%
 [spell]Summon Earth Elementals
 
-大地の精霊の召喚
+召唤土元素
 %%%%
 [spell]Summon Air Elementals
 
-風の精霊の召喚
+召唤空气元素
 %%%%
 [spell]Summon Fire Elementals
 
-火の精霊の召喚
+召唤火元素
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Summon Iron Elementals
@@ -781,7 +781,7 @@
 %%%%
 [spell]Mara Summon
 
-分身
+召唤分身
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Summon Rakshasa
@@ -795,31 +795,31 @@
 %%%%
 [spell]Summon Illusion
 
-幻影の召喚
+召唤幻象
 %%%%
 [spell]Primal Wave
 
-原初の大波
+原始波浪
 %%%%
 [spell]Call Tide
 
-大波の喚起
+召唤大潮
 %%%%
 [spell]Orb of Destruction
 
-破壊の爆裂球
+毁灭法球
 %%%%
 [spell]Ink Cloud
 
-墨の雲
+墨水之云
 %%%%
 [spell]Might
 
-怪力
+强化
 %%%%
 [spell]Might Other
 
-他者の強化
+强化他人
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Sunray
@@ -828,23 +828,23 @@
 %%%%
 [spell]Awaken Forest
 
-森林の喚起
+唤醒森林
 %%%%
 [spell]Druid's Call
 
-ドルイドの呼び声
+德鲁伊的呼唤
 %%%%
 [spell]Brothers in Arms
 
-戦友の召喚
+召唤战友
 %%%%
 [spell]Trog's Hand
 
-トログの御手
+特洛戈之手
 %%%%
 [spell]Summon Spectral Orcs
 
-オークの霊魂の召喚
+召唤兽人幽灵
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Holy Light
@@ -853,43 +853,43 @@
 %%%%
 [spell]Summon Holies
 
-神聖なるものの召喚
+召唤圣者
 %%%%
 [spell]Heal Other
 
-他者の治癒
+治疗他人
 %%%%
 [spell]Holy Flames
 
-神聖なる火炎
+神圣烈焰
 %%%%
 [spell]Holy Breath
 
-聖なるブレス
+神圣吐息
 %%%%
 [spell]Injury Mirror
 
-創傷の鏡
+伤害之镜
 %%%%
 [spell]Drain Life
 
-生命の簒奪
+吸取生命
 %%%%
 [spell]Leda's Liquefaction
 
-レダの流動術
+勒达之液化术
 %%%%
 [spell]Summon Hydra
 
-ヒドラの召喚
+召唤海德拉
 %%%%
 [spell]Darkness
 
-暗闇の喚起
+黑暗术
 %%%%
 [spell]Mesmerise
 
-魅了
+魅惑
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Melee
@@ -898,23 +898,23 @@
 %%%%
 [spell]Fire Summon
 
-炎の眷属の召喚
+召唤烈焰
 %%%%
 [spell]Petrifying Cloud
 
-石化の雲
+石化之云
 %%%%
 [spell]Shroud of Golubria
 
-ゴルブリアの帷子
+格鲁布里亚护罩
 %%%%
 [spell]Inner Flame
 
-内なる炎
+内火术
 %%%%
 [spell]Beastly Appendage
 
-半獣の躰
+野兽身躯
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Silver Blast
@@ -923,23 +923,23 @@
 %%%%
 [spell]Ensnare
 
-絡めとり
+诱捕
 %%%%
 [spell]Thunderbolt
 
-雷霆の矢
+雷霆魔矢
 %%%%
 [spell]Iskenderun's Battlesphere
 
-イスケンデルンの戦闘球
+伊斯肯德伦之战斗法球
 %%%%
 [spell]Summon Minor Demon
 
-下位デーモンの召喚
+召唤次级恶魔
 %%%%
 [spell]Malmutate
 
-悪性変異
+有害突变
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Summon Twister
@@ -948,43 +948,43 @@
 %%%%
 [spell]Dazzling Spray
 
-眩い光の放射
+炫目光线
 %%%%
 [spell]Force Lance
 
-力場の槍
+力量之枪
 %%%%
 [spell]Sentinel's Mark
 
-番兵の標的
+哨兵的标记
 %%%%
 [spell]Word of Recall
 
-招集の宣言
+召回咒语
 %%%%
 [spell]Injury Bond
 
-創傷の絆
+伤害连接
 %%%%
 [spell]Spectral Cloud
 
-幽体の雲
+幽灵之云
 %%%%
 [spell]Ghostly Fireball
 
-鬼火の火球
+鬼火火球术
 %%%%
 [spell]Call Lost Soul
 
-滅亡せる霊魂の召喚
+召唤迷失的灵魂
 %%%%
 [spell]Dimension Anchor
 
-次元の碇
+次元之锚
 %%%%
 [spell]Blink Allies Encircling
 
-盟友の招集
+召集友军
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Shaft Self
@@ -993,7 +993,7 @@
 %%%%
 [spell]Awaken Vines
 
-鞭打蔦の召喚
+唤醒藤蔓
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Control Winds
@@ -1002,15 +1002,15 @@
 %%%%
 [spell]Volley of Thorns
 
-茨の斉射
+荆棘齐射
 %%%%
 [spell]Wall of Brambles
 
-茨の壁
+荆棘之墙
 %%%%
 [spell]Waterstrike
 
-水流の一撃
+水流冲击
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Haste Plants
@@ -1019,19 +1019,19 @@
 %%%%
 [spell]Wind Blast
 
-突風
+突风
 %%%%
 [spell]Strip Resistance
 
-耐性の除去
+去除抗性
 %%%%
 [spell]Infusion
 
-魔力の装填
+魔力注入
 %%%%
 [spell]Song of Slaying
 
-殺戮の歌
+杀戮之歌
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Song of Shielding
@@ -1040,19 +1040,19 @@
 %%%%
 [spell]Spectral Weapon
 
-幽体の武器
+幽灵武器
 %%%%
 [spell]Summon Vermin
 
-害虫の召喚
+召唤害虫
 %%%%
 [spell]Malign Offering
 
-悪意の供物
+怨恨供奉
 %%%%
 [spell]Searing Ray
 
-焼灼の光線
+炽热光线
 %%%%
 [spell]Discord
 
@@ -1060,11 +1060,11 @@
 %%%%
 [spell]Invisibility Other
 
-他者の透明化
+他人隐身
 %%%%
 [spell]Virulence
 
-免疫の低下
+惧毒
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Localized Ignite Poison
@@ -1073,19 +1073,19 @@
 %%%%
 [spell]Orb of Electricity
 
-電撃の爆裂球
+闪电法球
 %%%%
 [spell]Explosive Bolt
 
-爆裂の矢
+爆炸魔矢
 %%%%
 [spell]Flash Freeze
 
-瞬間凍結
+瞬间冻结
 %%%%
 [spell]Legendary Destruction
 
-伝説的な破壊
+传说毁灭
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Ephemeral Infusion
@@ -1094,23 +1094,23 @@
 %%%%
 [spell]Forceful Invitation
 
-強力なる誘い
+强力引诱
 %%%%
 [spell]Plane Rend
 
-空間断裂
+撕裂位面
 %%%%
 [spell]Chain of Chaos
 
-連鎖する混沌
+混乱连锁
 %%%%
 [spell]Call of Chaos
 
-混沌の呼び声
+混沌呼唤
 %%%%
 [spell]Black Mark
 
-黒の紋様
+黑色印记
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Grand Avatar
@@ -1119,7 +1119,7 @@
 %%%%
 [spell]Sap Magic
 
-魔法の阻害
+魔力衰竭
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Corrupt Body
@@ -1133,59 +1133,59 @@
 %%%%
 [spell]Major Destruction
 
-大いなる破壊
+高级毁灭
 %%%%
 [spell]Blink Allies Away
 
-盟友の退避
+友军退避
 %%%%
 [spell]Summon Forest
 
-ドライアドの召喚
+召唤森林
 %%%%
 [spell]Summon Lightning Spire
 
-稲妻の渦巻の召喚
+召唤闪电尖塔
 %%%%
 [spell]Summon Guardian Golem
 
-守護者のゴーレムの召喚
+召唤守卫魔像
 %%%%
 [spell]Shadow Shard
 
-影の欠片
+暗影碎片
 %%%%
 [spell]Shadow Bolt
 
-影の矢
+暗影魔矢
 %%%%
 [spell]Crystal Bolt
 
-水晶の矢
+水晶魔矢
 %%%%
 [spell]Random Bolt
 
-無作為の矢
+随机魔矢
 %%%%
 [spell]Glaciate
 
-凍てつく嵐
+冰冻风暴
 %%%%
 [spell]Cloud Cone
 
-雲烟の放射
+放射云雾
 %%%%
 [spell]Weave Shadows
 
-影編み
+编织暗影
 %%%%
 [spell]Dragon's Call
 
-ドラゴンの呼び声
+巨龙呼唤
 %%%%
 [spell]Spellforged Servitor
 
-魔法仕掛けの従者
+召唤魔法仆人
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Forceful Dismissal
@@ -1194,79 +1194,79 @@
 %%%%
 [spell]Summon Mana Viper
 
-マナバイパーの召喚
+召唤法力蛇
 %%%%
 [spell]Phantom Mirror
 
-幻影の鏡
+幻影之镜
 %%%%
 [spell]Drain Magic
 
-魔力の簒奪
+吸取魔力
 %%%%
 [spell]Corrosive Bolt
 
-腐蝕の矢
+腐蚀魔矢
 %%%%
 [spell]gehenna serpent of hell breath
 
-ゲヘナのサーペントのブレス
+欣嫩谷地狱魔龙吐息
 %%%%
 [spell]cocytus serpent of hell breath
 
-コキュートスのサーペントのブレス
+寒冰地狱魔龙吐息
 %%%%
 [spell]dis serpent of hell breath
 
-ディースのサーペントのブレス
+冥府地狱魔龙吐息
 %%%%
 [spell]tartarus serpent of hell breath
 
-タルタロスのサーペントのブレス
+塔耳塔洛斯地狱魔龙吐息
 %%%%
 [spell]Summon Emperor Scorpions
 
-皇帝サソリの召喚
+召唤帝王蝎
 %%%%
 [spell]Irradiate
 
-放射の光
+魔力辐射
 %%%%
 [spell]Spit Lava
 
-溶岩の唾
+喷吐岩浆
 %%%%
 [spell]Electrical Bolt
 
-電光の矢
+电光魔矢
 %%%%
 [spell]Flaming Cloud
 
-炎熱の雲
+火焰之云
 %%%%
 [spell]Throw Barbs
 
-逆棘の射出
+投掷倒刺
 %%%%
 [spell]Battlecry
 
-闘争の喊声
+战吼
 %%%%
 [spell]Warning Cry
 
-警告の喊声
+警告叫喊
 %%%%
 [spell]Seal Doors
 
-扉の封印
+封印门扉
 %%%%
 [spell]Flay
 
-皮剥ぎ
+剥皮
 %%%%
 [spell]Berserk Other
 
-他者の狂戦士化
+激怒
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Throw
@@ -1275,43 +1275,43 @@
 %%%%
 [spell]Corrupting Pulse
 
-崩壊の脈動
+腐化脉动
 %%%%
 [spell]Siren Song
 
-サイレンの唄
+塞壬之歌
 %%%%
 [spell]Avatar Song
 
-生き神の唄
+化身之歌
 %%%%
 [spell]Paralysis Gaze
 
-麻痺の眼光
+麻痹视线
 %%%%
 [spell]Confusion Gaze
 
-混乱の眼光
+混乱视线
 %%%%
 [spell]Draining Gaze
 
-掠奪の眼光
+虚弱视线
 %%%%
 [spell]Death Rattle
 
-死の騒話
+死亡咯声
 %%%%
 [spell]Summon Scarabs
 
-スカラベの召喚
+召唤甲虫
 %%%%
 [spell]Scattershot
 
-散弾
+散弹
 %%%%
 [spell]Throw Ally
 
-戦友の投擲
+投掷友军
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Hunting Cry
@@ -1320,15 +1320,15 @@
 %%%%
 [spell]Cleansing Flame
 
-浄化の炎
+净化烈焰
 %%%%
 [spell]Cigotuvi's Embrace
 
-シゴツヴィの抱擁
+奇哥图维之拥
 %%%%
 [spell]Gell's Gravitas
 
-ゲルの引力
+盖尔之引力
 %%%%
 #if TAG_MAJOR_VERSION == 34
 [spell]Chant Fire Storm
@@ -1337,73 +1337,73 @@
 %%%%
 [spell]Yara's Violent Unravelling
 
-ヤーラの強制魔法解除術
+亚拉之强制魔法解除术
 %%%%
 [spell]Entropic Weave
 
-エントロピーの紋様
+编织混沌
 %%%%
 [spell]Summon Executioners
 
-処刑の悪魔の召喚
+召唤处决者
 %%%%
 [spell]Doom Howl
 
-破滅の咆哮
+厄运咆哮
 %%%%
 [spell]Awaken Earth
 
-大地の喚起
+唤醒大地
 %%%%
 [spell]Aura of Brilliance
 
-叡智のオーラ
+智慧光环
 %%%%
 [spell]Iceblast
 
-凍てつく吹雪
+冰爆
 %%%%
 [spell]Slug Dart
 
-蛞蝓の矢
+鼻滴虫飞镖
 %%%%
 [spell]Sprint
 
-加速移動
+冲刺
 %%%%
 [spell]Greater Servant of Makhleb
 
-マクレブの大いなるしもべ
+马科列布的高级奴仆
 %%%%
 [spell]Bind Souls
 
-魂の呪縛
+灵魂连接
 %%%%
 [spell]Infestation
 
-スカラベの寄生
+寄生感染
 %%%%
 [spell]Still Winds
 
-無風の大気
+静止之风
 %%%%
 [spell]Resonance Strike
 
-共振の一撃
+共振冲击
 %%%%
 [spell]Ghostly Sacrifice
 
-亡霊の生贄
+幽灵献祭
 %%%%
 [spell]Dream Dust
 
-眠りの霧
+睡梦粉尘
 %%%%
 [spell]Lesser Beckoning
 
-引き寄せ
+引诱
 %%%%
 [spell]nonexistent spell
 
-(bug)存在しない呪文
+(bug)不存在的法术
 %%%%

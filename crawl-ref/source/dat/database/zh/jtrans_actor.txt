@@ -59,7 +59,7 @@ for %d
 %%%%
 [verb]are
 
-被
+\0
 %%%%
 unaffected.
 

@@ -25,7 +25,7 @@ rod of venom
 %%%%
 rod of inaccuracy
 
-不精确魔棒
+不精准魔棒
 %%%%
 rod of ignition
 

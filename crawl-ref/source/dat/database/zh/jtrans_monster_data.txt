@@ -5,7 +5,7 @@
 %%%%
 freed slave
 
-解放奴隷
+解放的奴隶
 %%%%
 ################################################################
 #   mon-data.h
@@ -14,267 +14,267 @@ freed slave
 # 'a'
 worker ant
 
-巨大アリ
+工蚁
 %%%%
 queen ant
 
-女王アリ
+蚁后
 %%%%
 soldier ant
 
-兵隊アリ
+兵蚁
 %%%%
 formicid
 
-フォーミシッド
+蚁人
 %%%%
 entropy weaver
 
-エントロピーの編み手
+混沌编织者
 %%%%
 # 'b'
 bat
 
-コウモリ
+蝙蝠
 %%%%
 butterfly
 
-蝶
+蝴蝶
 %%%%
 vampire bat
 
-吸血コウモリ
+吸血蝙蝠
 %%%%
 fire bat
 
-火炎コウモリ
+火焰蝙蝠
 %%%%
 bennu
 
-ベンヌ
+贝努鸟
 %%%%
 caustic shrike
 
-腐食性の百舌
+强酸伯劳鸟
 %%%%
 shard shrike
 
-破片の百舌
+破片伯劳鸟
 %%%%
 # 'c'
 centaur
 
-セントール
+半人马
 %%%%
 centaur warrior
 
-セントールの戦士
+半人马战士
 %%%%
 yaktaur
 
-ヤクトール
+半人牛
 %%%%
 yaktaur captain
 
-ヤクトールの族長
+半人牛首领
 %%%%
 faun
 
-ファウヌス
+半人羊
 %%%%
 satyr
 
-サテュロス
+半人羊首领
 %%%%
 # 'd'
 draconian
 
-ドラコニアン
+龙人
 %%%%
 black draconian
 
-黒色ドラコニアン
+黑龙人
 %%%%
 yellow draconian
 
-黄色ドラコニアン
+黄龙人
 %%%%
 pale draconian
 
-蒼白ドラコニアン
+苍白龙人
 %%%%
 green draconian
 
-緑色ドラコニアン
+绿龙人
 %%%%
 purple draconian
 
-紫ドラコニアン
+紫龙人
 %%%%
 red draconian
 
-赤色ドラコニアン
+红龙人
 %%%%
 white draconian
 
-白色ドラコニアン
+白龙人
 %%%%
 grey draconian
 
-灰色ドラコニアン
+灰龙人
 %%%%
 mottled draconian
 
-斑紋ドラコニアン
+斑纹龙人
 %%%%
 # 'q'
 draconian caller
 
-ドラコニアンの招集者
+龙人召唤者
 %%%%
 draconian monk
 
-ドラコニアンの修行僧
+龙人僧侣
 %%%%
 draconian zealot
 
-ドラコニアンの狂信者
+龙人信徒
 %%%%
 draconian shifter
 
-ドラコニアンの移相者
+龙人位移者
 %%%%
 draconian annihilator
 
-ドラコニアンの破壊者
+龙人歼灭者
 %%%%
 draconian knight
 
-ドラコニアンの騎士
+龙人骑士
 %%%%
 draconian scorcher
 
-ドラコニアンの焼却者
+龙人灼烧者
 %%%%
 # 'e'
 elf
 
-エルフ
+精灵
 %%%%
 deep elf knight
 
-闇エルフの騎士
+地底精灵骑士
 %%%%
 deep elf archer
 
-闇エルフの射手
+地底精灵弓箭手
 %%%%
 deep elf blademaster
 
-闇エルフの剣豪
+地底精灵剑术大师
 %%%%
 deep elf master archer
 
-闇エルフの達人射手
+地底精灵弓箭大师
 %%%%
 deep elf mage
 
-闇エルフの魔術師
+地底精灵法师
 %%%%
 deep elf high priest
 
-闇エルフの大司祭
+地底精灵大祭司
 %%%%
 deep elf demonologist
 
-闇エルフの悪魔術師
+地底精灵恶魔召唤师
 %%%%
 deep elf annihilator
 
-闇エルフの破壊者
+地底精灵歼灭者
 %%%%
 deep elf sorcerer
 
-闇エルフの魔道士
+地底精灵术士
 %%%%
 deep elf death mage
 
-闇エルフの死の魔術師
+地底精灵死灵法师
 %%%%
 deep elf elementalist
 
-闇エルフの精霊使い
+地底精灵元素师
 %%%%
 # 'f'
 wandering mushroom
 
-這いずりキノコ
+漫游的蘑菇
 %%%%
 deathcap
 
-殺人キノコ
+死亡蘑菇
 %%%%
 thorn hunter
 
-棘の狩人
+荆棘猎人
 %%%%
 shambling mangrove
 
-よろめき歩くマングローブ
+蹒跚的红树林
 %%%%
 vine stalker
 
-歩き蔓
+藤蔓追猎者
 %%%%
 # 'g'
 goblin
 
-ゴブリン
+哥布林
 %%%%
 hobgoblin
 
-ホブゴブリン
+大哥布林
 %%%%
 gnoll
 
-ノール
+豺狼人
 %%%%
 gnoll shaman
 
-ノールの祈祷師
+豺狼人萨满
 %%%%
 gnoll sergeant
 
-ノールの軍曹
+豺狼人军官
 %%%%
 boggart
 
-ボガート
+博格特
 %%%%
 dwarf
 
-ドワーフ
+矮人
 %%%%
 deep dwarf
 
-闇ドワーフ
+地底矮人
 %%%%
 # 'h'
 jackal
 
-ジャッカル
+豺
 %%%%
 hound
 
-ハウンド
+猎犬
 %%%%
 howler monkey
 
-ホエザル
+吼猴
 %%%%
 warg
 
-ワーグ
+座狼
 %%%%
 wolf
 
@@ -282,31 +282,31 @@ wolf
 %%%%
 hog
 
-豚
+猪
 %%%%
 hell hound
 
-ヘルハウンド
+地狱猎犬
 %%%%
 doom hound
 
-ドゥームハウンド
+厄运猎犬
 %%%%
 raiju
 
-雷獣
+雷兽
 %%%%
 hell hog
 
-地獄の豚
+地狱猪
 %%%%
 holy swine
 
-聖なる光豚
+神圣猪
 %%%%
 felid
 
-フェリッド
+猫
 %%%%
 bear
 
@@ -314,165 +314,165 @@ bear
 %%%%
 polar bear
 
-北極熊
+北极熊
 %%%%
 black bear
 
-黒熊
+黑熊
 %%%%
 # 'i'
 spriggan
 
-スプリガン
+树精
 %%%%
 spriggan rider
 
-スプリガンの騎手
+树精骑手
 %%%%
 spriggan druid
 
-スプリガンのドルイド
+树精德鲁伊
 %%%%
 spriggan berserker
 
-スプリガンの狂戦士
+树精狂战士
 %%%%
 spriggan air mage
 
-スプリガンの風術師
+树精空气法师
 %%%%
 spriggan defender
 
-スプリガンの守り手
+树精守卫者
 %%%%
 # 'k'
 drake
 
-ドレイク
+幼龙
 %%%%
 swamp drake
 
-沼ドレイク
+沼泽幼龙
 %%%%
 rime drake
 
-霜ドレイク
+寒霜幼龙
 %%%%
 wind drake
 
-風ドレイク
+风之幼龙
 %%%%
 lindwurm
 
-リンドヴルム
+火焰幼龙
 %%%%
 death drake
 
-デスドレイク
+死亡幼龙
 %%%%
 # 'l'
 giant lizard
 
-巨大トカゲ
+大蜥蜴
 %%%%
 frilled lizard
 
-巨大エリマキトカゲ
+伞蜥蜴
 %%%%
 leopard gecko
 
-巨大マダラヤモリ
+豹纹壁虎
 %%%%
 iguana
 
-イグアナ
+鬣蜥蜴
 %%%%
 basilisk
 
-バジリスク
+石化蜥蜴
 %%%%
 wyvern
 
-ワイバーン
+双足飞龙
 %%%%
 komodo dragon
 
-コモドドラゴン
+科莫多巨蜥
 %%%%
 # 'm'
 merfolk
 
-水棲の民
+人鱼
 %%%%
 merfolk impaler
 
-水棲の民の刺殺者
+人鱼穿刺者
 %%%%
 merfolk javelineer
 
-水棲の民の投槍兵
+人鱼标枪兵
 %%%%
 merfolk aquamancer
 
-水棲の民の水占術師
+人鱼水元素师
 %%%%
 siren
 
-セイレーン
+塞壬
 %%%%
 merfolk avatar
 
-水棲の民の生き神
+人鱼化身
 %%%%
 water nymph
 
-水のニンフ
+水中女仙
 %%%%
 # 'n'
 bog body
 
-湿地の屍骸
+沼泽人
 %%%%
 necrophage
 
-屍肉喰らい
+死灵食尸鬼
 %%%%
 ghoul
 
-グール
+食尸鬼
 %%%%
 # 'o'
 orc
 
-オーク
+兽人
 %%%%
 orc wizard
 
-オークの魔術師
+兽人巫师
 %%%%
 orc priest
 
-オークの司祭
+兽人祭司
 %%%%
 orc warrior
 
-オークの戦士
+兽人战士
 %%%%
 orc knight
 
-オークの騎士
+兽人骑士
 %%%%
 orc warlord
 
-オークの族長
+兽人军神
 %%%%
 orc sorcerer
 
-オークの魔道士
+兽人术士
 %%%%
 orc high priest
 
-オークの大司祭
+兽人大祭司
 %%%%
 # TAG_MAJOR_VERSION == 34
 lava orc
@@ -481,269 +481,269 @@ lava orc
 # 'p'
 human
 
-人間
+人类
 %%%%
 slave
 
-奴隷
+奴隶
 %%%%
 hell knight
 
-地獄の騎士
+地狱骑士
 %%%%
 death knight
 
-死の騎士
+死亡骑士
 %%%%
 necromancer
 
-死人使い
+死灵法师
 %%%%
 wizard
 
-魔術師
+巫师
 %%%%
 vault guard
 
-宝物庫の番人
+宝库守卫
 %%%%
 vault sentinel
 
-宝物庫の警告者
+宝库哨兵
 %%%%
 vault warden
 
-宝物庫の監視者
+宝库看守人
 %%%%
 ironbrand convoker
 
-焼印の招集者
+铁印召集者
 %%%%
 imperial myrmidon
 
-帝国の護衛兵
+帝国守护者
 %%%%
 servant of whispers
 
-囁くものの従者
+低语奴仆
 %%%%
 ragged hierophant
 
-堕ちた教皇
+褴褛教皇
 %%%%
 ironheart preserver
 
-不屈の保護者
+不屈保卫者
 %%%%
 shapeshifter
 
-変身能力者
+变身者
 %%%%
 glowing shapeshifter
 
-暴走した変身能力者
+发光变身者
 %%%%
 Killer Klown
 
-殺人ピエロ
+杀人小丑
 %%%%
 demigod
 
-神々の末裔
+半神
 %%%%
 halfling
 
-ハーフリング
+半身人
 %%%%
 # 'r'
 rat
 
-ネズミ
+老鼠
 %%%%
 quokka
 
-クワッカ
+短尾矮袋鼠
 %%%%
 river rat
 
-河ネズミ
+河道老鼠
 %%%%
 hell rat
 
-ヘルラット
+地狱老鼠
 %%%%
 porcupine
 
-ヤマアラシ
+豪猪
 %%%%
 # 's'
 giant cockroach
 
-巨大ゴキブリ
+大蟑螂
 %%%%
 scorpion
 
-巨大サソリ
+蝎子
 %%%%
 emperor scorpion
 
-皇帝サソリ
+帝王蝎
 %%%%
 death scarab
 
-死の太陽虫
+死亡甲虫
 %%%%
 spider
 
-巨大蜘蛛
+蜘蛛
 %%%%
 tarantella
 
-巨大タランチュラ
+塔兰台拉蜘蛛
 %%%%
 jumping spider
 
-飛びつき蜘蛛
+跳蛛
 %%%%
 wolf spider
 
-大喰い蜘蛛
+狼蛛
 %%%%
 redback
 
-背赤蜘蛛
+赤背蜘蛛
 %%%%
 demonic crawler
 
-ムカデの悪魔
+恶魔爬虫
 %%%%
 orb spider
 
-球体の蜘蛛
+法球蜘蛛
 %%%%
 # 't'
 crocodile
 
-クロコダイル
+鳄鱼
 %%%%
 alligator
 
-アリゲーター
+短吻鳄
 %%%%
 snapping turtle
 
-カミツキガメ
+鹰嘴龟
 %%%%
 alligator snapping turtle
 
-ワニガメ
+大鳄龟
 %%%%
 crab
 
-カニ
+螃蟹
 %%%%
 fire crab
 
-火吹き蟹
+火焰螃蟹
 %%%%
 ghost crab
 
-幽霊蟹
+幽灵螃蟹
 %%%%
 apocalypse crab
 
-黙示録の蟹
+天启螃蟹
 %%%%
 # 'u'
 ugly thing
 
-醜きもの
+丑物
 %%%%
 very ugly thing
 
-甚だしく醜きもの
+极丑物
 %%%%
 # 'v'
 fire vortex
 
-炎の渦
+火焰旋涡
 # (無印)ファイアボルテックスから変更
 %%%%
 spatial vortex
 
-時空の渦
+空间旋涡
 # (無印)時空ボルテックスから変更
 %%%%
 spatial maelstrom
 
-時空の大渦
+空间大旋涡
 %%%%
 insubstantial wisp
 
-稀薄な霧
+虚幻云雾
 %%%%
 twister
 
-竜巻
+龙卷风
 %%%%
 # 'w'
 worm
 
-ワーム
+蠕虫
 %%%%
 swamp worm
 
-沼ワーム
+沼泽蠕虫
 %%%%
 tyrant leech
 
-巨大ヒル
+暴君水蛭
 %%%%
 dart slug
 
-矢投げナメクジ
+飞镖鼻涕虫
 %%%%
 torpor snail
 
-無気力の蝸牛
+迟缓蜗牛
 %%%%
 elephant slug
 
-象ナメクジ
+象鼻涕虫
 %%%%
 # 'x'
 unseen horror
 
-見えざる恐怖
+看不见的恐怖
 %%%%
 small abomination
 
-小型の忌まわしきもの
+小型憎恶
 %%%%
 crawling corpse
 
-這い動く屍骸
+爬行的尸体
 %%%%
 macabre mass
 
-不気味な塊
+骇人的尸团
 %%%%
 ancient zyme
 
-太古の疫病
+远古病菌
 %%%%
 worldbinder
 
-ワールドバインダー
+世界扭曲者
 %%%%
 # 'y'
 killer bee
 
-殺人蜂
+杀人蜂
 %%%%
 queen bee
 
-女王蜂
+蜂后
 %%%%
 vampire mosquito
 
@@ -751,15 +751,15 @@ vampire mosquito
 %%%%
 hornet
 
-巨大赤色蜂
+大黄蜂
 %%%%
 meliai
 
-メリアイ
+墨利亚
 %%%%
 spark wasp
 
-電光蜂
+火花黄蜂
 %%%%
 moth
 
@@ -767,38 +767,38 @@ moth
 %%%%
 ghost moth
 
-幽体蛾
+幽灵蛾
 %%%%
 moth of wrath
 
-憤怒せる蛾
+愤怒之蛾
 # (無印)忿怒せる蛾から変更
 %%%%
 # 'z'
 wight
 
-ワイト
+古代战士
 %%%%
 skeletal warrior
 
-骸骨の戦士
+骷髅战士
 # (無印)骸骨戦士から変更
 %%%%
 ancient champion
 
-太古の王者
+古代王者
 %%%%
 flying skull
 
-空飛ぶ頭蓋骨
+飞行的头骨
 %%%%
 curse skull
 
-呪いの頭蓋骨
+诅咒头骨
 %%%%
 curse toe
 
-呪いの足指
+诅咒脚趾
 %%%%
 # 'A'
 angel
@@ -807,19 +807,19 @@ angel
 %%%%
 cherub
 
-ケルビム
+小天使
 %%%%
 seraph
 
-セラフ
+炽天使
 %%%%
 daeva
 
-デーヴァ
+神圣守护者
 %%%%
 profane servitor
 
-涜神の従者
+堕天使
 %%%%
 # 'B'
 %%%%
@@ -830,482 +830,482 @@ giant
 %%%%
 hill giant
 
-丘の巨人
+山岭巨人
 # (無印)丘ジャイアントから変更
 %%%%
 cyclops
 
-サイクロプス
+独眼巨人
 %%%%
 ettin
 
-エティン
+双头巨人
 %%%%
 fire giant
 
-炎の巨人
+火焰巨人
 # (無印)ファイアジャイアントから変更
 %%%%
 frost giant
 
-霜の巨人
+寒霜巨人
 # (無印)フロストジャイアントから変更
 %%%%
 stone giant
 
-岩の巨人
+岩石巨人
 # (無印)ストーンジャイアントから変更
 %%%%
 titan
 
-タイタン
+泰坦
 %%%%
 juggernaut
 
-ジャガーノート
+主宰
 %%%%
 iron giant
 
-鉄の巨人
+钢铁巨人
 %%%%
 # 'D'
 dragon
 
-ドラゴン
+巨龙
 %%%%
 fire dragon
 
-ファイアドラゴン
+火焰巨龙
 %%%%
 hydra
 
-ヒドラ
+海德拉
 %%%%
 ice dragon
 
-アイスドラゴン
+寒冰巨龙
 %%%%
 steam dragon
 
-スチームドラゴン
+蒸汽巨龙
 %%%%
 swamp dragon
 
-沼ドラゴン
+沼泽巨龙
 %%%%
 mottled dragon
 
-斑紋ドラゴン
+斑纹巨龙
 %%%%
 quicksilver dragon
 
-水銀ドラゴン
+水银巨龙
 %%%%
 iron dragon
 
-鉄ドラゴン
+钢铁巨龙
 %%%%
 storm dragon
 
-ストームドラゴン
+风暴巨龙
 %%%%
 golden dragon
 
-ゴールドドラゴン
+黄金巨龙
 %%%%
 shadow dragon
 
-シャドウドラゴン
+暗影巨龙
 %%%%
 bone dragon
 
-骸骨ドラゴン
+骸骨巨龙
 %%%%
 pearl dragon
 
-パールドラゴン
+珍珠巨龙
 %%%%
 # 'E'
 elemental
 
-精霊
+元素
 %%%%
 earth elemental
 
-大地の精霊
+土元素
 %%%%
 fire elemental
 
-火の精霊
+火元素
 %%%%
 water elemental
 
-水の精霊
+水元素
 %%%%
 air elemental
 
-大気の精霊
+空气元素
 %%%%
 iron elemental
 
-鉄の精霊
+铁元素
 %%%%
 elemental wellspring
 
-精霊の源泉
+元素源泉
 %%%%
 # 'F'
 bullfrog
 
-巨大ウシガエル
+牛蛙
 %%%%
 spiny frog
 
-棘ガエル
+刺蛙
 %%%%
 blink frog
 
-またたきガエル
+闪烁青蛙
 %%%%
 # 'G'
 floating eye
 
-浮遊する巨大眼球
+漂浮眼球
 %%%%
 eye of draining
 
-掠奪の巨大眼球
+虚弱眼球
 %%%%
 glowing orange brain
 
-輝くオレンジ色の脳髄
+发光橙色大脑
 %%%%
 great orb of eyes
 
-あまたの目の球体
+巨大眼球
 %%%%
 shining eye
 
-輝く眼球
+闪耀眼球
 %%%%
 eye of devastation
 
-破滅の眼球
+毁灭眼球
 %%%%
 golden eye
 
-黄金の眼球
+黄金眼球
 %%%%
 ophan
 
-オファニム
+轮天使
 %%%%
 # 'H'
 hippogriff
 
-ヒポグリフ
+骏鹰
 %%%%
 manticore
 
-マンティコア
+蝎狮
 %%%%
 minotaur
 
-ミノタウロス
+牛头人
 %%%%
 sphinx
 
-スフィンクス
+斯芬克斯
 %%%%
 harpy
 
-ハーピー
+鸟身女妖
 %%%%
 mutant beast
 
-異形の怪物
+变异野兽
 %%%%
 # 'R' - Hepliaklqana's ancestor
 ancestor
 
-祖霊
+祖灵
 %%%%
 knight
 
-騎士
+骑士
 %%%%
 battlemage
 
-魔法使い
+战斗法师
 %%%%
 hexer
 
-呪術師
+妖术师
 %%%%
 # 'J'
 ooze
 
-ウーズ
+软泥怪
 %%%%
 jelly
 
-ジェリー
+胶质怪
 %%%%
 slime creature
 
-スライム
+史莱姆
 %%%%
 merged slime creature
 
-合体したスライム
+合体史莱姆
 %%%%
 azure jelly
 
-紺碧ジェリー
+蔚蓝胶质怪
 %%%%
 death ooze
 
-デスウーズ
+死亡软泥怪
 %%%%
 acid blob
 
-酸のブロブ
+强酸胶质怪
 %%%%
 # 'K'
 kobold
 
-コボルド
+狗头人
 %%%%
 big kobold
 
-大コボルド
+大狗头人
 %%%%
 kobold demonologist
 
-コボルドの悪魔術師
+狗头人恶魔召唤师
 %%%%
 # 'L'
 lich
 
-リッチ
+巫妖
 %%%%
 ancient lich
 
-太古のリッチ
+远古巫妖
 %%%%
 revenant
 
-レヴナント
+鬼火骷髅
 %%%%
 halazid warlock
 
-ハラジッドの魔法使い
+哈拉赛德术士
 %%%%
 # 'M'
 mummy
 
-ミイラ
+木乃伊
 %%%%
 guardian mummy
 
-衛兵のミイラ
+守护者木乃伊
 %%%%
 greater mummy
 
-王族のミイラ
+王者木乃伊
 %%%%
 mummy priest
 
-司祭のミイラ
+木乃伊祭司
 %%%%
 # 'N'
 naga
 
-ナーガ
+娜迦
 %%%%
 naga mage
 
-ナーガの魔術師
+娜迦法师
 %%%%
 naga sharpshooter
 
-ナーガの達人射手
+娜迦神射手
 %%%%
 naga ritualist
 
-ナーガの儀式者
+娜迦祭祀者
 %%%%
 naga warrior
 
-ナーガの戦士
+娜迦战士
 %%%%
 nagaraja
 
-ナーガの豪族
+娜迦王者
 %%%%
 # 'O'
 ogre
 
-オーガ
+食人魔
 %%%%
 two-headed ogre
 
-双頭のオーガ
+双头食人魔
 %%%%
 ogre mage
 
-オーガの魔術師
+食人魔法师
 # (無印)オーガメイジから変更
 %%%%
 # 'P'
 plant
 
-迷宮草
+植物
 %%%%
 demonic plant
 
-禍々しい形の迷宮草
+恶魔植物
 %%%%
 withered plant
 
-枯れ果てた迷宮草
+枯萎的植物
 %%%%
 oklob sapling
 
-オクロブの若木
+奥克罗布幼苗
 %%%%
 oklob plant
 
-オクロブ草
+奥克罗布植物
 %%%%
 bush
 
-藪
+灌木
 %%%%
 burning bush
 
-火吹き草
+燃烧的灌木
 %%%%
 toadstool
 
-からかさキノコ
+毒蕈
 %%%%
 fungus
 
-お化けキノコ
+真菌
 %%%%
 ballistomycete
 
-放出菌糸
+孢子真菌
 %%%%
 hyperactive ballistomycete
 
-活性化した放出菌糸
+活化孢子真菌
 %%%%
 briar patch
 
-荊棘
+荆棘
 %%%%
 # 'Q'
 tengu
 
-天狗
+鸟人
 %%%%
 tengu conjurer
 
-天狗の妖術師
+鸟人塑能法师
 %%%%
 tengu warrior
 
-天狗の戦士
+鸟人战士
 %%%%
 tengu reaver
 
-天狗の掠奪者
+鸟人掠夺者
 %%%%
 # 'R'
 efreet
 
-イフリート
+炎魔
 %%%%
 rakshasa
 
-ラクシャーサ
+罗刹
 %%%%
 dryad
 
-ドライアド
+树妖
 %%%%
 # 'w'
 snaplasher vine
 
-鞭打蔦
+藤蔓鞭笞者
 %%%%
 snaplasher vine segment
 
-鞭打蔦の一部
+藤蔓鞭笞者的一部分
 %%%%
 # 'S'
 snake
 
-ヘビ
+蛇
 %%%%
 ball python
 
-ニシキヘビ
+球蟒
 %%%%
 adder
 
-マムシ
+毒蛇
 %%%%
 water moccasin
 
-沼マムシ
+水蛇
 %%%%
 black mamba
 
-ブラックマンバ
+黑曼巴蛇
 %%%%
 sea snake
 
-ウミヘビ
+海蛇
 %%%%
 anaconda
 
-アナコンダ
+蟒蛇
 %%%%
 guardian serpent
 
-守護の大蛇
+守护者大蛇
 %%%%
 shock serpent
 
-電撃の大蛇
+电击大蛇
 %%%%
 mana viper
 
-マナバイパー
+法力蛇
 %%%%
 # 'T'
 troll
 
-トロル
+巨魔
 %%%%
 iron troll
 
-鉄トロル
+钢铁巨魔
 %%%%
 deep troll
 
-洞窟トロル
+地底巨魔
 %%%%
 deep troll earth mage
 
-洞窟トロルの地術師
+地底巨魔土法师
 %%%%
 deep troll shaman
 
-洞窟トロルの祈祷師
+地底巨魔萨满
 %%%%
 # 'V'
 vampire
@@ -1315,12 +1315,12 @@ vampire
 %%%%
 vampire knight
 
-吸血鬼の騎士
+吸血鬼骑士
 # (無印)ヴァンパイアの騎士から変更
 %%%%
 vampire mage
 
-吸血鬼の魔術師
+吸血鬼法师
 # (無印)ヴァンパイアメイジから変更
 %%%%
 jiangshi
@@ -1330,76 +1330,76 @@ jiangshi
 # 'W'
 ghost
 
-幽霊
+幽灵
 %%%%
 phantom
 
-ファントム
+幻影
 %%%%
 hungry ghost
 
-はらぺこゴースト
+饿鬼
 %%%%
 flayed ghost
 
-皮剥げ幽霊
+剥皮鬼
 %%%%
 player ghost
 
-プレイヤーの幽霊
+玩家的幽灵
 %%%%
 shadow
 
-シャドウ
+阴影
 %%%%
 silent spectre
 
-静寂の亡霊
+寂静的幽灵
 %%%%
 drowned soul
 
-水死者の魂
+淹死者的幽灵
 %%%%
 wraith
 
-レイス
+怨灵
 %%%%
 shadow wraith
 
-シャドウレイス
+暗影怨灵
 %%%%
 freezing wraith
 
-凍気のレイス
+冰冻怨灵
 %%%%
 eidolon
 
-アイドロン
+鬼灵
 %%%%
 phantasmal warrior
 
-幻想の戦士
+幽灵战士
 %%%%
 # 'X'
 large abomination
 
-大型の忌まわしきもの
+大憎恶
 %%%%
 thrashing horror
 
-のたうつ恐怖
+抖动的恐怖
 %%%%
 tentacled monstrosity
 
-触手の怪物
+触手怪物
 %%%%
 Orb Guardian
 
-オーブの守護者
+宝珠守护者
 %%%%
 tentacled starspawn
 
-触手の落とし子
+星之眷族
 %%%%
 starspawn tentacle
 
@@ -1407,65 +1407,65 @@ starspawn tentacle
 %%%%
 starspawn tentacle segment
 
-触手の一部
+触手的一部分
 %%%%
 starcursed mass
 
-呪われし群れ
+星之诅咒谜团
 %%%%
 # 'Y'
 dream sheep
 
-眠りの羊
+梦羊
 %%%%
 yak
 
-ヤク
+牦牛
 %%%%
 death yak
 
-人食いヤク
+死亡牦牛
 %%%%
 catoblepas
 
-カトブレパス
+石化野牛
 %%%%
 elephant
 
-象
+大象
 %%%%
 dire elephant
 
-凶暴化した象
+凶暴大象
 %%%%
 hellephant
 
-地獄の象
+地狱大象
 %%%%
 apis
 
-アピス
+神牛
 %%%%
 ice beast
 
-氷の獣
+冰兽
 %%%%
 sky beast
 
-雷雲の獣
+天空兽
 %%%%
 # 'Z'
 zombie
 
-ゾンビ
+丧尸
 %%%%
 skeleton
 
-骸骨
+骷髅
 %%%%
 simulacrum
 
-幻像
+幻象
 %%%%
 small zombie
 
@@ -1493,16 +1493,16 @@ large simulacrum
 %%%%
 spectral thing
 
-幽体
+幽灵
 %%%%
 # ';'
 electric eel
 
-電気ウナギ
+电鳗
 %%%%
 kraken
 
-クラーケン
+海怪
 %%%%
 tentacle
 
@@ -1510,43 +1510,43 @@ tentacle
 %%%%
 tentacle segment
 
-触手の一部
+触手的一部分
 %%%%
 # 'x'
 octopode
 
-オクトポード
+章鱼
 %%%%
 # 'S'
 lava snake
 
-溶岩蛇
+岩浆蛇
 %%%%
 # 'N'
 salamander
 
-サラマンダー
+沙罗曼蛇
 %%%%
 salamander mystic
 
-サラマンダーの秘伝者
+沙罗曼蛇秘术师
 %%%%
 # '@'
 Hellbinder
 
-地獄を束ねしもの
+地狱束缚者
 %%%%
 Cloud Mage
 
-雲烟の魔術師
+云雾法师
 %%%%
 player
 
-プレイヤー
+玩家
 %%%%
 player illusion
 
-プレイヤーの幻影
+晚间的幻象
 %%%%
 # shadow
 
@@ -1555,377 +1555,377 @@ player illusion
 # '('
 dancing weapon
 
-宙を舞う武器
+跳舞的武器
 %%%%
 spectral weapon
 
-幽体の武器
-%%%%
+幽灵武器
+%%%% 
 # 'w'
 eldritch tentacle
 
-別次元の触手
+异次元触手
 %%%%
 eldritch tentacle segment
 
-触手の一部
+异次元触手的一部分
 %%%%
 # '6'
 demonspawn
 
-悪魔の血族
+魔人
 %%%%
 monstrous demonspawn
 
-怪物じみた血族
+怪物魔人
 %%%%
 gelid demonspawn
 
-凍てつく血族
+极寒魔人
 %%%%
 infernal demonspawn
 
-業火の血族
+业火魔人
 %%%%
 torturous demonspawn
 
-苦痛の血族
+痛苦魔人
 %%%%
 blood saint
 
-血族の聖騎士
+血腥圣者
 %%%%
 warmonger
 
-ウォーモンガー
+好战分子
 %%%%
 corrupter
 
-崩壊者
+崩坏者
 %%%%
 black sun
 
-黒き太陽
+黑色太阳
 %%%%
 # '5'
 crimson imp
 
-赤インプ
+深红小鬼
 %%%%
 quasit
 
-クァシト
+寄生魔
 %%%%
 white imp
 
-白インプ
+白色小鬼
 %%%%
 ufetubus
 
-ウフェツバス
+乌佛图布
 %%%%
 iron imp
 
-鉄インプ
+钢铁小鬼
 %%%%
 shadow imp
 
-影のインプ
+暗影小鬼
 %%%%
 # '4'
 rust devil
 
-錆の悪魔
+铁锈恶魔
 %%%%
 orange demon
 
-オレンジデーモン
+橙色恶魔
 %%%%
 red devil
 
-紅の悪魔
+红色恶魔
 %%%%
 hellwing
 
-ヘルウィング
+地狱之翼
 %%%%
 ice devil
 
-氷の悪魔
+寒冰恶魔
 %%%%
 chaos spawn
 
-混沌の落とし子
+混沌之子
 %%%%
 # '3'
 sun demon
 
-サンデーモン
+太阳恶魔
 %%%%
 soul eater
 
-魂を貪るもの
+灵魂吞噬者
 %%%%
 smoke demon
 
-噴煙のデーモン
+烟雾恶魔
 %%%%
 neqoxec
 
-ネクオゼク
+涅克泽克
 %%%%
 ynoxinul
 
-ヱノクシヌル
+诺希努尔
 %%%%
 sixfirhy
 
-シクスファルハイ
+六芬瑞
 %%%%
 # '2'
 shadow demon
 
-シャドウデーモン
+暗影恶魔
 %%%%
 green death
 
-緑の殲滅者
+绿色死魔
 %%%%
 blizzard demon
 
-氷河の悪魔
+暴雪恶魔
 %%%%
 balrug
 
-バルログ
+巴尔拉格
 %%%%
 cacodemon
 
-混沌の悪鬼
+石灰恶魔
 %%%%
 hell beast
 
-地獄の獣人
+地狱野兽
 %%%%
 hellion
 
-ヘリオン
+地狱诅咒者
 %%%%
 reaper
 
-切り裂きの悪魔
+死神
 %%%%
 lorocyproca
 
-ロロキプロカ
+罗洛赛普卢卡
 %%%%
 tormentor
 
-拷問の悪魔
+折磨者
 %%%%
 # '1'
 Brimstone Fiend
 
-硫黄の魔神
+硫磺魔王
 %%%%
 Ice Fiend
 
-氷の魔神
+寒冰魔王
 %%%%
 Tzitzimitl
 
-ツィツィミトル
+兹兹米特尔
 %%%%
 Hell Sentinel
 
-地獄の番人
+地狱哨兵
 %%%%
 Executioner
 
-処刑の悪魔
+处决者
 %%%%
 # '7'
 animated tree
 
-活性化された木
+活体树木
 %%%%
 # '8'
 golem
 
-ゴーレム
+魔像
 %%%%
 saltling
 
-塩人形
+盐像
 %%%%
 peacekeeper
 
-平和の護り手
+和平卫士
 %%%%
 iron golem
 
-鉄のゴーレム
+钢铁魔像
 %%%%
 crystal guardian
 
-水晶の守護者
+水晶守护者
 %%%%
 toenail golem
 
-爪のゴーレム
+趾甲魔像
 %%%%
 electric golem
 
-電気のゴーレム
+电击魔像
 %%%%
 ushabti
 
-ウシャブティ
+艾沙比提
 %%%%
 guardian golem
 
-守護者のゴーレム
+守护魔像
 %%%%
 spellforged servitor
 
-魔法の従者
+魔法仆人
 %%%%
 ice statue
 
-氷の像
+寒冰雕像
 %%%%
 obsidian statue
 
-黒曜石の像
+黑曜石雕像
 %%%%
 orange crystal statue
 
-橙水晶の像
+橙水晶雕像
 %%%%
 statue
 
-彫像
+雕像
 %%%%
 training dummy
 
-訓練用ダミー
+训练假人
 %%%%
 pillar of salt
 
-塩の柱
+盐柱
 %%%%
 block of ice
 
-氷の塊
+冰块
 %%%%
 diamond obelisk
 
-金剛石の方尖塔
+钻石方尖碑
 %%%%
 lightning spire
 
-稲妻の渦巻
+闪电尖塔
 %%%%
 # '9'
 gargoyle
 
-ガーゴイル
+石像鬼
 %%%%
 war gargoyle
 
-凶暴なガーゴイル
+战争石像鬼
 %%%%
 molten gargoyle
 
-溶岩ガーゴイル
+熔岩石像鬼
 %%%%
 # '&'
 pandemonium lord
 
-パンデモニウムの君主
+魔窟大魔王
 %%%%
 hell lord
 
-地獄の君主
+地狱大魔王
 %%%%
 # '*'
 ball lightning
 
-球雷
+球状闪电
 %%%%
 ballistomycete spore
 
-放出菌糸の胞子
+真菌孢子
 %%%%
 lost soul
 
-滅亡せる霊魂
+迷失的灵魂
 %%%%
 lurking horror
 
-潜伏する恐怖
+伏行的恐怖
 %%%%
 orb of fire
 
-炎の球体
+球状火焰
 %%%%
 orb of destruction
 
-破壊の球体
+毁灭法球
 %%%%
 fulminant prism
 
-爆発性の晶柱
+爆炸棱镜
 %%%%
 wretched star
 
-哀れなる星
+悲惨之星
 %%%%
 battlesphere
 
-戦闘球
+战斗法球
 %%%%
 # 'z'
 death cob
 
-殺人トウモロコシ
+杀人玉米棒
 %%%%
 # unique monsters
 Mennas
 
-『メナス』
+蒙娜斯
 %%%%
 Nessos
 
-『ネッソス』
+尼索斯
 %%%%
 Chuck
 
-『チャック』
+查克
 %%%%
 Polyphemus
 
-『ポリュペモス』
+波吕斐摩斯
 %%%%
 Antaeus
 
-『アンテウス』
+安泰俄斯
 %%%%
 Tiamat
 
-『ティアマト』
+提亚玛特
 %%%%
 Bai Suzhen
 
-『白娘子』
+白素贞
 %%%%
 Xtahua
 
-『ザッハ』
+塔华
 %%%%
 the Lernaean hydra
 
-『レルネーのヒドラ』
+勒拿海德拉
 %%%%
 Lernaean hydra
 
@@ -1933,7 +1933,7 @@ Lernaean hydra
 %%%%
 the Serpent of Hell
 
-『地獄のサーペント』
+地狱魔龙
 %%%%
 Serpent of Hell
 
@@ -1941,279 +1941,279 @@ Serpent of Hell
 %%%%
 Duvessa
 
-『デュヴェッサ』
+杜薇莎
 %%%%
 Dowan
 
-『ドウェン』
+多文
 %%%%
 Fannar
 
-『ファンナール』
+梵纳尔
 %%%%
 Prince Ribbit
 
-『リビット王子』
+兔子王子
 %%%%
 Ijyb
 
-『イジェィブ』
+伊吉布
 %%%%
 Robin
 
-『ロビン』
+罗宾
 %%%%
 Grum
 
-『グルム』
+格鲁姆
 %%%%
 Crazy Yiuf
 
-『狂人ヰゥフ』
+疯子伊夫
 %%%%
 Jorgrun
 
-『ジョーグルン』
+乔格伦
 %%%%
 Natasha
 
-『ナターシャ』
+娜塔莎
 %%%%
 Arachne
 
-『アラクネ』
+阿拉克尼
 %%%%
 Asterion
 
-『アステリオン』
+亚狄里安
 %%%%
 Agnes
 
-『アグネス』
+艾格尼丝
 %%%%
 the Enchantress
 
-『女呪術師』
+女妖术师
 %%%%
 the Royal Jelly
 
-『ロイヤルジェリー』
+皇家胶质怪
 %%%%
 Dissolution
 
-『溶解者』
+溶解者
 %%%%
 Sonja
 
-『ソーニャ』
+索尼娅
 %%%%
 Pikel
 
-『ピケル』
+皮克尔
 %%%%
 Boris
 
-『ボリス』
+鲍里斯
 %%%%
 Menkaure
 
-『メンカウラー王』
+孟卡拉
 %%%%
 Khufu
 
-『クフ王』
+胡夫
 %%%%
 Ilsuiw
 
-『イルスィウ』
+伊尔斯
 %%%%
 Vashnia
 
-『ヴァシュニア』
+瓦莎妮娅
 %%%%
 Erolcha
 
-『エロルカ』
+艾萝査
 %%%%
 Blork the orc
 
-オークの『ブロルク』
+兽人博洛克
 %%%%
 Urug
 
-『ウルグ』
+乌拉格
 %%%%
 Nergalle
 
-『ネルガレ』
+内尔格勒
 %%%%
 Saint Roka
 
-『聖者ロカ』
+圣罗卡
 %%%%
 Sojobo
 
-『僧正坊』
+僧正坊
 %%%%
 Azrael
 
-『アズラエル』
+亚兹拉尔
 %%%%
 Mara
 
-『マーラ』
+玛拉
 %%%%
 Aizul
 
-『アイズル』
+艾祖尔
 %%%%
 Snorg
 
-『スノーグ』
+斯诺格
 %%%%
 Purgy
 
-『パージー』
+布尔吉
 %%%%
 moon troll
 
-月世界のトロル
+月亮巨魔
 %%%%
 Jory
 
-『ジョリー』
+乔里
 %%%%
 Gastronok
 
-『ガストロノク』
+加斯特罗诺克
 %%%%
 Nellie
 
-『ネリー』
+内莉
 %%%%
 Murray
 
-『マーリー』
+默里
 %%%%
 Ignacio
 
-『イグナシオ』
+伊格纳西奥
 %%%%
 Grinder
 
-『グラインダー』
+格林德
 %%%%
 Roxanne
 
-『ロクサーヌ』
+洛葛仙妮
 %%%%
 Terence
 
-『テレンス』
+特伦斯
 %%%%
 Jessica
 
-『ジェシカ』
+杰西卡
 %%%%
 Sigmund
 
-『シグムンド』
+西格蒙德
 %%%%
 Edmund
 
-『エドマンド』
+艾德蒙德
 %%%%
 Psyche
 
-『サイキ』
+赛克
 %%%%
 Donald
 
-『ドナルド』
+唐纳德
 %%%%
 Joseph
 
-『ジョセフ』
+约瑟夫
 %%%%
 Erica
 
-『エリカ』
+埃里卡
 %%%%
 Josephine
 
-『ジョセフィーヌ』
+约瑟芬
 %%%%
 Harold
 
-『ハロルド』
+哈罗德
 %%%%
 Louise
 
-『ルイーズ』
+路易丝
 %%%%
 Frances
 
-『フランセス』
+弗朗西丝
 %%%%
 Rupert
 
-『ルパート』
+鲁珀特
 %%%%
 Kirke
 
-『キルケー』
+柯克
 %%%%
 Frederick
 
-『フレデリック』
+弗雷德里克
 %%%%
 Margery
 
-『マージェリー』
+玛杰里
 %%%%
 Eustachio
 
-『エウスタキオ』
+欧斯塔基奥
 %%%%
 Maurice
 
-『モーリス』
+莫里斯
 %%%%
 Nikola
 
-『ニコラ』
+尼古拉
 %%%%
 Mnoleg
 
-『ムノレグ』
+姆诺雷格
 %%%%
 Lom Lobon
 
-『ロム・ロボン』
+罗姆・罗博恩
 %%%%
 Cerebov
 
-『セレボブ』
+塞里博
 %%%%
 Gloorx Vloq
 
-『グロオルクス・ヴロック』
+格洛克斯・弗洛克
 %%%%
 Geryon
 
-『ゲリュオン』
+吉里昂
 %%%%
 Dispater
 
-『ディスペータ』
+迪斯帕特
 %%%%
 Asmodeus
 
-『アスモデウス』
+阿斯蒙蒂斯
 %%%%
 Ereshkigal
 
-『エレシュキガル』
+厄里斯奇格
 %%%%
 # for wizmode
 test spawner
@@ -2223,27 +2223,27 @@ test spawner
 # an unspecified monster
 sensed monster
 
-感知済みのモンスター
+感知到的怪物
 %%%%
 friendly sensed monster
 
-感知済みの友好的なモンスター
+感知到的友好的怪物
 %%%%
 trivial sensed monster
 
-感知済みの取るに足らないモンスター
+感知到的微不足道的怪物
 %%%%
 easy sensed monster
 
-感知済みの弱いモンスター
+感知到的弱小的怪物
 %%%%
 tough sensed monster
 
-感知済みの強いモンスター
+感知到的强大的怪物
 %%%%
 nasty sensed monster
 
-感知済みの凶悪なモンスター
+感知到的凶恶的怪物
 %%%%
 ################################################################
 #   mon-info.cc
@@ -2251,17 +2251,17 @@ nasty sensed monster
 %%%%
 large slime creature
 
-大きなスライム
+大史莱姆
 %%%%
 very large slime creature
 
-とても大きなスライム
+特大史莱姆
 %%%%
 enormous slime creature
 
-巨大なスライム
+巨大史莱姆
 %%%%
 titanic slime creature
 
-超巨大なスライム
+超巨大史莱姆
 %%%%

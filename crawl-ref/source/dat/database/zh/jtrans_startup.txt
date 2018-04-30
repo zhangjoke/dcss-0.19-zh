@@ -1,19 +1,19 @@
 %%%%
 Loading databases...
 
-# 訳不要
+加载数据库……
 %%%%
 Loading spells and features...
 
-呪文および地形を読み込み中……
+加载法术和特性……
 %%%%
 Loading maps...
 
-マップを読み込み中……
+加载地图……
 %%%%
 Loading complete, press any key to start.
 
-読み込みが完了しました。開始するには任意のキーを押してください。
+加载完毕。按任意键开始。
 %%%%
 Non-debug Crawl cannot run tests. Please use a debug build (defined FULLDEBUG, DEBUG_DIAGNOSTIC or DEBUG_TESTS)
 
@@ -25,63 +25,63 @@ Dismissing %s
 %%%%
 Dungeon Crawl
 
-ダンジョンクロウル
+深入地下城
 %%%%
 Dungeon Crawl: The main game: full of monsters, items, gods and danger!
 
-メインモード: 様々なモンスター、アイテム、神、そして危険が待ち受けています！
+主游戏: 充满了怪物、物品、神和危险！
 %%%%
 Tutorial for Dungeon Crawl
 
-ダンジョンクロウル チュートリアル
+深入地下城教程
 %%%%
 Tutorial that covers the basics of Dungeon Crawl survival.
 
-ダンジョンクロウルにおける生存術の基本を解説するモードです。
+指导你如何在深入地下城中生存。
 %%%%
 Hints Mode for Dungeon Crawl
 
-ダンジョンクロウル 解説モード
+深入地下城提示模式
 %%%%
 A mostly normal game that provides more advanced hints than the tutorial.
 
-チュートリアルモードよりさらに踏み入った解説を行うモードです。
+与普通游戏基本一致，但包含了一些进阶的提示。
 %%%%
 Dungeon Sprint
 
-ダンジョンスプリント
+地下城冲刺
 %%%%
 Hard, fixed single level game mode.
 
-固定された単一の階層を探索する高難度なゲームモードです。
+困难，地图固定的游戏模式。
 %%%%
 Instructions
 
-ヘルプ
+说明
 %%%%
 Help menu.
 
-ゲームの取扱説明書です。
+帮助菜单。
 %%%%
 The Arena
 
-アリーナ
+竞技场
 %%%%
 Pit computer controlled teams versus each other!
 
-指定したモンスターを敵味方に分けて自動的に争わせるモードです。
+指定怪物组成的队伍进行对战！
 %%%%
 High Scores
 
-ハイスコア
+高分榜
 %%%%
 View the high score list.
 
-ハイスコア一覧を表示します。
+查看高分榜。
 %%%%
 New Game
 
-新たにゲームを開始する
+新游戏
 %%%%
 freeform
 
@@ -97,41 +97,41 @@ save games
 %%%%
 Enter your name:
 
-プレイヤー名入力:
+输入你的名字:
 %%%%
 Choices:
 
-ゲームモード選択:
+选择游戏模式:
 %%%%
 Saved games:
 
-セーブデータ一覧:
+保存的游戏:
 %%%%
 Use the up/down keys to select the type of game or load a character.
 
-↑/↓のキーを押してゲームモードを選択するか、ゲーム再開を選択してください。
+按 ↑/↓ 选择游戏模式或读取存档。
 %%%%
 You can type your name; if you leave it blank you will be asked later.\nPress Enter to start.
 
-プレイヤー名を入力してください。空白のままにしておいて後で入力することもできます。
-Enterを押して開始してください。
+你可以输入你的名字，也可以之后再决定名字。
+按 Enter 开始游戏。
 %%%%
 You can type your name; if you leave it blank you will be asked later.\nPress Enter to start, Tab to repeat the last game's choice.
 
-プレイヤー名を入力してください。空白のままにしておいて後で入力することもできます。
-Enterを押して開始するか、Tabを押して前選んだ組み合わせと同じにするか選択してください。
+你可以输入你的名字，也可以之后再决定名字。
+按 Enter 开始游戏，按 Tab 重复上一次的选择。
 %%%%
 That's a silly name
 
-適しない文字が含まれています。
+这名字可真蠢。
 %%%%
 Enter your choice of teams:
 
-対戦組み合わせを入力してください:
+输入要选择的队伍:
 %%%%
 Examples:
 
-指定例:
+例子:
 %%%%
 Sigmund v Jessica
 

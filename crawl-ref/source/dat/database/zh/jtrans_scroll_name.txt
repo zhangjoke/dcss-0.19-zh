@@ -57,7 +57,7 @@ scroll of immolation
 %%%%
 scroll of blinking
 
-闪烁卷轴
+瞬间移动卷轴
 %%%%
 scroll of magic mapping
 

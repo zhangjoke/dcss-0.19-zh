@@ -41,7 +41,7 @@ troll leather armour
 %%%%
 steam dragon scales
 
-蒸汽龙鳞甲
+蒸汽巨龙鳞甲
 %%%%
 removed steam dragon hide
 
@@ -49,7 +49,7 @@ removed steam dragon hide
 %%%%
 mottled dragon scales
 
-斑纹龙鳞甲
+斑纹巨龙鳞甲
 %%%%
 removed mottled dragon hide
 
@@ -57,7 +57,7 @@ removed mottled dragon hide
 %%%%
 quicksilver dragon scales
 
-水银龙鳞甲
+水银巨龙鳞甲
 %%%%
 removed quicksilver dragon hide
 
@@ -65,7 +65,7 @@ removed quicksilver dragon hide
 %%%%
 swamp dragon scales
 
-沼泽龙鳞甲
+沼泽巨龙鳞甲
 %%%%
 removed swamp dragon hide
 
@@ -73,7 +73,7 @@ removed swamp dragon hide
 %%%%
 fire dragon scales
 
-火龙鳞甲
+火焰巨龙鳞甲
 %%%%
 removed fire dragon hide
 
@@ -81,7 +81,7 @@ removed fire dragon hide
 %%%%
 ice dragon scales
 
-冰龙鳞甲
+寒冰巨龙鳞甲
 %%%%
 removed ice dragon hide
 
@@ -89,7 +89,7 @@ removed ice dragon hide
 %%%%
 pearl dragon scales
 
-珍珠龙鳞甲
+珍珠巨龙鳞甲
 %%%%
 removed pearl dragon hide
 
@@ -97,7 +97,7 @@ removed pearl dragon hide
 %%%%
 storm dragon scales
 
-风暴龙鳞甲
+风暴巨龙鳞甲
 %%%%
 removed storm dragon hide
 
@@ -105,7 +105,7 @@ removed storm dragon hide
 %%%%
 shadow dragon scales
 
-暗影龙鳞甲
+暗影巨龙鳞甲
 %%%%
 removed shadow dragon hide
 
@@ -114,7 +114,7 @@ removed shadow dragon hide
 %%%%
 gold dragon scales
 
-金龙鳞甲
+黄金巨龙鳞甲
 %%%%
 removed gold dragon hide
 

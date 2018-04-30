@@ -1,7 +1,7 @@
 %%%%
 [branch]Dungeon
 
-迷宮
+地下城
 %%%%
 [branch]the Dungeon
 
@@ -15,23 +15,23 @@
 # <>表記で他の訳語を参照しない
 [branch abbrj]D
 
-迷
+地
 %%%%
 [branch]Temple
 
-寺院
+神殿
 %%%%
 [branch]the Ecumenical Temple
 
-諸宗派の寺院
+众神殿
 %%%%
 [branch abbrj]
 
-寺
+殿
 %%%%
 [branch]Orcish Mines
 
-オークの坑道
+兽人矿井
 %%%%
 [branch]the Orcish Mines
 
@@ -39,15 +39,15 @@
 %%%%
 [branch]Orc
 
-オーク
+兽人
 %%%%
 [branch abbrj]Orc
 
-オ
+兽
 %%%%
 [branch]Elven Halls
 
-エルフの大広間
+精灵之城
 %%%%
 [branch]the Elven Halls
 
@@ -55,16 +55,16 @@
 %%%%
 [branch]Elf
 
-エルフ
+精灵
 %%%%
 [branch abbrj]Elf
 
-エ
+精
 %%%%
 # 削除済み分岐も☆銘等で使われることがあるので残す
 [branch]Dwarven Hall
 
-ドワーフの大広間
+矮人之城
 %%%%
 [branch]the Dwarven Hall
 
@@ -72,27 +72,27 @@
 %%%%
 [branch]Dwarf
 
-ドワーフ
+矮人
 %%%%
 [branch abbrj]Dwarf
 
-ド
+矮
 %%%%
 [branch]Lair
 
-獣
+巢穴
 %%%%
 [branch]the Lair of Beasts
 
-獣の棲み処
+野兽巢穴
 %%%%
 [branch abbrj]Lair
 
-獣
+巢
 %%%%
 [branch]Swamp
 
-沼
+沼泽
 %%%%
 [branch]the Swamp
 
@@ -104,7 +104,7 @@
 %%%%
 [branch]Shoals
 
-浅瀬
+海滩
 %%%%
 [branch]the Shoals
 
@@ -112,7 +112,7 @@
 %%%%
 [branch abbrj]Shoals
 
-浅
+滩
 %%%%
 [branch]Snake Pit
 
@@ -132,7 +132,7 @@
 %%%%
 [branch]Spider Nest
 
-蜘蛛の穴ぐら
+蜘蛛巢穴
 %%%%
 [branch]the Spider Nest
 
@@ -144,11 +144,11 @@
 %%%%
 [branch abbrj]Spider
 
-蜘
+蛛
 %%%%
 [branch]Slime Pits
 
-スライムの穴ぐら
+史莱姆巢穴
 %%%%
 [branch]the Pits of Slime
 
@@ -156,15 +156,15 @@
 %%%%
 [branch]Slime
 
-スライム
+史莱姆
 %%%%
 [branch abbrj]Slime
 
-ス
+史
 %%%%
 [branch]Vaults
 
-宝物庫
+宝库
 %%%%
 [branch]the Vaults
 
@@ -176,7 +176,7 @@
 %%%%
 [branch]Hall of Blades
 
-刃の広間
+刀刃之厅
 %%%%
 [branch]the Hall of Blades
 
@@ -192,7 +192,7 @@
 %%%%
 [branch]Crypt
 
-地下墓地
+地下墓室
 %%%%
 [branch]the Crypt
 
@@ -204,48 +204,48 @@
 %%%%
 [branch]Tomb
 
-霊廟
+灵庙
 %%%%
 [branch]the Tomb of the Ancients
 
-太古の霊廟
+远古灵庙
 %%%%
 [branch abbrj]Tomb
 
-廟
+庙
 %%%%
 [branch]Hell
 
-地獄
+地狱
 %%%%
 [branch]the Vestibule of Hell
 
-地獄の入り口
+地狱的入口
 %%%%
 [branch abbrj]Hell
 
-獄
+狱
 %%%%
 Welcome to Hell!\nPlease enjoy your stay.
 
-地獄へようこそ！
-どうぞお楽しみください。
+欢迎来到地狱！
+祝你玩的开心。
 %%%%
 [branch]Dis
 
-ディース
+冥府
 %%%%
 [branch]the Iron City of Dis
 
-鉄の都ディース
+钢铁都市冥府
 %%%%
 [branch abbrj]Dis
 
-鉄
+铁
 %%%%
 [branch]Gehenna
 
-ゲヘナ
+欣嫩谷
 %%%%
 [branch]Geh
 
@@ -257,7 +257,7 @@ Welcome to Hell!\nPlease enjoy your stay.
 %%%%
 [branch]Cocytus
 
-コキュートス
+寒冰地狱
 %%%%
 [branch]Coc
 
@@ -269,7 +269,7 @@ Welcome to Hell!\nPlease enjoy your stay.
 %%%%
 [branch]Tartarus
 
-タルタロス
+塔耳塔洛斯
 %%%%
 [branch]Tar
 
@@ -277,32 +277,32 @@ Welcome to Hell!\nPlease enjoy your stay.
 %%%%
 [branch abbrj]Tar
 
-腐
+塔
 %%%%
 [branch]Zot
 
-ゾットの領域
+佐特
 %%%%
 [branch abbrj]Zot
 
-ゾ
+佐
 %%%%
 [branch]the Realm of Zot
 
-<[branch]Zot>
+佐特领域
 %%%%
 Welcome to the Realm of Zot!\nYou feel the power of the Orb interfering with translocations here.
 
-ゾットの領域へよくぞ到達した！
-あなたはオーブの力がここでの空間転移を阻害しているのを感じ取った。
+欢迎来到佐特领域！
+你感受到佐特宝珠的力量正在干涉这里的位移效应。
 %%%%
 [branch]Forest
 
-森
+森林
 %%%%
 [branch]the Enchanted Forest
 
-魔法の森
+魔法森林
 %%%%
 [branch abbrj]Forest
 
@@ -310,7 +310,7 @@ Welcome to the Realm of Zot!\nYou feel the power of the Orb interfering with tra
 %%%%
 [branch]Abyss
 
-アビス
+深渊
 %%%%
 [branch]the Abyss
 
@@ -318,28 +318,28 @@ Welcome to the Realm of Zot!\nYou feel the power of the Orb interfering with tra
 %%%%
 [branch abbrj]Abyss
 
-淵
+渊
 %%%%
 [branch]Pandemonium
 
-パンデモニウム
+魔窟
 %%%%
 [branch]Pan
 
-万魔殿
+魔窟
 %%%%
 [branch abbrj]Pan
 
-万
+魔
 %%%%
 You enter the halls of Pandemonium!\nTo return, you must find a gate leading back.
 
-あなたはパンデモニウムの大広間に突入した！
-迷宮へと戻るには、ここから脱出する門を探さねばならない。
+你进入了魔窟！
+你必须找到回去的门才能离开。
 %%%%
 [branch]Ziggurat
 
-ジグラット
+金字塔
 %%%%
 [branch]a ziggurat
 
@@ -351,15 +351,15 @@ You enter the halls of Pandemonium!\nTo return, you must find a gate leading bac
 %%%%
 [branch abbrj]Zit
 
-ジ
+塔
 %%%%
 You land on top of a ziggurat so tall you cannot make out the ground.
 
-あなたはジグラットのはるか頂上へと舞い降りた。地面がよく見えないほどの高さだ。
+你掉到了高高的金字塔的顶端，一望不见底。
 %%%%
 [branch]Labyrinth
 
-ラビリンス
+迷宫
 %%%%
 [branch]a labyrinth
 
@@ -371,12 +371,12 @@ You land on top of a ziggurat so tall you cannot make out the ground.
 %%%%
 As you enter the labyrinth, previously moving walls settle noisily into place.\nYou hear the metallic echo of a distant snort before it fades into the rock.
 
-あなたがラビリンスに突入すると、それまで動いていた壁が騒音を立てつつその場に据え付けられた。
-遠くの方から牛の鼻息の金属的な反響音が岩壁に吸い込まれていくのが聞こえる。
+在你进入迷宫的同时，移动的墙壁固定了下来。
+你听到了远处牛头人鼻息的声音和金属上的回声，回声渐渐被岩石吸收了。
 %%%%
 [branch]Bazaar
 
-バザール
+市场
 %%%%
 [branch]a bazaar
 
@@ -384,19 +384,19 @@ As you enter the labyrinth, previously moving walls settle noisily into place.\n
 %%%%
 You enter an inter-dimensional bazaar!
 
-あなたは次元を旅する商隊のバザールに遭遇した！
+你进入了一个次元市场！
 %%%%
 [branch]Trove
 
-埋蔵庫
+埋宝处
 %%%%
 [branch]a treasure trove
 
-宝の埋蔵庫
+埋宝处
 %%%%
 You enter a treasure trove!
 
-あなたは宝の埋蔵庫に足を踏み入れた！
+你进入埋宝处！
 %%%%
 [branch]Sewer
 
@@ -408,11 +408,11 @@ You enter a treasure trove!
 %%%%
 You enter a sewer!
 
-あなたは下水道に立ち入った！
+你进入了下水道！
 %%%%
 [branch]Ossuary
 
-納骨堂
+藏骨堂
 %%%%
 [branch]an ossuary
 
@@ -420,11 +420,11 @@ You enter a sewer!
 %%%%
 You enter an ossuary!
 
-あなたは納骨堂に足を踏み入れた！
+你进入了藏骨堂！
 %%%%
 [branch]Bailey
 
-濠城
+城壁
 %%%%
 [branch]a bailey
 
@@ -432,11 +432,11 @@ You enter an ossuary!
 %%%%
 You enter a bailey!
 
-あなたは濠城へと向かった！
+你进入了城壁！
 %%%%
 [branch]Ice Cave
 
-氷の洞穴
+冰窟
 %%%%
 [branch]an ice cave
 
@@ -448,7 +448,7 @@ You enter a bailey!
 %%%%
 You enter an ice cave!
 
-あなたは氷の洞穴にもぐり込んだ！
+你进入了冰窟！
 %%%%
 [branch]Volcano
 
@@ -460,23 +460,23 @@ You enter an ice cave!
 %%%%
 You enter a volcano!
 
-あなたは火山の中に入った！
+你进入了火山！
 %%%%
 [branch]Wizlab
 
-魔術研究所
+巫师实验室
 %%%%
 [branch]a wizard's laboratory
 
-魔術師の研究所
+巫师实验室
 %%%%
 You enter a wizard's laboratory!
 
-あなたは魔術師の研究所へと足を踏み入れた！
+你进入了巫师实验室！
 %%%%
 [branch]Depths
 
-深層
+深层
 %%%%
 [branch]the Depths
 
@@ -488,13 +488,13 @@ You enter a wizard's laboratory!
 %%%%
 [branch]Desolation
 
-荒野
+废墟
 %%%%
 [branch]the Desolation of Salt
 
-塩の荒野
+盐之废墟
 %%%%
 You enter a great desolation of salt!
 
-あなたは広大な塩の荒野に足を踏み入れた！
+你进入了盐之废墟！
 %%%%

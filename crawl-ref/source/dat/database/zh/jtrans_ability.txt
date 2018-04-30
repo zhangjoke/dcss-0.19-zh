@@ -9,7 +9,7 @@
 %%%%
 [ability]Blink
 
-闪烁
+瞬间移动
 %%%%
 [ability]Breathe Fire
 
@@ -81,7 +81,7 @@
 %%%%
 [ability]Evoke Blink
 
-发动闪烁
+瞬间移动
 %%%%
 [ability]Device Recharging
 
@@ -151,7 +151,7 @@
 %%%%
 [ability]Brand Weapon With Holy Wrath
 
-神圣愤怒铭文
+神圣愤怒武器
 %%%%
 # Kiku
 [ability]Receive Corpses
@@ -168,7 +168,7 @@
 %%%%
 [ability]Brand Weapon With Pain
 
-痛苦铭文
+痛苦武器
 %%%%
 # Yred
 [ability]Injury Mirror
@@ -302,7 +302,7 @@
 %%%%
 [ability]Brand Weapon With Distortion
 
-扭曲铭文
+扭曲武器
 %%%%
 # Nemelex
 [ability]Triple Draw

@@ -1,7 +1,7 @@
 %%%%
 Too many items on level, removing some.
 
-这层的物品太多了，移除一些。
+这个楼层的物品太多了，移除一些。
 %%%%
 Item %s claims to be held by monster %s, but it isn't in the monster's inventory.
 
@@ -17,7 +17,7 @@ BUG WARNING: Item didn't seem to be linked at all.
 %%%%
 You see here %s.
 
-你在这里看到了%s。
+你看到这里有%s。
 %%%%
 Items here:
 
@@ -37,23 +37,23 @@ Pick up what?
 %%%%
 (<Enter> or tap header to pick up)
 
-(拾い上げるには <Enter> を押すか、または画面上部をタップしてください。
+(按 <Enter> 或点击标题捡起物品)
 %%%%
 Select pick up quantity by entering a number, then select the item
 
-個数を指定して拾うには、数字を押した後に選択してください。
+通过输入数字决定要捡起的数量，之后选择要捡起的物品
 %%%%
 You can't carry that many items.
 
-あなたはこれ以上多くのアイテムを持つことはできない。
+你不能持有这么多物品。
 %%%%
 found %s.
 
-%sを手に入れた
+找到了%s
 %%%%
 found the Orb of Zot!
 
-ゾットのオーブを手に入れた！
+找到了佐特宝珠！
 %%%%
 a player ghost
 
@@ -65,11 +65,11 @@ a pandemonium lord
 %%%%
 [base item type]centaur barding
 
-馬甲
+半人马甲
 %%%%
 [base item type]naga barding
 
-具装
+娜迦甲
 %%%%
 hide
 
@@ -77,15 +77,15 @@ hide
 %%%%
 deck
 
-デッキ
+套牌
 %%%%
 Original Equipment
 
-初期装備
+初始装备
 %%%%
 You bought it in a shop
 
-あなたは%sの店でこの%sを買った
+你在%s买到了这个%s
 %%%%
 Buggy Original Equipment:
 
@@ -93,7 +93,7 @@ Buggy Original Equipment:
 %%%%
 You acquired it
 
-あなたは%sでこの%sを獲得した
+你在%s通过获得卷轴获得了这个%s
 %%%%
 #if TAG_MAJOR_VERSION == 34
 You drew the Genie
@@ -101,11 +101,11 @@ You drew the Genie
 %%%%
 Your wizardly powers created it
 
-あなたはウィザードコマンドにより%sでこの%sを生成した
+你在%s通过巫师模式生成了这个%s
 %%%%
 gifted it to you
 
-は%sでこの%sをあなたに授けた
+在%s赐予了这个%s
 %%%%
 You stumbled upon it
 
@@ -113,15 +113,15 @@ You stumbled upon it
 %%%%
 You subdued it
 
-あなたは%sでこの%sを倒した
+你在%s打倒了这个%s
 %%%%
 You took it off
 
-あなたは%%sでこの%%sを%sから奪った
+你在%%s从%s那里夺来了这个%%s
 %%%%
 You found it
 
-あなたは%sでこの%sを見つけた
+你在%s找到了这个%s
 %%%%
 # You can't pick that up.
 
@@ -129,79 +129,79 @@ You found it
 %%%%
 Are you sure you want to pick up this pile of gold now?
 
-本当にこの金貨の山を拾いますか？
+你确定现在要捡起这堆金币吗？
 %%%%
 Pick up how many of %s (; or enter for all)?
 
-%sのうちいくつを拾いますか？(; か ENTER で全選択)
+捡起多少%s？(按 ; 或 ENTER 捡起全部)
 %%%%
 There are no items here.
 
-ここには何もない。
+这里没有物品。
 %%%%
 You can't reach the bottom while floating on water.
 
-あなたは水に浮いている間水底に手を伸ばせない。
+你浮在水面上，够不到水底。
 %%%%
 There are no objects that can be picked up here.
 
-ここには拾える物がない。
+这里没有能捡起的物品。
 %%%%
 There are several objects here.
 
-ここにはいくつかの物がある。
+这里有多个物品。
 %%%%
 Pick up %s? ((y)es/(n)o/(a)ll/(m)enu/*?g,/q)
 
-%sを拾いますか？ ((y)はい/(n)いいえ/(a)全部/(m)一覧/*?g,/q)
+捡起%s吗？ ((y)是/(n)否/(a)全部/(m)菜单/*?g,/q)
 %%%%
 (gained %d)
 
-(新たに%d枚入手)
+(新获得%d枚)
 %%%%
 You now have %d gold piece%s%s.
 
-あなたは今%d枚の金貨を持っている。%s
+你现在拥有%d枚金币。%s
 %%%%
 You pick up the %s rune and feel its power.
 
-あなたは%sのルーンを手にし、その力を感じた。
+你捡起了%s符文，同时感受到了它的力量。
 %%%%
 You have collected all the runes! Now go and win!
 
-あなたは全てのルーンを集めた！ 今すぐオーブを回収して脱出せよ！
+你已经收集完了所有的符文！是时候通关了！
 %%%%
 %d runes! That's enough to enter the realm of Zot.
 
-%d個めのルーンを手にした！ ゾットの領域に足を進めるには十分だ。
+%d个符文！你可以进入佐特领域了。
 %%%%
 You now have %d runes.
 
-あなたは今%d個のルーンを持っている。
+你现在拥有%d个符文。
 %%%%
 Press } to see all the runes you have collected.
 
-} を押すことであなたが集めたルーンを一覧できる。
+按 } 查看你收集到的符文。
 %%%%
 You feel the abyssal rune guiding you out of this place.
 
-あなたは深淵のルーンがあなたをアビスの外へと導こうとしているような気がした。
+你感觉到深渊符文正在指引你离开这个地方。
 %%%%
 You pick up the Orb of Zot!
 
-あなたはゾットのオーブを手にした！
+你捡起了佐特宝珠！
 %%%%
 Now all you have to do is get back out of the dungeon!
 
-今あなたがすべきことはダンジョンの脱出のみだ！
+你现在要做的就只有逃离地下城！
 %%%%
 %s (gained %d)
 
-%s (新たに%d%s入手)
+%s (新获得%d%s)
 %%%%
 You will have to take that off first.
 
-まず装備を外してからにしてください。
+你必须先卸下它。
 %%%%
 # %s is stuck to you!
 
@@ -209,66 +209,66 @@ You will have to take that off first.
 %%%%
 Too many items on this level, not dropping the item.
 
-この階層にはアイテムが多すぎるため、そのアイテムを置かなかった。
+这个楼层的物品太多了，没有丢弃这个物品。
 %%%%
 You drop %s.
 
-あなたは%sを置いた。
+你丢弃了%s。
 %%%%
 No item to drop.
 
-置くアイテムがない。
+没有能丢弃的物品。
 %%%%
 (%u%s turn%s)
 
-(%uターン%s消費)
+(花费%u回合%s)
 %%%%
 Drop what?
 
-何を置きますか？
+丢弃哪些物品？
 %%%%
 (<Enter> or tap header to drop)
 
-(床に置くには <Enter> を押すか、または画面上部をタップしてください。
+(按 <Enter> 或点击标题丢弃物品。
 %%%%
 Your pack is full.
 
-あなたの荷袋は満杯だ。
+你的包裹满了。
 %%%%
 Which rune (ESC to exit)?
 
-ルーンの種類を選択してください (ESCでキャンセル)
+哪个符文？ (ESCでキャンセル)
 %%%%
 [a] escape [b] destruction [c] summoning? (ESC to exit)
 
-[a]脱出 [b]破壊 [c]召喚 (ESCでキャンセル)
+[a]逃脱 [b]毁灭 [c]召唤 (按 ESC 退出)
 %%%%
 [a] plain [b] ornate [c] legendary? (ESC to exit)
 
-[a]普通 [b]レア [c]伝説的 (ESCでキャンセル)
+[a]普通 [b]华丽 [c]传说 (按 ESC 退出)
 %%%%
 How many cards?
 
-カードの枚数を指定してください。
+多少张卡？
 %%%%
 What ego type?
 
-エゴ種別を選択してください。
+什么种类的卡？
 %%%%
 A manual for which skill?
 
-どのスキルの虎の巻にしますか？
+什么技能的指南？
 %%%%
 Sorry, no books on that skill today.
 
-申し訳ありませんが、そのスキルの虎の巻はありません。
+抱歉，没有这个技能的指南。
 %%%%
 ## turns away from rotting? [ENTER for fully fresh]
 wishing blood potion prompt
 
-腐敗するまで何ターンを指定しますか？ [Enterで最大ターンになります]
+距腐烂剩余几回合？ [按 Enter 输入最大值]
 %%%%
 You have identified the last %s.
 
-あなたは%sを全部識別した。
+你鉴定完了所有的%s。
 %%%%

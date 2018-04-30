@@ -178,11 +178,11 @@ a chaos effect from %s
 %%%%
 [adv]closely
 
-差点就要
+差点
 %%%%
 [adv]barely
 
-差一点要
+差一点
 %%%%
 You %s %s from a blind spot!
 
